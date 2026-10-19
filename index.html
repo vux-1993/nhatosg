@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nhatoSG - Nhà Sài Gòn | Bất Động Sản Giá Trị Thực</title>
+  <!-- Favicon SVG chuẩn nhận diện nhatoSG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Cpath d='M22 48V22L36 12V48H22Z' fill='%23FBBF24' stroke='%23FFFFFF' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='34' y='26' width='12' height='22' fill='%231E293B' stroke='%23FFFFFF' stroke-width='2.5'/%3E%3Crect x='12' y='48' width='40' height='5' rx='2.5' fill='%230EA5E9'/%3E%3C/svg%3E" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              gold: '#FBBF24',
+              blue: '#0EA5E9',
+              navy: '#0F172A',
+              gray: '#64748B',
+              light: '#F8FAFC'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    }
+    .hero-mesh {
+      background:
+        radial-gradient(900px circle at 20% 0%, rgba(14, 165, 233, 0.08), transparent 65%),
+        radial-gradient(800px circle at 80% 10%, rgba(251, 191, 36, 0.08), transparent 60%),
+        linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    }
+    .card-elevate {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-elevate:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 45px -15px rgba(15, 23, 42, 0.09);
+      border-color: #BAE6FD;
+    }
+    .gold-gradient-badge {
+      background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+    }
+    .blue-gradient-text {
+      background: linear-gradient(90deg, #0EA5E9 0%, #2563EB 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #F8FAFC; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 9999px; }
+
+    .gallery-watermark {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.20);
+      font-size: clamp(16px, 2.5vw, 26px);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transform: rotate(-18deg);
+      user-select: none;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    }
+  </style>
+  <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio -->
+  <script id="nsg-live-loader" data-ver="1792403211">document.write('<script src="./properties_data.js?t=' + Date.now() + '"><\/script>');</script>
+</head>
+<body class="antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- TOP EXECUTIVE BAR -->
+  <div class="bg-[#0F172A] text-slate-300 text-xs border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-9 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-white">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          nhatoSG — Nhà Sài Gòn
+        </span>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline text-slate-300">
+          Dữ liệu Thực tế Đã Kiểm Duyệt • <strong class="text-amber-300">Bảo mật Số nhà &amp; Hồ sơ Pháp lý Gốc</strong>
+        </span>
+      </div>
+      <div class="flex items-center gap-4 font-mono text-[11px]">
+        <a href="https://zalo.me/0916239898" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1.5 text-sky-400 hover:text-sky-300 font-semibold">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Chat Zalo Trực Tiếp</span>
+        </a>
+        <span class="hidden sm:inline text-slate-700">|</span>
+        <a href="tel:0916239898" class="inline-flex items-center gap-1.5 text-amber-300 hover:text-amber-200 font-semibold">
+          <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+          <span>0916.23.9898 ( Vũ )</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION (ĐÃ CĂN GIỮA LOGO nhatoSG & GIÃN KHOẢNG CÁCH DỄ NHÌN) -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-22 py-2.5 flex items-center justify-between">
+      <a href="#trang-chu" class="flex items-center gap-4 group">
+        <svg class="w-13 h-13 shrink-0 transition-transform duration-200 group-hover:scale-105" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27 62V26L46 12V62H27Z" fill="url(#goldGrad)" stroke="#0F172A" stroke-width="2.8" stroke-linejoin="round"/>
+          <rect x="39" y="24" width="2.6" height="2.6" rx="0.5" fill="#0F172A"/>
+          <rect x="39" y="30" width="2.6" height="2.6" rx="0.5" fill="#0F172A"/>
+          <rect x="39" y="36" width="2.6" height="2.6" rx="0.5" fill="#0F172A"/>
+          <rect x="39" y="42" width="2.6" height="2.6" rx="0.5" fill="#0F172A"/>
+          <rect x="44" y="34" width="16" height="28" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.8" stroke-linejoin="round"/>
+          <line x1="48" y1="40" x2="56" y2="40" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="48" y1="45" x2="56" y2="45" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="48" y1="50" x2="56" y2="50" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="48" y1="55" x2="56" y2="55" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M20 56C23.5 56 25 53 25 49.5C25 45 20 39 20 39C20 39 15 45 15 49.5C15 53 16.5 56 20 56Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.6" stroke-linejoin="round"/>
+          <line x1="20" y1="48" x2="20" y2="62" stroke="#0F172A" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M56 62H66C68.2 62 70 60.2 70 58C70 56 68.5 54.3 66.5 54.1C65.8 51.7 63.6 50 61 50C57.9 50 55.4 52.3 55.1 55.3C53.3 55.7 52 57.2 52 59C52 60.7 53.8 62 56 62Z" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.6" stroke-linejoin="round"/>
+          <rect x="11" y="61" width="58" height="4" rx="2" fill="#0F172A"/>
+          <rect x="13" y="64" width="54" height="5.5" rx="2.75" fill="#0EA5E9"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="27" y1="12" x2="46" y2="62" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FDE68A"/>
+              <stop offset="50%" stop-color="#FBBF24"/>
+              <stop offset="100%" stop-color="#D97706"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Khối chữ thương hiệu: nhatoSG nằm chính giữa phía trên NHÀ SÀI GÒN và BẤT ĐỘNG SẢN GIÁ TRỊ THỰC -->
+        <div class="flex flex-col items-center justify-center text-center">
+          <div class="text-[26px] font-extrabold tracking-tight leading-none">
+            <span class="text-[#0F172A]">nhato</span><span class="text-[#0EA5E9]">SG</span>
+          </div>
+          <div class="flex items-center justify-center gap-2 mt-1.5">
+            <span class="w-4 h-[1.5px] bg-slate-300 rounded-full"></span>
+            <span class="text-[11px] font-bold tracking-[0.22em] text-slate-700 uppercase leading-none">NHÀ SÀI GÒN</span>
+            <span class="w-4 h-[1.5px] bg-slate-300 rounded-full"></span>
+          </div>
+          <div class="text-[9.5px] tracking-[0.14em] text-slate-400 uppercase font-semibold mt-1 leading-none">
+            BẤT ĐỘNG SẢN GIÁ TRỊ THỰC
+          </div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#trang-chu" class="text-[#0EA5E9] flex items-center gap-1.5 py-2 border-b-2 border-[#0EA5E9]">
+          <i data-lucide="home" class="w-4 h-4"></i> Trang chủ
+        </a>
+        <a href="#tai-san-hot" class="hover:text-[#0F172A] transition flex items-center gap-1.5 py-2">
+          <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i> Tài sản Hot
+        </a>
+        <a href="#kho-tai-san" class="hover:text-[#0F172A] transition flex items-center gap-1.5 py-2">
+          <i data-lucide="building-2" class="w-4 h-4 text-slate-400"></i> Kho Tài sản
+        </a>
+        <a href="#tin-tuc" class="hover:text-[#0F172A] transition flex items-center gap-1.5 py-2">
+          <i data-lucide="newspaper" class="w-4 h-4 text-slate-400"></i> Tin tức &amp; Quy hoạch
+        </a>
+        <a href="#lien-he" class="hover:text-[#0F172A] transition flex items-center gap-1.5 py-2">
+          <i data-lucide="phone-call" class="w-4 h-4 text-slate-400"></i> Liên hệ
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a href="tel:0916239898" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#0F172A] hover:bg-[#0EA5E9] text-white transition shadow-sm">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+          <span>0916.23.9898 ( Vũ )</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & SMART SEARCH -->
+  <section id="trang-chu" class="hero-mesh pt-10 pb-14 border-b border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-2xs text-xs font-medium text-slate-600 mb-5">
+        <span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span>
+        <span>Dữ liệu Đối soát Thực tế • Minh bạch Lịch sử Giá • Bảo mật Pháp lý Nội bộ</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.18]">
+        <span class="blue-gradient-text">Nhà Phố Mặt Tiền &amp; Tòa Nhà Trung Tâm TP.HCM</span>
+      </h1>
+      <p class="mt-3.5 text-sm sm:text-base text-[#64748B] max-w-2xl mx-auto leading-relaxed">
+        Hệ thống tuyển chọn các tài sản Nhà phố kinh doanh, Tòa nhà văn phòng, CHDV và Biệt thự từ <strong>20 Tỷ đến trên 200 Tỷ</strong> có biên độ chiết khấu tốt nhất và pháp lý chuẩn chỉnh.
+      </p>
+
+      <!-- Smart Search Box -->
+      <div class="mt-8 max-w-3xl mx-auto">
+        <div class="relative bg-white p-2 rounded-2xl border-2 border-slate-200/90 shadow-xl shadow-slate-900/[0.04] flex items-center gap-2 focus-within:border-[#0EA5E9] focus-within:ring-4 focus-within:ring-sky-500/10 transition">
+          <div class="pl-3 flex items-center pointer-events-none">
+            <div class="w-8 h-8 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0EA5E9]">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </div>
+          </div>
+          <input
+            id="smartSearchInput"
+            type="text"
+            onkeydown="if(event.key==='Enter') runSmartSearch()"
+            oninput="handleSearchInput()"
+            placeholder="Tìm theo tuyến đường, khu vực hoặc nhu cầu: 'Nhà phố Quận 3 từ 20 đến 50 tỷ', 'Ung Văn Khiêm'..."
+            class="w-full py-2.5 px-2 text-sm text-[#0F172A] placeholder-slate-400 focus:outline-none bg-transparent font-medium"
+          />
+          <button onclick="clearAllFilters()" id="clearSearchBtn" class="hidden px-2.5 py-1.5 text-xs font-semibold text-slate-400 hover:text-slate-700">
+            Xóa
+          </button>
+          <button onclick="runSmartSearch()" class="shrink-0 inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0EA5E9] hover:bg-sky-600 text-white text-xs font-bold transition shadow-sm">
+            <i data-lucide="sliders-horizontal" class="w-4 h-4 text-[#FBBF24]"></i>
+            <span>Khớp Nhu Cầu</span>
+          </button>
+        </div>
+
+        <div class="mt-3.5 flex flex-wrap items-center justify-center gap-2 text-xs">
+          <span class="text-slate-400 font-semibold">Phân khúc quan tâm:</span>
+          <button onclick="quickSegmentFilter('20_50')" class="px-3 py-1.5 rounded-full bg-white hover:bg-sky-50 text-slate-700 hover:text-[#0EA5E9] border border-slate-200 hover:border-sky-300 font-medium transition">
+            🏠 Tầm giá 20 – 50 Tỷ
+          </button>
+          <button onclick="quickSegmentFilter('50_100')" class="px-3 py-1.5 rounded-full bg-white hover:bg-sky-50 text-slate-700 hover:text-[#0EA5E9] border border-slate-200 hover:border-sky-300 font-medium transition">
+            🏢 Tầm giá 50 – 100 Tỷ
+          </button>
+          <button onclick="quickSegmentFilter('OVER_100')" class="px-3 py-1.5 rounded-full bg-white hover:bg-sky-50 text-slate-700 hover:text-[#0EA5E9] border border-slate-200 hover:border-sky-300 font-medium transition">
+            🏛️ Tài sản Trọng điểm &gt; 100 Tỷ
+          </button>
+          <button onclick="quickAiQuery('Tài sản vừa điều chỉnh giảm giá sâu UPDATE')" class="px-3 py-1.5 rounded-full bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-300 font-medium transition">
+            📉 Vừa điều chỉnh giảm giá mạnh
+          </button>
+        </div>
+      </div>
+
+      <!-- Smart Concierge Result Box -->
+      <div id="conciergeBanner" class="hidden mt-6 max-w-3xl mx-auto text-left bg-white border-2 border-sky-200 rounded-2xl p-5 shadow-md">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-[#0F172A] text-[#FBBF24] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-[#0EA5E9]">Kết Quả Đối Soát Từ nhatoSG</span>
+                <span id="parsedTagsContainer" class="flex flex-wrap gap-1"></span>
+              </div>
+              <p id="conciergeText" class="text-xs sm:text-sm text-slate-700 mt-1.5 leading-relaxed"></p>
+            </div>
+          </div>
+          <button onclick="document.getElementById('conciergeBanner').classList.add('hidden')" class="text-slate-400 hover:text-slate-700 p-1">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 1: BẢNG TÀI SẢN HOT (CỘT ĐẦU LÀ ẢNH ĐẠI DIỆN KHÔNG TÊN CỘT, BỎ THANH CUỘN NGANG)
+       ========================================================================= -->
+  <section id="tai-san-hot" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-amber-600 mb-1">
+          <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i>
+          <span>Tài sản Tâm điểm • Biên độ Chiết khấu &amp; Dòng tiền Tốt nhất</span>
+        </div>
+        <h2 class="text-2xl font-extrabold text-[#0F172A] tracking-tight">
+          Bảng Tài Sản Hot &amp; Biến Động Giá Thực
+        </h2>
+      </div>
+      <div class="flex items-center gap-2 text-xs font-medium text-[#64748B]">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span>Chỉ hiển thị tuyến đường, phường, quận công khai (Số nhà &amp; Sổ hồng bảo mật nội bộ)</span>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200/90 shadow-xs overflow-hidden">
+      <div class="w-full overflow-x-auto lg:overflow-x-visible">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50/80 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              <!-- Cột 1: Không để tên cột, bên dưới hiển thị hình ảnh đại diện tài sản -->
+              <th class="py-3.5 pl-4 pr-2 w-[124px]" aria-label="Hình đại diện"></th>
+              <th class="py-3.5 px-4 w-[28%]">Thông Tin Tài Sản</th>
+              <th class="py-3.5 px-4 w-[24%]">Thông Số Chuẩn</th>
+              <th class="py-3.5 px-4 w-[18%]">Hành Trình Giá</th>
+              <th class="py-3.5 pl-4 pr-5 w-[20%]">Dòng Tiền / Hiệu Suất</th>
+            </tr>
+          </thead>
+          <tbody id="hotRadarTableBody" class="divide-y divide-slate-200/70 text-sm"></tbody>
+        </table>
+      </div>
+
+      <div class="px-5 py-3.5 bg-slate-50/70 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div id="hotRadarSummary" class="text-xs font-medium text-[#64748B]"></div>
+        <div id="hotRadarPagination" class="flex items-center gap-1.5 flex-wrap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: KHO TÀI SẢN TUYỂN CHỌN + BẢNG CÔNG CỤ LỌC ĐẦY ĐỦ -->
+  <section id="kho-tai-san" class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-5">
+      <div>
+        <div class="text-xs font-extrabold uppercase tracking-wider text-[#0EA5E9] mb-1">Danh mục Kiểm duyệt (Verified Portfolio)</div>
+        <h2 class="text-2xl font-extrabold text-[#0F172A] tracking-tight">Kho Tài Sản Nhà Phố &amp; Building Tuyển Chọn</h2>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2.5">
+        <button
+          id="toggleFilterDrawerBtn"
+          onclick="toggleAdvancedFilterDrawer()"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-bold bg-[#0F172A] hover:bg-[#0EA5E9] text-white transition shadow-xs"
+        >
+          <i data-lucide="filter" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+          <span>Bộ lọc chi tiết</span>
+          <span id="activeFilterCountBadge" class="hidden px-1.5 py-0.2 rounded-full bg-[#FBBF24] text-[#0F172A] font-mono text-[10px] font-extrabold">0</span>
+          <i data-lucide="chevron-down" id="filterChevronIcon" class="w-3.5 h-3.5 transition-transform"></i>
+        </button>
+
+        <select id="eventFilter" onchange="resetPageAndRender()" class="text-xs font-semibold bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+          <option value="ALL">Tất cả Trạng thái (NEW &amp; UPDATE)</option>
+          <option value="UPDATE">Vừa điều chỉnh giảm giá (UPDATE)</option>
+          <option value="NEW">Tài sản mới lên kệ (NEW)</option>
+        </select>
+
+        <select id="sortFilter" onchange="resetPageAndRender()" class="text-xs font-semibold bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+          <option value="PRIORITY">Đề xuất bởi nhatoSG</option>
+          <option value="DISCOUNT_DESC">Mức giảm giá sâu nhất (%)</option>
+          <option value="YIELD_DESC">Hiệu suất dòng tiền cao nhất</option>
+          <option value="PRICE_ASC">Tổng giá: Thấp → Cao</option>
+          <option value="PRICE_DESC">Tổng giá: Cao → Thấp</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- THANH CÔNG CỤ LỌC ĐẦY ĐỦ -->
+    <div id="advancedFilterDrawer" class="hidden mb-7 bg-white rounded-2xl border-2 border-sky-200/90 p-5 shadow-lg shadow-slate-900/[0.04] transition-all">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3.5 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sliders" class="w-4 h-4 text-[#0EA5E9]"></i>
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-[#0F172A]">Công cụ Lọc Tài sản Chuyên sâu</h3>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="clearAllFilters()" class="text-xs font-bold text-rose-600 hover:text-rose-700 inline-flex items-center gap-1">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Đặt lại mặc định
+          </button>
+          <button onclick="toggleAdvancedFilterDrawer()" class="text-slate-400 hover:text-slate-700">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">1. Phân khúc Tài chính</label>
+          <select id="segmentFilter" onchange="resetPageAndRender()" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+            <option value="ALL">Tất cả phân khúc (Từ 20 Tỷ+)</option>
+            <option value="20_50">Từ 20 Tỷ – 50 Tỷ</option>
+            <option value="50_100">Từ 50 Tỷ – 100 Tỷ</option>
+            <option value="OVER_100">Trên 100 Tỷ (Tài sản Trọng điểm)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">2. Loại hình Tài sản</label>
+          <select id="typeFilter" onchange="resetPageAndRender()" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+            <option value="ALL">Tất cả loại hình</option>
+            <option value="Tòa Văn Phòng">Tòa Văn Phòng (Building)</option>
+            <option value="Nhà Phố Mặt Tiền">Nhà Phố Mặt Tiền Kinh Doanh</option>
+            <option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn Dòng Tiền</option>
+            <option value="Biệt Thự / Dinh Thự">Biệt Thự / Dinh Thự Compound</option>
+            <option value="Quỹ Đất Xây Cao Tầng">Quỹ Đất Xây Dựng Cao Tầng</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">3. Quận / Khu vực</label>
+          <select id="districtFilter" onchange="handleDistrictChange()" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+            <option value="ALL">Tất cả các Quận</option>
+            <option value="Quận 1">Quận 1</option>
+            <option value="Quận 3">Quận 3</option>
+            <option value="Quận 5">Quận 5</option>
+            <option value="Quận 10">Quận 10</option>
+            <option value="Bình Thạnh">Bình Thạnh</option>
+            <option value="Phú Nhuận">Phú Nhuận</option>
+            <option value="Tân Bình">Tân Bình</option>
+            <option value="Tân Phú">Tân Phú</option>
+            <option value="TP. Thủ Đức">Thảo Điền / TP. Thủ Đức</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">4. Phường</label>
+          <select id="wardFilter" onchange="resetPageAndRender()" class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0EA5E9]">
+            <option value="ALL">Tất cả các Phường</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="activeFilterTagsRow" class="hidden mt-4 pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
+        <div id="activeFilterPills" class="flex flex-wrap items-center gap-1.5 text-xs"></div>
+        <span id="drawerMatchCount" class="text-xs font-mono font-bold text-[#0EA5E9]"></span>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <!-- LOAD MORE & PAGINATION BAR -->
+    <div class="mt-10 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div id="paginationSummary" class="text-xs font-medium text-[#64748B]"></div>
+      <div id="loadMoreWrapper" class="flex items-center justify-center">
+        <button onclick="loadMoreProperties()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-white hover:bg-sky-50 text-[#0F172A] hover:text-[#0EA5E9] border border-slate-300 hover:border-sky-300 shadow-2xs transition">
+          <i data-lucide="chevrons-down" class="w-4 h-4 text-[#0EA5E9]"></i>
+          <span id="loadMoreBtnText">Xem thêm tài sản bên dưới</span>
+        </button>
+      </div>
+      <div id="pageNumbersContainer" class="flex items-center gap-1.5 flex-wrap"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: TIN TỨC, QUY HOẠCH & CONTENT BĐS NHÀ PHỐ (CLICK VÀO ẢNH MỞ BÀI VIẾT NGAY)
+       ========================================================================= -->
+  <section id="tin-tuc" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200/80">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#0EA5E9] mb-1">
+          <i data-lucide="compass" class="w-4 h-4"></i>
+          <span>nhatoSG Research &amp; Urban Planning</span>
+        </div>
+        <h2 class="text-2xl font-extrabold text-[#0F172A] tracking-tight">
+          Phân Tích Quy Hoạch, Hạ Tầng &amp; Chiến Lược Đầu Tư Nhà Phố
+        </h2>
+      </div>
+      <span class="text-xs font-mono text-[#64748B]">Bấm vào ảnh hoặc tiêu đề để đọc chuyên đề &amp; lấy Prompt Content</span>
+    </div>
+
+    <div id="insightArticlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- SECTION 4: LIÊN HỆ TRỰC TIẾP 0916.23.9898 ( VŨ ) -->
+  <section id="lien-he" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-[#0F172A] rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden shadow-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#FBBF24] text-xs font-mono font-semibold">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+            <span>nhatoSG Private Advisory</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            Ký Gửi Bảo Mật &amp; Đặt Đầu Bài Săn Tài Sản Theo Yêu Cầu
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+            Nhiều tài sản Nhà phố mặt tiền, Tòa nhà văn phòng và Biệt thự từ <strong>20 Tỷ đến trên 200 Tỷ</strong> được giao dịch kín (Off-Market) theo yêu cầu bảo mật của chủ nhà. Liên hệ trực tiếp hoặc để lại tiêu chí để nhận hồ sơ pháp lý gốc qua Zalo.
+          </p>
+          <div class="pt-1 flex flex-wrap items-center gap-3">
+            <a href="tel:0916239898" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs font-mono font-bold text-[#FBBF24] transition">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+              <span>Hotline: 0916.23.9898 ( Vũ )</span>
+            </a>
+            <a href="https://zalo.me/0916239898" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0EA5E9] hover:bg-sky-600 text-xs font-bold text-white transition">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>Nhắn Zalo Trực Tiếp</span>
+            </a>
+          </div>
+        </div>
+        <form onsubmit="handleVipMandateSubmit(event)" class="lg:col-span-5 bg-white/5 border border-white/10 p-5 rounded-2xl space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input required type="text" id="mandateName" placeholder="Họ tên Anh/Chị" class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+            <input required type="tel" id="mandatePhone" placeholder="Số điện thoại Zalo (10 số VN)" class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+          </div>
+          <input required type="text" id="mandateCriteria" placeholder="Nhu cầu (VD: Nhà phố Q1/Q3 tầm 30-60 tỷ hoặc Building >100 tỷ)" class="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+          <button type="submit" class="w-full py-3 rounded-xl gold-gradient-badge text-[#0F172A] font-extrabold text-xs uppercase tracking-wider hover:brightness-105 transition">
+            Chuẩn Bị Nội Dung &amp; Mở Zalo Vũ
+          </button>
+          <p id="mandateSuccess" class="hidden text-xs text-emerald-400 font-mono text-center pt-1"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200/80 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+      <div class="flex items-center gap-2.5">
+        <span class="font-extrabold text-[#0F172A] text-sm">nhato<span class="text-[#0EA5E9]">SG</span></span>
+        <span>— NHÀ SÀI GÒN • Bất Động Sản Giá Trị Thực</span>
+      </div>
+      <div class="flex items-center gap-4 font-mono text-xs font-semibold text-[#0F172A]">
+        <span>Hotline / Zalo: <a href="tel:0916239898" class="text-[#0EA5E9] hover:underline">0916.23.9898 ( Vũ )</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING COMPARE BAR -->
+  <div id="compareFloatingBar" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 hidden bg-[#0F172A] text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-4 max-w-xl w-[92%]">
+    <div class="flex-1 flex items-center gap-2 overflow-x-auto">
+      <span class="text-xs font-bold text-[#FBBF24] shrink-0">Bàn cân so sánh (<span id="compareCountText">0</span>/3):</span>
+      <div id="compareChipsContainer" class="flex items-center gap-1.5"></div>
+    </div>
+    <div class="flex items-center gap-2 shrink-0">
+      <button onclick="clearCompareList()" class="text-xs text-slate-400 hover:text-white px-2 py-1">Xóa</button>
+      <button onclick="openCompareModal()" class="px-4 py-2 rounded-xl bg-[#0EA5E9] hover:bg-sky-600 text-white text-xs font-bold transition flex items-center gap-1.5">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+        <span>Đối chiếu &amp; Hỏi AI</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 1: CHI TIẾT TÀI SẢN + GALLERY HIỂN THỊ TRỌN ẢNH + PHÂN TÍCH TÁCH DÒNG RÕ RÀNG
+       ========================================================================= -->
+  <div id="propertyModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-white rounded-3xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col">
+      <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="modalPropId" class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-[#0F172A] text-[#FBBF24]"></span>
+          <span id="modalCategoryBadge" class="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-200 text-[#0F172A]"></span>
+          <span id="modalEventBadge" class="font-mono text-xs font-bold px-2.5 py-1 rounded-lg"></span>
+        </div>
+        <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-200/60 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
+        <div>
+          <h3 id="modalTitle" class="text-lg sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
+          <div id="modalLocationBadges" class="flex flex-wrap items-center gap-2 mt-2.5"></div>
+        </div>
+
+        <!-- INTERACTIVE PHOTO GALLERY: HIỂN THỊ ĐẦY ĐỦ 100% KHUNG HÌNH + CLICK MỞ TOÀN MÀN HÌNH -->
+        <div class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 select-none shadow-lg" oncontextmenu="return false;">
+          <div class="relative h-[340px] sm:h-[500px] bg-slate-950 flex items-center justify-center overflow-hidden group">
+            <!-- Lớp nền mờ nghệ thuật lấp đầy khoảng trống giúp ảnh dọc/ngang hiển thị trọn vẹn không bị cắt -->
+            <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none" />
+            
+            <!-- Ảnh chính hiển thị đầy đủ 100% (object-contain) + Click vào để mở Fullscreen Lightbox -->
+            <img
+              id="galleryMainImage"
+              src=""
+              alt="Hình ảnh tài sản"
+              draggable="false"
+              onclick="openFullscreenLightbox()"
+              title="Bấm vào ảnh để phóng to toàn màn hình"
+              class="relative z-10 max-w-full max-h-full w-auto h-full object-contain transition-transform duration-200 cursor-zoom-in"
+            />
+            <div class="gallery-watermark">nhatoSG • 0916.23.9898</div>
+            
+            <div class="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-slate-900/85 text-white font-mono text-xs flex items-center gap-1.5 backdrop-blur-xs z-20 border border-white/10">
+              <i data-lucide="camera" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+              <span id="galleryCounter">1 / 4</span>
+            </div>
+
+            <button
+              type="button"
+              onclick="openFullscreenLightbox()"
+              class="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-slate-900/85 hover:bg-[#0EA5E9] text-white font-sans font-bold text-xs flex items-center gap-1.5 backdrop-blur-xs z-20 border border-white/15 transition shadow-md"
+            >
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+              <span>Phóng to toàn màn hình</span>
+            </button>
+
+            <div id="galleryCaption" class="absolute bottom-3 left-3 right-3 px-4 py-2.5 rounded-xl bg-slate-900/85 text-white text-xs font-medium backdrop-blur-xs flex items-center justify-between z-20 border border-white/10"></div>
+
+            <button onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-[#0F172A] shadow-lg flex items-center justify-center transition z-20">
+              <i data-lucide="chevron-left" class="w-5 h-5"></i>
+            </button>
+            <button onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white text-[#0F172A] shadow-lg flex items-center justify-center transition z-20">
+              <i data-lucide="chevron-right" class="w-5 h-5"></i>
+            </button>
+          </div>
+
+          <!-- Thanh danh sách toàn bộ ảnh thu nhỏ (Kéo dài & hiển thị rõ từng tấm) -->
+          <div class="px-4 py-3 bg-slate-900 border-t border-slate-800">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-2 font-medium">
+              <span>Danh sách hình ảnh thực tế của tài sản (Bấm vào từng ảnh để xem hoặc bấm vào ảnh lớn để phóng to):</span>
+              <span id="galleryTotalHint" class="font-mono text-amber-300 font-bold"></span>
+            </div>
+            <div id="galleryThumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1"></div>
+          </div>
+        </div>
+
+        <!-- Financial Key Metrics -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div>
+            <div class="text-[11px] text-[#64748B] font-medium">Giá chào khởi điểm</div>
+            <div id="modalInitialPrice" class="font-mono text-sm font-semibold text-slate-400 line-through mt-0.5"></div>
+          </div>
+          <div>
+            <div class="text-[11px] text-[#64748B] font-medium">Giá thương lượng hiện tại</div>
+            <div id="modalCurrentPrice" class="font-mono text-lg font-extrabold text-[#0EA5E9] mt-0.5"></div>
+          </div>
+          <div>
+            <div class="text-[11px] text-[#64748B] font-medium">Thông số Diện tích</div>
+            <div id="modalAreaSpecs" class="font-mono text-sm font-bold text-[#0F172A] mt-0.5"></div>
+          </div>
+          <div>
+            <div class="text-[11px] text-[#64748B] font-medium">Dòng tiền / Hiệu suất</div>
+            <div id="modalCashflow" class="font-mono text-sm font-bold text-emerald-600 mt-0.5"></div>
+          </div>
+        </div>
+
+        <!-- HÀNH TRÌNH BIẾN ĐỘNG GIÁ -->
+        <div>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
+            <i data-lucide="trending-down" class="w-4 h-4 text-[#0EA5E9]"></i>
+            <span>Hành trình Điều chỉnh Giá (Đã đối soát qua các nhịp giao dịch)</span>
+          </h4>
+          <div id="modalPriceTimeline" class="space-y-2 pl-3 border-l-2 border-sky-300"></div>
+        </div>
+
+        <!-- PHÂN TÍCH CHUYÊN SÂU & HIỆN TRẠNG TÀI SẢN (ĐÃ TÁCH DÒNG TỪNG PHẦN RÕ RÀNG DỄ NHÌN) -->
+        <div>
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
+            <i data-lucide="clipboard-list" class="w-4 h-4 text-[#0EA5E9]"></i>
+            <span>Phân tích Chuyên sâu &amp; Hiện trạng Tài sản</span>
+          </h4>
+          <div id="modalDescription" class="space-y-3"></div>
+        </div>
+
+        <!-- BẢNG TÍNH ĐÒN BẨY TÀI CHÍNH -->
+        <div class="bg-sky-50/60 border border-sky-200/80 rounded-2xl p-4 sm:p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#0F172A] flex items-center gap-1.5">
+              <i data-lucide="calculator" class="w-4 h-4 text-[#0EA5E9]"></i>
+              <span>Bảng Tính Vốn Tự Có &amp; Đòn Bẩy Dòng Tiền</span>
+            </h4>
+            <span class="text-[11px] font-mono text-slate-500">Lãi suất ước tính: 7.5%/năm</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+            <div>
+              <label class="text-xs font-semibold text-slate-700 flex justify-between mb-1">
+                <span>Tỷ lệ vay Ngân hàng:</span>
+                <strong id="loanLtvLabel" class="font-mono text-[#0EA5E9]">40%</strong>
+              </label>
+              <input id="loanLtvSlider" type="range" min="0" max="70" step="5" value="40" oninput="updateLoanCalculator()" class="w-full accent-[#0EA5E9] cursor-pointer" />
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200/80 text-xs">
+              <span class="text-slate-400 block">Vốn tự có cần chuẩn bị:</span>
+              <strong id="loanEquityValue" class="font-mono text-sm text-[#0F172A]">-- Tỷ</strong>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200/80 text-xs">
+              <span class="text-slate-400 block">Lãi vay dự kiến / Dòng tiền thuê:</span>
+              <strong id="loanInterestVsRent" class="font-mono text-xs text-emerald-700">--</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Private Data Room Lead Capture -->
+        <div class="bg-[#0F172A] text-white p-5 rounded-2xl border border-slate-800">
+          <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center shrink-0">
+              <i data-lucide="file-lock-2" class="w-5 h-5 text-[#FBBF24]"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h4 class="text-sm font-bold text-white">Két Sắt Pháp Lý Nội Bộ — Nhận Bản Gốc Sổ Hồng &amp; Vị Trí Chính Xác</h4>
+                <a href="tel:0916239898" class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#FBBF24] hover:underline">
+                  <i data-lucide="phone" class="w-3.5 h-3.5"></i> 0916.23.9898 ( Vũ )
+                </a>
+              </div>
+              <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+                Theo chính sách bảo mật chủ tài sản, số nhà chính xác và bản chụp Sổ hồng gốc được lưu trữ nội bộ và gửi trực tiếp cho Nhà đầu tư qua Zalo.
+              </p>
+              <form onsubmit="submitLegalRequest(event)" class="mt-3.5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <input required type="text" id="leadName" placeholder="Họ tên Anh/Chị" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+                <input required type="tel" id="leadPhone" placeholder="SĐT Zalo chuẩn 10 số VN" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+                <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#0EA5E9] hover:bg-sky-600 text-white font-bold text-xs transition flex items-center justify-center gap-1.5">
+                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                  <span>Chuẩn Bị &amp; Mở Zalo Vũ</span>
+                </button>
+              </form>
+              <div id="leadSuccessMsg" class="hidden mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-300 font-medium"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FULLSCREEN LIGHTBOX MODAL (XEM ẢNH PHÓNG TO TOÀN MÀN HÌNH 100% KHI ẤN VÀO HÌNH)
+       ========================================================================= -->
+  <div id="fullscreenLightbox" class="fixed inset-0 z-[60] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-6 select-none" oncontextmenu="return false;">
+    <div class="flex items-center justify-between text-white z-20">
+      <div class="flex items-center gap-3">
+        <span id="lightboxPropCode" class="px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] font-mono text-xs font-extrabold"></span>
+        <span id="lightboxCounter" class="font-mono text-xs text-slate-300"></span>
+      </div>
+      <button onclick="closeFullscreenLightbox()" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-rose-600 text-white text-xs font-bold flex items-center gap-1.5 transition">
+        <span>Đóng (ESC)</span>
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+    <div class="relative flex-1 flex items-center justify-center my-2 overflow-hidden">
+      <img id="lightboxMainImg" src="" alt="Ảnh phóng to toàn màn hình" draggable="false" class="max-w-full max-h-[76vh] w-auto h-auto object-contain rounded-lg shadow-2xl" />
+      <div class="gallery-watermark">nhatoSG • 0916.23.9898</div>
+
+      <button onclick="changeGallerySlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+      <button onclick="changeGallerySlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <div class="z-20">
+      <div id="lightboxThumbStrip" class="flex items-center justify-center gap-2 overflow-x-auto py-2"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: BÀN CÂN ĐỐI CHIẾU TÀI SẢN + Ô HỎI AI THẨM ĐỊNH CHUYÊN SÂU
+       ========================================================================= -->
+  <div id="compareModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5">
+    <div class="bg-white rounded-3xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div class="px-6 py-4 bg-[#0F172A] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="scale" class="w-5 h-5 text-[#FBBF24]"></i>
+          <h3 class="font-bold text-base">Bàn Cân Đối Chiếu Tài Sản — nhatoSG</h3>
+        </div>
+        <button onclick="document.getElementById('compareModal').classList.add('hidden')" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
+        <div id="compareModalBody" class="overflow-x-auto"></div>
+
+        <div class="bg-gradient-to-br from-slate-900 via-[#0F172A] to-slate-900 text-white rounded-2xl p-5 border border-slate-800 shadow-lg space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center text-[#FBBF24]">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="text-sm font-extrabold text-white">Hỏi Chuyên Gia AI Thẩm Định Bàn Cân</h4>
+                  <span id="aiEngineModeBadge" class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30 font-mono text-[10px] font-bold">
+                    Quant Engine + Gemini Ready
+                  </span>
+                </div>
+                <p class="text-[11px] text-slate-400">Phân tích sâu hiệu suất dòng tiền (Cap Rate), đơn giá đất công nhận và biên độ chiết khấu giữa các tài sản đang chọn</p>
+              </div>
+            </div>
+            <button onclick="toggleGeminiKeyConfig()" class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono text-slate-300 transition">
+              <i data-lucide="settings" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+              <span>Cấu hình Gemini Pro/Flash</span>
+            </button>
+          </div>
+
+          <div id="geminiKeyConfigBox" class="hidden bg-white/5 border border-white/10 rounded-xl p-4 space-y-3 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-[#FBBF24]">Kết nối Google Gemini API (Chỉ lưu tạm trong phiên trình duyệt này — An toàn F12)</span>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="text-sky-400 hover:underline font-mono text-[11px]">Lấy API Key miễn phí ↗</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <input id="sessionGeminiKeyInput" type="password" placeholder="Dán Gemini API Key (AIza...)" class="sm:col-span-2 px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono focus:outline-none focus:border-[#0EA5E9]" />
+              <select id="sessionGeminiModelSelect" class="px-3 py-2 rounded-lg bg-slate-950 border border-slate-700 text-xs text-white font-mono focus:outline-none focus:border-[#0EA5E9]">
+                <option value="gemini-2.5-pro">Gemini 2.5 Pro (Chuyên sâu)</option>
+                <option value="gemini-2.5-flash">Gemini 2.5 Flash (Siêu tốc)</option>
+              </select>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+              <span id="geminiConfigStatus" class="text-[11px] text-slate-400 font-mono">Chưa gắn Key phiên: Hệ thống sẽ dùng Bộ phân tích Định lượng M&amp;A nội bộ.</span>
+              <div class="flex gap-2">
+                <button onclick="clearSessionGeminiKey()" class="px-3 py-1.5 rounded-lg bg-rose-500/20 text-rose-300 text-xs font-bold">Xóa Key</button>
+                <button onclick="saveSessionGeminiKey()" class="px-3.5 py-1.5 rounded-lg bg-[#0EA5E9] text-white text-xs font-bold">Lưu Phiên Này</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5 text-[11px]">
+            <span class="text-slate-400 font-medium mr-1">Chủ đề phân tích:</span>
+            <button onclick="askCompareAiWithPreset('So sánh hiệu suất dòng tiền (Cap Rate) và khả năng tự trả lãi vay nếu vay 40% giữa các căn này.')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 transition">
+              💵 So sánh Dòng tiền &amp; Đòn bẩy vay
+            </button>
+            <button onclick="askCompareAiWithPreset('Bóc tách đơn giá đất công nhận/m² và đánh giá căn nào có biên độ chiết khấu (giảm giá) thực chất nhất.')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 transition">
+              📐 Bóc tách Đơn giá đất &amp; Chiết khấu
+            </button>
+            <button onclick="askCompareAiWithPreset('Nếu mục tiêu là giữ tài sản lõi chống trượt giá 5 năm tới thì nên chọn căn nào? Vì sao?')" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 transition">
+              🏛️ Khuyến nghị Giữ tài sản lõi 5 năm
+            </button>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-2">
+            <input
+              id="compareAiPromptInput"
+              type="text"
+              onkeydown="if(event.key==='Enter') runCompareAiAnalysis()"
+              placeholder="Nhập câu hỏi cho AI (VD: 'Khách cầm 50 tỷ vốn tự có nên mua căn nào trong các căn đang so sánh?')..."
+              class="flex-1 px-4 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]"
+            />
+            <button onclick="runCompareAiAnalysis()" id="compareAiSubmitBtn" class="shrink-0 px-5 py-2.5 rounded-xl gold-gradient-badge text-[#0F172A] font-extrabold text-xs uppercase tracking-wider hover:brightness-105 transition flex items-center justify-center gap-1.5">
+              <i data-lucide="bot" class="w-4 h-4"></i>
+              <span>Phân Tích Chuyên Sâu</span>
+            </button>
+          </div>
+
+          <div id="compareAiResultBox" class="bg-slate-950/90 border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-slate-200 leading-relaxed whitespace-pre-line font-sans"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: BÀI VIẾT TIN TỨC QUY HOẠCH & NÚT COPY PROMPT CHO GEMINI SOẠN CONTENT
+       ========================================================================= -->
+  <div id="insightModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-3xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="relative h-52 sm:h-64 bg-slate-900 shrink-0">
+        <img id="insightModalImage" src="" alt="Ảnh chuyên đề" class="w-full h-full object-cover opacity-90" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/40 to-transparent"></div>
+        <button onclick="document.getElementById('insightModal').classList.add('hidden')" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div class="absolute bottom-4 left-6 right-6">
+          <span id="insightCategory" class="px-2.5 py-1 rounded-lg bg-[#0EA5E9] text-white text-[11px] font-mono font-bold uppercase"></span>
+          <h3 id="insightTitle" class="text-lg sm:text-2xl font-extrabold text-white mt-2 leading-snug"></h3>
+        </div>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-5">
+        <div id="insightContent" class="text-sm text-slate-700 leading-relaxed space-y-3 whitespace-pre-line bg-slate-50 p-5 rounded-2xl border border-slate-200/80"></div>
+
+        <!-- Thanh công cụ hỗ trợ làm Content với Gemini -->
+        <div class="bg-[#0F172A] text-white p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs">
+            <span class="font-bold text-[#FBBF24] block">✨ Công cụ Sáng tạo Content BĐS cùng Gemini</span>
+            <span class="text-slate-300 text-[11px]">Copy câu lệnh mẫu (Prompt) của chủ đề này để đưa cho Gemini viết bài đăng Web / Facebook / Zalo</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="copyInsightFullText()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition">
+              📋 Copy Bài Viết
+            </button>
+            <button onclick="copyGeminiContentPrompt()" class="px-4 py-2 rounded-xl gold-gradient-badge text-[#0F172A] text-xs font-extrabold transition">
+              ✨ Copy Prompt Cho Gemini
+            </button>
+          </div>
+        </div>
+        <p id="insightCopyStatus" class="hidden text-xs font-mono font-bold text-emerald-600 text-center"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       JAVASCRIPT ENGINE: ZERO-LEAK PUBLIC DATA + FULL GALLERY + STRUCTURED SPECS
+       ========================================================================= -->
+  <script>
+    const LEAD_WEBHOOK_URL = "";
+
+    const INITIAL_PROPERTIES = [
+      {
+        property_id: "NSG-0240",
+        category: "Tòa Văn Phòng",
+        event_type: "UPDATE",
+        seo_title: "Tòa Văn Phòng Mặt Tiền Lê Ngô Cát, Phường Võ Thị Sáu, Quận 3",
+        summary: "Cung đường thương hiệu Quận 3, ngang 7m x 24m (CN 166.6m²), Hầm + 5 Tầng, HĐT 195 triệu/tháng.",
+        marketing_description: "• Vị trí đắc địa: Mặt tiền đường Lê Ngô Cát, khu vực tập trung cao ốc văn phòng và lãnh sự quán Quận 3.\n• Thông số: 7m x 24m, công nhận 166.6m², tổng diện tích sàn 722.5m², kết cấu Hầm + 5 Tầng.\n• Hợp đồng thuê: Đang thu 195 triệu/tháng. Giá điều chỉnh mạnh từ 95 tỷ về 73 tỷ.",
+        public_location: { street: "Lê Ngô Cát", ward: "Phường Võ Thị Sáu", district: "Quận 3" },
+        specs: { recognized_area_m2: 166.6, dimensions: "7m × 24m", structure: "Hầm + 5 Tầng (722.5m² sàn)", cashflow: "195 triệu/tháng", cashflow_monthly_million: 195 },
+        pricing: {
+          initial_asking_billion: 95.0,
+          current_price_billion: 73.0,
+          price_history: [
+            { old_price: 95.0, new_price: 95.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 95.0, new_price: 87.0, note: "Nhịp điều chỉnh 1: Giảm 8 tỷ về 87 tỷ" },
+            { old_price: 87.0, new_price: 73.0, note: "Nhịp điều chỉnh 2: Giảm mạnh thêm 14 tỷ chốt 73 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Kiến trúc văn phòng hiện đại trên trục đường Lê Ngô Cát, Quận 3" },
+          { url: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85", caption: "Không gian làm việc tiêu chuẩn hạng B+, tổng sàn 722.5m²" },
+          { url: "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=1200&q=85", caption: "Tầng hầm để xe thông thoáng và khu vực kỹ thuật tòa nhà" }
+        ]
+      },
+      {
+        property_id: "NSG-0235",
+        category: "Tòa CHDV / Khách Sạn",
+        event_type: "UPDATE",
+        seo_title: "Tòa Tổ Hợp 90 Phòng CHDV Mặt Tiền Thoại Ngọc Hầu, Tân Phú",
+        summary: "Khuôn đất lớn 10m x 60m (CN 592.6m²), Hầm + 7 Tầng (2 thang máy), dòng tiền 500 triệu/tháng.",
+        marketing_description: "• Quy mô hiếm có: Mặt tiền trục chính Thoại Ngọc Hầu, Phường Hòa Thạnh, Quận Tân Phú. Khuôn đất 10m x 60m, công nhận 592.6m².\n• Kết cấu khai thác: 1 Hầm + 1 Trệt + 6 Lầu (2 thang máy), tổng diện tích sàn 2.700m².\n• Dòng tiền thực tế: Đang vận hành 90 phòng CHDV đạt doanh thu 500 triệu/tháng (~5.45%/năm).",
+        public_location: { street: "Thoại Ngọc Hầu", ward: "Phường Hòa Thạnh", district: "Tân Phú" },
+        specs: { recognized_area_m2: 592.6, dimensions: "10m × 60m", structure: "Hầm + 7 Tầng (2.700m² sàn)", cashflow: "500 triệu/tháng", cashflow_monthly_million: 500 },
+        pricing: {
+          initial_asking_billion: 135.0,
+          current_price_billion: 110.0,
+          price_history: [
+            { old_price: 135.0, new_price: 135.0, note: "Mốc giá chào khởi điểm cho tổ hợp 90 phòng" },
+            { old_price: 135.0, new_price: 115.0, note: "Nhịp điều chỉnh 1: Hạ 20 tỷ cơ cấu danh mục" },
+            { old_price: 115.0, new_price: 110.0, note: "Nhịp điều chỉnh 2: Hạ tiếp 5 tỷ chốt 110 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền bề thế ngang 10m sâu 60m trên trục Thoại Ngọc Hầu" },
+          { url: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=85", caption: "Nội thất căn hộ dịch vụ hoàn thiện cao cấp, luôn kín phòng" },
+          { url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=85", caption: "Hành lang rộng với 2 thang máy tốc độ cao và hệ thống PCCC chuẩn" }
+        ]
+      },
+      {
+        property_id: "NSG-0320",
+        category: "Tòa Văn Phòng",
+        event_type: "UPDATE",
+        seo_title: "Tòa Văn Phòng Khu Tân Cảng – Đường Ung Văn Khiêm, Bình Thạnh",
+        summary: "Sát Ga Metro Cầu Sài Gòn & Tân Cảng, Hầm + 7 Tầng, sàn >600m², dòng tiền 150 triệu/tháng.",
+        marketing_description: "• Vị trí chiến lược: Trục thương mại Ung Văn Khiêm, Phường 25, Quận Bình Thạnh, kết nối trực tiếp Ga Metro Tân Cảng.\n• Thông số chuẩn: Ngang 7m x 16m, Diện tích công nhận 112.4m², kết cấu Hầm + 7 Tầng kiên cố, hoàn công và PCCC đầy đủ.\n• Hiệu suất đầu tư: Đang khai thác văn phòng thu nhập 150 triệu/tháng. Đã điều chỉnh giảm sâu 3 nhịp từ 50 tỷ về 43 tỷ.",
+        public_location: { street: "Ung Văn Khiêm", ward: "Phường 25", district: "Bình Thạnh" },
+        specs: { recognized_area_m2: 112.4, dimensions: "7m × 16m", structure: "Hầm + 7 Tầng (PCCC chuẩn)", cashflow: "150 triệu/tháng", cashflow_monthly_million: 150 },
+        pricing: {
+          initial_asking_billion: 50.0,
+          current_price_billion: 43.0,
+          price_history: [
+            { old_price: 50.0, new_price: 50.0, note: "Mốc giá chào khởi điểm khi niêm yết hồ sơ" },
+            { old_price: 50.0, new_price: 49.0, note: "Nhịp điều chỉnh 1: Chủ nhà giảm 1 tỷ thăm dò thanh khoản" },
+            { old_price: 49.0, new_price: 43.0, note: "Nhịp điều chỉnh 2: Hạ sâu thêm 6 tỷ chốt nhanh" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Phối cảnh mặt tiền tòa nhà Hầm + 7 Tầng trên trục Ung Văn Khiêm" },
+          { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Không gian sàn văn phòng tiêu chuẩn đang khai thác 150 triệu/tháng" },
+          { url: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85", caption: "Sảnh lễ tân & hệ thống thang máy tốc độ cao, PCCC nghiệm thu" },
+          { url: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=85", caption: "Tầm nhìn kết nối trực tiếp về phía Cầu Sài Gòn & Ga Metro Tân Cảng" }
+        ]
+      },
+      {
+        property_id: "NSG-0193",
+        category: "Tòa CHDV / Khách Sạn",
+        event_type: "UPDATE",
+        seo_title: "Tòa Khách Sạn 45 Phòng Mặt Tiền Nguyễn Chí Thanh, Quận 5",
+        summary: "Phân khúc 30–40 Tỷ cực hiếm mặt tiền Quận 5, CN 94.8m² (3.9m x 24.3m), 6 Tầng khai thác 45 phòng.",
+        marketing_description: "• Vị trí trung tâm thương mại & y tế Quận 5: Mặt tiền đường Nguyễn Chí Thanh, Phường 12, Quận 5.\n• Thông số: 3.9m x 24.3m, diện tích công nhận 94.8m², kết cấu 6 Tầng thang máy.\n• Khai thác: Đang vận hành khách sạn 45 phòng dòng tiền ổn định 135 triệu/tháng. Giá điều chỉnh từ 39 tỷ về 35 tỷ.",
+        public_location: { street: "Nguyễn Chí Thanh", ward: "Phường 12", district: "Quận 5" },
+        specs: { recognized_area_m2: 94.8, dimensions: "3.9m × 24.3m", structure: "6 Tầng (45 Phòng KS)", cashflow: "135 triệu/tháng", cashflow_monthly_million: 135 },
+        pricing: {
+          initial_asking_billion: 39.0,
+          current_price_billion: 35.0,
+          price_history: [
+            { old_price: 39.0, new_price: 39.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 39.0, new_price: 35.0, note: "Nhịp điều chỉnh 1: Hạ 4 tỷ chốt nhanh 35 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền trục chính Nguyễn Chí Thanh sầm uất ngày đêm" },
+          { url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85", caption: "Hệ thống 45 phòng khai thác công suất cao" }
+        ]
+      },
+      {
+        property_id: "NSG-0315",
+        category: "Tòa Văn Phòng",
+        event_type: "UPDATE",
+        seo_title: "Tòa Văn Phòng Mặt Tiền Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3",
+        summary: "Trục ngoại giao đón sân bay về Dinh Độc Lập, 8m x 25m (CN 198m²), Hầm + 7 Tầng.",
+        marketing_description: "• Cung đường ngoại giao: Mặt tiền Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3.\n• Diện tích: 8m x 25m (CN 198m²), kết cấu Hầm + 7 Tầng thang máy.\n• Dòng tiền: Cho thuê trụ sở công ty 260 triệu/tháng.",
+        public_location: { street: "Nam Kỳ Khởi Nghĩa", ward: "Phường Võ Thị Sáu", district: "Quận 3" },
+        specs: { recognized_area_m2: 198.0, dimensions: "8m × 25m", structure: "Hầm + 7 Tầng", cashflow: "260 triệu/tháng", cashflow_monthly_million: 260 },
+        pricing: {
+          initial_asking_billion: 145.0,
+          current_price_billion: 129.0,
+          price_history: [
+            { old_price: 145.0, new_price: 145.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 145.0, new_price: 129.0, note: "Nhịp điều chỉnh 1: Hạ 16 tỷ ưu tiên thanh khoản nhanh" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Tòa nhà văn phòng trên trục ngoại giao Nam Kỳ Khởi Nghĩa" }
+        ]
+      },
+      {
+        property_id: "NSG-0301",
+        category: "Tòa Văn Phòng",
+        event_type: "UPDATE",
+        seo_title: "Tòa Văn Phòng Đẳng Cấp Mặt Tiền Hoàng Việt, Khu Đệ Nhất, Tân Bình",
+        summary: "Ngang 8m x 22m (CN 175m²), Hầm + 8 Tầng hoàn công chuẩn, dòng tiền 220 triệu/tháng.",
+        marketing_description: "• Khu vực VIP Đệ Nhất Khách Sạn: Mặt tiền đường Hoàng Việt, Phường 4, Quận Tân Bình, kết nối nhanh sân bay Tân Sơn Nhất.\n• Thông số: 8m x 22m, diện tích công nhận 175m², kết cấu Hầm + 8 Tầng mới đẹp.\n• Khai thác: Đang cho thuê full tòa nhà đạt 220 triệu/tháng.",
+        public_location: { street: "Hoàng Việt", ward: "Phường 4", district: "Tân Bình" },
+        specs: { recognized_area_m2: 175.0, dimensions: "8m × 22m", structure: "Hầm + 8 Tầng", cashflow: "220 triệu/tháng", cashflow_monthly_million: 220 },
+        pricing: {
+          initial_asking_billion: 78.0,
+          current_price_billion: 69.5,
+          price_history: [
+            { old_price: 78.0, new_price: 78.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 78.0, new_price: 69.5, note: "Nhịp điều chỉnh 1: Hạ 8.5 tỷ chốt nhanh trong quý" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Tòa nhà Hầm + 8 Tầng mặt tiền đường Hoàng Việt, Tân Bình" },
+          { url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85", caption: "Sàn văn phòng trống suốt, hệ thống lạnh âm trần Daikin" }
+        ]
+      },
+      {
+        property_id: "NSG-0218",
+        category: "Nhà Phố Mặt Tiền",
+        event_type: "UPDATE",
+        seo_title: "Nhà Phố Mặt Tiền Kinh Doanh Đường Ba Tháng Hai, Phường 12, Quận 10",
+        summary: "Ngang đẹp 5.2m x 20m (CN 104m²), Hầm + 5 Tầng thang máy, đang cho thuê Thẩm mỹ viện 110 triệu/tháng.",
+        marketing_description: "• Cung đường thương mại sầm uất nhất Quận 10: Mặt tiền đường Ba Tháng Hai, Phường 12.\n• Diện tích: 5.2m x 20m (CN 104m²), kết cấu Hầm + 5 Tầng hiện đại.\n• Dòng tiền: Hợp đồng thuê Thẩm mỹ viện 110 triệu/tháng. Giá điều chỉnh từ 42 tỷ về 37.5 tỷ.",
+        public_location: { street: "Ba Tháng Hai", ward: "Phường 12", district: "Quận 10" },
+        specs: { recognized_area_m2: 104.0, dimensions: "5.2m × 20m", structure: "Hầm + 5 Tầng", cashflow: "110 triệu/tháng", cashflow_monthly_million: 110 },
+        pricing: {
+          initial_asking_billion: 42.0,
+          current_price_billion: 37.5,
+          price_history: [
+            { old_price: 42.0, new_price: 42.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 42.0, new_price: 37.5, note: "Nhịp điều chỉnh 1: Hạ 4.5 tỷ chốt 37.5 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Nhà phố mặt tiền kinh doanh đắc địa trên trục Ba Tháng Hai, Quận 10" }
+        ]
+      },
+      {
+        property_id: "NSG-0237",
+        category: "Tòa Văn Phòng",
+        event_type: "UPDATE",
+        seo_title: "Tòa Văn Phòng Mặt Tiền Phan Đình Phùng, Phú Nhuận — Ngân Hàng ACB Thuê",
+        summary: "Ngang lớn 12m x 31.5m (CN 373.9m²), 1.177m² sàn, HĐT Ngân hàng ACB 360 triệu/tháng.",
+        marketing_description: "• Tài sản thương hiệu: Mặt tiền trục chính Phan Đình Phùng, Phường 17, Quận Phú Nhuận.\n• Khuôn đất bề thế: Ngang 12m x 31.5m, công nhận 373.9m², kết cấu 4 Tầng + Lửng (1.177,3m² sàn).\n• Dòng tiền chuẩn AAA: Ngân hàng ACB ký hợp đồng thuê dài hạn 360 triệu/tháng.",
+        public_location: { street: "Phan Đình Phùng", ward: "Phường 17", district: "Phú Nhuận" },
+        specs: { recognized_area_m2: 373.9, dimensions: "12m × 31.5m", structure: "4 Tầng + Lửng (1.177m² sàn)", cashflow: "360 triệu/tháng (ACB thuê)", cashflow_monthly_million: 360 },
+        pricing: {
+          initial_asking_billion: 195.0,
+          current_price_billion: 180.0,
+          price_history: [
+            { old_price: 195.0, new_price: 195.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 195.0, new_price: 180.0, note: "Nhịp điều chỉnh 1: Hạ 15 tỷ cho nhà đầu tư giữ tài sản dòng tiền" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền ngang 12m cực hiếm đang làm trụ sở giao dịch Ngân hàng ACB" },
+          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Khuôn đất vuông vức 373.9m² công nhận, tiềm năng xây cao tầng" }
+        ]
+      },
+      {
+        property_id: "NSG-0273",
+        category: "Nhà Phố Mặt Tiền",
+        event_type: "UPDATE",
+        seo_title: "Nhà Phố Góc 2 Mặt Tiền Yersin, Phường Nguyễn Thái Bình, Quận 1",
+        summary: "Vị trí đối diện Tứ giác Bến Thành, 12.5m x 20m (nở hậu 16m, CN 194.1m²), HĐT 150 triệu/tháng.",
+        marketing_description: "• Vị trí kim cương: Góc 2 mặt tiền đường Yersin, ngay khu Tứ giác Bến Thành, Phường Nguyễn Thái Bình, Quận 1.\n• Thông số: 12.5m x 20m (nở hậu 16m), diện tích công nhận 194.1m², kết cấu 3 tầng.\n• Giá bán: Điều chỉnh từ 160 tỷ xuống 149 tỷ cho khách thiện chí.",
+        public_location: { street: "Yersin", ward: "Phường Nguyễn Thái Bình", district: "Quận 1" },
+        specs: { recognized_area_m2: 194.1, dimensions: "12.5m × 20m (NH 16m)", structure: "Góc 2MT • 3 Tầng", cashflow: "150 triệu/tháng", cashflow_monthly_million: 150 },
+        pricing: {
+          initial_asking_billion: 160.0,
+          current_price_billion: 149.0,
+          price_history: [
+            { old_price: 160.0, new_price: 160.0, note: "Mốc giá chào khởi điểm" },
+            { old_price: 160.0, new_price: 149.0, note: "Nhịp điều chỉnh 1: Giảm 11 tỷ thiện chí thương lượng" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85", caption: "Vị trí góc 2 mặt tiền đường Yersin sát Chợ Bến Thành & Ga Metro trung tâm" },
+          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Khu vực kinh doanh sầm uất bậc nhất lõi Quận 1" }
+        ]
+      },
+      {
+        property_id: "NSG-0188",
+        category: "Nhà Phố Mặt Tiền",
+        event_type: "NEW",
+        seo_title: "Nhà Phố Mặt Tiền Đường Hoa Phượng, Khu Phan Xích Long, Phú Nhuận",
+        summary: "Phân khúc 20–30 Tỷ thanh khoản cao, ngang 4.5m x 18m (CN 81m²), Hầm + 4 Tầng, thu nhập 75 triệu/tháng.",
+        marketing_description: "• Trung tâm phố ẩm thực – tài chính Phan Xích Long: Mặt tiền đường Hoa Phượng, Phường 2, Quận Phú Nhuận.\n• Thông số: 4.5m x 18m, công nhận đủ 81m², kết cấu Hầm + 4 Tầng thang máy mới đẹp.\n• Giá bán: 26.5 tỷ thương lượng nhẹ xuống 24.8 tỷ.",
+        public_location: { street: "Hoa Phượng", ward: "Phường 2", district: "Phú Nhuận" },
+        specs: { recognized_area_m2: 81.0, dimensions: "4.5m × 18m", structure: "Hầm + 4 Tầng", cashflow: "75 triệu/tháng", cashflow_monthly_million: 75 },
+        pricing: {
+          initial_asking_billion: 26.5,
+          current_price_billion: 24.8,
+          price_history: [
+            { old_price: 26.5, new_price: 24.8, note: "Tài sản mới tuyển chọn (NEW) - Giá chốt 24.8 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85", caption: "Nhà phố mặt tiền khu VIP Phan Xích Long – Hoa Phượng" }
+        ]
+      },
+      {
+        property_id: "NSG-0299",
+        category: "Biệt Thự / Dinh Thự",
+        event_type: "NEW",
+        seo_title: "Biệt Thự Góc 2 Mặt Tiền Khu Compound Ven Sông Thảo Điền, TP. Thủ Đức",
+        summary: "Khuôn đất 17m x 30m (CN 508m²), khu compound an ninh sát sông Sài Gòn & Xuân Thủy.",
+        marketing_description: "• Không gian sống thượng lưu: Biệt thự góc 2 mặt tiền nằm trong khu compound ven sông đường Nguyễn Văn Hưởng - Thảo Điền, có công viên nội khu.\n• Diện tích chuẩn: 17m x 30m, công nhận đủ 508m² đất ở, sổ hồng cá nhân sẵn sàng giao dịch.\n• Giá chào: 165 tỷ (thương lượng về 160 tỷ).",
+        public_location: { street: "Nguyễn Văn Hưởng", ward: "Phường Thảo Điền", district: "TP. Thủ Đức" },
+        specs: { recognized_area_m2: 508.0, dimensions: "17m × 30m", structure: "Biệt thự 2 Tầng (Compound)", cashflow: "Bàn giao ngay", cashflow_monthly_million: 0 },
+        pricing: {
+          initial_asking_billion: 165.0,
+          current_price_billion: 160.0,
+          price_history: [
+            { old_price: 165.0, new_price: 160.0, note: "Mốc chào giá tuyển chọn mới (NEW) - Thương lượng 160 tỷ" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85", caption: "Biệt thự góc 2 mặt tiền khuôn viên 508m² tại Compound Thảo Điền" },
+          { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85", caption: "Hồ bơi riêng và sân vườn rộng thoáng sát công viên bờ sông" }
+        ]
+      },
+      {
+        property_id: "NSG-0318",
+        category: "Quỹ Đất Xây Cao Tầng",
+        event_type: "NEW",
+        seo_title: "Quỹ Đất Vàng Mặt Tiền Nguyễn Thị Minh Khai, Quận 3 — GPXD Hầm + 10 Tầng",
+        summary: "Khuôn đất lớn 11m x 28m (CN 305m²), sẵn giấy phép xây dựng tòa nhà văn phòng Hầm + 10 Tầng.",
+        marketing_description: "• Quỹ đất hiếm còn sót lại trên trục Nguyễn Thị Minh Khai, Quận 3 (giáp Quận 1).\n• Thông số: 11m x 28m, công nhận 305m² vuông vức không lỗi phong thủy.\n• Pháp lý: Đã có GPXD Hầm + 10 Tầng, phù hợp xây trụ sở tập đoàn.",
+        public_location: { street: "Nguyễn Thị Minh Khai", ward: "Phường 6", district: "Quận 3" },
+        specs: { recognized_area_m2: 305.0, dimensions: "11m × 28m", structure: "Sẵn GPXD Hầm + 10 Tầng", cashflow: "70 triệu/tháng (nhà cũ)", cashflow_monthly_million: 70 },
+        pricing: {
+          initial_asking_billion: 168.0,
+          current_price_billion: 162.0,
+          price_history: [
+            { old_price: 168.0, new_price: 162.0, note: "Hồ sơ quỹ đất mới tuyển chọn (NEW)" }
+          ]
+        },
+        gallery: [
+          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Khuôn đất ngang 11m trên trục Nguyễn Thị Minh Khai" }
+        ]
+      }
+    ];
+
+    let INSIGHT_ARTICLES = [
+      {
+        "category": "QUY HOẠCH & HẠ TẦNG",
+        "badge_class": "bg-[#0F172A]/90 text-[#FBBF24]",
+        "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+        "title": "Tác động của Nghị quyết 98 & Mô hình TOD quanh Ga Metro đến Giá trị Nhà Phố & Văn Phòng Bình Thạnh – Khu Đông",
+        "summary": "Phân tích biên độ dịch chuyển dòng vốn thuê văn phòng từ lõi Quận 1 sang bán kính 500m quanh cầu Sài Gòn và trục Ung Văn Khiêm – Điện Biên Phủ.",
+        "content": "1. Sự dịch chuyển của các doanh nghiệp vừa và lớn:\nKhi tuyến Metro số 1 vận hành thương mại, các tòa nhà văn phòng nằm trong bán kính 500m–800m quanh Ga Tân Cảng, Văn Thánh và Ba Son ghi nhận nhu cầu thuê tăng trưởng rõ rệt.\n\n2. Bài toán hiệu suất vốn (Cap Rate):\nTrong khi đơn giá đất lõi Quận 1 dao động ở ngưỡng rất cao khiến tỷ suất cho thuê đạt khoảng 2.2% – 3.0%/năm, thì các tòa nhà Hầm + 7 Tầng tại trục Ung Văn Khiêm, Điện Biên Phủ (Bình Thạnh) có mức giá từ 40 – 85 tỷ lại mang về dòng tiền từ 150 – 300 triệu/tháng (tương đương Cap Rate ước tính 3.8% – 4.5%/năm)."
+      },
+      {
+        "category": "THẨM ĐỊNH DÒNG TIỀN",
+        "badge_class": "bg-[#0EA5E9] text-white",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        "title": "Đọc vị 'Chuỗi Nhịp Giảm Giá' ở Phân khúc Nhà Phố 20 – 150 Tỷ: Đâu là Điểm Rơi Chốt Lệnh?",
+        "summary": "Khi một tài sản điều chỉnh qua 2–3 nhịp giảm giá liên tiếp, làm sao phân biệt đâu là tài sản cần thanh khoản thật sự có pháp lý sạch và đâu là chiêu neo giá ảo?",
+        "content": "1. Vì sao dữ liệu Lịch sử Giá lại quyết định thắng bại?\nTrên thị trường thứ cấp, nhiều tài sản được chào nhiều mức giá khác nhau gây nhiễu loạn. Hệ thống đối soát của nhatoSG theo dõi xuyên suốt từ mức giá chào đầu tiên qua từng nhịp điều chỉnh.\n\n2. Quy tắc Nhịp thứ 2:\nThực tế giao dịch cho thấy các tài sản giảm nhẹ ở nhịp 1 (3%–5%) thường là bước thăm dò thị trường. Tuy nhiên, khi xuất hiện Nhịp điều chỉnh thứ 2 với biên độ chiết khấu lũy kế đạt từ 12% – 22%, đó là thời điểm chủ tài sản thực sự cần thanh khoản."
+      },
+      {
+        "category": "PHÁP LÝ & XÂY DỰNG",
+        "badge_class": "bg-emerald-600 text-white",
+        "image": "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=800&q=80",
+        "title": "Checklist 5 Rủi ro Pháp lý khi Mua Tòa nhà CHDV & Khách sạn Trung tâm: PCCC, Hoàn công & Lộ giới",
+        "summary": "Hướng dẫn đối chiếu diện tích công nhận thực tế trên sổ hồng với hiện trạng xây dựng và quy định nghiệm thu PCCC mới nhất đối với tòa nhà có hầm.",
+        "content": "1. Nghiệm thu PCCC theo quy chuẩn mới:\nĐối với các tòa nhà từ 6–7 tầng trở lên hoặc có khối tích lớn, biên bản nghiệm thu PCCC là điều kiện tiên quyết để duy trì hợp đồng thuê giá cao.\n\n2. Đối chiếu Diện tích Công nhận trên Sổ hồng:\nNhà đầu tư cần phân biệt rõ Diện tích khuôn đất và Diện tích công nhận sau khi trừ lộ giới dự phóng. Toàn bộ hồ sơ Sổ hồng gốc của các tài sản trên nhatoSG đều đã được kiểm tra quy hoạch."
+      }
+    ];
+
+    // ===ADMIN_CFG_FILTER_START===
+    const SHOW_DEMO_PROPERTIES = true;
+    let propertiesData = INITIAL_PROPERTIES.filter(p => SHOW_DEMO_PROPERTIES || p.is_live_sync);
+    // ===ADMIN_CFG_FILTER_END===
+
+    let compareList = [];
+    let hotCurrentPage = 1;
+    const hotItemsPerPage = 4;
+    let currentPage = 1;
+    const itemsPerPage = 6;
+    let extraLoadedCount = 0;
+    let activeModalProperty = null;
+    let currentGalleryIndex = 0;
+    let currentParsedQueryFilter = null;
+    let activeInsightIndex = 0;
+
+    function esc(val) {
+      return String(val ?? "").replace(/[&<>"']/g, ch => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[ch]));
+    }
+
+    function formatStreetDisplay(prop) {
+      const street = String(prop?.public_location?.street || "").trim();
+      return street ? `Đường ${street}` : (prop?.public_location?.district || "Trung tâm TP.HCM");
+    }
+
+    function computeMetrics(prop) {
+      const initP = Number(prop.pricing?.initial_asking_billion || prop.pricing?.current_price_billion || 0);
+      const currP = Number(prop.pricing?.current_price_billion || 0);
+      const diffBil = +(initP - currP).toFixed(1);
+      const diffPct = initP > 0 ? +(((initP - currP) / initP) * 100).toFixed(1) : 0;
+
+      let monthlyMil = prop.specs?.cashflow_monthly_million;
+      if (monthlyMil === undefined) {
+        const m = String(prop.specs?.cashflow || "").match(/(\d+(?:[.,]\d+)?)\s*(?:tr|triệu)/i);
+        monthlyMil = m ? parseFloat(m[1].replace(",", ".")) : 0;
+      }
+      const annualYieldPct = (currP > 0 && monthlyMil > 0)
+        ? +(((monthlyMil * 12) / (currP * 1000)) * 100).toFixed(2)
+        : 0;
+
+      const area = Number(prop.specs?.recognized_area_m2 || 0);
+      const pricePerM2Mil = (area > 0 && currP > 0) ? Math.round((currP * 1000) / area) : 0;
+
+      return { initP, currP, diffBil, diffPct, monthlyMil, annualYieldPct, pricePerM2Mil };
+    }
+
+    function resolveCategoryName(prop) {
+      if (prop.category) return prop.category;
+      const t = `${prop.seo_title || ""} ${prop.specs?.structure || ""}`.toLowerCase();
+      if (t.includes("chdv") || t.includes("khách sạn") || t.includes("phòng")) return "Tòa CHDV / Khách Sạn";
+      if (t.includes("biệt thự") || t.includes("dinh thự") || t.includes("compound")) return "Biệt Thự / Dinh Thự";
+      if (t.includes("quỹ đất") || t.includes("đất")) return "Quỹ Đất Xây Cao Tầng";
+      if (t.includes("tòa") || t.includes("building") || t.includes("văn phòng")) return "Tòa Văn Phòng";
+      return "Nhà Phố Mặt Tiền";
+    }
+
+    // =========================================================================
+    // RENDER CHUYÊN MỤC TIN TỨC & QUY HOẠCH (CLICK VÀO ẢNH HOẶC CARD ĐỀU MỞ BÀI VIẾT)
+    // =========================================================================
+    function renderInsightArticlesSection() {
+      const container = document.getElementById("insightArticlesGrid");
+      if (!container) return;
+
+      const defaultImgs = [
+        "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=800&q=80"
+      ];
+      const defaultBadges = [
+        "bg-[#0F172A]/90 text-[#FBBF24]",
+        "bg-[#0EA5E9] text-white",
+        "bg-emerald-600 text-white"
+      ];
+
+      container.innerHTML = INSIGHT_ARTICLES.map((art, idx) => {
+        const imgUrl = art.image || defaultImgs[idx % defaultImgs.length];
+        const badgeCls = art.badge_class || defaultBadges[idx % defaultBadges.length];
+        const shortSummary = art.summary || String(art.content || "").split("\n").filter(Boolean)[1] || "";
+
+        return `
+          <article
+            onclick="openInsightModal(${idx})"
+            class="cursor-pointer bg-white rounded-2xl border border-slate-200/90 overflow-hidden card-elevate flex flex-col justify-between group"
+          >
+            <div>
+              <div class="h-48 bg-slate-100 relative overflow-hidden">
+                <img src="${esc(imgUrl)}" alt="${esc(art.title)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold ${badgeCls}">
+                  ${esc(art.category)}
+                </span>
+                <span class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-slate-900/75 text-white text-[10px] font-semibold backdrop-blur-xs opacity-90 group-hover:bg-[#0EA5E9] transition">
+                  Bấm để đọc →
+                </span>
+              </div>
+              <div class="p-6">
+                <h3 class="font-bold text-base text-[#0F172A] group-hover:text-[#0EA5E9] transition leading-snug mb-2.5">
+                  ${esc(art.title)}
+                </h3>
+                <p class="text-xs text-[#64748B] leading-relaxed line-clamp-3">
+                  ${esc(shortSummary)}
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+              <span class="text-slate-400 font-medium">Chuyên đề #0${idx + 1}</span>
+              <span class="font-bold text-[#0EA5E9] group-hover:text-sky-700 inline-flex items-center gap-1">
+                Đọc toàn văn <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </span>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // BÀN CÂN ĐỐI CHIẾU + TRỢ LÝ AI THẨM ĐỊNH CHUYÊN SÂU
+    // =========================================================================
+    function toggleCompareProperty(propId) {
+      const idx = compareList.indexOf(propId);
+      if (idx >= 0) {
+        compareList.splice(idx, 1);
+      } else {
+        if (compareList.length >= 3) {
+          alert("Bàn cân đối chiếu tối đa 3 tài sản cùng lúc!");
+          return;
+        }
+        compareList.push(propId);
+      }
+      renderCompareBar();
+      renderAll();
+    }
+
+    function clearCompareList() {
+      compareList = [];
+      renderCompareBar();
+      renderAll();
+    }
+
+    function renderCompareBar() {
+      const bar = document.getElementById("compareFloatingBar");
+      if (compareList.length === 0) {
+        bar.classList.add("hidden");
+        return;
+      }
+      bar.classList.remove("hidden");
+      document.getElementById("compareCountText").textContent = compareList.length;
+      document.getElementById("compareChipsContainer").innerHTML = compareList.map(id => {
+        const p = propertiesData.find(x => x.property_id === id);
+        return `
+          <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-xs font-mono flex items-center gap-1.5 shrink-0">
+            <span>${esc(id)} (${esc(p?.pricing?.current_price_billion)} Tỷ)</span>
+            <button onclick="toggleCompareProperty('${esc(id)}')" class="text-slate-400 hover:text-white">×</button>
+          </span>
+        `;
+      }).join("");
+    }
+
+    function openCompareModal() {
+      const items = compareList.map(id => propertiesData.find(p => p.property_id === id)).filter(Boolean);
+      if (items.length < 2) {
+        alert("Vui lòng chọn ít nhất 2 tài sản để đặt lên bàn cân đối chiếu!");
+        return;
+      }
+      const body = document.getElementById("compareModalBody");
+      body.innerHTML = `
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="py-3 px-3 text-slate-400 uppercase font-bold w-40">Tiêu chí đối chiếu</th>
+              ${items.map(p => `
+                <th class="py-3 px-4 bg-slate-50 rounded-t-xl border-x border-white">
+                  <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-[#0F172A] text-[#FBBF24] font-bold">${esc(p.property_id)}</span>
+                  <div class="font-extrabold text-sm text-[#0F172A] mt-1">${esc(resolveCategoryName(p))}</div>
+                  <div class="text-[#0EA5E9] font-semibold mt-0.5">${esc(formatStreetDisplay(p))}, ${esc(p.public_location?.district)}</div>
+                </th>
+              `).join("")}
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200/80 font-mono">
+            <tr>
+              <td class="py-3 px-3 font-sans font-bold text-slate-600">Giá thương lượng</td>
+              ${items.map(p => {
+                const m = computeMetrics(p);
+                return `<td class="py-3 px-4 font-extrabold text-base text-[#0F172A]">${esc(m.currP)} Tỷ <span class="text-xs text-emerald-600 font-bold">(${m.diffBil > 0 ? `-${esc(m.diffBil)} Tỷ / -${esc(m.diffPct)}%` : 'Giá tuyển chọn'})</span></td>`;
+              }).join("")}
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-sans font-bold text-slate-600">Diện tích &amp; Kích thước</td>
+              ${items.map(p => `<td class="py-3 px-4">DT: <strong>${esc(p.specs?.dimensions)}</strong> (CN: <strong>${esc(p.specs?.recognized_area_m2)}m²</strong>)</td>`).join("")}
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-sans font-bold text-slate-600">Đơn giá / m² công nhận</td>
+              ${items.map(p => {
+                const m = computeMetrics(p);
+                return `<td class="py-3 px-4 font-bold text-[#0EA5E9]">~ ${esc(m.pricePerM2Mil)} Triệu/m²</td>`;
+              }).join("")}
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-sans font-bold text-slate-600">Kết cấu hiện trạng</td>
+              ${items.map(p => `<td class="py-3 px-4 font-sans font-semibold">${esc(p.specs?.structure)}</td>`).join("")}
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-sans font-bold text-slate-600">Dòng tiền &amp; Hiệu suất</td>
+              ${items.map(p => {
+                const m = computeMetrics(p);
+                return `<td class="py-3 px-4"><strong class="text-emerald-700">${esc(p.specs?.cashflow)}</strong> ${m.annualYieldPct > 0 ? `<div class="text-[11px] text-slate-500">Hiệu suất ~ ${esc(m.annualYieldPct)}%/năm</div>` : ''}</td>`;
+              }).join("")}
+            </tr>
+          </tbody>
+        </table>
+      `;
+
+      syncGeminiConfigUI();
+      document.getElementById("compareAiResultBox").textContent = buildLocalQuantComparisonReport(items, "");
+      document.getElementById("compareModal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function toggleGeminiKeyConfig() {
+      document.getElementById("geminiKeyConfigBox").classList.toggle("hidden");
+    }
+
+    function syncGeminiConfigUI() {
+      const key = sessionStorage.getItem("NHATOSG_GEMINI_SESSION_KEY") || "";
+      const model = sessionStorage.getItem("NHATOSG_GEMINI_MODEL") || "gemini-2.5-pro";
+      const badge = document.getElementById("aiEngineModeBadge");
+      const status = document.getElementById("geminiConfigStatus");
+      const modelSel = document.getElementById("sessionGeminiModelSelect");
+      if (modelSel) modelSel.value = model;
+
+      if (key) {
+        badge.textContent = `● Live ${model} Active`;
+        badge.className = "px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-mono text-[10px] font-bold";
+        if (status) status.textContent = `✓ Đã kết nối khóa phiên (${model}). Dữ liệu gọi trực tiếp tới Google Gemini.`;
+      } else {
+        badge.textContent = "Quant M&A Engine Active";
+        badge.className = "px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30 font-mono text-[10px] font-bold";
+        if (status) status.textContent = "Chưa gắn Key phiên: Hệ thống đang dùng Bộ phân tích Định lượng M&A nội bộ.";
+      }
+    }
+
+    function saveSessionGeminiKey() {
+      const key = (document.getElementById("sessionGeminiKeyInput")?.value || "").trim();
+      const model = document.getElementById("sessionGeminiModelSelect")?.value || "gemini-2.5-pro";
+      if (!key) {
+        alert("Vui lòng dán Gemini API Key hợp lệ!");
+        return;
+      }
+      sessionStorage.setItem("NHATOSG_GEMINI_SESSION_KEY", key);
+      sessionStorage.setItem("NHATOSG_GEMINI_MODEL", model);
+      document.getElementById("sessionGeminiKeyInput").value = "";
+      syncGeminiConfigUI();
+    }
+
+    function clearSessionGeminiKey() {
+      sessionStorage.removeItem("NHATOSG_GEMINI_SESSION_KEY");
+      syncGeminiConfigUI();
+    }
+
+    function buildLocalQuantComparisonReport(items, customQuestion) {
+      const enriched = items.map(p => ({ prop: p, m: computeMetrics(p) }));
+      const bestYield = [...enriched].sort((a, b) => b.m.annualYieldPct - a.m.annualYieldPct)[0];
+      const bestDiscount = [...enriched].sort((a, b) => b.m.diffPct - a.m.diffPct)[0];
+      const lowestUnitLand = [...enriched].sort((a, b) => a.m.pricePerM2Mil - b.m.pricePerM2Mil)[0];
+
+      let report = `📊 BÁO CÁO ĐỐI CHIẾU ĐỊNH LƯỢNG (${items.length} TÀI SẢN):\n\n`;
+      report += `1. Tối ưu Dòng tiền khai thác (Cap Rate cao nhất):\n   • Mã [${bestYield.prop.property_id}] (${formatStreetDisplay(bestYield.prop)}, ${bestYield.prop.public_location?.district}) dẫn đầu với dòng tiền ${bestYield.prop.specs?.cashflow} (~${bestYield.m.annualYieldPct}%/năm trên mức giá ${bestYield.m.currP} Tỷ).\n\n`;
+      report += `2. Biên độ Chiết khấu & Vị thế Đàm phán:\n   • Mã [${bestDiscount.prop.property_id}] đã điều chỉnh giảm ${bestDiscount.m.diffBil} Tỷ (-${bestDiscount.m.diffPct}% so với mức chào đầu ${bestDiscount.m.initP} Tỷ), phản ánh thiện chí thanh khoản cao của chủ tài sản.\n\n`;
+      report += `3. Tương quan Đơn giá Đất công nhận:\n   • Mã [${lowestUnitLand.prop.property_id}] có đơn giá bình quân thấp nhất (~${lowestUnitLand.m.pricePerM2Mil} triệu/m² công nhận cho khuôn đất ${lowestUnitLand.prop.specs?.recognized_area_m2}m²), tạo biên an toàn vốn lớn.\n`;
+
+      if (customQuestion) {
+        report += `\n💡 GÓC NHÌN CHO CÂU HỎI "${customQuestion}":\n`;
+        const qLower = customQuestion.toLowerCase();
+        if (qLower.includes("vay") || qLower.includes("đòn bẩy") || qLower.includes("dòng tiền")) {
+          report += `   → Với bài toán sử dụng đòn bẩy ngân hàng (~40% giá trị, lãi suất ~7.5%/năm), [${bestYield.prop.property_id}] có tỷ suất dòng tiền ${bestYield.m.annualYieldPct}%/năm sẽ gánh được phần lớn chi phí lãi vay hàng tháng, giảm áp lực dòng tiền mặt cho Nhà đầu tư.`;
+        } else {
+          report += `   → Nếu ưu tiên tích lũy tài sản lõi trung tâm giữ giá dài hạn, hãy ưu tiên trục đường thương hiệu có tính khan hiếm quỹ đất; nếu ưu tiên hiệu suất thu nhập hàng tháng, [${bestYield.prop.property_id}] là lựa chọn vượt trội.`;
+        }
+      }
+      return report;
+    }
+
+    function askCompareAiWithPreset(presetText) {
+      const input = document.getElementById("compareAiPromptInput");
+      if (input) input.value = presetText;
+      runCompareAiAnalysis();
+    }
+
+    async function runCompareAiAnalysis() {
+      const items = compareList.map(id => propertiesData.find(p => p.property_id === id)).filter(Boolean);
+      if (items.length < 2) return;
+
+      const question = (document.getElementById("compareAiPromptInput")?.value || "").trim();
+      const resultBox = document.getElementById("compareAiResultBox");
+      const btn = document.getElementById("compareAiSubmitBtn");
+      const sessionKey = sessionStorage.getItem("NHATOSG_GEMINI_SESSION_KEY") || "";
+      const model = sessionStorage.getItem("NHATOSG_GEMINI_MODEL") || "gemini-2.5-pro";
+
+      if (!sessionKey) {
+        resultBox.textContent = buildLocalQuantComparisonReport(items, question || "Khuyến nghị tổng thể giữa các tài sản");
+        return;
+      }
+
+      btn.disabled = true;
+      resultBox.textContent = `⏳ Đang kích hoạt mô hình ${model} phân tích chuyên sâu ${items.length} tài sản trên bàn cân...`;
+
+      const contextSummary = items.map(p => {
+        const m = computeMetrics(p);
+        return `- Mã ${p.property_id}: ${p.seo_title} | Vị trí: ${formatStreetDisplay(p)}, ${p.public_location?.ward}, ${p.public_location?.district} | Giá chào đầu: ${m.initP} tỷ -> Giá hiện tại: ${m.currP} tỷ (Giảm ${m.diffBil} tỷ / -${m.diffPct}%) | DT: ${p.specs?.dimensions} (CN: ${p.specs?.recognized_area_m2}m², Đơn giá ~${m.pricePerM2Mil}tr/m²) | Kết cấu: ${p.specs?.structure} | Dòng tiền: ${p.specs?.cashflow} (Cap Rate ~${m.annualYieldPct}%/năm).`;
+      }).join("\n");
+
+      const prompt = `Bạn là Giám đốc Khối Tư vấn Đầu tư BĐS Trọng điểm tại nhatoSG (Nhà Sài Gòn). Hãy phân tích đối chiếu các tài sản sau đây cho Nhà đầu tư:\n${contextSummary}\n\nCâu hỏi trọng tâm của Nhà đầu tư: "${question || 'Hãy so sánh ưu nhược điểm, hiệu suất dòng tiền, đơn giá đất và khuyến nghị nên chọn tài sản nào theo từng khẩu vị đầu tư.'}"\n\nYêu cầu: Trình bày ngắn gọn, sắc bén, có con số dẫn chứng cụ thể, chia mục rõ ràng. Tuyệt đối không tự bịa số nhà.`;
+
+      try {
+        const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(sessionKey)}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.35 }
+          })
+        });
+        const data = await resp.json();
+        const aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (aiText) {
+          resultBox.textContent = aiText.trim();
+        } else {
+          resultBox.textContent = buildLocalQuantComparisonReport(items, question) + `\n\n[Lưu ý: Không nhận được phản hồi từ Gemini API (${data?.error?.message || 'Kiểm tra lại Key'}), hệ thống tự động hiển thị Báo cáo Định lượng Nội bộ.]`;
+        }
+      } catch (err) {
+        resultBox.textContent = buildLocalQuantComparisonReport(items, question) + `\n\n[Lưu ý kết nối mạng: Đã chuyển sang Báo cáo Định lượng Nội bộ.]`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    // =========================================================================
+    // BỘ LỌC NÂNG CAO & TÌM KIẾM THÔNG MINH
+    // =========================================================================
+    function toggleAdvancedFilterDrawer() {
+      const drawer = document.getElementById("advancedFilterDrawer");
+      const icon = document.getElementById("filterChevronIcon");
+      const isHidden = drawer.classList.contains("hidden");
+      drawer.classList.toggle("hidden", !isHidden);
+      icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+    }
+
+    function populateWardOptions() {
+      const dist = document.getElementById("districtFilter").value;
+      const wardSelect = document.getElementById("wardFilter");
+      const currentWard = wardSelect.value;
+
+      const wardsSet = new Set();
+      propertiesData.forEach(p => {
+        if (dist === "ALL" || p.public_location?.district === dist) {
+          if (p.public_location?.ward) wardsSet.add(p.public_location.ward);
+        }
+      });
+
+      const wards = Array.from(wardsSet).sort();
+      wardSelect.innerHTML = `<option value="ALL">Tất cả các Phường (${wards.length})</option>` +
+        wards.map(w => `<option value="${esc(w)}">${esc(w)}</option>`).join("");
+
+      wardSelect.value = wardsSet.has(currentWard) ? currentWard : "ALL";
+    }
+
+    function handleDistrictChange() {
+      populateWardOptions();
+      resetPageAndRender();
+    }
+
+    function quickSegmentFilter(segCode) {
+      const drawer = document.getElementById("advancedFilterDrawer");
+      if (drawer.classList.contains("hidden")) toggleAdvancedFilterDrawer();
+      document.getElementById("segmentFilter").value = segCode;
+      resetPageAndRender();
+      document.getElementById("kho-tai-san").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function parseNaturalLanguageQuery(rawQuery) {
+      const q = rawQuery.toLowerCase().trim();
+      if (!q) return null;
+
+      const parsed = {
+        districts: [],
+        maxPriceBil: null,
+        minPriceBil: null,
+        minCashflowMil: null,
+        onlyUpdate: false,
+        keywords: []
+      };
+
+      const distMap = [
+        { keys: ["quận 1", "q1", "bến nghé", "bến thành", "đa kao", "yersin"], val: "Quận 1" },
+        { keys: ["quận 3", "q3", "võ thị sáu", "lê ngô cát", "nam kỳ"], val: "Quận 3" },
+        { keys: ["quận 5", "q5", "nguyễn chí thanh"], val: "Quận 5" },
+        { keys: ["quận 10", "q10", "ba tháng hai", "3/2"], val: "Quận 10" },
+        { keys: ["bình thạnh", "tân cảng", "ung văn khiêm", "metro"], val: "Bình Thạnh" },
+        { keys: ["phú nhuận", "phan đình phùng", "phan xích long", "hoa phượng"], val: "Phú Nhuận" },
+        { keys: ["tân bình", "hoàng việt", "sân bay"], val: "Tân Bình" },
+        { keys: ["tân phú", "thoại ngọc hầu"], val: "Tân Phú" },
+        { keys: ["thảo điền", "thủ đức", "quận 2", "q2", "ven sông", "compound"], val: "TP. Thủ Đức" }
+      ];
+      distMap.forEach(d => {
+        if (d.keys.some(k => q.includes(k))) parsed.districts.push(d.val);
+      });
+
+      const rangeMatch = q.match(/từ\s*(\d+(?:[.,]\d+)?)\s*(?:đến|-|tới)\s*(\d+(?:[.,]\d+)?)\s*tỷ/);
+      if (rangeMatch) {
+        parsed.minPriceBil = parseFloat(rangeMatch[1].replace(",", "."));
+        parsed.maxPriceBil = parseFloat(rangeMatch[2].replace(",", "."));
+      } else {
+        const underPriceMatch = q.match(/(?:dưới|nhỏ hơn|<|tầm|khoảng)\s*(\d+(?:[.,]\d+)?)\s*tỷ/);
+        if (underPriceMatch) parsed.maxPriceBil = parseFloat(underPriceMatch[1].replace(",", "."));
+
+        const overPriceMatch = q.match(/(?:trên|lớn hơn|>|từ)\s*(\d+(?:[.,]\d+)?)\s*tỷ/);
+        if (overPriceMatch) parsed.minPriceBil = parseFloat(overPriceMatch[1].replace(",", "."));
+      }
+
+      const cashflowMatch = q.match(/(?:dòng tiền|thuê|thu nhập)?\s*(?:trên|>|từ)?\s*(\d+)\s*(?:tr|triệu)/);
+      if (cashflowMatch) parsed.minCashflowMil = parseFloat(cashflowMatch[1]);
+
+      if (["giảm giá", "update", "hạ giá", "ngộp", "chiết khấu", "giảm sâu"].some(k => q.includes(k))) {
+        parsed.onlyUpdate = true;
+      }
+
+      if (q.includes("nhà phố")) parsed.keywords.push("nhà phố");
+      if (q.includes("biệt thự") || q.includes("dinh thự")) parsed.keywords.push("biệt thự", "dinh thự");
+      if (q.includes("khách sạn") || q.includes("chdv")) parsed.keywords.push("khách sạn", "chdv");
+      if (q.includes("tòa") || q.includes("văn phòng") || q.includes("building")) parsed.keywords.push("tòa", "văn phòng");
+
+      return parsed;
+    }
+
+    function quickAiQuery(text) {
+      document.getElementById("smartSearchInput").value = text;
+      runSmartSearch();
+    }
+
+    function handleSearchInput() {
+      const val = document.getElementById("smartSearchInput").value.trim();
+      document.getElementById("clearSearchBtn").classList.toggle("hidden", !val);
+      if (!val) {
+        currentParsedQueryFilter = null;
+        document.getElementById("conciergeBanner").classList.add("hidden");
+        resetPageAndRender();
+      }
+    }
+
+    function runSmartSearch() {
+      const raw = document.getElementById("smartSearchInput").value.trim();
+      if (!raw) {
+        clearAllFilters();
+        return;
+      }
+      currentParsedQueryFilter = parseNaturalLanguageQuery(raw);
+      currentPage = 1;
+      extraLoadedCount = 0;
+
+      const filtered = getFilteredProperties();
+      const banner = document.getElementById("conciergeBanner");
+      const tagsEl = document.getElementById("parsedTagsContainer");
+      const textEl = document.getElementById("conciergeText");
+
+      const pills = [];
+      if (currentParsedQueryFilter.districts.length) pills.push(`Khu vực: ${currentParsedQueryFilter.districts.join(", ")}`);
+      if (currentParsedQueryFilter.minPriceBil) pills.push(`Từ ${currentParsedQueryFilter.minPriceBil} Tỷ`);
+      if (currentParsedQueryFilter.maxPriceBil) pills.push(`Đến ${currentParsedQueryFilter.maxPriceBil} Tỷ`);
+      if (currentParsedQueryFilter.minCashflowMil) pills.push(`Dòng tiền ≥ ${currentParsedQueryFilter.minCashflowMil} Tr/tháng`);
+      if (currentParsedQueryFilter.onlyUpdate) pills.push(`Vừa giảm giá (UPDATE)`);
+
+      tagsEl.innerHTML = pills.map(p => `<span class="px-2 py-0.5 rounded-md bg-sky-50 text-[#0EA5E9] border border-sky-200 font-mono text-[10px] font-bold">${esc(p)}</span>`).join("");
+
+      if (filtered.length > 0) {
+        const topProp = filtered[0];
+        const m = computeMetrics(topProp);
+        textEl.textContent = `Hệ thống nhatoSG lọc được ${filtered.length} tài sản phù hợp. Đáng chú ý nhất là [${topProp.property_id}] ${topProp.seo_title} với mức giá hiện tại ${m.currP} Tỷ ${m.diffBil > 0 ? `(đã giảm ${m.diffBil} tỷ / -${m.diffPct}%)` : ''}, dòng tiền ${topProp.specs?.cashflow}.`;
+      } else {
+        textEl.textContent = `Chưa có tài sản công khai khớp đồng thời tất cả tiêu chí trên. Anh/Chị có thể bấm Xóa để mở rộng tiêu chí hoặc liên hệ trực tiếp 0916.23.9898 ( Vũ ) để nhận danh mục kín.`;
+      }
+
+      banner.classList.remove("hidden");
+      renderAll();
+      document.getElementById("kho-tai-san").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function clearAllFilters() {
+      document.getElementById("smartSearchInput").value = "";
+      document.getElementById("segmentFilter").value = "ALL";
+      document.getElementById("typeFilter").value = "ALL";
+      document.getElementById("districtFilter").value = "ALL";
+      populateWardOptions();
+      document.getElementById("wardFilter").value = "ALL";
+      document.getElementById("eventFilter").value = "ALL";
+      document.getElementById("sortFilter").value = "PRIORITY";
+      document.getElementById("clearSearchBtn").classList.add("hidden");
+      document.getElementById("conciergeBanner").classList.add("hidden");
+      currentParsedQueryFilter = null;
+      resetPageAndRender();
+    }
+
+    function resetPageAndRender() {
+      currentPage = 1;
+      extraLoadedCount = 0;
+      renderAll();
+    }
+
+    function getFilteredProperties() {
+      const qRaw = (document.getElementById("smartSearchInput").value || "").trim().toLowerCase();
+      const seg = document.getElementById("segmentFilter").value;
+      const propType = document.getElementById("typeFilter").value;
+      const dist = document.getElementById("districtFilter").value;
+      const ward = document.getElementById("wardFilter").value;
+      const evType = document.getElementById("eventFilter").value;
+      const sortBy = document.getElementById("sortFilter").value;
+
+      let list = propertiesData.filter(prop => {
+        const m = computeMetrics(prop);
+        const cat = resolveCategoryName(prop);
+
+        if (seg === "20_50" && (m.currP < 20 || m.currP > 50)) return false;
+        if (seg === "50_100" && (m.currP <= 50 || m.currP > 100)) return false;
+        if (seg === "OVER_100" && m.currP <= 100) return false;
+
+        if (propType !== "ALL" && cat !== propType) return false;
+        if (dist !== "ALL" && prop.public_location?.district !== dist) return false;
+        if (ward !== "ALL" && prop.public_location?.ward !== ward) return false;
+        if (evType !== "ALL" && prop.event_type !== evType) return false;
+
+        if (currentParsedQueryFilter) {
+          const hasStructuredRule =
+            currentParsedQueryFilter.districts.length > 0 ||
+            currentParsedQueryFilter.maxPriceBil !== null ||
+            currentParsedQueryFilter.minPriceBil !== null ||
+            currentParsedQueryFilter.minCashflowMil !== null ||
+            currentParsedQueryFilter.onlyUpdate ||
+            currentParsedQueryFilter.keywords.length > 0;
+
+          if (hasStructuredRule) {
+            if (currentParsedQueryFilter.districts.length > 0 && !currentParsedQueryFilter.districts.includes(prop.public_location?.district)) return false;
+            if (currentParsedQueryFilter.maxPriceBil && m.currP > currentParsedQueryFilter.maxPriceBil) return false;
+            if (currentParsedQueryFilter.minPriceBil && m.currP < currentParsedQueryFilter.minPriceBil) return false;
+            if (currentParsedQueryFilter.minCashflowMil && m.monthlyMil < currentParsedQueryFilter.minCashflowMil) return false;
+            if (currentParsedQueryFilter.onlyUpdate && prop.event_type !== "UPDATE") return false;
+            if (currentParsedQueryFilter.keywords.length > 0) {
+              const textBlob = `${cat} ${prop.seo_title} ${prop.summary} ${prop.specs?.structure}`.toLowerCase();
+              if (!currentParsedQueryFilter.keywords.some(k => textBlob.includes(k))) return false;
+            }
+            return true;
+          }
+        }
+
+        if (qRaw) {
+          const haystack = `${prop.property_id} ${cat} ${prop.seo_title} ${prop.summary} ${prop.public_location?.street} ${prop.public_location?.ward} ${prop.public_location?.district} ${prop.specs?.structure}`.toLowerCase();
+          return haystack.includes(qRaw);
+        }
+        return true;
+      });
+
+      list.sort((a, b) => {
+        const ma = computeMetrics(a);
+        const mb = computeMetrics(b);
+        if (sortBy === "DISCOUNT_DESC") return mb.diffPct - ma.diffPct;
+        if (sortBy === "YIELD_DESC") return mb.annualYieldPct - ma.annualYieldPct;
+        if (sortBy === "PRICE_ASC") return ma.currP - mb.currP;
+        if (sortBy === "PRICE_DESC") return mb.currP - ma.currP;
+        return 0;
+      });
+
+      return list;
+    }
+
+    function updateFilterBadgesUI(matchedCount) {
+      const seg = document.getElementById("segmentFilter");
+      const propType = document.getElementById("typeFilter");
+      const dist = document.getElementById("districtFilter");
+      const ward = document.getElementById("wardFilter");
+      const evType = document.getElementById("eventFilter");
+
+      const activeList = [];
+      if (seg.value !== "ALL") activeList.push(seg.options[seg.selectedIndex].text);
+      if (propType.value !== "ALL") activeList.push(propType.value);
+      if (dist.value !== "ALL") activeList.push(dist.value);
+      if (ward.value !== "ALL") activeList.push(ward.value);
+      if (evType.value !== "ALL") activeList.push(evType.value);
+
+      const badge = document.getElementById("activeFilterCountBadge");
+      const row = document.getElementById("activeFilterTagsRow");
+      const pillsEl = document.getElementById("activeFilterPills");
+      const countEl = document.getElementById("drawerMatchCount");
+
+      if (activeList.length > 0) {
+        badge.textContent = activeList.length;
+        badge.classList.remove("hidden");
+        row.classList.remove("hidden");
+        pillsEl.innerHTML = `<span class="text-slate-400 font-semibold mr-1">Đang lọc:</span>` +
+          activeList.map(item => `<span class="px-2.5 py-1 rounded-lg bg-sky-50 text-[#0EA5E9] border border-sky-200 font-bold text-[11px]">${esc(item)}</span>`).join("");
+        countEl.textContent = `Khớp ${matchedCount} tài sản`;
+      } else {
+        badge.classList.add("hidden");
+        row.classList.add("hidden");
+      }
+    }
+
+    // =========================================================================
+    // RENDER BẢNG TÀI SẢN HOT (5 CỘT GỌN ĐẸP, CỘT 1 LÀ ẢNH ĐẠI DIỆN, KHÔNG CUỘN NGANG)
+    // =========================================================================
+    function renderHotRadarSection() {
+      const radarBody = document.getElementById("hotRadarTableBody");
+      const sortedHotList = [...propertiesData].sort((a, b) => (b.is_live_sync ? 1 : 0) - (a.is_live_sync ? 1 : 0) || computeMetrics(b).diffPct - computeMetrics(a).diffPct);
+
+      const totalHot = sortedHotList.length;
+      const totalHotPages = Math.max(1, Math.ceil(totalHot / hotItemsPerPage));
+      if (hotCurrentPage > totalHotPages) hotCurrentPage = totalHotPages;
+
+      const startIdx = (hotCurrentPage - 1) * hotItemsPerPage;
+      const pageItems = sortedHotList.slice(startIdx, startIdx + hotItemsPerPage);
+
+      radarBody.innerHTML = pageItems.map(prop => {
+        const m = computeMetrics(prop);
+        const isUpdate = prop.event_type === "UPDATE";
+        const catName = resolveCategoryName(prop);
+        const galleryList = getPropertyGalleryList(prop);
+        const coverImg = galleryList[0]?.url || "";
+        const imgCount = galleryList.length;
+        const streetLabel = formatStreetDisplay(prop);
+
+        return `
+          <tr class="hover:bg-sky-50/50 transition cursor-pointer group" onclick="openPropertyModal('${esc(prop.property_id)}')">
+            <!-- Cột 1: Ảnh bìa đại diện tài sản (Không có tên cột ở thead) -->
+            <td class="py-3.5 pl-4 pr-2 align-middle w-[124px]">
+              <div class="relative w-26 h-18 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-2xs">
+                <img src="${esc(coverImg)}" alt="${esc(prop.seo_title)}" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
+                <span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold flex items-center gap-1 backdrop-blur-xs">
+                  <i data-lucide="camera" class="w-2.5 h-2.5 text-[#FBBF24]"></i>
+                  <span>${imgCount}</span>
+                </span>
+              </div>
+            </td>
+
+            <!-- Cột 2: Thông Tin Tài Sản -->
+            <td class="py-3.5 px-4 align-middle">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="font-extrabold text-sm text-[#0F172A] group-hover:text-[#0EA5E9] transition">${esc(catName)}</span>
+                <span class="font-mono text-[11px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">${esc(prop.property_id)}</span>
+                <span class="px-2 py-0.5 text-[10px] font-mono font-extrabold rounded-md ${isUpdate ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-sky-50 text-[#0EA5E9] border border-sky-200'}">
+                  ${esc(prop.event_type)}
+                </span>
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5 mt-1.5 text-xs">
+                <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-[#0F172A] border border-slate-200/80 font-semibold">
+                  ${esc(streetLabel)}
+                </span>
+                <span class="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium border border-slate-200/80">
+                  ${esc(prop.public_location?.ward)}
+                </span>
+                <span class="px-2.5 py-0.5 rounded-md bg-sky-50 text-[#0EA5E9] font-bold border border-sky-200/80">
+                  ${esc(prop.public_location?.district)}
+                </span>
+              </div>
+            </td>
+
+            <!-- Cột 3: Thông Số Chuẩn -->
+            <td class="py-3.5 px-4 font-mono text-xs text-slate-700 align-middle">
+              <div>
+                DT: <strong>${esc(prop.specs?.dimensions)}</strong> <span class="text-slate-500">(CN: <strong>${esc(prop.specs?.recognized_area_m2)}m²</strong>)</span>
+              </div>
+              <div class="text-[#64748B] text-[11px] mt-1 font-sans font-medium">
+                Kết cấu: <span class="text-[#0F172A] font-semibold">${esc(prop.specs?.structure)}</span>
+              </div>
+            </td>
+
+            <!-- Cột 4: Hành Trình Giá -->
+            <td class="py-3.5 px-4 font-mono align-middle whitespace-nowrap">
+              <div>
+                <span class="text-xs text-slate-400 line-through mr-1">${esc(m.initP)} Tỷ</span>
+                <span class="text-sm font-extrabold text-[#0F172A]">→ ${esc(m.currP)} Tỷ</span>
+              </div>
+              ${m.diffBil > 0
+                ? `<div class="text-[11px] font-bold text-emerald-600 mt-0.5">Giảm ${esc(m.diffBil)} Tỷ (-${esc(m.diffPct)}%)</div>`
+                : `<div class="text-[11px] text-slate-400 mt-0.5 font-sans">Giá chào tuyển chọn</div>`
+              }
+            </td>
+
+            <!-- Cột 5: Dòng Tiền / Hiệu Suất -->
+            <td class="py-3.5 pl-4 pr-5 font-mono text-xs align-middle">
+              <div class="font-bold text-[#0F172A] line-clamp-1">${esc(prop.specs?.cashflow || 'Bàn giao ngay')}</div>
+              ${m.annualYieldPct > 0
+                ? `<div class="text-[11px] text-[#0EA5E9] font-bold mt-0.5">Hiệu suất ~ ${esc(m.annualYieldPct)}%/năm</div>`
+                : `<div class="text-[11px] text-slate-400 mt-0.5">~${esc(m.pricePerM2Mil)} tr/m²</div>`
+              }
+            </td>
+          </tr>
+        `;
+      }).join("");
+
+      document.getElementById("hotRadarSummary").innerHTML =
+        `Đang hiển thị <strong>${startIdx + 1}–${Math.min(totalHot, startIdx + hotItemsPerPage)}</strong> trên <strong>${totalHot}</strong> Tài sản Hot (Trang ${hotCurrentPage}/${totalHotPages})`;
+
+      const hotPageEl = document.getElementById("hotRadarPagination");
+      let hotBtns = `
+        <button onclick="goToHotRadarPage(${hotCurrentPage - 1})" ${hotCurrentPage === 1 ? 'disabled' : ''} class="px-2.5 py-1.5 rounded-lg text-xs font-bold border ${hotCurrentPage === 1 ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-200 bg-white text-[#0F172A] hover:border-[#0EA5E9]'}">
+          ‹ Trước
+        </button>
+      `;
+      for (let p = 1; p <= totalHotPages; p++) {
+        const active = p === hotCurrentPage;
+        hotBtns += `
+          <button onclick="goToHotRadarPage(${p})" class="px-3 py-1.5 rounded-lg text-xs font-mono font-bold border transition ${active ? 'bg-[#0F172A] text-[#FBBF24] border-[#0F172A]' : 'bg-white text-slate-700 border-slate-200 hover:border-[#0EA5E9]'}">
+            Trang ${p}
+          </button>
+        `;
+      }
+      hotBtns += `
+        <button onclick="goToHotRadarPage(${hotCurrentPage + 1})" ${hotCurrentPage === totalHotPages ? 'disabled' : ''} class="px-2.5 py-1.5 rounded-lg text-xs font-bold border ${hotCurrentPage === totalHotPages ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-200 bg-white text-[#0F172A] hover:border-[#0EA5E9]'}">
+          Tiếp ›
+        </button>
+      `;
+      hotPageEl.innerHTML = hotBtns;
+    }
+
+    function goToHotRadarPage(p) {
+      const totalHotPages = Math.max(1, Math.ceil(propertiesData.length / hotItemsPerPage));
+      if (p < 1 || p > totalHotPages) return;
+      hotCurrentPage = p;
+      renderHotRadarSection();
+      lucide.createIcons();
+    }
+
+    function renderAll() {
+      renderHotRadarSection();
+      renderInsightArticlesSection();
+
+      const filtered = getFilteredProperties();
+      updateFilterBadgesUI(filtered.length);
+
+      const totalItems = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIdx = (currentPage - 1) * itemsPerPage;
+      const endIdx = Math.min(totalItems, startIdx + itemsPerPage + extraLoadedCount);
+      const visibleItems = filtered.slice(startIdx, endIdx);
+
+      const grid = document.getElementById("propertyGrid");
+      if (visibleItems.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl border border-slate-200 p-12 text-center">
+            <p class="text-sm font-bold text-[#0F172A]">Không tìm thấy tài sản phù hợp với điều kiện lọc hiện tại.</p>
+            <button onclick="clearAllFilters()" class="mt-3 px-4 py-2 rounded-xl text-xs font-bold bg-[#0EA5E9] text-white">Xem lại toàn bộ kho tài sản</button>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = visibleItems.map(prop => {
+          const m = computeMetrics(prop);
+          const isUpdate = prop.event_type === "UPDATE";
+          const catName = resolveCategoryName(prop);
+          const galleryList = getPropertyGalleryList(prop);
+          const coverImg = galleryList[0]?.url || "";
+          const imgCount = galleryList.length;
+          const streetLabel = formatStreetDisplay(prop);
+          const inCompare = compareList.includes(prop.property_id);
+          const historyArr = prop.pricing?.price_history || [];
+          const lastNote = historyArr[historyArr.length - 1]?.note || "Đã xác minh pháp lý";
+
+          return `
+            <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="cursor-pointer bg-white rounded-2xl border border-slate-200/90 overflow-hidden card-elevate flex flex-col justify-between">
+              <div>
+                <div class="relative h-56 bg-slate-100 overflow-hidden group select-none" oncontextmenu="return false;">
+                  <img src="${esc(coverImg)}" alt="${esc(prop.seo_title)}" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/25 to-transparent"></div>
+
+                  <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold bg-[#0F172A]/90 text-[#FBBF24] backdrop-blur-xs">
+                      ${esc(prop.property_id)}
+                    </span>
+                    <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold ${isUpdate ? 'bg-emerald-500 text-white' : 'bg-[#0EA5E9] text-white'}">
+                      ${isUpdate ? `UPDATE • GIẢM ${esc(m.diffBil)} TỶ` : 'NEW • MỚI TUYỂN CHỌN'}
+                    </span>
+                  </div>
+
+                  <div class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-slate-900/75 text-white backdrop-blur-xs flex items-center gap-1">
+                    <i data-lucide="camera" class="w-3 h-3 text-[#FBBF24]"></i>
+                    <span>${imgCount} ảnh</span>
+                  </div>
+
+                  <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
+                    <div>
+                      <span class="text-[10px] font-mono uppercase tracking-wider text-[#FBBF24] font-bold block">${esc(catName)}</span>
+                      <span class="text-xs font-semibold">
+                        ${esc(streetLabel)} • ${esc(prop.public_location?.district)}
+                      </span>
+                    </div>
+                    <div class="text-right font-mono shrink-0 ml-2">
+                      ${m.diffBil > 0 ? `<div class="text-[11px] text-slate-300 line-through">${esc(m.initP)} Tỷ</div>` : ''}
+                      <div class="text-lg font-extrabold text-[#FBBF24] leading-none">${esc(m.currP)} Tỷ</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-5">
+                  <div class="flex flex-wrap items-center gap-1.5 mb-2">
+                    <span class="whitespace-nowrap px-2 py-0.5 rounded bg-slate-100 text-[#0F172A] font-semibold text-[11px]">${esc(streetLabel)}</span>
+                    <span class="whitespace-nowrap px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium text-[11px]">${esc(prop.public_location?.ward)}</span>
+                    <span class="whitespace-nowrap px-2 py-0.5 rounded bg-sky-50 text-[#0EA5E9] font-bold text-[11px]">${esc(prop.public_location?.district)}</span>
+                  </div>
+
+                  <h3 class="font-bold text-base text-[#0F172A] leading-snug line-clamp-2">${esc(prop.seo_title)}</h3>
+                  <p class="text-xs text-[#64748B] mt-1.5 line-clamp-2">${esc(prop.summary)}</p>
+
+                  <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2.5 text-xs">
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/60">
+                      <span class="text-[10px] text-slate-400 block font-medium">DT &amp; Công nhận</span>
+                      <span class="font-mono font-bold text-[#0F172A]">${esc(prop.specs?.dimensions)} (CN ${esc(prop.specs?.recognized_area_m2)}m²)</span>
+                    </div>
+                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200/60">
+                      <span class="text-[10px] text-slate-400 block font-medium">Dòng tiền khai thác</span>
+                      <span class="font-mono font-bold text-emerald-700">${esc(prop.specs?.cashflow || 'Bàn giao ngay')}</span>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 px-3 py-2 rounded-xl bg-sky-50/70 border border-sky-100 text-[11px] font-mono text-slate-700 flex items-center justify-between">
+                    <span class="truncate">📌 ${esc(lastNote)}</span>
+                    <span class="text-[#0EA5E9] font-bold shrink-0 ml-2">${historyArr.length} nhịp giá</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5 pt-1 flex items-center gap-2">
+                <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-3 rounded-xl bg-[#0F172A] hover:bg-[#0EA5E9] text-white text-xs font-bold transition flex items-center justify-center gap-1.5">
+                  <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
+                  <span>Xem ${imgCount} Ảnh &amp; Hồ Sơ</span>
+                </button>
+                <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-3 rounded-xl border text-xs font-bold transition ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white text-slate-600 border-slate-200 hover:border-[#0EA5E9]'}">
+                  ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
+                </button>
+              </div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      document.getElementById("paginationSummary").innerHTML =
+        `Đang hiển thị <strong>${visibleItems.length}</strong> trên tổng số <strong>${totalItems}</strong> tài sản (Trang ${currentPage}/${totalPages})`;
+
+      const loadMoreWrap = document.getElementById("loadMoreWrapper");
+      if (endIdx < totalItems) {
+        loadMoreWrap.classList.remove("hidden");
+        document.getElementById("loadMoreBtnText").textContent = `Xem thêm tài sản (+${Math.min(3, totalItems - endIdx)} căn tiếp theo)`;
+      } else {
+        loadMoreWrap.classList.add("hidden");
+      }
+
+      const pageContainer = document.getElementById("pageNumbersContainer");
+      let pageButtonsHtml = `
+        <button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-3 py-2 rounded-xl text-xs font-bold border ${currentPage === 1 ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-200 bg-white text-[#0F172A] hover:border-[#0EA5E9]'}">
+          ‹ Trước
+        </button>
+      `;
+      for (let p = 1; p <= totalPages; p++) {
+        const active = p === currentPage;
+        pageButtonsHtml += `
+          <button onclick="goToPage(${p})" class="px-3.5 py-2 rounded-xl text-xs font-mono font-bold border transition ${active ? 'bg-[#0F172A] text-[#FBBF24] border-[#0F172A]' : 'bg-white text-slate-700 border-slate-200 hover:border-[#0EA5E9]'}">
+            Trang ${p}
+          </button>
+        `;
+      }
+      pageButtonsHtml += `
+        <button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="px-3 py-2 rounded-xl text-xs font-bold border ${currentPage === totalPages ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-200 bg-white text-[#0F172A] hover:border-[#0EA5E9]'}">
+          Tiếp ›
+        </button>
+      `;
+      pageContainer.innerHTML = pageButtonsHtml;
+
+      lucide.createIcons();
+    }
+
+    function loadMoreProperties() {
+      extraLoadedCount += 3;
+      renderAll();
+    }
+
+    function goToPage(pageNum) {
+      const filtered = getFilteredProperties();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / itemsPerPage));
+      if (pageNum < 1 || pageNum > totalPages) return;
+      currentPage = pageNum;
+      extraLoadedCount = 0;
+      renderAll();
+      document.getElementById("kho-tai-san").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // =========================================================================
+    // GALLERY HIỂN THỊ TRỌN ẢNH + CHẾ ĐỘ PHÓNG TO TOÀN MÀN HÌNH (LIGHTBOX)
+    // =========================================================================
+    function isLegalDocumentImage(item) {
+      const text = [item?.url, item?.caption, item?.type, item?.category, item?.visibility]
+        .filter(Boolean).join(" ").toLowerCase();
+      return /(^|[^a-z0-9])(sohong|so-hong|so_hong|#so|private_so_hong|legal|certificate|cccd|cmnd|passport|giay.?to|phap.?ly)([^a-z0-9]|$)/i.test(text)
+        || item?.is_legal_document === true
+        || item?.visibility === "internal";
+    }
+
+    function getPropertyGalleryList(prop) {
+      if (prop.gallery && prop.gallery.length > 0) {
+        const clean = prop.gallery.filter(item => !isLegalDocumentImage(item));
+        if (clean.length > 0) return clean;
+      }
+      if (prop.public_images && prop.public_images.length > 0) {
+        const cleanUrls = prop.public_images.filter(img => !isLegalDocumentImage({ url: img }));
+        if (cleanUrls.length > 0) {
+          return cleanUrls.map((img, idx) => ({
+            url: img,
+            caption: `Hình ảnh thực tế tài sản #${idx + 1}`
+          }));
+        }
+      }
+      return [{
+        url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+        caption: "Ảnh phối cảnh minh họa phân khúc"
+      }];
+    }
+
+    function renderGallerySlide() {
+      if (!activeModalProperty) return;
+      const gallery = getPropertyGalleryList(activeModalProperty);
+      if (currentGalleryIndex >= gallery.length) currentGalleryIndex = 0;
+      if (currentGalleryIndex < 0) currentGalleryIndex = gallery.length - 1;
+
+      const currentItem = gallery[currentGalleryIndex];
+      const isUnsplashDemo = String(currentItem.url || "").includes("images.unsplash.com");
+      const sourceLabel = isUnsplashDemo ? "Ảnh phối cảnh minh họa" : "Ảnh thực tế đã kiểm duyệt";
+
+      document.getElementById("galleryMainImage").src = currentItem.url;
+      const blurBg = document.getElementById("galleryBlurBackdrop");
+      if (blurBg) blurBg.src = currentItem.url;
+
+      document.getElementById("galleryCounter").textContent = `${currentGalleryIndex + 1} / ${gallery.length} • ${sourceLabel}`;
+      const hintEl = document.getElementById("galleryTotalHint");
+      if (hintEl) hintEl.textContent = `Tổng cộng ${gallery.length} hình ảnh`;
+
+      document.getElementById("galleryCaption").innerHTML = `
+        <span>📸 ${esc(currentItem.caption)}</span>
+        <span class="text-[11px] font-mono text-[#FBBF24] hidden sm:inline">Liên hệ 0916.23.9898 ( Vũ ) để nhận Sổ hồng gốc</span>
+      `;
+
+      const thumbsEl = document.getElementById("galleryThumbnails");
+      thumbsEl.innerHTML = gallery.map((item, idx) => `
+        <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-28 h-20 rounded-xl overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}">
+          <img src="${esc(item.url)}" draggable="false" class="w-full h-full object-cover pointer-events-none" />
+          <span class="absolute bottom-1 right-1 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
+        </button>
+      `).join("");
+
+      // Đồng bộ nếu cửa sổ Fullscreen Lightbox đang mở
+      const lb = document.getElementById("fullscreenLightbox");
+      if (lb && !lb.classList.contains("hidden")) {
+        document.getElementById("lightboxMainImg").src = currentItem.url;
+        document.getElementById("lightboxPropCode").textContent = activeModalProperty.property_id;
+        document.getElementById("lightboxCounter").textContent = `Hình ${currentGalleryIndex + 1} / ${gallery.length} — ${currentItem.caption}`;
+        document.getElementById("lightboxThumbStrip").innerHTML = gallery.map((item, idx) => `
+          <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] scale-105' : 'border-transparent opacity-50 hover:opacity-100'}">
+            <img src="${esc(item.url)}" draggable="false" class="w-full h-full object-cover pointer-events-none" />
+          </button>
+        `).join("");
+      }
+    }
+
+    function openFullscreenLightbox() {
+      if (!activeModalProperty) return;
+      document.getElementById("fullscreenLightbox").classList.remove("hidden");
+      renderGallerySlide();
+      lucide.createIcons();
+    }
+
+    function closeFullscreenLightbox() {
+      document.getElementById("fullscreenLightbox")?.classList.add("hidden");
+    }
+
+    function changeGallerySlide(step) {
+      currentGalleryIndex += step;
+      renderGallerySlide();
+    }
+
+    function selectGallerySlide(index) {
+      currentGalleryIndex = index;
+      renderGallerySlide();
+    }
+
+    // =========================================================================
+    // ĐỊNH DẠNG PHẦN "PHÂN TÍCH CHUYÊN SÂU & HIỆN TRẠNG TÀI SẢN" TÁCH DÒNG DỄ NHÌN
+    // =========================================================================
+    function renderStructuredDescriptionHtml(prop) {
+      const catName = resolveCategoryName(prop);
+      const dims = prop.specs?.dimensions || "Đang cập nhật";
+      const areaM2 = prop.specs?.recognized_area_m2 || 0;
+      const struct = prop.specs?.structure || "Đang cập nhật";
+      const cashflow = prop.specs?.cashflow || "Bàn giao ngay";
+
+      // Khối 1: Bảng tóm tắt Thông số & Kết cấu chuẩn (Xuống hàng từng mục như yêu cầu)
+      const specsBlockHtml = `
+        <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/90">
+          <div class="text-xs font-extrabold uppercase tracking-wider text-[#0F172A] mb-2.5 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span>
+            <span>Thông số &amp; Kết cấu chuẩn:</span>
+          </div>
+          <ul class="space-y-2 text-sm text-slate-700 font-medium pl-1">
+            <li class="flex items-start gap-2">
+              <span class="text-[#0EA5E9] font-bold">•</span>
+              <span><strong class="text-[#0F172A]">Diện tích:</strong> <span class="font-mono font-bold text-[#0F172A]">${esc(dims)}</span> <span class="text-slate-600">(Công nhận: <strong class="font-mono text-[#0F172A]">${esc(areaM2)}m²</strong>)</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0EA5E9] font-bold">•</span>
+              <span><strong class="text-[#0F172A]">Kết cấu:</strong> <span class="font-semibold text-[#0F172A]">${esc(struct)}</span></span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#0EA5E9] font-bold">•</span>
+              <span><strong class="text-[#0F172A]">Loại hình:</strong> <span class="font-semibold text-[#0EA5E9]">${esc(catName)}</span> <span class="text-slate-600">(${esc(cashflow)})</span></span>
+            </li>
+          </ul>
+        </div>
+      `;
+
+      // Khối 2: Tách từng dòng mô tả chi tiết (Vị trí, Thông số, Khai thác & Pháp lý)
+      const rawDesc = String(prop.marketing_description || prop.summary || "").trim();
+      const lines = rawDesc
+        .split(/\r?\n|(?=\s*•\s*)/)
+        .map(l => l.replace(/^[•\-*]\s*/, "").trim())
+        .filter(Boolean);
+
+      if (lines.length === 0) return specsBlockHtml;
+
+      const detailItemsHtml = lines.map(line => {
+        const colonIdx = line.indexOf(":");
+        if (colonIdx > 0 && colonIdx < 38) {
+          const head = line.slice(0, colonIdx).trim();
+          const rest = line.slice(colonIdx + 1).trim();
+          return `
+            <div class="p-3.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-[#0EA5E9] mb-1">• ${esc(head)}:</div>
+              <div class="text-sm text-slate-700 leading-relaxed pl-3">${esc(rest)}</div>
+            </div>
+          `;
+        }
+        return `
+          <div class="p-3.5 rounded-xl bg-white border border-slate-200/80 text-sm text-slate-700 leading-relaxed">
+            • ${esc(line)}
+          </div>
+        `;
+      }).join("");
+
+      return specsBlockHtml + `<div class="space-y-2.5">${detailItemsHtml}</div>`;
+    }
+
+    function updateLoanCalculator() {
+      if (!activeModalProperty) return;
+      const m = computeMetrics(activeModalProperty);
+      const ltv = parseInt(document.getElementById("loanLtvSlider").value, 10) || 0;
+      document.getElementById("loanLtvLabel").textContent = `${ltv}%`;
+
+      const loanBil = +(m.currP * (ltv / 100)).toFixed(1);
+      const equityBil = +(m.currP - loanBil).toFixed(1);
+      document.getElementById("loanEquityValue").textContent = `${equityBil} Tỷ (Vay ${loanBil} Tỷ)`;
+
+      const monthlyInterestMil = Math.round(loanBil * 1000 * (0.075 / 12));
+      if (m.monthlyMil > 0) {
+        const netMil = m.monthlyMil - monthlyInterestMil;
+        document.getElementById("loanInterestVsRent").textContent =
+          `Lãi ~${monthlyInterestMil}tr/tháng | Thuê: ${m.monthlyMil}tr (${netMil >= 0 ? `+${netMil}tr` : `${netMil}tr`})`;
+      } else {
+        document.getElementById("loanInterestVsRent").textContent = `Lãi vay dự kiến: ~${monthlyInterestMil} triệu/tháng`;
+      }
+    }
+
+    function openPropertyModal(propId) {
+      const prop = propertiesData.find(p => p.property_id === propId);
+      if (!prop) return;
+      activeModalProperty = prop;
+      currentGalleryIndex = 0;
+      const m = computeMetrics(prop);
+      const catName = resolveCategoryName(prop);
+      const streetLabel = formatStreetDisplay(prop);
+
+      document.getElementById("modalPropId").textContent = prop.property_id;
+      const catBadge = document.getElementById("modalCategoryBadge");
+      if (catBadge) catBadge.textContent = catName;
+
+      const badge = document.getElementById("modalEventBadge");
+      if (badge) {
+        badge.textContent = prop.event_type === "UPDATE"
+          ? `UPDATE • ĐÃ GIẢM ${m.diffBil} TỶ (-${m.diffPct}%)`
+          : "NEW • TÀI SẢN TUYỂN CHỌN";
+        badge.className = `font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg ${
+          prop.event_type === "UPDATE"
+            ? "bg-emerald-100 text-emerald-800"
+            : "bg-sky-100 text-[#0EA5E9]"
+        }`;
+      }
+
+      document.getElementById("modalTitle").textContent = prop.seo_title;
+
+      const locBadges = document.getElementById("modalLocationBadges");
+      if (locBadges) {
+        locBadges.innerHTML = `
+          <span class="px-3 py-1 rounded-lg bg-slate-100 text-[#0F172A] font-bold text-xs">${esc(streetLabel)}</span>
+          <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 font-semibold text-xs">${esc(prop.public_location?.ward)}</span>
+          <span class="px-3 py-1 rounded-lg bg-sky-50 text-[#0EA5E9] font-extrabold text-xs">${esc(prop.public_location?.district)}</span>
+          <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 font-mono font-bold text-[11px]">🔒 Số nhà &amp; Sổ hồng bảo mật nội bộ</span>
+        `;
+      }
+
+      document.getElementById("modalInitialPrice").textContent = `${m.initP} Tỷ VNĐ`;
+      document.getElementById("modalCurrentPrice").textContent = `${m.currP} Tỷ VNĐ`;
+      document.getElementById("modalAreaSpecs").textContent = `DT: ${prop.specs?.dimensions || "N/A"} (CN: ${prop.specs?.recognized_area_m2 || 0}m²)`;
+      document.getElementById("modalCashflow").textContent = `${prop.specs?.cashflow || "Bàn giao ngay"} ${
+        m.annualYieldPct > 0 ? `(~${m.annualYieldPct}%/năm)` : ""
+      }`;
+
+      document.getElementById("modalDescription").innerHTML = renderStructuredDescriptionHtml(prop);
+
+      const timeline = document.getElementById("modalPriceTimeline");
+      if (timeline) {
+        timeline.innerHTML = (prop.pricing?.price_history || []).map((h, idx) => `
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-[11px] font-bold flex items-center justify-center shrink-0">
+                #${idx + 1}
+              </span>
+              <div>
+                <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
+                <span class="block text-[11px] text-[#64748B]">Đã đối soát xác thực trên hệ thống nhatoSG</span>
+              </div>
+            </div>
+            <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
+              ${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ
+            </span>
+          </div>
+        `).join("");
+      }
+
+      updateLoanCalculator();
+      renderGallerySlide();
+
+      const leadMsg = document.getElementById("leadSuccessMsg");
+      if (leadMsg) leadMsg.classList.add("hidden");
+
+      document.getElementById("propertyModal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function closePropertyModal() {
+      document.getElementById("propertyModal")?.classList.add("hidden");
+      closeFullscreenLightbox();
+    }
+
+    // =========================================================================
+    // XỬ LÝ FORM LEAD & BÀI VIẾT QUY HOẠCH (KÈM COPY PROMPT CONTENT CHO GEMINI)
+    // =========================================================================
+    function isValidVietnamPhone(phone) {
+      const clean = String(phone || "").replace(/[\s.-]/g, "");
+      return /^(0|\+84)(3|5|7|8|9)\d{8}$/.test(clean);
+    }
+
+    function sendOptionalLeadWebhook(payload) {
+      if (!LEAD_WEBHOOK_URL) return;
+      fetch(LEAD_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(() => {});
+    }
+
+    function submitLegalRequest(e) {
+      e.preventDefault();
+      const name = (document.getElementById("leadName")?.value || "").trim();
+      const phone = (document.getElementById("leadPhone")?.value || "").trim();
+      const prop = activeModalProperty;
+      const msg = document.getElementById("leadSuccessMsg");
+
+      if (!isValidVietnamPhone(phone)) {
+        alert("Vui lòng nhập Số điện thoại Zalo hợp lệ (10 số Việt Nam, VD: 0916239898)!");
+        return;
+      }
+
+      const summaryText = `Chào Vũ (nhatoSG), tôi là ${name} (${phone}). Tôi quan tâm mã [${prop?.property_id}] - ${prop?.seo_title} (${prop?.pricing?.current_price_billion} Tỷ), nhờ Vũ gửi Sổ hồng & vị trí chính xác qua Zalo.`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(summaryText).catch(() => {});
+      }
+
+      sendOptionalLeadWebhook({ type: "LEGAL_REQUEST", name, phone, property_id: prop?.property_id });
+
+      if (msg) {
+        msg.textContent = `✓ Đã chuẩn bị nội dung yêu cầu cho mã [${prop?.property_id}] vào bộ nhớ tạm — Vui lòng bấm Dán (Paste) & Gửi trên cửa sổ Zalo 0916.23.9898 ( Vũ ).`;
+        msg.classList.remove("hidden");
+      }
+      window.open("https://zalo.me/0916239898", "_blank", "noopener");
+    }
+
+    function handleVipMandateSubmit(e) {
+      e.preventDefault();
+      const name = (document.getElementById("mandateName")?.value || "").trim();
+      const phone = (document.getElementById("mandatePhone")?.value || "").trim();
+      const criteria = (document.getElementById("mandateCriteria")?.value || "").trim();
+      const el = document.getElementById("mandateSuccess");
+
+      if (!isValidVietnamPhone(phone)) {
+        alert("Vui lòng nhập Số điện thoại Zalo hợp lệ (10 số Việt Nam)!");
+        return;
+      }
+
+      const summaryText = `Chào Vũ (nhatoSG), tôi là ${name} (${phone}). Nhu cầu tìm/ký gửi tài sản: ${criteria}`;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(summaryText).catch(() => {});
+      }
+
+      sendOptionalLeadWebhook({ type: "VIP_MANDATE", name, phone, criteria });
+
+      if (el) {
+        el.textContent = `✓ Đã chuẩn bị nội dung vào bộ nhớ tạm — Vui lòng gửi qua cửa sổ Zalo 0916.23.9898 ( Vũ ) vừa mở.`;
+        el.classList.remove("hidden");
+      }
+      window.open("https://zalo.me/0916239898", "_blank", "noopener");
+    }
+
+    function openInsightModal(index) {
+      const art = INSIGHT_ARTICLES[index];
+      if (!art) return;
+      activeInsightIndex = index;
+      const defaultImgs = [
+        "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1000&q=80"
+      ];
+      document.getElementById("insightModalImage").src = art.image || defaultImgs[index % defaultImgs.length];
+      document.getElementById("insightCategory").textContent = art.category;
+      document.getElementById("insightTitle").textContent = art.title;
+      document.getElementById("insightContent").textContent = art.content;
+      document.getElementById("insightCopyStatus")?.classList.add("hidden");
+      document.getElementById("insightModal").classList.remove("hidden");
+      lucide.createIcons();
+    }
+
+    function copyInsightFullText() {
+      const art = INSIGHT_ARTICLES[activeInsightIndex];
+      if (!art) return;
+      const fullTxt = `${art.title}\n\n${art.content}\n\n— nhatoSG (Nhà Sài Gòn) • Hotline/Zalo: 0916.23.9898 (Vũ)`;
+      navigator.clipboard?.writeText(fullTxt);
+      const st = document.getElementById("insightCopyStatus");
+      if (st) {
+        st.textContent = "✓ Đã copy toàn văn bài viết vào bộ nhớ tạm!";
+        st.classList.remove("hidden");
+      }
+    }
+
+    function copyGeminiContentPrompt() {
+      const art = INSIGHT_ARTICLES[activeInsightIndex];
+      if (!art) return;
+      const promptTxt = `Hãy đóng vai Chuyên gia Phân tích Đầu tư & Quy hoạch BĐS Trung tâm TP.HCM của thương hiệu nhatoSG (Nhà Sài Gòn - Hotline: 0916.23.9898 Vũ). Dựa trên chủ đề: "${art.title}" và nội dung cốt lõi sau:\n"${art.content}"\n\nHãy viết cho tôi 1 bài phân tích chuyên sâu mới (dài khoảng 500-700 chữ, chia 3 phần rõ ràng, số liệu thực chiến, giọng văn sắc bén dành cho nhà đầu tư tầm vốn 20 - 200 tỷ) để tôi đăng lên Website nhatoSG và trang cá nhân.`;
+      navigator.clipboard?.writeText(promptTxt);
+      const st = document.getElementById("insightCopyStatus");
+      if (st) {
+        st.textContent = "✨ Đã copy Prompt chuẩn! Bạn chỉ cần dán (Ctrl+V) vào Gemini để soạn bài mới ngay.";
+        st.classList.remove("hidden");
+      }
+    }
+
+    // =========================================================================
+    // BỘ KIỂM TRA SCHEMA & CẦU NỐI DỮ LIỆU TỪ properties_data.js
+    // =========================================================================
+    function sanitizePublicPropertyRecord(raw) {
+      if (!raw || typeof raw !== "object") return null;
+      const propId = String(raw.property_id || "").trim();
+      const seoTitle = String(raw.seo_title || "").trim();
+      if (!propId || !seoTitle) return null;
+
+      const currPrice = Number(raw.pricing?.current_price_billion ?? 0);
+      const initPrice = Number(raw.pricing?.initial_asking_billion ?? currPrice);
+      if (!Number.isFinite(currPrice) || currPrice <= 0) return null;
+
+      const rawHistory = Array.isArray(raw.pricing?.price_history) ? raw.pricing.price_history : [];
+      const cleanHistory = rawHistory.map(h => ({
+        old_price: Number(h?.old_price || initPrice),
+        new_price: Number(h?.new_price || currPrice),
+        note: String(h?.note || "Đã xác minh")
+      }));
+
+      const rawGallery = Array.isArray(raw.gallery)
+        ? raw.gallery
+        : (Array.isArray(raw.public_images) ? raw.public_images.map((u, i) => ({ url: String(u), caption: `Ảnh thực tế tài sản #${i + 1}` })) : []);
+
+      const cleanGallery = rawGallery
+        .filter(item => item && typeof item.url === "string" && !isLegalDocumentImage(item))
+        .map(item => ({
+          url: item.url.trim(),
+          caption: String(item.caption || "Ảnh thực tế tài sản")
+        }));
+
+      return {
+        is_live_sync: true,
+        property_id: propId,
+        category: String(raw.category || "").trim() || undefined,
+        event_type: raw.event_type === "UPDATE" ? "UPDATE" : "NEW",
+        seo_title: seoTitle,
+        summary: String(raw.summary || ""),
+        marketing_description: String(raw.marketing_description || raw.summary || ""),
+        public_location: {
+          street: String(raw.public_location?.street || "").replace(/^\d+[A-Za-z0-9/-]*\s+/, "").trim(),
+          ward: String(raw.public_location?.ward || ""),
+          district: String(raw.public_location?.district || "")
+        },
+        specs: {
+          recognized_area_m2: Number(raw.specs?.recognized_area_m2 || 0),
+          dimensions: String(raw.specs?.dimensions || "N/A"),
+          structure: String(raw.specs?.structure || "N/A"),
+          cashflow: String(raw.specs?.cashflow || "Bàn giao ngay")
+        },
+        pricing: {
+          initial_asking_billion: initPrice,
+          current_price_billion: currPrice,
+          price_history: cleanHistory
+        },
+        gallery: cleanGallery
+      };
+    }
+
+    /* ===NHATOSG_JS_BRIDGE_V31=== */
+    function reloadPropertiesDataJs() {
+      return new Promise((resolve) => {
+        const s = document.createElement("script");
+        s.src = "./properties_data.js?t=" + Date.now();
+        s.onload = () => resolve(window.__NHATOSG_DATA__ || null);
+        s.onerror = () => resolve(window.__NHATOSG_DATA__ || null);
+        document.head.appendChild(s);
+      });
+    }
+
+    async function tryLoadCampZaloPublishedJson() {
+      try {
+        const payload = (await reloadPropertiesDataJs()) || window.__NHATOSG_DATA__ || {};
+        const cfg = payload.config || {};
+        const showDemo = cfg.show_demo_properties !== false;
+
+        if (cfg.hero_title) {
+          const heroEl = document.querySelector("h1 span.blue-gradient-text");
+          if (heroEl) heroEl.textContent = cfg.hero_title;
+        }
+        if (Array.isArray(payload.articles) && payload.articles.length > 0) {
+          INSIGHT_ARTICLES = payload.articles;
+        }
+
+        const liveRecords = Array.isArray(payload.records) ? payload.records : [];
+        const sanitizedLive = liveRecords.map(r => sanitizePublicPropertyRecord(r)).filter(Boolean);
+        const demoList = showDemo ? INITIAL_PROPERTIES.filter(p => !p.is_live_sync) : [];
+
+        const merged = [...sanitizedLive];
+        demoList.forEach(d => {
+          if (!merged.some(x => x.property_id === d.property_id)) {
+            merged.push(d);
+          }
+        });
+
+        propertiesData = merged;
+        populateWardOptions();
+        renderAll();
+      } catch (e) {
+        console.error("Load data bridge error:", e);
+      }
+    }
+
+    window.addEventListener("keydown", (e) => {
+      const lb = document.getElementById("fullscreenLightbox");
+      const isLbOpen = lb && !lb.classList.contains("hidden");
+      const isModalOpen = !document.getElementById("propertyModal")?.classList.contains("hidden");
+
+      if (e.key === "Escape") {
+        if (isLbOpen) {
+          closeFullscreenLightbox();
+          return;
+        }
+        closePropertyModal();
+        document.getElementById("compareModal")?.classList.add("hidden");
+        document.getElementById("insightModal")?.classList.add("hidden");
+      } else if ((isLbOpen || isModalOpen) && e.key === "ArrowRight") {
+        changeGallerySlide(1);
+      } else if ((isLbOpen || isModalOpen) && e.key === "ArrowLeft") {
+        changeGallerySlide(-1);
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      populateWardOptions();
+      renderAll();
+      tryLoadCampZaloPublishedJson();
+    });
+  </script>
+</body>
+</html>
