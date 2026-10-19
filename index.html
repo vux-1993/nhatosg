@@ -188,6 +188,10 @@
       </nav>
 
       <div class="flex items-center gap-2">
+        <button onclick="openMemberAuthModal()" id="headerMemberBtn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-slate-100 hover:bg-sky-50 text-[#0F172A] hover:text-[#0284C7] border border-slate-300 transition">
+          <i data-lucide="user-check" class="w-3.5 h-3.5 text-[#0284C7]"></i>
+          <span id="headerMemberLabel">Thành Viên</span>
+        </button>
         <a href="tel:0916239898" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-[#0F172A] hover:bg-[#0284C7] text-white transition shadow-xs">
           <i data-lucide="phone-call" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
           <span>0916.23.9898 ( Vũ )</span>
@@ -195,6 +199,13 @@
       </div>
     </div>
   </header>
+
+  <div class="lg:hidden bg-white border-b border-slate-200 px-3 py-2 flex items-center justify-around text-xs font-extrabold text-slate-700 sticky top-14 z-30">
+    <a href="#tai-san-hot" class="flex items-center gap-1 text-amber-600">🔥 Tâm Điểm</a>
+    <a href="#kho-tai-san" class="flex items-center gap-1 text-[#0284C7]">🏢 Kho Tài Sản</a>
+    <a href="#tin-tuc" class="flex items-center gap-1 text-slate-700">📐 Quy Hoạch</a>
+    <button onclick="openMemberAuthModal()" class="flex items-center gap-1 text-emerald-700">👤 Thành Viên</button>
+  </div>
 
   <!-- HERO & SMART SEARCH -->
   <section id="trang-chu" class="hero-mesh pt-8 pb-12 border-b border-slate-200/90">
@@ -299,14 +310,6 @@
           <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
           <span>Chỉ hiển thị các tài sản Tâm Điểm đã được duyệt chọn lọc</span>
         </div>
-        <button
-          onclick="openHotCurationModal()"
-          title="Duyệt & chọn các căn hiển thị trên Bảng Tài Sản Hot"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-[#0F172A] text-slate-700 hover:text-[#FBBF24] border border-slate-200 text-xs font-bold transition"
-        >
-          <i data-lucide="check-square" class="w-3.5 h-3.5"></i>
-          <span>Duyệt căn Tâm Điểm (<span id="curatedHotCountLabel">0</span>)</span>
-        </button>
       </div>
     </div>
 
@@ -545,9 +548,15 @@
           <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-200 text-[#0F172A]"></span>
           <span id="modalEventBadge" class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg"></span>
         </div>
-        <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
+        <div class="flex items-center gap-2">
+          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-sky-50 hover:bg-[#0284C7] text-[#0284C7] hover:text-white border border-sky-200 text-xs font-extrabold transition flex items-center gap-1.5">
+            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+            <span id="copyLinkBtnText">Copy Link Căn Này</span>
+          </button>
+          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
 
       <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
@@ -681,6 +690,7 @@
               <strong id="loanInterestVsRent" class="font-mono text-[13px] text-emerald-700">--</strong>
             </div>
           </div>
+          <p class="text-[11px] text-slate-500 italic">*Lưu ý: Lãi suất 7.5%/năm là mức giả định tham khảo, chưa bao gồm phí, thuế và điều kiện tín dụng thực tế của từng ngân hàng.</p>
         </div>
 
         <!-- Yêu cầu hồ sơ pháp lý và thông tin vị trí (Đã đổi câu từ theo yêu cầu) -->
@@ -707,6 +717,7 @@
                   <span>Nhận Hồ Sơ &amp; Vị Trí Qua Zalo</span>
                 </button>
               </form>
+              <p class="text-[11px] text-slate-400 mt-2">🔒 Cam kết bảo mật thông tin khách hàng 100% — SĐT chỉ dùng để gửi hồ sơ trực tiếp qua Zalo 0916.23.9898 (Vũ).</p>
               <div id="leadSuccessMsg" class="hidden mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-300 font-medium"></div>
             </div>
           </div>
@@ -813,36 +824,95 @@
   </div>
 
   <!-- =========================================================================
-       MODAL 4: QUẢN LÝ DUYỆT CĂN LÊN "BẢNG TÀI SẢN HOT & TÂM ĐIỂM"
+       MODAL 4: ĐĂNG NHẬP & ĐĂNG KÝ THÀNH VIÊN VIP (V3.8)
        ========================================================================= -->
-  <div id="hotCurationModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5">
-    <div class="bg-white rounded-3xl max-w-3xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[88vh] flex flex-col">
+  <div id="memberAuthModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-3 sm:p-5">
+    <div class="bg-white rounded-3xl max-w-md w-full border border-slate-200 shadow-2xl overflow-hidden flex flex-col">
+      <!-- Modal Header -->
       <div class="px-6 py-4 bg-[#0F172A] text-white flex items-center justify-between">
-        <div>
-          <h3 class="font-extrabold text-base text-[#FBBF24]">📌 Duyệt Tài Sản Hiển Thị Lên "Bảng Tài Sản Hot"</h3>
-          <p class="text-xs text-slate-300 mt-0.5">Chỉ những căn được bạn tích duyệt tại đây mới xuất hiện trên Bảng Tài Sản Tâm Điểm đầu trang</p>
+        <div class="flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-[#FBBF24]"></i>
+          <h3 class="font-extrabold text-base text-white">Cổng Thành Viên nhatoSG</h3>
         </div>
-        <button onclick="closeHotCurationModal()" class="text-slate-400 hover:text-white p-1">
+        <button onclick="closeMemberAuthModal()" class="text-slate-400 hover:text-white p-1">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
-      <div class="px-6 py-3 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs">
-        <div class="flex items-center gap-2">
-          <button onclick="autoCurateDiscountProperties()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition">
-            ✓ Chỉ chọn các căn Giảm Giá (UPDATE)
-          </button>
-          <button onclick="autoCurateTop8Properties()" class="px-3 py-1.5 rounded-lg bg-[#0284C7] hover:bg-sky-600 text-white font-bold transition">
-            ⭐ Chọn 8 căn tiêu biểu nhất
-          </button>
-        </div>
-        <input id="curateSearchInput" oninput="renderHotCurationList()" type="text" placeholder="Tìm mã NSG, tên đường..." class="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-xs font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
-      </div>
-      <div id="hotCurationListContainer" class="p-4 overflow-y-auto divide-y divide-slate-200/80 flex-1 max-h-[55vh]"></div>
-      <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
-        <span class="text-xs text-slate-500">Đã duyệt: <strong id="curateModalSelectedCount" class="text-[#0F172A]">0</strong> tài sản</span>
-        <button onclick="closeHotCurationModal()" class="px-5 py-2 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-xs font-extrabold uppercase tracking-wider transition">
-          Hoàn Tất &amp; Áp Dụng Ngay
+
+      <!-- Tab Buttons -->
+      <div class="flex border-b border-slate-200 bg-slate-50">
+        <button id="memberLoginTabBtn" onclick="switchMemberModalTab('login')" class="flex-1 py-3 text-xs font-extrabold uppercase tracking-wider text-[#0284C7] border-b-2 border-[#0284C7] bg-white transition flex items-center justify-center gap-1.5">
+          <i data-lucide="log-in" class="w-3.5 h-3.5"></i>
+          <span>Đăng Nhập</span>
         </button>
+        <button id="memberRegisterTabBtn" onclick="switchMemberModalTab('register')" class="flex-1 py-3 text-xs font-extrabold uppercase tracking-wider text-slate-500 hover:text-[#0F172A] border-b-2 border-transparent transition flex items-center justify-center gap-1.5">
+          <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+          <span>Đăng Ký Mới</span>
+        </button>
+      </div>
+
+      <div class="p-6">
+        <!-- Tab 1: Form Đăng nhập -->
+        <div id="memberLoginTab">
+          <div id="memberLoggedInView" class="hidden text-center py-3 space-y-3">
+            <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 font-bold uppercase">Tài khoản đang hoạt động</p>
+              <h4 id="loggedInMemberName" class="text-lg font-extrabold text-[#0F172A] mt-0.5"></h4>
+              <span id="loggedInMemberRole" class="inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-mono font-extrabold bg-sky-100 text-[#0284C7]"></span>
+            </div>
+            <button onclick="handleMemberLogout()" class="mt-4 px-4 py-2 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-600 border border-slate-200 text-xs font-bold transition">
+              Đăng Xuất Khỏi Thiết Bị
+            </button>
+          </div>
+
+          <form id="memberLoginForm" onsubmit="handleMemberLoginSubmit(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại Zalo</label>
+              <input type="tel" id="loginMemberPhone" required placeholder="Ví dụ: 0916239898" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Mã PIN bí mật (4-6 số)</label>
+              <input type="password" id="loginMemberPin" required placeholder="Nhập mã PIN" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div id="loginErrorMsg" class="hidden text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded-lg border border-rose-200"></div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-xs font-extrabold uppercase tracking-wider transition flex items-center justify-center gap-2">
+              <i data-lucide="log-in" class="w-4 h-4 text-[#FBBF24]"></i>
+              <span>Đăng Nhập Thành Viên</span>
+            </button>
+            <p class="text-[11px] text-slate-400 text-center italic">*Chưa có mã PIN? Chuyển sang tab Đăng Ký Mới để được cấp mã truy cập riêng.</p>
+          </form>
+        </div>
+
+        <!-- Tab 2: Form Đăng ký -->
+        <div id="memberRegisterTab" class="hidden">
+          <form onsubmit="handleMemberRegisterSubmit(event)" class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Họ &amp; Tên của Quý Anh/Chị</label>
+              <input type="text" id="regMemberName" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại Zalo (10 số VN)</label>
+              <input type="tel" id="regMemberPhone" required placeholder="Ví dụ: 0916239898" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Mã PIN tự chọn (4-6 số)</label>
+              <input type="password" id="regMemberPin" required placeholder="Ví dụ: 9898" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Phân khúc quan tâm / Ghi chú</label>
+              <input type="text" id="regMemberNote" placeholder="Ví dụ: Tìm mặt tiền Q3, Q10 từ 15-30 tỷ" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            </div>
+            <div id="regSuccessMsg" class="hidden text-xs font-bold text-emerald-600 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200"></div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-extrabold uppercase tracking-wider transition flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Gửi Đăng Ký &amp; Kích Hoạt Qua Zalo Vũ</span>
+            </button>
+            <p class="text-[11px] text-slate-400 text-center italic">🔒 Hệ thống sẽ tự động sao chép cú pháp kích hoạt để gửi trực tiếp tới Zalo Quản Trị Viên (0916.23.9898).</p>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -1415,138 +1485,212 @@
     }
 
     // =========================================================================
-    // CƠ CHẾ DUYỆT & CHỌN LỌC TÀI SẢN TÂM ĐIỂM
+    // CƠ CHẾ TÀI SẢN TÂM ĐIỂM (ĐỌC TRỰC TIẾP p.is_hot TỪ HỆ THỐNG V3.8)
     // =========================================================================
-    function getApprovedHotIdsSet() {
-      try {
-        const raw = localStorage.getItem(CURATED_HOT_STORAGE_KEY);
-        if (raw) {
-          const arr = JSON.parse(raw);
-          if (Array.isArray(arr) && arr.length > 0) {
-            return new Set(arr);
-          }
-        }
-      } catch (e) {}
-
-      const autoSet = new Set();
-      const sortedCandidates = [...propertiesData].sort((a, b) => {
-        const ma = computeMetrics(a);
-        const mb = computeMetrics(b);
-        return (mb.diffPct - ma.diffPct) || ((b.is_live_sync ? 1 : 0) - (a.is_live_sync ? 1 : 0));
-      });
-
-      for (const p of sortedCandidates) {
-        const m = computeMetrics(p);
-        const textFlag = /#hot\b|\[hot\]|tâm\s*điểm/i.test(`${p.seo_title} ${p.summary} ${p.marketing_description}`);
-        if (p.is_hot === true || textFlag || (p.event_type === "UPDATE" && m.diffBil > 0)) {
-          autoSet.add(p.property_id);
-        }
-        if (autoSet.size >= 8) break;
-      }
-
-      if (autoSet.size === 0) {
-        propertiesData.slice(0, 6).forEach(p => autoSet.add(p.property_id));
-      }
-      return autoSet;
-    }
-
-    function saveApprovedHotIdsSet(idSet) {
-      try {
-        localStorage.setItem(CURATED_HOT_STORAGE_KEY, JSON.stringify(Array.from(idSet)));
-      } catch (e) {}
-    }
-
     function getCuratedHotPropertiesList() {
-      const approvedSet = getApprovedHotIdsSet();
-      const curated = propertiesData.filter(p => approvedSet.has(p.property_id));
-      const list = curated.length > 0 ? curated : propertiesData.slice(0, 6);
-      return list.sort((a, b) => computeMetrics(b).diffPct - computeMetrics(a).diffPct);
+      const hotList = propertiesData.filter(p => p.is_hot === true);
+      const fallback = propertiesData.filter(p => p.event_type === "UPDATE");
+      const list = hotList.length > 0 ? hotList : (fallback.length > 0 ? fallback.slice(0, 6) : propertiesData.slice(0, 6));
+      return [...list].sort((a, b) => computeMetrics(b).diffPct - computeMetrics(a).diffPct);
     }
 
-    function openHotCurationModal() {
-      renderHotCurationList();
-      document.getElementById("hotCurationModal").classList.remove("hidden");
+    // =========================================================================
+    // CỔNG XÁC THỰC THÀNH VIÊN & BẢO MẬT VIP (V3.8)
+    // =========================================================================
+    const MEMBER_AUTH_STORAGE_KEY = "NHATOSG_MEMBER_SESSION_V1";
+    const MEMBER_HASH_SALT = "NHATOSG_VIP_VAULT_2026";
+
+    function getCurrentMemberSession() {
+      try {
+        const raw = localStorage.getItem(MEMBER_AUTH_STORAGE_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function updateHeaderMemberStatus() {
+      const session = getCurrentMemberSession();
+      const labelEl = document.getElementById("headerMemberLabel");
+      if (!labelEl) return;
+      if (session && session.display_name) {
+        labelEl.textContent = session.display_name;
+        labelEl.className = "text-[#0284C7] font-extrabold";
+      } else {
+        labelEl.textContent = "Thành Viên";
+        labelEl.className = "";
+      }
+    }
+
+    function openMemberAuthModal() {
+      const session = getCurrentMemberSession();
+      const loggedInView = document.getElementById("memberLoggedInView");
+      const loginForm = document.getElementById("memberLoginForm");
+      const errBox = document.getElementById("loginErrorMsg");
+      if (errBox) errBox.classList.add("hidden");
+
+      if (session) {
+        if (loggedInView) {
+          loggedInView.classList.remove("hidden");
+          document.getElementById("loggedInMemberName").textContent = session.display_name || "Thành viên";
+          document.getElementById("loggedInMemberRole").textContent = session.role === "VIP" ? "👑 THÀNH VIÊN VIP" : (session.role === "ADMIN" ? "🛡️ QUẢN TRỊ VIÊN" : "THÀNH VIÊN");
+        }
+        if (loginForm) loginForm.classList.add("hidden");
+      } else {
+        if (loggedInView) loggedInView.classList.add("hidden");
+        if (loginForm) loginForm.classList.remove("hidden");
+      }
+      switchMemberModalTab("login");
+      document.getElementById("memberAuthModal")?.classList.remove("hidden");
       lucide.createIcons();
     }
 
-    function closeHotCurationModal() {
-      document.getElementById("hotCurationModal").classList.add("hidden");
-      hotCurrentPage = 1;
-      renderAll();
+    function closeMemberAuthModal() {
+      document.getElementById("memberAuthModal")?.classList.add("hidden");
     }
 
-    function toggleSingleHotApproval(propId) {
-      const set = getApprovedHotIdsSet();
-      if (set.has(propId)) {
-        if (set.size <= 1) {
-          alert("Bảng Tài Sản Tâm Điểm cần tối thiểu 1 tài sản được duyệt!");
-          return;
-        }
-        set.delete(propId);
+    function switchMemberModalTab(tab) {
+      const loginTab = document.getElementById("memberLoginTab");
+      const regTab = document.getElementById("memberRegisterTab");
+      const loginBtn = document.getElementById("memberLoginTabBtn");
+      const regBtn = document.getElementById("memberRegisterTabBtn");
+
+      if (tab === "register") {
+        loginTab?.classList.add("hidden");
+        regTab?.classList.remove("hidden");
+        loginBtn?.classList.remove("border-[#0284C7]", "text-[#0284C7]", "bg-white");
+        loginBtn?.classList.add("border-transparent", "text-slate-500");
+        regBtn?.classList.add("border-[#0284C7]", "text-[#0284C7]", "bg-white");
+        regBtn?.classList.remove("border-transparent", "text-slate-500");
       } else {
-        set.add(propId);
+        regTab?.classList.add("hidden");
+        loginTab?.classList.remove("hidden");
+        regBtn?.classList.remove("border-[#0284C7]", "text-[#0284C7]", "bg-white");
+        regBtn?.classList.add("border-transparent", "text-slate-500");
+        loginBtn?.classList.add("border-[#0284C7]", "text-[#0284C7]", "bg-white");
+        loginBtn?.classList.remove("border-transparent", "text-slate-500");
       }
-      saveApprovedHotIdsSet(set);
-      renderHotCurationList();
-      renderHotRadarSection();
+      lucide.createIcons();
     }
 
-    function autoCurateDiscountProperties() {
-      const set = new Set();
-      propertiesData.forEach(p => {
-        const m = computeMetrics(p);
-        if (p.event_type === "UPDATE" || m.diffBil > 0) set.add(p.property_id);
-      });
-      if (set.size === 0) {
-        propertiesData.slice(0, 6).forEach(p => set.add(p.property_id));
+    function normalizePhoneDigits(phone) {
+      let digits = String(phone || "").replace(/\D+/g, "");
+      if (digits.startsWith("84") && digits.length >= 11) {
+        digits = "0" + digits.slice(2);
       }
-      saveApprovedHotIdsSet(set);
-      renderHotCurationList();
-      renderHotRadarSection();
+      return digits;
     }
 
-    function autoCurateTop8Properties() {
-      const set = new Set();
-      const sorted = [...propertiesData].sort((a, b) => computeMetrics(b).diffPct - computeMetrics(a).diffPct);
-      sorted.slice(0, 8).forEach(p => set.add(p.property_id));
-      saveApprovedHotIdsSet(set);
-      renderHotCurationList();
-      renderHotRadarSection();
+    async function computeSha256Hex(text) {
+      const enc = new TextEncoder();
+      const data = enc.encode(text);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
     }
 
-    function renderHotCurationList() {
-      const approvedSet = getApprovedHotIdsSet();
-      const q = removeVietnameseTones(document.getElementById("curateSearchInput")?.value || "");
-      const container = document.getElementById("hotCurationListContainer");
-      const countEl = document.getElementById("curateModalSelectedCount");
-      if (countEl) countEl.textContent = approvedSet.size;
+    async function handleMemberLoginSubmit(e) {
+      e.preventDefault();
+      const phoneInput = document.getElementById("loginMemberPhone")?.value || "";
+      const pinInput = document.getElementById("loginMemberPin")?.value || "";
+      const errBox = document.getElementById("loginErrorMsg");
 
-      const filtered = propertiesData.filter(p =>
-        !q || removeVietnameseTones(`${p.property_id} ${p.seo_title} ${p.public_location?.street} ${p.public_location?.district}`).includes(q)
-      );
+      const cleanPhone = normalizePhoneDigits(phoneInput);
+      const cleanPin = pinInput.trim();
 
-      container.innerHTML = filtered.map(p => {
-        const m = computeMetrics(p);
-        const checked = approvedSet.has(p.property_id);
-        const cover = getPropertyGalleryList(p)[0]?.url || "";
-        return `
-          <label class="py-3 px-2 flex items-center justify-between gap-3 cursor-pointer hover:bg-slate-50 rounded-xl transition">
-            <div class="flex items-center gap-3 min-w-0">
-              <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleSingleHotApproval('${esc(p.property_id)}')" class="w-4 h-4 accent-[#0284C7] rounded cursor-pointer shrink-0" />
-              <img src="${esc(cover)}" class="w-14 h-11 rounded-lg object-cover border border-slate-200 shrink-0" />
-              <div class="min-w-0">
-                <div class="flex items-center gap-2">
-                  <span class="font-mono text-xs font-extrabold px-2 py-0.5 rounded bg-[#0F172A] text-[#FBBF24]">${esc(p.property_id)}</span>
-                  <span class="text-xs font-bold px-2 py-0.5 rounded ${p.event_type === 'UPDATE' ? 'bg-emerald-100 text-emerald-800' : 'bg-sky-100 text-[#0284C7]'}">${esc(p.event_type)}</span>
-                  <span class="font-mono text-xs font-extrabold text-[#0F172A]">${esc(m.currP)} Tỷ ${m.diffBil > 0 ? `<span class="text-emerald-600">(-${esc(m.diffBil)} Tỷ)</span>` : ''}</span>
-                </div>
-                <div class="text-[13px] font-bold text-slate-800 truncate mt-0.5">${esc(p.seo_title)}</div>
-              </div>
-            </div>
-            <span class="text-xs font-bold ${checked ? 'text-emerald-600' : 'text-slate-400'} shrink-0">${checked ? '✓ Đã duyệt' : 'Chưa chọn'}</span>
-          </label>
-        `;
-      }).join("");
+      if (!cleanPhone || !cleanPin) {
+        if (errBox) {
+          errBox.textContent = "Vui lòng nhập đầy đủ Số điện thoại Zalo và Mã PIN.";
+          errBox.classList.remove("hidden");
+        }
+        return;
+      }
+
+      const raw = `${cleanPhone}:${cleanPin}:${MEMBER_HASH_SALT}`;
+      let authHash = "";
+      try {
+        authHash = await computeSha256Hex(raw);
+      } catch (err) {
+        console.error("Crypto error:", err);
+      }
+
+      const memberHashes = window.__NHATOSG_DATA__?.member_hashes || [];
+      const matched = memberHashes.find(m => m.auth_hash === authHash);
+
+      if (matched) {
+        localStorage.setItem(MEMBER_AUTH_STORAGE_KEY, JSON.stringify(matched));
+        updateHeaderMemberStatus();
+        closeMemberAuthModal();
+        renderAll();
+        if (activeModalProperty) {
+          openPropertyModal(activeModalProperty.property_id);
+        }
+      } else {
+        if (errBox) {
+          errBox.textContent = "Thông tin đăng nhập không chính xác hoặc tài khoản chưa được kích hoạt. Quý Anh/Chị vui lòng kiểm tra lại hoặc liên hệ Zalo 0916.23.9898 (Vũ).";
+          errBox.classList.remove("hidden");
+        }
+      }
+    }
+
+    function handleMemberLogout() {
+      localStorage.removeItem(MEMBER_AUTH_STORAGE_KEY);
+      updateHeaderMemberStatus();
+      closeMemberAuthModal();
+      renderAll();
+      if (activeModalProperty) {
+        openPropertyModal(activeModalProperty.property_id);
+      }
+    }
+
+    async function handleMemberRegisterSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("regMemberName")?.value.trim() || "";
+      const phone = document.getElementById("regMemberPhone")?.value.trim() || "";
+      const pin = document.getElementById("regMemberPin")?.value.trim() || "";
+      const note = document.getElementById("regMemberNote")?.value.trim() || "";
+      const successBox = document.getElementById("regSuccessMsg");
+
+      if (!isValidVietnamPhone(phone)) {
+        alert("Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số, bắt đầu bằng 03, 05, 07, 08, 09).");
+        return;
+      }
+
+      const msg = `[ĐĂNG KÝ THÀNH VIÊN NHATOSG]\n- Họ tên: ${name}\n- SĐT: ${phone}\n- Mã PIN mong muốn: ${pin}\n- Nhu cầu: ${note || "Xem giá & quy hoạch"}`;
+      try {
+        await navigator.clipboard.writeText(msg);
+      } catch (err) {}
+
+      if (successBox) {
+        successBox.textContent = "Đã sao chép cú pháp! Đang chuyển tiếp sang Zalo 0916.23.9898 (Vũ) để kích hoạt...";
+        successBox.classList.remove("hidden");
+      }
+
+      setTimeout(() => {
+        window.open("https://zalo.me/0916239898", "_blank");
+      }, 700);
+    }
+
+    async function copyCurrentPropertyLink() {
+      if (!activeModalProperty) return;
+      const url = `https://nhatosg.com.vn/?id=${encodeURIComponent(activeModalProperty.property_id)}`;
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch (e) {
+        const t = document.createElement("textarea");
+        t.value = url;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+      }
+      const label = document.getElementById("copyLinkBtnText");
+      if (label) {
+        const orig = label.textContent;
+        label.textContent = "✓ Đã Copy Link!";
+        setTimeout(() => { label.textContent = orig; }, 2000);
+      }
     }
 
     // =========================================================================
@@ -2674,6 +2818,8 @@
       if (!prop) return;
       activeModalProperty = prop;
       currentGalleryIndex = 0;
+      try { window.history.replaceState(null, "", "?id=" + encodeURIComponent(propId)); } catch(e) {}
+
       const m = computeMetrics(prop);
       const catName = resolveCategoryName(prop);
       const streetLabel = formatStreetDisplay(prop);
@@ -2696,12 +2842,20 @@
 
       document.getElementById("modalTitle").textContent = prop.seo_title;
 
+      const mode = window.__NHATOSG_DATA__?.config?.access_mode || "PUBLIC_TRAFFIC";
+      const session = getCurrentMemberSession();
+
       const locBadges = document.getElementById("modalLocationBadges");
       if (locBadges) {
+        let vipBadgeHtml = "";
+        if (mode === "VIP_ADDRESS_GATE" && session && (session.role === "VIP" || session.role === "ADMIN") && prop.vip_location_hint) {
+          vipBadgeHtml = `<span class="px-3 py-1 rounded-lg bg-amber-400/20 text-amber-700 font-extrabold text-xs border border-amber-400/50">👑 Vị trí VIP: ${esc(prop.vip_location_hint)}</span>`;
+        }
         locBadges.innerHTML = `
           <span class="px-3 py-1 rounded-lg bg-slate-100 text-[#0F172A] font-extrabold text-xs">${esc(streetLabel)}</span>
           <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 font-bold text-xs">${esc(prop.public_location?.ward)}</span>
           <span class="px-3 py-1 rounded-lg bg-sky-50 text-[#0284C7] font-extrabold text-xs">${esc(prop.public_location?.district)}</span>
+          ${vipBadgeHtml}
           <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 font-mono font-bold text-xs">🔒 Số nhà &amp; Sổ hồng bảo mật nội bộ</span>
         `;
       }
@@ -2722,22 +2876,33 @@
 
       const timeline = document.getElementById("modalPriceTimeline");
       if (timeline) {
-        timeline.innerHTML = (prop.pricing?.price_history || []).map((h, idx) => `
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-[13px]">
-            <div class="flex items-center gap-2.5">
-              <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                #${idx + 1}
-              </span>
-              <div>
-                <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
-                <span class="block text-xs text-slate-500">Đã đối soát xác thực trên hệ thống nhatoSG</span>
-              </div>
+        if (mode === "MEMBER_PRICE_GATE" && !session) {
+          timeline.innerHTML = `
+            <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-center space-y-2">
+              <p class="text-xs font-bold text-amber-800">🔒 Chế độ bảo mật: Chi tiết lịch sử điều chỉnh giá chỉ dành riêng cho Thành Viên nhatoSG</p>
+              <button onclick="openMemberAuthModal()" class="px-4 py-2 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-xs font-extrabold uppercase tracking-wider transition">
+                Đăng Nhập Thành Viên Để Xem
+              </button>
             </div>
-            <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
-              ${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ
-            </span>
-          </div>
-        `).join("");
+          `;
+        } else {
+          timeline.innerHTML = (prop.pricing?.price_history || []).map((h, idx) => `
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-[13px]">
+              <div class="flex items-center gap-2.5">
+                <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  #${idx + 1}
+                </span>
+                <div>
+                  <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
+                  <span class="block text-xs text-slate-500">Đã đối soát xác thực trên hệ thống nhatoSG</span>
+                </div>
+              </div>
+              <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
+                ${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ
+              </span>
+            </div>
+          `).join("");
+        }
       }
 
       updateLoanCalculator();
@@ -2753,6 +2918,7 @@
     function closePropertyModal() {
       document.getElementById("propertyModal")?.classList.add("hidden");
       closeFullscreenLightbox();
+      try { window.history.replaceState(null, "", window.location.pathname); } catch(e) {}
     }
 
     // =========================================================================
@@ -2922,6 +3088,7 @@
           current_price_billion: currPrice,
           price_history: cleanHistory
         },
+        vip_location_hint: raw.vip_location_hint ? String(raw.vip_location_hint) : undefined,
         gallery: cleanGallery
       };
     }
@@ -2960,7 +3127,16 @@
         propertiesData = merged;
         populateDistrictOptions();
         populateWardOptions();
+        updateHeaderMemberStatus();
         renderAll();
+
+        const qId = new URLSearchParams(window.location.search).get("id");
+        if (qId) {
+          const target = propertiesData.find(p => p.property_id.toUpperCase() === qId.trim().toUpperCase());
+          if (target) {
+            openPropertyModal(target.property_id);
+          }
+        }
       } catch (e) {
         console.error("Load data bridge error:", e);
       }
@@ -2977,9 +3153,9 @@
           return;
         }
         closePropertyModal();
+        closeMemberAuthModal();
         document.getElementById("compareModal")?.classList.add("hidden");
         document.getElementById("insightModal")?.classList.add("hidden");
-        document.getElementById("hotCurationModal")?.classList.add("hidden");
       } else if ((isLbOpen || isModalOpen) && e.key === "ArrowRight") {
         changeGallerySlide(1);
       } else if ((isLbOpen || isModalOpen) && e.key === "ArrowLeft") {
@@ -2988,6 +3164,7 @@
     });
 
     window.addEventListener("DOMContentLoaded", () => {
+      updateHeaderMemberStatus();
       populateDistrictOptions();
       populateWardOptions();
       renderAll();
