@@ -1487,7 +1487,6 @@
         }
       }
     }
-    }
 
     function handleMemberLogout() {
       localStorage.removeItem(MEMBER_AUTH_STORAGE_KEY);
@@ -2332,16 +2331,17 @@
       const pageItems = curatedHotList.slice(startIdx, startIdx + hotItemsPerPage);
 
       radarBody.innerHTML = pageItems.map(prop => {
-        const m = computeMetrics(prop);
-        const isUpdate = prop.event_type === "UPDATE";
-        const catName = resolveCategoryName(prop);
-        const galleryList = getPropertyGalleryList(prop);
-        const coverImg = galleryList[0]?.url || "";
-        const imgCount = galleryList.length;
-        const streetLabel = formatStreetDisplay(prop);
+        try {
+          const m = computeMetrics(prop);
+          const isUpdate = prop.event_type === "UPDATE";
+          const catName = resolveCategoryName(prop);
+          const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
+          const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
+          const imgCount = gal.length;
+          const streetLabel = formatStreetDisplay(prop);
 
-        return `
-          <tr class="hover:bg-sky-50/60 transition cursor-pointer group" onclick="openPropertyModal('${esc(prop.property_id)}')">
+          return `
+            <tr class="hover:bg-sky-50/60 transition cursor-pointer group" onclick="openPropertyModal('${esc(prop.property_id)}')">
             <td class="py-3.5 pl-4 pr-2 align-middle w-[130px]">
               <div class="relative w-28 h-20 rounded-xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-2xs shrink-0">
                 <img src="${esc(coverImg)}" alt="${esc(prop.seo_title)}" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none" />
@@ -2401,6 +2401,10 @@
             </td>
           </tr>
         `;
+        } catch (e) {
+          console.error("Lỗi render căn trong Bảng Tâm Điểm:", prop?.property_id, e);
+          return "";
+        }
       }).join("");
 
       document.getElementById("hotRadarSummary").innerHTML =
@@ -2422,6 +2426,9 @@
     // =========================================================================
     // RENDER KHO TÀI SẢN CHÍNH: ĐỒNG BỘ 1 KHUÔN CỐ ĐỊNH 100% (KHÔNG TRỒI SỤT)
     // =========================================================================
+    function renderProperties() { renderAll(); }
+    window.renderProperties = renderAll;
+
     function renderAll() {
       renderQuickDistrictBar();
       renderHotRadarSection();
@@ -2448,17 +2455,18 @@
         `;
       } else {
         grid.innerHTML = visibleItems.map(prop => {
-          const m = computeMetrics(prop);
-          const isUpdate = prop.event_type === "UPDATE";
-          const catName = resolveCategoryName(prop);
-          const galleryList = getPropertyGalleryList(prop);
-          const coverImg = galleryList[0]?.url || "";
-          const imgCount = galleryList.length;
-          const streetLabel = formatStreetDisplay(prop);
-          const inCompare = compareList.includes(prop.property_id);
+          try {
+            const m = computeMetrics(prop);
+            const isUpdate = prop.event_type === "UPDATE";
+            const catName = resolveCategoryName(prop);
+            const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
+            const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
+            const imgCount = gal.length;
+            const streetLabel = formatStreetDisplay(prop);
+            const inCompare = compareList.includes(prop.property_id);
 
-          return `
-            <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
+            return `
+              <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
               <div class="flex flex-col flex-1">
                 <!-- Khung ảnh khóa cứng chiều cao h-56 (224px) giúp ảnh dọc và ngang bằng nhau 100% -->
                 <div class="relative h-56 w-full shrink-0 bg-slate-100 overflow-hidden group select-none" oncontextmenu="return false;">
@@ -2476,7 +2484,7 @@
                   </div>
 
                   <!-- Phân loại nhãn Ảnh thực tế vs Ảnh minh họa -->
-                  ${(prop.has_real_photos !== false && imgCount > 0 && !String(coverImg).includes("unsplash.com"))
+                  ${(prop.has_real_photos !== false && gal.length > 0 && !String(gal[0]?.url || coverImg).includes("unsplash.com"))
                     ? `<div class="absolute top-3 right-3 px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1">
                         <span>📷 ${imgCount} ảnh thực tế</span>
                       </div>`
@@ -2557,6 +2565,10 @@
               </div>
             </div>
           `;
+          } catch (e) {
+            console.error("Lỗi render căn:", prop?.property_id, e);
+            return "";
+          }
         }).join("");
       }
 
@@ -3161,15 +3173,16 @@
         : (Array.isArray(raw.public_images) ? raw.public_images.map((u, i) => ({ url: String(u), caption: `Hình #${i + 1}` })) : []);
 
       const cleanGallery = rawGallery
-        .filter(item => item && typeof item.url === "string" && !isLegalDocumentImage(item))
+        .filter(item => item && (typeof item === "string" || typeof item.url === "string") && !isLegalDocumentImage(item))
         .map((item, idx) => ({
-          url: item.url.trim(),
-          caption: String(item.caption || `Hình #${idx + 1}`)
+          url: (typeof item === "string" ? item : item.url).trim(),
+          caption: String((typeof item === "object" && item.caption) ? item.caption : `Hình #${idx + 1}`)
         }));
 
       return {
         is_live_sync: true,
         is_hot: Boolean(raw.is_hot),
+        has_real_photos: raw.has_real_photos !== undefined ? Boolean(raw.has_real_photos) : (cleanGallery.length > 0 && !cleanGallery[0].url.includes("unsplash.com")),
         property_id: propId,
         category: String(raw.category || "").trim() || undefined,
         event_type: raw.event_type === "UPDATE" ? "UPDATE" : "NEW",
