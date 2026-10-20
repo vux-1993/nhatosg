@@ -925,7 +925,6 @@
        ========================================================================= -->
   <script>
     const LEAD_WEBHOOK_URL = "";
-    const CURATED_HOT_STORAGE_KEY = "NHATOSG_APPROVED_HOT_IDS_V1";
 
     const INITIAL_PROPERTIES = [
       {
@@ -951,253 +950,6 @@
           { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Kiến trúc văn phòng hiện đại trên trục đường Lê Ngô Cát, Quận 3" },
           { url: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=85", caption: "Không gian làm việc tiêu chuẩn hạng B+, tổng sàn 722.5m²" },
           { url: "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=1200&q=85", caption: "Tầng hầm để xe thông thoáng và khu vực kỹ thuật tòa nhà" }
-        ]
-      },
-      {
-        property_id: "NSG-0235",
-        is_hot: true,
-        category: "Tòa CHDV / Khách Sạn",
-        event_type: "UPDATE",
-        seo_title: "Tòa Tổ Hợp 90 Phòng CHDV Mặt Tiền Thoại Ngọc Hầu, Tân Phú",
-        summary: "Khuôn đất lớn 10m x 60m (CN 592.6m²), Hầm + 7 Tầng (2 thang máy), dòng tiền 500 triệu/tháng.",
-        marketing_description: "• Quy mô hiếm có: Mặt tiền trục chính Thoại Ngọc Hầu, Phường Hòa Thạnh, Quận Tân Phú. Khuôn đất 10m x 60m, công nhận 592.6m².\n• Kết cấu khai thác: 1 Hầm + 1 Trệt + 6 Lầu (2 thang máy), tổng diện tích sàn 2.700m².\n• Dòng tiền thực tế: Đang vận hành 90 phòng CHDV đạt doanh thu 500 triệu/tháng (~5.45%/năm).",
-        public_location: { street: "Thoại Ngọc Hầu", ward: "Phường Hòa Thạnh", district: "Tân Phú" },
-        specs: { recognized_area_m2: 592.6, dimensions: "10m × 60m", structure: "Hầm + 7 Tầng (2.700m² sàn)", cashflow: "500 triệu/tháng", cashflow_monthly_million: 500 },
-        pricing: {
-          initial_asking_billion: 135.0,
-          current_price_billion: 110.0,
-          price_history: [
-            { old_price: 135.0, new_price: 135.0, note: "Mốc giá chào khởi điểm cho tổ hợp 90 phòng" },
-            { old_price: 135.0, new_price: 115.0, note: "Nhịp điều chỉnh 1: Hạ 20 tỷ cơ cấu danh mục" },
-            { old_price: 115.0, new_price: 110.0, note: "Nhịp điều chỉnh 2: Hạ tiếp 5 tỷ chốt 110 tỷ" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền bề thế ngang 10m sâu 60m trên trục Thoại Ngọc Hầu" },
-          { url: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=85", caption: "Nội thất căn hộ dịch vụ hoàn thiện cao cấp, luôn kín phòng" },
-          { url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=85", caption: "Hành lang rộng với 2 thang máy tốc độ cao và hệ thống PCCC chuẩn" }
-        ]
-      },
-      {
-        property_id: "NSG-0320",
-        is_hot: true,
-        category: "Tòa Văn Phòng",
-        event_type: "UPDATE",
-        seo_title: "Tòa Văn Phòng Khu Tân Cảng – Đường Ung Văn Khiêm, Bình Thạnh",
-        summary: "Sát Ga Metro Cầu Sài Gòn & Tân Cảng, Hầm + 7 Tầng, sàn >600m², dòng tiền 150 triệu/tháng.",
-        marketing_description: "• Vị trí chiến lược: Trục thương mại Ung Văn Khiêm, Phường 25, Quận Bình Thạnh, kết nối trực tiếp Ga Metro Tân Cảng.\n• Thông số chuẩn: Ngang 7m x 16m, Diện tích công nhận 112.4m², kết cấu Hầm + 7 Tầng kiên cố, hoàn công và PCCC đầy đủ.\n• Hiệu suất đầu tư: Đang khai thác văn phòng thu nhập 150 triệu/tháng. Đã điều chỉnh giảm sâu 3 nhịp từ 50 tỷ về 43 tỷ.",
-        public_location: { street: "Ung Văn Khiêm", ward: "Phường 25", district: "Bình Thạnh" },
-        specs: { recognized_area_m2: 112.4, dimensions: "7m × 16m", structure: "Hầm + 7 Tầng (PCCC chuẩn)", cashflow: "150 triệu/tháng", cashflow_monthly_million: 150 },
-        pricing: {
-          initial_asking_billion: 50.0,
-          current_price_billion: 43.0,
-          price_history: [
-            { old_price: 50.0, new_price: 50.0, note: "Mốc giá chào khởi điểm khi niêm yết hồ sơ" },
-            { old_price: 50.0, new_price: 49.0, note: "Nhịp điều chỉnh 1: Chủ nhà giảm 1 tỷ thăm dò thanh khoản" },
-            { old_price: 49.0, new_price: 43.0, note: "Nhịp điều chỉnh 2: Hạ sâu thêm 6 tỷ chốt nhanh" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Phối cảnh mặt tiền tòa nhà Hầm + 7 Tầng trên trục Ung Văn Khiêm" },
-          { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Không gian sàn văn phòng tiêu chuẩn đang khai thác 150 triệu/tháng" },
-          { url: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85", caption: "Sảnh lễ tân & hệ thống thang máy tốc độ cao, PCCC nghiệm thu" },
-          { url: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=85", caption: "Tầm nhìn kết nối trực tiếp về phía Cầu Sài Gòn & Ga Metro Tân Cảng" }
-        ]
-      },
-      {
-        property_id: "NSG-0193",
-        is_hot: true,
-        category: "Tòa CHDV / Khách Sạn",
-        event_type: "UPDATE",
-        seo_title: "Tòa Khách Sạn 45 Phòng Mặt Tiền Nguyễn Chí Thanh, Quận 5",
-        summary: "Phân khúc 30–40 Tỷ cực hiếm mặt tiền Quận 5, CN 94.8m² (3.9m x 24.3m), 6 Tầng khai thác 45 phòng.",
-        marketing_description: "• Vị trí trung tâm thương mại & y tế Quận 5: Mặt tiền đường Nguyễn Chí Thanh, Phường 12, Quận 5.\n• Thông số: 3.9m x 24.3m, diện tích công nhận 94.8m², kết cấu 6 Tầng thang máy.\n• Khai thác: Đang vận hành khách sạn 45 phòng dòng tiền ổn định 135 triệu/tháng. Giá điều chỉnh từ 39 tỷ về 35 tỷ.",
-        public_location: { street: "Nguyễn Chí Thanh", ward: "Phường 12", district: "Quận 5" },
-        specs: { recognized_area_m2: 94.8, dimensions: "3.9m × 24.3m", structure: "6 Tầng (45 Phòng KS)", cashflow: "135 triệu/tháng", cashflow_monthly_million: 135 },
-        pricing: {
-          initial_asking_billion: 39.0,
-          current_price_billion: 35.0,
-          price_history: [
-            { old_price: 39.0, new_price: 39.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 39.0, new_price: 35.0, note: "Nhịp điều chỉnh 1: Hạ 4 tỷ chốt nhanh 35 tỷ" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền trục chính Nguyễn Chí Thanh sầm uất ngày đêm" },
-          { url: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85", caption: "Hệ thống 45 phòng khai thác công suất cao" }
-        ]
-      },
-      {
-        property_id: "NSG-0315",
-        is_hot: true,
-        category: "Tòa Văn Phòng",
-        event_type: "UPDATE",
-        seo_title: "Tòa Văn Phòng Mặt Tiền Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3",
-        summary: "Trục ngoại giao đón sân bay về Dinh Độc Lập, 8m x 25m (CN 198m²), Hầm + 7 Tầng.",
-        marketing_description: "• Cung đường ngoại giao: Mặt tiền Nam Kỳ Khởi Nghĩa, Phường Võ Thị Sáu, Quận 3.\n• Diện tích: 8m x 25m (CN 198m²), kết cấu Hầm + 7 Tầng thang máy.\n• Dòng tiền: Cho thuê trụ sở công ty 260 triệu/tháng.",
-        public_location: { street: "Nam Kỳ Khởi Nghĩa", ward: "Phường Võ Thị Sáu", district: "Quận 3" },
-        specs: { recognized_area_m2: 198.0, dimensions: "8m × 25m", structure: "Hầm + 7 Tầng", cashflow: "260 triệu/tháng", cashflow_monthly_million: 260 },
-        pricing: {
-          initial_asking_billion: 145.0,
-          current_price_billion: 129.0,
-          price_history: [
-            { old_price: 145.0, new_price: 145.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 145.0, new_price: 129.0, note: "Nhịp điều chỉnh 1: Hạ 16 tỷ ưu tiên thanh khoản nhanh" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=85", caption: "Tòa nhà văn phòng trên trục ngoại giao Nam Kỳ Khởi Nghĩa" }
-        ]
-      },
-      {
-        property_id: "NSG-0301",
-        is_hot: true,
-        category: "Tòa Văn Phòng",
-        event_type: "UPDATE",
-        seo_title: "Tòa Văn Phòng Đẳng Cấp Mặt Tiền Hoàng Việt, Khu Đệ Nhất, Tân Bình",
-        summary: "Ngang 8m x 22m (CN 175m²), Hầm + 8 Tầng hoàn công chuẩn, dòng tiền 220 triệu/tháng.",
-        marketing_description: "• Khu vực VIP Đệ Nhất Khách Sạn: Mặt tiền đường Hoàng Việt, Phường 4, Quận Tân Bình, kết nối nhanh sân bay Tân Sơn Nhất.\n• Thông số: 8m x 22m, diện tích công nhận 175m², kết cấu Hầm + 8 Tầng mới đẹp.\n• Khai thác: Đang cho thuê full tòa nhà đạt 220 triệu/tháng.",
-        public_location: { street: "Hoàng Việt", ward: "Phường 4", district: "Tân Bình" },
-        specs: { recognized_area_m2: 175.0, dimensions: "8m × 22m", structure: "Hầm + 8 Tầng", cashflow: "220 triệu/tháng", cashflow_monthly_million: 220 },
-        pricing: {
-          initial_asking_billion: 78.0,
-          current_price_billion: 69.5,
-          price_history: [
-            { old_price: 78.0, new_price: 78.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 78.0, new_price: 69.5, note: "Nhịp điều chỉnh 1: Hạ 8.5 tỷ chốt nhanh trong quý" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Tòa nhà Hầm + 8 Tầng mặt tiền đường Hoàng Việt, Tân Bình" },
-          { url: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85", caption: "Sàn văn phòng trống suốt, hệ thống lạnh âm trần Daikin" }
-        ]
-      },
-      {
-        property_id: "NSG-0218",
-        category: "Nhà Phố Mặt Tiền",
-        event_type: "UPDATE",
-        seo_title: "Nhà Phố Mặt Tiền Kinh Doanh Đường Ba Tháng Hai, Phường 12, Quận 10",
-        summary: "Ngang đẹp 5.2m x 20m (CN 104m²), Hầm + 5 Tầng thang máy, đang cho thuê Thẩm mỹ viện 110 triệu/tháng.",
-        marketing_description: "• Cung đường thương mại sầm uất nhất Quận 10: Mặt tiền đường Ba Tháng Hai, Phường 12.\n• Diện tích: 5.2m x 20m (CN 104m²), kết cấu Hầm + 5 Tầng hiện đại.\n• Dòng tiền: Hợp đồng thuê Thẩm mỹ viện 110 triệu/tháng. Giá điều chỉnh từ 42 tỷ về 37.5 tỷ.",
-        public_location: { street: "Ba Tháng Hai", ward: "Phường 12", district: "Quận 10" },
-        specs: { recognized_area_m2: 104.0, dimensions: "5.2m × 20m", structure: "Hầm + 5 Tầng", cashflow: "110 triệu/tháng", cashflow_monthly_million: 110 },
-        pricing: {
-          initial_asking_billion: 42.0,
-          current_price_billion: 37.5,
-          price_history: [
-            { old_price: 42.0, new_price: 42.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 42.0, new_price: 37.5, note: "Nhịp điều chỉnh 1: Hạ 4.5 tỷ chốt 37.5 tỷ" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Nhà phố mặt tiền kinh doanh đắc địa trên trục Ba Tháng Hai, Quận 10" }
-        ]
-      },
-      {
-        property_id: "NSG-0237",
-        is_hot: true,
-        category: "Tòa Văn Phòng",
-        event_type: "UPDATE",
-        seo_title: "Tòa Văn Phòng Mặt Tiền Phan Đình Phùng, Phú Nhuận — Ngân Hàng ACB Thuê",
-        summary: "Ngang lớn 12m x 31.5m (CN 373.9m²), 1.177m² sàn, HĐT Ngân hàng ACB 360 triệu/tháng.",
-        marketing_description: "• Tài sản thương hiệu: Mặt tiền trục chính Phan Đình Phùng, Phường 17, Quận Phú Nhuận.\n• Khuôn đất bề thế: Ngang 12m x 31.5m, công nhận 373.9m², kết cấu 4 Tầng + Lửng (1.177,3m² sàn).\n• Dòng tiền chuẩn AAA: Ngân hàng ACB ký hợp đồng thuê dài hạn 360 triệu/tháng.",
-        public_location: { street: "Phan Đình Phùng", ward: "Phường 17", district: "Phú Nhuận" },
-        specs: { recognized_area_m2: 373.9, dimensions: "12m × 31.5m", structure: "4 Tầng + Lửng (1.177m² sàn)", cashflow: "360 triệu/tháng (ACB thuê)", cashflow_monthly_million: 360 },
-        pricing: {
-          initial_asking_billion: 195.0,
-          current_price_billion: 180.0,
-          price_history: [
-            { old_price: 195.0, new_price: 195.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 195.0, new_price: 180.0, note: "Nhịp điều chỉnh 1: Hạ 15 tỷ cho nhà đầu tư giữ tài sản dòng tiền" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=85", caption: "Mặt tiền ngang 12m cực hiếm đang làm trụ sở giao dịch Ngân hàng ACB" },
-          { url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85", caption: "Khuôn đất vuông vức 373.9m² công nhận, tiềm năng xây cao tầng" }
-        ]
-      },
-      {
-        property_id: "NSG-0273",
-        is_hot: true,
-        category: "Nhà Phố Mặt Tiền",
-        event_type: "UPDATE",
-        seo_title: "Nhà Phố Góc 2 Mặt Tiền Yersin, Phường Nguyễn Thái Bình, Quận 1",
-        summary: "Vị trí đối diện Tứ giác Bến Thành, 12.5m x 20m (nở hậu 16m, CN 194.1m²), HĐT 150 triệu/tháng.",
-        marketing_description: "• Vị trí kim cương: Góc 2 mặt tiền đường Yersin, ngay khu Tứ giác Bến Thành, Phường Nguyễn Thái Bình, Quận 1.\n• Thông số: 12.5m x 20m (nở hậu 16m), diện tích công nhận 194.1m², kết cấu 3 tầng.\n• Giá bán: Điều chỉnh từ 160 tỷ xuống 149 tỷ cho khách thiện chí.",
-        public_location: { street: "Yersin", ward: "Phường Nguyễn Thái Bình", district: "Quận 1" },
-        specs: { recognized_area_m2: 194.1, dimensions: "12.5m × 20m (NH 16m)", structure: "Góc 2MT • 3 Tầng", cashflow: "150 triệu/tháng", cashflow_monthly_million: 150 },
-        pricing: {
-          initial_asking_billion: 160.0,
-          current_price_billion: 149.0,
-          price_history: [
-            { old_price: 160.0, new_price: 160.0, note: "Mốc giá chào khởi điểm" },
-            { old_price: 160.0, new_price: 149.0, note: "Nhịp điều chỉnh 1: Giảm 11 tỷ thiện chí thương lượng" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=85", caption: "Vị trí góc 2 mặt tiền đường Yersin sát Chợ Bến Thành & Ga Metro trung tâm" },
-          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Khu vực kinh doanh sầm uất bậc nhất lõi Quận 1" }
-        ]
-      },
-      {
-        property_id: "NSG-0188",
-        category: "Nhà Phố Mặt Tiền",
-        event_type: "NEW",
-        seo_title: "Nhà Phố Mặt Tiền Đường Hoa Phượng, Khu Phan Xích Long, Phú Nhuận",
-        summary: "Phân khúc 20–30 Tỷ thanh khoản cao, ngang 4.5m x 18m (CN 81m²), Hầm + 4 Tầng, thu nhập 75 triệu/tháng.",
-        marketing_description: "• Trung tâm phố ẩm thực – tài chính Phan Xích Long: Mặt tiền đường Hoa Phượng, Phường 2, Quận Phú Nhuận.\n• Thông số: 4.5m x 18m, công nhận đủ 81m², kết cấu Hầm + 4 Tầng thang máy mới đẹp.\n• Giá bán: 26.5 tỷ thương lượng nhẹ xuống 24.8 tỷ.",
-        public_location: { street: "Hoa Phượng", ward: "Phường 2", district: "Phú Nhuận" },
-        specs: { recognized_area_m2: 81.0, dimensions: "4.5m × 18m", structure: "Hầm + 4 Tầng", cashflow: "75 triệu/tháng", cashflow_monthly_million: 75 },
-        pricing: {
-          initial_asking_billion: 26.5,
-          current_price_billion: 24.8,
-          price_history: [
-            { old_price: 26.5, new_price: 24.8, note: "Tài sản mới tuyển chọn (NEW) - Giá chốt 24.8 tỷ" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=85", caption: "Nhà phố mặt tiền khu VIP Phan Xích Long – Hoa Phượng" }
-        ]
-      },
-      {
-        property_id: "NSG-0299",
-        category: "Biệt Thự / Dinh Thự",
-        event_type: "NEW",
-        seo_title: "Biệt Thự Góc 2 Mặt Tiền Khu Compound Ven Sông Thảo Điền, TP. Thủ Đức",
-        summary: "Khuôn đất 17m x 30m (CN 508m²), khu compound an ninh sát sông Sài Gòn & Xuân Thủy.",
-        marketing_description: "• Không gian sống thượng lưu: Biệt thự góc 2 mặt tiền nằm trong khu compound ven sông đường Nguyễn Văn Hưởng - Thảo Điền, có công viên nội khu.\n• Diện tích chuẩn: 17m x 30m, công nhận đủ 508m² đất ở, sổ hồng cá nhân sẵn sàng giao dịch.\n• Giá chào: 165 tỷ (thương lượng về 160 tỷ).",
-        public_location: { street: "Nguyễn Văn Hưởng", ward: "Phường Thảo Điền", district: "TP. Thủ Đức" },
-        specs: { recognized_area_m2: 508.0, dimensions: "17m × 30m", structure: "Biệt thự 2 Tầng (Compound)", cashflow: "Bàn giao ngay", cashflow_monthly_million: 0 },
-        pricing: {
-          initial_asking_billion: 165.0,
-          current_price_billion: 160.0,
-          price_history: [
-            { old_price: 165.0, new_price: 160.0, note: "Mốc chào giá tuyển chọn mới (NEW) - Thương lượng 160 tỷ" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85", caption: "Biệt thự góc 2 mặt tiền khuôn viên 508m² tại Compound Thảo Điền" },
-          { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85", caption: "Hồ bơi riêng và sân vườn rộng thoáng sát công viên bờ sông" }
-        ]
-      },
-      {
-        property_id: "NSG-0318",
-        category: "Quỹ Đất Xây Cao Tầng",
-        event_type: "NEW",
-        seo_title: "Quỹ Đất Vàng Mặt Tiền Nguyễn Thị Minh Khai, Quận 3 — GPXD Hầm + 10 Tầng",
-        summary: "Khuôn đất lớn 11m x 28m (CN 305m²), sẵn giấy phép xây dựng tòa nhà văn phòng Hầm + 10 Tầng.",
-        marketing_description: "• Quỹ đất hiếm còn sót lại trên trục Nguyễn Thị Minh Khai, Quận 3 (giáp Quận 1).\n• Thông số: 11m x 28m, công nhận 305m² vuông vức không lỗi phong thủy.\n• Pháp lý: Đã có GPXD Hầm + 10 Tầng, phù hợp xây trụ sở tập đoàn.",
-        public_location: { street: "Nguyễn Thị Minh Khai", ward: "Phường 6", district: "Quận 3" },
-        specs: { recognized_area_m2: 305.0, dimensions: "11m × 28m", structure: "Sẵn GPXD Hầm + 10 Tầng", cashflow: "70 triệu/tháng (nhà cũ)", cashflow_monthly_million: 70 },
-        pricing: {
-          initial_asking_billion: 168.0,
-          current_price_billion: 162.0,
-          price_history: [
-            { old_price: 168.0, new_price: 162.0, note: "Hồ sơ quỹ đất mới tuyển chọn (NEW)" }
-          ]
-        },
-        gallery: [
-          { url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=85", caption: "Khuôn đất ngang 11m trên trục Nguyễn Thị Minh Khai" }
         ]
       }
     ];
@@ -3109,7 +2861,10 @@
       };
     }
 
-    function reloadPropertiesDataJs() {
+    function reloadPropertiesDataJs(forceReload = false) {
+      if (!forceReload && window.__NHATOSG_DATA__ && Array.isArray(window.__NHATOSG_DATA__.records)) {
+        return Promise.resolve(window.__NHATOSG_DATA__);
+      }
       return new Promise((resolve) => {
         const s = document.createElement("script");
         s.src = "./properties_data.js?t=" + Date.now();
@@ -3124,6 +2879,11 @@
         const payload = (await reloadPropertiesDataJs()) || window.__NHATOSG_DATA__ || {};
         const cfg = payload.config || {};
         const showDemo = cfg.show_demo_properties !== false;
+
+        if (cfg.hero_title) {
+          const heroEl = document.getElementById("heroMainTitleText");
+          if (heroEl) heroEl.textContent = cfg.hero_title;
+        }
 
         if (Array.isArray(payload.articles) && payload.articles.length > 0) {
           INSIGHT_ARTICLES = payload.articles;
