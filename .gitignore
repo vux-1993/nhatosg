@@ -1,0 +1,36 @@
+# =========================================================================
+# NHATOSG PRODUCTION SECURITY SHIELD - STRICT GITIGNORE
+# =========================================================================
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# API Credentials & OAuth Tokens
+token.json
+client_secret*.json
+credentials*.json
+*.key
+*.pem
+*.env
+*.env.*
+
+# Private & Confidential Vaults
+ketsat_so_hong_mat/
+so_hong_goc/
+private_vault/
+*.pdf.bak
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
