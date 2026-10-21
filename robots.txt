@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /web_images/
-Disallow: /.git/
+
 Sitemap: https://nhatosg.com.vn/sitemap.xml

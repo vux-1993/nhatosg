@@ -1,5 +1,0 @@
-RedirectMatch 404 /\.git
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule ^\.git - [F,L]
-</IfModule>

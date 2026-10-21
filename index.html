@@ -186,22 +186,33 @@
     }
 
     /* =========================================================================
-       V5.3 DARK MODE ENHANCEMENTS (Tự động thích ứng Modal, Card & Thông số)
+       V5.6 DARK MODE ENHANCEMENTS (Tự động thích ứng Modal, Card & Thông số)
        ========================================================================= */
     body.v5-dark-mode #propertyModal > div,
+    body.v5-dark-mode #insightModal > div,
     body.v5-dark-mode #memberAuthModal > div,
-    body.v5-dark-mode #articleModal > div,
+    body.v5-dark-mode #compareModal > div,
     body.v5-dark-mode #advancedFilterDrawer > div {
       background-color: #0F172A !important;
-      border-color: rgba(251, 191, 36, 0.4) !important;
       color: #F8FAFC !important;
+      border-color: rgba(251, 191, 36, 0.35) !important;
       box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(251, 191, 36, 0.12) !important;
     }
     body.v5-dark-mode #propertyModal .bg-slate-50,
+    body.v5-dark-mode #insightModal .bg-slate-50,
     body.v5-dark-mode #memberAuthModal .bg-slate-50,
-    body.v5-dark-mode #articleModal .bg-slate-50 {
+    body.v5-dark-mode #compareModal .bg-slate-50 {
       background-color: #0B1120 !important;
       border-color: #1E293B !important;
+    }
+    body.v5-dark-mode #insightModal .bg-white,
+    body.v5-dark-mode #compareModal .bg-white,
+    body.v5-dark-mode #memberAuthModal .bg-white,
+    body.v5-dark-mode #propertyModal .bg-white,
+    body.v5-dark-mode .property-card-item .bg-white {
+      background-color: #1E293B !important;
+      color: #F1F5F9 !important;
+      border-color: #334155 !important;
     }
     body.v5-dark-mode .property-card-item p,
     body.v5-dark-mode .text-slate-500,
@@ -209,7 +220,6 @@
     body.v5-dark-mode .text-slate-700 {
       color: #E2E8F0 !important;
     }
-    body.v5-dark-mode .bg-white,
     body.v5-dark-mode .bg-slate-50,
     body.v5-dark-mode .bg-slate-100 {
       background-color: #1E293B !important;
@@ -219,7 +229,7 @@
     body.v5-dark-mode input,
     body.v5-dark-mode select,
     body.v5-dark-mode textarea {
-      background-color: #0F172A !important;
+      background-color: #0B1120 !important;
       color: #F8FAFC !important;
       border-color: #334155 !important;
     }
@@ -306,32 +316,32 @@
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-6 text-[14px] font-bold text-slate-200">
-        <a href="#trang-chu" class="text-amber-400 flex items-center gap-1.5 py-1.5 border-b-2 border-amber-400">
+      <nav class="hidden lg:flex items-center gap-6 text-[14px] font-bold text-slate-200 shrink-0 whitespace-nowrap">
+        <a href="#trang-chu" class="text-amber-400 flex items-center gap-1.5 py-1.5 border-b-2 border-amber-400 whitespace-nowrap">
           <i data-lucide="home" class="w-4 h-4"></i> Trang chủ
         </a>
-        <a href="#tai-san-hot" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5">
+        <a href="#tai-san-hot" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5 whitespace-nowrap">
           <i data-lucide="flame" class="w-4 h-4 text-amber-500"></i> Tài sản Tâm Điểm
         </a>
-        <a href="#kho-tai-san" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5">
+        <a href="#kho-tai-san" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5 whitespace-nowrap">
           <i data-lucide="building-2" class="w-4 h-4 text-sky-400"></i> Kho Tài sản
         </a>
-        <a href="#tin-tuc" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5">
+        <a href="#tin-tuc" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5 whitespace-nowrap">
           <i data-lucide="newspaper" class="w-4 h-4 text-slate-400"></i> Tin tức &amp; Quy hoạch
         </a>
-        <a href="#lien-he" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5">
+        <a href="#lien-he" class="text-slate-200 hover:text-amber-400 transition flex items-center gap-1.5 py-1.5 whitespace-nowrap">
           <i data-lucide="phone-call" class="w-4 h-4 text-slate-400"></i> Liên hệ
         </a>
       </nav>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 shrink-0 whitespace-nowrap">
         <button
           type="button"
           id="headerAiBtn"
           onclick="toggleAiCoPilot()"
           title="Trợ lý AI Phân Tích (Admin)"
           style="display: none;"
-          class="px-3 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs sm:text-[13px] flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+          class="px-3 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs sm:text-[13px] flex items-center gap-1.5 transition shadow-xs cursor-pointer whitespace-nowrap"
         >
           <span>✨</span>
           <span class="hidden sm:inline">AI Phân Tích</span>
@@ -341,16 +351,16 @@
           id="v5ThemeToggleBtn"
           onclick="toggleV5ThemeMode()"
           title="Chuyển đổi chế độ Sáng / Tối"
-          class="px-3 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-amber-300 border border-slate-700 text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer"
+          class="px-3 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-amber-300 border border-slate-700 text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer whitespace-nowrap"
         >
           <span id="v5ThemeToggleIcon">☀️</span>
           <span id="v5ThemeToggleLabel" class="hidden xl:inline">Sáng / Tối</span>
         </button>
-        <button onclick="openMemberAuthModal()" id="headerMemberBtn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-amber-300 border border-slate-700 transition cursor-pointer">
+        <button onclick="openMemberAuthModal()" id="headerMemberBtn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-amber-300 border border-slate-700 transition cursor-pointer whitespace-nowrap">
           <i data-lucide="user-check" class="w-3.5 h-3.5 text-sky-400"></i>
           <span id="headerMemberLabel">Thành Viên</span>
         </button>
-        <a href="tel:0916239898" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition shadow-xs">
+        <a href="tel:0916239898" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-[13px] font-extrabold bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition shadow-xs whitespace-nowrap">
           <i data-lucide="phone-call" class="w-3.5 h-3.5 text-slate-950"></i>
           <span>0916.23.9898 ( Vũ )</span>
         </a>
@@ -1041,30 +1051,13 @@
       <div class="p-6 overflow-y-auto space-y-5">
         <div id="insightContent" class="text-[15px] text-slate-700 leading-relaxed space-y-3 whitespace-pre-line bg-slate-50 p-5 rounded-2xl border border-slate-200/80 font-medium"></div>
 
-        <div class="bg-[#0F172A] text-white p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div class="text-xs">
-            <span class="font-bold text-[#FBBF24] block">✨ Công cụ Sáng tạo Content BĐS cùng Gemini</span>
-            <span class="text-slate-300 text-[11px]">Copy bài viết hoặc câu lệnh mẫu (Prompt) của chủ đề này</span>
-          </div>
-          <div class="flex items-center gap-2 shrink-0">
-            <button onclick="copyInsightFullText()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition">
-              📋 Copy Bài Viết
-            </button>
-            <button onclick="copyGeminiContentPrompt()" class="px-4 py-2 rounded-xl gold-gradient-badge text-[#0F172A] text-xs font-extrabold transition">
-              ✨ Copy Prompt Cho Gemini
-            </button>
-          </div>
-        </div>
-        <p id="insightCopyStatus" class="hidden text-xs font-mono font-bold text-emerald-600 text-center"></p>
-
-        <!-- TÀI SẢN THỰC TẾ LIÊN QUAN CHỦ ĐỀ NÀY -->
+        <!-- TÀI SẢN THỰC TẾ LIÊN QUAN CHUYÊN ĐỀ NÀY -->
         <div id="insightRelatedSection" class="pt-3 border-t border-slate-200">
           <div class="flex items-center justify-between mb-3">
             <h4 class="text-xs sm:text-[13px] font-extrabold uppercase tracking-wider text-[#0F172A] flex items-center gap-2">
               <i data-lucide="building-2" class="w-4 h-4 text-[#0284C7]"></i>
-              <span>Tài Sản Thực Tế Phù Hợp Định Hướng Phân Tích (Top 3)</span>
+              <span>🏢 TÀI SẢN ĐANG GIAO DỊCH LIÊN QUAN CHUYÊN ĐỀ NÀY</span>
             </h4>
-            <span class="text-xs font-mono font-bold text-[#0284C7]">Tuyển chọn</span>
           </div>
           <div id="insightRelatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
         </div>
