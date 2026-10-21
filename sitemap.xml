@@ -3,13 +3,71 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nhatosg.com.vn/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://nhatosg.com.vn/?id=NSG-0660</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85</image:loc>
+      <image:title>Quỹ Đất Mặt Tiền Nguyễn Kiệm, Phường 4, Phú Nhuận (Đối Diện Co.opmart)</image:title>
+      <image:caption>Quỹ Đất Mặt Tiền Nguyễn Kiệm, Phường 4, Phú Nhuận (Đối Diện Co.opmart) - Ảnh minh họa phân khúc (Liên hệ nhận ảnh thực tế &amp; hồ sơ qua Zalo)</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nhatosg.com.vn/?id=NSG-0659</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.jpg</image:loc>
+      <image:title>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1</image:title>
+      <image:caption>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1 - DT 4m × 18m (CN 73.1m²) - Giá chào 65.0 Tỷ - Ảnh thực tế #1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.jpg</image:loc>
+      <image:title>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1</image:title>
+      <image:caption>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1 - DT 4m × 18m (CN 73.1m²) - Giá chào 65.0 Tỷ - Ảnh thực tế #2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.jpg</image:loc>
+      <image:title>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1</image:title>
+      <image:caption>Nhà Phố Mặt Tiền Nguyễn Trãi, Phường Bến Thành, Quận 1 - DT 4m × 18m (CN 73.1m²) - Giá chào 65.0 Tỷ - Ảnh thực tế #3</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://nhatosg.com.vn/?id=NSG-0658</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-1-60bd3.jpg</image:loc>
+      <image:title>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức</image:title>
+      <image:caption>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức - DT 7m × 25.5m (CN 168.0m²) - Giá chào 35.0 Tỷ - Ảnh thực tế #1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-2-3e05f.jpg</image:loc>
+      <image:title>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức</image:title>
+      <image:caption>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức - DT 7m × 25.5m (CN 168.0m²) - Giá chào 35.0 Tỷ - Ảnh thực tế #2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-3-6d791.jpg</image:loc>
+      <image:title>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức</image:title>
+      <image:caption>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức - DT 7m × 25.5m (CN 168.0m²) - Giá chào 35.0 Tỷ - Ảnh thực tế #3</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-4-d7ed4.jpg</image:loc>
+      <image:title>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức</image:title>
+      <image:caption>Quỹ Đất Mặt Tiền Đường Số 47, Phường Thảo Điền, TP. Thủ Đức - DT 7m × 25.5m (CN 168.0m²) - Giá chào 35.0 Tỷ - Ảnh thực tế #4</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0657</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -45,7 +103,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0656</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -66,7 +124,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0655</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -92,7 +150,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0654</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -108,7 +166,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0653</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -119,7 +177,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0652</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -145,7 +203,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0651</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -171,7 +229,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0650</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -187,7 +245,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0649</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -218,7 +276,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0648</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -244,7 +302,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0647</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -280,7 +338,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0646</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -301,7 +359,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0645</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -317,7 +375,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0644</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -328,7 +386,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0643</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -354,7 +412,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0642</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -380,7 +438,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0641</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -431,7 +489,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0640</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -522,7 +580,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0639</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -538,7 +596,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0638</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -559,7 +617,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0637</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -570,7 +628,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0636</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -596,7 +654,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0635</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -622,7 +680,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0634</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -638,7 +696,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0633</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -659,7 +717,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0632</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -680,7 +738,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0631</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -696,7 +754,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0630</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -717,7 +775,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0629</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -738,7 +796,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0628</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -754,7 +812,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0627</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -775,7 +833,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0626</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -801,7 +859,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0625</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -812,7 +870,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0624</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -833,7 +891,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0623</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -849,7 +907,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0622</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -875,7 +933,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0621</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -886,7 +944,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0620</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -907,7 +965,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0619</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -933,7 +991,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0618</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -949,7 +1007,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0617</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -960,7 +1018,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0616</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -971,7 +1029,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0615</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -987,7 +1045,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0614</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1008,7 +1066,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0613</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1024,7 +1082,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0612</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1040,7 +1098,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0611</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1051,7 +1109,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0610</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1072,7 +1130,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0609</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1098,7 +1156,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0608</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1119,7 +1177,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0607</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1140,7 +1198,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0606</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1156,7 +1214,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0605</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1182,7 +1240,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0604</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1193,7 +1251,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0603</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1224,7 +1282,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0602</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1245,7 +1303,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0601</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1256,7 +1314,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0600</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1277,7 +1335,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0599</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1303,7 +1361,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0598</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1324,7 +1382,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0597</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1340,7 +1398,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0596</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1351,7 +1409,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0586</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1372,7 +1430,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0595</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1383,7 +1441,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0594</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1394,7 +1452,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0580</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1420,7 +1478,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0585</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1431,7 +1489,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0588</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1447,7 +1505,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0589</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1468,7 +1526,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0592</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1494,7 +1552,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0524</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1525,7 +1583,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0542</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1546,7 +1604,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0535</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1577,7 +1635,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0579</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1598,7 +1656,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0576</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1619,7 +1677,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0582</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1640,7 +1698,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0528</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1681,7 +1739,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0593</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1717,7 +1775,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0591</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1738,7 +1796,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0590</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1754,7 +1812,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0587</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1775,7 +1833,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0543</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1791,7 +1849,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0577</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1802,7 +1860,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0575</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1858,7 +1916,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0546</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1869,7 +1927,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0544</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1890,7 +1948,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0584</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1911,7 +1969,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0583</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1947,7 +2005,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0581</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1973,7 +2031,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0578</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -1994,7 +2052,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0527</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2025,7 +2083,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0538</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2036,7 +2094,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0574</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2047,7 +2105,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0573</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2063,7 +2121,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0572</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2074,7 +2132,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0571</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2110,7 +2168,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0570</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2121,7 +2179,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0569</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2132,7 +2190,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0568</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2158,7 +2216,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0567</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2179,7 +2237,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0566</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2190,7 +2248,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0565</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2206,7 +2264,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0564</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2227,7 +2285,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0563</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2248,7 +2306,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0562</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2264,7 +2322,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0561</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2280,7 +2338,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0560</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2296,7 +2354,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0559</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2317,7 +2375,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0558</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2343,7 +2401,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0557</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2354,7 +2412,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0556</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2385,7 +2443,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0555</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2411,7 +2469,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0554</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2427,7 +2485,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0536</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2448,7 +2506,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0537</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2494,7 +2552,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0532</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2505,7 +2563,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0533</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2531,7 +2589,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0553</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2547,7 +2605,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0552</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2563,7 +2621,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0551</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2584,7 +2642,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0550</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2600,7 +2658,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0549</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2616,7 +2674,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0548</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2627,7 +2685,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0547</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2653,7 +2711,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0545</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2689,7 +2747,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0541</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2700,7 +2758,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0540</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2711,7 +2769,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0539</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2737,7 +2795,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0534</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2753,7 +2811,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0531</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2774,7 +2832,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0530</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2800,7 +2858,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0529</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2811,7 +2869,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0526</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2872,7 +2930,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0525</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2893,7 +2951,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0523</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2929,7 +2987,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0522</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2965,7 +3023,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0517</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -2981,7 +3039,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0518</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3037,7 +3095,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0520</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3048,7 +3106,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0519</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3084,7 +3142,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0516</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3100,7 +3158,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0515</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3111,7 +3169,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0514</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3132,7 +3190,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0513</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3158,7 +3216,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0512</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3179,7 +3237,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0511</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3220,7 +3278,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0510</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3236,7 +3294,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0509</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3257,7 +3315,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0508</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3278,7 +3336,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0507</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3289,7 +3347,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0506</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3320,7 +3378,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0503</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3331,7 +3389,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0505</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3342,7 +3400,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0504</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3358,7 +3416,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0502</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -3399,7 +3457,7 @@
   </url>
   <url>
     <loc>https://nhatosg.com.vn/?id=NSG-0501</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
