@@ -1081,6 +1081,58 @@
       </div>
     </div>
   </div>
+  <!-- === NHATOSG AI CO-PILOT DRAWER (ADMIN ONLY) === -->
+<div id="aiCoPilotDrawer" class="fixed inset-y-0 right-0 w-full sm:w-[450px] bg-[#0B1120] border-l border-amber-400/30 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col">
+  <!-- Header -->
+  <div class="px-5 py-4 border-b border-slate-800 bg-[#0F172A] flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-amber-400/20 border border-amber-400/50 flex items-center justify-center text-amber-400">✨</div>
+      <div>
+        <h3 class="text-white font-extrabold text-sm uppercase tracking-wide">nhatoSG AI Co-Pilot</h3>
+        <p class="text-xs text-emerald-400 font-mono">Trợ lý Phân tích Hệ thống</p>
+      </div>
+    </div>
+    <button onclick="toggleAiCoPilot()" class="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition">✕</button>
+  </div>
+  
+  <!-- Setup API Key Box -->
+  <div id="aiApiKeySetupBox" class="p-5 border-b border-slate-800 hidden">
+    <p class="text-xs text-amber-300 mb-2 font-mono">Bảo mật: Yêu cầu Gemini API Key (Key chỉ lưu ở trình duyệt cá nhân).</p>
+    <div class="flex gap-2">
+      <input type="password" id="geminiApiKeyInput" placeholder="Nhập API Key..." class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-amber-400 outline-none">
+      <button onclick="saveGeminiApiKey()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-lg font-bold text-sm transition">Lưu</button>
+    </div>
+  </div>
+
+  <!-- Chat History -->
+  <div id="aiChatHistory" class="flex-1 overflow-y-auto p-5 space-y-4 bg-[#060A12]">
+    <div class="flex gap-3">
+      <div class="w-7 h-7 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-xs shrink-0">✨</div>
+      <div class="bg-slate-800 text-slate-200 text-[13.5px] p-3 rounded-2xl rounded-tl-sm leading-relaxed border border-slate-700">
+        Chào sếp, tôi là AI phân tích dữ liệu của nhatoSG. Sếp muốn so sánh tài sản, định giá hay viết bài đăng Zalo cho căn nào?
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Input -->
+  <div class="p-4 border-t border-slate-800 bg-[#0F172A]">
+    <div id="aiContextBadge" class="hidden mb-2 px-2 py-1 rounded bg-sky-500/20 border border-sky-500/30 text-[11px] text-sky-300 font-mono w-max">
+      Đính kèm ngữ cảnh: Căn <span id="aiContextPropId"></span>
+    </div>
+    <div class="relative">
+      <textarea id="aiChatInput" rows="2" placeholder="Hỏi AI phân tích..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-4 pr-12 py-3 text-white text-[14px] focus:border-amber-400 outline-none resize-none leading-relaxed"></textarea>
+      <button onclick="sendAiMessage()" id="aiSendBtn" class="absolute right-2 bottom-2 w-8 h-8 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-900 flex items-center justify-center transition">
+        ➤
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Nút Float Mở Chat AI -->
+<button id="floatAiBtn" onclick="toggleAiCoPilot()" class="hidden fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 shadow-[0_0_20px_rgba(251,191,36,0.4)] text-slate-900 flex items-center justify-center text-2xl cursor-pointer hover:scale-110 transition-transform">
+  ✨
+</button>
+
   <!-- END OF MODALS (DÁN TIẾP ĐỢT 2 NGAY DƯỚI DÒNG NÀY) -->
 <!-- =========================================================================
        JAVASCRIPT ENGINE V3.7: KHUÔN THẺ ĐỒNG NHẤT 100% + PHÂN TRANG 1 HÀNG (...) + SMART SEARCH
@@ -1433,6 +1485,16 @@
       }
     }
 
+    function isCurrentUserAdmin() {
+      // Quyền Admin được xác thực an toàn nếu người dùng đã cấu hình Gemini API Key
+      // hoặc có token phiên làm việc quản trị trong localStorage
+      return Boolean(
+        localStorage.getItem("NSG_GEMINI_API_KEY") ||
+        localStorage.getItem("NSG_ADMIN_TOKEN") ||
+        localStorage.getItem("NSG_SECURE_TOKEN")
+      );
+    }
+
     function updateHeaderMemberStatus() {
       const session = getCurrentMemberSession();
       const labelEl = document.getElementById("headerMemberLabel");
@@ -1445,8 +1507,171 @@
           labelEl.className = "";
         }
       }
+
+      const floatAiBtn = document.getElementById("floatAiBtn");
+      if (isCurrentUserAdmin()) {
+        // Đã là Admin -> Hiển thị nút AI góc trái dưới
+        if (floatAiBtn) floatAiBtn.classList.remove("hidden");
+      } else {
+        if (floatAiBtn) floatAiBtn.classList.add("hidden");
+      }
     }
     window.updateMemberHeaderUI = updateHeaderMemberStatus;
+
+    /* === NHATOSG AI CO-PILOT LOGIC === */
+    let isAiDrawerOpen = false;
+
+    function toggleAiCoPilot() {
+      const drawer = document.getElementById("aiCoPilotDrawer");
+      if (!drawer) return;
+      isAiDrawerOpen = !isAiDrawerOpen;
+      if (isAiDrawerOpen) {
+        drawer.classList.remove("translate-x-full");
+        checkAiApiKey();
+        updateAiContextBadge();
+        const chatInput = document.getElementById("aiChatInput");
+        if (chatInput) {
+          setTimeout(() => chatInput.focus(), 300);
+          if (!chatInput.dataset.enterBound) {
+            chatInput.dataset.enterBound = "true";
+            chatInput.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendAiMessage();
+              }
+            });
+          }
+        }
+      } else {
+        drawer.classList.add("translate-x-full");
+      }
+    }
+    window.toggleAiCoPilot = toggleAiCoPilot;
+
+    function checkAiApiKey() {
+      const key = localStorage.getItem("NSG_GEMINI_API_KEY");
+      const setupBox = document.getElementById("aiApiKeySetupBox");
+      if (!setupBox) return;
+      if (!key) {
+        setupBox.classList.remove("hidden");
+      } else {
+        setupBox.classList.add("hidden");
+      }
+    }
+
+    function saveGeminiApiKey() {
+      const inputEl = document.getElementById("geminiApiKeyInput");
+      const input = inputEl ? inputEl.value.trim() : "";
+      if (input) {
+        localStorage.setItem("NSG_GEMINI_API_KEY", input);
+        checkAiApiKey();
+        if (typeof updateMemberHeaderUI === "function") updateMemberHeaderUI();
+        addAiMessage("Đã lưu Gemini API Key thành công! Tôi đã sẵn sàng hỗ trợ sếp.", false);
+      }
+    }
+    window.saveGeminiApiKey = saveGeminiApiKey;
+
+    function updateAiContextBadge() {
+      const badge = document.getElementById("aiContextBadge");
+      const propIdSpan = document.getElementById("aiContextPropId");
+      if (!badge || !propIdSpan) return;
+      // Nếu Modal đang mở, lấy thông tin căn đang xem
+      if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
+        badge.classList.remove("hidden");
+        propIdSpan.textContent = activeModalProperty.property_id;
+      } else {
+        badge.classList.add("hidden");
+      }
+    }
+
+    function addAiMessage(text, isUser = false) {
+      const history = document.getElementById("aiChatHistory");
+      if (!history) return;
+      const msgDiv = document.createElement("div");
+      msgDiv.className = isUser ? "flex gap-3 flex-row-reverse" : "flex gap-3";
+      
+      let innerHtml = "";
+      if (isUser) {
+        innerHtml = `<div class="bg-amber-500 text-slate-900 text-[13.5px] p-3 rounded-2xl rounded-tr-sm leading-relaxed max-w-[85%] font-medium">${text.replace(/\n/g, '<br>')}</div>`;
+      } else {
+        // Basic Markdown to HTML (bold & line breaks)
+        const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+        innerHtml = `<div class="w-7 h-7 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-xs shrink-0">✨</div>
+                     <div class="bg-slate-800 text-slate-200 text-[13.5px] p-3 rounded-2xl rounded-tl-sm leading-relaxed border border-slate-700 max-w-[85%]">${formattedText}</div>`;
+      }
+      msgDiv.innerHTML = innerHtml;
+      history.appendChild(msgDiv);
+      history.scrollTop = history.scrollHeight;
+    }
+
+    async function sendAiMessage() {
+      const apiKey = localStorage.getItem("NSG_GEMINI_API_KEY");
+      if (!apiKey) {
+        alert("Vui lòng nhập Gemini API Key trước!");
+        const setupBox = document.getElementById("aiApiKeySetupBox");
+        if (setupBox) setupBox.classList.remove("hidden");
+        return;
+      }
+
+      const inputEl = document.getElementById("aiChatInput");
+      const userText = inputEl ? inputEl.value.trim() : "";
+      if (!userText) return;
+
+      inputEl.value = "";
+      addAiMessage(userText, true);
+      
+      const sendBtn = document.getElementById("aiSendBtn");
+      if (sendBtn) {
+        sendBtn.innerHTML = "⏳";
+        sendBtn.disabled = true;
+      }
+
+      // Build Context
+      let contextString = "";
+      if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
+        contextString = `\n[NGỮ CẢNH: Tôi đang xem xét tài sản ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${activeModalProperty.pricing?.current_price_billion || ""} Tỷ. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m2. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu tôi hỏi về tài sản hiện tại.`;
+      }
+
+      const payload = {
+        contents: [{
+          parts: [{ text: "Bạn là AI trợ lý cố vấn đầu tư bất động sản cao cấp của hệ thống nhatoSG (Sài Gòn). Hãy trả lời ngắn gọn, chuyên nghiệp, thông minh, đúng trọng tâm." + contextString + "\n\nCâu hỏi của tôi: " + userText }]
+        }]
+      };
+
+      try {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        
+        if (!response.ok) throw new Error("API Lỗi (" + response.status + ")");
+        const data = await response.json();
+        const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ mô hình.";
+        addAiMessage(aiText, false);
+      } catch (err) {
+        addAiMessage("⚠️ Lỗi kết nối tới Gemini API (" + err.message + "). Vui lòng kiểm tra lại Key hoặc mạng.", false);
+      } finally {
+        if (sendBtn) {
+          sendBtn.innerHTML = "➤";
+          sendBtn.disabled = false;
+        }
+      }
+    }
+    window.sendAiMessage = sendAiMessage;
+
+    // Hỗ trợ phím tắt tiện lợi cho Admin: Ctrl + Shift + A hoặc query ?ai=1
+    window.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
+        e.preventDefault();
+        toggleAiCoPilot();
+      }
+    });
+
+    if (new URLSearchParams(window.location.search).get("ai") === "1" || new URLSearchParams(window.location.search).get("admin") === "ai") {
+      setTimeout(() => toggleAiCoPilot(), 500);
+    }
+
 
     function openMemberAuthModal() {
       const session = getCurrentMemberSession();
@@ -3125,6 +3350,7 @@
     }
 
     function openPropertyModal(propId) {
+      if (typeof updateAiContextBadge === 'function') setTimeout(updateAiContextBadge, 100);
       const prop = propertiesData.find(p => p.property_id === propId);
       if (!prop) return;
       activeModalProperty = prop;
@@ -3245,6 +3471,7 @@
     }
 
     function closePropertyModal() {
+      if (typeof updateAiContextBadge === 'function') setTimeout(updateAiContextBadge, 100);
       document.getElementById("propertyModal")?.classList.add("hidden");
       closeFullscreenLightbox();
       try { window.history.replaceState(null, "", window.location.pathname); } catch(e) {}
