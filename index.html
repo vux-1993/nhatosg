@@ -184,6 +184,49 @@
     body.v5-dark-mode .property-card-item h3 {
       color: #F8FAFC !important;
     }
+
+    /* =========================================================================
+       V5.3 DARK MODE ENHANCEMENTS (Tự động thích ứng Modal, Card & Thông số)
+       ========================================================================= */
+    body.v5-dark-mode #propertyModal > div,
+    body.v5-dark-mode #memberAuthModal > div,
+    body.v5-dark-mode #articleModal > div,
+    body.v5-dark-mode #advancedFilterDrawer > div {
+      background-color: #0F172A !important;
+      border-color: rgba(251, 191, 36, 0.4) !important;
+      color: #F8FAFC !important;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(251, 191, 36, 0.12) !important;
+    }
+    body.v5-dark-mode #propertyModal .bg-slate-50,
+    body.v5-dark-mode #memberAuthModal .bg-slate-50,
+    body.v5-dark-mode #articleModal .bg-slate-50 {
+      background-color: #0B1120 !important;
+      border-color: #1E293B !important;
+    }
+    body.v5-dark-mode .property-card-item p,
+    body.v5-dark-mode .text-slate-500,
+    body.v5-dark-mode .text-slate-600,
+    body.v5-dark-mode .text-slate-700 {
+      color: #E2E8F0 !important;
+    }
+    body.v5-dark-mode .bg-white,
+    body.v5-dark-mode .bg-slate-50,
+    body.v5-dark-mode .bg-slate-100 {
+      background-color: #1E293B !important;
+      border-color: #334155 !important;
+      color: #F8FAFC !important;
+    }
+    body.v5-dark-mode input,
+    body.v5-dark-mode select,
+    body.v5-dark-mode textarea {
+      background-color: #0F172A !important;
+      color: #F8FAFC !important;
+      border-color: #334155 !important;
+    }
+    body.v5-dark-mode .border-slate-200,
+    body.v5-dark-mode .border-slate-300 {
+      border-color: #334155 !important;
+    }
   </style>
   <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio -->
   <script id="nsg-live-loader" data-ver="1792605824">document.write('<script src="./properties_data.js?t=' + Date.now() + '"><\/script>');</script>
@@ -282,6 +325,17 @@
       </nav>
 
       <div class="flex items-center gap-2">
+        <button
+          type="button"
+          id="headerAiBtn"
+          onclick="toggleAiCoPilot()"
+          title="Trợ lý AI Phân Tích (Admin)"
+          style="display: none;"
+          class="px-3 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs sm:text-[13px] flex items-center gap-1.5 transition shadow-xs cursor-pointer"
+        >
+          <span>✨</span>
+          <span class="hidden sm:inline">AI Phân Tích</span>
+        </button>
         <button
           type="button"
           id="v5ThemeToggleBtn"
@@ -731,6 +785,10 @@
             <i data-lucide="link" class="w-3.5 h-3.5"></i>
             <span id="copyLinkBtnText">🔗 Sao chép liên kết</span>
           </button>
+          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-500 text-amber-700 hover:text-slate-900 border border-amber-300 text-xs font-extrabold transition flex items-center gap-1.5">
+            <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+            <span>🖨️ In / Lưu PDF</span>
+          </button>
           <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition">
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
@@ -1023,60 +1081,105 @@
       <div class="px-6 py-4 bg-[#0F172A] text-white flex items-center justify-between">
         <div class="flex items-center gap-2">
           <i data-lucide="shield-check" class="w-5 h-5 text-[#FBBF24]"></i>
-          <h3 class="font-extrabold text-base text-white">Khách Hàng Thân Thiết nhatoSG</h3>
+          <h3 class="font-extrabold text-base text-white">Cổng Thành Viên &amp; Quản Trị nhatoSG</h3>
         </div>
-        <button onclick="closeMemberAuthModal()" class="text-slate-400 hover:text-white p-1">
+        <button onclick="closeMemberAuthModal()" class="text-slate-400 hover:text-white p-1 cursor-pointer">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
 
+      <!-- Tab Switcher (Đăng Nhập / Đăng Ký) -->
+      <div class="flex border-b border-slate-200 bg-slate-50 px-6 pt-3 gap-2">
+        <button
+          type="button"
+          id="authTabLoginBtn"
+          onclick="switchAuthTab('LOGIN')"
+          class="pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-[#0284C7] text-[#0284C7] transition cursor-pointer"
+        >
+          🔑 Đăng Nhập
+        </button>
+        <button
+          type="button"
+          id="authTabRegBtn"
+          onclick="switchAuthTab('REGISTER')"
+          class="pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer"
+        >
+          📝 Đăng Ký Thành Viên
+        </button>
+      </div>
+
       <div class="p-6">
-        <!-- View đã lưu thông tin -->
+        <!-- View đã đăng nhập -->
         <div id="memberLoggedInView" class="hidden text-center py-2 space-y-3">
           <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
             <i data-lucide="check" class="w-6 h-6"></i>
           </div>
           <div>
-            <p class="text-xs text-slate-500 font-bold uppercase">Thông tin đã lưu trên thiết bị</p>
+            <p class="text-xs text-slate-500 font-bold uppercase">Trạng thái đăng nhập</p>
             <h4 id="loggedInMemberName" class="text-lg font-extrabold text-[#0F172A] mt-0.5"></h4>
             <p id="loggedInMemberPhone" class="text-xs font-mono font-bold text-slate-600 mt-0.5"></p>
-            <span class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-[#0284C7]">✓ Đã ghi nhớ để liên hệ nhanh</span>
+            <p id="loggedInMemberRole" class="text-xs font-mono font-bold text-sky-600 mt-0.5"></p>
+            <span id="loggedInMemberBadge" class="inline-block mt-2 px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-[#0284C7]">✓ Đã kích hoạt quyền xem chi tiết</span>
           </div>
           <div class="pt-2 flex items-center justify-center gap-2">
-            <button type="button" onclick="editClientInfo()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
-              ✏️ Sửa thông tin
-            </button>
-            <button type="button" onclick="memberLogout()" class="px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition">
-              Xóa khỏi máy
+            <button type="button" onclick="memberLogout()" class="px-4 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition cursor-pointer">
+              Đăng Xuất Khỏi Thiết Bị
             </button>
           </div>
         </div>
 
-        <!-- Form nhập thông tin khách hàng -->
-        <form id="memberLoginForm" onsubmit="handleClientSessionSubmit(event)" class="space-y-3.5">
+        <!-- TAB 1: FORM ĐĂNG NHẬP -->
+        <form id="memberLoginForm" onsubmit="handleMemberLoginSubmit(event)" class="space-y-3.5">
           <div class="p-3 rounded-xl bg-sky-50/80 border border-sky-200/80 text-[12px] text-slate-700 leading-relaxed">
-            <span class="font-extrabold text-[#0284C7] uppercase text-[11px] block mb-0.5">🤝 Kết nối trực tiếp cùng Vũ (nhatoSG):</span>
-            Lưu thông tin 1 lần duy nhất để xem toàn bộ lịch sử biến động giá và nhận tư vấn chuyên sâu riêng tư qua Zalo.
+            <span class="font-extrabold text-[#0284C7] uppercase text-[11px] block mb-0.5">🔐 Dành cho Admin &amp; Thành Viên nhatoSG:</span>
+            Nhập Số điện thoại và Mã PIN đã được cấp hoặc duyệt từ hệ thống Admin Studio.
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Họ &amp; Tên của Quý Anh/Chị</label>
-            <input type="text" id="clientNameInput" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại đã đăng ký</label>
+            <input type="tel" id="loginPhoneInput" required placeholder="Ví dụ: 0916239898" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Mã PIN / Mật khẩu (4–6 số)</label>
+            <input type="password" id="loginPinInput" required placeholder="••••••" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+          </div>
+          <div id="loginErrorMsg" class="hidden text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded-lg border border-rose-200"></div>
+          <div id="loginSuccessMsg" class="hidden text-xs font-bold text-emerald-600 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200"></div>
+          <button type="submit" class="w-full py-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-xs font-extrabold uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer">
+            <i data-lucide="log-in" class="w-4 h-4 text-[#FBBF24]"></i>
+            <span>Đăng Nhập Hệ Thống</span>
+          </button>
+          <p class="text-[11px] text-slate-400 text-center italic">🔒 Xác thực bảo mật đa vòng SHA-256 đối chiếu chữ ký mã hóa cục bộ.</p>
+        </form>
+
+        <!-- TAB 2: FORM ĐĂNG KÝ -->
+        <form id="memberRegisterForm" onsubmit="handleMemberRegisterSubmit(event)" class="hidden space-y-3.5">
+          <div class="p-3 rounded-xl bg-amber-50/80 border border-amber-200/80 text-[12px] text-slate-700 leading-relaxed">
+            <span class="font-extrabold text-amber-600 uppercase text-[11px] block mb-0.5">🤝 Đăng ký thành viên VIP:</span>
+            Đăng ký để xem biến động giá kín, nhận tư vấn pháp lý riêng tư và kết nối trực tiếp chuyên gia nhatoSG.
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Họ và tên</label>
+            <input type="text" id="regNameInput" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
           </div>
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại Zalo (10 số VN)</label>
-            <input type="tel" id="clientPhoneInput" required placeholder="Ví dụ: 0916239898" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            <input type="tel" id="regPhoneInput" required placeholder="Ví dụ: 0916239898" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nhu cầu / Phân khúc quan tâm</label>
-            <input type="text" id="clientNoteInput" placeholder="Ví dụ: Mặt tiền Q1, Q3 tài chính 30-50 tỷ" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tạo mã PIN (4–6 số)</label>
+            <input type="password" id="regPinInput" required placeholder="Ví dụ: 123456" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
           </div>
-          <div id="loginErrorMsg" class="hidden text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded-lg border border-rose-200"></div>
-          <div id="clientSuccessMsg" class="hidden text-xs font-bold text-emerald-600 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200"></div>
-          <button type="submit" class="w-full py-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-xs font-extrabold uppercase tracking-wider transition flex items-center justify-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#FBBF24]"></i>
-            <span>Lưu Thông Tin &amp; Kết Nối Zalo Vũ</span>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nhu cầu tìm kiếm / Khu vực quan tâm</label>
+            <input type="text" id="regNoteInput" placeholder="Ví dụ: Mặt tiền Q1, Q3 tài chính 30-50 tỷ" class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-[#0F172A] focus:outline-none focus:border-[#0284C7]" />
+          </div>
+          <div id="regErrorMsg" class="hidden text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded-lg border border-rose-200"></div>
+          <div id="regSuccessMsg" class="hidden text-xs font-bold text-emerald-600 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200"></div>
+          <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold uppercase tracking-wider transition flex items-center justify-center gap-2 cursor-pointer">
+            <i data-lucide="user-plus" class="w-4 h-4 text-slate-950"></i>
+            <span>Gửi Đăng Ký Thành Viên</span>
           </button>
-          <p class="text-[11px] text-slate-400 text-center italic">🔒 Thông tin được lưu cục bộ trên máy của Quý khách, tuyệt đối bảo mật và riêng tư.</p>
+          <p class="text-[11px] text-slate-400 text-center italic">✨ Hồ sơ sẽ được chuyển thẳng về Admin Studio để duyệt kích hoạt trong ngày.</p>
         </form>
       </div>
     </div>
@@ -1485,21 +1588,50 @@
       }
     }
 
+    async function computeClientAuthToken(phone, pin, role = "MEMBER") {
+      const cleanPhone = String(phone || "").replace(/\D/g, "");
+      const cleanPin = String(pin || "").trim();
+      const cleanRole = String(role || "MEMBER").toUpperCase().trim();
+      let h = "NSG_V55::" + cleanPhone + "::" + cleanPin + "::" + cleanRole;
+      const enc = new TextEncoder();
+      for (let i = 0; i < 500; i++) {
+        const buf = await crypto.subtle.digest("SHA-256", enc.encode(h));
+        h = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+      }
+      return h;
+    }
+    window.computeClientAuthToken = computeClientAuthToken;
+
     function isCurrentUserAdmin() {
-      // Quyền Admin được xác thực an toàn nếu người dùng đã cấu hình Gemini API Key
-      // hoặc có token phiên làm việc quản trị trong localStorage
-      return Boolean(
-        localStorage.getItem("NSG_GEMINI_API_KEY") ||
-        localStorage.getItem("NSG_ADMIN_TOKEN") ||
-        localStorage.getItem("NSG_SECURE_TOKEN")
-      );
+      const token = localStorage.getItem("NSG_ADMIN_TOKEN") || sessionStorage.getItem("NSG_ADMIN_TOKEN");
+      const hashes = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.member_hashes) || [];
+      if (token && hashes.some(m => m.auth_token === token && m.role === "ADMIN")) {
+        return true;
+      }
+      return Boolean(localStorage.getItem("NSG_GEMINI_API_KEY"));
+    }
+
+    function isCurrentUserMember() {
+      if (isCurrentUserAdmin()) return true;
+      const token = localStorage.getItem("NSG_MEMBER_TOKEN") || sessionStorage.getItem("NSG_MEMBER_TOKEN");
+      const hashes = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.member_hashes) || [];
+      if (token && hashes.some(m => m.auth_token === token)) {
+        return true;
+      }
+      return false;
     }
 
     function updateHeaderMemberStatus() {
       const session = getCurrentMemberSession();
       const labelEl = document.getElementById("headerMemberLabel");
+      const isAdmin = isCurrentUserAdmin();
+      const isMember = isCurrentUserMember();
+
       if (labelEl) {
-        if (session && session.display_name && session.display_name !== "Thành Viên") {
+        if (isAdmin) {
+          labelEl.textContent = (session && session.display_name) || "Quản Trị Viên";
+          labelEl.className = "text-amber-400 font-extrabold";
+        } else if (isMember && session && session.display_name) {
           labelEl.textContent = session.display_name;
           labelEl.className = "text-[#0284C7] font-extrabold";
         } else {
@@ -1509,14 +1641,21 @@
       }
 
       const floatAiBtn = document.getElementById("floatAiBtn");
-      if (isCurrentUserAdmin()) {
-        // Đã là Admin -> Hiển thị nút AI góc trái dưới
+      const headerAiBtn = document.getElementById("headerAiBtn");
+      const modalAdminPrintBtn = document.getElementById("modalAdminPrintBtn");
+
+      if (isAdmin) {
         if (floatAiBtn) floatAiBtn.classList.remove("hidden");
+        if (headerAiBtn) headerAiBtn.style.display = "inline-flex";
+        if (modalAdminPrintBtn) modalAdminPrintBtn.style.display = "inline-flex";
       } else {
         if (floatAiBtn) floatAiBtn.classList.add("hidden");
+        if (headerAiBtn) headerAiBtn.style.display = "none";
+        if (modalAdminPrintBtn) modalAdminPrintBtn.style.display = "none";
       }
     }
     window.updateMemberHeaderUI = updateHeaderMemberStatus;
+    window.printAdminPropertyPDF = function() { window.print(); };
 
     /* === NHATOSG AI CO-PILOT LOGIC === */
     let isAiDrawerOpen = false;
@@ -1607,7 +1746,7 @@
     async function sendAiMessage() {
       const apiKey = localStorage.getItem("NSG_GEMINI_API_KEY");
       if (!apiKey) {
-        alert("Vui lòng nhập Gemini API Key trước!");
+        alert("Vui lòng cấu hình Gemini API Key trước!");
         const setupBox = document.getElementById("aiApiKeySetupBox");
         if (setupBox) setupBox.classList.remove("hidden");
         return;
@@ -1626,39 +1765,76 @@
         sendBtn.disabled = true;
       }
 
-      // Build Context
+      // 1. Ngữ cảnh căn đang mở trong Modal
       let contextString = "";
       if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
-        contextString = `\n[NGỮ CẢNH: Tôi đang xem xét tài sản ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${activeModalProperty.pricing?.current_price_billion || ""} Tỷ. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m2. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu tôi hỏi về tài sản hiện tại.`;
+        contextString = `\n[TÀI SẢN ĐANG XEM: Mã ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${activeModalProperty.pricing?.current_price_billion || ""} Tỷ. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m2. Kết cấu: ${activeModalProperty.specs?.structure || ""}. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu câu hỏi liên quan đến tài sản hiện tại.`;
       }
+
+      // 2. Ngữ cảnh tóm tắt toàn bộ kho hàng (Tổng số căn & Top 5 căn giảm giá sâu nhất)
+      let warehouseSummary = "";
+      const allProps = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.records) || [];
+      if (allProps.length > 0) {
+        const withDrops = allProps.map(p => {
+          const initP = Number(p.pricing?.initial_price_billion || p.pricing?.current_price_billion || 0);
+          const currP = Number(p.pricing?.current_price_billion || 0);
+          const drop = (initP > currP) ? (initP - currP) : 0;
+          return { id: p.property_id, title: p.seo_title, district: p.public_location?.district, initP, currP, drop };
+        }).filter(x => x.drop > 0).sort((a, b) => b.drop - a.drop).slice(0, 5);
+
+        warehouseSummary = `\n[TỔNG QUAN KHO HÀNG NHATOSG: Hiện có ${allProps.length} bất động sản niêm yết trên hệ thống. `;
+        if (withDrops.length > 0) {
+          warehouseSummary += `Top 5 căn giảm giá sâu nhất: ` + withDrops.map(d => `${d.id} (${d.district}, giảm ${d.drop.toFixed(1)} Tỷ từ ${d.initP} xuống ${d.currP} Tỷ)`).join("; ") + `.]`;
+        } else {
+          warehouseSummary += `]`;
+        }
+      }
+
+      const promptSystem = "Bạn là nhatoSG AI Co-Pilot — Trợ lý cố vấn đầu tư bất động sản cao cấp của hệ thống nhatoSG Sài Gòn. Hãy trả lời ngắn gọn, chuyên nghiệp, thông minh, chuẩn xác số liệu và đúng trọng tâm.\n" + contextString + warehouseSummary + "\n\nCâu hỏi của Quản trị viên: " + userText;
 
       const payload = {
         contents: [{
-          parts: [{ text: "Bạn là AI trợ lý cố vấn đầu tư bất động sản cao cấp của hệ thống nhatoSG (Sài Gòn). Hãy trả lời ngắn gọn, chuyên nghiệp, thông minh, đúng trọng tâm." + contextString + "\n\nCâu hỏi của tôi: " + userText }]
+          parts: [{ text: promptSystem }]
         }]
       };
 
-      try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-        
-        if (!response.ok) throw new Error("API Lỗi (" + response.status + ")");
-        const data = await response.json();
-        const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ mô hình.";
-        addAiMessage(aiText, false);
-      } catch (err) {
-        addAiMessage("⚠️ Lỗi kết nối tới Gemini API (" + err.message + "). Vui lòng kiểm tra lại Key hoặc mạng.", false);
-      } finally {
-        if (sendBtn) {
-          sendBtn.innerHTML = "➤";
-          sendBtn.disabled = false;
+      const modelsToTry = ["gemini-2.5-flash", "gemini-2.0-flash"];
+      let aiText = null;
+      let lastErr = "";
+
+      for (const modelName of modelsToTry) {
+        try {
+          const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (resp.ok) {
+            const data = await resp.json();
+            aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            if (aiText) break;
+          } else {
+            const errJson = await resp.json().catch(() => ({}));
+            lastErr = errJson?.error?.message || `HTTP ${resp.status}`;
+          }
+        } catch (e) {
+          lastErr = e.message;
         }
+      }
+
+      if (aiText) {
+        addAiMessage(aiText, false);
+      } else {
+        addAiMessage(`⚠️ Không thể kết nối mô hình AI (${lastErr || 'Lỗi mạng hoặc API Key'}). Vui lòng kiểm tra lại Key Gemini.`, false);
+      }
+
+      if (sendBtn) {
+        sendBtn.innerHTML = "➤";
+        sendBtn.disabled = false;
       }
     }
     window.sendAiMessage = sendAiMessage;
+    window.toggleAiDrawer = window.toggleAiCoPilot;
 
     // Hỗ trợ phím tắt tiện lợi cho Admin: Ctrl + Shift + A hoặc query ?ai=1
     window.addEventListener("keydown", (e) => {
@@ -1673,128 +1849,294 @@
     }
 
 
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById("memberLoginForm");
+      const regForm = document.getElementById("memberRegisterForm");
+      const loginBtn = document.getElementById("authTabLoginBtn");
+      const regBtn = document.getElementById("authTabRegBtn");
+      const loginErr = document.getElementById("loginErrorMsg");
+      const loginSucc = document.getElementById("loginSuccessMsg");
+      const regErr = document.getElementById("regErrorMsg");
+      const regSucc = document.getElementById("regSuccessMsg");
+
+      if (loginErr) loginErr.classList.add("hidden");
+      if (loginSucc) loginSucc.classList.add("hidden");
+      if (regErr) regErr.classList.add("hidden");
+      if (regSucc) regSucc.classList.add("hidden");
+
+      if (tab === "REGISTER") {
+        if (loginForm) loginForm.classList.add("hidden");
+        if (regForm) regForm.classList.remove("hidden");
+        if (loginBtn) {
+          loginBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer";
+        }
+        if (regBtn) {
+          regBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-amber-500 text-amber-600 transition cursor-pointer";
+        }
+      } else {
+        if (loginForm) loginForm.classList.remove("hidden");
+        if (regForm) regForm.classList.add("hidden");
+        if (loginBtn) {
+          loginBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-[#0284C7] text-[#0284C7] transition cursor-pointer";
+        }
+        if (regBtn) {
+          regBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer";
+        }
+      }
+    }
+    window.switchAuthTab = switchAuthTab;
+
     function openMemberAuthModal() {
       const session = getCurrentMemberSession();
       const loggedInView = document.getElementById("memberLoggedInView");
-      const clientForm = document.getElementById("memberLoginForm");
+      const loginForm = document.getElementById("memberLoginForm");
+      const regForm = document.getElementById("memberRegisterForm");
       const errBox = document.getElementById("loginErrorMsg");
-      const succBox = document.getElementById("clientSuccessMsg");
+      const succBox = document.getElementById("loginSuccessMsg");
+      const tabSwitcher = document.getElementById("authTabLoginBtn")?.parentElement;
+
       if (errBox) errBox.classList.add("hidden");
       if (succBox) succBox.classList.add("hidden");
 
-      if (session && session.phone) {
+      const isAdmin = isCurrentUserAdmin();
+      const isMember = isCurrentUserMember();
+
+      if ((isAdmin || isMember) && session && session.phone) {
         if (loggedInView) {
           loggedInView.classList.remove("hidden");
           const nameEl = document.getElementById("loggedInMemberName");
           if (nameEl) nameEl.textContent = session.display_name || session.name || "Quý Khách";
           const phoneEl = document.getElementById("loggedInMemberPhone");
-          if (phoneEl) phoneEl.textContent = session.phone ? ("SĐT: " + session.phone) : "";
+          if (phoneEl) phoneEl.textContent = "SĐT: " + session.phone;
+          const roleEl = document.getElementById("loggedInMemberRole");
+          if (roleEl) roleEl.textContent = isAdmin ? "Vai trò: QUẢN TRỊ VIÊN (ADMIN)" : "Vai trò: THÀNH VIÊN VIP (MEMBER)";
+          const badgeEl = document.getElementById("loggedInMemberBadge");
+          if (badgeEl) badgeEl.textContent = isAdmin ? "✓ Đã mở khóa toàn bộ quyền Admin & AI Co-Pilot" : "✓ Đã mở khóa xem lịch sử giá tài sản";
         }
-        if (clientForm) clientForm.classList.add("hidden");
+        if (tabSwitcher) tabSwitcher.classList.add("hidden");
+        if (loginForm) loginForm.classList.add("hidden");
+        if (regForm) regForm.classList.add("hidden");
       } else {
         if (loggedInView) loggedInView.classList.add("hidden");
-        if (clientForm) {
-          clientForm.classList.remove("hidden");
-          const nInput = document.getElementById("clientNameInput");
-          const pInput = document.getElementById("clientPhoneInput");
-          if (nInput && session?.name) nInput.value = session.name;
-          if (pInput && session?.phone) pInput.value = session.phone;
-        }
+        if (tabSwitcher) tabSwitcher.classList.remove("hidden");
+        switchAuthTab("LOGIN");
       }
       document.getElementById("memberAuthModal")?.classList.remove("hidden");
       if (window.lucide) lucide.createIcons();
     }
-
-    function editClientInfo() {
-      const session = getCurrentMemberSession();
-      const loggedInView = document.getElementById("memberLoggedInView");
-      const clientForm = document.getElementById("memberLoginForm");
-      if (loggedInView) loggedInView.classList.add("hidden");
-      if (clientForm) {
-        clientForm.classList.remove("hidden");
-        const nInput = document.getElementById("clientNameInput");
-        const pInput = document.getElementById("clientPhoneInput");
-        if (nInput && session?.name) nInput.value = session.name;
-        if (pInput && session?.phone) pInput.value = session.phone;
-      }
-    }
+    window.openMemberAuthModal = openMemberAuthModal;
 
     function closeMemberAuthModal() {
       document.getElementById("memberAuthModal")?.classList.add("hidden");
     }
+    window.closeMemberAuthModal = closeMemberAuthModal;
 
     function memberLogout() {
       localStorage.removeItem("NHATOSG_CLIENT_SESSION");
       localStorage.removeItem("NHATOSG_SESSION");
       localStorage.removeItem("NHATOSG_MEMBER_SESSION_V1");
+      localStorage.removeItem("NSG_ADMIN_TOKEN");
+      localStorage.removeItem("NSG_MEMBER_TOKEN");
       localStorage.removeItem("NSG_SECURE_TOKEN");
-      localStorage.removeItem("NSG_LOGIN_FAIL_COUNT");
-      localStorage.removeItem("NSG_LOGIN_LOCK_UNTIL");
+      sessionStorage.removeItem("NSG_ADMIN_TOKEN");
+      sessionStorage.removeItem("NSG_MEMBER_TOKEN");
       updateHeaderMemberStatus();
       closeMemberAuthModal();
       window.location.reload();
     }
-    window.handleMemberLogout = memberLogout;
     window.memberLogout = memberLogout;
+    window.handleMemberLogout = memberLogout;
 
-    async function handleClientSessionSubmit(e) {
+    async function handleMemberLoginSubmit(e) {
       e.preventDefault();
-      const nameInput = document.getElementById("clientNameInput");
-      const phoneInput = document.getElementById("clientPhoneInput");
-      const noteInput = document.getElementById("clientNoteInput");
+      const phoneInput = document.getElementById("loginPhoneInput");
+      const pinInput = document.getElementById("loginPinInput");
       const errBox = document.getElementById("loginErrorMsg");
-      const succBox = document.getElementById("clientSuccessMsg");
+      const succBox = document.getElementById("loginSuccessMsg");
 
-      const name = nameInput ? nameInput.value.trim() : "";
       const phone = phoneInput ? phoneInput.value.trim() : "";
-      const note = noteInput ? noteInput.value.trim() : "";
+      const pin = pinInput ? pinInput.value.trim() : "";
+
+      if (errBox) errBox.classList.add("hidden");
+      if (succBox) succBox.classList.add("hidden");
 
       if (!isValidVietnamPhone(phone)) {
         if (errBox) {
-          errBox.textContent = "Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số, bắt đầu bằng 03, 05, 07, 08, 09).";
+          errBox.textContent = "Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số).";
           errBox.classList.remove("hidden");
-        } else {
-          alert("Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số).");
+        }
+        return;
+      }
+      if (!pin) {
+        if (errBox) {
+          errBox.textContent = "Vui lòng nhập mã PIN / Mật khẩu.";
+          errBox.classList.remove("hidden");
         }
         return;
       }
 
-      const clientSession = {
+      if (succBox) {
+        succBox.textContent = "⏳ Đang xác thực mã hóa đa vòng SHA-256...";
+        succBox.classList.remove("hidden");
+      }
+
+      const adminToken = await computeClientAuthToken(phone, pin, "ADMIN");
+      const memberToken = await computeClientAuthToken(phone, pin, "MEMBER");
+      const hashes = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.member_hashes) || [];
+
+      const adminMatch = hashes.find(m => m.auth_token === adminToken && m.role === "ADMIN");
+      const memberMatch = hashes.find(m => m.auth_token === memberToken);
+
+      if (adminMatch) {
+        localStorage.setItem("NSG_ADMIN_TOKEN", adminToken);
+        sessionStorage.setItem("NSG_ADMIN_TOKEN", adminToken);
+        const sessionObj = {
+          name: adminMatch.display_name,
+          display_name: adminMatch.display_name,
+          phone: phone,
+          role: "ADMIN",
+          logged_in_at: new Date().toISOString()
+        };
+        localStorage.setItem("NHATOSG_SESSION", JSON.stringify(sessionObj));
+        localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(sessionObj));
+
+        if (succBox) {
+          succBox.textContent = "✓ Đăng nhập Quản Trị Viên thành công! Đang kích hoạt Admin Studio & AI Co-Pilot...";
+          succBox.classList.remove("hidden");
+        }
+        updateHeaderMemberStatus();
+        setTimeout(() => {
+          closeMemberAuthModal();
+        }, 700);
+        return;
+      }
+
+      if (memberMatch) {
+        localStorage.setItem("NSG_MEMBER_TOKEN", memberToken);
+        sessionStorage.setItem("NSG_MEMBER_TOKEN", memberToken);
+        const sessionObj = {
+          name: memberMatch.display_name,
+          display_name: memberMatch.display_name,
+          phone: phone,
+          role: "MEMBER",
+          logged_in_at: new Date().toISOString()
+        };
+        localStorage.setItem("NHATOSG_SESSION", JSON.stringify(sessionObj));
+        localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(sessionObj));
+
+        if (succBox) {
+          succBox.textContent = "✓ Đăng nhập Thành Viên VIP thành công! Đã mở khóa xem chi tiết lịch sử giá.";
+          succBox.classList.remove("hidden");
+        }
+        updateHeaderMemberStatus();
+        setTimeout(() => {
+          closeMemberAuthModal();
+        }, 700);
+        return;
+      }
+
+      if (succBox) succBox.classList.add("hidden");
+      if (errBox) {
+        errBox.textContent = "Số điện thoại hoặc Mã PIN không đúng, hoặc tài khoản chưa được duyệt kích hoạt từ Admin Studio.";
+        errBox.classList.remove("hidden");
+      }
+    }
+    window.handleMemberLoginSubmit = handleMemberLoginSubmit;
+    window.handleClientSessionSubmit = handleMemberLoginSubmit;
+
+    async function handleMemberRegisterSubmit(e) {
+      e.preventDefault();
+      const nameInput = document.getElementById("regNameInput");
+      const phoneInput = document.getElementById("regPhoneInput");
+      const pinInput = document.getElementById("regPinInput");
+      const noteInput = document.getElementById("regNoteInput");
+      const errBox = document.getElementById("regErrorMsg");
+      const succBox = document.getElementById("regSuccessMsg");
+
+      const name = nameInput ? nameInput.value.trim() : "";
+      const phone = phoneInput ? phoneInput.value.trim() : "";
+      const pin = pinInput ? pinInput.value.trim() : "";
+      const note = noteInput ? noteInput.value.trim() : "";
+
+      if (errBox) errBox.classList.add("hidden");
+      if (succBox) succBox.classList.add("hidden");
+
+      if (!isValidVietnamPhone(phone)) {
+        if (errBox) {
+          errBox.textContent = "Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số).";
+          errBox.classList.remove("hidden");
+        }
+        return;
+      }
+      if (pin.length < 4) {
+        if (errBox) {
+          errBox.textContent = "Mã PIN phải từ 4 đến 6 số.";
+          errBox.classList.remove("hidden");
+        }
+        return;
+      }
+
+      const regPayload = {
+        full_name: name,
+        phone: phone,
+        pin_code: pin,
+        note: note
+      };
+
+      // 1. Gửi lên máy chủ local Admin Studio nếu đang mở
+      try {
+        fetch("/api/public/register_member", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(regPayload)
+        }).catch(() => {});
+      } catch (e) {}
+
+      try {
+        fetch("http://127.0.0.1:8888/api/public/register_member", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(regPayload)
+        }).catch(() => {});
+      } catch (e) {}
+
+      // 2. Tăng bộ đếm Cloud total_member_regs
+      try {
+        fetch("https://api.counterapi.dev/v1/nhatosg_com_vn/total_member_regs/up", { mode: "cors" }).catch(() => {});
+      } catch (e) {}
+
+      // 3. Ghi nhớ tạm thời phiên đăng ký
+      const tempSession = {
         name: name,
         display_name: name,
         phone: phone,
         note: note,
-        saved_at: new Date().toISOString()
+        registered_at: new Date().toISOString()
       };
+      localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(tempSession));
 
-      localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(clientSession));
-      localStorage.setItem("NHATOSG_SESSION", JSON.stringify(clientSession));
-      localStorage.setItem("NHATOSG_MEMBER_SESSION_V1", JSON.stringify(clientSession));
-
-      const msg = `[KẾT NỐI KHÁCH HÀNG THÂN THIẾT NHATOSG]
+      // 4. Soạn tin Zalo gửi Vũ duyệt kích hoạt
+      const msg = `[ĐĂNG KÝ THÀNH VIÊN NHATOSG]
 - Họ tên: ${name}
 - SĐT Zalo: ${phone}
-- Nhu cầu: ${note || "Nhận thông tin & bảng giá cập nhật"}`;
+- Mã PIN: ${pin}
+- Nhu cầu: ${note || "Nhận thông tin & bảng giá cập nhật"}
+Nhờ Vũ duyệt kích hoạt tài khoản thành viên nhatoSG giúp tôi nhé!`;
       try {
         await navigator.clipboard.writeText(msg);
       } catch (err) {}
 
       if (succBox) {
-        succBox.textContent = "✓ Đã lưu thông tin! Đang kết nối trực tiếp đến Zalo Vũ (0916.23.9898)...";
+        succBox.textContent = "✓ Đã gửi đăng ký thành công! Đang kết nối trực tiếp đến Zalo Vũ (0916.23.9898) để duyệt kích hoạt ngay...";
         succBox.classList.remove("hidden");
       }
-      if (errBox) errBox.classList.add("hidden");
-
-      updateHeaderMemberStatus();
 
       setTimeout(() => {
         closeMemberAuthModal();
         window.open("https://zalo.me/0916239898", "_blank");
       }, 700);
     }
-    window.handleClientSessionSubmit = handleClientSessionSubmit;
-    window.handleMemberLoginSubmit = handleClientSessionSubmit;
-    window.handleMemberRegisterSubmit = handleClientSessionSubmit;
+    window.handleMemberRegisterSubmit = handleMemberRegisterSubmit;
 
     async function copyCurrentPropertyLink() {
       if (!activeModalProperty) return;
@@ -3484,30 +3826,46 @@
     // VISITOR ANALYTICS & QUICK ZALO LEADS
     // =========================================================================
     async function trackVisitorEvent(eventName, propId = "") {
+      const cleanPropId = String(propId || "").trim().toLowerCase().replace(/[^a-z0-9]/g, "_");
+      const trackPayload = {
+        event: eventName,
+        property_id: propId,
+        timestamp: new Date().toISOString(),
+        url: window.location.href,
+        referrer: document.referrer || "direct"
+      };
+
+      // 1. Gửi về máy chủ nội bộ (cả relative path lẫn direct port 8888)
       try {
         fetch("/api/public/track", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            event: eventName,
-            property_id: propId,
-            timestamp: new Date().toISOString(),
-            url: window.location.href,
-            referrer: document.referrer || "direct"
-          })
+          body: JSON.stringify(trackPayload)
         }).catch(() => {});
       } catch (e) {}
 
       try {
-        let counterKey = null;
-        if (eventName === "PAGE_VIEW") counterKey = "total_web_visits";
-        else if (eventName === "PROPERTY_VIEW") {
-          counterKey = propId ? `view_${propId.toLowerCase().replace(/[^a-z0-9]/g, '_')}` : "total_property_views";
+        fetch("http://127.0.0.1:8888/api/public/track", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(trackPayload)
+        }).catch(() => {});
+      } catch (e) {}
+
+      // 2. Gửi về Đám Mây CounterAPI (namespace nhatosg_com_vn)
+      try {
+        if (eventName === "PAGE_VIEW") {
+          fetch("https://api.counterapi.dev/v1/nhatosg_com_vn/total_web_visits/up", { mode: "cors" }).catch(() => {});
+        } else if (eventName === "PROPERTY_VIEW") {
+          fetch("https://api.counterapi.dev/v1/nhatosg_com_vn/total_property_views/up", { mode: "cors" }).catch(() => {});
+          if (cleanPropId) {
+            fetch(`https://api.counterapi.dev/v1/nhatosg_com_vn/view_${cleanPropId}/up`, { mode: "cors" }).catch(() => {});
+          }
         } else if (eventName === "ZALO_CLICK") {
-          counterKey = propId ? `lead_${propId.toLowerCase().replace(/[^a-z0-9]/g, '_')}` : "total_zalo_leads";
-        }
-        if (counterKey) {
-          fetch(`https://api.counterapi.dev/v1/nhatosg/${counterKey}/up`, { mode: "no-cors" }).catch(() => {});
+          fetch("https://api.counterapi.dev/v1/nhatosg_com_vn/total_zalo_leads/up", { mode: "cors" }).catch(() => {});
+          if (cleanPropId) {
+            fetch(`https://api.counterapi.dev/v1/nhatosg_com_vn/lead_${cleanPropId}/up`, { mode: "cors" }).catch(() => {});
+          }
         }
       } catch (e) {}
     }
