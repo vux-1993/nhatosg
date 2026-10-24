@@ -438,3 +438,27 @@
 .aspect-4\/3, .aspect-\[4\/3\] { aspect-ratio: 4 / 3; }
 .aspect-square { aspect-ratio: 1 / 1; }
 .auto-rows-fr { grid-auto-rows: minmax(0, 1fr); }
+
+.aspect-\[16\/10\], .aspect-16\/10 { aspect-ratio: 16 / 10; }
+
+/* V6.2 Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 2.85rem;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: 4.25rem;
+}

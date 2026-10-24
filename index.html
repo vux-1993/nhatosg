@@ -507,6 +507,77 @@
       transition: opacity 0.35s ease-in-out, transform 0.5s ease-out;
     }
 
+  
+    /* V6.2 3-COLUMN CARD LAYOUT & ASPECT-RATIO 16:10 */
+    .aspect-\[16\/10\], .aspect-16\/10 {
+      aspect-ratio: 16 / 10;
+    }
+    .auto-rows-fr {
+      grid-auto-rows: minmax(0, 1fr);
+    }
+    @keyframes skeleton-shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .skeleton-shimmer {
+      position: absolute;
+      inset: 0;
+      background-color: #e2e8f0;
+      overflow: hidden;
+      z-index: 10;
+      pointer-events: none;
+      transition: opacity 0.3s ease-out;
+    }
+    .skeleton-shimmer::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.6) 20%,
+        rgba(255, 255, 255, 0.8) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: skeleton-shimmer 1.5s infinite;
+    }
+    .dark .skeleton-shimmer, body.v5-dark-mode .skeleton-shimmer {
+      background-color: #1e293b;
+    }
+    .dark .skeleton-shimmer::after, body.v5-dark-mode .skeleton-shimmer::after {
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.15) 60%,
+        rgba(255, 255, 255, 0)
+      );
+    }
+
+  
+/* V6.2 Line Clamp Utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  max-height: 2.85rem;
+}
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  max-height: 4.25rem;
+}
+
   </style>
   <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio (Non-blocking Async DOM loader) -->
   <script id="nsg-live-loader" data-ver="1792824377">
@@ -807,7 +878,7 @@
 
       <!-- DẠNG THẺ (CARD VIEW - MẶC ĐỊNH) -->
       <div id="hotFeaturedCardsWrapper">
-        <div id="hotFeaturedCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr items-stretch"></div>
+        <div id="hotFeaturedCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 auto-rows-fr items-stretch"></div>
         <div class="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600">
           <div id="hotCardsSummary" class="text-[13px] font-semibold text-slate-600"></div>
           <div id="hotCardsPagination" class="flex items-center gap-1.5 flex-nowrap overflow-x-auto max-w-full"></div>
@@ -969,7 +1040,7 @@
     </div>
 
     <!-- Cards Grid (Đồng bộ 1 khuôn phẳng phiu 100%) -->
-    <div id="propertyGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr items-stretch"></div>
+    <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 auto-rows-fr items-stretch"></div>
 
     <!-- LOAD MORE & SINGLE-ROW PAGINATION BAR (TỐI ĐA 6-7 TRANG + Ô ... NHẢY TRANG) -->
     <div class="mt-10 pt-6 border-t border-slate-200/80 flex flex-col lg:flex-row items-center justify-between gap-4">
@@ -1592,10 +1663,10 @@
 
     let compareList = [];
     let hotCurrentPage = 1;
-    const hotItemsPerPage = 4;
+    const hotItemsPerPage = 3;
     let hotViewMode = 'card';
     let currentPage = 1;
-    const itemsPerPage = 8;
+    const itemsPerPage = 9;
     let extraLoadedCount = 0;
     let activeModalProperty = null;
     let currentGalleryIndex = 0;
@@ -3482,6 +3553,173 @@
 
     window.lazyLoadPropertyImages = lazyLoadPropertyImages;
 
+    
+    // =========================================================================
+    // V6.2 CHUẨN THẺ BĐS 3 CỘT: RỘNG RÃI, KHÔNG CẮT CHỮ, ĐỦ GIÁ BÁN & MÃ NSG
+    // =========================================================================
+    function renderV62PropertyCardHtml(prop, idx, isAboveFold, inCompare, cardPrefix = "") {
+      const m = computeMetrics(prop);
+      const isUpdate = prop.event_type === "UPDATE";
+      const catName = resolveCategoryName(prop);
+      const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
+      const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
+      const imgCount = gal.length;
+      const streetLabel = formatStreetDisplay(prop);
+      const wardLabel = prop.public_location?.ward || "";
+      const districtLabel = prop.public_location?.district || "TP.HCM";
+      const cardUid = `${cardPrefix}${esc(prop.property_id)}`;
+
+      // 6 thẻ đầu tiên (hàng 1 & hàng 2) nạp eager ưu tiên tuyệt đối
+      const loadingAttr = isAboveFold ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" decoding="async"';
+
+      // Nhãn trạng thái góc trái
+      let badgeStatusText = '';
+      let badgeStatusClass = '';
+      if (m.isMasked) {
+        badgeStatusText = 'Giá thỏa thuận kín';
+        badgeStatusClass = 'bg-[#0284C7] text-white';
+      } else if (m.diffBil > 0) {
+        badgeStatusText = `Giảm ${esc(m.diffBil)} tỷ`;
+        badgeStatusClass = 'bg-rose-600 text-white';
+      } else if (isUpdate) {
+        badgeStatusText = 'Vừa cập nhật';
+        badgeStatusClass = 'bg-emerald-600 text-white';
+      } else if (prop.event_type === "NEW") {
+        badgeStatusText = 'Mới đăng';
+        badgeStatusClass = 'bg-[#0284C7] text-white';
+      }
+
+      // Thông số diện tích: đầy đủ, không cắt cụt
+      const dimStr = prop.specs?.dimensions ? esc(prop.specs.dimensions) : '';
+      const areaStr = prop.specs?.recognized_area_m2 ? `CN: ${esc(prop.specs.recognized_area_m2)} m²` : '';
+      const dtFull = (dimStr && areaStr) ? `${dimStr} • ${areaStr}` : (dimStr || areaStr || 'Đang cập nhật');
+
+      // Kết cấu & Dòng tiền
+      const flowStr = prop.specs?.cashflow ? esc(prop.specs.cashflow) : 'Bàn giao ngay';
+
+      return `
+        <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
+          <div class="flex flex-col flex-1">
+            <!-- 1. KHUNG ẢNH CHUẨN TỈ LỆ 16:10, KHÔNG GIÃN LỆCH -->
+            <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
+              <!-- Skeleton Shimmer tự ẩn khi onload hoặc sau 1.2s -->
+              <div id="skel-${cardUid}" class="skeleton-shimmer"></div>
+
+              <!-- Ảnh BĐS nạp trực tiếp, không giấu vào data-src -->
+              <img 
+                src="${esc(coverImg)}" 
+                alt="${esc(prop.seo_title)}" 
+                ${loadingAttr} 
+                draggable="false" 
+                onload="const s=document.getElementById('skel-${cardUid}'); if(s) s.style.display='none';" 
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'; const s=document.getElementById('skel-${cardUid}'); if(s) s.style.display='none';" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none" 
+              />
+
+              <!-- Gradient bóng mờ tương phản cao dưới đáy ảnh -->
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/25 to-transparent pointer-events-none"></div>
+
+              <!-- Góc trên trái: Mã tài sản NSG-xxxx + Nhãn trạng thái -->
+              <div class="absolute top-3 left-3 flex items-center gap-1.5 z-20 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-[#0F172A]/90 text-[#FBBF24] border border-[#FBBF24]/40 shadow-xs backdrop-blur-xs">
+                  ${esc(prop.property_id)}
+                </span>
+                ${badgeStatusText ? `
+                  <span class="px-2.5 py-1 rounded-lg text-xs font-bold ${badgeStatusClass} shadow-xs">
+                    ${badgeStatusText}
+                  </span>
+                ` : ''}
+              </div>
+
+              <!-- Góc trên phải: Số lượng ảnh -->
+              <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-xs font-bold bg-[#0F172A]/80 text-white backdrop-blur-xs flex items-center gap-1 z-20 pointer-events-none">
+                <span>📷 ${imgCount} ảnh</span>
+              </div>
+
+              <!-- Góc dưới ảnh: Loại BĐS + Địa chỉ & GIÁ CHÀO BÁN LỚN RÕ RÀNG -->
+              <div class="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between text-white z-20 pointer-events-none">
+                <div class="min-w-0 pr-2">
+                  <span class="text-xs uppercase tracking-wider text-[#FBBF24] font-bold block truncate">${esc(catName)}</span>
+                  <span class="text-[13.5px] font-bold block truncate text-slate-100">${esc(streetLabel)} • ${esc(districtLabel)}</span>
+                </div>
+                <div class="text-right shrink-0">
+                  ${m.isMasked ? `
+                    <div class="text-[17px] font-black text-[#FBBF24] leading-none whitespace-nowrap">Giá thỏa thuận kín</div>
+                  ` : `
+                    ${m.diffBil > 0 ? `<div class="text-[11.5px] text-slate-300 line-through leading-tight">${esc(m.initP)} Tỷ</div>` : ''}
+                    <div class="text-2xl font-black text-[#FBBF24] leading-none tracking-tight">${esc(m.currP)} Tỷ</div>
+                  `}
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. THÂN CARD: TYPOGRAPHY FONT-SANS ĐỀU ĐẶN, KHÔNG CẮT CHỮ -->
+            <div class="p-5 flex-1 flex flex-col justify-between font-sans">
+              <div>
+                <!-- Hàng vị trí: flex-wrap thoáng đãng, không bị cắt ngắn -->
+                <div class="flex flex-wrap items-center gap-1.5 mb-2.5">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-[#0F172A] dark:text-slate-200 font-bold text-xs">${esc(streetLabel)}</span>
+                  ${wardLabel ? `<span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-xs">${esc(wardLabel)}</span>` : ''}
+                  <span class="px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-950/60 text-[#0284C7] dark:text-sky-400 font-extrabold text-xs">${esc(districtLabel)}</span>
+                </div>
+
+                <!-- Tiêu đề BĐS: text-[17px] font-bold leading-snug line-clamp-2 min-h-[2.75rem] -->
+                <h3 class="font-bold text-[17px] text-[#0F172A] dark:text-white leading-snug line-clamp-2 min-h-[2.75rem] group-hover:text-[#0284C7] transition" title="${esc(prop.seo_title)}">
+                  ${esc(prop.seo_title)}
+                </h3>
+
+                <!-- Đoạn tóm tắt: line-clamp-2 gọn gàng, không tràn lan -->
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2 mt-2 mb-3 h-[42px]" title="${esc(prop.summary)}">
+                  ${esc(prop.summary)}
+                </p>
+              </div>
+
+              <div>
+                <!-- 2 Ô Thông số: font-sans hiện đại, không dùng font-mono -->
+                <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2.5 text-xs">
+                  <div class="bg-slate-50 dark:bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-200/80 dark:border-slate-700/80 min-h-[58px] flex flex-col justify-center overflow-hidden">
+                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">DT &amp; Công nhận</span>
+                    <span class="font-bold text-[#0F172A] dark:text-white text-[13px] truncate mt-0.5" title="${dtFull}">
+                      ${dtFull}
+                    </span>
+                  </div>
+                  <div class="bg-slate-50 dark:bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-200/80 dark:border-slate-700/80 min-h-[58px] flex flex-col justify-center overflow-hidden">
+                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">Kết cấu &amp; Dòng tiền</span>
+                    <span class="font-bold text-emerald-600 dark:text-emerald-400 text-[13px] truncate mt-0.5" title="${flowStr}">
+                      ${flowStr}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Thanh Đơn giá Đất & Xây dựng thoáng đãng -->
+                ${m.isMasked ? `
+                  <div class="mt-2.5 px-3.5 py-2 rounded-xl bg-sky-50/80 dark:bg-sky-950/40 border border-sky-200/80 dark:border-sky-800 text-xs text-slate-800 dark:text-slate-200 flex items-center justify-center min-h-[36px]">
+                    <span class="font-bold text-[#0284C7] dark:text-sky-400">🔒 Giá thương lượng kín (Liên hệ trực tiếp)</span>
+                  </div>
+                ` : `
+                  <div class="mt-2.5 px-3.5 py-2 rounded-xl bg-sky-50/80 dark:bg-sky-950/40 border border-sky-200/80 dark:border-sky-800 text-xs text-slate-800 dark:text-slate-200 flex items-center justify-between min-h-[36px]">
+                    <span class="font-medium text-slate-700 dark:text-slate-300 truncate">🏗️ XD: ~${esc(m.estBuildValueBil)} Tỷ</span>
+                    <span class="font-bold text-[#0284C7] dark:text-sky-400 shrink-0 ml-2">📐 Đơn giá đất: ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
+                  </div>
+                `}
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. NÚT BẤM ĐÁY THẺ: NẰM GỌN TRÊN 1 DÒNG DUY NHẤT -->
+          <div class="px-5 pb-5 pt-1 mt-auto flex items-center gap-2 shrink-0 font-sans">
+            <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs">
+              <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
+              <span>Xem chi tiết &amp; đơn giá</span>
+            </button>
+            <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-4 rounded-xl border text-[13px] font-bold transition whitespace-nowrap ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:border-[#0284C7]'}">
+              ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     function renderHotRadarSection() {
       const radarBody = document.getElementById("hotRadarTableBody");
       const cardsGrid = document.getElementById("hotFeaturedCardsGrid");
@@ -3501,139 +3739,15 @@
       if (cardsGrid) {
         cardsGrid.innerHTML = pageItems.map((prop, idx) => {
           try {
-            const m = computeMetrics(prop);
-            const isUpdate = prop.event_type === "UPDATE";
-            const catName = resolveCategoryName(prop);
-            const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-            const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=70";
-            const imgCount = gal.length;
-            const streetLabel = formatStreetDisplay(prop);
-            const inCompare = compareList.includes(prop.property_id);
-            const isAboveFold = (startIdx + idx) < 4;
-            const loadingAttr = isAboveFold ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" decoding="async"';
-
-            let badgeText = 'Nổi bật';
-            let badgeClass = 'bg-amber-600 text-white';
-            if (m.isMasked) {
-              badgeText = 'Giá liên hệ';
-              badgeClass = 'bg-[#0284C7] text-white';
-            } else if (m.diffBil > 0) {
-              badgeText = `Giảm ${esc(m.diffBil)} tỷ`;
-              badgeClass = 'bg-rose-600 text-white';
-            } else if (isUpdate) {
-              badgeText = 'Vừa cập nhật';
-              badgeClass = 'bg-emerald-600 text-white';
-            } else if (prop.event_type === "NEW") {
-              badgeText = 'Mới đăng';
-              badgeClass = 'bg-[#0284C7] text-white';
-            }
-
-            return `
-              <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
-                <div class="flex flex-col flex-1">
-                  <!-- Khung ảnh cố định chuẩn tỉ lệ 16:9 (Aspect Video), tuyệt đối không bị co giãn -->
-                  <div class="relative w-full aspect-video bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
-                    <div id="skeleton-hot-${esc(prop.property_id)}" class="skeleton-shimmer"></div>
-                    <div id="error-hot-${esc(prop.property_id)}" class="hidden absolute inset-0 bg-slate-100 dark:bg-slate-800 z-10 flex flex-col items-center justify-center p-3 text-center pointer-events-none">
-                      <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 mb-1">
-                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                      </div>
-                      <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Đang cập nhật ảnh</span>
-                    </div>
-                    <img src="${isAboveFold ? esc(coverImg) : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48L3N2Zz4='}" data-src="${esc(coverImg)}" data-property-id="hot-${esc(prop.property_id)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" class="lazy-property-img w-full h-full object-cover object-center group-hover:scale-105 pointer-events-none ${isAboveFold ? 'opacity-100' : 'opacity-0'}" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-15 pointer-events-none"></div>
-
-                    <div class="absolute top-3 left-3 z-20 pointer-events-none">
-                      <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold ${badgeClass} shadow-xs">
-                        ${badgeText}
-                      </span>
-                    </div>
-
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1 z-20 pointer-events-none">
-                      <span>📷 ${imgCount} ảnh</span>
-                    </div>
-
-                    <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white z-20 pointer-events-none">
-                      <div class="min-w-0 pr-2">
-                        <span class="text-[10.5px] font-mono uppercase tracking-wider text-[#FBBF24] font-extrabold block truncate">${esc(catName)}</span>
-                        <span class="text-[13px] font-bold block truncate">
-                          ${esc(streetLabel)} • ${esc(prop.public_location?.district)}
-                        </span>
-                      </div>
-                      <div class="text-right font-mono shrink-0">
-                        ${m.isMasked ? `
-                          <div class="text-lg font-extrabold text-[#FBBF24] leading-none">Giá liên hệ</div>
-                        ` : `
-                          ${m.diffBil > 0 ? `<div class="text-[11px] text-slate-300 line-through">${esc(m.initP)} Tỷ</div>` : ''}
-                          <div class="text-xl font-extrabold text-[#FBBF24] leading-none">${esc(m.currP)} Tỷ</div>
-                        `}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div class="flex items-center gap-1.5 mb-2.5 overflow-hidden whitespace-nowrap">
-                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[#0F172A] font-bold text-[11.5px] truncate max-w-[45%]">${esc(streetLabel)}</span>
-                        <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-semibold text-[11.5px] truncate max-w-[30%]">${esc(prop.public_location?.ward)}</span>
-                        <span class="px-2 py-0.5 rounded-md bg-sky-50 text-[#0284C7] font-extrabold text-[11.5px] shrink-0">${esc(prop.public_location?.district)}</span>
-                      </div>
-
-                      <h3 class="font-extrabold text-[16px] text-[#0F172A] leading-[1.35] line-clamp-2 h-[44px]" title="${esc(prop.seo_title)}">
-                        ${esc(prop.seo_title)}
-                      </h3>
-
-                      <p class="text-[13px] text-slate-600 font-medium mt-1.5 leading-[1.45] line-clamp-2 h-[38px]">
-                        ${esc(prop.summary)}
-                      </p>
-                    </div>
-
-                    <div>
-                      <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2.5 text-xs">
-                        <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/80 h-[62px] flex flex-col justify-center overflow-hidden">
-                          <span class="text-[10.5px] text-slate-500 block font-semibold truncate">DT &amp; Công nhận</span>
-                          <span class="font-mono font-extrabold text-[#0F172A] text-[12.5px] truncate mt-0.5">
-                            ${esc(prop.specs?.dimensions)} (CN ${esc(prop.specs?.recognized_area_m2)}m²)
-                          </span>
-                        </div>
-                        <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/80 h-[62px] flex flex-col justify-center overflow-hidden">
-                          <span class="text-[10.5px] text-slate-500 block font-semibold truncate">Dòng tiền</span>
-                          <span class="font-mono font-extrabold text-emerald-700 text-[12.5px] truncate mt-0.5">
-                            ${esc(prop.specs?.cashflow || 'Bàn giao ngay')}
-                          </span>
-                        </div>
-                      </div>
-
-                      ${m.isMasked ? `
-                        <div class="mt-2.5 px-3 py-2 rounded-xl bg-sky-50/80 border border-sky-200/80 text-[11.5px] font-mono text-slate-800 flex items-center justify-center h-[36px]">
-                          <span class="font-extrabold text-[#0284C7]">🔒 Giá thương lượng kín (Liên hệ trực tiếp)</span>
-                        </div>
-                      ` : `
-                        <div class="mt-2.5 px-3 py-2 rounded-xl bg-sky-50/80 border border-sky-200/80 text-[11.5px] font-mono text-slate-800 flex items-center justify-between h-[36px]">
-                          <span class="truncate font-bold">🏗️ XD: ~${esc(m.estBuildValueBil)} Tỷ (${esc(m.floorAreaM2)}m² sàn)</span>
-                          <span class="text-[#0284C7] font-extrabold shrink-0 ml-2">Đất ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
-                        </div>
-                      `}
-                    </div>
-                  </div>
-                </div>
-
-                <div class="px-5 pb-5 pt-1 flex items-center gap-2 shrink-0">
-                  <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-[13px] font-extrabold transition flex items-center justify-center gap-1.5">
-                    <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
-                    <span>Xem chi tiết &amp; đơn giá</span>
-                  </button>
-                  <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-3.5 rounded-xl border text-[13px] font-extrabold transition ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white text-slate-700 border-slate-300 hover:border-[#0284C7]'}">
-                    ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
-                  </button>
-                </div>
-              </div>
-            `;
+            return renderV62PropertyCardHtml(prop, idx, idx < 6, compareList.includes(prop.property_id), "hot-");
           } catch (e) {
             console.error("Lỗi render thẻ tài sản nổi bật:", prop?.property_id, e);
             return "";
           }
         }).join("");
+        setTimeout(() => {
+          document.querySelectorAll('#hotFeaturedCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
+        }, 1200);
       }
 
       const hotCardsSummary = document.getElementById("hotCardsSummary");
@@ -3971,149 +4085,16 @@
       } else {
         grid.innerHTML = visibleItems.map((prop, idx) => {
           try {
-            const m = computeMetrics(prop);
-            const isUpdate = prop.event_type === "UPDATE";
-            const catName = resolveCategoryName(prop);
-            const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-            const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
-            const imgCount = gal.length;
-            const streetLabel = formatStreetDisplay(prop);
-            const inCompare = compareList.includes(prop.property_id);
-            const isAboveFold = (currentPage === 1 && idx < 4);
-            const loadingAttr = isAboveFold ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" decoding="async"';
-
-            let badgeText = '';
-            let badgeClass = '';
-            if (m.isMasked) {
-              badgeText = 'Giá liên hệ';
-              badgeClass = 'bg-[#0284C7] text-white';
-            } else if (m.diffBil > 0) {
-              badgeText = `Giảm ${esc(m.diffBil)} tỷ`;
-              badgeClass = 'bg-rose-600 text-white';
-            } else if (isUpdate) {
-              badgeText = 'Vừa cập nhật';
-              badgeClass = 'bg-emerald-600 text-white';
-            } else if (prop.event_type === "NEW") {
-              badgeText = 'Mới đăng';
-              badgeClass = 'bg-[#0284C7] text-white';
-            }
-
-            return `
-              <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
-              <div class="flex flex-col flex-1">
-                <!-- Khung ảnh cố định chuẩn tỉ lệ 16:9 (Aspect Video), tuyệt đối không bị co giãn -->
-                <div class="relative w-full aspect-video bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
-                  <div id="skeleton-${esc(prop.property_id)}" class="skeleton-shimmer"></div>
-                  <div id="error-${esc(prop.property_id)}" class="hidden absolute inset-0 bg-slate-100 dark:bg-slate-800 z-10 flex flex-col items-center justify-center p-3 text-center pointer-events-none">
-                    <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 mb-1">
-                      <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Đang cập nhật ảnh</span>
-                  </div>
-                  <img src="${isAboveFold ? esc(coverImg) : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48L3N2Zz4='}" data-src="${esc(coverImg)}" data-property-id="${esc(prop.property_id)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" class="lazy-property-img w-full h-full object-cover object-center group-hover:scale-105 pointer-events-none ${isAboveFold ? 'opacity-100' : 'opacity-0'}" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-15 pointer-events-none"></div>
-
-                  <!-- Nhãn góc trái trên ảnh: Chỉ hiện khi NEW hoặc UPDATE (hoặc GIÁ LIÊN HỆ) -->
-                  ${badgeText ? `
-                    <div class="absolute top-3 left-3 flex items-center gap-1.5 z-20 pointer-events-none">
-                      <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold ${badgeClass} shadow-xs">
-                        ${badgeText}
-                      </span>
-                    </div>
-                  ` : ''}
-
-                  <!-- Phân loại nhãn ảnh -->
-                  <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1 z-20 pointer-events-none">
-                    <span>📷 ${imgCount} ảnh</span>
-                  </div>
-
-                  <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white z-20 pointer-events-none">
-                    <div class="min-w-0 pr-2">
-                      <span class="text-[10.5px] font-mono uppercase tracking-wider text-[#FBBF24] font-extrabold block truncate">${esc(catName)}</span>
-                      <span class="text-[13px] font-bold block truncate">
-                        ${esc(streetLabel)} • ${esc(prop.public_location?.district)}
-                      </span>
-                    </div>
-                    <div class="text-right font-mono shrink-0">
-                      ${m.isMasked ? `
-                        <div class="text-lg font-extrabold text-[#FBBF24] leading-none">Giá liên hệ</div>
-                      ` : `
-                        ${m.diffBil > 0 ? `<div class="text-[11px] text-slate-300 line-through">${esc(m.initP)} Tỷ</div>` : ''}
-                        <div class="text-xl font-extrabold text-[#FBBF24] leading-none">${esc(m.currP)} Tỷ</div>
-                      `}
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Thân Card khóa cứng chiều cao từng phần để mọi Card thẳng hàng 100% -->
-                <div class="p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <!-- Hàng địa chỉ 1 dòng cố định -->
-                    <div class="flex items-center gap-1.5 mb-2.5 overflow-hidden whitespace-nowrap">
-                      <span class="px-2 py-0.5 rounded-md bg-slate-100 text-[#0F172A] font-bold text-[11.5px] truncate max-w-[45%]">${esc(streetLabel)}</span>
-                      <span class="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-semibold text-[11.5px] truncate max-w-[30%]">${esc(prop.public_location?.ward)}</span>
-                      <span class="px-2 py-0.5 rounded-md bg-sky-50 text-[#0284C7] font-extrabold text-[11.5px] shrink-0">${esc(prop.public_location?.district)}</span>
-                    </div>
-
-                    <!-- Tiêu đề cố định đúng 2 dòng (44px) -->
-                    <h3 class="font-extrabold text-[16px] text-[#0F172A] leading-[1.35] line-clamp-2 h-[44px]" title="${esc(prop.seo_title)}">
-                      ${esc(prop.seo_title)}
-                    </h3>
-
-                    <!-- Tóm tắt cố định đúng 2 dòng (38px) -->
-                    <p class="text-[13px] text-slate-600 font-medium mt-1.5 leading-[1.45] line-clamp-2 h-[38px]">
-                      ${esc(prop.summary)}
-                    </p>
-                  </div>
-
-                  <div>
-                    <!-- 2 Ô Thông số khóa cứng chiều cao h-[62px] không bao giờ bị giãn lệch -->
-                    <div class="mt-4 pt-3 border-t border-slate-100 grid grid-cols-2 gap-2.5 text-xs">
-                      <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/80 h-[62px] flex flex-col justify-center overflow-hidden">
-                        <span class="text-[10.5px] text-slate-500 block font-semibold truncate">DT &amp; Công nhận</span>
-                        <span class="font-mono font-extrabold text-[#0F172A] text-[12.5px] truncate mt-0.5" title="${esc(prop.specs?.dimensions)} (CN ${esc(prop.specs?.recognized_area_m2)}m²)">
-                          ${esc(prop.specs?.dimensions)} (CN ${esc(prop.specs?.recognized_area_m2)}m²)
-                        </span>
-                      </div>
-                      <div class="bg-slate-50 px-3 py-2 rounded-xl border border-slate-200/80 h-[62px] flex flex-col justify-center overflow-hidden">
-                        <span class="text-[10.5px] text-slate-500 block font-semibold truncate">Dòng tiền</span>
-                        <span class="font-mono font-extrabold text-emerald-700 text-[12.5px] truncate mt-0.5" title="${esc(prop.specs?.cashflow || 'Bàn giao ngay')}">
-                          ${esc(prop.specs?.cashflow || 'Bàn giao ngay')}
-                        </span>
-                      </div>
-                    </div>
-
-                    <!-- Thanh Đơn giá Đất & Xây dựng 1 dòng cố định -->
-                    ${m.isMasked ? `
-                      <div class="mt-2.5 px-3 py-2 rounded-xl bg-sky-50/80 border border-sky-200/80 text-[11.5px] font-mono text-slate-800 flex items-center justify-center h-[36px]">
-                        <span class="font-extrabold text-[#0284C7]">🔒 Giá thương lượng kín (Liên hệ trực tiếp)</span>
-                      </div>
-                    ` : `
-                      <div class="mt-2.5 px-3 py-2 rounded-xl bg-sky-50/80 border border-sky-200/80 text-[11.5px] font-mono text-slate-800 flex items-center justify-between h-[36px]">
-                        <span class="truncate font-bold">🏗️ XD: ~${esc(m.estBuildValueBil)} Tỷ (${esc(m.floorAreaM2)}m² sàn)</span>
-                        <span class="text-[#0284C7] font-extrabold shrink-0 ml-2">Đất ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
-                      </div>
-                    `}
-                  </div>
-                </div>
-              </div>
-
-              <div class="px-5 pb-5 pt-1 flex items-center gap-2 shrink-0">
-                <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] text-white text-[13px] font-extrabold transition flex items-center justify-center gap-1.5">
-                  <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
-                  <span>Xem chi tiết &amp; đơn giá</span>
-                </button>
-                <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-3.5 rounded-xl border text-[13px] font-extrabold transition ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white text-slate-700 border-slate-300 hover:border-[#0284C7]'}">
-                  ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
-                </button>
-              </div>
-            </div>
-          `;
+            const isFirst6 = (currentPage === 1 && idx < 6);
+            return renderV62PropertyCardHtml(prop, idx, isFirst6, compareList.includes(prop.property_id), "");
           } catch (e) {
             console.error("Lỗi render căn:", prop?.property_id, e);
             return "";
           }
         }).join("");
+        setTimeout(() => {
+          document.querySelectorAll('#propertyGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
+        }, 1200);
       }
 
       document.getElementById("paginationSummary").innerHTML =
