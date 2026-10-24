@@ -450,6 +450,63 @@
     body.v5-dark-mode #heroTopBadge span.text-\[\#0284C7\] {
       color: #38BDF8 !important; /* Xanh Sky sáng */
     }
+  
+    /* V6.1 CARD ASPECT-RATIO & SKELETON SHIMMER */
+    .aspect-video, .aspect-\[16\/9\] {
+      aspect-ratio: 16 / 9;
+    }
+    .aspect-4\/3, .aspect-\[4\/3\] {
+      aspect-ratio: 4 / 3;
+    }
+    .aspect-square {
+      aspect-ratio: 1 / 1;
+    }
+    .auto-rows-fr {
+      grid-auto-rows: minmax(0, 1fr);
+    }
+    @keyframes skeleton-shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .skeleton-shimmer {
+      position: absolute;
+      inset: 0;
+      background-color: #e2e8f0;
+      overflow: hidden;
+      z-index: 10;
+      pointer-events: none;
+      transition: opacity 0.35s ease-out;
+    }
+    .skeleton-shimmer::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.6) 20%,
+        rgba(255, 255, 255, 0.8) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: skeleton-shimmer 1.8s infinite;
+    }
+    .dark .skeleton-shimmer {
+      background-color: #1e293b;
+    }
+    .dark .skeleton-shimmer::after {
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.15) 60%,
+        rgba(255, 255, 255, 0)
+      );
+    }
+    img.lazy-property-img {
+      transition: opacity 0.35s ease-in-out, transform 0.5s ease-out;
+    }
+
   </style>
   <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio (Non-blocking Async DOM loader) -->
   <script id="nsg-live-loader" data-ver="1792824377">
@@ -750,7 +807,7 @@
 
       <!-- DẠNG THẺ (CARD VIEW - MẶC ĐỊNH) -->
       <div id="hotFeaturedCardsWrapper">
-        <div id="hotFeaturedCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"></div>
+        <div id="hotFeaturedCardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr items-stretch"></div>
         <div class="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600">
           <div id="hotCardsSummary" class="text-[13px] font-semibold text-slate-600"></div>
           <div id="hotCardsPagination" class="flex items-center gap-1.5 flex-nowrap overflow-x-auto max-w-full"></div>
@@ -912,7 +969,7 @@
     </div>
 
     <!-- Cards Grid (Đồng bộ 1 khuôn phẳng phiu 100%) -->
-    <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch"></div>
+    <div id="propertyGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr items-stretch"></div>
 
     <!-- LOAD MORE & SINGLE-ROW PAGINATION BAR (TỐI ĐA 6-7 TRANG + Ô ... NHẢY TRANG) -->
     <div class="mt-10 pt-6 border-t border-slate-200/80 flex flex-col lg:flex-row items-center justify-between gap-4">
@@ -1564,6 +1621,7 @@
         if (tableWrap) tableWrap.classList.remove("hidden");
       }
       if (window.lucide) lucide.createIcons();
+      lazyLoadPropertyImages();
     }
     window.switchHotViewMode = switchHotViewMode;
 
@@ -3328,6 +3386,102 @@
     // =========================================================================
     // RENDER BẢNG TÀI SẢN HOT & TÂM ĐIỂM
     // =========================================================================
+        // =========================================================================
+    // LAZY LOAD & SKELETON MANAGER CHO HÌNH ẢNH PROPERTY CARDS
+    // =========================================================================
+    const IMAGE_LOAD_CONFIG = {
+      timeout: 8000,
+      fallbackSvg: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="338" viewBox="0 0 600 338" fill="%23f1f5f9"><rect width="600" height="338" fill="%23f1f5f9"/><text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle" fill="%2364748b" font-family="sans-serif" font-weight="bold" font-size="16">nhatoSG - Đang cập nhật ảnh</text><text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" fill="%2394a3b8" font-family="sans-serif" font-size="12">Liên hệ hotline để nhận hình ảnh thực tế</text></svg>'
+    };
+
+    function lazyLoadPropertyImages() {
+      const images = document.querySelectorAll('img.lazy-property-img[data-src]');
+      if (!images.length) return;
+
+      const handleImage = (img) => {
+        if (img.dataset.loaded === 'true') return;
+        const propId = img.dataset.propertyId;
+        const skeleton = document.getElementById(`skeleton-${propId}`);
+        const errorBox = document.getElementById(`error-${propId}`);
+        const targetSrc = img.dataset.src;
+
+        let isDone = false;
+        const timer = setTimeout(() => {
+          if (!isDone) {
+            isDone = true;
+            if (skeleton) {
+              skeleton.style.opacity = '0';
+              setTimeout(() => { skeleton.style.display = 'none'; }, 350);
+            }
+            if (img.naturalWidth === 0) {
+              if (errorBox) errorBox.classList.remove('hidden');
+              img.src = IMAGE_LOAD_CONFIG.fallbackSvg;
+            }
+          }
+        }, IMAGE_LOAD_CONFIG.timeout);
+
+        const onFinish = (success) => {
+          if (isDone) return;
+          isDone = true;
+          clearTimeout(timer);
+          img.dataset.loaded = 'true';
+          if (skeleton) {
+            skeleton.style.opacity = '0';
+            setTimeout(() => { skeleton.style.display = 'none'; }, 350);
+          }
+          if (success) {
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-100');
+          } else {
+            if (errorBox) errorBox.classList.remove('hidden');
+            img.src = IMAGE_LOAD_CONFIG.fallbackSvg;
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-50');
+          }
+        };
+
+        if (img.complete && img.naturalWidth > 0) {
+          onFinish(true);
+          return;
+        }
+
+        img.onload = () => onFinish(true);
+        img.onerror = () => onFinish(false);
+
+        if (img.src !== targetSrc) {
+          img.src = targetSrc;
+        }
+      };
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              handleImage(img);
+              obs.unobserve(img);
+            }
+          });
+        }, { rootMargin: '150px 0px' });
+
+        images.forEach(img => {
+          if (img.dataset.loaded === 'true') {
+            const propId = img.dataset.propertyId;
+            const skeleton = document.getElementById(`skeleton-${propId}`);
+            if (skeleton) skeleton.style.display = 'none';
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-100');
+          } else {
+            observer.observe(img);
+          }
+        });
+      } else {
+        images.forEach(handleImage);
+      }
+    }
+
+    window.lazyLoadPropertyImages = lazyLoadPropertyImages;
+
     function renderHotRadarSection() {
       const radarBody = document.getElementById("hotRadarTableBody");
       const cardsGrid = document.getElementById("hotFeaturedCardsGrid");
@@ -3377,21 +3531,29 @@
             return `
               <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
                 <div class="flex flex-col flex-1">
-                  <div class="relative h-56 w-full shrink-0 bg-slate-200 dark:bg-slate-800 animate-pulse overflow-hidden group select-none">
-                    <img src="${esc(coverImg)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent"></div>
+                  <!-- Khung ảnh cố định chuẩn tỉ lệ 16:9 (Aspect Video), tuyệt đối không bị co giãn -->
+                  <div class="relative w-full aspect-video bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
+                    <div id="skeleton-hot-${esc(prop.property_id)}" class="skeleton-shimmer"></div>
+                    <div id="error-hot-${esc(prop.property_id)}" class="hidden absolute inset-0 bg-slate-100 dark:bg-slate-800 z-10 flex flex-col items-center justify-center p-3 text-center pointer-events-none">
+                      <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 mb-1">
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                      </div>
+                      <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Đang cập nhật ảnh</span>
+                    </div>
+                    <img src="${isAboveFold ? esc(coverImg) : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48L3N2Zz4='}" data-src="${esc(coverImg)}" data-property-id="hot-${esc(prop.property_id)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" class="lazy-property-img w-full h-full object-cover object-center group-hover:scale-105 pointer-events-none ${isAboveFold ? 'opacity-100' : 'opacity-0'}" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-15 pointer-events-none"></div>
 
-                    <div class="absolute top-3 left-3">
+                    <div class="absolute top-3 left-3 z-20 pointer-events-none">
                       <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold ${badgeClass} shadow-xs">
                         ${badgeText}
                       </span>
                     </div>
 
-                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1">
+                    <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1 z-20 pointer-events-none">
                       <span>📷 ${imgCount} ảnh</span>
                     </div>
 
-                    <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
+                    <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white z-20 pointer-events-none">
                       <div class="min-w-0 pr-2">
                         <span class="text-[10.5px] font-mono uppercase tracking-wider text-[#FBBF24] font-extrabold block truncate">${esc(catName)}</span>
                         <span class="text-[13px] font-bold block truncate">
@@ -3839,14 +4001,21 @@
             return `
               <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white rounded-2xl border border-slate-200/95 overflow-hidden card-elevate flex flex-col justify-between h-full">
               <div class="flex flex-col flex-1">
-                <!-- Khung ảnh khóa cứng chiều cao h-56 (224px) giúp ảnh dọc và ngang bằng nhau 100% -->
-                <div class="relative h-56 w-full shrink-0 bg-slate-200 dark:bg-slate-800 animate-pulse overflow-hidden group select-none" oncontextmenu="return false;">
-                  <img src="${esc(coverImg)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent"></div>
+                <!-- Khung ảnh cố định chuẩn tỉ lệ 16:9 (Aspect Video), tuyệt đối không bị co giãn -->
+                <div class="relative w-full aspect-video bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
+                  <div id="skeleton-${esc(prop.property_id)}" class="skeleton-shimmer"></div>
+                  <div id="error-${esc(prop.property_id)}" class="hidden absolute inset-0 bg-slate-100 dark:bg-slate-800 z-10 flex flex-col items-center justify-center p-3 text-center pointer-events-none">
+                    <div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 mb-1">
+                      <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Đang cập nhật ảnh</span>
+                  </div>
+                  <img src="${isAboveFold ? esc(coverImg) : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48L3N2Zz4='}" data-src="${esc(coverImg)}" data-property-id="${esc(prop.property_id)}" alt="${esc(prop.seo_title)}" ${loadingAttr} draggable="false" class="lazy-property-img w-full h-full object-cover object-center group-hover:scale-105 pointer-events-none ${isAboveFold ? 'opacity-100' : 'opacity-0'}" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-[#0F172A]/20 to-transparent z-15 pointer-events-none"></div>
 
                   <!-- Nhãn góc trái trên ảnh: Chỉ hiện khi NEW hoặc UPDATE (hoặc GIÁ LIÊN HỆ) -->
                   ${badgeText ? `
-                    <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                    <div class="absolute top-3 left-3 flex items-center gap-1.5 z-20 pointer-events-none">
                       <span class="px-2.5 py-1 rounded-lg text-[11px] font-mono font-extrabold ${badgeClass} shadow-xs">
                         ${badgeText}
                       </span>
@@ -3854,11 +4023,11 @@
                   ` : ''}
 
                   <!-- Phân loại nhãn ảnh -->
-                  <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1">
+                  <div class="absolute top-3 right-3 px-2 py-0.5 rounded-lg text-[11px] font-mono font-bold bg-slate-900/80 text-white backdrop-blur-xs flex items-center gap-1 z-20 pointer-events-none">
                     <span>📷 ${imgCount} ảnh</span>
                   </div>
 
-                  <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white">
+                  <div class="absolute bottom-3 left-3 right-3 flex items-end justify-between text-white z-20 pointer-events-none">
                     <div class="min-w-0 pr-2">
                       <span class="text-[10.5px] font-mono uppercase tracking-wider text-[#FBBF24] font-extrabold block truncate">${esc(catName)}</span>
                       <span class="text-[13px] font-bold block truncate">
@@ -3962,6 +4131,7 @@
         buildSingleRowPaginationHtml(currentPage, totalPages, "goToPage", "promptJumpMainPage");
 
       lucide.createIcons();
+      lazyLoadPropertyImages();
     }
 
     function loadMoreProperties() {
