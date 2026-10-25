@@ -339,9 +339,6 @@
       background-color: #0F172A !important;
       border-color: rgba(56, 189, 248, 0.45) !important;
     }
-    body.v5-dark-mode #trang-chu #smartSearchInput {
-      color: #F8FAFC !important;
-    }
     /* Hộp màu xanh Sky (Thanh đơn giá đất, Bóc tách đất thuần, Bảng tính vay) */
     body.v5-dark-mode .bg-sky-50,
     body.v5-dark-mode .bg-sky-50\/50,

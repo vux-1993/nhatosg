@@ -358,9 +358,6 @@
       background-color: #0F172A !important;
       border-color: rgba(56, 189, 248, 0.45) !important;
     }
-    body.v5-dark-mode #trang-chu #smartSearchInput {
-      color: #F8FAFC !important;
-    }
     /* Hộp màu xanh Sky (Thanh đơn giá đất, Bóc tách đất thuần, Bảng tính vay) */
     body.v5-dark-mode .bg-sky-50,
     body.v5-dark-mode .bg-sky-50\/50,
@@ -2077,7 +2074,7 @@ img,
       if (token && hashes.some(m => m.auth_token === token && m.role === "ADMIN")) {
         return true;
       }
-      return Boolean(localStorage.getItem("NSG_GEMINI_API_KEY"));
+      return false;
     }
 
     function isCurrentUserMember() {
@@ -2157,25 +2154,15 @@ img,
     window.toggleAiCoPilot = toggleAiCoPilot;
 
     function checkAiApiKey() {
-      const key = localStorage.getItem("NSG_GEMINI_API_KEY");
       const setupBox = document.getElementById("aiApiKeySetupBox");
-      if (!setupBox) return;
-      if (!key) {
-        setupBox.classList.remove("hidden");
-      } else {
+      if (setupBox) {
         setupBox.classList.add("hidden");
       }
     }
 
     function saveGeminiApiKey() {
-      const inputEl = document.getElementById("geminiApiKeyInput");
-      const input = inputEl ? inputEl.value.trim() : "";
-      if (input) {
-        localStorage.setItem("NSG_GEMINI_API_KEY", input);
-        checkAiApiKey();
-        if (typeof updateMemberHeaderUI === "function") updateMemberHeaderUI();
-        addAiMessage("Đã lưu Gemini API Key thành công! Tôi đã sẵn sàng hỗ trợ sếp.", false);
-      }
+      const setupBox = document.getElementById("aiApiKeySetupBox");
+      if (setupBox) setupBox.classList.add("hidden");
     }
     window.saveGeminiApiKey = saveGeminiApiKey;
 
@@ -2214,14 +2201,6 @@ img,
     }
 
     async function sendAiMessage() {
-      const apiKey = localStorage.getItem("NSG_GEMINI_API_KEY");
-      if (!apiKey) {
-        alert("Vui lòng cấu hình Gemini API Key trước!");
-        const setupBox = document.getElementById("aiApiKeySetupBox");
-        if (setupBox) setupBox.classList.remove("hidden");
-        return;
-      }
-
       const inputEl = document.getElementById("aiChatInput");
       const userText = inputEl ? inputEl.value.trim() : "";
       if (!userText) return;
@@ -2246,7 +2225,7 @@ img,
       const allProps = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.records) || [];
       if (allProps.length > 0) {
         const withDrops = allProps.map(p => {
-          const initP = Number(p.pricing?.initial_price_billion || p.pricing?.current_price_billion || 0);
+          const initP = Number(p.pricing?.initial_asking_billion || p.pricing?.current_price_billion || 0);
           const currP = Number(p.pricing?.current_price_billion || 0);
           const drop = (initP > currP) ? (initP - currP) : 0;
           return { id: p.property_id, title: p.seo_title, district: p.public_location?.district, initP, currP, drop };
@@ -2262,30 +2241,34 @@ img,
 
       const promptSystem = "Bạn là nhatoSG AI Co-Pilot — Trợ lý cố vấn đầu tư bất động sản cao cấp của hệ thống nhatoSG Sài Gòn. Hãy trả lời ngắn gọn, chuyên nghiệp, thông minh, chuẩn xác số liệu và đúng trọng tâm.\n" + contextString + warehouseSummary + "\n\nCâu hỏi của Quản trị viên: " + userText;
 
-      const payload = {
-        contents: [{
-          parts: [{ text: promptSystem }]
-        }]
+      const aiPayload = {
+        prompt: promptSystem,
+        user_question: userText,
+        context: contextString + warehouseSummary
       };
 
-      const modelsToTry = ["gemini-2.5-flash", "gemini-2.0-flash"];
+      const endpointsToTry = ["/api/ai_chat"];
+      if (window.location.origin && !window.location.origin.includes(":8888")) {
+        endpointsToTry.push("http://127.0.0.1:8888/api/ai_chat");
+      }
+
       let aiText = null;
       let lastErr = "";
 
-      for (const modelName of modelsToTry) {
+      for (const ep of endpointsToTry) {
         try {
-          const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${encodeURIComponent(apiKey)}`, {
+          const resp = await fetch(ep, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(aiPayload)
           });
           if (resp.ok) {
             const data = await resp.json();
-            aiText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+            aiText = data?.reply || data?.text || data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
             if (aiText) break;
           } else {
             const errJson = await resp.json().catch(() => ({}));
-            lastErr = errJson?.error?.message || `HTTP ${resp.status}`;
+            lastErr = errJson?.error || `HTTP ${resp.status}`;
           }
         } catch (e) {
           lastErr = e.message;
@@ -2295,7 +2278,7 @@ img,
       if (aiText) {
         addAiMessage(aiText, false);
       } else {
-        addAiMessage(`⚠️ Không thể kết nối mô hình AI (${lastErr || 'Lỗi mạng hoặc API Key'}). Vui lòng kiểm tra lại Key Gemini.`, false);
+        addAiMessage(`⚠️ Không thể kết nối mô hình AI (${lastErr || 'Lỗi kết nối máy chủ Admin CMS'}). Vui lòng đảm bảo hệ thống Admin CMS (cổng 8888) đang hoạt động.`, false);
       }
 
       if (sendBtn) {
@@ -3239,7 +3222,7 @@ img,
           document.getElementById("conciergeBanner").classList.add("hidden");
         }
         resetPageAndRender();
-      }, 250);
+      }, 300);
     }
 
     function runSmartSearch() {
