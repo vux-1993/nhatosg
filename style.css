@@ -500,3 +500,15 @@ img,
   z-index: 15;
   letter-spacing: 0.08em;
 }
+
+
+/* === LIGHTBOX IMAGE OPTIMIZATION (PORTRAIT & LANDSCAPE CONTAINMENT) === */
+#lightboxMainImg {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 85vh !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+  margin: auto;
+}

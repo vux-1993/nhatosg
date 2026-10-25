@@ -1211,16 +1211,8 @@ img,
               <div class="flex items-center gap-2">
                 <span class="px-2.5 py-1 rounded-lg bg-white/10 text-white font-mono text-xs font-bold flex items-center gap-1.5">
                   <i data-lucide="camera" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
-                  <span id="galleryCounter">Ảnh 1/1 · Phóng to</span>
+                  <span id="galleryCounter">Ảnh 1/1</span>
                 </span>
-                <button
-                  type="button"
-                  onclick="openFullscreenLightbox()"
-                  class="px-3 py-1 rounded-lg bg-sky-500/20 hover:bg-[#0284C7] text-sky-300 hover:text-white border border-sky-400/30 font-bold text-xs flex items-center gap-1.5 transition"
-                >
-                  <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-                  <span>Phóng to</span>
-                </button>
               </div>
 
               <div class="flex items-center gap-2">
@@ -1361,7 +1353,7 @@ img,
     </div>
 
     <div class="relative flex-1 flex items-center justify-center my-2 overflow-hidden">
-      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none" />
+      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none" style="object-fit: contain !important; max-height: 85vh !important;" />
       
       <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
       <div class="absolute inset-0 z-15 bg-transparent" oncontextmenu="return false;"></div>
@@ -1563,14 +1555,7 @@ img,
     <button onclick="toggleAiCoPilot()" class="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition">✕</button>
   </div>
   
-  <!-- Setup API Key Box -->
-  <div id="aiApiKeySetupBox" class="p-5 border-b border-slate-800 hidden">
-    <p class="text-xs text-amber-300 mb-2 font-mono">Bảo mật: Yêu cầu Gemini API Key (Key chỉ lưu ở trình duyệt cá nhân).</p>
-    <div class="flex gap-2">
-      <input type="password" id="geminiApiKeyInput" placeholder="Nhập API Key..." class="flex-1 bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-amber-400 outline-none">
-      <button onclick="saveGeminiApiKey()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 px-4 py-2 rounded-lg font-bold text-sm transition">Lưu</button>
-    </div>
-  </div>
+
 
   <!-- Chat History -->
   <div id="aiChatHistory" class="flex-1 overflow-y-auto p-5 space-y-4 bg-[#060A12]">
@@ -2105,7 +2090,10 @@ img,
       isAiDrawerOpen = !isAiDrawerOpen;
       if (isAiDrawerOpen) {
         drawer.classList.remove("translate-x-full");
-        checkAiApiKey();
+        try {
+          localStorage.removeItem("NSG_GEMINI_API_KEY");
+          sessionStorage.removeItem("NSG_GEMINI_API_KEY");
+        } catch(e) {}
         updateAiContextBadge();
         const chatInput = document.getElementById("aiChatInput");
         if (chatInput) {
@@ -2126,18 +2114,11 @@ img,
     }
     window.toggleAiCoPilot = toggleAiCoPilot;
 
-    function checkAiApiKey() {
-      const setupBox = document.getElementById("aiApiKeySetupBox");
-      if (setupBox) {
-        setupBox.classList.add("hidden");
-      }
-    }
-
-    function saveGeminiApiKey() {
-      const setupBox = document.getElementById("aiApiKeySetupBox");
-      if (setupBox) setupBox.classList.add("hidden");
-    }
-    window.saveGeminiApiKey = saveGeminiApiKey;
+    // Gemini API Key được quản lý 100% phía Server Core (Port 8888), Frontend không lưu Key
+    try {
+      localStorage.removeItem("NSG_GEMINI_API_KEY");
+      sessionStorage.removeItem("NSG_GEMINI_API_KEY");
+    } catch(e) {}
 
     function updateAiContextBadge() {
       const badge = document.getElementById("aiContextBadge");
@@ -3184,19 +3165,41 @@ img,
       runSmartSearch();
     }
 
-    let searchDebounceTimer = null;
-    function handleSearchInput() {
-      const val = document.getElementById("smartSearchInput").value.trim();
-      document.getElementById("clearSearchBtn").classList.toggle("hidden", !val);
-      clearTimeout(searchDebounceTimer);
-      searchDebounceTimer = setTimeout(() => {
-        currentParsedQueryFilter = val ? parseNaturalLanguageQuery(val) : null;
-        if (!val) {
-          document.getElementById("conciergeBanner").classList.add("hidden");
-        }
-        resetPageAndRender();
-      }, 300);
+    // Debounce chuẩn chống giật lag khi gõ tìm kiếm
+    function debounce(func, wait = 250) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
     }
+
+    const executeDebouncedSearch = debounce(() => {
+      const inp = document.getElementById("smartSearchInput");
+      const val = inp ? inp.value.trim() : "";
+      currentParsedQueryFilter = val ? parseNaturalLanguageQuery(val) : null;
+      if (!val) {
+        const b = document.getElementById("conciergeBanner");
+        if (b) b.classList.add("hidden");
+      }
+      resetPageAndRender();
+    }, 250);
+
+    function handleSearchInput() {
+      const inp = document.getElementById("smartSearchInput");
+      const val = inp ? inp.value.trim() : "";
+      const b1 = document.getElementById("clearSearchBtn");
+      if (b1) b1.classList.toggle("hidden", !val);
+      const b2 = document.getElementById("clearSmartSearchBtn");
+      if (b2) b2.classList.toggle("hidden", !val);
+      executeDebouncedSearch();
+    }
+    window.debounce = debounce;
+    window.handleSearchInput = handleSearchInput;
 
     function runSmartSearch() {
       const raw = document.getElementById("smartSearchInput").value.trim();
@@ -4221,11 +4224,11 @@ img,
       const blurBg = document.getElementById("galleryBlurBackdrop");
       if (blurBg) blurBg.src = currentItem.url;
 
-      document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length} · Phóng to`;
+      document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
 
       const thumbsEl = document.getElementById("galleryThumbnails");
       thumbsEl.innerHTML = gallery.map((item, idx) => `
-        <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-800 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}" oncontextmenu="return false;">
+        <button onclick="selectGallerySlide(${idx}, true)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-800 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}" oncontextmenu="return false;">
           <img src="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';" class="w-full h-full object-cover pointer-events-none select-none" />
           <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
@@ -4272,9 +4275,12 @@ img,
       renderGallerySlide();
     }
 
-    function selectGallerySlide(index) {
+    function selectGallerySlide(index, openLightbox = false) {
       currentGalleryIndex = index;
       renderGallerySlide();
+      if (openLightbox) {
+        openFullscreenLightbox();
+      }
     }
 
     // =========================================================================
