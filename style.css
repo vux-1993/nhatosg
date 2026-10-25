@@ -512,3 +512,341 @@ img,
   display: block;
   margin: auto;
 }
+
+
+/* =========================================================================
+   UI HOTFIX: ZALO BUTTONS & HIGH CONTRAST (LIGHT & DARK MODE)
+   ========================================================================= */
+.btn-zalo,
+a[href*="zalo.me"],
+button[onclick*="Zalo"],
+#headerMemberBtn {
+  background-color: #0068FF !important;
+  color: #FFFFFF !important;
+  border: 1px solid #0056D2 !important;
+  font-weight: 800 !important;
+}
+.btn-zalo *,
+a[href*="zalo.me"] *,
+button[onclick*="Zalo"] *,
+#headerMemberBtn * {
+  color: #FFFFFF !important;
+}
+.btn-zalo:hover,
+a[href*="zalo.me"]:hover,
+button[onclick*="Zalo"]:hover,
+#headerMemberBtn:hover {
+  background-color: #0052CC !important;
+  color: #FFFFFF !important;
+  border-color: #0040A0 !important;
+}
+body.v5-dark-mode .btn-zalo,
+body.v5-dark-mode a[href*="zalo.me"],
+body.v5-dark-mode button[onclick*="Zalo"],
+body.v5-dark-mode #headerMemberBtn {
+  background-color: #0068FF !important;
+  color: #FFFFFF !important;
+  border-color: #0056D2 !important;
+}
+body.v5-dark-mode .btn-zalo *,
+body.v5-dark-mode a[href*="zalo.me"] *,
+body.v5-dark-mode button[onclick*="Zalo"] *,
+body.v5-dark-mode #headerMemberBtn * {
+  color: #FFFFFF !important;
+}
+
+/* =========================================================================
+   UI HOTFIX: TAGS (STREET, WARD, DISTRICT, HASHTAGS)
+   ========================================================================= */
+.tag-street {
+  background-color: #F1F5F9;
+  color: #0F172A;
+  border: 1px solid #CBD5E1;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+body.v5-dark-mode .tag-street {
+  background-color: #1E293B;
+  color: #F8FAFC;
+  border-color: #475569;
+}
+
+.tag-ward {
+  background-color: #F8FAFC;
+  color: #334155;
+  border: 1px solid #CBD5E1;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+body.v5-dark-mode .tag-ward {
+  background-color: rgba(30, 41, 59, 0.8);
+  color: #CBD5E1;
+  border-color: #334155;
+}
+
+.tag-district {
+  background-color: #E0F2FE;
+  color: #0284C7;
+  border: 1px solid #BAE6FD;
+  font-weight: 800;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+body.v5-dark-mode .tag-district {
+  background-color: rgba(2, 132, 199, 0.22);
+  color: #38BDF8;
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.tag-hashtag {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 11px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+body.v5-dark-mode .tag-hashtag {
+  background-color: rgba(245, 158, 11, 0.16);
+  color: #FCD34D;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* =========================================================================
+   UI HOTFIX: EQUAL HEIGHT CARDS & TYPOGRAPHY
+   ========================================================================= */
+.property-card-item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+.property-card-item .card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 2.85rem;
+  line-height: 1.425rem;
+}
+.property-card-item .card-summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  height: 2.75rem;
+  line-height: 1.375rem;
+}
+.property-card-item .card-tags-strip {
+  max-height: 3.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+/* =========================================================================
+   UI HOTFIX: COMPLETE DARK MODE SYNC FOR ALL SECTIONS & MODALS
+   ========================================================================= */
+body.v5-dark-mode {
+  background-color: #060A12 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #kho-tai-san h2,
+body.v5-dark-mode #tai-san-hot h2 {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode select {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border-color: #334155 !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper thead tr {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper th {
+  color: #F8FAFC !important;
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper td {
+  color: #F8FAFC !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper tbody tr:hover {
+  background-color: #131C2E !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper .bg-slate-50 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #hotRadarSummary,
+body.v5-dark-mode #hotCardsSummary {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode #hotRadarSummary strong,
+body.v5-dark-mode #hotCardsSummary strong {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode footer {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode footer span.text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #insightArticlesGrid article {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #insightArticlesGrid article h3 {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #insightArticlesGrid article p {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode #insightArticlesGrid article .bg-slate-100 {
+  background-color: #0B1120 !important;
+}
+body.v5-dark-mode #insightModal > div {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border-color: rgba(251, 191, 36, 0.38) !important;
+}
+body.v5-dark-mode #insightContent {
+  background-color: #0B1120 !important;
+  color: #E2E8F0 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #propertyModal > div {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #propertyModal .bg-slate-50 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #E2E8F0 !important;
+}
+body.v5-dark-mode #propertyModal .bg-white {
+  background-color: #131C2E !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #propertyModal .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #propertyModal .bg-sky-50,
+body.v5-dark-mode #propertyModal .bg-sky-50\/60 {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+  color: #E0F2FE !important;
+}
+body.v5-dark-mode #compareModal > div {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #compareModal table {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #compareModal th {
+  background-color: #0B1120 !important;
+  color: #F8FAFC !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #compareModal td {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #compareModal .bg-slate-50 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode #compareModal .bg-white {
+  background-color: #131C2E !important;
+  border-color: #334155 !important;
+}
+body.v5-dark-mode .v5-advisory-box {
+  background: linear-gradient(180deg, #0B1120 0%, #0F172A 100%) !important;
+  border-color: rgba(251, 191, 36, 0.38) !important;
+}
+body.v5-dark-mode .v5-advisory-box h2 {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .v5-advisory-box p.text-slate-700 {
+  color: #CBD5E1 !important;
+}
+body.v5-dark-mode .v5-advisory-box form.bg-slate-50 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode .v5-advisory-box input.bg-white {
+  background-color: #0F172A !important;
+  color: #FFFFFF !important;
+  border-color: #334155 !important;
+}
+
+/* =========================================================================
+   UI HOTFIX: GALLERY & MODAL LAYOUT
+   ========================================================================= */
+body.modal-open {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+#galleryMainImage {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block;
+  margin: auto;
+}
+#galleryThumbnails button {
+  aspect-ratio: 4 / 3;
+  width: 5.5rem;
+  height: 4.25rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+}
+@media (min-width: 640px) {
+  #galleryThumbnails button {
+    width: 6.5rem;
+    height: 4.75rem;
+  }
+}
+#lightboxThumbStrip button {
+  aspect-ratio: 4 / 3;
+  width: 4.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+}
