@@ -80,26 +80,8 @@
     ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
     /* Watermark chuẩn đặt chính giữa ảnh, độ đậm rõ nét chống xóa */
-    .gallery-watermark {
-      position: absolute;
-      inset: 0;
-      z-index: 15;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, 0.38);
-      font-size: clamp(18px, 2.8vw, 30px);
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      transform: rotate(-18deg);
-      user-select: none;
-      text-shadow: 0 2px 10px rgba(15, 23, 42, 0.72), 0 0 3px rgba(15, 23, 42, 0.85);
-    }
-
     /* KHÓA BẢO VỆ CHỐNG TẢI ẢNH GỐC & CHẶN MENU CHUỘT PHẢI / NHẤN GIỮ TRÊN MOBILE & PC */
-    img, .property-card-item img, .gallery-container img, .gallery-watermark, #galleryMainImage, #lightboxMainImg {
+    img, .property-card-item img, .gallery-container img, #galleryMainImage, #lightboxMainImg {
       -webkit-touch-callout: none !important;
       -webkit-user-select: none !important;
       user-select: none !important;
@@ -598,24 +580,7 @@ img,
   -webkit-user-drag: none !important;
 }
 
-.gallery-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-25deg);
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.35);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-  white-space: nowrap;
-  z-index: 15;
-  letter-spacing: 0.08em;
-}
-
-  </style>
+</style>
   <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio (Non-blocking Async DOM loader) -->
   <script id="nsg-live-loader" data-ver="1792908862">
   (function() {
@@ -1228,8 +1193,7 @@ img,
               onclick="openFullscreenLightbox()"
               class="relative z-10 max-w-full max-h-full w-full h-full object-contain transition-transform duration-200 pointer-events-none"
             />
-            <!-- Watermark chính giữa ảnh theo kiểu cũ nhưng đậm & sắc nét hơn -->
-            <div class="gallery-watermark">NHATOSG • 0916.23.9898</div>
+            
 
             <!-- Lớp chắn vô hình chặn chạm/chuột phải trực tiếp vào file ảnh nhưng khi click vẫn mở Lightbox -->
             <div class="absolute inset-0 z-15 bg-transparent cursor-zoom-in" onclick="openFullscreenLightbox()" oncontextmenu="return false;"></div>
@@ -1398,7 +1362,7 @@ img,
 
     <div class="relative flex-1 flex items-center justify-center my-2 overflow-hidden">
       <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-[80vh] w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none" />
-      <div class="gallery-watermark">NHATOSG • 0916.23.9898</div>
+      
       <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
       <div class="absolute inset-0 z-15 bg-transparent" oncontextmenu="return false;"></div>
 
@@ -1811,8 +1775,11 @@ img,
 
     function computeMetrics(prop) {
       const isMasked = Boolean(prop.is_price_masked);
-      const initP = Number(prop.pricing?.initial_asking_billion || prop.pricing?.current_price_billion || 0);
-      const currP = Number(prop.pricing?.current_price_billion || 0);
+      // Ưu tiên số 1: current_price_billion, fallback về initial_asking_billion
+      const rawCurr = prop.pricing?.current_price_billion;
+      const rawInit = prop.pricing?.initial_asking_billion;
+      const currP = Number(rawCurr || rawInit || 0);
+      const initP = Number(rawInit || currP);
       const diffBil = +(initP - currP).toFixed(1);
       const diffPct = initP > 0 ? +(((initP - currP) / initP) * 100).toFixed(1) : 0;
 
@@ -1910,8 +1877,14 @@ img,
       if (currP > 0 && estBuildValueBil > currP * 0.45) {
         estBuildValueBil = +(currP * 0.40).toFixed(2);
       }
+      if (isNaN(estBuildValueBil) || estBuildValueBil <= 0) {
+        estBuildValueBil = 0;
+      }
       const netLandValueBil = Math.max(0, +(currP - estBuildValueBil).toFixed(2));
-      const netLandPricePerM2Mil = (area > 0 && netLandValueBil > 0) ? Math.round((netLandValueBil * 1000) / area) : pricePerM2Mil;
+      let netLandPricePerM2Mil = (area > 0 && netLandValueBil > 0) ? Math.round((netLandValueBil * 1000) / area) : pricePerM2Mil;
+      if (isNaN(netLandPricePerM2Mil) || netLandPricePerM2Mil <= 0) {
+        netLandPricePerM2Mil = 0;
+      }
 
       return {
         isMasked,
@@ -3674,11 +3647,13 @@ img,
                 </div>
                 <div class="text-right shrink-0">
                   ${m.isMasked ? `
-                    <div class="text-lg font-black text-amber-400 leading-none whitespace-nowrap drop-shadow-md">Giá thỏa thuận</div>
+                    <div class="text-base sm:text-lg font-black text-amber-400 leading-none whitespace-nowrap drop-shadow-md">Giá thỏa thuận</div>
                   ` : `
                     <div class="flex items-baseline justify-end">
-                      <span class="text-2xl font-extrabold text-amber-400 leading-none drop-shadow-md">${esc(m.currP)} Tỷ</span>
-                      ${m.diffBil > 0 ? `<span class="text-sm line-through text-slate-300 ml-2 drop-shadow-sm">${esc(m.initP)} Tỷ</span>` : ''}
+                      <span class="text-lg sm:text-2xl font-extrabold text-amber-400 leading-none drop-shadow-md whitespace-nowrap">
+                        ${m.currP > 0 ? `Giá chào: ${esc(m.currP)} Tỷ` : 'Liên hệ'}
+                      </span>
+                      ${m.diffBil > 0 ? `<span class="text-xs sm:text-sm line-through text-slate-300 ml-1.5 drop-shadow-sm whitespace-nowrap">(${esc(m.initP)} Tỷ)</span>` : ''}
                     </div>
                   `}
                 </div>
@@ -3723,17 +3698,32 @@ img,
                   </div>
                 </div>
 
-                <!-- Thanh Đơn giá Đất & Xây dựng thoáng đãng -->
-                ${m.isMasked ? `
-                  <div class="mt-2.5 px-3.5 py-2 rounded-xl bg-sky-50/80 dark:bg-sky-950/40 border border-sky-200/80 dark:border-sky-800 text-xs text-slate-800 dark:text-slate-200 flex items-center justify-center min-h-[36px]">
-                    <span class="font-bold text-[#0284C7] dark:text-sky-400">🔒 Giá thương lượng kín (Liên hệ trực tiếp)</span>
+                <!-- GIÁ CHÀO BÁN: Ưu tiên số 1, hiển thị to, nổi bật -->
+                <div class="mt-3 px-3.5 py-2.5 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/25 dark:border-amber-400/25 flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs text-amber-800 dark:text-amber-400 font-extrabold uppercase tracking-wide">Giá Chào:</span>
+                    <span class="text-base sm:text-lg font-black text-amber-600 dark:text-amber-400">
+                      ${m.isMasked ? 'Thỏa thuận kín' : (m.currP > 0 ? `${esc(m.currP)} Tỷ` : 'Liên hệ')}
+                    </span>
                   </div>
-                ` : `
-                  <div class="mt-2.5 px-3.5 py-2 rounded-xl bg-sky-50/80 dark:bg-sky-950/40 border border-sky-200/80 dark:border-sky-800 text-xs text-slate-800 dark:text-slate-200 flex items-center justify-between min-h-[36px]">
-                    <span class="font-medium text-slate-700 dark:text-slate-300 truncate">🏗️ XD: ~${esc(m.estBuildValueBil)} Tỷ</span>
-                    <span class="font-bold text-[#0284C7] dark:text-sky-400 shrink-0 ml-2">📐 Đơn giá đất: ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
+                  ${(!m.isMasked && m.diffBil > 0) ? `
+                    <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-2 py-0.5 rounded border border-rose-200 dark:border-rose-800">
+                      Giảm ${esc(m.diffBil)} Tỷ
+                    </span>
+                  ` : ''}
+                </div>
+
+                <!-- THÔNG TIN PHỤ: XD & Đơn giá đất (Chữ nhỏ hơn, TUYỆT ĐỐI ẩn nếu = 0 hoặc NaN) -->
+                ${(!m.isMasked && ((m.estBuildValueBil > 0 && !isNaN(m.estBuildValueBil)) || (m.netLandPricePerM2Mil > 0 && !isNaN(m.netLandPricePerM2Mil)))) ? `
+                  <div class="mt-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
+                    ${(m.estBuildValueBil > 0 && !isNaN(m.estBuildValueBil)) ? `
+                      <span class="truncate">🏗️ XD: ~${esc(m.estBuildValueBil)} Tỷ</span>
+                    ` : '<span></span>'}
+                    ${(m.netLandPricePerM2Mil > 0 && !isNaN(m.netLandPricePerM2Mil)) ? `
+                      <span class="font-medium text-[#0284C7] dark:text-sky-400 shrink-0 ml-2">Đất: ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
+                    ` : ''}
                   </div>
-                `}
+                ` : ''}
               </div>
             </div>
           </div>
@@ -4201,67 +4191,7 @@ img,
     const _watermarkedCache = new Map();
 
     function bakeWatermarkOnImage(imgUrl, callback) {
-      if (!imgUrl) return;
-      if (_watermarkedCache.has(imgUrl)) {
-        callback(_watermarkedCache.get(imgUrl));
-        return;
-      }
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = function() {
-        try {
-          const canvas = document.createElement("canvas");
-          canvas.width = img.naturalWidth || img.width || 1200;
-          canvas.height = img.naturalHeight || img.height || 800;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) {
-            callback(imgUrl);
-            return;
-          }
-          // 1. Vẽ ảnh gốc vào Canvas
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-          // 2. Cấu hình chữ Watermark: Đậm, nghiêng -25 độ, căn giữa
-          const fontSize = Math.max(24, Math.round(canvas.width / 22));
-          ctx.font = `900 ${fontSize}px sans-serif`;
-          ctx.fillStyle = "rgba(255, 255, 255, 0.35)";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-
-          ctx.save();
-          ctx.translate(canvas.width / 2, canvas.height / 2);
-          ctx.rotate((-25 * Math.PI) / 180);
-
-          // Đổ bóng tối nhẹ để chữ nổi bật trên cả ảnh sáng lẫn ảnh tối
-          ctx.shadowColor = "rgba(0, 0, 0, 0.55)";
-          ctx.shadowBlur = 8;
-          ctx.shadowOffsetX = 2;
-          ctx.shadowOffsetY = 2;
-
-          // Watermark trung tâm
-          ctx.fillText("NHATOSG • 0916.23.9898", 0, 0);
-
-          // Watermark phụ hai dải trên và dưới để chống cắt xén
-          const subFontSize = Math.max(15, Math.round(fontSize * 0.6));
-          ctx.font = `800 ${subFontSize}px sans-serif`;
-          ctx.fillStyle = "rgba(255, 255, 255, 0.22)";
-          ctx.fillText("NHATOSG • 0916.23.9898", 0, -Math.round(canvas.height * 0.3));
-          ctx.fillText("NHATOSG • 0916.23.9898", 0, Math.round(canvas.height * 0.3));
-
-          ctx.restore();
-
-          const dataUrl = canvas.toDataURL("image/jpeg", 0.92);
-          _watermarkedCache.set(imgUrl, dataUrl);
-          callback(dataUrl);
-        } catch (e) {
-          // Khi ảnh từ domain ngoài chặn CORS, fallback an toàn về URL gốc để không gián đoạn trải nghiệm
-          callback(imgUrl);
-        }
-      };
-      img.onerror = function() {
-        callback(imgUrl);
-      };
-      img.src = imgUrl;
+      if (typeof callback === "function") callback(imgUrl);
     }
 
     function renderGallerySlide() {

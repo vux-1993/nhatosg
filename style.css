@@ -80,7 +80,7 @@
     }
 
     /* KHÓA BẢO VỆ CHỐNG TẢI ẢNH GỐC & CHẶN MENU CHUỘT PHẢI / NHẤN GIỮ TRÊN MOBILE & PC */
-    img, .property-card-item img, .gallery-container img, .gallery-watermark, #galleryMainImage, #lightboxMainImg {
+    img, .property-card-item img, .gallery-container img, #galleryMainImage, #lightboxMainImg {
       -webkit-touch-callout: none !important;
       -webkit-user-select: none !important;
       user-select: none !important;
