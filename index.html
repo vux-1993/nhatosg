@@ -24,6 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Lucide Icons (Local Offline Pinned) -->
   <script src="./lucide.min.js"></script>
+  <script src="./optimized_manifest.js"></script>
   <style>
     html {
       font-size: 17.5px;
@@ -898,12 +899,52 @@ body.modal-open {
   overflow: hidden;
   scrollbar-gutter: stable;
 }
+/* =========================================================================
+   HOTFIX GALLERY: LOCKED MAIN IMAGE FRAME (PORTRAIT & LANDSCAPE NORMALIZED)
+   ========================================================================= */
+.gallery-main-frame {
+  width: 100% !important;
+  height: clamp(320px, 58vh, 620px) !important;
+  min-height: 320px !important;
+  max-height: 620px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #070B14 !important;
+  position: relative !important;
+}
+.gallery-main-frame #galleryMainImage,
 #galleryMainImage {
   object-fit: contain !important;
   max-width: 100% !important;
   max-height: 100% !important;
-  display: block;
-  margin: auto;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  margin: auto !important;
+}
+.lightbox-main-frame {
+  width: 100% !important;
+  height: clamp(340px, 68vh, 720px) !important;
+  min-height: 340px !important;
+  max-height: 720px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #000000 !important;
+  position: relative !important;
+}
+.lightbox-main-frame #lightboxMainImg,
+#lightboxMainImg {
+  object-fit: contain !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  margin: auto !important;
 }
 #galleryThumbnails button {
   aspect-ratio: 4 / 3;
@@ -1192,58 +1233,16 @@ body.modal-open {
           <p class="text-slate-600 text-xs sm:text-sm mt-1">Một số tài sản đáng chú ý có mức điều chỉnh giá tốt hoặc hiệu suất khai thác ổn định.</p>
         </div>
 
-        <div class="flex items-center gap-2 sm:gap-3">
-          <!-- Điều hướng Featured Prev/Next -->
-          <div class="flex items-center gap-1.5">
-            <button
-              id="hotPrevBtn"
-              type="button"
-              onclick="prevHotPage()"
-              aria-label="Tài sản nổi bật trước"
-              title="Tài sản nổi bật trước"
-              class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-[#0284C7] dark:hover:border-amber-400 text-[#0F172A] dark:text-white flex items-center justify-center transition shadow-xs disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-            >
-              <i data-lucide="chevron-left" class="w-4 h-4"></i>
-            </button>
-            <span id="hotPageBadge" class="px-2 py-1 rounded-lg bg-slate-200/90 dark:bg-slate-800 text-[11px] font-mono font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap min-w-[2.75rem] text-center">1/3</span>
-            <button
-              id="hotNextBtn"
-              type="button"
-              onclick="nextHotPage()"
-              aria-label="Tài sản nổi bật tiếp theo"
-              title="Tài sản nổi bật tiếp theo"
-              class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-[#0284C7] dark:hover:border-amber-400 text-[#0F172A] dark:text-white flex items-center justify-center transition shadow-xs disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-            >
-              <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </button>
-          </div>
-
-          <!-- Toggle Xem dạng Thẻ / Bảng -->
-          <div class="inline-flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-300 dark:border-slate-700">
-            <button
-              id="hotViewModeCardBtn"
-              type="button"
-              onclick="switchHotViewMode('card')"
-              class="px-3 py-1.5 rounded-lg text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer bg-white dark:bg-slate-700 text-[#0284C7] dark:text-sky-300 shadow-xs"
-            >
-              <span>▦</span>
-              <span>Xem dạng thẻ</span>
-            </button>
-            <button
-              id="hotViewModeTableBtn"
-              type="button"
-              onclick="switchHotViewMode('table')"
-              class="px-3 py-1.5 rounded-lg text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer text-slate-600 dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white"
-            >
-              <span>☰</span>
-              <span>Xem dạng bảng</span>
-            </button>
+        <div class="flex items-center">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-extrabold text-[#0284C7] dark:text-sky-300 shadow-xs">
+            <span>☰</span>
+            <span>Chế độ xem bảng</span>
           </div>
         </div>
       </div>
 
-      <!-- DẠNG THẺ (CARD VIEW - MẶC ĐỊNH) -->
-      <div id="hotFeaturedCardsWrapper">
+      <!-- DẠNG THẺ (DỰ PHÒNG ẨN - GIỮ ĐỂ TRÁNH LỖI CALLER) -->
+      <div id="hotFeaturedCardsWrapper" class="hidden">
         <div id="hotFeaturedCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 auto-rows-fr items-stretch"></div>
         <div class="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600">
           <div id="hotCardsSummary" class="text-[13px] font-semibold text-slate-600"></div>
@@ -1251,8 +1250,8 @@ body.modal-open {
         </div>
       </div>
 
-      <!-- DẠNG BẢNG (TABLE VIEW) -->
-      <div id="hotRadarTableWrapper" class="hidden rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-xs">
+      <!-- DẠNG BẢNG (TABLE VIEW - CHẾ ĐỘ CHÍNH DUY NHẤT) -->
+      <div id="hotRadarTableWrapper" class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 shadow-xs">
         <div class="w-full overflow-x-auto">
           <table class="w-full text-left border-collapse">
             <thead>
@@ -1436,7 +1435,7 @@ body.modal-open {
       <span class="text-xs font-mono text-slate-500">Bấm vào bài viết để đọc chi tiết chuyên đề</span>
     </div>
 
-    <div id="insightArticlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    <div id="insightArticlesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr items-stretch"></div>
   </section>
 
   <!-- SECTION 4: LIÊN HỆ TRỰC TIẾP 0916.23.9898 ( VŨ ) -->
@@ -1544,8 +1543,8 @@ body.modal-open {
 
         <!-- INTERACTIVE PHOTO GALLERY: CÓ WATERMARK CHÉO GIỮA ẢNH ĐẬM RÕ -->
         <div class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 select-none shadow-lg" oncontextmenu="return false;">
-          <div class="relative h-[300px] sm:h-[440px] md:h-[460px] max-h-[50vh] bg-slate-950 flex items-center justify-center overflow-hidden group rounded-2xl">
-            <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-30 scale-110 pointer-events-none" />
+          <div class="gallery-main-frame relative group rounded-2xl">
+            <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-10 scale-105 pointer-events-none" />
             
             <img
               id="galleryMainImage"
@@ -1555,9 +1554,11 @@ body.modal-open {
               onload="this.parentElement.classList.remove('animate-pulse')"
               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85';"
               onclick="openFullscreenLightbox()"
-              class="relative z-10 max-w-full max-h-full w-full h-full object-contain transition-transform duration-200 pointer-events-none"
+              class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-200 pointer-events-none select-none"
             />
             
+            <!-- Watermark chìm nhỏ chính giữa ảnh -->
+            <div class="gallery-watermark">NHATOSG.COM.VN</div>
 
             <!-- Lớp chắn vô hình chặn chạm/chuột phải trực tiếp vào file ảnh nhưng khi click vẫn mở Lightbox -->
             <div class="absolute inset-0 z-15 bg-transparent cursor-zoom-in" onclick="openFullscreenLightbox()" oncontextmenu="return false;"></div>
@@ -1724,9 +1725,12 @@ body.modal-open {
       </div>
     </div>
 
-    <div class="relative flex-1 flex items-center justify-center my-2 overflow-hidden">
-      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none" style="object-fit: contain !important; max-height: 85vh !important;" />
+    <div class="lightbox-main-frame relative flex-1 flex items-center justify-center my-2 overflow-hidden bg-black/90">
+      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none select-none" />
       
+      <!-- Watermark chìm nhỏ chính giữa ảnh trong Lightbox -->
+      <div class="gallery-watermark">NHATOSG.COM.VN</div>
+
       <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
       <div class="absolute inset-0 z-15 bg-transparent" oncontextmenu="return false;"></div>
 
@@ -1892,8 +1896,8 @@ body.modal-open {
 
     let compareList = [];
     let hotCurrentPage = 1;
-    const hotItemsPerPage = 3;
-    let hotViewMode = 'card';
+    const hotItemsPerPage = 5;
+    let hotViewMode = 'table';
     let currentPage = 1;
     const itemsPerPage = 9;
     let extraLoadedCount = 0;
@@ -1903,7 +1907,7 @@ body.modal-open {
     let activeInsightIndex = 0;
 
     function getHotItemsPerPage() {
-      return hotViewMode === "table" ? 5 : 3;
+      return 5;
     }
 
     function prevHotPage() {
@@ -2839,11 +2843,11 @@ body.modal-open {
         return `
           <article
             onclick="openInsightModal(${idx})"
-            class="cursor-pointer bg-white rounded-2xl border border-slate-200/90 overflow-hidden card-elevate flex flex-col justify-between group h-full"
+            class="insight-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between group h-full shadow-xs hover:border-[#0284C7]/60 transition"
           >
-            <div>
-              <div class="h-48 bg-slate-100 relative overflow-hidden shrink-0">
-                <img src="${esc(imgUrl)}" alt="${esc(art.title)}" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none" />
+            <div class="flex flex-col flex-1">
+              <div class="insight-img-wrapper w-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden shrink-0" style="height: 220px; max-height: 220px;">
+                <img src="${esc(imgUrl)}" alt="${esc(art.title)}" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
                 <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold ${badgeCls}">
                   ${esc(art.category)}
@@ -2852,18 +2856,18 @@ body.modal-open {
                   Bấm để đọc →
                 </span>
               </div>
-              <div class="p-6">
-                <h3 class="font-extrabold text-[16px] text-[#0F172A] group-hover:text-[#0284C7] transition leading-snug mb-2.5 line-clamp-2 h-[44px]">
+              <div class="insight-body p-5 sm:p-6 flex-1 flex flex-col justify-start">
+                <h3 class="insight-title font-extrabold text-[16px] text-[#0F172A] dark:text-white group-hover:text-[#0284C7] transition leading-snug mb-2 line-clamp-2 h-[2.75rem] overflow-hidden">
                   ${esc(art.title)}
                 </h3>
-                <p class="text-[13.5px] text-slate-600 leading-relaxed line-clamp-3 h-[62px]">
+                <p class="insight-summary text-[13.5px] text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 h-[3.85rem] overflow-hidden">
                   ${esc(shortSummary)}
                 </p>
               </div>
             </div>
-            <div class="px-6 pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span class="text-slate-500 font-semibold">Chuyên đề #0${idx + 1}</span>
-              <span class="font-extrabold text-[#0284C7] group-hover:text-sky-700 inline-flex items-center gap-1">
+            <div class="insight-footer px-5 sm:px-6 pb-4 sm:pb-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs mt-auto">
+              <span class="text-slate-500 dark:text-slate-400 font-semibold">Chuyên đề #0${idx + 1}</span>
+              <span class="font-extrabold text-[#0284C7] dark:text-sky-400 group-hover:text-sky-700 dark:group-hover:text-sky-300 inline-flex items-center gap-1">
                 Đọc toàn văn <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
               </span>
             </div>
@@ -2930,11 +2934,12 @@ body.modal-open {
                 Hạng mục đối chiếu &amp; Bóc tách Đơn giá
               </th>
               ${items.map(p => {
-                const firstPhoto = getPropertyGalleryList(p)[0]?.url || "";
+                const rawFirstPhoto = getPropertyGalleryList(p)[0]?.url || "";
+                const firstPhoto = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawFirstPhoto, "card") : rawFirstPhoto;
                 return `
                   <th class="py-4 px-4 bg-slate-50/70 border-l border-slate-200 align-top min-w-[250px]">
                     <div onclick="openPropertyModal('${esc(p.property_id)}')" class="cursor-pointer relative h-44 w-full rounded-xl overflow-hidden mb-3 border border-slate-200 shadow-xs group select-none" oncontextmenu="return false;">
-                      <img src="${esc(firstPhoto)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none select-none" />
+                      <img src="${esc(firstPhoto)}" data-fallback="${esc(rawFirstPhoto)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none select-none" />
                       <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
                       <span class="absolute top-2 left-2 z-20 font-mono text-xs px-2.5 py-0.5 rounded-md bg-[#0F172A]/90 text-[#FBBF24] font-extrabold">
                         ${esc(p.property_id)}
@@ -3800,7 +3805,8 @@ body.modal-open {
       const isUpdate = prop.event_type === "UPDATE";
       const catName = resolveCategoryName(prop);
       const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-      const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
+      const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
+      const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
       const imgCount = gal.length;
       const streetLabel = formatStreetDisplay(prop);
       const wardLabel = prop.public_location?.ward || "";
@@ -3969,17 +3975,13 @@ body.modal-open {
             </div>
           </div>
 
-          <!-- 3. NÚT BẤM ĐÁY THẺ: NẰM GỌN TRÊN 1 DÒNG DUY NHẤT VỚI NÚT ZALO TƯƠNG PHẢN CAO -->
-          <div class="px-5 pb-5 pt-1 mt-auto flex items-center gap-2 shrink-0 font-sans">
-            <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-3 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs">
+          <!-- 3. NÚT BẤM ĐÁY THẺ: XEM CHI TIẾT & SO SÁNH (ĐÃ BỎ NÚT ZALO) -->
+          <div class="px-5 pb-5 pt-1 mt-auto flex items-center gap-2.5 shrink-0 font-sans">
+            <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer">
               <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
               <span>Xem chi tiết</span>
             </button>
-            <a href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation(); trackVisitorEvent('ZALO_CLICK', '${esc(prop.property_id)}')" title="Tư vấn Zalo mã ${esc(prop.property_id)}" class="btn-zalo py-2.5 px-3 rounded-xl bg-[#0068FF] hover:bg-[#0052cc] text-white text-[12.5px] font-extrabold transition flex items-center justify-center gap-1 whitespace-nowrap shadow-xs shrink-0 cursor-pointer">
-              <i data-lucide="message-circle" class="w-3.5 h-3.5 text-white"></i>
-              <span class="text-white">Zalo</span>
-            </a>
-            <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-3 rounded-xl border text-[13px] font-bold transition whitespace-nowrap ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:border-[#0284C7]'}">
+            <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="py-2.5 px-3.5 rounded-xl border text-[13px] font-bold transition whitespace-nowrap shrink-0 cursor-pointer ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:border-[#0284C7]'}">
               ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
             </button>
           </div>
@@ -4044,7 +4046,8 @@ body.modal-open {
             const isUpdate = prop.event_type === "UPDATE";
             const catName = resolveCategoryName(prop);
             const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-            const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
+            const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
+            const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
             const imgCount = gal.length;
             const streetLabel = formatStreetDisplay(prop);
 
@@ -4242,7 +4245,8 @@ body.modal-open {
       const prop = candidates[heroSpotlightSlideIdx];
       const m = computeMetrics(prop);
       const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-      const coverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
+      const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
+      const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
       const streetStr = formatStreetDisplay(prop);
       const districtStr = prop.public_location?.district || "TP.HCM";
       const cat = resolveCategoryName(prop);
@@ -4466,8 +4470,16 @@ body.modal-open {
       if (mainImg) {
         mainImg.alt = safeAlt;
         mainImg.removeAttribute("title");
-        mainImg.src = currentItem.url;
-        bakeWatermarkOnImage(currentItem.url, function(watermarkedUrl) {
+        const optDetailUrl = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(currentItem.url, "detail") : currentItem.url;
+        mainImg.dataset.fallback = currentItem.url;
+        mainImg.onerror = function() {
+          if (this.dataset.fallback) {
+            this.src = this.dataset.fallback;
+            this.removeAttribute("data-fallback");
+          }
+        };
+        mainImg.src = optDetailUrl;
+        bakeWatermarkOnImage(optDetailUrl, function(watermarkedUrl) {
           if (mainImg && gallery[currentGalleryIndex]?.url === currentItem.url) {
             mainImg.src = watermarkedUrl;
           }
@@ -4475,18 +4487,23 @@ body.modal-open {
       }
 
       const blurBg = document.getElementById("galleryBlurBackdrop");
-      if (blurBg) blurBg.src = currentItem.url;
+      if (blurBg) {
+        const optThumbUrl = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(currentItem.url, "gallery") : currentItem.url;
+        blurBg.src = optThumbUrl;
+      }
 
       document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
 
       const thumbsEl = document.getElementById("galleryThumbnails");
-      thumbsEl.innerHTML = gallery.map((item, idx) => `
+      thumbsEl.innerHTML = gallery.map((item, idx) => {
+        const optThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
+        return `
         <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-800 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}" oncontextmenu="return false;">
-          <img src="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';" class="w-full h-full object-cover pointer-events-none select-none" />
+          <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" />
           <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
         </button>
-      `).join("");
+      `;}).join("");
 
       const lb = document.getElementById("fullscreenLightbox");
       if (lb && !lb.classList.contains("hidden")) {
@@ -4494,8 +4511,16 @@ body.modal-open {
         if (lbImg) {
           lbImg.alt = safeAlt;
           lbImg.removeAttribute("title");
-          lbImg.src = currentItem.url;
-          bakeWatermarkOnImage(currentItem.url, function(watermarkedUrl) {
+          const optLbUrl = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(currentItem.url, "lightbox") : currentItem.url;
+          lbImg.dataset.fallback = currentItem.url;
+          lbImg.onerror = function() {
+            if (this.dataset.fallback) {
+              this.src = this.dataset.fallback;
+              this.removeAttribute("data-fallback");
+            }
+          };
+          lbImg.src = optLbUrl;
+          bakeWatermarkOnImage(optLbUrl, function(watermarkedUrl) {
             if (lbImg && gallery[currentGalleryIndex]?.url === currentItem.url) {
               lbImg.src = watermarkedUrl;
             }
@@ -4503,12 +4528,14 @@ body.modal-open {
         }
         document.getElementById("lightboxPropCode").textContent = activeModalProperty.property_id;
         document.getElementById("lightboxCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
-        document.getElementById("lightboxThumbStrip").innerHTML = gallery.map((item, idx) => `
+        document.getElementById("lightboxThumbStrip").innerHTML = gallery.map((item, idx) => {
+          const optLbThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
+          return `
           <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] scale-105' : 'border-transparent opacity-50 hover:opacity-100'}" oncontextmenu="return false;">
-            <img src="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" />
+            <img src="${esc(optLbThumb)}" data-fallback="${esc(item.url)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" />
             <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           </button>
-        `).join("");
+        `;}).join("");
       }
     }
 
@@ -4730,15 +4757,10 @@ body.modal-open {
 
       const locBadges = document.getElementById("modalLocationBadges");
       if (locBadges) {
-        let vipBadgeHtml = "";
-        if (mode === "VIP_ADDRESS_GATE" && session && false && prop.vip_location_hint) {
-          vipBadgeHtml = `<span class="px-3 py-1 rounded-lg bg-amber-400/20 text-amber-700 font-extrabold text-xs border border-amber-400/50">Vị trí: ${esc(prop.vip_location_hint)}</span>`;
-        }
         locBadges.innerHTML = `
           <span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(streetLabel)}</span>
           ${prop.public_location?.ward ? `<span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(prop.public_location.ward)}</span>` : ''}
           <span class="px-2.5 py-1 rounded-md bg-sky-950/90 border border-sky-700 text-sky-300 text-xs font-bold">${esc(prop.public_location?.district || '')}</span>
-          ${vipBadgeHtml}
           <span class="px-2.5 py-1 rounded-md bg-slate-800/60 border border-slate-700/60 text-slate-300 font-semibold text-xs">Hồ sơ pháp lý sẵn sàng</span>
         `;
       }
@@ -5087,7 +5109,6 @@ body.modal-open {
           display_price: isMasked ? "Giá thỏa thuận — Liên hệ" : (raw.pricing?.display_price || `${currPrice} Tỷ`),
           price_history: cleanHistory
         },
-        vip_location_hint: raw.vip_location_hint ? String(raw.vip_location_hint) : undefined,
         gallery: cleanGallery
       };
     }

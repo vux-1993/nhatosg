@@ -1,5 +1,4 @@
-
-    html {
+html {
       font-size: 17.5px;
     }
     @media print {
@@ -501,21 +500,65 @@ img,
   letter-spacing: 0.08em;
 }
 
-
 /* === LIGHTBOX IMAGE OPTIMIZATION (PORTRAIT & LANDSCAPE CONTAINMENT) === */
+/* =========================================================================
+   HOTFIX GALLERY: FIXED RATIO & LOCKED MAIN IMAGE FRAME
+   ========================================================================= */
+.gallery-main-frame {
+  width: 100% !important;
+  height: clamp(320px, 58vh, 620px) !important;
+  min-height: 320px !important;
+  max-height: 620px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #070B14 !important;
+  position: relative !important;
+}
+
+.gallery-main-frame #galleryMainImage {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block !important;
+  margin: auto !important;
+}
+
+.lightbox-main-frame {
+  width: 100% !important;
+  height: clamp(340px, 68vh, 720px) !important;
+  min-height: 340px !important;
+  max-height: 720px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #000000 !important;
+  position: relative !important;
+}
+
+.lightbox-main-frame #lightboxMainImg,
 #lightboxMainImg {
   object-fit: contain !important;
   max-width: 100% !important;
-  max-height: 85vh !important;
+  max-height: 100% !important;
   width: auto !important;
   height: auto !important;
-  display: block;
-  margin: auto;
+  display: block !important;
+  margin: auto !important;
+}
+
+body.v5-dark-mode .gallery-main-frame {
+  background: #05080F !important;
 }
 
 
 /* =========================================================================
-   UI HOTFIX: ZALO BUTTONS & HIGH CONTRAST (LIGHT & DARK MODE)
+   UI HOTFIX 2: ZALO BUTTONS & HIGH CONTRAST (LIGHT & DARK MODE)
    ========================================================================= */
 .btn-zalo,
 a[href*="zalo.me"],
@@ -556,7 +599,7 @@ body.v5-dark-mode #headerMemberBtn * {
 }
 
 /* =========================================================================
-   UI HOTFIX: TAGS (STREET, WARD, DISTRICT, HASHTAGS)
+   UI HOTFIX 2: TAGS (STREET, WARD, DISTRICT, HASHTAGS)
    ========================================================================= */
 .tag-street {
   background-color: #F1F5F9;
@@ -564,11 +607,12 @@ body.v5-dark-mode #headerMemberBtn * {
   border: 1px solid #CBD5E1;
   font-weight: 700;
   border-radius: 6px;
-  padding: 2px 8px;
+  padding: 2.5px 8.5px;
   font-size: 12px;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
 }
 body.v5-dark-mode .tag-street {
   background-color: #1E293B;
@@ -582,14 +626,14 @@ body.v5-dark-mode .tag-street {
   border: 1px solid #CBD5E1;
   font-weight: 600;
   border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 12px;
+  padding: 2px 7.5px;
+  font-size: 11.5px;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
 }
 body.v5-dark-mode .tag-ward {
-  background-color: rgba(30, 41, 59, 0.8);
+  background-color: rgba(30, 41, 59, 0.7);
   color: #CBD5E1;
   border-color: #334155;
 }
@@ -631,7 +675,7 @@ body.v5-dark-mode .tag-hashtag {
 }
 
 /* =========================================================================
-   UI HOTFIX: EQUAL HEIGHT CARDS & TYPOGRAPHY
+   UI HOTFIX 2: EQUAL HEIGHT PROPERTY CARDS & TYPOGRAPHY
    ========================================================================= */
 .property-card-item {
   height: 100% !important;
@@ -664,7 +708,85 @@ body.v5-dark-mode .tag-hashtag {
 }
 
 /* =========================================================================
-   UI HOTFIX: COMPLETE DARK MODE SYNC FOR ALL SECTIONS & MODALS
+   UI HOTFIX 2: GALLERY WATERMARK (SUBTLE, SMALL, CENTERED, NO ROTATION)
+   ========================================================================= */
+.gallery-watermark {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  color: rgba(255, 255, 255, 0.18) !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  white-space: nowrap !important;
+  z-index: 15 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* =========================================================================
+   UI HOTFIX 2: INSIGHT ARTICLE CARDS (EQUAL HEIGHT, UNIFORM LAYOUT)
+   ========================================================================= */
+.insight-card-item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+.insight-card-item .insight-img-wrapper {
+  height: 220px !important;
+  max-height: 220px !important;
+  min-height: 220px !important;
+  width: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.insight-card-item .insight-img-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+.insight-card-item .insight-title {
+  height: 2.8rem !important;
+  max-height: 2.8rem !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  overflow: hidden !important;
+}
+.insight-card-item .insight-summary {
+  height: 3.85rem !important;
+  max-height: 3.85rem !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  overflow: hidden !important;
+}
+body.v5-dark-mode .insight-card-item {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode .insight-card-item:hover {
+  border-color: #0284C7 !important;
+}
+body.v5-dark-mode .insight-card-item h3 {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .insight-card-item p {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode .insight-card-item .border-t {
+  border-color: #1E293B !important;
+}
+
+/* =========================================================================
+   UI HOTFIX 2: COMPLETE DARK MODE SYNC FOR ALL SECTIONS & MODALS
    ========================================================================= */
 body.v5-dark-mode {
   background-color: #060A12 !important;
@@ -704,149 +826,7 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-50 {
   border-color: #1E293B !important;
 }
 body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
-  background-color: #0B1120 !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #hotRadarSummary,
-body.v5-dark-mode #hotCardsSummary {
-  color: #94A3B8 !important;
-}
-body.v5-dark-mode #hotRadarSummary strong,
-body.v5-dark-mode #hotCardsSummary strong {
+  background-color: #1E293B !important;
   color: #F8FAFC !important;
-}
-body.v5-dark-mode footer {
-  background-color: #0B1120 !important;
-  border-color: #1E293B !important;
-  color: #94A3B8 !important;
-}
-body.v5-dark-mode footer span.text-\[\#0F172A\] {
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #insightArticlesGrid article {
-  background-color: #0F172A !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #insightArticlesGrid article h3 {
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #insightArticlesGrid article p {
-  color: #94A3B8 !important;
-}
-body.v5-dark-mode #insightArticlesGrid article .bg-slate-100 {
-  background-color: #0B1120 !important;
-}
-body.v5-dark-mode #insightModal > div {
-  background-color: #0F172A !important;
-  color: #F8FAFC !important;
-  border-color: rgba(251, 191, 36, 0.38) !important;
-}
-body.v5-dark-mode #insightContent {
-  background-color: #0B1120 !important;
-  color: #E2E8F0 !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #propertyModal > div {
-  background-color: #0F172A !important;
-  border-color: #1E293B !important;
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #propertyModal .bg-slate-50 {
-  background-color: #0B1120 !important;
-  border-color: #1E293B !important;
-  color: #E2E8F0 !important;
-}
-body.v5-dark-mode #propertyModal .bg-white {
-  background-color: #131C2E !important;
   border-color: #334155 !important;
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #propertyModal .text-\[\#0F172A\] {
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #propertyModal .bg-sky-50,
-body.v5-dark-mode #propertyModal .bg-sky-50\/60 {
-  background-color: rgba(2, 132, 199, 0.12) !important;
-  border-color: rgba(56, 189, 248, 0.25) !important;
-  color: #E0F2FE !important;
-}
-body.v5-dark-mode #compareModal > div {
-  background-color: #0F172A !important;
-  border-color: #1E293B !important;
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #compareModal table {
-  background-color: #0F172A !important;
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode #compareModal th {
-  background-color: #0B1120 !important;
-  color: #F8FAFC !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #compareModal td {
-  background-color: #0F172A !important;
-  color: #F8FAFC !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #compareModal .bg-slate-50 {
-  background-color: #0B1120 !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode #compareModal .bg-white {
-  background-color: #131C2E !important;
-  border-color: #334155 !important;
-}
-body.v5-dark-mode .v5-advisory-box {
-  background: linear-gradient(180deg, #0B1120 0%, #0F172A 100%) !important;
-  border-color: rgba(251, 191, 36, 0.38) !important;
-}
-body.v5-dark-mode .v5-advisory-box h2 {
-  color: #F8FAFC !important;
-}
-body.v5-dark-mode .v5-advisory-box p.text-slate-700 {
-  color: #CBD5E1 !important;
-}
-body.v5-dark-mode .v5-advisory-box form.bg-slate-50 {
-  background-color: #0B1120 !important;
-  border-color: #1E293B !important;
-}
-body.v5-dark-mode .v5-advisory-box input.bg-white {
-  background-color: #0F172A !important;
-  color: #FFFFFF !important;
-  border-color: #334155 !important;
-}
-
-/* =========================================================================
-   UI HOTFIX: GALLERY & MODAL LAYOUT
-   ========================================================================= */
-body.modal-open {
-  overflow: hidden;
-  scrollbar-gutter: stable;
-}
-#galleryMainImage {
-  object-fit: contain !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  display: block;
-  margin: auto;
-}
-#galleryThumbnails button {
-  aspect-ratio: 4 / 3;
-  width: 5.5rem;
-  height: 4.25rem;
-  flex-shrink: 0;
-  border-radius: 0.75rem;
-}
-@media (min-width: 640px) {
-  #galleryThumbnails button {
-    width: 6.5rem;
-    height: 4.75rem;
-  }
-}
-#lightboxThumbStrip button {
-  aspect-ratio: 4 / 3;
-  width: 4.5rem;
-  height: 3.5rem;
-  flex-shrink: 0;
 }
