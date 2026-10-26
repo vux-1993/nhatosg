@@ -891,28 +891,81 @@ body.modal-open {
 /* =========================================================================
    HOTFIX GALLERY: LOCKED MAIN IMAGE FRAME (PORTRAIT & LANDSCAPE NORMALIZED)
    ========================================================================= */
+
+/* =========================================================================
+   DETAIL MODAL ALWAYS DARK LUXURY THEME (PERFECT DARK MODE STANDARD)
+   ========================================================================= */
+#propertyModal > div {
+  background-color: #0B1120 !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+}
+
+#propertyModal > div > div:first-child {
+  background-color: #0F172A !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+#propertyModal #modalTitle {
+  color: #FFFFFF !important;
+}
+
+#propertyModal .bg-slate-50,
+#propertyModal .bg-white,
+#propertyModal .bg-sky-50,
+#propertyModal .bg-sky-50\/60 {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+#propertyModal .text-\[\#0F172A\],
+#propertyModal .text-slate-800,
+#propertyModal .text-slate-900 {
+  color: #F8FAFC !important;
+}
+
+#propertyModal .text-slate-500,
+#propertyModal .text-slate-600 {
+  color: #94A3B8 !important;
+}
+
+#propertyModal #modalDescription {
+  color: #E2E8F0 !important;
+}
+
+#propertyModal #modalUnitCostBreakdown {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #F8FAFC !important;
+}
+
+/* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
 .gallery-main-frame {
   width: 100% !important;
-  height: clamp(320px, 58vh, 620px) !important;
+  height: clamp(320px, 52vh, 600px) !important;
   min-height: 320px !important;
-  max-height: 620px !important;
+  max-height: 600px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background: #070B14 !important;
+  background: radial-gradient(circle at center, #111827 0%, #090D16 100%) !important;
   position: relative !important;
 }
+
 .gallery-main-frame #galleryMainImage,
 #galleryMainImage {
-  object-fit: contain !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
   width: auto !important;
-  height: auto !important;
+  height: 100% !important;
+  max-height: 52vh !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
   display: block !important;
-  margin: auto !important;
 }
+
 .lightbox-main-frame {
   width: 100% !important;
   height: clamp(340px, 68vh, 720px) !important;
@@ -1500,41 +1553,41 @@ body.modal-open {
   <!-- =========================================================================
        MODAL 1: CHI TIẾT TÀI SẢN (ĐÃ BỎ SĐT TRÊN HEADER + WATERMARK GIỮA ẢNH ĐẬM RÕ)
        ========================================================================= -->
-  <div id="propertyModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-2 sm:p-4">
-    <div class="bg-white rounded-3xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col">
-      <!-- Header Modal gọn sạch: đã bỏ SĐT thừa ở góc phải -->
-      <div class="px-6 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-2">
+  <div id="propertyModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+    <div class="bg-[#0B1120] text-[#F8FAFC] rounded-3xl max-w-5xl w-full border border-white/10 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col">
+      <!-- 1. Thanh Top Bar: Mã tài sản [NSG-xxxx] (nền vàng/hổ phách) + Loại hình + Trạng thái + Nút [Sao chép liên kết] & nút đóng [X] -->
+      <div class="px-6 py-3.5 bg-[#0F172A] border-b border-white/10 flex items-center justify-between gap-2">
         <div class="flex items-center gap-2 flex-wrap">
-          <span id="modalPropId" class="font-mono text-[13px] font-extrabold px-3 py-1 rounded-lg bg-[#0F172A] text-[#FBBF24]"></span>
-          <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-200 text-[#0F172A]"></span>
+          <span id="modalPropId" class="font-mono text-[13px] font-extrabold px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] shadow-sm"></span>
+          <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-800 text-slate-200 border border-slate-700"></span>
           <span id="modalEventBadge" class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg"></span>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-sky-50 hover:bg-[#0284C7] text-[#0284C7] hover:text-white border border-sky-200 text-xs font-extrabold transition flex items-center gap-1.5">
+          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#0284C7] text-slate-200 hover:text-white border border-white/15 text-xs font-extrabold transition flex items-center gap-1.5">
             <i data-lucide="link" class="w-3.5 h-3.5"></i>
             <span id="copyLinkBtnText">Sao chép liên kết</span>
           </button>
-          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-500 text-amber-700 hover:text-slate-900 border border-amber-300 text-xs font-extrabold transition flex items-center gap-1.5">
+          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-900 border border-amber-400/40 text-xs font-extrabold transition flex items-center gap-1.5">
             <i data-lucide="printer" class="w-3.5 h-3.5"></i>
             <span>🖨️ In / Lưu PDF</span>
           </button>
-          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200/70 transition">
+          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition">
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
       <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
+        <!-- 2. Khối Tiêu đề & Vị trí nằm NGAY TRÊN khung ảnh -->
         <div>
-          <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
+          <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-white leading-snug"></h3>
           <div id="modalLocationBadges" class="flex flex-wrap items-center gap-2 mt-2.5"></div>
         </div>
 
-        <!-- INTERACTIVE PHOTO GALLERY: CÓ WATERMARK CHÉO GIỮA ẢNH ĐẬM RÕ -->
-        <div class="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 select-none shadow-lg" oncontextmenu="return false;">
-          <div class="gallery-main-frame relative group rounded-2xl">
-            <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-10 scale-105 pointer-events-none" />
-            
+        <!-- 3. Khung Ảnh Chính & Thanh công cụ & Thumbnails -->
+        <div class="bg-[#090D16] rounded-2xl overflow-hidden border border-white/10 select-none shadow-xl" oncontextmenu="return false;">
+          <!-- Khung ảnh chính (1 ảnh căn giữa sắc nét trên nền tối, không có ảnh nền phụ 2 bên) -->
+          <div class="gallery-main-frame relative group rounded-2xl" style="background: radial-gradient(circle at center, #111827 0%, #090D16 100%);">
             <img
               id="galleryMainImage"
               src=""
@@ -1543,7 +1596,8 @@ body.modal-open {
               onload="this.parentElement.classList.remove('animate-pulse')"
               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85';"
               onclick="openFullscreenLightbox()"
-              class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-200 pointer-events-none select-none" style="object-fit: contain !important; max-width: 100% !important; max-height: 100% !important; width: auto !important; height: auto !important; margin: auto !important; display: block !important;"
+              class="relative z-10 w-auto h-full max-h-[52vh] max-w-full m-auto object-contain transition-transform duration-200 pointer-events-none select-none block"
+              style="width: auto !important; height: 100% !important; max-height: 52vh !important; max-width: 100% !important; margin: 0 auto !important; object-fit: contain !important; display: block !important;"
             />
             
             <!-- Watermark chìm nhỏ chính giữa ảnh -->
@@ -1552,21 +1606,26 @@ body.modal-open {
             <!-- Lớp chắn vô hình chặn chạm/chuột phải trực tiếp vào file ảnh nhưng khi click vẫn mở Lightbox -->
             <div class="absolute inset-0 z-15 bg-transparent cursor-zoom-in" onclick="openFullscreenLightbox()" oncontextmenu="return false;"></div>
 
-            <button onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/70 hover:bg-white text-white hover:text-[#0F172A] border border-white/15 shadow-lg flex items-center justify-center transition z-20">
+            <button onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
               <i data-lucide="chevron-left" class="w-5 h-5"></i>
             </button>
-            <button onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/70 hover:bg-white text-white hover:text-[#0F172A] border border-white/15 shadow-lg flex items-center justify-center transition z-20">
+            <button onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
               <i data-lucide="chevron-right" class="w-5 h-5"></i>
             </button>
           </div>
 
-          <div class="px-4 py-3 bg-slate-900 border-t border-slate-800 space-y-2.5">
+          <!-- 4. Thanh công cụ dưới ảnh: Bên trái là [📷 Ảnh x/y] + [↗ Phóng to]; bên phải là cụm nút CTA -->
+          <div class="px-4 py-3 bg-[#0B1120] border-t border-white/10 space-y-2.5">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-2">
-                <span class="px-2.5 py-1 rounded-lg bg-white/10 text-white font-mono text-xs font-bold flex items-center gap-1.5">
+                <span class="px-2.5 py-1.5 rounded-lg bg-white/10 text-white font-mono text-xs font-bold flex items-center gap-1.5">
                   <i data-lucide="camera" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
                   <span id="galleryCounter">Ảnh 1/1</span>
                 </span>
+                <button type="button" onclick="openFullscreenLightbox()" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/10">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#0EA5E9]"></i>
+                  <span>Phóng to</span>
+                </button>
               </div>
 
               <div class="flex items-center gap-2 flex-wrap">
@@ -1578,34 +1637,35 @@ body.modal-open {
                   <i data-lucide="message-circle" class="w-3.5 h-3.5 text-white"></i>
                   <span class="text-white">Tư Vấn Zalo</span>
                 </a>
-                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-extrabold transition shadow-xs">
+                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-extrabold transition shadow-xs border border-white/10">
                   <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
                   <span>Yêu Cầu Hồ Sơ Pháp Lý</span>
                 </button>
               </div>
             </div>
 
+            <!-- 5. Dải ảnh nhỏ (Thumbnails) bo góc nằm gọn gàng phía dưới -->
             <div id="galleryThumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1 pt-0.5"></div>
           </div>
         </div>
 
         <!-- Financial Key Metrics -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200/90">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-900/80 p-4 rounded-2xl border border-white/10">
           <div>
-            <div class="text-[13.5px] text-slate-500 font-semibold">Giá chào khởi điểm</div>
-            <div id="modalInitialPrice" class="font-mono text-[16px] font-bold text-slate-400 line-through mt-0.5"></div>
+            <div class="text-[13.5px] text-slate-400 font-semibold">Giá chào khởi điểm</div>
+            <div id="modalInitialPrice" class="font-mono text-[16px] font-bold text-slate-500 line-through mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-500 font-semibold">Giá thương lượng hiện tại</div>
-            <div id="modalCurrentPrice" class="font-mono text-2xl font-extrabold text-[#0284C7] mt-0.5"></div>
+            <div class="text-[13.5px] text-slate-400 font-semibold">Giá thương lượng hiện tại</div>
+            <div id="modalCurrentPrice" class="font-mono text-2xl font-extrabold text-[#38BDF8] mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-500 font-semibold">Thông số Diện tích thực</div>
-            <div id="modalAreaSpecs" class="font-mono text-[16px] font-extrabold text-[#0F172A] mt-0.5"></div>
+            <div class="text-[13.5px] text-slate-400 font-semibold">Thông số Diện tích thực</div>
+            <div id="modalAreaSpecs" class="font-mono text-[16px] font-extrabold text-white mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-500 font-semibold">Dòng tiền khai thác</div>
-            <div id="modalCashflow" class="font-mono text-[16px] font-extrabold text-emerald-600 mt-0.5"></div>
+            <div class="text-[13.5px] text-slate-400 font-semibold">Dòng tiền khai thác</div>
+            <div id="modalCashflow" class="font-mono text-[16px] font-extrabold text-emerald-400 mt-0.5"></div>
           </div>
         </div>
 
@@ -1614,7 +1674,7 @@ body.modal-open {
 
         <!-- HÀNH TRÌNH BIẾN ĐỘNG GIÁ -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-600 mb-3 flex items-center gap-1.5">
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
             <i data-lucide="trending-down" class="w-4 h-4 text-[#0284C7]"></i>
             <span>Lịch sử thay đổi giá chào</span>
           </h4>
@@ -1623,7 +1683,7 @@ body.modal-open {
 
         <!-- HIỆN TRẠNG & THÔNG TIN CHI TIẾT TÀI SẢN -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-600 mb-3 flex items-center gap-1.5">
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
             <i data-lucide="clipboard-list" class="w-4 h-4 text-[#0284C7]"></i>
             <span>Thông tin chi tiết và hiện trạng</span>
           </h4>
@@ -1631,9 +1691,9 @@ body.modal-open {
         </div>
 
         <!-- BẢNG TÍNH ĐÒN BẨY TÀI CHÍNH -->
-        <div class="bg-sky-50/60 border border-sky-200/80 rounded-2xl p-4 sm:p-5 space-y-3">
+        <div class="bg-slate-900/80 border border-white/10 rounded-2xl p-4 sm:p-5 space-y-3">
           <div class="flex items-center justify-between">
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] flex items-center gap-1.5">
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
               <i data-lucide="calculator" class="w-4 h-4 text-[#0284C7]"></i>
               <span>Tính vốn tự có và chi phí vay (Mô phỏng tham khảo)</span>
             </h4>
@@ -4470,11 +4530,7 @@ body.modal-open {
         });
       }
 
-      const blurBg = document.getElementById("galleryBlurBackdrop");
-      if (blurBg) {
-        const optThumbUrl = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(currentItem.url, "gallery") : currentItem.url;
-        blurBg.src = optThumbUrl;
-      }
+
 
       document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
 
@@ -4482,7 +4538,7 @@ body.modal-open {
       thumbsEl.innerHTML = gallery.map((item, idx) => {
         const optThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
         return `
-        <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-800 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}" oncontextmenu="return false;">
+        <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-900 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/50 scale-[1.03]' : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'}" oncontextmenu="return false;">
           <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
           <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
@@ -4561,40 +4617,40 @@ body.modal-open {
       }
       const area = prop.specs?.recognized_area_m2 || 0;
       return `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#0284C7]"></span>
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A]">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#38BDF8]"></span>
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-white">
               Phân tích giá đất và giá trị công trình
             </h4>
           </div>
-          <span class="text-[13px] font-mono font-bold text-slate-500">
+          <span class="text-[13px] font-mono font-bold text-slate-400">
             Kết cấu: ${esc(prop.specs?.structure)} (~${esc(m.floorAreaM2)}m² sàn)
           </span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 font-mono">
-          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90">
-            <div class="text-[13.5px] font-sans font-bold text-slate-500">1. Đơn giá Tổng (Cả Đất + Nhà)</div>
-            <div class="text-xl font-extrabold text-[#0F172A] mt-1">~ ${esc(m.pricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans text-slate-500 mt-0.5">
+          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/10">
+            <div class="text-[13.5px] font-sans font-bold text-slate-400">1. Đơn giá Tổng (Cả Đất + Nhà)</div>
+            <div class="text-xl font-extrabold text-white mt-1">~ ${esc(m.pricePerM2Mil)} Triệu / m²</div>
+            <div class="text-[13px] font-sans text-slate-400 mt-0.5">
               Lấy ${esc(m.currP)} Tỷ ÷ ${esc(area)} m² công nhận
             </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/90">
-            <div class="text-[13.5px] font-sans font-bold text-amber-900">2. Giá trị Kết cấu Xây dựng ước tính</div>
-            <div class="text-xl font-extrabold text-amber-900 mt-1">~ ${esc(m.estBuildValueBil)} Tỷ VNĐ</div>
-            <div class="text-[13px] font-sans text-amber-800 mt-0.5">
+          <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div class="text-[13.5px] font-sans font-bold text-amber-300">2. Giá trị Kết cấu Xây dựng ước tính</div>
+            <div class="text-xl font-extrabold text-amber-300 mt-1">~ ${esc(m.estBuildValueBil)} Tỷ VNĐ</div>
+            <div class="text-[13px] font-sans text-amber-400/80 mt-0.5">
               ${esc(m.floorAreaM2)}m² sàn × ${esc(m.buildUnitRateMil)} tr/m² (${esc(m.structGradeLabel)})
             </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-sky-50/80 border-2 border-sky-300/90">
-            <div class="text-[13.5px] font-sans font-extrabold text-[#0284C7]">3. Đơn giá Đất Thuần Túy (Đã trừ XD)</div>
-            <div class="text-xl font-extrabold text-[#0284C7] mt-1">~ ${esc(m.netLandPricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans font-semibold text-slate-600 mt-0.5">
-              Phần đất thuần: <strong>${esc(m.netLandValueBil)} Tỷ</strong> ÷ ${esc(area)} m² CN
+          <div class="p-3.5 rounded-xl bg-sky-500/10 border-2 border-sky-400/40">
+            <div class="text-[13.5px] font-sans font-extrabold text-sky-300">3. Đơn giá Đất Thuần Túy (Đã trừ XD)</div>
+            <div class="text-xl font-extrabold text-[#38BDF8] mt-1">~ ${esc(m.netLandPricePerM2Mil)} Triệu / m²</div>
+            <div class="text-[13px] font-sans font-semibold text-slate-300 mt-0.5">
+              Phần đất thuần: <strong class="text-white">${esc(m.netLandValueBil)} Tỷ</strong> ÷ ${esc(area)} m² CN
             </div>
           </div>
         </div>
@@ -4609,23 +4665,23 @@ body.modal-open {
       const cashflow = prop.specs?.cashflow || "Bàn giao ngay";
 
       const specsBlockHtml = `
-        <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/90">
-          <div class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] mb-2.5 flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+        <div class="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-white/10">
+          <div class="text-sm font-extrabold uppercase tracking-wider text-white mb-2.5 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#38BDF8]"></span>
             <span>Thông số &amp; Kết cấu thực tế:</span>
           </div>
-          <ul class="space-y-2 text-[16px] text-slate-700 font-medium pl-1">
+          <ul class="space-y-2 text-[16px] text-slate-300 font-medium pl-1">
             <li class="flex items-start gap-2">
-              <span class="text-[#0284C7] font-bold">•</span>
-              <span><strong class="text-[#0F172A]">Diện tích thực:</strong> <span class="font-mono font-extrabold text-[#0F172A]">${esc(dims)}</span> <span class="text-slate-600">(Công nhận sổ: <strong class="font-mono text-[#0284C7]">${esc(areaM2)}m²</strong>)</span></span>
+              <span class="text-[#38BDF8] font-bold">•</span>
+              <span><strong class="text-white">Diện tích thực:</strong> <span class="font-mono font-extrabold text-white">${esc(dims)}</span> <span class="text-slate-400">(Công nhận sổ: <strong class="font-mono text-[#38BDF8]">${esc(areaM2)}m²</strong>)</span></span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[#0284C7] font-bold">•</span>
-              <span><strong class="text-[#0F172A]">Kết cấu:</strong> <span class="font-bold text-[#0F172A]">${esc(struct)}</span></span>
+              <span class="text-[#38BDF8] font-bold">•</span>
+              <span><strong class="text-white">Kết cấu:</strong> <span class="font-bold text-white">${esc(struct)}</span></span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[#0284C7] font-bold">•</span>
-              <span><strong class="text-[#0F172A]">Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#0284C7]">${esc(catName)}</span> <span class="text-slate-600">(${esc(cashflow)})</span></span>
+              <span class="text-[#38BDF8] font-bold">•</span>
+              <span><strong class="text-white">Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#38BDF8]">${esc(catName)}</span> <span class="text-slate-400">(${esc(cashflow)})</span></span>
             </li>
           </ul>
         </div>
@@ -4645,22 +4701,22 @@ body.modal-open {
           const head = line.slice(0, colonIdx).trim();
           const rest = line.slice(colonIdx + 1).trim();
           return `
-            <div class="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-              <div class="text-[14px] font-extrabold uppercase tracking-wider text-[#0284C7] mb-1">• ${esc(head)}:</div>
-              <div class="text-[16px] text-slate-700 leading-relaxed pl-3 font-medium">${esc(rest)}</div>
+            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-2xs">
+              <div class="text-[14px] font-extrabold uppercase tracking-wider text-[#38BDF8] mb-1">• ${esc(head)}:</div>
+              <div class="text-[16px] text-slate-200 leading-relaxed pl-3 font-medium">${esc(rest)}</div>
             </div>
           `;
         }
         return `
-          <div class="p-3.5 rounded-xl bg-white border border-slate-200/90 text-[16px] text-slate-700 leading-relaxed font-medium">
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-white/10 text-[16px] text-slate-200 leading-relaxed font-medium">
             • ${esc(line)}
           </div>
         `;
       }).join("");
 
             const dueDiligenceBoxHtml = `
-        <div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 text-[13.5px] text-slate-700 leading-relaxed">
-          <span class="font-extrabold text-amber-800 uppercase text-xs block mb-1">📋 Lưu ý thẩm định &amp; phạm vi thông tin:</span>
+        <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-[13.5px] text-slate-300 leading-relaxed">
+          <span class="font-extrabold text-amber-300 uppercase text-xs block mb-1">📋 Lưu ý thẩm định &amp; phạm vi thông tin:</span>
           Thông số diện tích, kết cấu, giá chào và doanh thu thuê được trình bày theo hồ sơ hiện có do phía chủ tài sản cung cấp. Trước khi ra quyết định giao dịch, Nhà Sài Gòn hỗ trợ Quý Nhà đầu tư kiểm tra trực tiếp bản chụp Sổ hồng, hợp đồng thuê thực tế, hiện trạng PCCC và chỉ tiêu quy hoạch xây dựng tại cơ quan chức năng.
         </div>
       `;
@@ -4745,7 +4801,7 @@ body.modal-open {
           <span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(streetLabel)}</span>
           ${prop.public_location?.ward ? `<span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(prop.public_location.ward)}</span>` : ''}
           <span class="px-2.5 py-1 rounded-md bg-sky-950/90 border border-sky-700 text-sky-300 text-xs font-bold">${esc(prop.public_location?.district || '')}</span>
-          <span class="px-2.5 py-1 rounded-md bg-slate-800/60 border border-slate-700/60 text-slate-300 font-semibold text-xs">Hồ sơ pháp lý sẵn sàng</span>
+          <span class="px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 font-semibold text-xs flex items-center gap-1">🔒 Số nhà &amp; Sổ hồng bảo mật nội bộ</span>
         `;
       }
 

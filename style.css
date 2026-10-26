@@ -657,10 +657,21 @@ body.v5-dark-mode .tag-district {
 }
 
 .tag-hashtag {
-  display: none !important;
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 11px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
 }
 body.v5-dark-mode .tag-hashtag {
-  display: none !important;
+  background-color: rgba(245, 158, 11, 0.16);
+  color: #FCD34D;
+  border-color: rgba(251, 191, 36, 0.4);
 }
 
 /* =========================================================================
@@ -820,34 +831,77 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
   border-color: #334155 !important;
 }
 
+
 /* =========================================================================
-   UI HOTFIX: GLOBAL IMAGE ANTI-STRETCH & NORMALIZATION
+   DETAIL MODAL ALWAYS DARK LUXURY THEME (PERFECT DARK MODE STANDARD)
    ========================================================================= */
-.property-card-item img,
-.property-card-img,
-#galleryThumbnails img,
-#lightboxThumbStrip img,
-.insight-img-wrapper img {
+#propertyModal > div {
+  background-color: #0B1120 !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+}
+
+#propertyModal > div > div:first-child {
+  background-color: #0F172A !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+#propertyModal #modalTitle {
+  color: #FFFFFF !important;
+}
+
+#propertyModal .bg-slate-50,
+#propertyModal .bg-white,
+#propertyModal .bg-sky-50,
+#propertyModal .bg-sky-50\/60 {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F8FAFC !important;
+}
+
+#propertyModal .text-[\#0F172A],
+#propertyModal .text-slate-800,
+#propertyModal .text-slate-900 {
+  color: #F8FAFC !important;
+}
+
+#propertyModal .text-slate-500,
+#propertyModal .text-slate-600 {
+  color: #94A3B8 !important;
+}
+
+#propertyModal #modalDescription {
+  color: #E2E8F0 !important;
+}
+
+#propertyModal #modalUnitCostBreakdown {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #F8FAFC !important;
+}
+
+/* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
+.gallery-main-frame {
   width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
+  height: clamp(320px, 52vh, 600px) !important;
+  min-height: 320px !important;
+  max-height: 600px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: radial-gradient(circle at center, #111827 0%, #090D16 100%) !important;
+  position: relative !important;
 }
 
 .gallery-main-frame #galleryMainImage,
-#galleryMainImage,
-.lightbox-main-frame #lightboxMainImg,
-#lightboxMainImg {
-  object-fit: contain !important;
-  object-position: center !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
+#galleryMainImage {
   width: auto !important;
-  height: auto !important;
-  margin: auto !important;
+  height: 100% !important;
+  max-height: 52vh !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  object-fit: contain !important;
   display: block !important;
-}
-
-.tag-hashtag {
-  display: none !important;
 }
