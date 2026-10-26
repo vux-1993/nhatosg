@@ -657,21 +657,10 @@ body.v5-dark-mode .tag-district {
 }
 
 .tag-hashtag {
-  background-color: #FEF3C7;
-  color: #92400E;
-  border: 1px solid #FDE68A;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 2px 7px;
-  font-size: 11px;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
+  display: none !important;
 }
 body.v5-dark-mode .tag-hashtag {
-  background-color: rgba(245, 158, 11, 0.16);
-  color: #FCD34D;
-  border-color: rgba(251, 191, 36, 0.4);
+  display: none !important;
 }
 
 /* =========================================================================
@@ -829,4 +818,36 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
   background-color: #1E293B !important;
   color: #F8FAFC !important;
   border-color: #334155 !important;
+}
+
+/* =========================================================================
+   UI HOTFIX: GLOBAL IMAGE ANTI-STRETCH & NORMALIZATION
+   ========================================================================= */
+.property-card-item img,
+.property-card-img,
+#galleryThumbnails img,
+#lightboxThumbStrip img,
+.insight-img-wrapper img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.gallery-main-frame #galleryMainImage,
+#galleryMainImage,
+.lightbox-main-frame #lightboxMainImg,
+#lightboxMainImg {
+  object-fit: contain !important;
+  object-position: center !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  margin: auto !important;
+  display: block !important;
+}
+
+.tag-hashtag {
+  display: none !important;
 }

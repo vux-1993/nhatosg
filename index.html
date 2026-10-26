@@ -688,21 +688,10 @@ body.v5-dark-mode .tag-district {
 }
 
 .tag-hashtag {
-  background-color: #FEF3C7;
-  color: #92400E;
-  border: 1px solid #FDE68A;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 2px 7px;
-  font-size: 11px;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
+  display: none !important;
 }
 body.v5-dark-mode .tag-hashtag {
-  background-color: rgba(245, 158, 11, 0.16);
-  color: #FCD34D;
-  border-color: rgba(251, 191, 36, 0.4);
+  display: none !important;
 }
 
 /* =========================================================================
@@ -1473,7 +1462,7 @@ body.modal-open {
           <button type="submit" class="w-full py-3 rounded-xl gold-gradient-badge text-[#0F172A] font-extrabold text-[13px] uppercase tracking-wider hover:brightness-105 transition shadow-sm">
             Gửi yêu cầu qua Zalo
           </button>
-          <p class="text-[11.5px] text-slate-500 leading-normal pt-1">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ), không chia sẻ cho bên thứ ba.</p>
+          <p class="text-[11.5px] text-slate-500 leading-normal pt-1">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ).</p>
           <p id="mandateSuccess" class="hidden text-xs text-emerald-600 font-mono text-center pt-1"></p>
         </form>
       </div>
@@ -1554,7 +1543,7 @@ body.modal-open {
               onload="this.parentElement.classList.remove('animate-pulse')"
               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85';"
               onclick="openFullscreenLightbox()"
-              class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-200 pointer-events-none select-none"
+              class="relative z-10 max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-200 pointer-events-none select-none" style="object-fit: contain !important; max-width: 100% !important; max-height: 100% !important; width: auto !important; height: auto !important; margin: auto !important; display: block !important;"
             />
             
             <!-- Watermark chìm nhỏ chính giữa ảnh -->
@@ -1694,8 +1683,7 @@ body.modal-open {
                   <span>Gửi yêu cầu qua Zalo</span>
                 </button>
               </form>
-              <p class="text-[11.5px] text-slate-400 leading-normal mt-2">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ), không chia sẻ cho bên thứ ba.</p>
-              <p class="text-[11px] text-slate-400 mt-2">🔒 Thông tin liên hệ được bảo mật và chỉ sử dụng để phản hồi hồ sơ tài sản theo yêu cầu của Anh/Chị qua Zalo 0916.23.9898 (Vũ).</p>
+              <p class="text-[11.5px] text-slate-400 leading-normal mt-2">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ).</p>
               <div id="leadSuccessMsg" class="hidden mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-300 font-medium"></div>
             </div>
           </div>
@@ -1726,7 +1714,7 @@ body.modal-open {
     </div>
 
     <div class="lightbox-main-frame relative flex-1 flex items-center justify-center my-2 overflow-hidden bg-black/90">
-      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none select-none" />
+      <img id="lightboxMainImg" src="" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl pointer-events-none select-none" style="object-fit: contain !important; max-width: 100% !important; max-height: 100% !important; width: auto !important; height: auto !important; margin: auto !important; display: block !important;" />
       
       <!-- Watermark chìm nhỏ chính giữa ảnh trong Lightbox -->
       <div class="gallery-watermark">NHATOSG.COM.VN</div>
@@ -3845,7 +3833,7 @@ body.modal-open {
         <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
           <div class="flex flex-col flex-1">
             <!-- 1. KHUNG ẢNH CHUẨN TỈ LỆ 16:10, KHÔNG GIÃN LỆCH -->
-            <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" oncontextmenu="return false;">
+            <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" style="aspect-ratio: 16 / 10;" oncontextmenu="return false;">
               <!-- Skeleton Shimmer tự ẩn khi onload hoặc sau 1.2s -->
               <div id="skel-${cardUid}" class="skeleton-shimmer"></div>
 
@@ -3857,7 +3845,7 @@ body.modal-open {
                 draggable="false" 
                 onload="const s=document.getElementById('skel-${cardUid}'); if(s) s.style.display='none';" 
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'; const s=document.getElementById('skel-${cardUid}'); if(s) s.style.display='none';" 
-                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" 
               />
 
               <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
@@ -3911,10 +3899,6 @@ body.modal-open {
                   <span class="tag-street">${esc(streetLabel)}</span>
                   ${wardLabel ? `<span class="tag-ward">${esc(wardLabel)}</span>` : ''}
                   <span class="tag-district">${esc(districtLabel)}</span>
-                  ${(prop.specs?.cashflow && prop.specs?.cashflow !== 'Bàn giao ngay') ? `<span class="tag-hashtag">#DòngTiền</span>` : ''}
-                  ${(catName && catName.includes('Mặt Tiền')) ? `<span class="tag-hashtag">#MặtTiền</span>` : ''}
-                  ${(catName && catName.includes('Biệt Thự')) ? `<span class="tag-hashtag">#BiệtThự</span>` : ''}
-                  ${(catName && catName.includes('Tòa Nhà')) ? `<span class="tag-hashtag">#TòaNhà</span>` : ''}
                 </div>
 
                 <!-- Tiêu đề BĐS: Chuẩn 2 dòng đều nhau trên toàn bộ card -->
@@ -4281,7 +4265,7 @@ body.modal-open {
             <div class="text-slate-600 text-xs font-semibold mt-0.5 truncate">${esc(subHeader)}</div>
           </div>
           <div class="relative overflow-hidden rounded-xl border border-sky-200/80 bg-slate-100 select-none" oncontextmenu="return false;">
-            <img src="${esc(coverImg)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="h-60 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none select-none" loading="eager" />
+            <img src="${esc(coverImg)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="h-60 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important;" loading="eager" />
             <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
             <div class="absolute top-2.5 right-2.5 z-20 px-3 py-1 rounded-full bg-rose-600/95 text-white text-xs font-black shadow-lg border border-rose-400">
               ${esc(badgeTopRight)}
@@ -4499,7 +4483,7 @@ body.modal-open {
         const optThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
         return `
         <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-800 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/40 scale-[1.03]' : 'border-slate-700 opacity-65 hover:opacity-100'}" oncontextmenu="return false;">
-          <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" />
+          <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
           <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
         </button>
@@ -4532,7 +4516,7 @@ body.modal-open {
           const optLbThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
           return `
           <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] scale-105' : 'border-transparent opacity-50 hover:opacity-100'}" oncontextmenu="return false;">
-            <img src="${esc(optLbThumb)}" data-fallback="${esc(item.url)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" />
+            <img src="${esc(optLbThumb)}" data-fallback="${esc(item.url)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
             <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
           </button>
         `;}).join("");
