@@ -1,6 +1,8 @@
-# =========================================================================
-# NHATOSG PRODUCTION SECURITY SHIELD - STRICT GITIGNORE
-# =========================================================================
+# ==============================================================================
+# NHATOSG PRODUCTION WEB REPOSITORY - GITIGNORE (.gitignore)
+# Chỉ bỏ qua các file database, file backup, file bí mật và tệp tạm thời
+# TUYỆT ĐỐI KHÔNG CHẶN properties_data.js, optimized_manifest.js VÀ web_images/
+# ==============================================================================
 
 # Database files
 *.db
@@ -15,8 +17,8 @@ client_secret*.json
 credentials*.json
 *.key
 *.pem
-*.env
-*.env.*
+.env
+.env.*
 
 # Private & Confidential Vaults
 ketsat_so_hong_mat/
@@ -29,10 +31,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.log
+.pytest_cache/
 
 # OS metadata
 .DS_Store
 Thumbs.db
+Desktop.ini
 desktop.ini
 
+# File backup
 *.bak*
+*.legacy_backup
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
