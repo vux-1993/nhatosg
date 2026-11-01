@@ -980,48 +980,240 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
   }
 }
 
+/* =========================================================================
+   PROPERTY DETAIL MODAL: LIGHT & DARK DUAL THEME SYNC (A2, A3, A4)
+   ========================================================================= */
+/* --- 1. LIGHT MODE DEFAULT --- */
+#propertyModal > div {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+#propertyModal .modal-header-bar {
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
 #propertyModal #modalTitle {
   color: #0F172A !important;
 }
 
-#propertyModal .bg-slate-50 {
+#propertyModal .modal-desc-box {
   background-color: #F8FAFC !important;
-  border-color: #E2E8F0 !important;
-  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
 }
 
-#propertyModal .bg-white {
-  background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  color: #0F172A !important;
-}
-
-#propertyModal .bg-sky-50,
-#propertyModal .bg-sky-50\/60 {
-  background-color: #F0F9FF !important;
-  border-color: #BAE6FD !important;
+#propertyModal .modal-desc-title {
   color: #0369A1 !important;
 }
 
-#propertyModal .text-[\#0F172A],
-#propertyModal .text-slate-800,
-#propertyModal .text-slate-900 {
+#propertyModal .modal-desc-text {
+  color: #334155 !important;
+}
+
+#propertyModal .modal-desc-text strong,
+#propertyModal .modal-desc-text b {
   color: #0F172A !important;
 }
 
-#propertyModal .text-slate-500,
-#propertyModal .text-slate-600 {
+#propertyModal .modal-desc-bullet {
+  color: #0284C7 !important;
+}
+
+#propertyModal .modal-desc-sub {
   color: #64748B !important;
 }
 
-#propertyModal #modalDescription {
-  color: #334155 !important;
+#propertyModal .modal-due-diligence {
+  background-color: #FFFBEB !important;
+  border: 1px solid #FDE68A !important;
+  color: #92400E !important;
+}
+
+#propertyModal .modal-due-diligence span {
+  color: #B45309 !important;
 }
 
 #propertyModal #modalUnitCostBreakdown {
   background-color: #F8FAFC !important;
   border: 1px solid #BAE6FD !important;
   color: #0F172A !important;
+}
+
+/* --- 2. DARK MODE SYNCHRONIZATION (body.v5-dark-mode) --- */
+body.v5-dark-mode #propertyModal > div {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.92) !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar {
+  background-color: #0B1120 !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.bg-slate-100 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.text-slate-500 {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.text-slate-500:hover {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalTitle {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-\[\#F1F5F9\] {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-\[\#EFF6FF\] {
+  background-color: rgba(2, 132, 199, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+  color: #FCD34D !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-box {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-title {
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-text {
+  color: #E2E8F0 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-text strong,
+body.v5-dark-mode #propertyModal .modal-desc-text b {
+  color: #FFFFFF !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-bullet {
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-sub {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-due-diligence {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  color: #FDE68A !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-due-diligence span {
+  color: #FBBF24 !important;
+}
+
+body.v5-dark-mode #propertyModal h4 {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .grid.bg-\[\#F8FAFC\] {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal #modalAreaSpecs {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  color: #FDE68A !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-sky-50 {
+  background-color: rgba(2, 132, 199, 0.15) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #E0F2FE !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .bg-slate-50 {
+  background-color: #131C2E !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #loanEquityValue {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #loanInterestVsRent {
+  color: #34D399 !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 label {
+  color: #CBD5E1 !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 p {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-bottom-cta {
+  background-color: rgba(15, 23, 42, 0.98) !important;
+  border-top: 1px solid #1E293B !important;
 }
 
 #toggleFilterDrawerBtn.active {
@@ -1051,29 +1243,100 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
   display: block !important;
 }
 
-/* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
+/* =========================================================================
+   GALLERY PRESENTATION: DESKTOP TALL & PROMINENT FACADE, BLURRED BACKDROP (A1)
+   ========================================================================= */
 .gallery-main-frame {
   width: 100% !important;
-  height: clamp(320px, 52vh, 600px) !important;
-  min-height: 320px !important;
-  max-height: 600px !important;
+  position: relative !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background: radial-gradient(circle at center, #111827 0%, #090D16 100%) !important;
-  position: relative !important;
+  background: #070B14 !important;
 }
 
-.gallery-main-frame #galleryMainImage,
-#galleryMainImage {
-  width: auto !important;
-  height: 100% !important;
-  max-height: 52vh !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-  object-fit: contain !important;
-  display: block !important;
+/* Desktop & Laptop gallery size: Taller, prominent facade view (Image 2 standard) */
+@media (min-width: 640px) {
+  .gallery-main-frame {
+    height: clamp(440px, 62vh, 580px) !important;
+    min-height: 440px !important;
+    max-height: 620px !important;
+  }
+  .gallery-main-frame #galleryMainImage,
+  #galleryMainImage {
+    height: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+/* Mobile gallery size: Compact, natural fit (< 640px) */
+@media (max-width: 639px) {
+  .gallery-main-frame {
+    height: clamp(260px, 40vh, 320px) !important;
+    min-height: 260px !important;
+    max-height: 330px !important;
+  }
+  .gallery-main-frame #galleryMainImage,
+  #galleryMainImage {
+    height: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+/* =========================================================================
+   HOT RADAR MOBILE CARDS & PAGINATION DARK MODE (B1)
+   ========================================================================= */
+body.v5-dark-mode .hot-mobile-card {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .bg-slate-50 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .text-slate-500 {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode .hot-mobile-card .border-slate-100 {
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode .hot-mobile-card .bg-sky-50 {
+  background-color: rgba(2, 132, 199, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+}
+body.v5-dark-mode #hotRadarSummary {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode #hotRadarPagination button {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
 }
 
 

@@ -1041,42 +1041,59 @@ body.modal-open {
   }
 }
 
+/* =========================================================================
+   PROPERTY DETAIL MODAL: LIGHT & DARK DUAL THEME SYNC (A2, A3, A4)
+   ========================================================================= */
+/* --- 1. LIGHT MODE DEFAULT --- */
+#propertyModal > div {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+}
+
+#propertyModal .modal-header-bar {
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
 #propertyModal #modalTitle {
   color: #0F172A !important;
 }
 
-#propertyModal .bg-slate-50 {
+#propertyModal .modal-desc-box {
   background-color: #F8FAFC !important;
-  border-color: #E2E8F0 !important;
-  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
 }
 
-#propertyModal .bg-white {
-  background-color: #FFFFFF !important;
-  border-color: #E2E8F0 !important;
-  color: #0F172A !important;
-}
-
-#propertyModal .bg-sky-50,
-#propertyModal .bg-sky-50\/60 {
-  background-color: #F0F9FF !important;
-  border-color: #BAE6FD !important;
+#propertyModal .modal-desc-title {
   color: #0369A1 !important;
 }
 
-#propertyModal .text-\[\#0F172A\],
-#propertyModal .text-slate-800,
-#propertyModal .text-slate-900 {
+#propertyModal .modal-desc-text {
+  color: #334155 !important;
+}
+
+#propertyModal .modal-desc-text strong,
+#propertyModal .modal-desc-text b {
   color: #0F172A !important;
 }
 
-#propertyModal .text-slate-500,
-#propertyModal .text-slate-600 {
+#propertyModal .modal-desc-bullet {
+  color: #0284C7 !important;
+}
+
+#propertyModal .modal-desc-sub {
   color: #64748B !important;
 }
 
-#propertyModal #modalDescription {
-  color: #334155 !important;
+#propertyModal .modal-due-diligence {
+  background-color: #FFFBEB !important;
+  border: 1px solid #FDE68A !important;
+  color: #92400E !important;
+}
+
+#propertyModal .modal-due-diligence span {
+  color: #B45309 !important;
 }
 
 #propertyModal #modalUnitCostBreakdown {
@@ -1084,6 +1101,182 @@ body.modal-open {
   border: 1px solid #BAE6FD !important;
   color: #0F172A !important;
 }
+
+/* --- 2. DARK MODE SYNCHRONIZATION (body.v5-dark-mode) --- */
+body.v5-dark-mode #propertyModal > div {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.92) !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar {
+  background-color: #0B1120 !important;
+  border-bottom: 1px solid #1E293B !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.bg-slate-100 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.text-slate-500 {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-header-bar button.text-slate-500:hover {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalTitle {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-\[\#F1F5F9\] {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-\[\#EFF6FF\] {
+  background-color: rgba(2, 132, 199, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal #modalLocationBadges span.bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(251, 191, 36, 0.35) !important;
+  color: #FCD34D !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-box {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-title {
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-text {
+  color: #E2E8F0 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-text strong,
+body.v5-dark-mode #propertyModal .modal-desc-text b {
+  color: #FFFFFF !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-bullet {
+  color: #38BDF8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-desc-sub {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-due-diligence {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+  color: #FDE68A !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-due-diligence span {
+  color: #FBBF24 !important;
+}
+
+body.v5-dark-mode #propertyModal h4 {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .grid.bg-\[\#F8FAFC\] {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal #modalAreaSpecs {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown {
+  background-color: #131C2E !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+  color: #FDE68A !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .bg-sky-50 {
+  background-color: rgba(2, 132, 199, 0.15) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #E0F2FE !important;
+}
+
+body.v5-dark-mode #propertyModal #modalUnitCostBreakdown .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .bg-slate-50 {
+  background-color: #131C2E !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #modalPriceTimeline .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 {
+  background-color: #131C2E !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 .bg-white {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #loanEquityValue {
+  color: #F8FAFC !important;
+}
+
+body.v5-dark-mode #propertyModal #loanInterestVsRent {
+  color: #34D399 !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 label {
+  color: #CBD5E1 !important;
+}
+
+body.v5-dark-mode #propertyModal .bg-\[\#F8FAFC\].border-slate-200 p {
+  color: #94A3B8 !important;
+}
+
+body.v5-dark-mode #propertyModal .modal-bottom-cta {
+  background-color: rgba(15, 23, 42, 0.98) !important;
+  border-top: 1px solid #1E293B !important;
+}
+
 
 #toggleFilterDrawerBtn.active {
   background-color: #EFF6FF !important;
@@ -1112,29 +1305,100 @@ body.modal-open {
   display: block !important;
 }
 
-/* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
+/* =========================================================================
+   GALLERY PRESENTATION: DESKTOP TALL & PROMINENT FACADE, BLURRED BACKDROP (A1)
+   ========================================================================= */
 .gallery-main-frame {
   width: 100% !important;
-  height: clamp(320px, 52vh, 600px) !important;
-  min-height: 320px !important;
-  max-height: 600px !important;
+  position: relative !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   overflow: hidden !important;
-  background: radial-gradient(circle at center, #111827 0%, #090D16 100%) !important;
-  position: relative !important;
+  background: #070B14 !important;
 }
 
-.gallery-main-frame #galleryMainImage,
-#galleryMainImage {
-  width: auto !important;
-  height: 100% !important;
-  max-height: 52vh !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-  object-fit: contain !important;
-  display: block !important;
+/* Desktop & Laptop gallery size: Taller, prominent facade view (Image 2 standard) */
+@media (min-width: 640px) {
+  .gallery-main-frame {
+    height: clamp(440px, 62vh, 580px) !important;
+    min-height: 440px !important;
+    max-height: 620px !important;
+  }
+  .gallery-main-frame #galleryMainImage,
+  #galleryMainImage {
+    height: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+/* Mobile gallery size: Compact, natural fit (< 640px) */
+@media (max-width: 639px) {
+  .gallery-main-frame {
+    height: clamp(260px, 40vh, 320px) !important;
+    min-height: 260px !important;
+    max-height: 330px !important;
+  }
+  .gallery-main-frame #galleryMainImage,
+  #galleryMainImage {
+    height: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+}
+
+/* =========================================================================
+   HOT RADAR MOBILE CARDS & PAGINATION DARK MODE (B1)
+   ========================================================================= */
+body.v5-dark-mode .hot-mobile-card {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .bg-slate-50 {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .hot-mobile-card .text-slate-500 {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode .hot-mobile-card .border-slate-100 {
+  border-color: #1E293B !important;
+}
+body.v5-dark-mode .hot-mobile-card .bg-sky-50 {
+  background-color: rgba(2, 132, 199, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+}
+body.v5-dark-mode #hotRadarSummary {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode #hotRadarPagination button {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
+  background-color: #0B1120 !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
 }
 
 .lightbox-main-frame {
@@ -1811,7 +2075,7 @@ body.modal-open {
         </div>
       </div>
 
-      <div class="modal-scroll-body p-3.5 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 pb-24 sm:pb-8 flex-1 min-h-0">
+      <div class="modal-scroll-body p-3.5 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5 pb-24 sm:pb-8 flex-1 min-h-0">
         <!-- 2. Khối Tiêu đề & Vị trí nằm NGAY TRÊN khung ảnh -->
         <div>
           <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
@@ -1820,8 +2084,12 @@ body.modal-open {
 
         <!-- 3. Khung Ảnh Chính & Thanh công cụ & Thumbnails -->
         <div class="bg-[#090D16] rounded-2xl overflow-hidden border border-white/10 select-none shadow-xl" oncontextmenu="return false;">
-          <!-- Khung ảnh chính (1 ảnh căn giữa sắc nét trên nền tối, không có ảnh nền phụ 2 bên) -->
-          <div class="gallery-main-frame relative group rounded-2xl" style="background: radial-gradient(circle at center, #111827 0%, #090D16 100%);">
+          <!-- Khung ảnh chính (Ảnh lớn, nổi bật chiều cao, kèm hiệu ứng nền mờ đồng điệu hai bên) -->
+          <div class="gallery-main-frame relative group rounded-2xl">
+            <!-- Nền mờ tự nhiên lấp khoảng trống hai bên (A1) -->
+            <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none transition-opacity duration-300 select-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-slate-950/60 pointer-events-none z-5"></div>
+            
             <img
               id="galleryMainImage"
               src=""
@@ -1830,8 +2098,7 @@ body.modal-open {
               onload="this.parentElement.classList.remove('animate-pulse')"
               onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85';"
               onclick="openFullscreenLightbox()"
-              class="relative z-10 w-auto h-full max-h-[52vh] max-w-full m-auto object-contain transition-transform duration-200 pointer-events-none select-none block"
-              style="width: auto !important; height: 100% !important; max-height: 52vh !important; max-width: 100% !important; margin: 0 auto !important; object-fit: contain !important; display: block !important;"
+              class="relative z-10 w-auto h-full max-w-full m-auto object-contain transition-transform duration-200 pointer-events-none select-none block"
             />
             
             <!-- Watermark chìm nhỏ chính giữa ảnh -->
@@ -1984,9 +2251,9 @@ body.modal-open {
 
       <!-- Thanh liên hệ nhanh cố định đáy modal trên mobile (2 CTA cân xứng: Gọi Vũ & Yêu Cầu Sổ Hồng) -->
       <div class="modal-bottom-cta sm:hidden grid grid-cols-2 gap-2 bg-white/98 backdrop-blur-md border-t border-slate-200 px-3 py-2.5 shrink-0 z-30">
-        <a href="tel:0916239898" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-extrabold text-xs shadow-xs min-h-[46px] h-11 transition text-center whitespace-nowrap">
+        <a href="tel:0916239898" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-500 hover:brightness-105 active:scale-[0.98] text-slate-950 font-black text-xs shadow-md shadow-amber-500/25 min-h-[46px] h-11 transition text-center whitespace-nowrap border border-amber-300/60">
           <i data-lucide="phone-call" class="w-4 h-4 text-slate-950 shrink-0"></i>
-          <span>Gọi: 0916.23.9898</span>
+          <span>Gọi Vũ: 0916.23.9898</span>
         </a>
         <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-xs shadow-xs min-h-[46px] h-11 transition text-center whitespace-nowrap">
           <i data-lucide="file-check-2" class="w-4 h-4 text-white shrink-0"></i>
@@ -4912,7 +5179,8 @@ body.modal-open {
         });
       }
 
-
+      const blurBg = document.getElementById("galleryBlurBackdrop");
+      if (blurBg) blurBg.src = currentItem.url;
 
       document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
 
@@ -5047,23 +5315,23 @@ body.modal-open {
       const cashflow = prop.specs?.cashflow || "Bàn giao ngay";
 
       const specsBlockHtml = `
-        <div class="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-white/10">
-          <div class="text-sm font-extrabold uppercase tracking-wider text-white mb-2.5 flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#38BDF8]"></span>
+        <div class="modal-desc-box p-4 sm:p-5 rounded-2xl">
+          <div class="text-sm font-extrabold uppercase tracking-wider modal-desc-title mb-2.5 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
             <span>Thông số &amp; Kết cấu thực tế:</span>
           </div>
-          <ul class="space-y-2 text-[16px] text-slate-300 font-medium pl-1">
+          <ul class="space-y-2 text-[15.5px] modal-desc-text font-medium pl-1">
             <li class="flex items-start gap-2">
-              <span class="text-[#38BDF8] font-bold">•</span>
-              <span><strong class="text-white">Diện tích thực:</strong> <span class="font-mono font-extrabold text-white">${esc(dims)}</span> <span class="text-slate-400">(Công nhận sổ: <strong class="font-mono text-[#38BDF8]">${esc(areaM2)}m²</strong>)</span></span>
+              <span class="modal-desc-bullet font-bold">•</span>
+              <span><strong>Diện tích thực:</strong> <span class="font-mono font-extrabold">${esc(dims)}</span> <span class="modal-desc-sub">(Công nhận sổ: <strong class="font-mono text-[#0284C7]">${esc(areaM2)}m²</strong>)</span></span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[#38BDF8] font-bold">•</span>
-              <span><strong class="text-white">Kết cấu:</strong> <span class="font-bold text-white">${esc(struct)}</span></span>
+              <span class="modal-desc-bullet font-bold">•</span>
+              <span><strong>Kết cấu:</strong> <span>${esc(struct)}</span></span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-[#38BDF8] font-bold">•</span>
-              <span><strong class="text-white">Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#38BDF8]">${esc(catName)}</span> <span class="text-slate-400">(${esc(cashflow)})</span></span>
+              <span class="modal-desc-bullet font-bold">•</span>
+              <span><strong>Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#0284C7]">${esc(catName)}</span> <span class="modal-desc-sub">(${esc(cashflow)})</span></span>
             </li>
           </ul>
         </div>
@@ -5083,22 +5351,22 @@ body.modal-open {
           const head = line.slice(0, colonIdx).trim();
           const rest = line.slice(colonIdx + 1).trim();
           return `
-            <div class="p-3.5 rounded-xl bg-slate-900/80 border border-white/10 shadow-2xs">
-              <div class="text-[14px] font-extrabold uppercase tracking-wider text-[#38BDF8] mb-1">• ${esc(head)}:</div>
-              <div class="text-[16px] text-slate-200 leading-relaxed pl-3 font-medium">${esc(rest)}</div>
+            <div class="modal-desc-box p-3.5 rounded-xl shadow-2xs">
+              <div class="text-[14px] font-extrabold uppercase tracking-wider modal-desc-title mb-1">• ${esc(head)}:</div>
+              <div class="text-[15.5px] modal-desc-text leading-relaxed pl-3 font-medium">${esc(rest)}</div>
             </div>
           `;
         }
         return `
-          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-white/10 text-[16px] text-slate-200 leading-relaxed font-medium">
+          <div class="modal-desc-box p-3.5 rounded-xl text-[15.5px] modal-desc-text leading-relaxed font-medium">
             • ${esc(line)}
           </div>
         `;
       }).join("");
 
-            const dueDiligenceBoxHtml = `
-        <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-[13.5px] text-slate-300 leading-relaxed">
-          <span class="font-extrabold text-amber-300 uppercase text-xs block mb-1">📋 Lưu ý thẩm định &amp; phạm vi thông tin:</span>
+      const dueDiligenceBoxHtml = `
+        <div class="modal-due-diligence p-3.5 rounded-xl text-[13.5px] leading-relaxed">
+          <span class="font-extrabold uppercase text-xs block mb-1">📋 Lưu ý thẩm định &amp; phạm vi thông tin:</span>
           Thông số diện tích, kết cấu, giá chào và doanh thu thuê được trình bày theo hồ sơ hiện có do phía chủ tài sản cung cấp. Trước khi ra quyết định giao dịch, Nhà Sài Gòn hỗ trợ Quý Nhà đầu tư kiểm tra trực tiếp bản chụp Sổ hồng, hợp đồng thuê thực tế, hiện trạng PCCC và chỉ tiêu quy hoạch xây dựng tại cơ quan chức năng.
         </div>
       `;
@@ -5230,7 +5498,16 @@ body.modal-open {
             </div>
           `;
         } else {
-          timeline.innerHTML = (prop.pricing?.price_history || []).map((h, idx) => `
+          const hist = prop.pricing?.price_history || [];
+          if (hist.length === 0) {
+            timeline.innerHTML = `
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-200/80 text-[13.5px] text-slate-600 flex items-center justify-between">
+                <span>Mức giá chào hiện tại: <strong class="text-[#0F172A] font-mono">${esc(m.currP)} Tỷ</strong></span>
+                <span class="text-xs text-slate-500 italic">Chưa ghi nhận biến động giá</span>
+              </div>
+            `;
+          } else {
+            timeline.innerHTML = hist.map((h, idx) => `
             <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-[15px]">
               <div class="flex items-center gap-2.5">
                 <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-xs font-bold flex items-center justify-center shrink-0">
@@ -5246,6 +5523,7 @@ body.modal-open {
               </span>
             </div>
           `).join("");
+          }
         }
       }
 
