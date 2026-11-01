@@ -835,18 +835,147 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
 
 
 /* =========================================================================
-   DETAIL MODAL VIBRANT LIGHT MODE THEME
+   DETAIL MODAL VIBRANT LIGHT MODE THEME & VIEWPORT HEIGHT ENFORCEMENT (P0)
    ========================================================================= */
+#propertyModal:not(.hidden) {
+  display: flex !important;
+}
+
+#propertyModal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem !important;
+}
+
+@media (min-width: 640px) {
+  #propertyModal {
+    padding: 1rem !important;
+  }
+}
+
 #propertyModal > div {
   background-color: #FFFFFF !important;
   color: #0F172A !important;
   border: 1px solid #E2E8F0 !important;
   box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14) !important;
+  max-height: 92vh !important;
+  max-height: 92dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 64rem !important;
+  border-radius: 1.5rem !important;
 }
 
+@media (max-width: 639px) {
+  #propertyModal {
+    padding: 0.375rem !important;
+  }
+  #propertyModal > div {
+    max-height: 96vh !important;
+    max-height: 96dvh !important;
+    border-radius: 1.25rem !important;
+    width: 100% !important;
+  }
+}
+
+#propertyModal .modal-header-bar,
 #propertyModal > div > div:first-child {
+  flex-shrink: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 30 !important;
   background-color: #F8FAFC !important;
   border-bottom: 1px solid #E2E8F0 !important;
+}
+
+#propertyModal .modal-scroll-body {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  overscroll-behavior: contain !important;
+}
+
+#propertyModal .modal-bottom-cta {
+  flex-shrink: 0 !important;
+  position: sticky !important;
+  bottom: 0 !important;
+  z-index: 30 !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border-top: 1px solid #E2E8F0 !important;
+  padding: 0.625rem 0.75rem !important;
+  padding-bottom: max(0.625rem, env(safe-area-inset-bottom, 0.625rem)) !important;
+}
+
+/* =========================================================================
+   RESPONSIVE SWITCHING: HOT RADAR, DISTRICT SWIPE CUE & MODAL CTA (P0/P1/P2)
+   ========================================================================= */
+@media (max-width: 639px) {
+  #hotMobileCardsGrid {
+    display: block !important;
+  }
+  #hotDesktopTableWrapper,
+  .hot-desktop-table-wrapper {
+    display: none !important;
+  }
+  #districtSwipeHintRight {
+    display: flex !important;
+  }
+  .modal-bottom-cta {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 640px) {
+  #hotMobileCardsGrid {
+    display: none !important;
+  }
+  #hotDesktopTableWrapper,
+  .hot-desktop-table-wrapper {
+    display: block !important;
+  }
+  #districtSwipeHintRight {
+    display: none !important;
+  }
+  .modal-bottom-cta {
+    display: none !important;
+  }
+  .sm\:hidden {
+    display: none !important;
+  }
+  .sm\:block {
+    display: block !important;
+  }
+  .sm\:flex {
+    display: flex !important;
+  }
+}
+
+
+/* Mobile catalog card condensed rules (P1) */
+@media (max-width: 639px) {
+  .property-card-item .card-summary {
+    display: none !important;
+  }
+  .property-card-item .card-sub-info {
+    display: none !important;
+  }
+  .property-card-item .card-compare-btn {
+    display: none !important;
+  }
+  .property-card-item .card-body-pad {
+    padding: 0.875rem !important;
+  }
+  .property-card-item .card-footer-pad {
+    padding: 0 0.875rem 0.875rem 0.875rem !important;
+  }
 }
 
 #propertyModal #modalTitle {
