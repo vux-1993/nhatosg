@@ -929,7 +929,9 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
     display: flex !important;
   }
   .modal-bottom-cta {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
   }
 }
 

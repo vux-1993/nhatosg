@@ -990,7 +990,9 @@ body.modal-open {
     display: flex !important;
   }
   .modal-bottom-cta {
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
   }
 }
 
@@ -1434,7 +1436,7 @@ body.modal-open {
        SECTION 1: TÀI SẢN NỔI BẬT (HỖ TRỢ CHUYỂN ĐỔI XEM DẠNG THẺ & XEM BẢNG)
        ========================================================================= -->
   <section id="tai-san-hot" class="py-10 max-w-[1480px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="v5-hot-terminal-box rounded-3xl p-5 sm:p-7 text-[#0F172A] shadow-xl">
+    <div class="v5-hot-terminal-box rounded-2xl sm:rounded-3xl p-3 sm:p-7 text-[#0F172A] shadow-xl">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 border-b border-slate-200 pb-5">
         <div>
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold mb-2">
@@ -1447,12 +1449,7 @@ body.modal-open {
           <p class="text-slate-600 text-xs sm:text-sm mt-1">Một số tài sản đáng chú ý có mức điều chỉnh giá tốt hoặc hiệu suất khai thác ổn định.</p>
         </div>
 
-        <div class="flex items-center">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-extrabold text-[#0284C7] dark:text-sky-300 shadow-xs">
-            <span>☰</span>
-            <span>Chế độ xem bảng</span>
-          </div>
-        </div>
+        
       </div>
 
       <!-- DẠNG THẺ (DỰ PHÒNG ẨN - GIỮ ĐỂ TRÁNH LỖI CALLER) -->
@@ -1467,7 +1464,7 @@ body.modal-open {
       <!-- DẠNG BẢNG (TABLE VIEW - CHẾ ĐỘ CHÍNH DUY NHẤT) & THẺ RÚT GỌN MOBILE -->
       <div id="hotRadarTableWrapper" class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden bg-white dark:bg-slate-900 shadow-xs">
         <!-- MOBILE COMPACT CARDS (< 640px) -->
-        <div id="hotMobileCardsGrid" class="block sm:hidden divide-y divide-slate-100 p-2.5 space-y-2.5"></div>
+        <div id="hotMobileCardsGrid" class="block sm:hidden p-3 space-y-3.5"></div>
 
         <!-- DESKTOP / TABLET FULL TABLE (>= 640px) -->
         <div id="hotDesktopTableWrapper" class="hot-desktop-table-wrapper w-full overflow-x-auto">
@@ -1485,9 +1482,9 @@ body.modal-open {
           </table>
         </div>
 
-        <div class="px-5 py-3.5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-600">
-          <div id="hotRadarSummary" class="text-[13px] font-semibold text-slate-600"></div>
-          <div id="hotRadarPagination" class="flex items-center gap-1.5 flex-nowrap overflow-x-auto max-w-full"></div>
+        <div class="px-3.5 sm:px-5 py-3 sm:py-3.5 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 text-slate-600">
+          <div id="hotRadarSummary" class="text-xs sm:text-[13px] font-semibold text-slate-600 text-center sm:text-left"></div>
+          <div id="hotRadarPagination" class="w-full sm:w-auto"></div>
         </div>
       </div>
     </div>
@@ -1735,29 +1732,30 @@ body.modal-open {
        ========================================================================= -->
   <div id="propertyModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
     <div class="bg-white text-[#0F172A] rounded-3xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
-      <!-- 1. Thanh Top Bar: Mã tài sản [NSG-xxxx] (nền vàng/hổ phách) + Loại hình + Trạng thái + Nút [Sao chép liên kết] & nút đóng [X] -->
-      <div class="modal-header-bar px-4 sm:px-6 py-3 sm:py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-2 shrink-0">
-        <div class="flex items-center gap-2 flex-wrap">
-          <span id="modalPropId" class="font-mono text-[13px] font-extrabold px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] shadow-sm"></span>
-          <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-300"></span>
-          <span id="modalEventBadge" class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg"></span>
+      <!-- 1. Thanh Top Bar: Mã tài sản [NSG-xxxx] (nền vàng/hổ phách) + Loại hình + Trạng thái + Nút [Sao chép] & nút đóng [X] -->
+      <div class="modal-header-bar px-3 sm:px-6 py-2.5 sm:py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-1.5 sm:gap-2 shrink-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap min-w-0">
+          <span id="modalPropId" class="font-mono text-xs sm:text-[13px] font-extrabold px-2.5 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] shadow-sm shrink-0"></span>
+          <span id="modalCategoryBadge" class="text-xs sm:text-[13px] font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-300 truncate max-w-[130px] sm:max-w-none"></span>
+          <span id="modalEventBadge" class="font-mono text-[11px] sm:text-xs font-extrabold px-2 py-0.5 sm:py-1 rounded-lg shrink-0"></span>
         </div>
-        <div class="flex items-center gap-2">
-          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#0284C7] text-slate-700 hover:text-white border border-slate-200 text-xs font-extrabold transition flex items-center gap-1.5">
-            <i data-lucide="link" class="w-3.5 h-3.5"></i>
-            <span id="copyLinkBtnText">Sao chép liên kết</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button onclick="copyCurrentPropertyLink()" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#0284C7] text-slate-700 hover:text-white border border-slate-200 text-xs font-extrabold transition flex items-center gap-1">
+            <i data-lucide="link" class="w-3.5 h-3.5 shrink-0"></i>
+            <span id="copyLinkBtnText" class="hidden xs:inline sm:inline">Sao chép</span>
+            <span class="inline xs:hidden sm:hidden">Link</span>
           </button>
-          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-700 hover:text-slate-900 border border-amber-400/40 text-xs font-extrabold transition flex items-center gap-1.5">
+          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-700 hover:text-slate-900 border border-amber-400/40 text-xs font-extrabold transition flex items-center gap-1.5">
             <i data-lucide="printer" class="w-3.5 h-3.5"></i>
-            <span>🖨️ In / Lưu PDF</span>
+            <span>PDF</span>
           </button>
-          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
+          <button onclick="closePropertyModal()" aria-label="Đóng popup" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition">
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <div class="modal-scroll-body p-4 sm:p-6 overflow-y-auto space-y-6 pb-20 sm:pb-8 flex-1 min-h-0">
+      <div class="modal-scroll-body p-3.5 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 pb-24 sm:pb-8 flex-1 min-h-0">
         <!-- 2. Khối Tiêu đề & Vị trí nằm NGAY TRÊN khung ảnh -->
         <div>
           <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
@@ -1794,10 +1792,10 @@ body.modal-open {
             </button>
           </div>
 
-          <!-- 4. Thanh công cụ dưới ảnh: Bên trái là [📷 Ảnh x/y] + [↗ Phóng to]; bên phải là cụm nút CTA -->
-          <div class="px-4 py-3 bg-[#F8FAFC] border-t border-slate-200 space-y-2.5">
-            <div class="flex flex-wrap items-center justify-between gap-2">
-              <div class="flex items-center gap-2">
+          <!-- 4. Thanh công cụ dưới ảnh: Bên trái là [📷 Ảnh x/y] + [↗ Phóng to]; bên phải là cụm 2 CTA cân xứng -->
+          <div class="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#F8FAFC] border-t border-slate-200 space-y-2.5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="flex items-center justify-between sm:justify-start gap-2">
                 <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs font-bold flex items-center gap-1.5">
                   <i data-lucide="camera" class="w-3.5 h-3.5 text-[#F59E0B]"></i>
                   <span id="galleryCounter">Ảnh 1/1</span>
@@ -1808,14 +1806,15 @@ body.modal-open {
                 </button>
               </div>
 
-              <div class="flex items-center gap-2.5 flex-wrap">
-                <a href="tel:0916239898" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F59E0B] hover:bg-[#D97706] text-[#0F172A] font-mono text-xs sm:text-[13px] font-extrabold shadow-sm hover:brightness-105 transition">
-                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+              <!-- 2 CTA RÕ RÀNG, CÂN XỨNG: GỌI VŨ & YÊU CẦU SỔ HỒNG -->
+              <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-2.5 w-full sm:w-auto">
+                <a href="tel:0916239898" class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-xs sm:text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
+                  <i data-lucide="phone-call" class="w-4 h-4 text-slate-950 shrink-0"></i>
                   <span>Gọi Vũ: 0916.23.9898</span>
                 </a>
-                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white text-xs sm:text-[13px] font-extrabold shadow-sm transition">
-                  <i data-lucide="file-check-2" class="w-4 h-4 text-white"></i>
-                  <span>Yêu Cầu Sổ Hồng Pháp Lý</span>
+                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-bold text-xs sm:text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
+                  <i data-lucide="file-check-2" class="w-4 h-4 text-white shrink-0"></i>
+                  <span>Yêu Cầu Sổ Hồng</span>
                 </button>
               </div>
             </div>
@@ -1902,10 +1901,11 @@ body.modal-open {
               <i data-lucide="file-check-2" class="w-5 h-5 text-[#FBBF24]"></i>
             </div>
             <div class="flex-1">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                 <h4 class="text-[15px] font-extrabold text-white">Yêu cầu hồ sơ pháp lý và thông tin vị trí</h4>
-                <a href="tel:0916239898" class="inline-flex items-center gap-1.5 text-[13px] font-mono font-extrabold text-[#FBBF24] hover:underline">
-                  <i data-lucide="phone" class="w-4 h-4"></i> 0916.23.9898 ( Vũ )
+                <a href="tel:0916239898" class="inline-flex items-center justify-center sm:justify-start gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-xs sm:text-[13px] font-mono font-extrabold text-[#FBBF24] transition w-fit">
+                  <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                  <span>Gọi Vũ: 0916.23.9898</span>
                 </a>
               </div>
               <p class="text-[13px] text-slate-300 mt-1 leading-relaxed">
@@ -1926,14 +1926,14 @@ body.modal-open {
         </div>
       </div>
 
-      <!-- Thanh liên hệ nhanh cố định đáy modal trên mobile (Đúng 2 nút: Gọi + Yêu cầu Sổ hồng) -->
-      <div class="modal-bottom-cta sm:hidden flex items-center gap-2.5 bg-white/98 backdrop-blur-md border-t border-slate-200 px-3 py-2.5 shrink-0 z-30">
-        <a href="tel:0916239898" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#F59E0B] hover:bg-[#D97706] text-[#0F172A] font-extrabold text-xs shadow-xs min-h-[48px] h-12 transition">
-          <i data-lucide="phone-call" class="w-4 h-4 text-[#0F172A]"></i>
+      <!-- Thanh liên hệ nhanh cố định đáy modal trên mobile (2 CTA cân xứng: Gọi Vũ & Yêu Cầu Sổ Hồng) -->
+      <div class="modal-bottom-cta sm:hidden grid grid-cols-2 gap-2 bg-white/98 backdrop-blur-md border-t border-slate-200 px-3 py-2.5 shrink-0 z-30">
+        <a href="tel:0916239898" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-extrabold text-xs shadow-xs min-h-[46px] h-11 transition text-center whitespace-nowrap">
+          <i data-lucide="phone-call" class="w-4 h-4 text-slate-950 shrink-0"></i>
           <span>Gọi: 0916.23.9898</span>
         </a>
-        <button type="button" onclick="quickZaloPropertyRequest()" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white font-extrabold text-xs shadow-xs min-h-[48px] h-12 transition">
-          <i data-lucide="file-check-2" class="w-4 h-4 text-white"></i>
+        <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-extrabold text-xs shadow-xs min-h-[46px] h-11 transition text-center whitespace-nowrap">
+          <i data-lucide="file-check-2" class="w-4 h-4 text-white shrink-0"></i>
           <span>Yêu Cầu Sổ Hồng</span>
         </button>
       </div>
@@ -2413,13 +2413,29 @@ body.modal-open {
     function buildSingleRowPaginationHtml(currPage, totalPages, goFuncName, jumpFuncName) {
       if (totalPages <= 1) return "";
 
-      let html = `
+      // 1. MOBILE COMPACT PAGINATION (< 640px)
+      let mobileHtml = `
+        <div class="flex sm:hidden items-center justify-between w-full gap-2">
+          <button type="button" onclick="${goFuncName}(${currPage - 1})" ${currPage === 1 ? 'disabled' : ''} class="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition ${currPage === 1 ? 'border-slate-200 bg-slate-100 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] active:bg-slate-100 hover:border-[#0284C7] shadow-2xs'}">
+            ‹ Trước
+          </button>
+          <div class="shrink-0 px-3.5 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-[#0F172A] font-mono text-xs font-extrabold shadow-2xs">
+            Trang <span class="text-[#0284C7]">${currPage}</span> / ${totalPages}
+          </div>
+          <button type="button" onclick="${goFuncName}(${currPage + 1})" ${currPage === totalPages ? 'disabled' : ''} class="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition ${currPage === totalPages ? 'border-slate-200 bg-slate-100 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] active:bg-slate-100 hover:border-[#0284C7] shadow-2xs'}">
+            Tiếp ›
+          </button>
+        </div>
+      `;
+
+      // 2. DESKTOP FULL PAGINATION (>= 640px)
+      let desktopHtml = `<div class="hidden sm:flex items-center gap-1.5 flex-nowrap">`;
+      desktopHtml += `
         <button onclick="${goFuncName}(${currPage - 1})" ${currPage === 1 ? 'disabled' : ''} class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold border transition ${currPage === 1 ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] hover:border-[#0284C7]'}">
           ‹ Trước
         </button>
       `;
 
-      // Tạo danh sách hiển thị tối đa 6-7 vị trí trên 1 hàng kèm nút "..."
       let pageItems = [];
       if (totalPages <= 7) {
         for (let i = 1; i <= totalPages; i++) pageItems.push(i);
@@ -2435,7 +2451,7 @@ body.modal-open {
 
       pageItems.forEach(item => {
         if (item === "ELLIPSIS") {
-          html += `
+          desktopHtml += `
             <button
               type="button"
               onclick="${jumpFuncName}(${totalPages})"
@@ -2447,7 +2463,7 @@ body.modal-open {
           `;
         } else {
           const active = item === currPage;
-          html += `
+          desktopHtml += `
             <button
               type="button"
               onclick="${goFuncName}(${item})"
@@ -2460,12 +2476,13 @@ body.modal-open {
         }
       });
 
-      html += `
+      desktopHtml += `
         <button onclick="${goFuncName}(${currPage + 1})" ${currPage === totalPages ? 'disabled' : ''} class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold border transition ${currPage === totalPages ? 'border-slate-200 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] hover:border-[#0284C7]'}">
           Tiếp ›
         </button>
-      `;
-      return html;
+      </div>`;
+
+      return mobileHtml + desktopHtml;
     }
 
     function promptJumpMainPage(totalPages) {
@@ -4286,7 +4303,7 @@ body.modal-open {
         hotCardsPagination.innerHTML = buildSingleRowPaginationHtml(hotCurrentPage, totalHotPages, "goToHotRadarPage", "promptJumpHotPage");
       }
 
-      // 2. RENDER DẠNG THẺ THU GỌN TRÊN MOBILE (< 640px)
+      // 2. RENDER DẠNG THẺ CHUẨN MOBILE (< 640px)
       const hotMobileGrid = document.getElementById("hotMobileCardsGrid");
       if (hotMobileGrid) {
         hotMobileGrid.innerHTML = pageItems.map(prop => {
@@ -4295,53 +4312,96 @@ body.modal-open {
             const isUpdate = prop.event_type === "UPDATE";
             const catName = resolveCategoryName(prop);
             const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-            const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60";
+            const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=75";
             const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
             const imgCount = gal.length;
             const streetLabel = formatStreetDisplay(prop);
+            const districtLabel = prop.public_location?.district || "TP.HCM";
+            const dimStr = prop.specs?.dimensions ? esc(prop.specs.dimensions) : '';
+            const areaStr = prop.specs?.recognized_area_m2 ? `${esc(prop.specs.recognized_area_m2)}m²` : '';
+            const dtText = (dimStr && areaStr) ? `${dimStr} (${areaStr})` : (dimStr || areaStr || 'Đang cập nhật');
+            const flowText = prop.specs?.cashflow ? esc(prop.specs.cashflow) : (prop.specs?.structure ? esc(prop.specs.structure) : 'Bàn giao ngay');
 
             return `
-              <div class="bg-white rounded-xl border border-slate-200/90 p-3 shadow-2xs cursor-pointer hover:border-[#0284C7] transition active:scale-[0.99]" onclick="openPropertyModal('${esc(prop.property_id)}')">
-                <div class="flex items-start gap-3">
-                  <div class="relative w-24 h-20 rounded-lg overflow-hidden bg-slate-100 border border-slate-200 shrink-0 select-none" oncontextmenu="return false;">
-                    <img src="${esc(coverImg)}" alt="${esc(catName)}" loading="lazy" decoding="async" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" />
-                    <span class="absolute bottom-1 right-1 z-10 px-1 py-0.5 rounded bg-slate-900/85 text-white font-mono text-[9.5px] font-bold flex items-center gap-0.5">
-                      <i data-lucide="camera" class="w-2.5 h-2.5 text-[#FBBF24]"></i>
+              <div class="hot-mobile-card bg-white rounded-2xl border border-slate-200/90 shadow-2xs overflow-hidden cursor-pointer hover:border-[#0284C7] active:scale-[0.99] transition flex flex-col" onclick="openPropertyModal('${esc(prop.property_id)}')">
+                <!-- 1. KHUNG ẢNH 16:9 CHUẨN TỈ LỆ MOBILE, KHÔNG BỊ KÉO CAO -->
+                <div class="relative w-full aspect-[16/9] bg-slate-100 overflow-hidden select-none shrink-0" oncontextmenu="return false;">
+                  <img src="${esc(coverImg)}" alt="${esc(catName)}" loading="lazy" decoding="async" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none"></div>
+
+                  <!-- Góc trên trái: Mã NSG + Badge sự kiện -->
+                  <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-10 pointer-events-none">
+                    <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-black bg-slate-900/90 text-[#FBBF24] border border-[#FBBF24]/50 shadow-sm backdrop-blur-xs">
+                      ${esc(prop.property_id)}
+                    </span>
+                    ${(prop.event_type === "UPDATE" || prop.event_type === "NEW") ? `
+                      <span class="px-2 py-0.5 text-[10.5px] font-bold rounded-md shadow-sm backdrop-blur-xs ${isUpdate ? 'bg-emerald-600 text-white' : 'bg-[#0284C7] text-white'}">
+                        ${isUpdate ? 'Giảm giá' : 'Mới'}
+                      </span>
+                    ` : ''}
+                  </div>
+
+                  <!-- Góc trên phải: Bộ đếm ảnh -->
+                  <div class="absolute top-2.5 right-2.5 z-10 pointer-events-none">
+                    <span class="px-2 py-1 rounded-lg bg-slate-900/80 text-white font-mono text-[11px] font-bold flex items-center gap-1 shadow-sm backdrop-blur-xs">
+                      <i data-lucide="camera" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
                       <span>${imgCount}</span>
                     </span>
                   </div>
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-1.5">
-                      <span class="font-extrabold text-[15px] text-[#0F172A] truncate">${esc(catName)}</span>
-                      ${(prop.event_type === "UPDATE" || prop.event_type === "NEW") ? `
-                        <span class="shrink-0 px-1.5 py-0.5 text-[10.5px] font-mono font-extrabold rounded ${isUpdate ? 'bg-emerald-50 text-emerald-700 border border-emerald-300' : 'bg-sky-50 text-sky-700 border border-sky-300'}">
-                          ${isUpdate ? 'Giảm giá' : 'Mới'}
-                        </span>
-                      ` : ''}
+
+                  <!-- Dưới ảnh: Phân loại BĐS & Khu vực -->
+                  <div class="absolute bottom-2.5 left-3 right-3 z-10 pointer-events-none flex items-end justify-between gap-2 text-white">
+                    <span class="text-xs uppercase font-extrabold tracking-wider text-amber-300 block truncate drop-shadow-sm">${esc(catName)}</span>
+                    <span class="text-[12px] font-medium text-slate-200 block truncate drop-shadow-sm shrink-0 ml-2">📍 ${esc(streetLabel)}, ${esc(districtLabel)}</span>
+                  </div>
+                </div>
+
+                <!-- 2. NỘI DUNG CARD: GỌN GÀNG, RÕ RÀNG, DỄ ĐỌC -->
+                <div class="p-3.5 flex-1 flex flex-col justify-between space-y-2.5 font-sans">
+                  <!-- 1 dòng mô tả/tiêu đề ngắn -->
+                  <div class="text-[14px] font-bold text-[#0F172A] leading-snug line-clamp-1">
+                    ${esc(prop.seo_title || prop.summary || streetLabel)}
+                  </div>
+
+                  <!-- 2 ô thông số: Diện tích & Khai thác -->
+                  <div class="grid grid-cols-2 gap-2 text-xs">
+                    <div class="bg-slate-50 px-2.5 py-2 rounded-xl border border-slate-200/80 flex flex-col justify-center overflow-hidden">
+                      <span class="text-[10.5px] text-slate-500 font-medium">Diện tích</span>
+                      <span class="font-extrabold text-[#0F172A] font-mono text-[12.5px] truncate mt-0.5">
+                        ${dtText}
+                      </span>
                     </div>
-                    <div class="text-xs text-slate-600 truncate mt-0.5 font-medium">
-                      📍 ${esc(streetLabel)}, ${esc(prop.public_location?.district || '')}
+                    <div class="bg-slate-50 px-2.5 py-2 rounded-xl border border-slate-200/80 flex flex-col justify-center overflow-hidden">
+                      <span class="text-[10.5px] text-slate-500 font-medium">Khai thác</span>
+                      <span class="font-bold text-emerald-700 font-mono text-[12.5px] truncate mt-0.5">
+                        ${flowText}
+                      </span>
                     </div>
-                    <div class="mt-1 flex items-baseline justify-between gap-2">
-                      <div class="font-mono whitespace-nowrap">
+                  </div>
+
+                  <!-- Hàng Giá Chào Bán & Nút Xem chi tiết -->
+                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <div>
+                      <span class="text-[10.5px] text-slate-500 uppercase font-bold tracking-wider block">Giá chào bán</span>
+                      <div class="font-mono whitespace-nowrap mt-0.5">
                         ${m.isMasked ? `
-                          <span class="text-[15px] font-extrabold text-[#0284C7]">Giá liên hệ</span>
+                          <span class="text-[16px] font-extrabold text-[#0284C7]">Giá thỏa thuận</span>
                         ` : `
-                          <span class="text-[17px] font-extrabold text-[#D97706] whitespace-nowrap">${esc(m.currP)} Tỷ</span>
-                          ${m.diffBil > 0 ? `<span class="text-[11px] font-extrabold text-rose-600 ml-1">(-${esc(m.diffPct)}%)</span>` : ''}
+                          <span class="text-[17px] font-extrabold text-[#D97706]">${esc(m.currP)} Tỷ</span>
+                          ${m.diffBil > 0 ? `<span class="text-[11.5px] font-bold text-rose-600 ml-1">(-${esc(m.diffPct)}%)</span>` : ''}
                         `}
                       </div>
                     </div>
+                    <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-sky-50 text-[#0284C7] border border-sky-200 text-xs font-extrabold shadow-2xs">
+                      <span>Chi tiết</span>
+                      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                    </span>
                   </div>
-                </div>
-                <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-700 font-mono">
-                  <div>DT: <strong class="text-[#0F172A]">${esc(prop.specs?.dimensions || '')}</strong> <span class="text-slate-500">(${esc(prop.specs?.recognized_area_m2 || '')}m²)</span></div>
-                  <div class="text-[#0284C7] font-semibold truncate max-w-[48%] text-right">${esc(prop.specs?.cashflow || prop.specs?.structure || 'Bàn giao ngay')}</div>
                 </div>
               </div>
             `;
           } catch (e) {
-            console.error("Lỗi render thẻ rút gọn mobile nổi bật:", prop?.property_id, e);
+            console.error("Lỗi render thẻ mobile nổi bật:", prop?.property_id, e);
             return "";
           }
         }).join("");
