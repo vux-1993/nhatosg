@@ -151,15 +151,17 @@
       box-shadow: 0 10px 22px -6px rgba(2, 132, 199, 0.18);
     }
     .v5-district-card.active {
-      background-color: #0F172A;
-      border-color: #FBBF24;
-      box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.35), 0 10px 22px -6px rgba(15, 23, 42, 0.25);
+      background-color: #EFF6FF !important;
+      border: 2px solid #0284C7 !important;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
     }
     .v5-district-card.active .dist-name {
-      color: #FFFFFF !important;
+      color: #0369A1 !important;
+      font-weight: 700 !important;
     }
     .v5-district-card.active .dist-count {
-      color: #FBBF24 !important;
+      color: #D97706 !important;
+      font-weight: 700 !important;
     }
     .v5-hot-terminal-box {
       background: #FFFFFF;
@@ -894,52 +896,89 @@ body.modal-open {
    ========================================================================= */
 
 /* =========================================================================
-   DETAIL MODAL ALWAYS DARK LUXURY THEME (PERFECT DARK MODE STANDARD)
+   DETAIL MODAL VIBRANT LIGHT MODE THEME
    ========================================================================= */
 #propertyModal > div {
-  background-color: #0B1120 !important;
-  color: #F8FAFC !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14) !important;
 }
 
 #propertyModal > div > div:first-child {
-  background-color: #0F172A !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
 }
 
 #propertyModal #modalTitle {
-  color: #FFFFFF !important;
+  color: #0F172A !important;
 }
 
-#propertyModal .bg-slate-50,
-#propertyModal .bg-white,
+#propertyModal .bg-slate-50 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+#propertyModal .bg-white {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
 #propertyModal .bg-sky-50,
 #propertyModal .bg-sky-50\/60 {
-  background-color: #131C2E !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #F8FAFC !important;
+  background-color: #F0F9FF !important;
+  border-color: #BAE6FD !important;
+  color: #0369A1 !important;
 }
 
 #propertyModal .text-\[\#0F172A\],
 #propertyModal .text-slate-800,
 #propertyModal .text-slate-900 {
-  color: #F8FAFC !important;
+  color: #0F172A !important;
 }
 
 #propertyModal .text-slate-500,
 #propertyModal .text-slate-600 {
-  color: #94A3B8 !important;
+  color: #64748B !important;
 }
 
 #propertyModal #modalDescription {
-  color: #E2E8F0 !important;
+  color: #334155 !important;
 }
 
 #propertyModal #modalUnitCostBreakdown {
-  background-color: #131C2E !important;
-  border: 1px solid rgba(56, 189, 248, 0.25) !important;
-  color: #F8FAFC !important;
+  background-color: #F8FAFC !important;
+  border: 1px solid #BAE6FD !important;
+  color: #0F172A !important;
+}
+
+#toggleFilterDrawerBtn.active {
+  background-color: #EFF6FF !important;
+  border: 2px solid #0284C7 !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
+  color: #0369A1 !important;
+  font-weight: 700 !important;
+}
+#toggleFilterDrawerBtn.active i,
+#toggleFilterDrawerBtn.active span:not(#activeFilterCountBadge) {
+  color: #0369A1 !important;
+}
+
+.insight-related-card {
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background-color: #F8FAFC !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.insight-related-card img {
+  height: 150px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 /* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
@@ -1333,7 +1372,7 @@ body.modal-open {
         <button
           id="toggleFilterDrawerBtn"
           onclick="toggleAdvancedFilterDrawer()"
-          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-bold bg-[#0F172A] hover:bg-[#0284C7] text-white transition shadow-xs"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-[13px] font-bold bg-white border border-slate-300 text-slate-800 hover:border-[#0284C7] hover:text-[#0284C7] transition shadow-xs"
         >
           <i data-lucide="filter" class="w-4 h-4 text-[#FBBF24]"></i>
           <span>Bộ lọc chi tiết</span>
@@ -1558,33 +1597,33 @@ body.modal-open {
        MODAL 1: CHI TIẾT TÀI SẢN (ĐÃ BỎ SĐT TRÊN HEADER + WATERMARK GIỮA ẢNH ĐẬM RÕ)
        ========================================================================= -->
   <div id="propertyModal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
-    <div class="bg-[#0B1120] text-[#F8FAFC] rounded-3xl max-w-5xl w-full border border-white/10 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col">
+    <div class="bg-white text-[#0F172A] rounded-3xl max-w-5xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
       <!-- 1. Thanh Top Bar: Mã tài sản [NSG-xxxx] (nền vàng/hổ phách) + Loại hình + Trạng thái + Nút [Sao chép liên kết] & nút đóng [X] -->
-      <div class="px-6 py-3.5 bg-[#0F172A] border-b border-white/10 flex items-center justify-between gap-2">
+      <div class="px-6 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between gap-2">
         <div class="flex items-center gap-2 flex-wrap">
           <span id="modalPropId" class="font-mono text-[13px] font-extrabold px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] shadow-sm"></span>
-          <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-800 text-slate-200 border border-slate-700"></span>
+          <span id="modalCategoryBadge" class="text-[13px] font-bold px-3 py-1 rounded-lg bg-slate-100 text-slate-700 border border-slate-300"></span>
           <span id="modalEventBadge" class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg"></span>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-[#0284C7] text-slate-200 hover:text-white border border-white/15 text-xs font-extrabold transition flex items-center gap-1.5">
+          <button onclick="copyCurrentPropertyLink()" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-[#0284C7] text-slate-700 hover:text-white border border-slate-200 text-xs font-extrabold transition flex items-center gap-1.5">
             <i data-lucide="link" class="w-3.5 h-3.5"></i>
             <span id="copyLinkBtnText">Sao chép liên kết</span>
           </button>
-          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-900 border border-amber-400/40 text-xs font-extrabold transition flex items-center gap-1.5">
+          <button id="modalAdminPrintBtn" onclick="printAdminPropertyPDF()" style="display: none;" class="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-700 hover:text-slate-900 border border-amber-400/40 text-xs font-extrabold transition flex items-center gap-1.5">
             <i data-lucide="printer" class="w-3.5 h-3.5"></i>
             <span>🖨️ In / Lưu PDF</span>
           </button>
-          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition">
+          <button onclick="closePropertyModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">
             <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
+      <div class="p-5 sm:p-6 overflow-y-auto space-y-6 pb-10">
         <!-- 2. Khối Tiêu đề & Vị trí nằm NGAY TRÊN khung ảnh -->
         <div>
-          <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-white leading-snug"></h3>
+          <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
           <div id="modalLocationBadges" class="flex flex-wrap items-center gap-2 mt-2.5"></div>
         </div>
 
@@ -1619,31 +1658,27 @@ body.modal-open {
           </div>
 
           <!-- 4. Thanh công cụ dưới ảnh: Bên trái là [📷 Ảnh x/y] + [↗ Phóng to]; bên phải là cụm nút CTA -->
-          <div class="px-4 py-3 bg-[#0B1120] border-t border-white/10 space-y-2.5">
+          <div class="px-4 py-3 bg-[#F8FAFC] border-t border-slate-200 space-y-2.5">
             <div class="flex flex-wrap items-center justify-between gap-2">
               <div class="flex items-center gap-2">
-                <span class="px-2.5 py-1.5 rounded-lg bg-white/10 text-white font-mono text-xs font-bold flex items-center gap-1.5">
-                  <i data-lucide="camera" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+                <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs font-bold flex items-center gap-1.5">
+                  <i data-lucide="camera" class="w-3.5 h-3.5 text-[#F59E0B]"></i>
                   <span id="galleryCounter">Ảnh 1/1</span>
                 </span>
-                <button type="button" onclick="openFullscreenLightbox()" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/10">
-                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#0EA5E9]"></i>
+                <button type="button" onclick="openFullscreenLightbox()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-[#0F172A] text-xs font-bold transition flex items-center gap-1.5 border border-slate-200">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#0284C7]"></i>
                   <span>Phóng to</span>
                 </button>
               </div>
 
-              <div class="flex items-center gap-2 flex-wrap">
-                <a href="tel:0916239898" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl gold-gradient-badge text-[#0F172A] font-mono text-xs sm:text-[13px] font-extrabold shadow-xs hover:brightness-105 transition">
-                  <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              <div class="flex items-center gap-2.5 flex-wrap">
+                <a href="tel:0916239898" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#F59E0B] hover:bg-[#D97706] text-[#0F172A] font-mono text-xs sm:text-[13px] font-extrabold shadow-sm hover:brightness-105 transition">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i>
                   <span>Gọi Vũ: 0916.23.9898</span>
                 </a>
-                <a href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" class="btn-zalo inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0068FF] hover:bg-[#0052cc] text-white text-xs font-extrabold transition shadow-xs">
-                  <i data-lucide="message-circle" class="w-3.5 h-3.5 text-white"></i>
-                  <span class="text-white">Tư Vấn Zalo</span>
-                </a>
-                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-extrabold transition shadow-xs border border-white/10">
-                  <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
-                  <span>Yêu Cầu Hồ Sơ Pháp Lý</span>
+                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white text-xs sm:text-[13px] font-extrabold shadow-sm transition">
+                  <i data-lucide="file-check-2" class="w-4 h-4 text-white"></i>
+                  <span>Yêu Cầu Sổ Hồng Pháp Lý</span>
                 </button>
               </div>
             </div>
@@ -1654,22 +1689,22 @@ body.modal-open {
         </div>
 
         <!-- Financial Key Metrics -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-900/80 p-4 rounded-2xl border border-white/10">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200 shadow-2xs">
           <div>
-            <div class="text-[13.5px] text-slate-400 font-semibold">Giá chào khởi điểm</div>
-            <div id="modalInitialPrice" class="font-mono text-[16px] font-bold text-slate-500 line-through mt-0.5"></div>
+            <div class="text-[13px] text-slate-500 font-semibold">Giá chào khởi điểm</div>
+            <div id="modalInitialPrice" class="font-mono text-[15px] font-bold text-slate-400 line-through mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-400 font-semibold">Giá thương lượng hiện tại</div>
-            <div id="modalCurrentPrice" class="font-mono text-2xl font-extrabold text-[#38BDF8] mt-0.5"></div>
+            <div class="text-[13px] text-slate-500 font-semibold">Giá thương lượng hiện tại</div>
+            <div id="modalCurrentPrice" class="font-mono text-2xl font-extrabold text-[#0284C7] mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-400 font-semibold">Thông số Diện tích thực</div>
-            <div id="modalAreaSpecs" class="font-mono text-[16px] font-extrabold text-white mt-0.5"></div>
+            <div class="text-[13px] text-slate-500 font-semibold">Thông số Diện tích thực</div>
+            <div id="modalAreaSpecs" class="font-mono text-[15px] font-extrabold text-[#0F172A] mt-0.5"></div>
           </div>
           <div>
-            <div class="text-[13.5px] text-slate-400 font-semibold">Dòng tiền khai thác</div>
-            <div id="modalCashflow" class="font-mono text-[16px] font-extrabold text-emerald-400 mt-0.5"></div>
+            <div class="text-[13px] text-slate-500 font-semibold">Dòng tiền khai thác</div>
+            <div id="modalCashflow" class="font-mono text-[15px] font-extrabold text-emerald-600 mt-0.5"></div>
           </div>
         </div>
 
@@ -1678,7 +1713,7 @@ body.modal-open {
 
         <!-- HÀNH TRÌNH BIẾN ĐỘNG GIÁ -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center gap-1.5">
             <i data-lucide="trending-down" class="w-4 h-4 text-[#0284C7]"></i>
             <span>Lịch sử thay đổi giá chào</span>
           </h4>
@@ -1687,7 +1722,7 @@ body.modal-open {
 
         <!-- HIỆN TRẠNG & THÔNG TIN CHI TIẾT TÀI SẢN -->
         <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-slate-300 mb-3 flex items-center gap-1.5">
+          <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center gap-1.5">
             <i data-lucide="clipboard-list" class="w-4 h-4 text-[#0284C7]"></i>
             <span>Thông tin chi tiết và hiện trạng</span>
           </h4>
@@ -1695,9 +1730,9 @@ body.modal-open {
         </div>
 
         <!-- BẢNG TÍNH ĐÒN BẨY TÀI CHÍNH -->
-        <div class="bg-slate-900/80 border border-white/10 rounded-2xl p-4 sm:p-5 space-y-3">
+        <div class="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3 shadow-2xs">
           <div class="flex items-center justify-between">
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-white flex items-center gap-1.5">
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] flex items-center gap-1.5">
               <i data-lucide="calculator" class="w-4 h-4 text-[#0284C7]"></i>
               <span>Tính vốn tự có và chi phí vay (Mô phỏng tham khảo)</span>
             </h4>
@@ -1827,11 +1862,11 @@ body.modal-open {
        MODAL 3: BÀI VIẾT TIN TỨC QUY HOẠCH
        ========================================================================= -->
   <div id="insightModal" class="fixed inset-0 z-50 hidden bg-slate-900/75 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-3xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div class="bg-white rounded-3xl max-w-4xl w-full border border-slate-200 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="relative h-52 sm:h-64 bg-slate-900 shrink-0">
         <img id="insightModalImage" src="" alt="Ảnh chuyên đề" class="w-full h-full object-cover opacity-90" />
         <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/40 to-transparent"></div>
-        <button onclick="document.getElementById('insightModal').classList.add('hidden')" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition">
+        <button onclick="document.getElementById('insightModal').classList.add('hidden')" class="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-lg">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
         <div class="absolute bottom-4 left-6 right-6">
@@ -1840,7 +1875,7 @@ body.modal-open {
         </div>
       </div>
 
-      <div class="p-6 overflow-y-auto space-y-5">
+      <div class="p-6 overflow-y-auto space-y-5 flex-1">
         <div id="insightContent" class="text-[15px] text-slate-700 leading-relaxed space-y-3 whitespace-pre-line bg-slate-50 p-5 rounded-2xl border border-slate-200/80 font-medium"></div>
 
         <!-- TÀI SẢN THỰC TẾ LIÊN QUAN CHUYÊN ĐỀ NÀY -->
@@ -1851,7 +1886,7 @@ body.modal-open {
               <span>🏢 TÀI SẢN ĐANG GIAO DỊCH LIÊN QUAN CHUYÊN ĐỀ NÀY</span>
             </h4>
           </div>
-          <div id="insightRelatedGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-3"></div>
+          <div id="insightRelatedGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
         </div>
       </div>
     </div>
@@ -1959,7 +1994,7 @@ body.modal-open {
     let activeInsightIndex = 0;
 
     function getHotItemsPerPage() {
-      return hotViewMode === "table" ? 20 : 6;
+      return 5;
     }
 
     function prevHotPage() {
@@ -2267,7 +2302,8 @@ body.modal-open {
             <button
               type="button"
               onclick="${goFuncName}(${item})"
-              class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-mono font-bold border transition ${active ? 'bg-[#0F172A] text-[#FBBF24] border-[#0F172A]' : 'bg-white text-slate-700 border-slate-300 hover:border-[#0284C7]'}"
+              class="shrink-0 px-3 py-1.5 rounded-xl text-xs font-mono font-bold border transition ${active ? 'bg-[#EFF6FF] text-[#0369A1] border-2 border-[#0284C7] font-extrabold' : 'bg-white text-slate-700 border-slate-300 hover:border-[#0284C7]'}"
+              style="${active ? 'box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18);' : ''}"
             >
               Trang ${item}
             </button>
@@ -3125,9 +3161,13 @@ body.modal-open {
     function toggleAdvancedFilterDrawer() {
       const drawer = document.getElementById("advancedFilterDrawer");
       const icon = document.getElementById("filterChevronIcon");
+      const btn = document.getElementById("toggleFilterDrawerBtn");
       const isHidden = drawer.classList.contains("hidden");
       drawer.classList.toggle("hidden", !isHidden);
       icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+      if (btn) {
+        btn.classList.toggle("active", isHidden);
+      }
     }
 
     function normalizeDistrictNameJS(dist) {
@@ -4198,6 +4238,7 @@ body.modal-open {
       hotCurrentPage = p;
       renderHotRadarSection();
       if (window.lucide) lucide.createIcons();
+      document.getElementById("tai-san-hot")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     // =========================================================================
@@ -4779,16 +4820,24 @@ body.modal-open {
       if (badge) {
         if (m.isMasked) {
           badge.textContent = "Giá liên hệ";
-          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-sky-100 text-[#0284C7]";
+          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg";
+          badge.style.cssText = "background-color: #FEF3C7 !important; border: 1px solid #F59E0B !important; color: #B45309 !important;";
         } else if (m.diffBil > 0) {
           badge.textContent = `Giảm ${m.diffBil} tỷ (-${m.diffPct}%)`;
-          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800";
+          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg";
+          badge.style.cssText = "background-color: #ECFDF5 !important; border: 1px solid #10B981 !important; color: #047857 !important;";
         } else if (prop.event_type === "UPDATE") {
           badge.textContent = "Vừa cập nhật";
-          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800";
+          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg";
+          badge.style.cssText = "background-color: #FEF3C7 !important; border: 1px solid #F59E0B !important; color: #B45309 !important;";
         } else if (prop.event_type === "NEW") {
           badge.textContent = "Mới đăng";
-          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-sky-100 text-[#0284C7]";
+          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg";
+          badge.style.cssText = "background-color: #FEF3C7 !important; border: 1px solid #F59E0B !important; color: #B45309 !important;";
+        } else if (m.currP > 0) {
+          badge.textContent = `Giá: ${m.currP} Tỷ`;
+          badge.className = "font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg";
+          badge.style.cssText = "background-color: #FEF3C7 !important; border: 1px solid #F59E0B !important; color: #B45309 !important;";
         } else {
           badge.textContent = "";
           badge.className = "hidden";
@@ -4803,10 +4852,10 @@ body.modal-open {
       const locBadges = document.getElementById("modalLocationBadges");
       if (locBadges) {
         locBadges.innerHTML = `
-          <span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(streetLabel)}</span>
-          ${prop.public_location?.ward ? `<span class="px-2.5 py-1 rounded-md bg-slate-800/90 border border-slate-700 text-slate-200 text-xs font-semibold">${esc(prop.public_location.ward)}</span>` : ''}
-          <span class="px-2.5 py-1 rounded-md bg-sky-950/90 border border-sky-700 text-sky-300 text-xs font-bold">${esc(prop.public_location?.district || '')}</span>
-          <span class="px-2.5 py-1 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-300 font-semibold text-xs flex items-center gap-1">🔒 Số nhà &amp; Sổ hồng bảo mật nội bộ</span>
+          <span class="px-2.5 py-1 rounded-md bg-[#F1F5F9] border border-[#CBD5E1] text-[#334155] text-xs font-bold">${esc(streetLabel)}</span>
+          ${prop.public_location?.ward ? `<span class="px-2.5 py-1 rounded-md bg-[#F1F5F9] border border-[#CBD5E1] text-[#334155] text-xs font-semibold">${esc(prop.public_location.ward)}</span>` : ''}
+          <span class="px-2.5 py-1 rounded-md bg-[#EFF6FF] border border-[#BAE6FD] text-[#0284C7] text-xs font-extrabold">${esc(prop.public_location?.district || '')}</span>
+          <span class="px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200 text-amber-800 font-semibold text-xs flex items-center gap-1">🔒 Số nhà &amp; Sổ hồng bảo mật nội bộ</span>
         `;
       }
 
@@ -5043,22 +5092,33 @@ body.modal-open {
         const slice3 = matchedProps.slice(0, 3);
         relatedGrid.innerHTML = slice3.map(p => {
           const m = computeMetrics(p);
-          const imgUrl = (p.gallery && p.gallery.length > 0) ? p.gallery[0].url : 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80';
+          const catName = resolveCategoryName(p);
+          const streetLabel = formatStreetDisplay(p);
+          const gal = (p.gallery && p.gallery.length > 0) ? p.gallery : getPropertyGalleryList(p);
+          const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80";
+          const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
+
           return `
-            <div onclick="document.getElementById('insightModal').classList.add('hidden'); openPropertyModal('${esc(p.property_id)}')" class="bg-slate-50 hover:bg-white rounded-xl p-3 border border-slate-200/80 shadow-sm hover:shadow-md cursor-pointer transition flex gap-3 items-center group select-none" oncontextmenu="return false;">
-              <div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 border border-slate-200 select-none">
-                <img src="${esc(imgUrl)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover group-hover:scale-105 transition pointer-events-none select-none" loading="lazy" />
+            <div onclick="document.getElementById('insightModal').classList.add('hidden'); openPropertyModal('${esc(p.property_id)}')" class="insight-related-card group bg-[#F8FAFC] hover:bg-white rounded-xl border border-[#E2E8F0] hover:border-[#0284C7] overflow-hidden shadow-xs hover:shadow-md transition flex flex-col cursor-pointer select-none" oncontextmenu="return false;">
+              <div class="relative w-full h-[150px] bg-slate-100 overflow-hidden shrink-0 select-none">
+                <img src="${esc(coverImg)}" alt="${esc(p.seo_title)}" draggable="false" class="w-full h-[150px] object-cover block group-hover:scale-105 transition-transform duration-300 pointer-events-none select-none" loading="lazy" style="height: 150px !important; width: 100% !important; object-fit: cover !important; display: block !important;" />
                 <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
               </div>
-              <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-1.5 mb-1">
-                  ${m.isMasked
-                    ? '<span class="text-xs font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">🔒 Giá Thỏa Thuận Kín</span>'
-                    : `<span class="text-xs font-bold text-amber-600">${esc(m.currP)} Tỷ</span>`
-                  }
+              <div class="p-3 flex flex-col justify-between flex-1 space-y-1.5">
+                <!-- Dòng 1: Mã tài sản + Loại hình -->
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="font-mono text-[11px] font-extrabold px-1.5 py-0.5 rounded bg-[#FBBF24] text-[#0F172A] shadow-2xs">${esc(p.property_id)}</span>
+                  <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 truncate max-w-[130px]">${esc(catName)}</span>
                 </div>
-                <h5 class="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-[#0284C7] transition">${esc(p.seo_title)}</h5>
-                <p class="text-[11px] text-slate-500 line-clamp-1">${esc(p.specs?.dimensions || '')} • ${esc(p.public_location?.district || '')}</p>
+                <!-- Dòng 2: Tên đường + Phường / Quận -->
+                <div class="text-xs font-bold text-[#0F172A] line-clamp-1 group-hover:text-[#0284C7] transition">
+                  ${esc(streetLabel)}, ${esc(p.public_location?.district || '')}
+                </div>
+                <!-- Dòng 3: Diện tích + Giá bán nổi bật -->
+                <div class="flex items-center justify-between text-xs font-mono pt-1.5 border-t border-slate-200/70">
+                  <span class="text-slate-600 font-semibold">${esc(p.specs?.recognized_area_m2 ? p.specs.recognized_area_m2 + 'm²' : p.specs?.dimensions || '')}</span>
+                  <span class="font-extrabold text-[#D97706] text-[13.5px]">${m.isMasked ? 'Giá kín' : esc(m.currP) + ' Tỷ'}</span>
+                </div>
               </div>
             </div>
           `;

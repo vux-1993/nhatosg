@@ -140,15 +140,17 @@ html {
       box-shadow: 0 10px 22px -6px rgba(2, 132, 199, 0.18);
     }
     .v5-district-card.active {
-      background-color: #0F172A;
-      border-color: #FBBF24;
-      box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.35), 0 10px 22px -6px rgba(15, 23, 42, 0.25);
+      background-color: #EFF6FF !important;
+      border: 2px solid #0284C7 !important;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
     }
     .v5-district-card.active .dist-name {
-      color: #FFFFFF !important;
+      color: #0369A1 !important;
+      font-weight: 700 !important;
     }
     .v5-district-card.active .dist-count {
-      color: #FBBF24 !important;
+      color: #D97706 !important;
+      font-weight: 700 !important;
     }
     .v5-hot-terminal-box {
       background: #FFFFFF;
@@ -833,52 +835,89 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
 
 
 /* =========================================================================
-   DETAIL MODAL ALWAYS DARK LUXURY THEME (PERFECT DARK MODE STANDARD)
+   DETAIL MODAL VIBRANT LIGHT MODE THEME
    ========================================================================= */
 #propertyModal > div {
-  background-color: #0B1120 !important;
-  color: #F8FAFC !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14) !important;
 }
 
 #propertyModal > div > div:first-child {
-  background-color: #0F172A !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background-color: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
 }
 
 #propertyModal #modalTitle {
-  color: #FFFFFF !important;
+  color: #0F172A !important;
 }
 
-#propertyModal .bg-slate-50,
-#propertyModal .bg-white,
+#propertyModal .bg-slate-50 {
+  background-color: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+#propertyModal .bg-white {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
 #propertyModal .bg-sky-50,
 #propertyModal .bg-sky-50\/60 {
-  background-color: #131C2E !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #F8FAFC !important;
+  background-color: #F0F9FF !important;
+  border-color: #BAE6FD !important;
+  color: #0369A1 !important;
 }
 
 #propertyModal .text-[\#0F172A],
 #propertyModal .text-slate-800,
 #propertyModal .text-slate-900 {
-  color: #F8FAFC !important;
+  color: #0F172A !important;
 }
 
 #propertyModal .text-slate-500,
 #propertyModal .text-slate-600 {
-  color: #94A3B8 !important;
+  color: #64748B !important;
 }
 
 #propertyModal #modalDescription {
-  color: #E2E8F0 !important;
+  color: #334155 !important;
 }
 
 #propertyModal #modalUnitCostBreakdown {
-  background-color: #131C2E !important;
-  border: 1px solid rgba(56, 189, 248, 0.25) !important;
-  color: #F8FAFC !important;
+  background-color: #F8FAFC !important;
+  border: 1px solid #BAE6FD !important;
+  color: #0F172A !important;
+}
+
+#toggleFilterDrawerBtn.active {
+  background-color: #EFF6FF !important;
+  border: 2px solid #0284C7 !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.18) !important;
+  color: #0369A1 !important;
+  font-weight: 700 !important;
+}
+#toggleFilterDrawerBtn.active i,
+#toggleFilterDrawerBtn.active span:not(#activeFilterCountBadge) {
+  color: #0369A1 !important;
+}
+
+.insight-related-card {
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background-color: #F8FAFC !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.insight-related-card img {
+  height: 150px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 /* Gallery Frame styling: Strictly Dark Radial Gradient, NO side-fill blur */
