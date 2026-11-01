@@ -1179,6 +1179,62 @@ body.modal-open {
   flex-shrink: 0;
 }
 
+
+/* =========================================================================
+   MOBILE POLISH (P1-A, P1-B, P2-A): HEADER CALL BTN, HERO COMPACT, BREAKDOWN
+   ========================================================================= */
+@media (max-width: 480px) {
+  .v5-main-header .max-w-\[1480px\] {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    gap: 0.375rem !important;
+  }
+  .v5-main-header a[href="#trang-chu"] svg {
+    width: 1.85rem !important;
+    height: 1.85rem !important;
+  }
+  .v5-main-header a[href="#trang-chu"] .text-\[18px\] {
+    font-size: 1rem !important;
+  }
+  .v5-main-header a[href="#trang-chu"] .tracking-\[0\.16em\] {
+    font-size: 7.5px !important;
+  }
+  #headerMemberBtn {
+    display: none !important;
+  }
+  #v5ThemeToggleBtn {
+    padding: 0.35rem 0.5rem !important;
+    border-radius: 0.625rem !important;
+  }
+  .header-call-btn {
+    padding: 0.35rem 0.5rem !important;
+    font-size: 11px !important;
+    border-radius: 0.625rem !important;
+    gap: 0.25rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #trang-chu {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  #trang-chu .lg\:col-span-7 {
+    space-y: 0.75rem !important;
+  }
+  #trang-chu h1 {
+    font-size: 1.625rem !important;
+    line-height: 1.2 !important;
+  }
+  #trang-chu p {
+    font-size: 0.8125rem !important;
+    line-height: 1.45 !important;
+  }
+  #heroSpotlightContainer {
+    padding: 0.875rem !important;
+  }
+}
+
 </style>
   <!-- Cầu nối dữ liệu tự động từ Camp Zalo / Admin Studio (Non-blocking Async DOM loader) -->
   <script id="nsg-live-loader" data-ver="20261028_fix2">
@@ -1309,7 +1365,7 @@ body.modal-open {
           <i data-lucide="message-circle" class="w-3.5 h-3.5 text-white"></i>
           <span id="headerMemberLabel">Tư Vấn Zalo</span>
         </a>
-        <a href="tel:0916239898" class="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-[11.5px] sm:text-[13px] font-extrabold bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition shadow-xs whitespace-nowrap">
+        <a href="tel:0916239898" id="headerCallBtn" class="header-call-btn inline-flex items-center gap-1 px-2 py-1.5 sm:px-3.5 sm:py-2 rounded-xl text-[11px] sm:text-[13px] font-extrabold bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition shadow-xs whitespace-nowrap shrink-0">
           <i data-lucide="phone-call" class="w-3.5 h-3.5 text-slate-950 shrink-0"></i>
           <span>0916.23.9898<span class="hidden sm:inline"> ( Vũ )</span></span>
         </a>
@@ -1806,13 +1862,13 @@ body.modal-open {
                 </button>
               </div>
 
-              <!-- 2 CTA RÕ RÀNG, CÂN XỨNG: GỌI VŨ & YÊU CẦU SỔ HỒNG -->
-              <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-2.5 w-full sm:w-auto">
-                <a href="tel:0916239898" class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-xs sm:text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
+              <!-- CTA DƯỚI ẢNH GALLERY: ẨN TRÊN MOBILE (ĐÃ CÓ STICKY BOTTOM BAR), HIỆN TRÊN DESKTOP -->
+              <div class="hidden sm:flex items-center gap-2.5 w-auto">
+                <a href="tel:0916239898" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
                   <i data-lucide="phone-call" class="w-4 h-4 text-slate-950 shrink-0"></i>
                   <span>Gọi Vũ: 0916.23.9898</span>
                 </a>
-                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-bold text-xs sm:text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
+                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-bold text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
                   <i data-lucide="file-check-2" class="w-4 h-4 text-white shrink-0"></i>
                   <span>Yêu Cầu Sổ Hồng</span>
                 </button>
@@ -4943,40 +4999,40 @@ body.modal-open {
       }
       const area = prop.specs?.recognized_area_m2 || 0;
       return `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3 mb-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
           <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#38BDF8]"></span>
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-white">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#0284C7]"></span>
+            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A]">
               Phân tích giá đất và giá trị công trình
             </h4>
           </div>
-          <span class="text-[13px] font-mono font-bold text-slate-400">
-            Kết cấu: ${esc(prop.specs?.structure)} (~${esc(m.floorAreaM2)}m² sàn)
+          <span class="text-[13px] font-mono font-bold text-slate-600">
+            Kết cấu: <span class="text-[#0F172A]">${esc(prop.specs?.structure)}</span> (~${esc(m.floorAreaM2)}m² sàn)
           </span>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 font-mono">
-          <div class="p-3.5 rounded-xl bg-slate-900/90 border border-white/10">
-            <div class="text-[13.5px] font-sans font-bold text-slate-400">1. Đơn giá Tổng (Cả Đất + Nhà)</div>
-            <div class="text-xl font-extrabold text-white mt-1">~ ${esc(m.pricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans text-slate-400 mt-0.5">
+          <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+            <div class="text-[13.5px] font-sans font-bold text-slate-700">1. Đơn giá Tổng (Cả Đất + Nhà)</div>
+            <div class="text-xl font-extrabold text-[#0F172A] mt-1">~ ${esc(m.pricePerM2Mil)} Triệu / m²</div>
+            <div class="text-[13px] font-sans text-slate-500 mt-0.5">
               Lấy ${esc(m.currP)} Tỷ ÷ ${esc(area)} m² công nhận
             </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
-            <div class="text-[13.5px] font-sans font-bold text-amber-300">2. Giá trị Kết cấu Xây dựng ước tính</div>
-            <div class="text-xl font-extrabold text-amber-300 mt-1">~ ${esc(m.estBuildValueBil)} Tỷ VNĐ</div>
-            <div class="text-[13px] font-sans text-amber-400/80 mt-0.5">
-              ${esc(m.floorAreaM2)}m² sàn × ${esc(m.buildUnitRateMil)} tr/m² (${esc(m.structGradeLabel)})
+          <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 shadow-2xs">
+            <div class="text-[13.5px] font-sans font-bold text-amber-900">2. Giá trị Kết cấu Xây dựng ước tính</div>
+            <div class="text-xl font-extrabold text-[#D97706] mt-1">~ ${esc(m.estBuildValueBil)} Tỷ VND</div>
+            <div class="text-[13px] font-sans text-amber-800 mt-0.5">
+              ${esc(m.floorAreaM2)}m² sàn x ${esc(m.buildUnitRateMil)} tr/m² (${esc(m.structGradeLabel)})
             </div>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-sky-500/10 border-2 border-sky-400/40">
-            <div class="text-[13.5px] font-sans font-extrabold text-sky-300">3. Đơn giá Đất Thuần Túy (Đã trừ XD)</div>
-            <div class="text-xl font-extrabold text-[#38BDF8] mt-1">~ ${esc(m.netLandPricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans font-semibold text-slate-300 mt-0.5">
-              Phần đất thuần: <strong class="text-white">${esc(m.netLandValueBil)} Tỷ</strong> ÷ ${esc(area)} m² CN
+          <div class="p-3.5 rounded-xl bg-sky-50 border-2 border-sky-300 shadow-2xs">
+            <div class="text-[13.5px] font-sans font-extrabold text-[#0369A1]">3. Đơn giá Đất Thuần Túy (Đã trừ XD)</div>
+            <div class="text-xl font-extrabold text-[#0284C7] mt-1">~ ${esc(m.netLandPricePerM2Mil)} Triệu / m²</div>
+            <div class="text-[13px] font-sans font-semibold text-slate-600 mt-0.5">
+              Phần đất thuần: <strong class="text-[#0F172A]">${esc(m.netLandValueBil)} Tỷ</strong> ÷ ${esc(area)} m² CN
             </div>
           </div>
         </div>
