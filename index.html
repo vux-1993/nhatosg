@@ -4507,7 +4507,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
                 <!-- Tiêu đề BĐS: Chuẩn 2 dòng đều nhau trên toàn bộ card -->
                 <h3 class="card-title font-bold text-[17px] text-[#0F172A] dark:text-white leading-snug line-clamp-2 h-[2.85rem] overflow-hidden group-hover:text-[#0284C7] transition">
-                  ${esc(prop.seo_title)}
+                  <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition block">${esc(prop.seo_title)}</a>
                 </h3>
 
                 <!-- Đoạn tóm tắt: Chuẩn 2 dòng đều nhau, không làm lệch khung -->
@@ -4565,10 +4565,10 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
           <!-- 3. NÚT BẤM ĐÁY THẺ: XEM CHI TIẾT & SO SÁNH (ĐÃ BỎ NÚT ZALO) -->
           <div class="card-footer-pad px-5 pb-5 pt-1 mt-auto flex items-center gap-2.5 shrink-0 font-sans">
-            <button onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}')" class="flex-1 py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer">
+            <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}');" class="flex-1 py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer">
               <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
               <span>Xem chi tiết</span>
-            </button>
+            </a>
             <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="card-compare-btn py-2.5 px-3.5 rounded-xl border text-[13px] font-bold transition whitespace-nowrap shrink-0 cursor-pointer ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:border-[#0284C7]'}">
               ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
             </button>
@@ -4681,9 +4681,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
                 <!-- 2. NỘI DUNG CARD: GỌN GÀNG, RÕ RÀNG, DỄ ĐỌC -->
                 <div class="p-3.5 flex-1 flex flex-col justify-between space-y-2.5 font-sans">
-                  <!-- 1 dòng mô tả/tiêu đề ngắn -->
+                  <!-- 1 dòng mô tả/tiêu đề ngắn có link SEO -->
                   <div class="text-[14px] font-bold text-[#0F172A] leading-snug line-clamp-1">
-                    ${esc(prop.seo_title || prop.summary || streetLabel)}
+                    <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7]">${esc(prop.seo_title || prop.summary || streetLabel)}</a>
                   </div>
 
                   <!-- 2 ô thông số: Diện tích & Khai thác -->
@@ -4715,10 +4715,10 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                         `}
                       </div>
                     </div>
-                    <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-sky-50 text-[#0284C7] border border-sky-200 text-xs font-extrabold shadow-2xs">
+                    <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}');" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-sky-50 text-[#0284C7] border border-sky-200 text-xs font-extrabold shadow-2xs hover:bg-[#0284C7] hover:text-white transition">
                       <span>Chi tiết</span>
                       <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-                    </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -4970,7 +4970,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       container.innerHTML = `
         <div class="space-y-3 cursor-pointer group" onclick="openPropertyModal('${esc(prop.property_id)}')">
           <div class="border-b border-slate-200 pb-2">
-            <div class="text-[#0284C7] font-extrabold text-sm sm:text-base tracking-tight truncate group-hover:text-sky-600 transition">${esc(titleHeader)}</div>
+            <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="text-[#0284C7] font-extrabold text-sm sm:text-base tracking-tight truncate group-hover:text-sky-600 transition block">${esc(titleHeader)}</a>
             <div class="text-slate-600 text-xs font-semibold mt-0.5 truncate">${esc(subHeader)}</div>
           </div>
           <div class="relative overflow-hidden rounded-xl border border-sky-200/80 bg-slate-100 select-none" oncontextmenu="return false;">
@@ -5579,7 +5579,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       };
 
       // 1. Gửi về máy chủ nếu chạy cục bộ (relative path)
-      if (window.location.protocol.startsWith("http")) {
+      if (window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") {
         try {
           fetch("/api/public/track", {
             method: "POST",
@@ -5745,7 +5745,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                 </div>
                 <!-- Dòng 2: Tên đường + Phường / Quận -->
                 <div class="text-xs font-bold text-[#0F172A] line-clamp-1 group-hover:text-[#0284C7] transition">
-                  ${esc(streetLabel)}, ${esc(p.public_location?.district || '')}
+                  <a href="/p/${esc(p.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(p.property_id)}');" class="hover:text-[#0284C7]">${esc(streetLabel)}, ${esc(p.public_location?.district || '')}</a>
                 </div>
                 <!-- Dòng 3: Diện tích + Giá bán nổi bật -->
                 <div class="flex items-center justify-between text-xs font-mono pt-1.5 border-t border-slate-200/70">
