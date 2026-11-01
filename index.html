@@ -5533,7 +5533,20 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const leadMsg = document.getElementById("leadSuccessMsg");
       if (leadMsg) leadMsg.classList.add("hidden");
 
-      document.getElementById("propertyModal").classList.remove("hidden");
+      const modalEl = document.getElementById("propertyModal");
+      if (modalEl) {
+        modalEl.classList.remove("hidden");
+      }
+
+      // Đặt lại vị trí cuộn về đầu khi mở bất kỳ tài sản nào (One-Pass Fix)
+      const scrollBody = document.querySelector("#propertyModal .modal-scroll-body");
+      if (scrollBody) {
+        scrollBody.scrollTop = 0;
+        requestAnimationFrame(() => {
+          scrollBody.scrollTop = 0;
+        });
+      }
+
       lucide.createIcons();
     }
 
@@ -5541,6 +5554,10 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       document.body.classList.remove("modal-open");
       if (typeof updateAiContextBadge === 'function') setTimeout(updateAiContextBadge, 100);
       document.getElementById("propertyModal")?.classList.add("hidden");
+      const scrollBody = document.querySelector("#propertyModal .modal-scroll-body");
+      if (scrollBody) {
+        scrollBody.scrollTop = 0;
+      }
       closeFullscreenLightbox();
       try { window.history.replaceState(null, "", window.location.pathname); } catch(e) {}
       document.title = "nhatoSG - Nhà Sài Gòn | Bất Động Sản Giá Trị Thực TP.HCM - TP. Thủ Đức";
