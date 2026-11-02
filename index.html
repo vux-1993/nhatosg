@@ -25,7 +25,7 @@
   <!-- Lucide Icons (Local Offline Pinned) -->
   <script src="./lucide.min.js"></script>
   <script src="./optimized_manifest.js?v=20261028_fix2"></script>
-  <script src="./properties_data.js?v=20261102113314"></script>
+  <script src="./properties_data.js?v=20261102175123"></script>
   <style>
     html {
       font-size: 17.5px;
@@ -280,9 +280,14 @@
     body.v5-dark-mode .gold-gradient-badge *,
     body.v5-dark-mode .bg-amber-400,
     body.v5-dark-mode .bg-amber-500,
-    body.v5-dark-mode .bg-\[\#FBBF24\],
-    body.v5-dark-mode #smartSearchInput {
+    body.v5-dark-mode .bg-\[\#FBBF24\] {
       color: #0F172A !important;
+    }
+    body.v5-dark-mode #smartSearchInput {
+      color: #F8FAFC !important;
+    }
+    body.v5-dark-mode #smartSearchInput::placeholder {
+      color: #94A3B8 !important;
     }
 
     /* 3. ĐỒNG BỘ MÀU CHỮ PHỤ & THÔNG SỐ RÕ NÉT (WCAG AAA CONTRAST) */
@@ -1507,7 +1512,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261102113314";
+    script.src = "./properties_data.js?v=20261102175123";
     script.async = false;
     script.onload = function() {
       if (typeof window.__onNhatosgDataLoaded === "function") window.__onNhatosgDataLoaded();
@@ -1679,11 +1684,15 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
               placeholder="Tìm theo tên đường, khu vực, loại tài sản hoặc mã BĐS (VD: Lê Quý Đôn, Quận 3, NSG-0648)..."
               class="w-full py-2 px-2 text-[15px] text-slate-900 placeholder-slate-400 focus:outline-none bg-transparent font-semibold"
             />
-            <button onclick="clearSmartSearch()" id="clearSmartSearchBtn" class="hidden px-2.5 py-1 text-xs font-bold text-slate-500 hover:text-rose-600 cursor-pointer">
-              Xóa
-            </button>
-            <button id="clearSearchBtn" onclick="clearSmartSearch()" class="hidden px-2.5 py-1 text-xs font-bold text-slate-500 hover:text-rose-600 cursor-pointer">
-              Xóa
+            <button
+              id="clearSmartSearchBtn"
+              type="button"
+              onclick="clearSmartSearch()"
+              class="hidden shrink-0 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 transition cursor-pointer"
+              title="Xóa tìm kiếm"
+            >
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+              <span>Xóa</span>
             </button>
             <button onclick="triggerSmartSearch()" class="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white text-[13px] font-extrabold transition shadow-md cursor-pointer">
               <i data-lucide="sliders-horizontal" class="w-4 h-4 text-[#FBBF24]"></i>
@@ -1769,7 +1778,18 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           <p class="text-slate-600 text-xs sm:text-sm mt-1">Một số tài sản đáng chú ý có mức điều chỉnh giá tốt hoặc hiệu suất khai thác ổn định.</p>
         </div>
 
-        
+        <div class="flex items-center gap-2">
+          <button
+            type="button"
+            id="cycleHotGroupBtn"
+            onclick="cycleHotRadarGroup()"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-[#0284C7] hover:bg-sky-600 active:scale-95 text-white shadow-xs transition cursor-pointer select-none"
+            title="Xem nhóm tài sản nổi bật khác"
+          >
+            <i data-lucide="refresh-cw" class="w-4 h-4 text-[#FBBF24]"></i>
+            <span>Xem nhóm khác</span>
+          </button>
+        </div>
       </div>
 
       <!-- DẠNG THẺ (DỰ PHÒNG ẨN - GIỮ ĐỂ TRÁNH LỖI CALLER) -->
@@ -2266,7 +2286,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
   <!-- =========================================================================
        FULLSCREEN LIGHTBOX MODAL (CÓ WATERMARK GIỮA ẢNH ĐẬM RÕ)
        ========================================================================= -->
-  <div id="fullscreenLightbox" class="fixed inset-0 z-[60] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-5 select-none" oncontextmenu="return false;">
+  <div id="fullscreenLightbox" class="fixed inset-0 z-[100000] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-5 select-none" oncontextmenu="return false;">
     <div class="flex flex-wrap items-center justify-between gap-2 text-white z-20 border-b border-white/10 pb-2.5">
       <div class="flex items-center gap-3">
         <span id="lightboxPropCode" class="px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] font-mono text-xs font-extrabold"></span>
@@ -2738,14 +2758,14 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       // 1. MOBILE COMPACT PAGINATION (< 640px)
       let mobileHtml = `
-        <div class="flex sm:hidden items-center justify-between w-full gap-2">
-          <button type="button" onclick="${goFuncName}(${currPage - 1})" ${currPage === 1 ? 'disabled' : ''} class="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition ${currPage === 1 ? 'border-slate-200 bg-slate-100 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] active:bg-slate-100 hover:border-[#0284C7] shadow-2xs'}">
+        <div class="flex sm:hidden items-center justify-between w-full gap-1.5 flex-nowrap">
+          <button type="button" onclick="${goFuncName}(${currPage - 1})" ${currPage === 1 ? 'disabled' : ''} class="flex-1 shrink-0 inline-flex items-center justify-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold border transition whitespace-nowrap min-w-[70px] ${currPage === 1 ? 'border-slate-200 bg-slate-100 text-slate-300 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-600 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] dark:bg-slate-800 dark:border-slate-700 dark:text-white active:bg-slate-100 dark:active:bg-slate-700 hover:border-[#0284C7] shadow-2xs'}">
             ‹ Trước
           </button>
-          <div class="shrink-0 px-3.5 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-[#0F172A] font-mono text-xs font-extrabold shadow-2xs">
-            Trang <span class="text-[#0284C7]">${currPage}</span> / ${totalPages}
+          <div class="shrink-0 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[#0F172A] dark:text-white font-mono text-xs font-extrabold shadow-2xs whitespace-nowrap">
+            Trang <span class="text-[#0284C7] dark:text-sky-400">${currPage}</span> / ${totalPages}
           </div>
-          <button type="button" onclick="${goFuncName}(${currPage + 1})" ${currPage === totalPages ? 'disabled' : ''} class="flex-1 inline-flex items-center justify-center gap-1 px-3 py-2 rounded-xl text-xs font-bold border transition ${currPage === totalPages ? 'border-slate-200 bg-slate-100 text-slate-300 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] active:bg-slate-100 hover:border-[#0284C7] shadow-2xs'}">
+          <button type="button" onclick="${goFuncName}(${currPage + 1})" ${currPage === totalPages ? 'disabled' : ''} class="flex-1 shrink-0 inline-flex items-center justify-center gap-1 px-2.5 py-2 rounded-xl text-xs font-bold border transition whitespace-nowrap min-w-[70px] ${currPage === totalPages ? 'border-slate-200 bg-slate-100 text-slate-300 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-600 cursor-not-allowed' : 'border-slate-300 bg-white text-[#0F172A] dark:bg-slate-800 dark:border-slate-700 dark:text-white active:bg-slate-100 dark:active:bg-slate-700 hover:border-[#0284C7] shadow-2xs'}">
             Tiếp ›
           </button>
         </div>
@@ -3093,7 +3113,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       // 1. Ngữ cảnh căn đang mở trong Modal
       let contextString = "";
       if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
-        contextString = `\n[TÀI SẢN ĐANG XEM: Mã ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${activeModalProperty.pricing?.current_price_billion || ""} Tỷ. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m2. Kết cấu: ${activeModalProperty.specs?.structure || ""}. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu câu hỏi liên quan đến tài sản hiện tại.`;
+        contextString = `\n[TÀI SẢN ĐANG XEM: Mã ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${activeModalProperty.pricing?.current_price_billion || ""} Tỷ. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m². Kết cấu: ${activeModalProperty.specs?.structure || ""}. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu câu hỏi liên quan đến tài sản hiện tại.`;
       }
 
       // 2. Ngữ cảnh tóm tắt toàn bộ kho hàng (Tổng số căn & Top 5 căn giảm giá sâu nhất)
@@ -4022,10 +4042,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     function handleSearchInput() {
       const inp = document.getElementById("smartSearchInput");
       const val = inp ? inp.value.trim() : "";
-      const b1 = document.getElementById("clearSearchBtn");
-      if (b1) b1.classList.toggle("hidden", !val);
-      const b2 = document.getElementById("clearSmartSearchBtn");
-      if (b2) b2.classList.toggle("hidden", !val);
+      const btn = document.getElementById("clearSmartSearchBtn") || document.getElementById("clearSearchBtn");
+      if (btn) btn.classList.toggle("hidden", !val);
       executeDebouncedSearch();
     }
     window.debounce = debounce;
@@ -4086,7 +4104,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       document.getElementById("sortFilter").value = "PRIORITY";
       if (document.getElementById("widthFilter")) document.getElementById("widthFilter").value = "ALL";
       if (document.getElementById("featureFilter")) document.getElementById("featureFilter").value = "ALL";
-      document.getElementById("clearSearchBtn").classList.add("hidden");
+      const clearBtn = document.getElementById("clearSmartSearchBtn") || document.getElementById("clearSearchBtn");
+      if (clearBtn) clearBtn.classList.add("hidden");
       document.getElementById("conciergeBanner").classList.add("hidden");
       currentParsedQueryFilter = null;
       renderQuickDistrictBar();
@@ -4390,6 +4409,74 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
     
     // =========================================================================
+    // FRONTEND TITLE FORMATTER & HOT RADAR SWITCHER (UX BATCH 01)
+    // =========================================================================
+    const POPULAR_WARDS_REGEX = /(?:Thảo Điền|An Phú|An Khánh|Bình An|Thạnh Mỹ Lợi|Cát Lái|Bình Trưng Tây|Bình Trưng Đông|Hiệp Bình Chánh|Hiệp Bình Phước|Linh Trung|Linh Tây|Linh Chiểu|Trường Thọ|Phước Long B|Phước Long A|Tăng Nhơn Phú [AB])/;
+    const DISTRICTS_REGEX = /(?:Quận\s+\d+|Quận\s+[\p{L}\s]+?|Thủ Đức|Bình Thạnh|Tân Bình|Phú Nhuận|Gò Vấp|Bình Tân|Tân Phú|Hóc Môn|Bình Chánh|Nhà Bè|Củ Chi|Cần Giờ)/;
+
+    function formatDisplayCardTitle(rawTitle) {
+      if (!rawTitle) return "";
+      let t = String(rawTitle).trim();
+      
+      // 1. Chuẩn hóa m2 -> m²
+      t = t.replace(/(\d+(?:\.\d+)?)\s*m2\b/g, "$1m²");
+      
+      // Nếu tiêu đề đã có dấu câu phân tách chuẩn, chỉ chuẩn hóa gạch ngang & đơn vị
+      if (/[,–—]/.test(t)) {
+        t = t.replace(/\s*[–—]\s*/g, " — ");
+        t = t.replace(/\s*,\s*/g, ", ");
+        return t;
+      }
+
+      if (t.startsWith("Bán ")) {
+        // Phường (trừ trường hợp tên đường 'Liên Phường')
+        t = t.replace(/(?<!đường Liên)(?<!Liên)\s+(Phường\s+[\p{L}\d\s]+?)(?=\s+(?:Quận|Thủ Đức|Bình Thạnh|Tân Bình|Phú Nhuận|Gò Vấp|Bình Tân|Tân Phú|Hóc Môn|Bình Chánh|Nhà Bè|Củ Chi|Cần Giờ|\d+(?:\.\d+)?m²))/gu, ", $1");
+        
+        // Phường phổ biến không có chữ 'Phường'
+        t = t.replace(new RegExp(`\\s+(${POPULAR_WARDS_REGEX.source})(?=\\s+(?:${DISTRICTS_REGEX.source}|\\d+(?:\\.\\d+)?m²))`, "gu"), ", $1");
+        
+        // Quận / Huyện / Thành phố
+        t = t.replace(new RegExp(`\\s+(${DISTRICTS_REGEX.source})(?=\\s+(?:\\d+(?:\\.\\d+)?m²|ngang|hầm|\\d+\\s+tầng|khu|lô))`, "gu"), ", $1");
+        
+        // Diện tích
+        t = t.replace(/\s+(\d+(?:\.\d+)?m²)/g, " — $1");
+        
+        // Đoạn mô tả/điểm nhấn liền sau diện tích
+        t = t.replace(/( — \d+(?:\.\d+)?m²)\s+(?!(?:—|-|\d+\s*tầng|ngang|dòng tiền))([\p{L}\d])/gu, "$1 — $2");
+        
+        // Bề ngang
+        t = t.replace(/\s+((?:ngang khủng|ngang lớn|ngang)\s+[\d\.,]+m(?: nở hậu [\d\.,]+m)?)/gu, " — $1");
+        
+        // Kết cấu / số tầng
+        t = t.replace(/\s+((?:\d+\s+hầm\s+)?(?:hầm\s+)?\d+\s+tầng(?:\s+\d+\s+phòng)?(?:\s+thang máy)?)/gu, " — $1");
+        
+        // Dòng tiền / tiện ích
+        t = t.replace(/\s+(dòng tiền\s+[\p{L}\d\s,]+)/gu, " — $1");
+        t = t.replace(/\s+(khu phố\s+[\p{L}\s]+)/gu, " — $1");
+        t = t.replace(/\s+(có hồ bơi)/gu, " — $1");
+        
+        // Dọn dẹp khoảng trắng & dấu gạch thừa
+        t = t.replace(/\s*—\s*—\s*/g, " — ");
+        t = t.replace(/\s*,\s*,\s*/g, ", ");
+        t = t.replace(/\s*,\s*—\s*/g, " — ");
+        t = t.replace(/\s*—\s*,\s*/g, " — ");
+        t = t.replace(/\s{2,}/g, " ");
+      }
+      return t;
+    }
+    window.formatDisplayCardTitle = formatDisplayCardTitle;
+
+    function cycleHotRadarGroup() {
+      const curatedHotList = getCuratedHotPropertiesList();
+      const perPage = getHotItemsPerPage();
+      const totalHotPages = Math.max(1, Math.ceil(curatedHotList.length / perPage));
+      if (totalHotPages <= 1) return;
+      hotCurrentPage = (hotCurrentPage % totalHotPages) + 1;
+      renderHotRadarSection();
+    }
+    window.cycleHotRadarGroup = cycleHotRadarGroup;
+
+    // =========================================================================
     // V6.2 CHUẨN THẺ BĐS 3 CỘT: RỘNG RÃI, KHÔNG CẮT CHỮ, ĐỦ GIÁ BÁN & MÃ NSG
     // =========================================================================
     function renderV62PropertyCardHtml(prop, idx, isAboveFold, inCompare, cardPrefix = "") {
@@ -4507,7 +4594,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
                 <!-- Tiêu đề BĐS: Chuẩn 2 dòng đều nhau trên toàn bộ card -->
                 <h3 class="card-title font-bold text-[17px] text-[#0F172A] dark:text-white leading-snug line-clamp-2 h-[2.85rem] overflow-hidden group-hover:text-[#0284C7] transition">
-                  <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition block">${esc(prop.seo_title)}</a>
+                  <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition block">${esc(formatDisplayCardTitle(prop.seo_title))}</a>
                 </h3>
 
                 <!-- Đoạn tóm tắt: Chuẩn 2 dòng đều nhau, không làm lệch khung -->
@@ -4683,7 +4770,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                 <div class="p-3.5 flex-1 flex flex-col justify-between space-y-2.5 font-sans">
                   <!-- 1 dòng mô tả/tiêu đề ngắn có link SEO -->
                   <div class="text-[14px] font-bold text-[#0F172A] leading-snug line-clamp-1">
-                    <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7]">${esc(prop.seo_title || prop.summary || streetLabel)}</a>
+                    <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7]">${esc(formatDisplayCardTitle(prop.seo_title || prop.summary || streetLabel))}</a>
                   </div>
 
                   <!-- 2 ô thông số: Diện tích & Khai thác -->
@@ -5021,10 +5108,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       clearAllFilters();
       const inp = document.getElementById("smartSearchInput");
       if (inp) inp.value = "";
-      const b1 = document.getElementById("clearSearchBtn");
-      if (b1) b1.classList.add("hidden");
-      const b2 = document.getElementById("clearSmartSearchBtn");
-      if (b2) b2.classList.add("hidden");
+      const btn = document.getElementById("clearSmartSearchBtn") || document.getElementById("clearSearchBtn");
+      if (btn) btn.classList.add("hidden");
     }
 
     window.applyQuickHeroFilter = applyQuickHeroFilter;
@@ -5732,26 +5817,28 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
 
           return `
-            <div onclick="document.getElementById('insightModal').classList.add('hidden'); openPropertyModal('${esc(p.property_id)}')" class="insight-related-card group bg-[#F8FAFC] hover:bg-white rounded-xl border border-[#E2E8F0] hover:border-[#0284C7] overflow-hidden shadow-xs hover:shadow-md transition flex flex-col cursor-pointer select-none" oncontextmenu="return false;">
-              <div class="relative w-full h-[150px] bg-slate-100 overflow-hidden shrink-0 select-none">
-                <img src="${esc(coverImg)}" alt="${esc(p.seo_title)}" draggable="false" class="w-full h-[150px] object-cover block group-hover:scale-105 transition-transform duration-300 pointer-events-none select-none" loading="lazy" style="height: 150px !important; width: 100% !important; object-fit: cover !important; display: block !important;" />
-                <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
+            <div onclick="document.getElementById('insightModal').classList.add('hidden'); openPropertyModal('${esc(p.property_id)}')" class="insight-related-card group bg-[#F8FAFC] hover:bg-white rounded-xl border border-[#E2E8F0] hover:border-[#0284C7] overflow-hidden shadow-xs hover:shadow-md transition flex flex-col justify-between h-full cursor-pointer select-none" oncontextmenu="return false;">
+              <div class="flex flex-col">
+                <div class="relative w-full h-[140px] bg-slate-100 overflow-hidden shrink-0 select-none">
+                  <img src="${esc(coverImg)}" alt="${esc(p.seo_title)}" draggable="false" class="w-full h-[140px] object-cover block group-hover:scale-105 transition-transform duration-300 pointer-events-none select-none" loading="lazy" style="height: 140px !important; width: 100% !important; object-fit: cover !important; display: block !important;" />
+                  <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
+                </div>
+                <div class="p-3.5 flex flex-col space-y-2">
+                  <!-- Dòng 1: Mã tài sản + Loại hình -->
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="font-mono text-[11px] font-extrabold px-1.5 py-0.5 rounded bg-[#FBBF24] text-[#0F172A] shadow-2xs">${esc(p.property_id)}</span>
+                    <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 truncate max-w-[140px]">${esc(catName)}</span>
+                  </div>
+                  <!-- Dòng 2: Tiêu đề BĐS & Vị trí rõ ràng, không bị ngắt cụt -->
+                  <div class="text-[13px] font-bold text-[#0F172A] leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#0284C7] transition">
+                    <a href="/p/${esc(p.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(p.property_id)}');" class="hover:text-[#0284C7] block">${esc(formatDisplayCardTitle(p.seo_title || (streetLabel + ', ' + (p.public_location?.district || ''))))}</a>
+                  </div>
+                </div>
               </div>
-              <div class="p-3 flex flex-col justify-between flex-1 space-y-1.5">
-                <!-- Dòng 1: Mã tài sản + Loại hình -->
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="font-mono text-[11px] font-extrabold px-1.5 py-0.5 rounded bg-[#FBBF24] text-[#0F172A] shadow-2xs">${esc(p.property_id)}</span>
-                  <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 truncate max-w-[130px]">${esc(catName)}</span>
-                </div>
-                <!-- Dòng 2: Tên đường + Phường / Quận -->
-                <div class="text-xs font-bold text-[#0F172A] line-clamp-1 group-hover:text-[#0284C7] transition">
-                  <a href="/p/${esc(p.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(p.property_id)}');" class="hover:text-[#0284C7]">${esc(streetLabel)}, ${esc(p.public_location?.district || '')}</a>
-                </div>
-                <!-- Dòng 3: Diện tích + Giá bán nổi bật -->
-                <div class="flex items-center justify-between text-xs font-mono pt-1.5 border-t border-slate-200/70">
-                  <span class="text-slate-600 font-semibold">${esc(p.specs?.recognized_area_m2 ? p.specs.recognized_area_m2 + 'm²' : p.specs?.dimensions || '')}</span>
-                  <span class="font-extrabold text-[#D97706] text-[13.5px]">${m.isMasked ? 'Giá kín' : esc(m.currP) + ' Tỷ'}</span>
-                </div>
+              <!-- Dòng 3: Diện tích + Giá bán nổi bật ở đáy thẻ -->
+              <div class="p-3.5 pt-2 border-t border-slate-200/70 mt-auto flex items-center justify-between text-xs font-mono">
+                <span class="text-slate-600 font-semibold">${esc(p.specs?.recognized_area_m2 ? p.specs.recognized_area_m2 + 'm²' : (p.specs?.dimensions || ''))}</span>
+                <span class="font-extrabold text-[#D97706] text-[13.5px]">${m.isMasked ? 'Giá kín' : esc(m.currP) + ' Tỷ'}</span>
               </div>
             </div>
           `;
@@ -5936,7 +6023,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
       return new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "./properties_data.js?v=20261102113314&t=" + Date.now();
+        script.src = "./properties_data.js?v=20261102175123&t=" + Date.now();
         script.onload = function() {
           resolve(window.__NHATOSG_DATA__ || null);
         };
@@ -6003,7 +6090,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           };
         } else {
           var script = document.createElement("script");
-          script.src = "./properties_data.js?v=20261102113314&t=" + Date.now();
+          script.src = "./properties_data.js?v=20261102175123&t=" + Date.now();
           script.onload = function() {
             renderPublicCatalogWithData();
           };
