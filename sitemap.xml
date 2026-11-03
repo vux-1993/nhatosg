@@ -3,9 +3,30 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nhatosg.com.vn/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nhatosg.com.vn/p/NSG-0509.html</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.jpg</image:loc>
+      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – hầm + 8 tầng, 50 tỷ</image:title>
+      <image:caption>Bán khuôn đất mặt tiền Huỳnh Tấn Phát Phường Phú Thuận Quận 7 395m2 ngang 15.76m - DT 15.76m × 36m (CN 395.0m²) - Giá chào 50.0 Tỷ - Ảnh #1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.jpg</image:loc>
+      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – hầm + 8 tầng, 50 tỷ</image:title>
+      <image:caption>Bán khuôn đất mặt tiền Huỳnh Tấn Phát Phường Phú Thuận Quận 7 395m2 ngang 15.76m - DT 15.76m × 36m (CN 395.0m²) - Giá chào 50.0 Tỷ - Ảnh #2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.jpg</image:loc>
+      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – hầm + 8 tầng, 50 tỷ</image:title>
+      <image:caption>Bán khuôn đất mặt tiền Huỳnh Tấn Phát Phường Phú Thuận Quận 7 395m2 ngang 15.76m - DT 15.76m × 36m (CN 395.0m²) - Giá chào 50.0 Tỷ - Ảnh #3</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://nhatosg.com.vn/p/NSG-0741.html</loc>
@@ -5591,27 +5612,6 @@
       <image:loc>https://nhatosg.com.vn/web_images/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.jpg</image:loc>
       <image:title>Bán nhà mặt tiền Nguyễn Gia Trí, Bình Thạnh – 4 tầng, 88 tỷ</image:title>
       <image:caption>Tòa Nhà Mặt Tiền Nguyễn Gia Trí, Phường 25, Bình Thạnh - DT 17m × 10m (CN 151.0m²) - Giá chào 88.0 Tỷ - Ảnh #2</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://nhatosg.com.vn/p/NSG-0509.html</loc>
-    <lastmod>2026-11-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.jpg</image:loc>
-      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – 8 tầng, 60 tỷ</image:title>
-      <image:caption>Quỹ Đất Mặt Tiền Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7 - DT 15.76m × 36m (CN 395.0m²) - Giá chào 60.0 Tỷ - Ảnh #1</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.jpg</image:loc>
-      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – 8 tầng, 60 tỷ</image:title>
-      <image:caption>Quỹ Đất Mặt Tiền Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7 - DT 15.76m × 36m (CN 395.0m²) - Giá chào 60.0 Tỷ - Ảnh #2</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://nhatosg.com.vn/web_images/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.jpg</image:loc>
-      <image:title>Bán quỹ đất &amp; tài sản hiện hữu Huỳnh Tấn Phát, Quận 7 – 8 tầng, 60 tỷ</image:title>
-      <image:caption>Quỹ Đất Mặt Tiền Huỳnh Tấn Phát, Phường Phú Thuận, Quận 7 - DT 15.76m × 36m (CN 395.0m²) - Giá chào 60.0 Tỷ - Ảnh #3</image:caption>
     </image:image>
   </url>
   <url>
