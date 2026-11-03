@@ -970,7 +970,7 @@ body.v5-dark-mode #hotRadarTableWrapper .bg-slate-100 {
     display: none !important;
   }
   .property-card-item .card-compare-btn {
-    display: none !important;
+    display: inline-flex !important;
   }
   .property-card-item .card-body-pad {
     padding: 0.875rem !important;
@@ -1230,17 +1230,44 @@ body.v5-dark-mode #propertyModal .modal-bottom-cta {
 
 .insight-related-card {
   border: 1px solid #E2E8F0 !important;
-  border-radius: 12px !important;
+  border-radius: 14px !important;
   overflow: hidden !important;
   background-color: #F8FAFC !important;
   display: flex !important;
   flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
 }
 .insight-related-card img {
-  height: 150px !important;
+  height: 140px !important;
   width: 100% !important;
   object-fit: cover !important;
   display: block !important;
+}
+body.v5-dark-mode .insight-related-card {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .insight-related-card:hover {
+  background-color: #27354A !important;
+  border-color: #0284C7 !important;
+}
+body.v5-dark-mode .insight-related-card .text-\[\#0F172A\] {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode .insight-related-card .bg-slate-200 {
+  background-color: #334155 !important;
+  color: #CBD5E1 !important;
+}
+body.v5-dark-mode .insight-related-card .text-slate-700 {
+  color: #CBD5E1 !important;
+}
+body.v5-dark-mode .insight-related-card .text-slate-600 {
+  color: #94A3B8 !important;
+}
+body.v5-dark-mode .insight-related-card .border-slate-200\/70 {
+  border-color: #334155 !important;
 }
 
 /* =========================================================================
@@ -1393,4 +1420,59 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
   #heroSpotlightContainer {
     padding: 0.875rem !important;
   }
+}
+
+/* =========================================================================
+   FRONTEND UX HOTFIX BATCH 01 & SIMPLIFICATION: LIGHTBOX, SEARCH & ACCORDIONS
+   ========================================================================= */
+#fullscreenLightbox {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1000000 !important;
+  background-color: rgba(5, 8, 16, 0.98) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+#fullscreenLightbox .lightbox-main-frame img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: auto !important;
+  display: block !important;
+}
+
+body.v5-dark-mode #smartSearchInput {
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode #smartSearchInput::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* =========================================================================
+   PROPERTY DETAIL ACCORDIONS (MẶC ĐỊNH THU GỌN - DETAILS/SUMMARY)
+   ========================================================================= */
+details.group summary::-webkit-details-marker {
+  display: none !important;
+}
+details.group summary {
+  list-style: none !important;
+}
+body.v5-dark-mode details.group {
+  background-color: #0F172A !important;
+  border-color: #334155 !important;
+}
+body.v5-dark-mode details.group summary {
+  background-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+body.v5-dark-mode details.group summary:hover {
+  background-color: #27354A !important;
+}
+body.v5-dark-mode details.group[open] summary {
+  background-color: #27354A !important;
+}
+body.v5-dark-mode details.group .border-t {
+  border-color: #334155 !important;
 }

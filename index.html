@@ -25,7 +25,7 @@
   <!-- Lucide Icons (Local Offline Pinned) -->
   <script src="./lucide.min.js"></script>
   <script src="./optimized_manifest.js?v=20261028_fix2"></script>
-  <script src="./properties_data.js?v=20261102175123"></script>
+  <script src="./properties_data.js?v=20261102175234"></script>
   <style>
     html {
       font-size: 17.5px;
@@ -1036,7 +1036,7 @@ body.modal-open {
     display: none !important;
   }
   .property-card-item .card-compare-btn {
-    display: none !important;
+    display: inline-flex !important;
   }
   .property-card-item .card-body-pad {
     padding: 0.875rem !important;
@@ -1512,7 +1512,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261102175123";
+    script.src = "./properties_data.js?v=20261102175234";
     script.async = false;
     script.onload = function() {
       if (typeof window.__onNhatosgDataLoaded === "function") window.__onNhatosgDataLoaded();
@@ -1778,18 +1778,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           <p class="text-slate-600 text-xs sm:text-sm mt-1">Một số tài sản đáng chú ý có mức điều chỉnh giá tốt hoặc hiệu suất khai thác ổn định.</p>
         </div>
 
-        <div class="flex items-center gap-2">
-          <button
-            type="button"
-            id="cycleHotGroupBtn"
-            onclick="cycleHotRadarGroup()"
-            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold bg-[#0284C7] hover:bg-sky-600 active:scale-95 text-white shadow-xs transition cursor-pointer select-none"
-            title="Xem nhóm tài sản nổi bật khác"
-          >
-            <i data-lucide="refresh-cw" class="w-4 h-4 text-[#FBBF24]"></i>
-            <span>Xem nhóm khác</span>
-          </button>
-        </div>
+        <!-- cycleHotGroupBtn removed per UI simplification -->
       </div>
 
       <!-- DẠNG THẺ (DỰ PHÒNG ẨN - GIỮ ĐỂ TRÁNH LỖI CALLER) -->
@@ -2096,17 +2085,32 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       </div>
 
       <div class="modal-scroll-body p-3.5 sm:p-6 overflow-y-auto space-y-4 sm:space-y-5 pb-24 sm:pb-8 flex-1 min-h-0">
-        <!-- 2. Khối Tiêu đề & Vị trí nằm NGAY TRÊN khung ảnh -->
-        <div>
+        <!-- =========================================================================
+             1. TIÊU ĐỀ + VỊ TRÍ + GIÁ (A)
+             ========================================================================= -->
+        <div class="space-y-3">
           <h3 id="modalTitle" class="text-xl sm:text-2xl font-extrabold text-[#0F172A] leading-snug"></h3>
-          <div id="modalLocationBadges" class="flex flex-wrap items-center gap-2 mt-2.5"></div>
+          <div id="modalLocationBadges" class="flex flex-wrap items-center gap-2"></div>
+          
+          <!-- Hàng Giá Bán Nổi Bật -->
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-sky-50/80 border border-sky-200/90 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 block">Mức giá chào bán</span>
+              <div id="modalCurrentPrice" class="font-mono text-2xl sm:text-3xl font-extrabold text-[#0284C7] mt-0.5"></div>
+            </div>
+            <div id="modalInitialPriceWrap" class="text-right">
+              <span class="text-xs font-semibold text-slate-500 block">Giá khởi điểm</span>
+              <span id="modalInitialPrice" class="font-mono text-sm sm:text-base font-bold text-slate-400 line-through"></span>
+            </div>
+          </div>
         </div>
 
-        <!-- 3. Khung Ảnh Chính & Thanh công cụ & Thumbnails -->
+        <!-- =========================================================================
+             2. THƯ VIỆN ẢNH (B)
+             ========================================================================= -->
         <div class="bg-[#090D16] rounded-2xl overflow-hidden border border-white/10 select-none shadow-xl" oncontextmenu="return false;">
-          <!-- Khung ảnh chính (Ảnh lớn, nổi bật chiều cao, kèm hiệu ứng nền mờ đồng điệu hai bên) -->
           <div class="gallery-main-frame relative group rounded-2xl">
-            <!-- Nền mờ tự nhiên lấp khoảng trống hai bên (A1) -->
+            <!-- Nền mờ tự nhiên lấp khoảng trống hai bên -->
             <img id="galleryBlurBackdrop" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none transition-opacity duration-300 select-none" />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-slate-950/60 pointer-events-none z-5"></div>
             
@@ -2121,151 +2125,210 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
               class="relative z-10 w-auto h-full max-w-full m-auto object-contain transition-transform duration-200 pointer-events-none select-none block"
             />
             
-            <!-- Watermark chìm nhỏ chính giữa ảnh -->
+            <!-- Watermark chìm chính giữa ảnh -->
             <div class="gallery-watermark">NHATOSG.COM.VN</div>
 
-            <!-- Lớp chắn vô hình chặn chạm/chuột phải trực tiếp vào file ảnh nhưng khi click vẫn mở Lightbox -->
+            <!-- Lớp chắn chống chuột phải nhưng click vẫn mở Lightbox -->
             <div class="absolute inset-0 z-15 bg-transparent cursor-zoom-in" onclick="openFullscreenLightbox()" oncontextmenu="return false;"></div>
 
-            <button onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
+            <button id="modalGalleryPrevBtn" onclick="changeGallerySlide(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
               <i data-lucide="chevron-left" class="w-5 h-5"></i>
             </button>
-            <button onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
+            <button id="modalGalleryNextBtn" onclick="changeGallerySlide(1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-white text-white hover:text-[#0F172A] border border-white/20 shadow-lg flex items-center justify-center transition z-20">
               <i data-lucide="chevron-right" class="w-5 h-5"></i>
             </button>
           </div>
 
-          <!-- 4. Thanh công cụ dưới ảnh: Bên trái là [📷 Ảnh x/y] + [↗ Phóng to]; bên phải là cụm 2 CTA cân xứng -->
+          <!-- Thanh công cụ & Thumbnails dưới ảnh -->
           <div class="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#F8FAFC] border-t border-slate-200 space-y-2.5">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-              <div class="flex items-center justify-between sm:justify-start gap-2">
-                <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs font-bold flex items-center gap-1.5">
-                  <i data-lucide="camera" class="w-3.5 h-3.5 text-[#F59E0B]"></i>
-                  <span id="galleryCounter">Ảnh 1/1</span>
-                </span>
-                <button type="button" onclick="openFullscreenLightbox()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-[#0F172A] text-xs font-bold transition flex items-center gap-1.5 border border-slate-200">
-                  <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#0284C7]"></i>
-                  <span>Phóng to</span>
-                </button>
-              </div>
-
-              <!-- CTA DƯỚI ẢNH GALLERY: ẨN TRÊN MOBILE (ĐÃ CÓ STICKY BOTTOM BAR), HIỆN TRÊN DESKTOP -->
-              <div class="hidden sm:flex items-center gap-2.5 w-auto">
-                <a href="tel:0916239898" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-slate-950 font-bold text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
-                  <i data-lucide="phone-call" class="w-4 h-4 text-slate-950 shrink-0"></i>
-                  <span>Gọi Vũ: 0916.23.9898</span>
-                </a>
-                <button type="button" onclick="quickZaloPropertyRequest()" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 active:bg-sky-700 text-white font-bold text-[13px] shadow-sm transition text-center whitespace-nowrap min-h-[42px]">
-                  <i data-lucide="file-check-2" class="w-4 h-4 text-white shrink-0"></i>
-                  <span>Yêu Cầu Sổ Hồng</span>
-                </button>
-              </div>
+            <div class="flex items-center justify-between gap-2.5">
+              <span class="px-2.5 py-1.5 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs font-bold flex items-center gap-1.5">
+                <i data-lucide="camera" class="w-3.5 h-3.5 text-[#F59E0B]"></i>
+                <span id="galleryCounter">Ảnh 1/1</span>
+              </span>
+              <button type="button" onclick="openFullscreenLightbox()" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-[#0F172A] text-xs font-bold transition flex items-center gap-1.5 border border-slate-200">
+                <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#0284C7]"></i>
+                <span>Xem Toàn Màn Hình</span>
+              </button>
             </div>
-
-            <!-- 5. Dải ảnh nhỏ (Thumbnails) bo góc nằm gọn gàng phía dưới -->
             <div id="galleryThumbnails" class="flex items-center gap-2.5 overflow-x-auto pb-1 pt-0.5"></div>
           </div>
         </div>
 
-        <!-- Financial Key Metrics -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200 shadow-2xs">
-          <div>
-            <div class="text-[13px] text-slate-500 font-semibold">Giá chào khởi điểm</div>
-            <div id="modalInitialPrice" class="font-mono text-[15px] font-bold text-slate-400 line-through mt-0.5"></div>
+        <!-- =========================================================================
+             3. THÔNG SỐ CHÍNH (C)
+             ========================================================================= -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">Diện tích công nhận</span>
+            <div id="modalRecognizedArea" class="font-mono text-lg font-extrabold text-[#0F172A] mt-1">-- m²</div>
           </div>
-          <div>
-            <div class="text-[13px] text-slate-500 font-semibold">Giá thương lượng hiện tại</div>
-            <div id="modalCurrentPrice" class="font-mono text-2xl font-extrabold text-[#0284C7] mt-0.5"></div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">Kích thước khuôn đất</span>
+            <div id="modalDimensions" class="font-mono text-lg font-extrabold text-[#0F172A] mt-1">--</div>
           </div>
-          <div>
-            <div class="text-[13px] text-slate-500 font-semibold">Thông số Diện tích thực</div>
-            <div id="modalAreaSpecs" class="font-mono text-[15px] font-extrabold text-[#0F172A] mt-0.5"></div>
-          </div>
-          <div>
-            <div class="text-[13px] text-slate-500 font-semibold">Dòng tiền khai thác</div>
-            <div id="modalCashflow" class="font-mono text-[15px] font-extrabold text-emerald-600 mt-0.5"></div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
+            <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider">Quy mô kết cấu</span>
+            <div id="modalStructure" class="font-bold text-base sm:text-lg text-[#0F172A] mt-1 truncate">--</div>
           </div>
         </div>
 
-        <!-- BẢNG BÓC TÁCH KẾT CẤU, TIỀN XÂY DỰNG & ĐƠN GIÁ ĐẤT THUẦN -->
-        <div id="modalUnitCostBreakdown" class="bg-white rounded-2xl border-2 border-sky-200/90 p-4 sm:p-5 shadow-2xs"></div>
-
-        <!-- HÀNH TRÌNH BIẾN ĐỘNG GIÁ -->
-        <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center gap-1.5">
-            <i data-lucide="trending-down" class="w-4 h-4 text-[#0284C7]"></i>
-            <span>Lịch sử thay đổi giá chào</span>
-          </h4>
-          <div id="modalPriceTimeline" class="space-y-2 pl-3 border-l-2 border-sky-300"></div>
-        </div>
-
-        <!-- HIỆN TRẠNG & THÔNG TIN CHI TIẾT TÀI SẢN -->
-        <div>
-          <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] mb-3 flex items-center gap-1.5">
-            <i data-lucide="clipboard-list" class="w-4 h-4 text-[#0284C7]"></i>
-            <span>Thông tin chi tiết và hiện trạng</span>
-          </h4>
-          <div id="modalDescription" class="space-y-3"></div>
-        </div>
-
-        <!-- BẢNG TÍNH ĐÒN BẨY TÀI CHÍNH -->
-        <div class="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3 shadow-2xs">
-          <div class="flex items-center justify-between">
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A] flex items-center gap-1.5">
-              <i data-lucide="calculator" class="w-4 h-4 text-[#0284C7]"></i>
-              <span>Tính vốn tự có và chi phí vay (Mô phỏng tham khảo)</span>
-            </h4>
-            <span class="text-xs font-mono text-slate-500">Lãi suất giả định: 7,5%/năm</span>
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+        <!-- =========================================================================
+             4. THU NHẬP THUÊ NẾU CÓ (D)
+             ========================================================================= -->
+        <div id="modalCashflowBox" class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <i data-lucide="banknote" class="w-5 h-5"></i>
+            </div>
             <div>
-              <label class="text-[13.5px] font-bold text-slate-700 flex justify-between mb-1">
-                <span>Tỷ lệ vay Ngân hàng:</span>
-                <strong id="loanLtvLabel" class="font-mono text-[#0284C7]">40%</strong>
-              </label>
-              <input id="loanLtvSlider" type="range" min="0" max="70" step="5" value="40" oninput="updateLoanCalculator()" class="w-full accent-[#0284C7] cursor-pointer" />
-            </div>
-            <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-[14.5px]">
-              <span class="text-slate-500 block font-medium">Vốn tự có cần chuẩn bị:</span>
-              <strong id="loanEquityValue" class="font-mono text-[16.5px] text-[#0F172A]">-- Tỷ</strong>
-            </div>
-            <div class="bg-white p-3.5 rounded-xl border border-slate-200/80 text-[14.5px]">
-              <span class="text-slate-500 block font-medium">Lãi vay dự kiến / Dòng tiền thuê:</span>
-              <strong id="loanInterestVsRent" class="font-mono text-[14.5px] text-emerald-700">--</strong>
+              <span class="text-xs text-emerald-800 font-extrabold uppercase tracking-wider block">Thu nhập khai thác / HĐ thuê</span>
+              <div id="modalCashflow" class="text-base sm:text-lg font-extrabold text-emerald-700 mt-0.5">--</div>
             </div>
           </div>
-          <p class="text-[12.5px] text-slate-500 italic">*Lưu ý: Kết quả là ước tính tham khảo theo lãi suất giả định 7,5%/năm (chưa bao gồm trả gốc, phí, thuế và biến động lãi suất); không phải báo giá hay cam kết tín dụng ngân hàng.</p>
         </div>
 
-        <!-- Yêu cầu hồ sơ pháp lý và thông tin vị trí (Đã đổi câu từ theo yêu cầu) -->
-        <div class="bg-[#0F172A] text-white p-5 rounded-2xl border border-slate-800">
-          <div class="flex items-start gap-3.5">
-            <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center shrink-0">
-              <i data-lucide="file-check-2" class="w-5 h-5 text-[#FBBF24]"></i>
-            </div>
-            <div class="flex-1">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                <h4 class="text-[15px] font-extrabold text-white">Yêu cầu hồ sơ pháp lý và thông tin vị trí</h4>
-                <a href="tel:0916239898" class="inline-flex items-center justify-center sm:justify-start gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-xs sm:text-[13px] font-mono font-extrabold text-[#FBBF24] transition w-fit">
-                  <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
-                  <span>Gọi Vũ: 0916.23.9898</span>
-                </a>
-              </div>
-              <p class="text-[13px] text-slate-300 mt-1 leading-relaxed">
-                Để bảo vệ thông tin chủ tài sản, số nhà chính xác và bản chụp Sổ hồng gốc được gửi trực tiếp đến Anh/Chị qua Zalo.
-              </p>
-              <form onsubmit="submitLegalRequest(event)" class="mt-3.5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                <input required type="text" id="leadName" placeholder="Họ và tên" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-[13.5px] text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
-                <input required type="tel" id="leadPhone" placeholder="Số điện thoại liên hệ" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-[13.5px] text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
-                <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white font-extrabold text-[13px] transition flex items-center justify-center gap-1.5">
-                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
-                  <span>Gửi yêu cầu qua Zalo</span>
-                </button>
-              </form>
-              <p class="text-[11.5px] text-slate-400 leading-normal mt-2">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ).</p>
-              <div id="leadSuccessMsg" class="hidden mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-300 font-medium"></div>
-            </div>
+        <!-- =========================================================================
+             5. NÚT ZALO / GỌI ĐIỆN / LIÊN HỆ (E)
+             ========================================================================= -->
+        <div class="p-3 sm:p-4 rounded-2xl bg-[#0F172A] text-white flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
+          <div class="text-center sm:text-left">
+            <div class="text-sm font-extrabold text-amber-400">Liên hệ Chuyên viên nhatoSG</div>
+            <div class="text-xs text-slate-300 mt-0.5">Hỗ trợ đối soát sổ hồng, định giá thị trường & đàm phán trực tiếp</div>
           </div>
+          <div class="flex items-center gap-2.5 w-full sm:w-auto">
+            <a href="tel:0916239898" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs sm:text-sm transition shadow-sm whitespace-nowrap">
+              <i data-lucide="phone-call" class="w-4 h-4 text-slate-950"></i>
+              <span>Gọi Vũ: 0916.23.9898</span>
+            </a>
+            <button type="button" onclick="quickZaloPropertyRequest()" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white font-bold text-xs sm:text-sm transition shadow-sm whitespace-nowrap">
+              <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
+              <span>Nhận Sổ Hồng Zalo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- =========================================================================
+             6. THÔNG TIN MỞ RỘNG DẠNG ACCORDION (F - MẶC ĐỊNH THU GỌN)
+             ========================================================================= -->
+        <div class="space-y-3 pt-2">
+          
+          <!-- Accordion 1: Hiện trạng & Mô tả chi tiết -->
+          <details id="accDescription" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
+              <span class="flex items-center gap-2">
+                <i data-lucide="clipboard-list" class="w-4 h-4 text-[#0284C7]"></i>
+                <span>Mô tả chi tiết và hiện trạng bất động sản</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-4 sm:p-5 border-t border-slate-100">
+              <div id="modalDescription" class="space-y-3"></div>
+            </div>
+          </details>
+
+          <!-- Accordion 2: Phân tích đơn giá đất & Bóc tách xây dựng -->
+          <details id="accUnitCost" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
+              <span class="flex items-center gap-2">
+                <i data-lucide="calculator" class="w-4 h-4 text-[#0284C7]"></i>
+                <span>Bóc tách kết cấu, tiền xây dựng &amp; đơn giá đất thuần</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-4 sm:p-5 border-t border-slate-100">
+              <div id="modalUnitCostBreakdown"></div>
+            </div>
+          </details>
+
+          <!-- Accordion 3: Lịch sử thay đổi giá chào -->
+          <details id="accPriceHistory" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
+              <span class="flex items-center gap-2">
+                <i data-lucide="trending-down" class="w-4 h-4 text-[#0284C7]"></i>
+                <span>Lịch sử thay đổi giá chào bán</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-4 sm:p-5 border-t border-slate-100">
+              <div id="modalPriceTimeline" class="space-y-2 pl-3 border-l-2 border-sky-300"></div>
+            </div>
+          </details>
+
+          <!-- Accordion 4: Bảng tính đòn bẩy tài chính -->
+          <details id="accLoanCalc" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
+              <span class="flex items-center gap-2">
+                <i data-lucide="scale" class="w-4 h-4 text-[#0284C7]"></i>
+                <span>Tính vốn tự có &amp; chi phí vay (Mô phỏng tham khảo)</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-4 sm:p-5 border-t border-slate-100 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-slate-500">Lãi suất giả định: 7,5%/năm</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                <div>
+                  <label class="text-[13.5px] font-bold text-slate-700 flex justify-between mb-1">
+                    <span>Tỷ lệ vay Ngân hàng:</span>
+                    <strong id="loanLtvLabel" class="font-mono text-[#0284C7]">40%</strong>
+                  </label>
+                  <input id="loanLtvSlider" type="range" min="0" max="70" step="5" value="40" oninput="updateLoanCalculator()" class="w-full accent-[#0284C7] cursor-pointer" />
+                </div>
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 text-[14.5px]">
+                  <span class="text-slate-500 block font-medium">Vốn tự có cần chuẩn bị:</span>
+                  <strong id="loanEquityValue" class="font-mono text-[16.5px] text-[#0F172A]">-- Tỷ</strong>
+                </div>
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 text-[14.5px]">
+                  <span class="text-slate-500 block font-medium">Lãi vay dự kiến / Dòng tiền:</span>
+                  <strong id="loanInterestVsRent" class="font-mono text-[14.5px] text-emerald-700">--</strong>
+                </div>
+              </div>
+              <p class="text-[12.5px] text-slate-500 italic">*Lưu ý: Kết quả là ước tính tham khảo theo lãi suất giả định 7,5%/năm (chưa bao gồm trả gốc, phí, thuế và biến động lãi suất); không phải báo giá hay cam kết tín dụng ngân hàng.</p>
+            </div>
+          </details>
+
+          <!-- Accordion 5: Yêu cầu hồ sơ pháp lý & Định giá -->
+          <details id="accLegalForm" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
+            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
+              <span class="flex items-center gap-2">
+                <i data-lucide="file-check-2" class="w-4 h-4 text-[#0284C7]"></i>
+                <span>Yêu cầu hồ sơ pháp lý &amp; thông tin vị trí</span>
+              </span>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-4 sm:p-5 border-t border-slate-100 bg-[#0F172A] text-white">
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center shrink-0">
+                  <i data-lucide="file-check-2" class="w-5 h-5 text-[#FBBF24]"></i>
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                    <h4 class="text-[15px] font-extrabold text-white">Yêu cầu hồ sơ pháp lý và thông tin vị trí</h4>
+                    <a href="tel:0916239898" class="inline-flex items-center justify-center sm:justify-start gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/50 text-xs sm:text-[13px] font-mono font-extrabold text-[#FBBF24] transition w-fit">
+                      <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                      <span>Gọi Vũ: 0916.23.9898</span>
+                    </a>
+                  </div>
+                  <p class="text-[13px] text-slate-300 mt-1 leading-relaxed">
+                    Để bảo vệ thông tin chủ tài sản, số nhà chính xác và bản chụp Sổ hồng gốc được gửi trực tiếp đến Anh/Chị qua Zalo.
+                  </p>
+                  <form onsubmit="submitLegalRequest(event)" class="mt-3.5 grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <input required type="text" id="leadName" placeholder="Họ và tên" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-[13.5px] text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+                    <input required type="tel" id="leadPhone" placeholder="Số điện thoại liên hệ" class="px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/15 text-[13.5px] text-white placeholder-slate-400 focus:outline-none focus:border-[#0EA5E9]" />
+                    <button type="submit" class="px-4 py-2.5 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white font-extrabold text-[13px] transition flex items-center justify-center gap-1.5">
+                      <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                      <span>Gửi yêu cầu qua Zalo</span>
+                    </button>
+                  </form>
+                  <p class="text-[11.5px] text-slate-400 leading-normal mt-2">🔒 Chính sách quyền riêng tư: Nhà Sài Gòn chỉ sử dụng Họ tên và Số điện thoại của Anh/Chị để liên hệ phản hồi hồ sơ tài sản theo yêu cầu qua Zalo 0916.23.9898 (Vũ).</p>
+                  <div id="leadSuccessMsg" class="hidden mt-3 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs text-emerald-300 font-medium"></div>
+                </div>
+              </div>
+            </div>
+          </details>
+
         </div>
       </div>
 
@@ -2284,9 +2347,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
   </div>
 
   <!-- =========================================================================
-       FULLSCREEN LIGHTBOX MODAL (CÓ WATERMARK GIỮA ẢNH ĐẬM RÕ)
+       FULLSCREEN LIGHTBOX MODAL (TASK 1: KHÔNG BỊ MODAL CHE, CONTAIN, TOUCH SWIPE)
        ========================================================================= -->
-  <div id="fullscreenLightbox" class="fixed inset-0 z-[100000] hidden bg-black/95 backdrop-blur-md flex flex-col justify-between p-3 sm:p-5 select-none" oncontextmenu="return false;">
+  <div id="fullscreenLightbox" class="fixed inset-0 z-[1000000] hidden bg-black/98 backdrop-blur-md flex flex-col justify-between p-3 sm:p-5 select-none" oncontextmenu="return false;">
     <div class="flex flex-wrap items-center justify-between gap-2 text-white z-20 border-b border-white/10 pb-2.5">
       <div class="flex items-center gap-3">
         <span id="lightboxPropCode" class="px-3 py-1 rounded-lg bg-[#FBBF24] text-[#0F172A] font-mono text-xs font-extrabold"></span>
@@ -2297,7 +2360,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           <i data-lucide="message-circle" class="w-3.5 h-3.5 text-white"></i>
           <span class="text-white">Tư Vấn Zalo Căn Này</span>
         </a>
-        <button onclick="closeFullscreenLightbox()" class="px-3.5 py-1.5 rounded-xl bg-white/15 hover:bg-rose-600 text-white text-xs font-bold flex items-center gap-1.5 transition">
+        <button type="button" onclick="closeFullscreenLightbox()" class="px-3.5 py-1.5 rounded-xl bg-white/15 hover:bg-rose-600 text-white text-xs font-bold flex items-center gap-1.5 transition cursor-pointer">
           <span>Đóng (ESC)</span>
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
@@ -2313,10 +2376,10 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
       <div class="absolute inset-0 z-15 bg-transparent" oncontextmenu="return false;"></div>
 
-      <button onclick="changeGallerySlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl z-20">
+      <button id="lightboxPrevBtn" type="button" onclick="changeGallerySlide(-1)" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl z-20 cursor-pointer">
         <i data-lucide="chevron-left" class="w-6 h-6"></i>
       </button>
-      <button onclick="changeGallerySlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl z-20">
+      <button id="lightboxNextBtn" type="button" onclick="changeGallerySlide(1)" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#0F172A] flex items-center justify-center transition shadow-xl z-20 cursor-pointer">
         <i data-lucide="chevron-right" class="w-6 h-6"></i>
       </button>
     </div>
@@ -2604,7 +2667,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       else if (mil) monthly = parseVietnameseFloorNumber(mil[1]);
       else if (ty) monthly = parseVietnameseFloorNumber(ty[1]) * 1000;
       else return 0;
-      if (/\/\s*năm|mỗi\s*năm|một\s*năm|\/\s*year/.test(low)) monthly = monthly / 12;
+      const isPerMonth = /\/\s*tháng|\/\s*thang|mỗi\s*tháng|mỗi\s*thang|\/\s*th\b|triệu\/tháng|triệu\/thang|tr\/tháng|tr\/thang|triệu\s*\/\s*tháng/i.test(low);
+      const isPerYear = /\/\s*năm|\/\s*nam|mỗi\s*năm|mỗi\s*nam|một\s*năm|một\s*nam|\/\s*year/i.test(low);
+      if (isPerYear && !isPerMonth) {
+        monthly = monthly / 12;
+      }
       return Math.round(monthly * 100) / 100;
     }
 
@@ -2624,9 +2691,22 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const diffBil = +(initP - currP).toFixed(1);
       const diffPct = initP > 0 ? +(((initP - currP) / initP) * 100).toFixed(1) : 0;
 
-      let monthlyMil = prop.specs?.cashflow_monthly_million;
-      if (monthlyMil === undefined) {
+      let monthlyMil = Number(prop.specs?.cashflow_monthly_million);
+      if (isNaN(monthlyMil) || monthlyMil <= 0 || prop.specs?.cashflow_monthly_million === undefined) {
         monthlyMil = parseCashflowMonthlyMillion(prop.specs?.cashflow);
+      } else if (prop.specs?.cashflow) {
+        // Tự động kiểm tra phát hiện lỗi chia nhầm 12 khi hợp đồng ghi rõ theo tháng
+        const lowCf = String(prop.specs.cashflow).toLowerCase();
+        const hasMonth = /\/\s*tháng|\/\s*thang|mỗi\s*tháng|mỗi\s*thang|\/\s*th\b|triệu\/tháng|triệu\/thang|tr\/tháng|tr\/thang|triệu\s*\/\s*tháng/i.test(lowCf);
+        if (hasMonth) {
+          const mNum = lowCf.match(/(\d+[\d.,]*)\s*(?:tr\b|triệu|trieu)/i);
+          if (mNum) {
+            const explicitVal = parseFloat(mNum[1].replace(/\./g, '').replace(',', '.'));
+            if (explicitVal > 0 && Math.abs(monthlyMil - (explicitVal / 12)) < 0.5) {
+              monthlyMil = explicitVal;
+            }
+          }
+        }
       }
       const annualYieldPct = (currP > 0 && monthlyMil > 0)
         ? +(((monthlyMil * 12) / (currP * 1000)) * 100).toFixed(2)
@@ -3649,7 +3729,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                   <td class="py-3.5 px-4 border-l border-slate-200/70">
                     <div class="font-extrabold text-emerald-700 text-sm">${esc(p.specs?.cashflow || 'Bàn giao ngay')}</div>
                     ${m.annualYieldPct > 0
-                      ? `<div class="text-xs text-slate-600 mt-0.5">Tỷ suất dòng tiền: <strong class="text-emerald-700">~ ${esc(m.annualYieldPct)}% / năm</strong></div>`
+                      ? `<div class="text-xs text-slate-600 mt-0.5">Tỷ suất dòng tiền: <strong class="text-emerald-700">~ ${esc(String(m.annualYieldPct).replace('.', ','))}% / năm</strong></div>`
                       : `<div class="text-xs font-sans text-slate-400 mt-0.5">Phù hợp tự khai thác hoặc xây mới</div>`
                     }
                   </td>
@@ -4481,7 +4561,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     // =========================================================================
     function renderV62PropertyCardHtml(prop, idx, isAboveFold, inCompare, cardPrefix = "") {
       const m = computeMetrics(prop);
-      const isUpdate = prop.event_type === "UPDATE";
       const catName = resolveCategoryName(prop);
       const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
       const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
@@ -4492,10 +4571,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const districtLabel = prop.public_location?.district || "TP.HCM";
       const cardUid = `${cardPrefix}${esc(prop.property_id)}`;
 
-      // 6 thẻ đầu tiên (hàng 1 & hàng 2) nạp eager ưu tiên tuyệt đối
       const loadingAttr = isAboveFold ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" decoding="async"';
 
-      // Nhãn trạng thái góc trái
+      // 1. Badge trạng thái góc trên phải
       let badgeStatusText = '';
       let badgeStatusClass = '';
       if (m.isMasked) {
@@ -4504,31 +4582,27 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       } else if (m.diffBil > 0) {
         badgeStatusText = `Giảm ${esc(m.diffBil)} Tỷ${m.diffPct > 0 ? ` (-${m.diffPct}%)` : ''}`;
         badgeStatusClass = 'bg-rose-600 text-white';
-      } else if (isUpdate) {
-        badgeStatusText = 'Vừa cập nhật';
-        badgeStatusClass = 'bg-emerald-600 text-white';
       } else if (prop.event_type === "NEW") {
         badgeStatusText = 'Mới đăng';
         badgeStatusClass = 'bg-[#0284C7] text-white';
+      } else if (prop.event_type === "UPDATE") {
+        badgeStatusText = 'Vừa cập nhật';
+        badgeStatusClass = 'bg-emerald-600 text-white';
       }
 
-      // Thông số diện tích: đầy đủ, không cắt cụt
-      const dimStr = prop.specs?.dimensions ? esc(prop.specs.dimensions) : '';
-      const areaStr = prop.specs?.recognized_area_m2 ? `CN: ${esc(prop.specs.recognized_area_m2)} m²` : '';
-      const dtFull = (dimStr && areaStr) ? `${dimStr} • ${areaStr}` : (dimStr || areaStr || 'Đang cập nhật');
-
-      // Kết cấu & Dòng tiền
-      const flowStr = prop.specs?.cashflow ? esc(prop.specs.cashflow) : 'Bàn giao ngay';
+      // 2. Thông số thiết yếu
+      const areaVal = prop.specs?.recognized_area_m2 ? `${esc(prop.specs.recognized_area_m2)} m²` : 'Đang cập nhật';
+      const dimVal = prop.specs?.dimensions ? esc(prop.specs.dimensions) : 'N/A';
+      const structVal = prop.specs?.structure ? esc(prop.specs.structure) : (prop.specs?.floors ? `${esc(prop.specs.floors)} tầng` : 'N/A');
+      const cashflowVal = prop.specs?.cashflow && prop.specs.cashflow !== 'Bàn giao ngay' ? esc(prop.specs.cashflow) : '';
 
       return `
         <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
           <div class="flex flex-col flex-1">
-            <!-- 1. KHUNG ẢNH CHUẨN TỈ LỆ 16:10, KHÔNG GIÃN LỆCH -->
+            
+            <!-- 1. ẢNH TÀI SẢN Ở ĐẦU THẺ, BO GÓC TRÊN, CÓ MÃ NSG NỔI TRÊN ẢNH -->
             <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden group select-none shrink-0" style="aspect-ratio: 16 / 10;" oncontextmenu="return false;">
-              <!-- Skeleton Shimmer tự ẩn khi onload hoặc sau 1.2s -->
               <div id="skel-${cardUid}" class="skeleton-shimmer"></div>
-
-              <!-- Ảnh BĐS nạp trực tiếp, không giấu vào data-src -->
               <img 
                 src="${esc(coverImg)}" 
                 alt="Tài sản tâm điểm nhatoSG" 
@@ -4538,19 +4612,17 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'; const s=document.getElementById('skel-${cardUid}'); if(s) s.style.display='none';" 
                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" 
               />
-
-              <!-- Lớp bảo vệ chống chạm giữ chuột phải -->
               <div class="absolute inset-0 z-15 bg-transparent select-none" oncontextmenu="return false;"></div>
 
-              <!-- Góc trên trái: Mã tài sản NSG-xxxx -->
-              <div class="absolute top-3 left-3 flex items-center gap-1.5 z-25 pointer-events-none">
-                <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-[#0F172A]/90 text-[#FBBF24] border border-[#FBBF24]/50 shadow-md backdrop-blur-xs">
+              <!-- Mã tài sản nhỏ gọn NSG-xxxx nổi trên ảnh -->
+              <div class="absolute top-2.5 left-2.5 z-25 pointer-events-none">
+                <span class="px-2.5 py-1 rounded-lg text-xs font-black bg-[#0F172A]/90 text-[#FBBF24] border border-[#FBBF24]/50 shadow-md backdrop-blur-xs font-mono">
                   ${esc(prop.property_id)}
                 </span>
               </div>
 
-              <!-- Góc trên phải: Nhãn trạng thái / Giảm giá + Số lượng ảnh -->
-              <div class="absolute top-3 right-3 flex items-center gap-1.5 z-25 pointer-events-none">
+              <!-- Góc trên phải: Nhãn trạng thái / giảm giá + Số ảnh -->
+              <div class="absolute top-2.5 right-2.5 flex items-center gap-1.5 z-25 pointer-events-none">
                 ${badgeStatusText ? `
                   <span class="px-2.5 py-1 rounded-lg text-xs font-bold ${badgeStatusClass} shadow-md backdrop-blur-xs">
                     ${badgeStatusText}
@@ -4560,103 +4632,77 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                   📷 ${imgCount}
                 </span>
               </div>
-
-              <!-- Góc dưới ảnh: Gradient tương phản cao + Loại BĐS & GIÁ CHÀO BÁN LỚN RÕ RÀNG -->
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-900/60 to-transparent pt-10 pb-3 px-4 flex items-end justify-between text-white pointer-events-none z-25">
-                <div class="min-w-0 pr-2">
-                  <span class="text-xs uppercase tracking-wider text-amber-400 font-bold block truncate">${esc(catName)}</span>
-                  <span class="text-xs font-medium block truncate text-slate-300">${esc(streetLabel)} • ${esc(districtLabel)}</span>
-                </div>
-                <div class="text-right shrink-0">
-                  ${m.isMasked ? `
-                    <div class="text-base sm:text-lg font-black text-amber-400 leading-none whitespace-nowrap drop-shadow-md">Giá thỏa thuận</div>
-                  ` : `
-                    <div class="flex items-baseline justify-end">
-                      <span class="text-lg sm:text-2xl font-extrabold text-amber-400 leading-none drop-shadow-md whitespace-nowrap">
-                        ${m.currP > 0 ? `Giá chào: ${esc(m.currP)} Tỷ` : 'Liên hệ'}
-                      </span>
-                      ${m.diffBil > 0 ? `<span class="text-xs sm:text-sm line-through text-slate-300 ml-1.5 drop-shadow-sm whitespace-nowrap">(${esc(m.initP)} Tỷ)</span>` : ''}
-                    </div>
-                  `}
-                </div>
-              </div>
             </div>
 
-            <!-- 2. THÂN CARD: TYPOGRAPHY FONT-SANS ĐỀU ĐẶN, KHÔNG CẮT CHỮ -->
-            <div class="card-body-pad p-5 flex-1 flex flex-col justify-between font-sans">
+            <!-- THÂN THẺ GỌN GÀNG, KHOẢNG TRẮNG HỢP LÝ -->
+            <div class="p-3.5 sm:p-4 flex-1 flex flex-col justify-between font-sans">
               <div>
-                <!-- Hàng vị trí: Huy hiệu đồng bộ Luxury [Đường] - [Phường] - [Quận] + Hashtags -->
-                <div class="card-tags-strip flex flex-wrap items-center gap-1.5 mb-2.5 max-h-[3.25rem] overflow-hidden">
-                  <span class="tag-street">${esc(streetLabel)}</span>
-                  ${wardLabel ? `<span class="tag-ward">${esc(wardLabel)}</span>` : ''}
-                  <span class="tag-district">${esc(districtLabel)}</span>
+                <!-- 2. LOẠI NHÀ / QUẬN, TÊN ĐƯỜNG NỔI BẬT VÀ PHƯỜNG NHỎ HƠN -->
+                <div class="text-xs uppercase font-extrabold text-[#0284C7] tracking-wider truncate">
+                  ${esc(catName)} • ${esc(districtLabel)}
                 </div>
 
-                <!-- Tiêu đề BĐS: Chuẩn 2 dòng đều nhau trên toàn bộ card -->
-                <h3 class="card-title font-bold text-[17px] text-[#0F172A] dark:text-white leading-snug line-clamp-2 h-[2.85rem] overflow-hidden group-hover:text-[#0284C7] transition">
-                  <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition block">${esc(formatDisplayCardTitle(prop.seo_title))}</a>
+                <h3 class="font-bold text-[#0F172A] dark:text-white mt-1 leading-snug line-clamp-1">
+                  <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition">
+                    <span class="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white">${esc(streetLabel)}</span>
+                    ${wardLabel ? `<span class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium ml-1.5">${esc(wardLabel)}</span>` : ''}
+                  </a>
                 </h3>
 
-                <!-- Đoạn tóm tắt: Chuẩn 2 dòng đều nhau, không làm lệch khung -->
-                <p class="card-summary text-sm text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-2 mt-2 mb-3 h-[2.75rem] overflow-hidden">
-                  ${esc(prop.summary)}
-                </p>
-              </div>
-
-              <div>
-                <!-- 2 Ô Thông số: font-sans hiện đại, không dùng font-mono -->
-                <div class="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-2.5 text-xs">
-                  <div class="bg-slate-50 dark:bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-200/80 dark:border-slate-700/80 min-h-[58px] flex flex-col justify-center overflow-hidden">
-                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">DT &amp; Công nhận</span>
-                    <span class="font-bold text-[#0F172A] dark:text-white text-[13px] truncate mt-0.5">
-                      ${dtFull}
+                <!-- 3. GIÁ BÁN HIỂN THỊ LỚN Ở BÊN TRÁI, ĐƠN GIÁ/M² NHỎ Ở BÊN PHẢI -->
+                <div class="mt-2 mb-2 flex items-baseline justify-between gap-2">
+                  <div class="flex items-baseline gap-1.5">
+                    <span class="text-xl sm:text-2xl font-extrabold text-[#0284C7] leading-none whitespace-nowrap">
+                      ${m.isMasked ? 'Giá thỏa thuận kín' : (m.currP > 0 ? `${esc(m.currP)} Tỷ` : 'Liên hệ')}
                     </span>
-                  </div>
-                  <div class="bg-slate-50 dark:bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-200/80 dark:border-slate-700/80 min-h-[58px] flex flex-col justify-center overflow-hidden">
-                    <span class="text-[11px] text-slate-500 dark:text-slate-400 block font-medium">Kết cấu &amp; Dòng tiền</span>
-                    <span class="font-bold text-emerald-600 dark:text-emerald-400 text-[13px] truncate mt-0.5">
-                      ${flowStr}
-                    </span>
-                  </div>
-                </div>
-
-                <!-- GIÁ CHÀO BÁN: Ưu tiên số 1, hiển thị to, nổi bật -->
-                <div class="mt-3 px-3.5 py-2.5 rounded-xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/25 dark:border-amber-400/25 flex items-center justify-between">
-                  <div class="flex items-center gap-1.5">
-                    <span class="text-xs text-amber-800 dark:text-amber-400 font-extrabold uppercase tracking-wide">Giá Chào:</span>
-                    <span class="text-base sm:text-lg font-black text-amber-600 dark:text-amber-400">
-                      ${m.isMasked ? 'Giá kín — Liên hệ' : (m.currP > 0 ? `${esc(m.currP)} Tỷ` : 'Liên hệ')}
-                    </span>
-                  </div>
-                  ${(!m.isMasked && m.diffBil > 0) ? `
-                    <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-2 py-0.5 rounded border border-rose-200 dark:border-rose-800">
-                      Giảm ${esc(m.diffBil)} Tỷ
-                    </span>
-                  ` : ''}
-                </div>
-
-                <!-- THÔNG TIN PHỤ: XD & Đơn giá đất (Chữ nhỏ hơn, TUYỆT ĐỐI ẩn nếu = 0 hoặc NaN) -->
-                ${(!m.isMasked && ((m.estBuildValueBil > 0 && !isNaN(m.estBuildValueBil)) || (m.netLandPricePerM2Mil > 0 && !isNaN(m.netLandPricePerM2Mil)))) ? `
-                  <div class="card-sub-info mt-1.5 px-3 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
-                    ${(m.estBuildValueBil > 0 && !isNaN(m.estBuildValueBil)) ? `
-                      <span class="truncate" title="Định giá tham khảo chi phí xây dựng">🏗️ XD (tham khảo): ~${esc(m.estBuildValueBil)} Tỷ</span>
-                    ` : '<span></span>'}
-                    ${(m.netLandPricePerM2Mil > 0 && !isNaN(m.netLandPricePerM2Mil)) ? `
-                      <span class="font-medium text-[#0284C7] dark:text-sky-400 shrink-0 ml-2">Đất: ~${esc(m.netLandPricePerM2Mil)} tr/m²</span>
+                    ${(!m.isMasked && m.diffBil > 0) ? `
+                      <span class="text-xs font-semibold text-slate-400 line-through">(${esc(m.initP)} Tỷ)</span>
                     ` : ''}
                   </div>
-                ` : ''}
+                  <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap shrink-0">
+                    ${(!m.isMasked && m.pricePerM2Mil > 0) ? `~${esc(m.pricePerM2Mil)} tr/m²` : ''}
+                  </div>
+                </div>
+
+                <!-- 4. DIỆN TÍCH, KÍCH THƯỚC, KẾT CẤU NẰM TRÊN MỘT HÀNG NGANG -->
+                <div class="py-2 border-t border-slate-100 dark:border-slate-800 text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 flex items-center gap-1.5 sm:gap-2 flex-nowrap overflow-hidden">
+                  <span class="font-bold text-[#0F172A] dark:text-white shrink-0">${areaVal}</span>
+                  <span class="text-slate-300 dark:text-slate-600 shrink-0">|</span>
+                  <span class="shrink-0 font-medium text-slate-600 dark:text-slate-300">${dimVal}</span>
+                  <span class="text-slate-300 dark:text-slate-600 shrink-0">|</span>
+                  <span class="truncate font-medium text-slate-600 dark:text-slate-300">${structVal}</span>
+                </div>
+
+                <!-- 5. HỢP ĐỒNG THUÊ VÀ TỶ SUẤT THUÊ NẰM TRÊN MỘT HÀNG NGANG -->
+                ${cashflowVal ? `
+                  <div class="py-1 text-xs sm:text-[13px] text-emerald-600 dark:text-emerald-400 flex items-center justify-between gap-1">
+                    <span class="font-semibold flex items-center gap-1.5 truncate">
+                      <i data-lucide="banknote" class="w-3.5 h-3.5 shrink-0 text-emerald-500"></i>
+                      <span class="truncate">HĐ thuê: <strong>${cashflowVal}</strong></span>
+                    </span>
+                    ${m.annualYieldPct > 0 ? `
+                      <span class="font-bold text-emerald-700 dark:text-emerald-300 whitespace-nowrap shrink-0 ml-1.5">
+                        ~${String(m.annualYieldPct).replace('.', ',')}%/năm
+                      </span>
+                    ` : ''}
+                  </div>
+                ` : `
+                  <div class="py-1 text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 shrink-0 text-slate-400"></i>
+                    <span>Bàn giao ngay</span>
+                  </div>
+                `}
               </div>
             </div>
           </div>
 
-          <!-- 3. NÚT BẤM ĐÁY THẺ: XEM CHI TIẾT & SO SÁNH (ĐÃ BỎ NÚT ZALO) -->
-          <div class="card-footer-pad px-5 pb-5 pt-1 mt-auto flex items-center gap-2.5 shrink-0 font-sans">
-            <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}');" class="flex-1 py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-[13px] font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap shadow-xs cursor-pointer">
-              <i data-lucide="images" class="w-4 h-4 text-[#FBBF24]"></i>
+          <!-- 6. CUỐI THẺ CÓ HAI NÚT XEM CHI TIẾT VÀ SO SÁNH GIỐNG ẢNH MẪU -->
+          <div class="px-3.5 sm:px-4 pb-3.5 sm:pb-4 pt-1 mt-auto flex items-center gap-2 font-sans">
+            <button type="button" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="flex-1 py-2 px-3.5 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-xs sm:text-[13px] font-bold transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer whitespace-nowrap">
               <span>Xem chi tiết</span>
-            </a>
-            <button onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}')" class="card-compare-btn py-2.5 px-3.5 rounded-xl border text-[13px] font-bold transition whitespace-nowrap shrink-0 cursor-pointer ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600 hover:border-[#0284C7]'}">
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
+            </button>
+            <button type="button" onclick="event.stopPropagation(); toggleCompareProperty('${esc(prop.property_id)}');" class="card-compare-btn py-2 px-3 rounded-xl border text-xs sm:text-[13px] font-bold transition whitespace-nowrap cursor-pointer ${inCompare ? 'bg-amber-400 text-[#0F172A] border-amber-400' : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-700 hover:border-[#0284C7]'}">
               ${inCompare ? '✓ Đã chọn' : '+ So sánh'}
             </button>
           </div>
@@ -4895,7 +4941,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
               <td class="py-3.5 pl-4 pr-5 font-mono text-[14.5px] align-middle">
                 <div class="font-extrabold text-[#0F172A] line-clamp-1">${esc(prop.specs?.cashflow || 'Bàn giao ngay')}</div>
                 <div class="text-[13.5px] text-[#0284C7] font-bold mt-0.5">
-                  Đất thuần ~ ${esc(m.netLandPricePerM2Mil)} tr/m² ${m.annualYieldPct > 0 ? `• Tỷ suất gộp ~${esc(m.annualYieldPct)}%` : ''}
+                  Đất thuần ~ ${esc(m.netLandPricePerM2Mil)} tr/m² ${m.annualYieldPct > 0 ? `• Tỷ suất gộp ~${esc(String(m.annualYieldPct).replace('.', ','))}%/năm` : ''}
                 </div>
               </td>
             </tr>
@@ -5056,26 +5102,38 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       container.innerHTML = `
         <div class="space-y-3 cursor-pointer group" onclick="openPropertyModal('${esc(prop.property_id)}')">
-          <div class="border-b border-slate-200 pb-2">
+          <div class="border-b border-slate-200 dark:border-slate-800 pb-2">
             <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="text-[#0284C7] font-extrabold text-sm sm:text-base tracking-tight truncate group-hover:text-sky-600 transition block">${esc(titleHeader)}</a>
-            <div class="text-slate-600 text-xs font-semibold mt-0.5 truncate">${esc(subHeader)}</div>
+            <div class="text-slate-600 dark:text-slate-400 text-xs font-semibold mt-0.5 truncate">${esc(subHeader)}</div>
           </div>
-          <div class="relative overflow-hidden rounded-xl border border-sky-200/80 bg-slate-100 select-none" oncontextmenu="return false;">
+          <div class="relative overflow-hidden rounded-xl border border-sky-200/80 dark:border-sky-800 bg-slate-100 dark:bg-slate-800 select-none" oncontextmenu="return false;">
             <img src="${esc(coverImg)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="h-60 sm:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important;" loading="eager" />
             <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
             <div class="absolute top-2.5 right-2.5 z-20 px-3 py-1 rounded-full bg-rose-600/95 text-white text-xs font-black shadow-lg border border-rose-400">
               ${esc(badgeTopRight)}
             </div>
-            <div class="absolute bottom-2.5 left-2.5 z-20 px-3 py-1 rounded-lg bg-white/95 backdrop-blur-md text-[#0284C7] text-[11.5px] font-bold border border-slate-200 flex items-center gap-1.5 shadow">
+            <div class="absolute bottom-2.5 left-2.5 z-20 px-3 py-1 rounded-lg bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-[#0284C7] text-[11.5px] font-bold border border-slate-200 dark:border-slate-700 flex items-center gap-1.5 shadow">
               <span>Đã đối chiếu hồ sơ • Bấm xem chi tiết</span>
             </div>
           </div>
         </div>
-        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-200">
-          <div class="text-xs text-slate-600 font-semibold">Tài sản nổi bật (${heroSpotlightSlideIdx + 1}/${candidates.length})</div>
+        <div class="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-200 dark:border-slate-800">
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="stepHeroSpotlight(-1)" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition flex items-center gap-1 border border-slate-200 dark:border-slate-700 cursor-pointer" title="Xem tài sản trước">
+              <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+              <span>Trước</span>
+            </button>
+            <button type="button" onclick="stepHeroSpotlight(1)" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition flex items-center gap-1 border border-slate-200 dark:border-slate-700 cursor-pointer" title="Xem tài sản tiếp theo">
+              <span>Tiếp</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </button>
+            <span class="text-xs font-mono font-bold text-[#0284C7] bg-sky-50 dark:bg-sky-950/60 px-2 py-0.5 rounded border border-sky-200 dark:border-sky-800">${heroSpotlightSlideIdx + 1}/${candidates.length}</span>
+          </div>
           <div class="flex items-center gap-1.5">${dotsHtml}</div>
         </div>
       `;
+
+      if (window.lucide) lucide.createIcons();
 
       if (!heroSpotlightTimer) {
         heroSpotlightTimer = setInterval(() => {
@@ -5086,6 +5144,24 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         }, 6000);
       }
     }
+
+    function stepHeroSpotlight(direction) {
+      const candidates = getHeroSpotlightCandidates();
+      if (candidates.length === 0) return;
+      if (heroSpotlightTimer) {
+        clearInterval(heroSpotlightTimer);
+        heroSpotlightTimer = null;
+      }
+      heroSpotlightSlideIdx = ((heroSpotlightSlideIdx + direction) % candidates.length + candidates.length) % candidates.length;
+      renderHeroSpotlightCard(heroSpotlightSlideIdx);
+      heroSpotlightTimer = setInterval(() => {
+        const c = getHeroSpotlightCandidates();
+        if (c.length > 0) {
+          renderHeroSpotlightCard((heroSpotlightSlideIdx + 1) % c.length);
+        }
+      }, 6000);
+    }
+    window.stepHeroSpotlight = stepHeroSpotlight;
 
     function applyQuickHeroFilter(segCode) {
       clearAllFilters();
@@ -5232,6 +5308,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (typeof callback === "function") callback(imgUrl);
     }
 
+    let modalSavedScrollTop = 0;
+
     function renderGallerySlide() {
       if (!activeModalProperty) return;
       const gallery = getPropertyGalleryList(activeModalProperty);
@@ -5240,6 +5318,13 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       const currentItem = gallery[currentGalleryIndex];
       const safeAlt = "Tài sản tâm điểm nhatoSG";
+      const hasMultiple = gallery.length > 1;
+
+      // Modal gallery arrows visibility
+      const modalPrev = document.getElementById("modalGalleryPrevBtn");
+      const modalNext = document.getElementById("modalGalleryNextBtn");
+      if (modalPrev) modalPrev.style.display = hasMultiple ? "" : "none";
+      if (modalNext) modalNext.style.display = hasMultiple ? "" : "none";
 
       const mainImg = document.getElementById("galleryMainImage");
       if (mainImg && mainImg.parentElement) {
@@ -5267,18 +5352,21 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const blurBg = document.getElementById("galleryBlurBackdrop");
       if (blurBg) blurBg.src = currentItem.url;
 
-      document.getElementById("galleryCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
+      const counterEl = document.getElementById("galleryCounter");
+      if (counterEl) counterEl.textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
 
       const thumbsEl = document.getElementById("galleryThumbnails");
-      thumbsEl.innerHTML = gallery.map((item, idx) => {
-        const optThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
-        return `
-        <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-900 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/50 scale-[1.03]' : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'}" oncontextmenu="return false;">
-          <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
-          <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
-          <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
-        </button>
-      `;}).join("");
+      if (thumbsEl) {
+        thumbsEl.innerHTML = gallery.map((item, idx) => {
+          const optThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
+          return `
+          <button onclick="selectGallerySlide(${idx}, false)" class="relative shrink-0 w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden border-2 transition bg-slate-900 animate-pulse ${idx === currentGalleryIndex ? 'border-[#FBBF24] ring-2 ring-amber-400/50 scale-[1.03]' : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'}" oncontextmenu="return false;">
+            <img src="${esc(optThumb)}" data-fallback="${esc(item.url)}" alt="Tài sản tâm điểm nhatoSG" draggable="false" onload="this.parentElement.classList.remove('animate-pulse')" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=60';}" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
+            <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
+            <span class="absolute bottom-1 right-1 z-20 px-1.5 py-0.2 rounded bg-slate-900/80 text-white font-mono text-[10px] font-bold">#${idx + 1}</span>
+          </button>
+        `;}).join("");
+      }
 
       const lb = document.getElementById("fullscreenLightbox");
       if (lb && !lb.classList.contains("hidden")) {
@@ -5301,28 +5389,67 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             }
           });
         }
-        document.getElementById("lightboxPropCode").textContent = activeModalProperty.property_id;
-        document.getElementById("lightboxCounter").textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
-        document.getElementById("lightboxThumbStrip").innerHTML = gallery.map((item, idx) => {
-          const optLbThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
-          return `
-          <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] scale-105' : 'border-transparent opacity-50 hover:opacity-100'}" oncontextmenu="return false;">
-            <img src="${esc(optLbThumb)}" data-fallback="${esc(item.url)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
-            <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
-          </button>
-        `;}).join("");
+        const propCodeEl = document.getElementById("lightboxPropCode");
+        if (propCodeEl) propCodeEl.textContent = activeModalProperty.property_id;
+        const lbCounterEl = document.getElementById("lightboxCounter");
+        if (lbCounterEl) lbCounterEl.textContent = `Ảnh ${currentGalleryIndex + 1}/${gallery.length}`;
+        
+        // Lightbox arrows visibility
+        const lbPrev = document.getElementById("lightboxPrevBtn");
+        const lbNext = document.getElementById("lightboxNextBtn");
+        if (lbPrev) lbPrev.style.display = hasMultiple ? "" : "none";
+        if (lbNext) lbNext.style.display = hasMultiple ? "" : "none";
+
+        const stripEl = document.getElementById("lightboxThumbStrip");
+        if (stripEl) {
+          stripEl.innerHTML = gallery.map((item, idx) => {
+            const optLbThumb = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(item.url, "gallery") : item.url;
+            return `
+            <button onclick="selectGallerySlide(${idx})" class="relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition ${idx === currentGalleryIndex ? 'border-[#FBBF24] scale-105' : 'border-transparent opacity-50 hover:opacity-100'}" oncontextmenu="return false;">
+              <img src="${esc(optLbThumb)}" data-fallback="${esc(item.url)}" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.removeAttribute('data-fallback');}" alt="Tài sản tâm điểm nhatoSG" draggable="false" class="w-full h-full object-cover pointer-events-none select-none" style="object-fit: cover !important; width: 100% !important; height: 100% !important;" />
+              <div class="absolute inset-0 z-10 bg-transparent select-none" oncontextmenu="return false;"></div>
+            </button>
+          `;}).join("");
+        }
       }
     }
 
     function openFullscreenLightbox() {
       if (!activeModalProperty) return;
-      document.getElementById("fullscreenLightbox").classList.remove("hidden");
+      const modalEl = document.getElementById("propertyModal");
+      const scrollBody = modalEl ? modalEl.querySelector(".modal-scroll-body") : null;
+      if (scrollBody) {
+        modalSavedScrollTop = scrollBody.scrollTop;
+      }
+      if (modalEl) {
+        modalEl.style.display = "none";
+      }
+      const lb = document.getElementById("fullscreenLightbox");
+      if (lb) {
+        lb.classList.remove("hidden");
+        lb.style.display = "flex";
+      }
       renderGallerySlide();
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function closeFullscreenLightbox() {
-      document.getElementById("fullscreenLightbox")?.classList.add("hidden");
+      const lb = document.getElementById("fullscreenLightbox");
+      if (lb) {
+        lb.classList.add("hidden");
+        lb.style.display = "";
+      }
+      const modalEl = document.getElementById("propertyModal");
+      if (modalEl && activeModalProperty) {
+        modalEl.style.display = "";
+        const scrollBody = modalEl.querySelector(".modal-scroll-body");
+        if (scrollBody) {
+          scrollBody.scrollTop = modalSavedScrollTop;
+          requestAnimationFrame(() => {
+            scrollBody.scrollTop = modalSavedScrollTop;
+          });
+        }
+      }
     }
 
     function changeGallerySlide(step) {
@@ -5533,10 +5660,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         }
       }
 
+      // 1. Tiêu đề + Vị trí + Giá
       document.getElementById("modalTitle").textContent = prop.seo_title;
-
-      const mode = window.__NHATOSG_DATA__?.config?.access_mode || "PUBLIC_TRAFFIC";
-      const session = getCurrentMemberSession();
 
       const locBadges = document.getElementById("modalLocationBadges");
       if (locBadges) {
@@ -5548,29 +5673,65 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         `;
       }
 
+      const currPriceEl = document.getElementById("modalCurrentPrice");
+      const initPriceWrap = document.getElementById("modalInitialPriceWrap");
+      const initPriceEl = document.getElementById("modalInitialPrice");
       if (m.isMasked) {
-        document.getElementById("modalInitialPrice").textContent = "Thỏa thuận";
-        document.getElementById("modalCurrentPrice").innerHTML = `
-          <span class="text-[#0284C7] font-extrabold">Giá kín — Liên hệ</span>
-          <span class="block text-xs font-bold text-slate-500 mt-0.5">Liên hệ trực tiếp qua Zalo để nhận thông tin bảo mật</span>
-        `;
+        if (currPriceEl) currPriceEl.textContent = "Giá kín — Thỏa thuận";
+        if (initPriceWrap) initPriceWrap.style.display = "none";
       } else {
-        document.getElementById("modalInitialPrice").textContent = `${m.initP} Tỷ`;
-        document.getElementById("modalCurrentPrice").textContent = `${m.currP} Tỷ`;
+        if (currPriceEl) currPriceEl.textContent = `${m.currP} Tỷ`;
+        if (initPriceWrap) {
+          if (m.diffBil > 0) {
+            initPriceWrap.style.display = "";
+            if (initPriceEl) initPriceEl.textContent = `${m.initP} Tỷ`;
+          } else {
+            initPriceWrap.style.display = "none";
+          }
+        }
       }
 
-      document.getElementById("modalAreaSpecs").textContent = `${prop.specs?.dimensions || "N/A"} (CN: ${prop.specs?.recognized_area_m2 || 0}m²)`;
-      document.getElementById("modalCashflow").textContent = `${prop.specs?.cashflow || "Bàn giao ngay"} ${
-        m.annualYieldPct > 0 ? `(~${m.annualYieldPct}%/năm)` : ""
-      }`;
+      // 3. Thông số chính
+      const areaEl = document.getElementById("modalRecognizedArea");
+      if (areaEl) areaEl.textContent = prop.specs?.recognized_area_m2 ? `${esc(prop.specs.recognized_area_m2)} m²` : "Đang cập nhật";
+      const dimEl = document.getElementById("modalDimensions");
+      if (dimEl) dimEl.textContent = prop.specs?.dimensions ? esc(prop.specs.dimensions) : "N/A";
+      const structEl = document.getElementById("modalStructure");
+      if (structEl) structEl.textContent = prop.specs?.structure ? esc(prop.specs.structure) : (prop.specs?.floors ? `${esc(prop.specs.floors)} tầng` : "Đang cập nhật");
 
+      // 4. Thu nhập thuê nếu có
+      const flowBox = document.getElementById("modalCashflowBox");
+      const flowEl = document.getElementById("modalCashflow");
+      const flowVal = prop.specs?.cashflow || "";
+      if (flowEl) {
+        if (flowVal && flowVal !== "Bàn giao ngay") {
+          flowEl.textContent = `${flowVal} ${m.annualYieldPct > 0 ? `(~${String(m.annualYieldPct).replace('.', ',')}%/năm)` : ""}`;
+          if (flowBox) flowBox.style.display = "";
+        } else {
+          flowEl.textContent = "Bàn giao ngay (Sẵn sàng khai thác)";
+          if (flowBox) flowBox.style.display = "";
+        }
+      }
+
+      // 6. Reset tất cả Accordion về trạng thái thu gọn mặc định
+      ["accDescription", "accUnitCost", "accPriceHistory", "accLoanCalc", "accLegalForm"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.removeAttribute("open");
+      });
+
+      // Render nội dung bên trong các accordion
       const breakdownEl = document.getElementById("modalUnitCostBreakdown");
       if (breakdownEl) {
         breakdownEl.innerHTML = renderUnitCostBreakdownHtml(prop);
       }
 
-      document.getElementById("modalDescription").innerHTML = renderStructuredDescriptionHtml(prop);
+      const descEl = document.getElementById("modalDescription");
+      if (descEl) {
+        descEl.innerHTML = renderStructuredDescriptionHtml(prop);
+      }
 
+      const mode = window.__NHATOSG_DATA__?.config?.access_mode || "PUBLIC_TRAFFIC";
+      const session = getCurrentMemberSession();
       const timeline = document.getElementById("modalPriceTimeline");
       if (timeline) {
         if (mode === "MEMBER_PRICE_GATE" && !session) {
@@ -5593,21 +5754,21 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             `;
           } else {
             timeline.innerHTML = hist.map((h, idx) => `
-            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-[15px]">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-xs font-bold flex items-center justify-center shrink-0">
-                  #${idx + 1}
-                </span>
-                <div>
-                  <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
-                  <span class="block text-[13px] text-slate-500">Đã đối soát xác thực trên hệ thống nhatoSG</span>
+              <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 flex items-center justify-between text-[15px]">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-6 h-6 rounded-full bg-[#0F172A] text-[#FBBF24] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                    #${idx + 1}
+                  </span>
+                  <div>
+                    <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
+                    <span class="block text-[13px] text-slate-500">Đã đối soát xác thực trên hệ thống nhatoSG</span>
+                  </div>
                 </div>
+                <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
+                  ${m.isMasked ? `Giá Thỏa Thuận Kín` : `${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ`}
+                </span>
               </div>
-              <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
-                ${m.isMasked ? `Giá Thỏa Thuận Kín` : `${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ`}
-              </span>
-            </div>
-          `).join("");
+            `).join("");
           }
         }
       }
@@ -5621,9 +5782,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const modalEl = document.getElementById("propertyModal");
       if (modalEl) {
         modalEl.classList.remove("hidden");
+        modalEl.style.display = "";
       }
 
-      // Đặt lại vị trí cuộn về đầu khi mở bất kỳ tài sản nào (One-Pass Fix)
       const scrollBody = document.querySelector("#propertyModal .modal-scroll-body");
       if (scrollBody) {
         scrollBody.scrollTop = 0;
@@ -5632,7 +5793,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         });
       }
 
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function closePropertyModal() {
@@ -6023,7 +6184,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
       return new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "./properties_data.js?v=20261102175123&t=" + Date.now();
+        script.src = "./properties_data.js?v=20261102175234&t=" + Date.now();
         script.onload = function() {
           resolve(window.__NHATOSG_DATA__ || null);
         };
@@ -6064,6 +6225,33 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
     });
 
+    
+    // Mobile Touch Swipe gesture support for Fullscreen Lightbox (TASK 1)
+    (function initLightboxSwipe() {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      const lb = document.getElementById("fullscreenLightbox");
+      if (lb) {
+        lb.addEventListener("touchstart", function(e) {
+          if (!e.changedTouches || e.changedTouches.length === 0) return;
+          touchStartX = e.changedTouches[0].screenX;
+          touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        lb.addEventListener("touchend", function(e) {
+          if (!e.changedTouches || e.changedTouches.length === 0) return;
+          const diffX = e.changedTouches[0].screenX - touchStartX;
+          const diffY = e.changedTouches[0].screenY - touchStartY;
+          if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) {
+              changeGallerySlide(1);
+            } else {
+              changeGallerySlide(-1);
+            }
+          }
+        }, { passive: true });
+      }
+    })();
+
     window.addEventListener("DOMContentLoaded", () => {
       initV5ThemeMode();
       trackVisitorEvent("PAGE_VIEW");
@@ -6090,7 +6278,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           };
         } else {
           var script = document.createElement("script");
-          script.src = "./properties_data.js?v=20261102175123&t=" + Date.now();
+          script.src = "./properties_data.js?v=20261102175234&t=" + Date.now();
           script.onload = function() {
             renderPublicCatalogWithData();
           };
