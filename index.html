@@ -1702,25 +1702,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
           <!-- Thẻ Banner Kết Quả Lọc Thông Minh -->
           <div id="smartSearchActiveBanner" class="hidden"></div>
-          <div id="conciergeBanner" class="hidden max-w-2xl text-left bg-white border-2 border-sky-300 rounded-2xl p-4 shadow-xl">
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex items-start gap-3">
-                <div class="w-9 h-9 rounded-xl bg-[#0F172A] text-[#FBBF24] flex items-center justify-center shrink-0 mt-0.5">
-                  <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-                </div>
-                <div>
-                  <div class="flex items-center gap-2 flex-wrap">
-                    <span class="text-xs font-extrabold uppercase tracking-wider text-[#0284C7]">Kết Quả Đối Soát Thông Minh</span>
-                    <span id="parsedTagsContainer" class="flex flex-wrap gap-1"></span>
-                  </div>
-                  <p id="conciergeText" class="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed font-medium"></p>
-                </div>
-              </div>
-              <button onclick="document.getElementById('conciergeBanner').classList.add('hidden')" class="text-slate-400 hover:text-slate-700 p-1">
-                <i data-lucide="x" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
 
           <!-- Hàng Nút Chọn Nhanh Hero (Loại Tài Sản & Giảm Giá) -->
           <div class="flex flex-wrap items-center gap-2 text-xs pt-1">
@@ -1951,6 +1932,18 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 animate-pulse"></i>
       </div>
     </div>
+
+    <aside id="ai-concierge-bar" class="hidden mb-6 p-4 sm:p-5 bg-white border-2 border-sky-200 rounded-2xl shadow-sm text-slate-900" aria-label="Cố vấn tìm tài sản" aria-live="polite">
+      <div id="conciergeBanner" class="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+        <div class="min-w-0 flex-1">
+          <p class="text-xs font-extrabold uppercase tracking-wide text-sky-700">Cố vấn & điều hướng tài sản</p>
+          <p id="conciergeText" class="mt-2 text-sm text-slate-700 leading-relaxed"></p>
+          <div id="parsedTagsContainer" class="mt-2 flex flex-wrap gap-1.5"></div>
+          <div id="aiQuickChips" class="mt-3 flex flex-wrap gap-2" aria-label="Gợi ý tìm nhanh"></div>
+        </div>
+        <a href="tel:0916239898" class="shrink-0 max-w-full px-3 py-3 rounded-xl bg-amber-50 border border-amber-300 text-amber-950 font-bold text-xs leading-relaxed">📞 Nhờ Vũ (0916.23.9898) lọc riêng theo tiêu chí này</a>
+      </div>
+    </aside>
 
     <!-- Cards Grid (Đồng bộ 1 khuôn phẳng phiu 100%) -->
     <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 auto-rows-fr items-stretch"></div>
@@ -2549,6 +2542,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     let currentParsedQueryRaw = "";
     let smartSearchController = null;
     let smartSearchSequence = 0;
+    let searchResultMeta = { relaxed: false, strictCount: 0 };
     let activeInsightIndex = 0;
 
     function getHotItemsPerPage() {
@@ -4010,7 +4004,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       });
 
       // 3. Phân loại loại hình chính xác (categoryExact)
-      if (/\b(?:toa\s+van\s+phong|van\s+phong|building|office|cao\s+oc)\b/i.test(qNoTone)) {
+      if (/\b(?:toa\s+nha|toa\s+van\s+phong|van\s+phong|building|office|cao\s+oc)\b/i.test(qNoTone)) {
         parsed.categoryExact = "Tòa Văn Phòng";
         parsed.categoryKeywords.push("van phong", "building", "toa");
       } else if (/\b(?:chdv|can\s+ho\s+dich\s+vu|khach\s+san|hotel)\b/i.test(qNoTone)) {
@@ -4113,6 +4107,46 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         .map(t => t.trim())
         .filter(t => t.length >= 2 && !["tu", "den", "ty", "tr", "m2", "cn", "va", "hoac", "cua", "tai", "o"].includes(t));
 
+      // Regional descriptions describe districts, never a street substring.
+      let region = [];
+      if (/\bloi trung tam\b/.test(qNoTone)) region = ["Quận 1", "Quận 3"];
+      else if (/\b(?:khu trung tam|quanh (?:khu )?trung tam|noi thanh)\b/.test(qNoTone)) region = ["Quận 1", "Quận 3", "Phú Nhuận", "Bình Thạnh", "Quận 10"];
+      else if (/\b(?:gan san bay|khu san bay)\b/.test(qNoTone)) region = ["Tân Bình", "Phú Nhuận"];
+      else if (/\b(?:khu dong|thao dien|thu thiem|quan [29])\b/.test(qNoTone)) region = ["TP. Thủ Đức"];
+      const explicitDistrict = /\b(?:quan\s*\d+|q\.?\s*\d+|binh thanh|phu nhuan|tan binh|tan phu|go vap|binh tan)\b/.test(qNoTone);
+      if (region.length && !explicitDistrict) parsed.districts = region.map(label => ({ label, matchTokens: [removeVietnameseTones(label)] }));
+      if (/\bchi quan 1 (?:va|hoac|&) quan 3\b/.test(qNoTone)) parsed.districts = ["Quận 1", "Quận 3"].map(label => ({ label, matchTokens: [removeVietnameseTones(label)] }));
+      const categoryCodes = Object.keys(AI_CATEGORY_LABELS).filter(c => AI_CATEGORY_LABELS[c] === parsed.categoryExact);
+      const publicStreets = [...new Set(propertiesData.map(p => String(p.public_location?.street || "").trim()).filter(Boolean))];
+      const streetQuery = qNoTone.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ");
+      const streetKeywords = publicStreets.filter(street => {
+        const s = removeVietnameseTones(street).replace(/^duong\s+/, "");
+        return s.length > 3 && (` ${streetQuery} `).includes(` ${s} `) && cleanSearchStreetKeyword(street);
+      });
+      const hasStructured = parsed.propCode || parsed.districts.length || categoryCodes.length ||
+        [parsed.minPriceBil, parsed.maxPriceBil, parsed.minAreaM2, parsed.minWidthM, parsed.minCashflowMil].some(v => v !== null) || parsed.mustHaveBasement || parsed.onlyUpdate;
+      const streetOnly = cleanSearchStreetKeyword(cleanedResidual);
+      const floorQuery = qNoTone.match(/(?:tu|tren|it nhat)?\s*(\d+)\s*(?:tang|lau)\b/);
+      const filter = {
+        property_id: parsed.propCode ? `NSG-${parsed.propCode.padStart(4, "0")}` : null,
+        districts: parsed.districts.map(d => d.label), categories: categoryCodes,
+        street_keywords: streetKeywords.length ? streetKeywords.slice(0, 4) : (!hasStructured && streetOnly ? [streetOnly] : []),
+        min_price_billion: parsed.minPriceBil, max_price_billion: parsed.maxPriceBil,
+        min_width_m: parsed.minWidthM, min_area_m2: parsed.minAreaM2, min_floors: floorQuery ? Number(floorQuery[1]) : null,
+        min_rent_million: parsed.minCashflowMil, has_basement: parsed.mustHaveBasement ? true : null,
+        has_rental_income: /\b(?:co (?:hop dong thue|hd thue|dong tien)|dong tien thue|dang cho thue)\b/.test(qNoTone) ? true : null,
+        only_discounted: parsed.onlyUpdate || /\b(?:hang ngop|cat lo)\b/.test(qNoTone) ? true : null
+      };
+      const structured = adaptAiSearchFilter(filter);
+      if (structured) {
+        structured.sortBy = /\b(?:giam gia sau|giam sau|hang ngop|cat lo)\b/.test(qNoTone) ? "discount_desc" :
+          /\b(?:ty suat|dong tien cao)\b/.test(qNoTone) ? "yield_desc" :
+          /\b(?:gia (?:thap|re) nhat|gia tang dan)\b/.test(qNoTone) ? "price_asc" :
+          /\b(?:gia cao nhat|gia giam dan)\b/.test(qNoTone) ? "price_desc" :
+          /\b(?:dien tich lon nhat|dien tich giam dan)\b/.test(qNoTone) ? "area_desc" : null;
+        return structured;
+      }
+      // No structured criterion was recognized: retain the original literal search.
       return parsed;
     }
 
@@ -4122,6 +4156,76 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       building: "Tòa Văn Phòng", hotel_chdv: "Tòa CHDV / Khách Sạn", nha_pho: "Nhà Phố Mặt Tiền",
       biet_thu: "Biệt Thự / Dinh Thự", quy_dat: "Quỹ Đất Xây Cao Tầng"
     };
+    function cleanSearchStreetKeyword(value) {
+      const generic = /\b(?:quanh khu trung tam|khu trung tam|quanh trung tam|loi trung tam|trung tam|noi thanh|gan san bay|khu san bay|san bay|khu dong|mat tien|toa nha|building|van phong|khach san|sai gon|tp\.?hcm|thanh pho ho chi minh|gia tot|cat lo|hang ngop|ngop|dong tien|khu|quanh|gan)\b/g;
+      return removeVietnameseTones(value).replace(generic, " ").replace(/\s+/g, " ").trim();
+    }
+
+    function getSearchStructure(prop) {
+      const text = removeVietnameseTones(prop.specs?.structure_text || prop.specs?.structure || "");
+      const planned = /\b(?:dat trong|tien xay|du kien|gpxd|xay moi)\b/.test(text);
+      const match = text.match(/(\d+)\s*(tang|lau)\b/);
+      const floors = planned ? 0 : Number(prop.specs?.floors) || (match ? Number(match[1]) + (match[2] === "lau" && /\btret\b/.test(text) ? 1 : 0) : 0);
+      const basement = text.match(/(?:\b(\d+)\s*)?\bham\b/);
+      return { floors, hasBasement: !planned && (Number(prop.specs?.basements) > 0 || (!!basement && basement[1] !== "0" && !/\bkhong (?:co )?ham\b/.test(text))),
+        hasLift: !planned && /\bthang may\b/.test(text) };
+    }
+
+    function matchesSearchCategory(prop, categories) {
+      if (!categories.length) return true;
+      const category = removeVietnameseTones(resolveCategoryName(prop));
+      const title = removeVietnameseTones(prop.seo_title || "");
+      const structure = getSearchStructure(prop);
+      return categories.some(c => c === "building" ? /building|van phong|cao oc|toa nha/.test(category) ||
+        /\b(?:building|toa nha)\b/.test(title) || structure.floors >= 5 || structure.hasBasement || structure.hasLift :
+        ({ hotel_chdv: /khach san|chdv|can ho dich vu|hotel/, nha_pho: /nha pho|nha mat tien|nha goc|nha hem|nha 2 mat tien/,
+          biet_thu: /biet thu|dinh thu|villa/, quy_dat: /quy dat|lo dat|khuon dat|dat trong/ })[c]?.test(category));
+    }
+
+    function scorePropertyRelevance(prop, parsed) {
+      const filter = parsed?.aiFilter;
+      if (!filter || filter.property_id) return 0; // Never suggest a different property ID.
+      const m = computeMetrics(prop);
+      if ((filter.min_price_billion !== null || filter.max_price_billion !== null) && (m.isMasked || m.currP <= 0)) return 0;
+      let score = 0;
+      const district = removeVietnameseTones(prop.public_location?.district || "").replace(/^quan go vap$/, "go vap");
+      if (parsed.districts.some(rule => rule.matchTokens.includes(district))) score += 40;
+      if (filter.categories.length && matchesSearchCategory(prop, filter.categories)) score += 30;
+      const low = filter.min_price_billion ?? filter.max_price_billion;
+      const high = filter.max_price_billion ?? filter.min_price_billion;
+      if (low !== null && !m.isMasked && m.currP > 0 && m.currP >= low * 0.75 && m.currP <= high * 1.25) score += 20;
+      if (m.monthlyMil > 0 || (!m.isMasked && m.diffBil > 0)) score += 10;
+      return score;
+    }
+
+    function normalizeAiSearchResponse(result, raw) {
+      if (!result || result.success === false || result.fallback === true) return null;
+      const incoming = result.filter || result.conditions;
+      if (!incoming || typeof incoming !== "object" || Array.isArray(incoming)) return null;
+      const local = parseNaturalLanguageQuery(raw);
+      const keys = ["property_id", "districts", "street_keywords", "categories", "min_price_billion", "max_price_billion", "min_width_m", "min_area_m2", "min_floors", "has_basement", "min_rent_million", "has_rental_income", "only_discounted"];
+      const base = Object.fromEntries(keys.map(k => [k, ["districts", "street_keywords", "categories"].includes(k) ? [] : null]));
+      const allowed = [...keys, "sort_by"];
+      if (Object.keys(incoming).some(k => !allowed.includes(k))) return null;
+      const filter = { ...base, ...incoming };
+      delete filter.sort_by;
+      if (Array.isArray(filter.street_keywords)) filter.street_keywords = filter.street_keywords.map(s => typeof s === "string" ? cleanSearchStreetKeyword(s) : s).filter(s => s !== "");
+      // Explicit local regions and numeric requirements survive incomplete AI extraction.
+      if (local?.aiFilter) {
+        for (const key of keys) {
+          const value = local.aiFilter[key];
+          if ((Array.isArray(value) && value.length && key !== "street_keywords") || (key === "property_id" && value)) filter[key] = value;
+          else if (filter[key] === null && value !== null && !Array.isArray(value)) filter[key] = value;
+        }
+      }
+      const parsed = adaptAiSearchFilter(filter);
+      if (!parsed) return null;
+      const sort = incoming.sort_by || result.sort_by || local?.sortBy;
+      parsed.sortBy = ["discount_desc", "yield_desc", "price_asc", "price_desc", "area_desc"].includes(sort) ? sort : null;
+      parsed.advisorMessage = typeof result.advisor_message === "string" && result.advisor_message.length <= 500 ? result.advisor_message : "";
+      parsed.quickChips = Array.isArray(result.quick_chips) ? result.quick_chips.filter(c => c && typeof c.label === "string" && c.label.length <= 80 && typeof c.query === "string" && c.query.trim() && c.query.length <= 200).slice(0, 4) : [];
+      return parsed;
+    }
     function adaptAiSearchFilter(filter) {
       const numbers = ["min_price_billion", "max_price_billion", "min_width_m", "min_area_m2", "min_floors", "min_rent_million"];
       const booleans = ["has_basement", "has_rental_income", "only_discounted"];
@@ -4136,6 +4240,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (filter.min_floors !== null && (!Number.isInteger(filter.min_floors) || filter.min_floors > 200)) return null;
       if (filter.min_price_billion !== null && filter.max_price_billion !== null && filter.min_price_billion > filter.max_price_billion) return null;
       if (booleans.some(k => filter[k] !== null && typeof filter[k] !== "boolean")) return null;
+      filter = { ...filter, street_keywords: filter.street_keywords.map(cleanSearchStreetKeyword).filter(Boolean) };
       if (!Object.values(filter).some(v => Array.isArray(v) ? v.length : v !== null)) return null;
       const parsed = {
         propCode: null, districts: [], maxPriceBil: null, minPriceBil: null, minAreaM2: null,
@@ -4186,7 +4291,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         currentParsedQueryRaw = val;
       }
       if (!val) {
-        const b = document.getElementById("conciergeBanner");
+        const b = document.getElementById("ai-concierge-bar");
         if (b) b.classList.add("hidden");
       }
       resetPageAndRender();
@@ -4230,8 +4335,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           });
           if (response.ok) {
             const result = await response.json();
-            if (sequence === smartSearchSequence && !controller.signal.aborted && result.success === true && result.fallback !== true) {
-              const parsed = adaptAiSearchFilter(result.filter);
+            if (sequence === smartSearchSequence && !controller.signal.aborted) {
+              const parsed = normalizeAiSearchResponse(result, raw);
               if (parsed) currentParsedQueryFilter = parsed;
             }
           }
@@ -4246,44 +4351,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         if (sequence !== smartSearchSequence || document.getElementById("smartSearchInput").value.trim() !== raw) return;
       }
 
-      const filtered = getFilteredProperties();
-      const banner = document.getElementById("conciergeBanner");
-      const tagsEl = document.getElementById("parsedTagsContainer");
-      const textEl = document.getElementById("conciergeText");
-
-      const pills = [];
-      const ai = currentParsedQueryFilter.aiFilter;
-      if (ai?.categories.length) pills.push(`Loại: ${ai.categories.map(c => AI_CATEGORY_LABELS[c]).join(", ")}`);
-      if (ai?.street_keywords.length) pills.push(`Đường: ${ai.street_keywords.join(" / ")}`);
-      if (ai?.min_floors !== null && ai?.min_floors !== undefined) pills.push(`Từ ${ai.min_floors} tầng`);
-      if (typeof ai?.has_basement === "boolean") pills.push(ai.has_basement ? "Có tầng hầm" : "Không có tầng hầm");
-      if (typeof ai?.has_rental_income === "boolean") pills.push(ai.has_rental_income ? "Có dòng tiền thuê" : "Không có dòng tiền thuê");
-      if (typeof ai?.only_discounted === "boolean") pills.push(ai.only_discounted ? "Có giảm giá" : "Không giảm giá");
-      if (currentParsedQueryFilter.propCode) pills.push(`Mã: NSG-${currentParsedQueryFilter.propCode}`);
-      if (currentParsedQueryFilter.categoryExact) pills.push(`Loại: ${currentParsedQueryFilter.categoryExact}`);
-      if (currentParsedQueryFilter.districts.length) pills.push(`Khu vực: ${currentParsedQueryFilter.districts.map(d => d.label).join(", ")}`);
-      if (currentParsedQueryFilter.minPriceBil) pills.push(`Từ ${currentParsedQueryFilter.minPriceBil} Tỷ`);
-      if (currentParsedQueryFilter.maxPriceBil) pills.push(`Đến ${currentParsedQueryFilter.maxPriceBil} Tỷ`);
-      if (currentParsedQueryFilter.minWidthM) pills.push(`Ngang ≥ ${currentParsedQueryFilter.minWidthM}m`);
-      if (currentParsedQueryFilter.minAreaM2) pills.push(`DT CN ≥ ${currentParsedQueryFilter.minAreaM2}m²`);
-      if (currentParsedQueryFilter.minCashflowMil) pills.push(`Dòng tiền ≥ ${currentParsedQueryFilter.minCashflowMil} Tr/tháng`);
-      if (currentParsedQueryFilter.mustHaveBasement) pills.push(`Có tầng hầm`);
-      if (currentParsedQueryFilter.onlyUpdate) pills.push(`Điều chỉnh giảm giá (UPDATE)`);
-      if (currentParsedQueryFilter.streetPhraseNoTone) pills.push(`Đường: "${currentParsedQueryFilter.streetPhraseNoTone}"`);
-      else if (currentParsedQueryFilter.freeTokens.length) pills.push(`Từ khóa: "${currentParsedQueryFilter.freeTokens.join(" ")}"`);
-
-      tagsEl.innerHTML = pills.map(p => `<span class="px-2 py-0.5 rounded-md bg-sky-50 text-[#0284C7] border border-sky-200 font-mono text-[11px] font-bold">${esc(p)}</span>`).join("");
-
-      if (filtered.length > 0) {
-        const topProp = filtered[0];
-        const m = computeMetrics(topProp);
-        const priceText = m.isMasked ? "Giá liên hệ" : `Giá ${m.currP} Tỷ (Đơn giá đất thuần ~${m.netLandPricePerM2Mil} tr/m²)`;
-        textEl.textContent = `Tìm thấy ${filtered.length} tài sản khớp chính xác nhu cầu. Nổi bật là [${topProp.property_id}] ${topProp.seo_title} — ${priceText}, khai thác: ${topProp.specs?.cashflow}.`;
-      } else {
-        textEl.textContent = `Chưa có tài sản công khai khớp đồng thời tất cả điều kiện trên. Anh/Chị có thể bấm Xóa để mở rộng tiêu chí hoặc liên hệ 0916.23.9898 ( Vũ ) để nhận danh mục kín.`;
-      }
-
-      banner.classList.remove("hidden");
       renderAll();
       document.getElementById("kho-tai-san").scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -4302,7 +4369,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (document.getElementById("featureFilter")) document.getElementById("featureFilter").value = "ALL";
       const clearBtn = document.getElementById("clearSmartSearchBtn") || document.getElementById("clearSearchBtn");
       if (clearBtn) clearBtn.classList.add("hidden");
-      document.getElementById("conciergeBanner").classList.add("hidden");
+      document.getElementById("ai-concierge-bar").classList.add("hidden");
       currentParsedQueryFilter = null;
       currentParsedQueryRaw = "";
       renderQuickDistrictBar();
@@ -4314,6 +4381,61 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       hotCurrentPage = 1;
       extraLoadedCount = 0;
       renderAll();
+    }
+
+    function renderSearchAdvisor(filtered) {
+      const raw = document.getElementById("smartSearchInput").value.trim();
+      const bar = document.getElementById("ai-concierge-bar");
+      if (!bar) return;
+      bar.classList.toggle("hidden", !raw);
+      if (!raw) return;
+      const parsed = currentParsedQueryRaw === raw ? currentParsedQueryFilter : parseNaturalLanguageQuery(raw);
+      const filter = parsed?.aiFilter;
+      bar.setAttribute("data-match-type", searchResultMeta.relaxed ? "relaxed" : "strict");
+      bar.setAttribute("data-result-count", String(filtered.length));
+      const message = document.getElementById("conciergeText");
+      if (searchResultMeta.relaxed) message.textContent = `Chưa có tài sản khớp 100% mọi điều kiện khắt khe — Dưới đây là ${filtered.length} tài sản tiệm cận theo nhu cầu của bạn. Một số tiêu chí đã được nới lỏng; vui lòng đối chiếu thông số và giá công khai trên từng căn.`;
+      else if (filtered.length) message.textContent = `${parsed?.advisorMessage ? parsed.advisorMessage + " " : ""}Tìm thấy ${filtered.length} tài sản phù hợp các tiêu chí đã nhận diện.`;
+      else message.textContent = "Chưa có tài sản trong phạm vi bộ lọc này. Chọn một gợi ý bên dưới, xóa bộ lọc hoặc nhờ Vũ tìm riêng theo yêu cầu.";
+      const tags = [];
+      if (filter?.property_id) tags.push(filter.property_id);
+      if (filter?.districts.length) tags.push(filter.districts.join(" / "));
+      if (filter?.categories.length) tags.push(filter.categories.map(c => AI_CATEGORY_LABELS[c]).join(" / "));
+      if (filter?.street_keywords.length) tags.push(`Đường: ${filter.street_keywords.join(" / ")}`);
+      if (filter?.min_price_billion !== null && filter?.min_price_billion !== undefined) tags.push(`Từ ${filter.min_price_billion} tỷ`);
+      if (filter?.max_price_billion !== null && filter?.max_price_billion !== undefined) tags.push(`Đến ${filter.max_price_billion} tỷ`);
+      if (filter?.min_width_m) tags.push(`Ngang ≥ ${filter.min_width_m}m`);
+      if (filter?.min_area_m2) tags.push(`DT ≥ ${filter.min_area_m2}m²`);
+      if (filter?.min_floors) tags.push(`Từ ${filter.min_floors} tầng`);
+      if (filter?.min_rent_million) tags.push(`Thuê ≥ ${filter.min_rent_million} triệu/tháng`);
+      if (typeof filter?.has_basement === "boolean") tags.push(filter.has_basement ? "Có hầm" : "Không có hầm");
+      if (typeof filter?.has_rental_income === "boolean") tags.push(filter.has_rental_income ? "Có dòng tiền thuê" : "Không có dòng tiền thuê");
+      if (typeof filter?.only_discounted === "boolean") tags.push(filter.only_discounted ? "Có giảm giá" : "Không giảm giá");
+      const tagBox = document.getElementById("parsedTagsContainer");
+      tagBox.replaceChildren();
+      for (const text of tags) {
+        const tag = document.createElement("span");
+        tag.className = "px-2 py-1 rounded-lg bg-sky-50 text-sky-800 text-xs border border-sky-100";
+        tag.textContent = text; tagBox.appendChild(tag);
+      }
+      const base = raw.slice(0, 140);
+      const suggestions = parsed?.quickChips?.length ? parsed.quickChips : [
+        { label: "Chỉ Quận 1 & Quận 3", query: `${base} chỉ Quận 1 hoặc Quận 3` },
+        { label: "Có HĐ thuê dòng tiền cao", query: `${base} dòng tiền từ 100 triệu` },
+        { label: "Đang giảm giá sâu", query: `${base} giảm giá sâu` },
+        { label: "Mặt tiền ngang ≥ 6m", query: `${base} ngang từ 6m` }
+      ];
+      const chips = document.getElementById("aiQuickChips");
+      chips.replaceChildren();
+      for (const suggestion of suggestions) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.style.minHeight = "44px";
+        button.className = "px-3 py-2 min-h-[44px] rounded-xl border border-sky-200 bg-sky-50 text-sky-900 text-xs font-bold hover:bg-sky-100";
+        button.textContent = suggestion.label;
+        button.addEventListener("click", () => quickAiQuery(suggestion.query));
+        chips.appendChild(button);
+      }
     }
 
     function getFilteredProperties() {
@@ -4329,6 +4451,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const featF = document.getElementById("featureFilter") ? document.getElementById("featureFilter").value : "ALL";
 
       const parsed = (currentParsedQueryRaw === qRaw ? currentParsedQueryFilter : null) || (qRaw ? parseNaturalLanguageQuery(qRaw) : null);
+      searchResultMeta = { relaxed: false, strictCount: 0 };
+      const candidates = [];
 
       let list = propertiesData.filter(prop => {
         const m = computeMetrics(prop);
@@ -4365,6 +4489,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           if (m.monthlyMil < 50) return false;
         }
 
+        // Keep manual dropdowns as hard boundaries even for nearby suggestions.
+        candidates.push(prop);
+
         if (!qRaw) return true;
 
         const fullHaystackNoTone = removeVietnameseTones(
@@ -4378,24 +4505,14 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             // District names are exact tokens: Quận 1 must not match Quận 10/11/12.
             const district = removeVietnameseTones(prop.public_location?.district || "").replace(/^quan go vap$/, "go vap");
             if (parsed.districts.length && !parsed.districts.some(rule => rule.matchTokens.includes(district))) return false;
-            const category = removeVietnameseTones(cat);
-            const groups = {
-              building: /building|van phong|cao oc|toa nha/, hotel_chdv: /khach san|chdv|can ho dich vu|hotel/,
-              nha_pho: /nha pho|nha mat tien|nha goc|nha hem|nha 2 mat tien/, biet_thu: /biet thu|dinh thu|villa/,
-              quy_dat: /quy dat|lo dat|khuon dat|dat trong/
-            };
-            if (ai.categories.length && !ai.categories.some(c => groups[c].test(category))) return false;
+            if (!matchesSearchCategory(prop, ai.categories)) return false;
             const street = removeVietnameseTones(prop.public_location?.street || "");
             if (ai.street_keywords.length && !ai.street_keywords.some(s => street.includes(removeVietnameseTones(s)))) return false;
             // Hidden/unknown prices cannot satisfy a public numeric-price query.
             if ((ai.min_price_billion !== null || ai.max_price_billion !== null) && (m.isMasked || m.currP <= 0)) return false;
-            const structure = removeVietnameseTones(prop.specs?.structure_text || prop.specs?.structure || "");
-            const floorMatch = structure.match(/(\d+)\s*(tang|lau)\b/);
-            const floors = Number(prop.specs?.floors) || (floorMatch ? Number(floorMatch[1]) + (floorMatch[2] === "lau" && /\btret\b/.test(structure) ? 1 : 0) : 0);
-            if (ai.min_floors !== null && floors < ai.min_floors) return false;
-            const basementMatch = structure.match(/(?:\b(\d+)\s*)?\bham\b/);
-            const hasBasement = Number(prop.specs?.basements) > 0 || (!!basementMatch && basementMatch[1] !== "0" && !/\bkhong (?:co )?ham\b/.test(structure));
-            if (ai.has_basement !== null && ai.has_basement !== hasBasement) return false;
+            const structure = getSearchStructure(prop);
+            if (ai.min_floors !== null && structure.floors < ai.min_floors) return false;
+            if (ai.has_basement !== null && ai.has_basement !== structure.hasBasement) return false;
             if (ai.has_rental_income !== null && ai.has_rental_income !== (m.monthlyMil > 0)) return false;
             if (ai.only_discounted !== null && ai.only_discounted !== (m.diffBil > 0 && !m.isMasked)) return false;
           }
@@ -4425,6 +4542,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           if (parsed.minCashflowMil !== null && m.monthlyMil < parsed.minCashflowMil) return false;
           if (parsed.onlyUpdate && prop.event_type !== "UPDATE") return false;
           if (parsed.mustHaveBasement && !/\bham\b/.test(removeVietnameseTones(prop.specs?.structure || ""))) return false;
+
+          if (ai) return true; // All structured criteria passed; never reapply raw text.
 
           if (parsed.categoryKeywords.length > 0 && !parsed.categoryExact) {
             const catBlob = removeVietnameseTones(`${cat} ${prop.seo_title} ${prop.specs?.structure}`);
@@ -4474,13 +4593,28 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         return false;
       });
 
+      searchResultMeta.strictCount = list.length;
+      if (qRaw && !list.length && parsed?.aiFilter && !parsed.aiFilter.property_id) {
+        const targetPrice = parsed.aiFilter.max_price_billion ?? parsed.aiFilter.min_price_billion;
+        const ranked = candidates.map(prop => ({ prop, score: scorePropertyRelevance(prop, parsed) })).filter(item => item.score > 0);
+        ranked.sort((a, b) => b.score - a.score || (targetPrice !== null ?
+          Math.abs(computeMetrics(a.prop).currP - targetPrice) - Math.abs(computeMetrics(b.prop).currP - targetPrice) : 0) || a.prop.property_id.localeCompare(b.prop.property_id));
+        searchResultMeta.relaxed = ranked.length > 0;
+        return ranked.slice(0, 8).map(item => item.prop);
+      }
+      const effectiveSort = sortBy === "PRIORITY" && parsed?.sortBy ? parsed.sortBy.toUpperCase() : sortBy;
       list.sort((a, b) => {
         const ma = computeMetrics(a);
         const mb = computeMetrics(b);
-        if (sortBy === "DISCOUNT_DESC") return mb.diffPct - ma.diffPct;
-        if (sortBy === "YIELD_DESC") return mb.annualYieldPct - ma.annualYieldPct;
-        if (sortBy === "PRICE_ASC") return ma.currP - mb.currP;
-        if (sortBy === "PRICE_DESC") return mb.currP - ma.currP;
+        if (qRaw && parsed?.aiFilter && ["PRICE_ASC", "PRICE_DESC", "DISCOUNT_DESC"].includes(effectiveSort) && (ma.isMasked || mb.isMasked)) {
+          if (ma.isMasked !== mb.isMasked) return ma.isMasked ? 1 : -1;
+          return a.property_id.localeCompare(b.property_id);
+        }
+        if (effectiveSort === "DISCOUNT_DESC") return mb.diffPct - ma.diffPct;
+        if (effectiveSort === "YIELD_DESC") return mb.annualYieldPct - ma.annualYieldPct;
+        if (effectiveSort === "PRICE_ASC") return ma.currP - mb.currP;
+        if (effectiveSort === "PRICE_DESC") return mb.currP - ma.currP;
+        if (effectiveSort === "AREA_DESC") return Number(b.specs?.recognized_area_m2 || 0) - Number(a.specs?.recognized_area_m2 || 0);
 
         // Mặc định (PRIORITY / RECOMMENDED):
         // 1. Nhóm UPDATE / NEW luôn nằm trên nhóm STANDARD
@@ -5259,6 +5393,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       renderInsightArticlesSection();
 
       const filtered = getFilteredProperties();
+      renderSearchAdvisor(filtered);
       updateFilterBadgesUI(filtered.length);
 
       const totalItems = filtered.length;
@@ -5273,7 +5408,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (visibleItems.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full bg-white rounded-2xl border border-slate-200 p-12 text-center">
-            <p class="text-base font-extrabold text-[#0F172A]">Không tìm thấy tài sản phù hợp với điều kiện lọc hiện tại.</p>
+            <p class="text-base font-extrabold text-[#0F172A]">Chưa có tài sản trong phạm vi bộ lọc này. Chọn gợi ý của Cố vấn hoặc mở rộng bộ lọc để tiếp tục.</p>
             <button onclick="clearAllFilters()" class="mt-3 px-4 py-2.5 rounded-xl text-xs font-extrabold bg-[#0284C7] text-white">Xem lại toàn bộ kho tài sản</button>
           </div>
         `;

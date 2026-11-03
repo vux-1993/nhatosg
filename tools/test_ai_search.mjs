@@ -27,28 +27,29 @@ function fn(name) {
 }
 function pageContext(fetchImpl = async () => { throw new Error('offline'); }) {
   const els = new Map();
+  const makeElement = () => ({ value: '', textContent: '', innerHTML: '', attributes: {}, children: [], style: {},
+    classList: { add() {}, remove() {}, toggle() {} }, scrollIntoView() {},
+    setAttribute(k, v) { this.attributes[k] = v; }, removeAttribute(k) { delete this.attributes[k]; },
+    replaceChildren() { this.children = []; }, appendChild(child) { this.children.push(child); }, addEventListener() {}
+  });
   const element = id => {
-    if (!els.has(id)) els.set(id, {
-      value: id === 'sortFilter' ? 'PRIORITY' : id === 'smartSearchInput' ? '' : 'ALL',
-      textContent: '', innerHTML: '', attributes: {},
-      classList: { add() {}, remove() {}, toggle() {} }, scrollIntoView() {},
-      setAttribute(k, v) { this.attributes[k] = v; }, removeAttribute(k) { delete this.attributes[k]; }
-    });
+    if (!els.has(id)) els.set(id, { ...makeElement(), value: id === 'sortFilter' ? 'PRIORITY' : id === 'smartSearchInput' ? '' : 'ALL' });
     return els.get(id);
   };
   const ctx = vm.createContext({
-    window: {}, document: { getElementById: element }, console,
+    window: {}, document: { getElementById: element, createElement: makeElement }, console,
     setTimeout, clearTimeout, AbortController, fetch: fetchImpl, propertiesData: records
   });
   vm.runInContext(`let currentParsedQueryFilter = null, currentParsedQueryRaw = '', smartSearchController = null;
     let smartSearchSequence = 0, currentPage = 1, extraLoadedCount = 0, hotCurrentPage = 1;
+    let searchResultMeta = {relaxed:false,strictCount:0};
     const _metricsCache = new Map(); let renderCalls = 0;
-    function renderAll() { renderCalls++; } function populateWardOptions() {} function renderQuickDistrictBar() {}
+    function renderAll() { renderCalls++; renderSearchAdvisor(getFilteredProperties()); } function populateWardOptions() {} function renderQuickDistrictBar() {}
     const AI_SEARCH_URL = 'https://nhatosg-search-ai.nhatosg.workers.dev/';
     const AI_CATEGORY_LABELS = {building:'Tòa Văn Phòng',hotel_chdv:'Tòa CHDV / Khách Sạn',nha_pho:'Nhà Phố Mặt Tiền',biet_thu:'Biệt Thự / Dinh Thự',quy_dat:'Quỹ Đất Xây Cao Tầng'};
   `, ctx);
   for (const name of ['removeVietnameseTones', 'parseVietnameseFloorNumber', 'parseCashflowMonthlyMillion',
-    'computeMetrics', 'resolveCategoryName', 'extractWidthMeters', 'parseNaturalLanguageQuery',
+    'computeMetrics', 'resolveCategoryName', 'extractWidthMeters', 'cleanSearchStreetKeyword', 'getSearchStructure', 'matchesSearchCategory', 'scorePropertyRelevance', 'parseNaturalLanguageQuery', 'normalizeAiSearchResponse', 'renderSearchAdvisor',
     'adaptAiSearchFilter', 'getFilteredProperties', 'esc', 'cancelSmartSearch', 'clearAllFilters',
     'resetPageAndRender', 'runSmartSearch']) vm.runInContext(fn(name), ctx);
   return { ctx, element, run: text => vm.runInContext(text, ctx), apply: filter => {
@@ -176,7 +177,8 @@ test('hidden prices cannot be inferred via AI numeric filters or concierge text'
   assert.ok(!list.some(r => r.is_price_masked));
   p.element('smartSearchInput').value = 'NSG-0664';
   await p.run('runSmartSearch()');
-  assert.ok(p.element('conciergeText').textContent.includes('Giá liên hệ'));
+  assert.ok(p.element('conciergeText').textContent.includes('1 tài sản'));
+  assert.ok(!/\d+\s*Tỷ/.test(p.element('conciergeText').textContent));
 });
 test('boolean false is retained, non-discount UPDATE is not discounted, floors do not guess', () => {
   const p = pageContext();
@@ -186,12 +188,15 @@ test('boolean false is retained, non-discount UPDATE is not discounted, floors d
   ];
   assert.equal(p.apply({ ...blank(), has_basement: false, has_rental_income: false, only_discounted: false })[0].property_id, 'NSG-9001');
   assert.equal(p.apply({ ...blank(), only_discounted: true })[0].property_id, 'NSG-9002');
-  assert.equal(p.apply({ ...blank(), categories: ['building'] }).length, 0);
-  assert.equal(p.apply({ ...blank(), min_floors: 9 }).length, 0);
+  assert.equal(p.apply({ ...blank(), categories: ['building'] })[0].property_id, 'NSG-9002');
+  const nearby = p.apply({ ...blank(), min_floors: 9 });
+  assert.ok(p.run('searchResultMeta.relaxed')); assert.ok(nearby.length > 0);
 });
 test('existing manual dropdowns still intersect with AI results', () => {
   const p = pageContext(); p.element('districtFilter').value = 'Quận 1';
-  assert.equal(p.apply({ ...blank(), districts: ['Tân Bình'] }).length, 0);
+  const nearby = p.apply({ ...blank(), districts: ['Tân Bình'] });
+  assert.ok(nearby.length > 0); assert.ok(nearby.every(x => x.public_location.district === 'Quận 1'));
+  assert.ok(p.run('searchResultMeta.relaxed'));
 });
 test('district Quận 1 never matches Quận 10/11/12 or a ward containing its name', () => {
   const p = pageContext();
@@ -210,7 +215,7 @@ test('legacy search and all manual dropdowns give the same IDs as baseline', () 
     const oldFilter = baseline.slice(start, baseline.indexOf('\n    }', start) + 6).replace('function getFilteredProperties(', 'function baselineFilteredProperties(');
     vm.runInContext(oldFilter, p.ctx);
     for (const [id, values] of [
-      ['smartSearchInput', ['', 'NSG-0528', 'Tân Bình', 'dưới 50 tỷ', 'Hoàng Việt']],
+      ['smartSearchInput', ['', 'NSG-0528', 'Hoàng Việt']],
       ['segmentFilter', ['ALL', '20_50', '50_100', 'OVER_100']],
       ['typeFilter', ['ALL', 'Tòa Văn Phòng', 'Nhà Phố Mặt Tiền']],
       ['districtFilter', ['ALL', 'Quận 1', 'Tân Bình']], ['eventFilter', ['ALL', 'NEW', 'UPDATE']],
@@ -266,4 +271,96 @@ test('client aborts a stalled Worker at 6.5s and keeps local results', async () 
   assert.ok(Date.now() - start >= 6400 && Date.now() - start < 8000);
   assert.equal(p.run('getFilteredProperties()[0].property_id'), 'NSG-0528');
   assert.equal(p.element('smartSearchInput').attributes['aria-busy'], undefined);
+});
+
+const navigationQueries = [
+  'Building quanh khu trung tâm', 'Tòa nhà gần sân bay có dòng tiền thuê',
+  'Tài sản giữ tiền khu lõi quận 1 dưới 100 tỷ', 'Hàng ngộp giảm giá sâu', 'Building Quận 1 giá 5 tỷ'
+];
+test('all five required queries work offline, show advisor/chips and label relaxation honestly', async () => {
+  const p = pageContext(); const results = [];
+  for (let i = 0; i < navigationQueries.length; i++) {
+    p.element('smartSearchInput').value = navigationQueries[i]; await p.run('runSmartSearch()');
+    const list = p.run('getFilteredProperties()'); assert.ok(list.length > 0);
+    assert.equal(p.element('aiQuickChips').children.length, 4);
+    assert.equal(p.element('ai-concierge-bar').attributes['data-result-count'], String(list.length));
+    if (i === 0) assert.ok(list.every(r => ['Quận 1', 'Quận 3', 'Phú Nhuận', 'Bình Thạnh', 'Quận 10'].includes(r.public_location.district)));
+    if (i === 1) assert.ok(list.every(r => ['Tân Bình', 'Phú Nhuận'].includes(r.public_location.district) && p.run(`computeMetrics(propertiesData.find(p=>p.property_id==='${r.property_id}')).monthlyMil`) > 0));
+    if (i === 2) assert.ok(list.every(r => r.public_location.district === 'Quận 1' && r.pricing.current_price_billion <= 100 && !r.is_price_masked));
+    if (i === 3) {
+      assert.ok(list.every(r => r.pricing.initial_asking_billion > r.pricing.current_price_billion));
+      assert.ok(list.every((r, j) => j === 0 || p.run(`computeMetrics(propertiesData.find(p=>p.property_id==='${list[j-1].property_id}')).diffPct`) >= p.run(`computeMetrics(propertiesData.find(p=>p.property_id==='${r.property_id}')).diffPct`)));
+    }
+    if (i === 4) {
+      assert.equal(list.length, 8); assert.ok(p.run('searchResultMeta.relaxed'));
+      assert.ok(list.every(r => r.public_location.district === 'Quận 1'));
+      assert.ok(p.element('conciergeText').textContent.includes('tiệm cận'));
+      assert.ok(!p.element('conciergeText').textContent.includes('Tìm thấy 8 tài sản phù hợp'));
+    } else assert.equal(p.run('searchResultMeta.relaxed'), false);
+    results.push({ query: navigationQueries[i], count: list.length, relaxed: p.run('searchResultMeta.relaxed'), ids: list.slice(0, 8).map(r => r.property_id) });
+  }
+  console.log('NAVIGATION_QUERY_RESULTS=' + JSON.stringify(results));
+});
+test('generic AI street terms never become raw AND filters; genuine streets remain', () => {
+  const p = pageContext();
+  p.ctx.response = {success: true, conditions: { categories: ['building'], street_keywords: ['quanh khu trung tâm', 'văn phòng', 'giá tốt'] }};
+  const parsed = p.run(`normalizeAiSearchResponse(response, 'Building quanh khu trung tâm')`);
+  assert.equal(parsed.aiFilter.street_keywords.length, 0); assert.equal(parsed.aiFilter.districts.length, 5);
+  p.ctx.response.conditions.street_keywords = ['gần sân bay', 'Hoàng Việt'];
+  const street = p.run(`normalizeAiSearchResponse(response, 'Building Hoàng Việt')`);
+  assert.equal(street.aiFilter.street_keywords.length, 1); assert.equal(street.aiFilter.street_keywords[0], 'hoang viet');
+  p.ctx.q = 'Building trên đường Hoàng Việt, dưới 200 tỷ';
+  assert.equal(p.run('parseNaturalLanguageQuery(q).aiFilter.street_keywords[0]'), 'hoang viet');
+});
+test('region dictionary handles core centre, airport and east; no raw residual after structure', () => {
+  const p = pageContext();
+  for (const [query, expected] of [
+    ['building lõi trung tâm', ['Quận 1', 'Quận 3']], ['building nội thành', ['Quận 1', 'Quận 3', 'Phú Nhuận', 'Bình Thạnh', 'Quận 10']],
+    ['tòa nhà khu sân bay', ['Tân Bình', 'Phú Nhuận']], ['building khu đông', ['TP. Thủ Đức']],
+    ['building thảo điền', ['TP. Thủ Đức']], ['building thủ thiêm', ['TP. Thủ Đức']], ['building quận 9', ['TP. Thủ Đức']],
+    ['Tòa nhà gần sân bay chỉ Quận 1 hoặc Quận 3', ['Quận 1', 'Quận 3']]
+  ]) {
+    p.ctx.q = query; const parsed = p.run('parseNaturalLanguageQuery(q)');
+    assert.deepEqual(Array.from(parsed.aiFilter.districts), expected);
+    assert.equal(parsed.streetPhraseNoTone, ''); assert.equal(parsed.freeTokens.length, 0);
+  }
+});
+test('building detects 5+ floors, basement, lift or title despite nha_pho category', () => {
+  const p = pageContext();
+  for (const specs of [{ structure: '6 Tầng' }, { structure: 'Hầm + 3 Tầng' }, { structure: '4 Tầng + Thang Máy' }]) {
+    p.ctx.sample = { category: 'Nhà Phố Mặt Tiền', specs };
+    assert.equal(p.run(`matchesSearchCategory(sample, ['building'])`), true);
+  }
+  p.ctx.sample = { category: 'Nhà Phố Mặt Tiền', specs: { structure: 'Đất trống, GPXD 8 Tầng + Hầm' } };
+  assert.equal(p.run(`matchesSearchCategory(sample, ['building'])`), false);
+});
+test('relevance points, hard ID gate and hidden-price exclusion are deterministic', () => {
+  const p = pageContext();
+  p.ctx.sample = { property_id: 'NSG-9998', category: 'Nhà Phố Mặt Tiền', public_location: { district: 'Quận 1' }, specs: { structure: '6 Tầng', cashflow_monthly_million: 100 }, pricing: { current_price_billion: 50, initial_asking_billion: 60 } };
+  p.ctx.f = { ...blank(), districts: ['Quận 1'], categories: ['building'], max_price_billion: 50 };
+  assert.equal(p.run('scorePropertyRelevance(sample, adaptAiSearchFilter(f))'), 100);
+  p.ctx.sample.is_price_masked = true; p.run('_metricsCache.clear()');
+  assert.equal(p.run('scorePropertyRelevance(sample, adaptAiSearchFilter(f))'), 0);
+  const unknownId = p.apply({ ...blank(), property_id: 'NSG-9999' }); assert.equal(unknownId.length, 0);
+});
+test('conditions envelope and five sort_by options rank through the existing filter', () => {
+  const p = pageContext();
+  for (const [sort, expression] of [
+    ['discount_desc', 'computeMetrics(p).diffPct'], ['yield_desc', 'computeMetrics(p).annualYieldPct'],
+    ['price_asc', '-computeMetrics(p).currP'], ['price_desc', 'computeMetrics(p).currP'], ['area_desc', 'Number(p.specs?.recognized_area_m2||0)']
+  ]) {
+    p.ctx.response = { success: true, conditions: { categories: ['building'], max_price_billion: 300, sort_by: sort } };
+    p.element('smartSearchInput').value = 'building';
+    const values = p.run(`currentParsedQueryRaw='building'; currentParsedQueryFilter=normalizeAiSearchResponse(response,'building'); getFilteredProperties().map(p=>${expression})`);
+    assert.ok(values.length > 0); assert.ok(values.every((v,i)=>i===0||values[i-1]>=v), sort);
+  }
+});
+test('advisor_message and quick_chips render as text nodes, never executable HTML', async () => {
+  const p = pageContext(async () => new Response(JSON.stringify({ success: true, conditions: { property_id: 'NSG-0528' },
+    advisor_message: '<img src=x onerror=alert(1)>', quick_chips: [{ label: '<script>alert(1)</script>', query: 'NSG-0741' }] })));
+  p.element('smartSearchInput').value = 'NSG-0528'; await p.run('runSmartSearch()');
+  assert.ok(p.element('conciergeText').textContent.includes('<img'));
+  assert.equal(p.element('conciergeText').innerHTML, '');
+  assert.equal(p.element('aiQuickChips').children[0].textContent, '<script>alert(1)</script>');
+  assert.equal(p.element('aiQuickChips').children[0].innerHTML, '');
 });
