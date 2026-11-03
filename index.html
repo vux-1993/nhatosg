@@ -4733,205 +4733,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       `;
     }
 
-    // =========================================================================
-    // MOBILE HOT CARDS CAROUSEL STATE & CONTROLLERS (TASK 1)
-    // =========================================================================
-    let hotMobileCurrentIndex = 0;
-    let hotMobileTouchStartX = 0;
-    let hotMobileTouchStartY = 0;
-    let hotMobileTouchEndX = 0;
-    let hotMobileTouchEndY = 0;
-
-    function prevHotMobileCard() {
-      const list = getCuratedHotPropertiesList();
-      if (!list || !list.length) return;
-      hotMobileCurrentIndex = (hotMobileCurrentIndex - 1 + list.length) % list.length;
-      renderHotMobileSection(list);
-    }
-
-    function nextHotMobileCard() {
-      const list = getCuratedHotPropertiesList();
-      if (!list || !list.length) return;
-      hotMobileCurrentIndex = (hotMobileCurrentIndex + 1) % list.length;
-      renderHotMobileSection(list);
-    }
-    window.prevHotMobileCard = prevHotMobileCard;
-    window.nextHotMobileCard = nextHotMobileCard;
-
-    function setupHotMobileTouchListeners() {
-      const container = document.getElementById("hotMobileCardsGrid");
-      if (!container || container._hasSwipeAttached) return;
-      container._hasSwipeAttached = true;
-
-      container.addEventListener("touchstart", (e) => {
-        if (e.touches && e.touches.length > 0) {
-          hotMobileTouchStartX = e.touches[0].clientX;
-          hotMobileTouchStartY = e.touches[0].clientY;
-        }
-      }, { passive: true });
-
-      container.addEventListener("touchend", (e) => {
-        if (e.changedTouches && e.changedTouches.length > 0) {
-          hotMobileTouchEndX = e.changedTouches[0].clientX;
-          hotMobileTouchEndY = e.changedTouches[0].clientY;
-          const diffX = hotMobileTouchEndX - hotMobileTouchStartX;
-          const diffY = hotMobileTouchEndY - hotMobileTouchStartY;
-          // Swipe ngang khi khoảng cách ngang > 35px và ưu thế hơn chiều dọc
-          if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
-            if (diffX < 0) {
-              nextHotMobileCard();
-            } else {
-              prevHotMobileCard();
-            }
-          }
-        }
-      }, { passive: true });
-    }
-
-    function renderHotMobileSection(curatedHotList) {
-      const container = document.getElementById("hotMobileCardsGrid");
-      if (!container) return;
-
-      const totalItems = curatedHotList ? curatedHotList.length : 0;
-      if (totalItems === 0) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-slate-500">Chưa có tài sản nổi bật</div>`;
-        return;
-      }
-
-      if (hotMobileCurrentIndex >= totalItems) hotMobileCurrentIndex = totalItems - 1;
-      if (hotMobileCurrentIndex < 0) hotMobileCurrentIndex = 0;
-
-      const prop = curatedHotList[hotMobileCurrentIndex];
-      const m = computeMetrics(prop);
-      const catName = resolveCategoryName(prop);
-      const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
-      const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
-      const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
-      const imgCount = gal.length;
-      const streetLabel = formatStreetDisplay(prop);
-      const districtLabel = prop.public_location?.district || "TP.HCM";
-      const wardLabel = prop.public_location?.ward || "";
-
-      const areaVal = prop.specs?.recognized_area_m2 ? `${esc(prop.specs.recognized_area_m2)}m²` : (prop.specs?.area ? `${esc(prop.specs.area)}m²` : 'Đang cập nhật');
-      const dimVal = prop.specs?.dimensions ? esc(prop.specs.dimensions) : '';
-      const cashflowVal = prop.specs?.cashflow ? esc(prop.specs.cashflow) : '';
-
-      // Tên tài sản tối đa 2 dòng, cắt gọn nếu dài
-      const displayTitle = formatDisplayCardTitle(prop.seo_title || prop.summary || streetLabel);
-
-      container.innerHTML = `
-        <div class="space-y-2">
-          <!-- THANH ĐIỀU HƯỚNG VÀ CHỈ BÁO VỊ TRÍ (1/N) -->
-          <div class="flex items-center justify-between px-0.5">
-            <div class="flex items-center gap-2">
-              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/15 text-amber-800 dark:text-amber-400 border border-amber-500/30">
-                <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-500"></i>
-                <span>Tâm Điểm</span>
-              </span>
-              <span id="hotMobileIndicator" class="font-mono text-xs font-extrabold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
-                ${hotMobileCurrentIndex + 1}/${totalItems}
-              </span>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <button type="button" onclick="prevHotMobileCard()" aria-label="Tài sản trước" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#0F172A] dark:text-white border border-slate-200 dark:border-slate-700 active:scale-95 transition flex items-center gap-1 text-xs font-bold">
-                <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                <span>Trước</span>
-              </button>
-              <button type="button" onclick="nextHotMobileCard()" aria-label="Tài sản tiếp" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-[#0F172A] dark:text-white border border-slate-200 dark:border-slate-700 active:scale-95 transition flex items-center gap-1 text-xs font-bold">
-                <span>Tiếp</span>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- THẺ TÀI SẢN DUY NHẤT THEO NGÔN NGỮ UI MỚI -->
-          <div class="hot-mobile-single-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col transition" onclick="openPropertyModal('${esc(prop.property_id)}')">
-            <!-- 1. ẢNH LỚN Ở TRÊN, BO GÓC TRÊN, CÓ MÃ NSG NỔI TRÊN ẢNH -->
-            <div class="relative w-full aspect-[16/10] bg-slate-100 dark:bg-slate-800 overflow-hidden select-none shrink-0" oncontextmenu="return false;">
-              <img 
-                src="${esc(coverImg)}" 
-                alt="${esc(displayTitle)}" 
-                loading="lazy" 
-                decoding="async" 
-                draggable="false" 
-                class="w-full h-full object-cover pointer-events-none select-none" 
-              />
-              
-              <!-- Mã NSG nổi bật góc trên trái -->
-              <div class="absolute top-2.5 left-2.5 z-10 pointer-events-none">
-                <span class="px-2.5 py-1 rounded-lg text-xs font-mono font-black bg-[#0F172A]/90 text-[#FBBF24] border border-[#FBBF24]/50 shadow-md backdrop-blur-xs">
-                  ${esc(prop.property_id)}
-                </span>
-              </div>
-
-              <!-- Bộ đếm ảnh góc trên phải -->
-              <div class="absolute top-2.5 right-2.5 z-10 pointer-events-none">
-                <span class="px-2 py-1 rounded-lg text-xs font-bold bg-[#0F172A]/80 text-white backdrop-blur-xs shadow-md">
-                  📷 ${imgCount}
-                </span>
-              </div>
-            </div>
-
-            <!-- 2. THÂN THẺ TINH GỌN, RÕ RÀNG -->
-            <div class="p-3.5 font-sans flex flex-col justify-between space-y-2.5">
-              <div>
-                <!-- Phân loại & Khu vực -->
-                <div class="text-[11.5px] uppercase font-extrabold text-[#0284C7] tracking-wider truncate">
-                  ${esc(catName)} • ${esc(districtLabel)}
-                </div>
-
-                <!-- Tên tài sản tối đa 2 dòng, cắt gọn nếu dài -->
-                <h3 class="font-bold text-[#0F172A] dark:text-white mt-1 leading-snug line-clamp-2 text-[15px]">
-                  ${esc(displayTitle)}
-                </h3>
-
-                <!-- Chỉ giữ thông tin chính: Diện tích & Khai thác / HĐ thuê -->
-                <div class="mt-2.5 py-2 border-t border-b border-slate-100 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 flex items-center justify-between gap-2">
-                  <div class="flex items-center gap-1 truncate">
-                    <span class="text-slate-500 dark:text-slate-400 font-medium">Diện tích:</span>
-                    <span class="font-bold text-[#0F172A] dark:text-white font-mono">${areaVal}</span>
-                    ${dimVal ? `<span class="text-slate-400 font-medium truncate">(${dimVal})</span>` : ''}
-                  </div>
-                  <div class="truncate text-right shrink-0">
-                    ${cashflowVal ? `
-                      <span class="font-bold text-emerald-600 dark:text-emerald-400">HĐ: ${cashflowVal}</span>
-                      ${m.annualYieldPct > 0 ? `<span class="text-[11px] text-emerald-700 dark:text-emerald-300 font-semibold ml-1">(~${String(m.annualYieldPct).replace('.', ',')}%)</span>` : ''}
-                    ` : `
-                      <span class="text-slate-400 font-medium">Bàn giao ngay</span>
-                    `}
-                  </div>
-                </div>
-
-                <!-- Giá chào bán, % giảm giá nếu có & Nút Chi tiết -->
-                <div class="pt-2.5 flex items-center justify-between gap-2">
-                  <div>
-                    <span class="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider block">Giá chào bán</span>
-                    <div class="flex items-baseline gap-1.5 mt-0.5 font-mono">
-                      <span class="text-xl font-extrabold text-[#0284C7] leading-none whitespace-nowrap">
-                        ${m.isMasked ? 'Giá thỏa thuận kín' : (m.currP > 0 ? `${esc(m.currP)} Tỷ` : 'Liên hệ')}
-                      </span>
-                      ${(!m.isMasked && m.diffBil > 0) ? `
-                        <span class="px-1.5 py-0.5 rounded text-[11px] font-extrabold bg-rose-100 text-rose-600 dark:bg-rose-950/60 dark:text-rose-300 font-sans">
-                          -${esc(m.diffPct)}%
-                        </span>
-                      ` : ''}
-                    </div>
-                  </div>
-                  <button type="button" onclick="event.stopPropagation(); openPropertyModal('${esc(prop.property_id)}');" class="py-2.5 px-4 rounded-xl bg-[#0F172A] hover:bg-[#0284C7] dark:bg-slate-800 dark:hover:bg-[#0284C7] text-white text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-xs cursor-pointer whitespace-nowrap active:scale-95">
-                    <span>Chi tiết</span>
-                    <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-[#FBBF24]"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      if (window.lucide) lucide.createIcons();
-      setupHotMobileTouchListeners();
-    }
-
     function renderHotRadarSection() {
       const radarBody = document.getElementById("hotRadarTableBody");
       const cardsGrid = document.getElementById("hotFeaturedCardsGrid");
@@ -4981,8 +4782,21 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         hotCardsPagination.innerHTML = buildSingleRowPaginationHtml(hotCurrentPage, totalHotPages, "goToHotRadarPage", "promptJumpHotPage");
       }
 
-      // 2. RENDER DẠNG THẺ CHUẨN MOBILE (< 640px) - CAROUSEL 1 THẺ TINH GỌN
-      renderHotMobileSection(curatedHotList);
+      // 2. RENDER DẠNG THẺ CHUẨN MOBILE (< 640px) - 5 THẺ DỌC THEO PHONG CÁCH PROPERTY CARD MỚI
+      const hotMobileGrid = document.getElementById("hotMobileCardsGrid");
+      if (hotMobileGrid) {
+        hotMobileGrid.innerHTML = pageItems.map((prop, idx) => {
+          try {
+            return renderV62PropertyCardHtml(prop, idx, idx < 5, compareList.includes(prop.property_id), "hot-mob-");
+          } catch (e) {
+            console.error("Lỗi render thẻ mobile nổi bật:", prop?.property_id, e);
+            return "";
+          }
+        }).join("");
+        setTimeout(() => {
+          document.querySelectorAll('#hotMobileCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
+        }, 1200);
+      }
 
       // 3. RENDER DẠNG BẢNG (TABLE VIEW >= 640px)
       if (radarBody) {
