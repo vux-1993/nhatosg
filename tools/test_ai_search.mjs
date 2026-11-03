@@ -76,7 +76,8 @@ test('all inline website scripts compile; exactly one filter and render pipeline
   scripts.forEach(s => new vm.Script(s));
   assert.equal((source.match(/function getFilteredProperties\(/g) || []).length, 1);
   assert.equal((source.match(/function renderAll\(/g) || []).length, 1);
-  assert.equal(records.length, 240);
+  assert.ok(records.length >= 240, 'retain the original inventory while allowing real NEW ingestion');
+  assert.equal(new Set(records.map(p => p.property_id)).size, records.length, 'no duplicate property IDs');
 });
 test('strict Worker and client validation agree for every schema field', () => {
   const page = pageContext();
@@ -257,12 +258,12 @@ test('out-of-order AI response cannot replace a newer search', async () => {
   pending[0](new Response(JSON.stringify({ success: true, filter: { ...blank(), property_id: 'NSG-0528' } }))); await first;
   assert.equal(p.run('getFilteredProperties()[0].property_id'), 'NSG-0741');
 });
-test('clear cancels pending AI and restores all 240 properties', async () => {
+test('clear cancels pending AI and restores the whole current inventory', async () => {
   let resolve;
   const p = pageContext(() => new Promise(r => { resolve = r; }));
   p.element('smartSearchInput').value = 'NSG-0528'; const promise = p.run('runSmartSearch()'); p.run('clearAllFilters()');
   resolve(new Response(JSON.stringify({ success: true, filter: { ...blank(), property_id: 'NSG-0528' } }))); await promise;
-  assert.equal(p.run('getFilteredProperties().length'), 240);
+  assert.equal(p.run('getFilteredProperties().length'), records.length);
 });
 test('client aborts a stalled Worker at 6.5s and keeps local results', async () => {
   const p = pageContext((_, { signal }) => new Promise((resolve, reject) => signal.addEventListener('abort', () => reject(signal.reason), { once: true })));
