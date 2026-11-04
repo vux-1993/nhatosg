@@ -3,9 +3,30 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nhatosg.com.vn/</loc>
-    <lastmod>2026-11-03</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://nhatosg.com.vn/p/NSG-0744.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0744/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-tan-dinh-quan-1-nsg-0744-hinh-1-059e3.jpg</image:loc>
+      <image:title>Bán nhà mặt tiền Hai Bà Trưng, Quận 1 – 5 tầng, 40 tỷ</image:title>
+      <image:caption>Bán nhà mặt tiền đường Hai Bà Trưng Phường Tân Định Quận 1 97.4m2 5 tầng - DT 4.4m × 23m (CN 97.4m²) - Giá chào 40.0 Tỷ - Ảnh #1</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0744/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-tan-dinh-quan-1-nsg-0744-hinh-2-b1012.jpg</image:loc>
+      <image:title>Bán nhà mặt tiền Hai Bà Trưng, Quận 1 – 5 tầng, 40 tỷ</image:title>
+      <image:caption>Bán nhà mặt tiền đường Hai Bà Trưng Phường Tân Định Quận 1 97.4m2 5 tầng - DT 4.4m × 23m (CN 97.4m²) - Giá chào 40.0 Tỷ - Ảnh #2</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nhatosg.com.vn/web_images/NSG-0744/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-tan-dinh-quan-1-nsg-0744-hinh-3-69ce2.jpg</image:loc>
+      <image:title>Bán nhà mặt tiền Hai Bà Trưng, Quận 1 – 5 tầng, 40 tỷ</image:title>
+      <image:caption>Bán nhà mặt tiền đường Hai Bà Trưng Phường Tân Định Quận 1 97.4m2 5 tầng - DT 4.4m × 23m (CN 97.4m²) - Giá chào 40.0 Tỷ - Ảnh #3</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://nhatosg.com.vn/p/NSG-0575.html</loc>
