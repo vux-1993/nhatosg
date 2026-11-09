@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quyền riêng tư NSG Sync Vault | Nhà Sài Gòn</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#182c3c;background:#f6f8fa}
+    *{box-sizing:border-box}body{margin:0}main{max-width:760px;margin:0 auto;padding:48px 22px 64px}
+    h1{font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.2;margin:0 0 18px}h2{font-size:1.12rem;margin:30px 0 8px}
+    p,li{font-size:1rem;line-height:1.7}ul{padding-left:22px}a{color:#0866a5}a:focus-visible{outline:3px solid #0866a5;outline-offset:3px}
+    .eyebrow{font-weight:700;color:#0866a5;margin:0 0 10px}footer{border-top:1px solid #d8e0e5;margin-top:40px;padding-top:18px;color:#516271}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Nhà Sài Gòn · Ứng dụng nội bộ</p>
+  <h1>Chính sách quyền riêng tư của NSG Sync Vault</h1>
+  <p>Cập nhật: 09/11/2026. Chính sách này áp dụng cho công cụ máy tính NSG Sync Vault V3 dùng để đồng bộ công việc giữa PC và Laptop của Nhà Sài Gòn; không thay thế chính sách của website bất động sản.</p>
+
+  <h2>Dữ liệu được xử lý và mục đích</h2>
+  <p>Công cụ đọc các bảng SQLite đã cấu hình, gồm tài sản, thành viên, lịch sử đăng tin và một số dữ liệu Publisher; đồng thời đối chiếu ảnh, tệp liên quan và lịch sử giá. Dữ liệu này chỉ được dùng để so sánh, sao lưu theo luồng đồng bộ, phát hiện xung đột và chuyển các thay đổi hợp lệ giữa hai máy do cùng chủ sở hữu vận hành.</p>
+
+  <h2>Quyền Google và phạm vi truy cập</h2>
+  <p>Relay Google Drive chính thức dùng quyền <code>https://www.googleapis.com/auth/drive.file</code>. Quyền này cho phép ứng dụng tạo và quản lý tệp của chính ứng dụng hoặc tệp được người dùng mở/chia sẻ cho ứng dụng; không phải quyền truy cập toàn bộ Drive. NSG Sync Vault không yêu cầu mật khẩu Tài khoản Google. Việc cấp quyền diễn ra trên trang đăng nhập và chấp thuận của Google.</p>
+
+  <h2>Lưu trữ và bảo vệ</h2>
+  <ul>
+    <li>Master SQLite và dữ liệu làm việc lưu trên từng máy. Dữ liệu đồng bộ và ảnh được mã hóa trước khi chuyển vào thư mục Relay trên Google Drive.</li>
+    <li>Khóa mã hóa và thông tin OAuth của Relay chính thức được bảo vệ cục bộ bằng Windows DPAPI; không đưa vào các trang công khai này.</li>
+    <li>Google Drive lưu các tệp mã hóa để hai máy được cấu hình truy xuất. Website Nhà Sài Gòn không nhận dữ liệu Master qua hai trang thông tin này.</li>
+  </ul>
+
+  <h2>Chia sẻ, thời gian lưu và quyền kiểm soát</h2>
+  <p>Ứng dụng không bán dữ liệu Google hay dùng dữ liệu Drive cho quảng cáo. Tệp đồng bộ chỉ phục vụ chủ sở hữu và các thiết bị được cấu hình; Google xử lý tệp theo dịch vụ Drive của họ. Tệp và bản sao có thể tồn tại cho đến khi chủ sở hữu xóa chúng theo quy trình vận hành. Thu hồi quyền OAuth sẽ ngăn ứng dụng truy cập Drive về sau nhưng không tự xóa dữ liệu đã có trên Drive hoặc trên hai máy.</p>
+  <p>Chủ sở hữu có thể xem hoặc xóa dữ liệu cục bộ và tệp Relay theo quy trình sao lưu, đồng thời thu hồi quyền NSG Sync Vault tại phần bảo mật Tài khoản Google. Cần kiểm tra bản sao trên cả hai máy và Drive trước khi xóa để tránh mất dữ liệu.</p>
+
+  <h2>Liên hệ</h2>
+  <p>Các câu hỏi về công cụ hoặc dữ liệu có thể gửi qua <a href="https://nhatosg.com.vn/#lien-he">kênh liên hệ Nhà Sài Gòn</a>.</p>
+  <footer><a href="https://nhatosg.com.vn/nsg-sync-vault.html">Về NSG Sync Vault</a></footer>
+</main>
+</body>
+</html>
+
