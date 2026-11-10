@@ -1,0 +1,12 @@
+{
+  "base_web_commit": "f44d6d47b3f341cb0c2cfa2441d55965e5831957",
+  "db_fingerprint": "395903337359fc8d4b8b0b9d8a10228127b9c80fca7500fa6b2094d903f5a27b",
+  "payload_sha256": "715596d00ea155da6b9f6a06546e5583b1e07fc4d9568dc1f8a7622e86b25b71",
+  "property_schema_sha256": "1128f201eaae70211f3434b2ba757cb9f413f37ca773f059a6ddc64178877f43",
+  "public_schema_version": "3.9-SEO-MAX",
+  "publish_hold_property_ids": [
+    "NSG-0826"
+  ],
+  "publisher_sha256": "867db944f8dd6e601d29f631778d567085840a3c4108ff41810ce3f27f082750",
+  "release_id": "publisher-293-hold-0826-20261110"
+}
