@@ -26,7 +26,7 @@
   <!-- Lucide Icons (Local Offline Pinned) -->
   <script src="./lucide.min.js"></script>
   <script src="./optimized_manifest.js?v=20261028_fix2"></script>
-  <script src="./properties_data.js?v=20261112000845"></script>
+  <script src="./properties_data.js?v=20261112002047"></script>
   <style>
     html {
       font-size: 17.5px;
@@ -1513,7 +1513,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261112000845";
+    script.src = "./properties_data.js?v=20261112002047";
     script.async = false;
     script.onload = function() {
       if (typeof window.__onNhatosgDataLoaded === "function") window.__onNhatosgDataLoaded();
@@ -6379,7 +6379,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
       return new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "./properties_data.js?v=20261112000845&t=" + Date.now();
+        script.src = "./properties_data.js?v=20261112002047&t=" + Date.now();
         script.onload = function() {
           resolve(window.__NHATOSG_DATA__ || null);
         };
@@ -6473,7 +6473,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           };
         } else {
           var script = document.createElement("script");
-          script.src = "./properties_data.js?v=20261112000845&t=" + Date.now();
+          script.src = "./properties_data.js?v=20261112002047&t=" + Date.now();
           script.onload = function() {
             renderPublicCatalogWithData();
           };
