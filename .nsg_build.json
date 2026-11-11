@@ -1,12 +1,12 @@
 {
-  "base_web_commit": "ef8d583b3712d37a0bab052af29d4d21187927d0",
+  "base_web_commit": "2b8c07d434c9eefdfb13891974138623974b1c48",
   "db_fingerprint": "edb2ffd8aabb1170476713036be5def0c1145cb97466190ba42be76429913cde",
-  "payload_sha256": "2cda5198645b7b95eb46f7a5bf6b2fe2c05e592c237cf7ef3f633ec755f1fada",
+  "payload_sha256": "f64155173039aac8330be84f4aaa2facf6256776d0e075a92c3aef34d8a52efc",
   "property_schema_sha256": "1128f201eaae70211f3434b2ba757cb9f413f37ca773f059a6ddc64178877f43",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826"
   ],
-  "publisher_sha256": "37d478312ea12a65bf726a5fc609458a49bd043afacdd60de4818d443f41ecd9",
+  "publisher_sha256": "96a2454b346cc1b2c01c4d7917a995a508b0867ac52558973c2c6014b28baea5",
   "release_id": "publisher-293-hold-0826-20261110"
 }
