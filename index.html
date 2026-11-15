@@ -5863,12 +5863,30 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const cashflow = rentalDisplayValue(prop.specs?.cashflow);
 
       const rawDesc = String(prop.marketing_description || prop.summary || "").trim();
-      const lines = rawDesc.split(/\r?\n|(?=\s*•\s*)/)
-        .map(line => line.replace(/^[•\-*]\s*/, "").trim())
-        .filter(Boolean);
-      const duplicateSpecs = /^Thông số\s*(?:&|và)\s*kết cấu(?: thực tế)?\s*:\s*/iu;
-      const extraSpecs = lines.filter(line => duplicateSpecs.test(line))
-        .map(line => line.replace(duplicateSpecs, "")).filter(Boolean);
+      const sections = new Map();
+      let heading = "";
+      for (const fragment of rawDesc.split(/\r?\n|(?=\s*•\s*)/)) {
+        const line = fragment.replace(/^[\s•*–-]+/u, "").trim();
+        if (!line) continue;
+        const match = line.match(/^([^:]{1,70}):\s*(.*)$/u);
+        if (match) {
+          heading = match[1].trim().replace(/\s+/g, " ");
+          if (/^vị trí (?:&|và) (?:kết nối|lợi thế)$/iu.test(heading)) heading = "Vị trí & Kết nối";
+          if (/^khai thác (?:&|và) pháp lý$/iu.test(heading)) heading = "Khai thác & Pháp lý";
+          if (/^(?:thông số(?::|$| (?:&|và) (?:kết cấu|hiện trạng|quy hoạch|tiềm năng))|thông & kết cấu)/iu.test(heading)) {
+            heading = "Thông số & Kết cấu";
+          }
+        }
+        const text = match ? match[2].trim() : line;
+        if (!/[\p{L}\p{N}]/u.test(text)) continue;
+        const key = heading.toLocaleLowerCase("vi");
+        if (!sections.has(key)) sections.set(key, { heading, parts: [] });
+        const parts = sections.get(key).parts;
+        if (!parts.includes(text)) parts.push(text);
+      }
+      const specKey = "thông số & kết cấu";
+      const extraSpecs = sections.get(specKey)?.parts || [];
+      sections.delete(specKey);
 
       const specsBlockHtml = `
         <div class="modal-desc-box p-4 sm:p-5 rounded-2xl">
@@ -5894,21 +5912,19 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         </div>
       `;
 
-      const detailItemsHtml = lines.filter(line => !duplicateSpecs.test(line)).map(line => {
-        const colonIdx = line.indexOf(":");
-        if (colonIdx > 0 && colonIdx < 38) {
-          const head = line.slice(0, colonIdx).trim();
-          const rest = line.slice(colonIdx + 1).trim();
+      const detailItemsHtml = [...sections.values()].map(({ heading, parts }) => {
+        const body = parts.map(part => `<p>${esc(part)}</p>`).join("");
+        if (heading) {
           return `
             <div class="modal-desc-box p-3.5 rounded-xl shadow-2xs">
-              <div class="text-[14px] font-extrabold uppercase tracking-wider modal-desc-title mb-1">• ${esc(head)}:</div>
-              <div class="text-[15.5px] modal-desc-text leading-relaxed pl-3 font-medium">${esc(rest)}</div>
+              <div class="text-[14px] font-extrabold uppercase tracking-wider modal-desc-title mb-1">• ${esc(heading)}:</div>
+              <div class="text-[15.5px] modal-desc-text leading-relaxed pl-3 font-medium">${body}</div>
             </div>
           `;
         }
         return `
           <div class="modal-desc-box p-3.5 rounded-xl text-[15.5px] modal-desc-text leading-relaxed font-medium">
-            • ${esc(line)}
+            ${body}
           </div>
         `;
       }).join("");
