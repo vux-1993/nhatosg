@@ -1879,7 +1879,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
               <option value="Nhà Phố Mặt Tiền">Nhà Phố Mặt Tiền Kinh Doanh</option>
               <option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn Dòng Tiền</option>
               <option value="Biệt Thự / Dinh Thự">Biệt Thự / Dinh Thự Compound</option>
-              <option value="Quỹ Đất & Tài Sản Hiện Hữu">Quỹ Đất &amp; Tài Sản Hiện Hữu</option>
+              <option value="Quỹ Đất & Tài Sản Hiện Hữu">Khuôn Đất &amp; Nhà Hiện Trạng</option>
             </select>
           </div>
 
@@ -2838,6 +2838,36 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       };
       if (pid) _metricsCache.set(pid, result);
       return result;
+    }
+
+    const LAND_CATEGORY = "Quỹ Đất & Tài Sản Hiện Hữu";
+    const LAND_DISPLAY = "Khuôn Đất & Nhà Hiện Trạng";
+
+    function displayCategoryName(category) {
+      return category === LAND_CATEGORY ? LAND_DISPLAY : category;
+    }
+
+    function usableDisplayValue(value) {
+      const text = String(value ?? "").trim();
+      return /^(?:(?:phường\s+)?chưa rõ|chưa có thông tin|đang cập nhật|n\/?a|--)[.!]?$/iu.test(text) ? "" : text;
+    }
+
+    function rentalDisplayValue(value) {
+      const text = usableDisplayValue(value);
+      if (!text || /^(?:bàn giao ngay|sẵn sàng bàn giao|(?:nhà |mặt bằng |đang )?trống|chủ (?:đang|tự)|không (?:cho thuê|có)|chưa (?:có|cho thuê|khai thác)|giá (?:rao|chào|thuê)|dự kiến)/iu.test(text)) return "";
+      const actualLease = /đang (?:có hợp đồng|cho thuê)|hợp đồng (?:cho )?thuê sẵn|dòng tiền kín/iu.test(text);
+      const speculative = /tiềm năng|dự kiến|có thể cho thuê|khả năng cho thuê/iu.test(text);
+      return actualLease || (!speculative && parseCashflowMonthlyMillion(text) > 0) ? text : "";
+    }
+
+    function modalDisplayTitle(prop, metrics) {
+      const location = prop.public_location || {};
+      const street = usableDisplayValue(location.street).replace(/^(?:đường\s+)+/iu, "");
+      const place = [street, usableDisplayValue(location.ward), usableDisplayValue(location.district)].filter(Boolean).join(", ");
+      const heading = ["Bán", displayCategoryName(resolveCategoryName(prop)), place].filter(Boolean).join(" ");
+      const structure = usableDisplayValue(prop.specs?.structure).split(",")[0];
+      const price = metrics.isMasked || metrics.currP <= 0 ? "Giá liên hệ" : `${metrics.currP} Tỷ`;
+      return `${heading} – ${[structure, price].filter(Boolean).join(", ")}`;
     }
 
     function resolveCategoryName(prop) {
@@ -4864,7 +4894,10 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
     function formatDisplayCardTitle(rawTitle) {
       if (!rawTitle) return "";
-      let t = String(rawTitle).trim();
+      let t = String(rawTitle)
+        .replace(/Quỹ Đất & Tài Sản Hiện Hữu/giu, LAND_DISPLAY)
+        .replace(/(?:Phường\s+)?Chưa rõ\s*,?\s*/giu, "")
+        .trim();
 
       // 1. Chuẩn hóa m2 -> m²
       t = t.replace(/(\d+(?:\.\d+)?)\s*m2\b/g, "$1m²");
@@ -4962,9 +4995,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       // 2. Thông số thiết yếu
       const areaVal = prop.specs?.recognized_area_m2 ? `${esc(prop.specs.recognized_area_m2)} m²` : 'Đang cập nhật';
-      const dimVal = prop.specs?.dimensions ? esc(prop.specs.dimensions) : 'N/A';
+      const dimVal = esc(usableDisplayValue(prop.specs?.dimensions));
       const structVal = prop.specs?.structure ? esc(prop.specs.structure) : (prop.specs?.floors ? `${esc(prop.specs.floors)} tầng` : 'N/A');
-      const cashflowVal = prop.specs?.cashflow && prop.specs.cashflow !== 'Bàn giao ngay' ? esc(prop.specs.cashflow) : '';
+      const cashflowVal = esc(rentalDisplayValue(prop.specs?.cashflow));
 
       return `
         <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
@@ -5011,7 +5044,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
               <div>
                 <!-- 2. LOẠI NHÀ / QUẬN, TÊN ĐƯỜNG NỔI BẬT VÀ PHƯỜNG NHỎ HƠN -->
                 <div class="text-xs uppercase font-extrabold text-[#0284C7] tracking-wider truncate">
-                  ${esc(catName)}
+                  ${esc(displayCategoryName(catName))}
                 </div>
 
                 <h3 class="font-bold text-[#0F172A] dark:text-white mt-1 leading-snug line-clamp-1">
@@ -5039,8 +5072,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                 <!-- 4. DIỆN TÍCH, KÍCH THƯỚC, KẾT CẤU NẰM TRÊN MỘT HÀNG NGANG -->
                 <div class="py-2 border-t border-slate-100 dark:border-slate-800 text-xs sm:text-[13px] text-slate-700 dark:text-slate-300 flex items-center gap-1.5 sm:gap-2 flex-wrap">
                   <span class="font-bold text-[#0F172A] dark:text-white shrink-0">${areaVal}</span>
-                  <span class="text-slate-300 dark:text-slate-600 shrink-0">|</span>
-                  <span class="shrink-0 font-medium text-slate-600 dark:text-slate-300">${dimVal}</span>
+                  ${dimVal ? `<span class="text-slate-300 dark:text-slate-600 shrink-0">|</span>
+                  <span class="shrink-0 font-medium text-slate-600 dark:text-slate-300">${dimVal}</span>` : ''}
                   <span class="text-slate-300 dark:text-slate-600 shrink-0">|</span>
                   <span class="font-medium text-slate-600 dark:text-slate-300 break-words leading-snug">${structVal}</span>
                 </div>
@@ -5058,12 +5091,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                       </span>
                     ` : ''}
                   </div>
-                ` : `
-                  <div class="py-1 text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1.5">
-                    <i data-lucide="check-circle" class="w-3.5 h-3.5 shrink-0 text-slate-400"></i>
-                    <span>Bàn giao ngay</span>
-                  </div>
-                `}
+                ` : ''}
               </div>
             </div>
           </div>
@@ -5172,7 +5200,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
               <td class="py-3.5 px-4 align-middle">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="font-extrabold text-[16.5px] sm:text-[17px] text-[#0F172A] group-hover:text-[#0284C7] transition">${esc(catName)}</span>
+                  <span class="font-extrabold text-[16.5px] sm:text-[17px] text-[#0F172A] group-hover:text-[#0284C7] transition">${esc(displayCategoryName(catName))}</span>
                   ${(prop.event_type === "UPDATE" || prop.event_type === "NEW") ? `
                     <span class="px-2 py-0.5 text-[11.5px] font-mono font-extrabold rounded-md ${isUpdate ? 'bg-emerald-500/20 text-emerald-700 border border-emerald-500/40' : 'bg-sky-500/20 text-sky-700 border border-sky-500/40'}">
                       ${isUpdate ? 'Vừa cập nhật' : 'Mới đăng'}
@@ -5829,10 +5857,18 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
     function renderStructuredDescriptionHtml(prop) {
       const catName = resolveCategoryName(prop);
-      const dims = prop.specs?.dimensions || "Đang cập nhật";
+      const dims = usableDisplayValue(prop.specs?.dimensions);
       const areaM2 = prop.specs?.recognized_area_m2 || 0;
       const struct = prop.specs?.structure || "Đang cập nhật";
-      const cashflow = prop.specs?.cashflow || "Bàn giao ngay";
+      const cashflow = rentalDisplayValue(prop.specs?.cashflow);
+
+      const rawDesc = String(prop.marketing_description || prop.summary || "").trim();
+      const lines = rawDesc.split(/\r?\n|(?=\s*•\s*)/)
+        .map(line => line.replace(/^[•\-*]\s*/, "").trim())
+        .filter(Boolean);
+      const duplicateSpecs = /^Thông số\s*(?:&|và)\s*kết cấu(?: thực tế)?\s*:\s*/iu;
+      const extraSpecs = lines.filter(line => duplicateSpecs.test(line))
+        .map(line => line.replace(duplicateSpecs, "")).filter(Boolean);
 
       const specsBlockHtml = `
         <div class="modal-desc-box p-4 sm:p-5 rounded-2xl">
@@ -5843,7 +5879,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           <ul class="space-y-2 text-[15.5px] modal-desc-text font-medium pl-1">
             <li class="flex items-start gap-2">
               <span class="modal-desc-bullet font-bold">•</span>
-              <span><strong>Diện tích thực:</strong> <span class="font-mono font-extrabold">${esc(dims)}</span> <span class="modal-desc-sub">(Công nhận sổ: <strong class="font-mono text-[#0284C7]">${esc(areaM2)}m²</strong>)</span></span>
+              <span><strong>Diện tích thực:</strong> ${dims ? `<span class="font-mono font-extrabold">${esc(dims)}</span> ` : ""}<span class="modal-desc-sub">Công nhận sổ: <strong class="font-mono text-[#0284C7]">${esc(areaM2)}m²</strong></span></span>
             </li>
             <li class="flex items-start gap-2">
               <span class="modal-desc-bullet font-bold">•</span>
@@ -5851,21 +5887,14 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             </li>
             <li class="flex items-start gap-2">
               <span class="modal-desc-bullet font-bold">•</span>
-              <span><strong>Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#0284C7]">${esc(catName)}</span> <span class="modal-desc-sub">(${esc(cashflow)})</span></span>
+              <span><strong>Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#0284C7]">${esc(displayCategoryName(catName))}</span> ${cashflow ? `<span class="modal-desc-sub">(${esc(cashflow)})</span>` : ""}</span>
             </li>
           </ul>
+          ${extraSpecs.map(line => `<p class="modal-desc-text mt-2">${esc(line)}</p>`).join("")}
         </div>
       `;
 
-      const rawDesc = String(prop.marketing_description || prop.summary || "").trim();
-      const lines = rawDesc
-        .split(/\r?\n|(?=\s*•\s*)/)
-        .map(l => l.replace(/^[•\-*]\s*/, "").trim())
-        .filter(Boolean);
-
-      if (lines.length === 0) return specsBlockHtml;
-
-      const detailItemsHtml = lines.map(line => {
+      const detailItemsHtml = lines.filter(line => !duplicateSpecs.test(line)).map(line => {
         const colonIdx = line.indexOf(":");
         if (colonIdx > 0 && colonIdx < 38) {
           const head = line.slice(0, colonIdx).trim();
@@ -5886,8 +5915,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       const dueDiligenceBoxHtml = `
         <div class="modal-due-diligence p-3.5 rounded-xl text-[13.5px] leading-relaxed">
-          <span class="font-extrabold uppercase text-xs block mb-1">📋 Lưu ý thẩm định &amp; phạm vi thông tin:</span>
-          Thông số diện tích, kết cấu, giá chào và doanh thu thuê được trình bày theo hồ sơ hiện có do phía chủ tài sản cung cấp. Trước khi ra quyết định giao dịch, Nhà Sài Gòn hỗ trợ Quý Nhà đầu tư kiểm tra trực tiếp bản chụp Sổ hồng, hợp đồng thuê thực tế, hiện trạng PCCC và chỉ tiêu quy hoạch xây dựng tại cơ quan chức năng.
+          <span class="font-extrabold uppercase text-xs block mb-1">⚖️ Lưu ý thông tin</span>
+          Thông số diện tích, kết cấu và giá chào bán được cập nhật theo hồ sơ hiện trạng. Anh/chị quan tâm vui lòng liên hệ trực tiếp để nhận thông tin chi tiết, kiểm tra quy hoạch và hẹn xem thực tế.
         </div>
       `;
 
@@ -5938,7 +5967,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       document.getElementById("modalPropId").textContent = prop.property_id;
       const catBadge = document.getElementById("modalCategoryBadge");
-      if (catBadge) catBadge.textContent = catName;
+      if (catBadge) catBadge.textContent = displayCategoryName(catName);
 
       const badge = document.getElementById("modalEventBadge");
       if (badge) {
@@ -5969,7 +5998,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
 
       // 1. Tiêu đề + Vị trí + Giá
-      document.getElementById("modalTitle").textContent = prop.seo_title;
+      document.getElementById("modalTitle").textContent = modalDisplayTitle(prop, m);
 
       const rawModalStreet = String(prop?.public_location?.street || "").replace(/^(?:đường\s+)+/i, "").trim();
       const modalStreetBadge = rawModalStreet ? `Đường ${rawModalStreet}` : "";
@@ -6012,15 +6041,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       // 4. Thu nhập thuê nếu có
       const flowBox = document.getElementById("modalCashflowBox");
       const flowEl = document.getElementById("modalCashflow");
-      const flowVal = prop.specs?.cashflow || "";
+      const flowVal = rentalDisplayValue(prop.specs?.cashflow);
+      if (flowBox) flowBox.style.display = flowVal ? "" : "none";
       if (flowEl) {
-        if (flowVal && flowVal !== "Bàn giao ngay") {
-          flowEl.textContent = `${flowVal} ${m.annualYieldPct > 0 ? `(~${String(m.annualYieldPct).replace('.', ',')}%/năm)` : ""}`;
-          if (flowBox) flowBox.style.display = "";
-        } else {
-          flowEl.textContent = "Bàn giao ngay (Sẵn sàng khai thác)";
-          if (flowBox) flowBox.style.display = "";
-        }
+        const yieldLabel = flowVal && m.annualYieldPct > 0 ? ` (~${String(m.annualYieldPct).replace('.', ',')}%/năm)` : "";
+        flowEl.textContent = flowVal + yieldLabel;
       }
 
       // 6. Reset Accordion: Luôn mở sẵn Mô tả chi tiết & Bóc tách kết cấu/đơn giá, các khối khác thu gọn
@@ -6062,7 +6087,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           if (hist.length === 0) {
             timeline.innerHTML = `
               <div class="bg-slate-50 p-3 rounded-xl border border-slate-200/80 text-[13.5px] text-slate-600 flex items-center justify-between">
-                <span>Mức giá chào hiện tại: <strong class="text-[#0F172A] font-mono">${esc(m.currP)} Tỷ</strong></span>
+                <span>Mức giá chào hiện tại: <strong class="text-[#0F172A] font-mono">${m.isMasked ? "Thỏa thuận kín" : `${esc(m.currP)} Tỷ`}</strong></span>
                 <span class="text-xs text-slate-500 italic">Chưa ghi nhận biến động giá</span>
               </div>
             `;
@@ -6074,12 +6099,14 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                     #${idx + 1}
                   </span>
                   <div>
-                    <span class="font-bold text-[#0F172A]">${esc(h.note)}</span>
+                    <span class="font-bold text-[#0F172A]">${esc(/^Nhập mới qua Telegram Bot$/iu.test(h.note.trim()) ? "Cập nhật hồ sơ tài sản" : h.note)}</span>
                     <span class="block text-[13px] text-slate-500">Đã đối soát xác thực trên hệ thống nhatoSG</span>
                   </div>
                 </div>
                 <span class="font-mono font-extrabold text-[#0F172A] bg-white px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 ml-2">
-                  ${m.isMasked ? `Giá Thỏa Thuận Kín` : `${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ`}
+                  ${m.isMasked ? "Giá Thỏa Thuận Kín" : h.old_price === h.new_price
+                    ? `Giá chào bán: ${esc(h.new_price)} Tỷ`
+                    : `${esc(h.old_price)} Tỷ → ${esc(h.new_price)} Tỷ`}
                 </span>
               </div>
             `).join("");
@@ -6307,7 +6334,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
                   <!-- Dòng 1: Mã tài sản + Loại hình -->
                   <div class="flex items-center gap-1.5 flex-wrap">
                     <span class="font-mono text-[11px] font-extrabold px-1.5 py-0.5 rounded bg-[#FBBF24] text-[#0F172A] shadow-2xs">${esc(p.property_id)}</span>
-                    <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 truncate max-w-[140px]">${esc(catName)}</span>
+                    <span class="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700 truncate max-w-[140px]">${esc(displayCategoryName(catName))}</span>
                   </div>
                   <!-- Dòng 2: Tiêu đề BĐS & Vị trí rõ ràng, không bị ngắt cụt -->
                   <div class="text-[13px] font-bold text-[#0F172A] leading-snug line-clamp-2 min-h-[2.5rem] group-hover:text-[#0284C7] transition">
@@ -6373,8 +6400,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       const rawHistory = Array.isArray(raw.pricing?.price_history) ? raw.pricing.price_history : [];
       const cleanHistory = rawHistory.map(h => ({
-        old_price: Number(h?.old_price || initPrice),
-        new_price: Number(h?.new_price || currPrice),
+        old_price: Number(h?.old_price ?? h?.price_bil ?? h?.price ?? initPrice),
+        new_price: Number(h?.new_price ?? h?.price_bil ?? h?.price ?? currPrice),
         note: String(h?.note || "Đã xác minh")
       }));
 
@@ -6398,19 +6425,19 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         property_id: propId,
         category: String(raw.category || "").trim() || undefined,
         event_type: ["UPDATE", "STANDARD", "NEW"].includes(raw.event_type) ? raw.event_type : "NEW",
-        seo_title: seoTitle,
+        seo_title: seoTitle.replace(/(?:Phường\s+)?Chưa rõ\s*,?\s*/giu, ""),
         summary: String(raw.summary || ""),
         marketing_description: String(raw.marketing_description || raw.summary || ""),
         public_location: {
           street: String(raw.public_location?.street || "").replace(/^\d+[A-Za-z0-9/+\-]*\s+/, "").trim(),
-          ward: isMasked ? "" : String(raw.public_location?.ward || ""),
+          ward: isMasked ? "" : usableDisplayValue(raw.public_location?.ward),
           district: normalizeDistrictNameJS(raw.public_location?.district || "")
         },
         specs: {
           recognized_area_m2: Number(raw.specs?.recognized_area_m2 || 0),
-          dimensions: String(raw.specs?.dimensions || "N/A"),
+          dimensions: usableDisplayValue(raw.specs?.dimensions),
           structure: String(raw.specs?.structure || "N/A"),
-          cashflow: String(raw.specs?.cashflow || "Bàn giao ngay")
+          cashflow: rentalDisplayValue(raw.specs?.cashflow)
         },
         pricing: {
           initial_asking_billion: isMasked ? 0 : initPrice,
