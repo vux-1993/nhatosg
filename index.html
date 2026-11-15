@@ -1838,84 +1838,102 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       </div>
     </div>
 
-    <!-- THANH CÔNG CỤ LỌC ĐẦY ĐỦ -->
-    <div id="advancedFilterDrawer" class="hidden mb-7 bg-white rounded-2xl border-2 border-sky-200/90 p-5 shadow-lg shadow-slate-900/[0.04] transition-all">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3.5 mb-4">
+    <!-- BACKDROP CHO BOTTOM SHEET TRÊN MOBILE -->
+    <div id="filterDrawerBackdrop" onclick="toggleAdvancedFilterDrawer()" class="hidden md:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-[9997] transition-opacity duration-300" aria-hidden="true"></div>
+
+    <!-- THANH CÔNG CỤ LỌC ĐẦY ĐỦ (DESKTOP: DRAWER / MOBILE: BOTTOM SHEET) -->
+    <div id="advancedFilterDrawer" class="hidden mb-7 bg-white dark:bg-slate-900 rounded-2xl border-2 border-sky-200/90 dark:border-sky-800 p-5 shadow-lg shadow-slate-900/[0.04] transition-all">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3.5 mb-4 shrink-0 relative">
+        <div class="md:hidden absolute -top-2 left-1/2 -translate-x-1/2 w-10 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
         <div class="flex items-center gap-2">
           <i data-lucide="sliders" class="w-4 h-4 text-[#0284C7]"></i>
-          <h3 class="text-xs font-extrabold uppercase tracking-wider text-[#0F172A]">Bộ lọc tài sản</h3>
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-[#0F172A] dark:text-white">Bộ lọc tài sản</h3>
         </div>
         <div class="flex items-center gap-3">
-          <button onclick="clearAllFilters()" class="text-xs font-bold text-rose-600 hover:text-rose-700 inline-flex items-center gap-1">
+          <button type="button" onclick="clearAllFilters()" class="text-xs font-bold text-rose-600 hover:text-rose-700 inline-flex items-center gap-1 cursor-pointer">
             <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Xóa bộ lọc
           </button>
-          <button onclick="toggleAdvancedFilterDrawer()" class="text-slate-400 hover:text-slate-700">
-            <i data-lucide="x" class="w-4 h-4"></i>
+          <button type="button" onclick="toggleAdvancedFilterDrawer()" class="p-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition cursor-pointer" title="Đóng bộ lọc">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">1. Khoảng giá</label>
-          <select id="segmentFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
-            <option value="ALL">Tất cả phân khúc (Từ 20 Tỷ+)</option>
-            <option value="20_50">Từ 20 Tỷ – 50 Tỷ</option>
-            <option value="50_100">Từ 50 Tỷ – 100 Tỷ</option>
-            <option value="OVER_100">Tài sản trên 100 Tỷ</option>
-          </select>
+      <div class="filter-scroll-container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">1. Khoảng giá</label>
+            <select id="segmentFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
+              <option value="ALL">Tất cả phân khúc (Từ 20 Tỷ+)</option>
+              <option value="20_50">Từ 20 Tỷ – 50 Tỷ</option>
+              <option value="50_100">Từ 50 Tỷ – 100 Tỷ</option>
+              <option value="OVER_100">Tài sản trên 100 Tỷ</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">2. Loại bất động sản</label>
+            <select id="typeFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
+              <option value="ALL">Tất cả loại hình</option>
+              <option value="Tòa Văn Phòng">Tòa Văn Phòng (Building)</option>
+              <option value="Nhà Phố Mặt Tiền">Nhà Phố Mặt Tiền Kinh Doanh</option>
+              <option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn Dòng Tiền</option>
+              <option value="Biệt Thự / Dinh Thự">Biệt Thự / Dinh Thự Compound</option>
+              <option value="Quỹ Đất & Tài Sản Hiện Hữu">Quỹ Đất &amp; Tài Sản Hiện Hữu</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">3. Khu vực (Quận / TP)</label>
+            <select id="districtFilter" onchange="handleDistrictChange()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
+              <option value="ALL">Tất cả các Quận / TP</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">4. Phường / Khu vực con</label>
+            <select id="wardFilter" onchange="resetPageAndRender()" disabled class="w-full text-[13px] font-bold bg-slate-100 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-400 focus:outline-none focus:border-[#0284C7] opacity-60 cursor-not-allowed">
+              <option value="ALL">Chọn Quận/TP trước (0)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">5. Ngang mặt tiền</label>
+            <select id="widthFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
+              <option value="ALL">Tất cả bề ngang</option>
+              <option value="MIN_5">Ngang từ 5m trở lên</option>
+              <option value="MIN_7">Ngang từ 7m trở lên</option>
+              <option value="MIN_10">Ngang lớn từ 10m+</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">6. Kết cấu &amp; công năng</label>
+            <select id="featureFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
+              <option value="ALL">Tất cả kết cấu</option>
+              <option value="HAS_BASEMENT">Có tầng hầm</option>
+              <option value="CORNER_2MT">Căn góc / 2 Mặt tiền</option>
+              <option value="HIGH_CASHFLOW">Sẵn HĐT dòng tiền ≥ 100tr/tháng</option>
+            </select>
+          </div>
         </div>
 
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">2. Loại bất động sản</label>
-          <select id="typeFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
-            <option value="ALL">Tất cả loại hình</option>
-            <option value="Tòa Văn Phòng">Tòa Văn Phòng (Building)</option>
-            <option value="Nhà Phố Mặt Tiền">Nhà Phố Mặt Tiền Kinh Doanh</option>
-            <option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn Dòng Tiền</option>
-            <option value="Biệt Thự / Dinh Thự">Biệt Thự / Dinh Thự Compound</option>
-            <option value="Quỹ Đất & Tài Sản Hiện Hữu">Quỹ Đất &amp; Tài Sản Hiện Hữu</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">3. Khu vực (Quận / TP)</label>
-          <select id="districtFilter" onchange="handleDistrictChange()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
-            <option value="ALL">Tất cả các Quận / TP</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">4. Phường / Khu vực con</label>
-          <select id="wardFilter" onchange="resetPageAndRender()" disabled class="w-full text-[13px] font-bold bg-slate-100 border border-slate-300 rounded-xl px-3.5 py-2.5 text-slate-400 focus:outline-none focus:border-[#0284C7] opacity-60 cursor-not-allowed">
-            <option value="ALL">Chọn Quận/TP trước (0)</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">5. Ngang mặt tiền</label>
-          <select id="widthFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
-            <option value="ALL">Tất cả bề ngang</option>
-            <option value="MIN_5">Ngang từ 5m trở lên</option>
-            <option value="MIN_7">Ngang từ 7m trở lên</option>
-            <option value="MIN_10">Ngang lớn từ 10m+</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">6. Kết cấu &amp; công năng</label>
-          <select id="featureFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]">
-            <option value="ALL">Tất cả kết cấu</option>
-            <option value="HAS_BASEMENT">Có tầng hầm</option>
-            <option value="CORNER_2MT">Căn góc / 2 Mặt tiền</option>
-            <option value="HIGH_CASHFLOW">Sẵn HĐT dòng tiền ≥ 100tr/tháng</option>
-          </select>
+        <div id="activeFilterTagsRow" class="hidden mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between flex-wrap gap-2">
+          <div id="activeFilterPills" class="flex flex-wrap items-center gap-1.5 text-xs"></div>
+          <span id="drawerMatchCount" class="text-xs font-mono font-bold text-[#0284C7]"></span>
         </div>
       </div>
 
-      <div id="activeFilterTagsRow" class="hidden mt-4 pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-2">
-        <div id="activeFilterPills" class="flex flex-wrap items-center gap-1.5 text-xs"></div>
-        <span id="drawerMatchCount" class="text-xs font-mono font-bold text-[#0284C7]"></span>
+      <!-- Nút Áp dụng bộ lọc ở đáy (Sticky Bottom Sheet Action trên Mobile) -->
+      <div class="mobile-only-filter-action md:hidden pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 shrink-0">
+        <button
+          type="button"
+          onclick="applyMobileFiltersAndClose()"
+          class="w-full py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-sky-600 text-white font-extrabold text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <i data-lucide="check" class="w-4 h-4"></i>
+          <span>Áp dụng bộ lọc</span>
+        </button>
       </div>
     </div>
 
@@ -2592,7 +2610,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (hotCurrentPage > totalHotPages) hotCurrentPage = 1;
 
       renderHotRadarSection();
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#tai-san-hot");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
       lazyLoadPropertyImages();
     }
     window.switchHotViewMode = switchHotViewMode;
@@ -3340,7 +3362,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         switchAuthTab("LOGIN");
       }
       document.getElementById("memberAuthModal")?.classList.remove("hidden");
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#memberAuthModal");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
     window.openMemberAuthModal = openMemberAuthModal;
 
@@ -3740,7 +3766,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       `;
 
       document.getElementById("compareModal").classList.remove("hidden");
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#compareModal");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     // =========================================================================
@@ -3748,15 +3778,37 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     // =========================================================================
     function toggleAdvancedFilterDrawer() {
       const drawer = document.getElementById("advancedFilterDrawer");
+      const backdrop = document.getElementById("filterDrawerBackdrop");
       const icon = document.getElementById("filterChevronIcon");
       const btn = document.getElementById("toggleFilterDrawerBtn");
+      if (!drawer) return;
       const isHidden = drawer.classList.contains("hidden");
       drawer.classList.toggle("hidden", !isHidden);
-      icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+      if (backdrop) {
+        backdrop.classList.toggle("hidden", !isHidden);
+      }
+      if (icon) {
+        icon.style.transform = isHidden ? "rotate(180deg)" : "rotate(0deg)";
+      }
       if (btn) {
         btn.classList.toggle("active", isHidden);
       }
+      if (window.innerWidth <= 768) {
+        document.body.classList.toggle("overflow-hidden", isHidden);
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
+      if (isHidden && window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#advancedFilterDrawer");
+      }
     }
+
+    function applyMobileFiltersAndClose() {
+      resetPageAndRender();
+      toggleAdvancedFilterDrawer();
+    }
+    window.applyMobileFiltersAndClose = applyMobileFiltersAndClose;
+    window.toggleAdvancedFilterDrawer = toggleAdvancedFilterDrawer;
 
     function normalizeDistrictNameJS(dist) {
       const s = String(dist || "").trim();
@@ -4272,8 +4324,43 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       runSmartSearch();
     }
 
-    // Debounce chuẩn chống giật lag khi gõ tìm kiếm
-    function debounce(func, wait = 250) {
+    // Scoped Lucide Icon Rendering (Tối ưu hóa INP, chỉ thay thế icon trong vùng cập nhật)
+    function renderScopedLucideIcons(rootEl) {
+      if (!window.lucide) return;
+      const container = typeof rootEl === "string" ? document.querySelector(rootEl) : (rootEl || document.body);
+      if (!container) return;
+      const elements = container.querySelectorAll("[data-lucide]");
+      if (elements.length === 0) return;
+      if (window.lucide.icons && window.lucide.createElement) {
+        elements.forEach(el => {
+          const name = el.getAttribute("data-lucide");
+          if (!name) return;
+          const pascal = name.split("-").map(p => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+          const iconDef = window.lucide.icons[pascal] || window.lucide.icons[name];
+          if (iconDef) {
+            try {
+              const svg = window.lucide.createElement(iconDef);
+              Array.from(el.attributes).forEach(attr => {
+                if (attr.name !== "data-lucide") {
+                  if (attr.name === "class") {
+                    svg.setAttribute("class", `lucide lucide-${name} ${attr.value}`);
+                  } else {
+                    svg.setAttribute(attr.name, attr.value);
+                  }
+                }
+              });
+              el.parentNode.replaceChild(svg, el);
+            } catch (_) {}
+          }
+        });
+      } else if (window.lucide.createIcons) {
+        window.lucide.createIcons();
+      }
+    }
+    window.renderScopedLucideIcons = renderScopedLucideIcons;
+
+    // Debounce chuẩn chống giật lag khi gõ tìm kiếm (200ms)
+    function debounce(func, wait = 200) {
       let timeout;
       return function executedFunction(...args) {
         const later = () => {
@@ -4297,7 +4384,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         if (b) b.classList.add("hidden");
       }
       resetPageAndRender();
-    }, 250);
+    }, 200);
 
     function handleSearchInput() {
       cancelSmartSearch();
@@ -5030,9 +5117,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             return "";
           }
         }).join("");
-        setTimeout(() => {
-          document.querySelectorAll('#hotFeaturedCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
-        }, 1200);
+        document.querySelectorAll('#hotFeaturedCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
       }
 
       const hotCardsSummary = document.getElementById("hotCardsSummary");
@@ -5055,9 +5140,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             return "";
           }
         }).join("");
-        setTimeout(() => {
-          document.querySelectorAll('#hotMobileCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
-        }, 1200);
+        document.querySelectorAll('#hotMobileCardsGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
       }
 
       // 3. RENDER DẠNG BẢNG (TABLE VIEW >= 640px)
@@ -5167,7 +5250,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         hotRadarPagination.innerHTML = buildSingleRowPaginationHtml(hotCurrentPage, totalHotPages, "goToHotRadarPage", "promptJumpHotPage");
       }
 
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#tai-san-hot");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     function goToHotRadarPage(p) {
@@ -5177,7 +5264,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if (p < 1 || p > totalHotPages) return;
       hotCurrentPage = p;
       renderHotRadarSection();
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#tai-san-hot");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
       document.getElementById("tai-san-hot")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
@@ -5337,7 +5428,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         </div>
       `;
 
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#heroSpotlightContainer");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
 
       if (!heroSpotlightTimer) {
         heroSpotlightTimer = setInterval(() => {
@@ -5435,9 +5530,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             return "";
           }
         }).join("");
-        setTimeout(() => {
-          document.querySelectorAll('#propertyGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
-        }, 1200);
+        document.querySelectorAll('#propertyGrid .skeleton-shimmer').forEach(el => el.style.display = 'none');
       }
 
       document.getElementById("paginationSummary").innerHTML =
@@ -5454,7 +5547,13 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       document.getElementById("pageNumbersContainer").innerHTML =
         buildSingleRowPaginationHtml(currentPage, totalPages, "goToPage", "promptJumpMainPage");
 
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#propertyGrid");
+        renderScopedLucideIcons("#pageNumbersContainer");
+        renderScopedLucideIcons("#loadMoreWrapper");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
       lazyLoadPropertyImages();
     }
 
@@ -5635,7 +5734,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         lb.style.display = "flex";
       }
       renderGallerySlide();
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#fullscreenLightbox");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     function closeFullscreenLightbox() {
@@ -6004,7 +6107,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         });
       }
 
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#propertyModal");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     function closePropertyModal() {
@@ -6219,7 +6326,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
 
       document.getElementById("insightModal").classList.remove("hidden");
-      if (window.lucide) lucide.createIcons();
+      if (window.renderScopedLucideIcons) {
+        renderScopedLucideIcons("#insightModal");
+      } else if (window.lucide) {
+        lucide.createIcons();
+      }
     }
 
     function copyInsightFullText() {
@@ -6467,6 +6578,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     window.addEventListener("DOMContentLoaded", () => {
       initV5ThemeMode();
       trackVisitorEvent("PAGE_VIEW");
+      if (window.lucide) lucide.createIcons();
 
       if (!isLocalAdminRuntime()) {
         document.getElementById("headerAiBtn")?.remove();
