@@ -1,13 +1,14 @@
 {
-  "base_web_commit": "0db5b23fc991da7138db4aded505ee5ed4d87198",
-  "db_fingerprint": "71019bed8124e76be95c61a0ebce889a8d3875253d9066c70a82e5272a7d847e",
-  "payload_sha256": "75724b7f9f4e177446d028eb56280a3b1c0803bc2e4e5d3c7232fd6db00fb976",
+  "base_web_commit": "b22448bf009d45df6af16161d4e4d9d48518ed6a",
+  "db_fingerprint": "e62ed035679c3b8fe514d42ea45dc5fbf91976baa134b59e1fd149285d56d516",
+  "index_sha256": "a7390eb96c4fe58c34803e26acbecad3bc8caf75eec9819554b2caed20a26a5d",
+  "payload_sha256": "4fdcf4388c50fa3cf69dba5f9d7dcc6ce69dbd1ec04b5e33217a1921603e090d",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "ce5d728d5fdc667aa0a4cdc38bd48b8e7d52d6ace084f49cc03698abc445e8b1",
-  "release_id": "website-seven-0880-0886-20261115"
+  "publisher_sha256": "915793ffe41066eb2bae8976060721a43aaec379753d4b864a7982c889845367",
+  "release_id": "auto-publish-private-36-plus-14-20261112"
 }
