@@ -1476,3 +1476,22 @@ body.v5-dark-mode details.group[open] summary {
 body.v5-dark-mode details.group .border-t {
   border-color: #334155 !important;
 }
+
+/* =========================================================================
+   MODERN WEB GUIDANCE: TĂNG TỐC CUỘN MOBILE & GIẢM TẢI BỐ CỤC
+   (content-visibility: auto + contain-intrinsic-size)
+   ========================================================================= */
+@supports (content-visibility: auto) {
+  /* Defer rendering of off-screen property grid cards (beyond first 6 cards) */
+  .property-card-item:nth-child(n+7) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 380px;
+  }
+
+  /* Defer rendering of off-screen hot radar table rows (beyond first 5 rows) */
+  #radarBody tr:nth-child(n+6) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 90px;
+  }
+}
+
