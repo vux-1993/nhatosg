@@ -1,18 +1,18 @@
 {
-  "base_web_commit": "2b3897c37e8fcf4700d89dde136e7b2d6ec1b6f6",
+  "base_web_commit": "303f6f226e01e4df0b39edbddafa94742e1ef7e2",
   "db_fingerprint": "cf61cfb78efc180639d68d52b065dde7b0e80d93b7db7c40636998ed22cc5d42",
-  "payload_sha256": "94edf3226fd8b18466fa26c289c28f3e262b473517374480590554032e22270c",
+  "payload_sha256": "d07a683d0f59f1c0017c3653282a385c3d6f6d794b655eeb808ef19d193587f2",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "71f367586e116ff54ec35c19c34379b66bdba1151146101b069baa8aea6cf4fe",
-  "release_id": "form12-cashflow-20261117",
-  "index_sha256": "ce1bd3a859b8c28ae0359fe317e53bbaee1005c0efb48202542ce1d9e32c9bb6",
+  "publisher_sha256": "e35007acf851ec04bdadd5fc951aee37deb2097a1e9bfe186e8728c30f780fc9",
+  "release_id": "form2-area-20261117",
+  "index_sha256": "e56151990c0ac3a107b2d094c9f97ce1478f3f592d7db755478a317a6121217a",
   "application_sha256": {
-    "nhatosg_admin_cms.py": "71f367586e116ff54ec35c19c34379b66bdba1151146101b069baa8aea6cf4fe",
+    "nhatosg_admin_cms.py": "e35007acf851ec04bdadd5fc951aee37deb2097a1e9bfe186e8728c30f780fc9",
     "listing_display.py": "1f0a043ea3e99602325eaf150a90a0131d6b3ea825b7eb05d75d4023961a187e"
   }
 }
