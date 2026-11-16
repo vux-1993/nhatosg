@@ -4970,8 +4970,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const rawStreet = String(prop?.public_location?.street || "").replace(/^(?:đường\s+)+/i, "").trim();
       const wardLabel = prop.public_location?.ward || "";
       const districtLabel = prop.public_location?.district || "TP.HCM";
-      const locMain = rawStreet || districtLabel;
-      const locSub = rawStreet ? [wardLabel, districtLabel].filter(Boolean).join(", ") : wardLabel;
+      const locMain = [rawStreet, districtLabel].filter(Boolean).join(", ");
+      const locSub = wardLabel;
       const cardUid = `${cardPrefix}${esc(prop.property_id)}`;
 
       const loadingAttr = isAboveFold ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" decoding="async"';
@@ -5049,8 +5049,8 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
                 <h3 class="font-bold text-[#0F172A] dark:text-white mt-1 leading-snug line-clamp-1">
                   <a href="/p/${esc(prop.property_id)}.html" onclick="event.preventDefault(); openPropertyModal('${esc(prop.property_id)}');" class="hover:text-[#0284C7] transition">
-                    <span class="text-base sm:text-lg font-bold text-[#0F172A] dark:text-white">${esc(locMain)}</span>
-                    ${locSub ? `<span class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium ml-1.5">${esc(locSub)}</span>` : ''}
+                    <span class="font-extrabold text-[#0F172A] dark:text-white" style="font-size:1.25rem">${esc(locMain)}</span>
+                    ${locSub ? `<span class="text-[#0F172A] dark:text-slate-200 font-semibold ml-1.5" style="font-size:17px">${esc(locSub)}</span>` : ''}
                   </a>
                 </h3>
 
@@ -5396,8 +5396,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const gal = (prop.gallery && prop.gallery.length > 0) ? prop.gallery : getPropertyGalleryList(prop);
       const rawCoverImg = gal.length > 0 ? (gal[0].url || gal[0]) : "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80";
       const coverImg = typeof resolveVariantImageUrl === "function" ? resolveVariantImageUrl(rawCoverImg, "card") : rawCoverImg;
-      const streetStr = formatStreetDisplay(prop);
+      const streetStr = String(prop.public_location?.street || "").trim();
       const districtStr = prop.public_location?.district || "TP.HCM";
+      const titleLocation = [streetStr, prop.public_location?.ward, districtStr].filter(Boolean).join(", ");
       const cat = resolveCategoryName(prop);
       const cashflowStr = prop.specs?.cashflow || "Bàn giao ngay";
 
@@ -5406,15 +5407,15 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       let badgeTopRight = 'Nổi bật';
 
       if (m.isMasked) {
-        titleHeader = `${cat} — ${streetStr}, ${districtStr}`;
+        titleHeader = `${cat} — ${titleLocation}`;
         subHeader = `Giá liên hệ • Dòng tiền: ${cashflowStr}`;
         badgeTopRight = 'Giá liên hệ';
       } else if (m.diffBil > 0) {
-        titleHeader = `${cat} — ${streetStr}, ${districtStr}`;
+        titleHeader = `${cat} — ${titleLocation}`;
         subHeader = `Giá chào: ${m.currP} Tỷ (giảm ${m.diffBil} tỷ) • Dòng tiền: ${cashflowStr}`;
         badgeTopRight = `Giảm ${m.diffBil} tỷ`;
       } else {
-        titleHeader = `${cat} — ${streetStr}, ${districtStr}`;
+        titleHeader = `${cat} — ${titleLocation}`;
         subHeader = `Giá chào: ${m.currP} Tỷ • Dòng tiền: ${cashflowStr}`;
         badgeTopRight = 'Nổi bật';
       }
@@ -6014,7 +6015,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
 
       // 1. Tiêu đề + Vị trí + Giá
-      document.getElementById("modalTitle").textContent = modalDisplayTitle(prop, m);
+      const titleParts = [prop.public_location?.street, prop.public_location?.ward,
+        prop.public_location?.district].map(usableDisplayValue).filter(Boolean);
+      const categoryTitle = displayCategoryName(catName);
+      document.getElementById("modalTitle").textContent =
+        titleParts.length ? categoryTitle + " — " + titleParts.join(", ") : categoryTitle;
 
       const rawModalStreet = String(prop?.public_location?.street || "").replace(/^(?:đường\s+)+/i, "").trim();
       const modalStreetBadge = rawModalStreet ? `Đường ${rawModalStreet}` : "";
@@ -6446,7 +6451,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         marketing_description: String(raw.marketing_description || raw.summary || ""),
         public_location: {
           street: String(raw.public_location?.street || "").replace(/^\d+[A-Za-z0-9/+\-]*\s+/, "").trim(),
-          ward: isMasked ? "" : usableDisplayValue(raw.public_location?.ward),
+          ward: usableDisplayValue(raw.public_location?.ward),
           district: normalizeDistrictNameJS(raw.public_location?.district || "")
         },
         specs: {
