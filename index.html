@@ -2718,12 +2718,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const rental = prop.display_facts?.rental || {};
       const m = computeMetrics(prop);
       const area = Number(prop.specs?.recognized_area_m2 || 0);
-      let specs = "";
-      if (dim.width && dim.length) specs += "<p>Kích thước khuôn đất: " + formNumber(dim.width) + " × " + formNumber(dim.length) + "m</p>";
-      if (area > 0) specs += "<p>Diện tích công nhận: " + formNumber(area) + "m²</p>";
-      if (dim.calculated) specs += "<p>Diện tích theo kích thước: ~" + formNumber(dim.calculated) + "m²</p>";
-      const structure = usableDisplayValue(prop.specs?.structure);
-      if (structure && structure !== "N/A") specs += "<p>Kết cấu thực tế: " + esc(structure) + "</p>";
+      const specs = '<ul style="list-style:disc;padding-left:1.3em">' + (prop.display_facts?.spec_items || []).map(([key,value]) => '<li><strong>'+esc(key)+':</strong> '+esc(value)+'</li>').join('')+'</ul>';
       const loc = prop.public_location || {};
       const fallback = [loc.street, loc.ward, loc.district].filter(Boolean).join(", ") + ".";
       const location = prop.display_facts?.broker_text || fallback;
@@ -2738,8 +2733,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const section = (name, content, label) => '<section data-form="' + name + '" class="rounded-xl border border-slate-200 p-4 bg-white text-slate-900 leading-relaxed"><h3 class="font-bold text-lg mb-2">' + label + "</h3>" + content + "</section>";
       return section("specs", specs, "1. Thông số &amp; kết cấu thực tế") +
         section("location", "<p>" + esc(location) + "</p>", "2. Vị trí &amp; điểm đáng chú ý") +
-        (finance ? section("rental", finance, "3. Khai thác &amp; dòng tiền") : "") +
-        '<p class="text-sm text-slate-700">Thông số và giá chào được trình bày theo hồ sơ hiện có. Pháp lý, hoàn công và các điều kiện khai thác chỉ công khai khi có tài liệu xác nhận.</p>';
+        (finance ? section("rental", finance, "3. Khai thác &amp; dòng tiền") : "");
     }
 
     const _metricsCache = new Map();
