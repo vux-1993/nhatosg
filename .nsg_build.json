@@ -1,18 +1,18 @@
 {
-  "base_web_commit": "303f6f226e01e4df0b39edbddafa94742e1ef7e2",
+  "base_web_commit": "8f8f474ce62b9bfebbbba7db201f57a3e1c36012",
   "db_fingerprint": "cf61cfb78efc180639d68d52b065dde7b0e80d93b7db7c40636998ed22cc5d42",
-  "payload_sha256": "d07a683d0f59f1c0017c3653282a385c3d6f6d794b655eeb808ef19d193587f2",
+  "payload_sha256": "85c17b69e79efd9d317596917b71b5a51853755f7902823a661d3b35654f7cb4",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "e35007acf851ec04bdadd5fc951aee37deb2097a1e9bfe186e8728c30f780fc9",
-  "release_id": "form2-area-20261117",
-  "index_sha256": "e56151990c0ac3a107b2d094c9f97ce1478f3f592d7db755478a317a6121217a",
+  "publisher_sha256": "cb52624c42771c6c8e95141f1aba09f498e630730237925f481e2827a1b50931",
+  "release_id": "category-filter-20261117",
+  "index_sha256": "f353e76249fbff1dcf9076bf924cb0827bdb8b232d10fb92e0c7f1c89970dea1",
   "application_sha256": {
-    "nhatosg_admin_cms.py": "e35007acf851ec04bdadd5fc951aee37deb2097a1e9bfe186e8728c30f780fc9",
+    "nhatosg_admin_cms.py": "cb52624c42771c6c8e95141f1aba09f498e630730237925f481e2827a1b50931",
     "listing_display.py": "1f0a043ea3e99602325eaf150a90a0131d6b3ea825b7eb05d75d4023961a187e"
   }
 }
