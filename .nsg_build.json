@@ -1,13 +1,13 @@
 {
-  "base_web_commit": "4e22e3fdc9a49d0e6935f9b634a15db1e86e2960",
+  "base_web_commit": "60756f7d50e7e3b198007c92fda78e70c5a9437c",
   "db_fingerprint": "3b56935f742863ac05e9a0e6b7d533c653c43a6454e4871da10c82b03449fc31",
-  "payload_sha256": "96efd9858b4149a209eab7b6e8cb699fb537c13086b896f8f561106bbb2ca1a9",
+  "payload_sha256": "aaeb10615117adaae9b8542738a01193f7e638b967d346e848b3a3272e16b177",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "1305e3bc643c56bb9cbef29e193f4445ac18e17fafb51a89d67a27aff82df5f0",
-  "release_id": "website-clean-pr25-20261118"
+  "publisher_sha256": "a038d7ec899ee0ae3b5944609a5c4d84ec34193ed7a8df209cb8c25fb5c657d3",
+  "release_id": "overnight-batch3-4-pr26-20261118"
 }
