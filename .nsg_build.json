@@ -1,18 +1,13 @@
 {
-  "application_sha256": {
-    "listing_display.py": "1f0a043ea3e99602325eaf150a90a0131d6b3ea825b7eb05d75d4023961a187e",
-    "nhatosg_admin_cms.py": "e231c28cc89befa34f760fcda0d6040e4b6f0683d65f0046e5d9dce0a961e109"
-  },
-  "base_web_commit": "ccd908b9110d9895cee482c8639b1f27b7363878",
+  "base_web_commit": "3f61f79e6ff6b11f5139b8ce7737212b4fe2865e",
   "db_fingerprint": "0fe6a5c47dbe3f17ba975615877b002e181db2c3e17ab50cfa20f4669dbb5e5f",
-  "index_sha256": "41e1d9b2d8b72f30ed7d58f8cfd1194360e36a9de25363107f876fc03cb680ca",
-  "payload_sha256": "930708caf680b1516b5bac862ec1f016d0dfec452857be13b3e2314add60b9da",
+  "payload_sha256": "740c681fd388e9fdd98a79af0d8419f31e42328d3a0ba9effa6ca0e3fc2ac810",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "e231c28cc89befa34f760fcda0d6040e4b6f0683d65f0046e5d9dce0a961e109",
+  "publisher_sha256": "eacb71c7044255e75326395139cce542ec837aaf80d9d50d3b20f94da2b29c1f",
   "release_id": "category-related-20261117"
 }
