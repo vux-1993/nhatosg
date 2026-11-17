@@ -1873,7 +1873,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">2. Loại bất động sản</label>
-            <select id="typeFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]"><option value="ALL">Tất cả loại hình</option><option value="Tòa Nhà Văn Phòng (Building)">Tòa Nhà Văn Phòng (Building)</option><option value="Nhà Mặt Tiền Kinh Doanh">Nhà Mặt Tiền Kinh Doanh</option><option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn</option><option value="Biệt Thự / Dinh Thự / Compound">Biệt Thự / Dinh Thự / Compound</option><option value="Đất &amp; Cấp 4">Đất &amp; Cấp 4</option></select>
+            <select id="typeFilter" onchange="resetPageAndRender()" class="w-full text-[13px] font-bold bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-[#0F172A] focus:outline-none focus:border-[#0284C7]"><option value="ALL">Tất cả loại hình</option><option value="Tòa Nhà Văn Phòng (Building)">Tòa Nhà Văn Phòng (Building)</option><option value="Nhà Mặt Tiền Kinh Doanh">Nhà Mặt Tiền Kinh Doanh</option><option value="Tòa CHDV / Khách Sạn">Tòa CHDV / Khách Sạn</option><option value="Biệt Thự / Dinh Thự / Compound">Biệt Thự / Dinh Thự / Compound</option><option value="Đất / Nhà cấp 4">Đất / Nhà cấp 4</option><option value="LAND_VACANT">↳ Đất trống</option><option value="LAND_OLD_HOUSE">↳ Nhà cấp 4 / Nhà cũ</option></select>
           </div>
 
           <div>
@@ -1961,6 +1961,12 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       </div>
       <div id="pageNumbersContainer" class="flex items-center gap-1.5 flex-nowrap overflow-x-auto max-w-full py-1"></div>
     </div>
+<section id="relatedResultsSection" hidden class="mt-10 pt-6 border-t border-slate-200">
+      <h3 class="font-bold text-lg text-slate-900">CÓ THỂ PHÙ HỢP VỚI NHU CẦU (Tài sản liên quan)</h3>
+      <p id="relatedResultsCount" class="text-sm mt-2 mb-5"></p>
+      <div id="relatedPropertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 items-stretch"></div>
+      <button id="relatedMoreBtn" onclick="loadMoreRelated()" class="mt-5 px-4 py-3 rounded-xl border border-slate-300 font-bold">Xem thêm</button>
+    </section>
   </section>
 
   <!-- SECTION 3: TIN TỨC, QUY HOẠCH & CHIẾN LƯỢC ĐẦU TƯ NHÀ PHỐ -->
@@ -2856,7 +2862,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     }
 
     const LAND_CATEGORY = "Quỹ Đất & Tài Sản Hiện Hữu";
-    const LAND_DISPLAY = "Đất & Cấp 4";
+    const LAND_DISPLAY = "Đất / Nhà cấp 4";
 
 
     function canonicalCategory(value) {
@@ -2864,18 +2870,67 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       if(/chdv|khach san|can ho dich vu|hotel/.test(s))return 'Tòa CHDV / Khách Sạn';
       if(/van phong|building|cao oc/.test(s))return 'Tòa Nhà Văn Phòng (Building)';
       if(/biet thu|dinh thu|compound|villa/.test(s))return 'Biệt Thự / Dinh Thự / Compound';
-      if(/quy dat|khuon dat|lo dat|dat trong|dat & cap 4/.test(s))return 'Đất & Cấp 4';
+      if(/quy dat|khuon dat|lo dat|dat trong|dat & cap 4|dat \/ nha cap 4/.test(s))return 'Đất / Nhà cấp 4';
       if(/nha pho|mat tien|thuong mai|showroom|nha hem|nha goc/.test(s))return 'Nhà Mặt Tiền Kinh Doanh';
       return String(value||'');
     }
+    const LAND_MAIN='Đất / Nhà cấp 4';
+    const BUSINESS_MAIN='Nhà Mặt Tiền Kinh Doanh';
+    function isRelatedCandidate(prop) {
+      return resolveCategoryName(prop)===LAND_MAIN && prop.isConfirmedRoadFront===true;
+    }
+    function matchesTypeChoice(prop, choice) {
+      if(!choice || choice==='ALL')return true;
+      if(choice==='LAND_VACANT')return resolveCategoryName(prop)===LAND_MAIN && prop.landSubtype==='vacant';
+      if(choice==='LAND_OLD_HOUSE')return resolveCategoryName(prop)===LAND_MAIN && prop.landSubtype==='old_house';
+      return resolveCategoryName(prop)===canonicalCategory(choice);
+    }
     function updateCategoryCounts(){
       const select=document.getElementById('typeFilter');if(!select)return;
+      const base=getFilteredProperties({ignoreType:true,skipCounts:true});
       for(const option of select.options){
-        const label=option.dataset.label||(option.dataset.label=option.textContent);
-        const count=option.value==='ALL'?propertiesData.length:propertiesData.filter(p=>resolveCategoryName(p)===option.value).length;
+        const label=option.dataset.label||(option.dataset.label=option.textContent.replace(/\s*\(\d+\)$/,''));
+        const count=base.filter(p=>matchesTypeChoice(p,option.value)).length;
         option.textContent=label+' ('+count+')';
+        const sub=option.value==='LAND_VACANT'||option.value==='LAND_OLD_HOUSE';
+        option.hidden=sub&&count===0;
+        // Keep a selected zero-result subtype explicit rather than silently
+        // broadening the Owner's chosen filters.
       }
     }
+    let relatedVisibleCount=12;
+    let relatedFilterSignature='';
+    function getRelatedProperties(){
+      const choice=document.getElementById('typeFilter').value;
+      if(canonicalCategory(choice)!==BUSINESS_MAIN)return [];
+      return getFilteredProperties({related:true,skipCounts:true});
+    }
+    function relatedBadge(prop){
+      return prop.landSubtype==='vacant'?'ĐẤT MẶT TIỀN':prop.landSubtype==='old_house'?'NHÀ CẤP 4 MẶT TIỀN':'ĐẤT / CẤP 4 MẶT TIỀN';
+    }
+    function renderRelatedResults(items){
+      const section=document.getElementById('relatedResultsSection');if(!section)return;
+      const signature=['typeFilter','segmentFilter','districtFilter','wardFilter','featureFilter','eventFilter','sortFilter','smartSearchInput']
+        .map(id=>document.getElementById(id)?.value||'').join('|');
+      if(signature!==relatedFilterSignature){relatedVisibleCount=12;relatedFilterSignature=signature;}
+      const business=canonicalCategory(document.getElementById('typeFilter').value)===BUSINESS_MAIN;
+      section.hidden=!business||!items.length;
+      if(!business)return;
+      const seen=new Set();
+      const unique=items.filter(p=>isRelatedCandidate(p)&&!seen.has(p.property_id)&&seen.add(p.property_id));
+      const visible=unique.slice(0,relatedVisibleCount);
+      document.getElementById('relatedResultsCount').textContent=unique.length+' tài sản mặt tiền liên quan';
+      document.getElementById('relatedPropertyGrid').innerHTML=visible.map((p,i)=>{
+        const original=renderV62PropertyCardHtml(p,i,false,compareList.includes(p.property_id),'related-');
+        const badge='<div class="px-4 pt-3 text-xs font-bold" style="color:#92400e" data-related-badge>'+esc(relatedBadge(p))+'</div>';
+        return original.replace(/(<div[^>]*class="property-card-item[^>]*>)/, '$1'+badge);
+      }).join('');
+      document.querySelectorAll('#relatedPropertyGrid .skeleton-shimmer').forEach(e=>e.style.display='none');
+      const more=document.getElementById('relatedMoreBtn');more.hidden=visible.length>=unique.length;
+      more.textContent='Xem thêm ('+Math.min(12,unique.length-visible.length)+' tài sản liên quan)';
+      if(window.renderScopedLucideIcons)renderScopedLucideIcons('#relatedPropertyGrid');
+    }
+    function loadMoreRelated(){relatedVisibleCount+=12;renderRelatedResults(getRelatedProperties());}
 
     function displayCategoryName(category) { return canonicalCategory(category); }
 
@@ -2902,7 +2957,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return `${heading} – ${[structure, price].filter(Boolean).join(", ")}`;
     }
 
-    function resolveCategoryName(prop) { return canonicalCategory(prop.category); }
+    function resolveCategoryName(prop) { return canonicalCategory(prop.primaryCategory || prop.category); }
 
     // =========================================================================
     // CƠ CHẾ PHÂN TRANG GỌN 1 HÀNG (TỐI ĐA 6-7 NÚT + Ô "..." NHẢY TRANG BẤT KỲ)
@@ -4570,12 +4625,12 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
     }
 
-    function getFilteredProperties() {
+    function getFilteredProperties(options = {}) {
       const qRaw = (document.getElementById("smartSearchInput").value || "").trim();
       const qNoTone = removeVietnameseTones(qRaw);
       const seg = document.getElementById("segmentFilter").value;
-      updateCategoryCounts();
-      const propType = canonicalCategory(document.getElementById("typeFilter").value) || "ALL";
+      if(!options.skipCounts)updateCategoryCounts();
+      const propType = document.getElementById("typeFilter").value || "ALL";
       const dist = document.getElementById("districtFilter").value;
       const ward = document.getElementById("wardFilter").value;
       const evType = document.getElementById("eventFilter").value;
@@ -4597,7 +4652,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         if (seg === "OVER_100" && m.currP <= 100) return false;
 
         // Bộ lọc cố định: Loại hình, Quận, Phường, Trạng thái
-        if (propType !== "ALL" && cat !== propType) return false;
+        if(options.related ? !isRelatedCandidate(prop) : (!options.ignoreType && !matchesTypeChoice(prop,propType))) return false;
         if (dist !== "ALL" && prop.public_location?.district !== dist) return false;
         if (ward !== "ALL" && prop.public_location?.ward !== ward) return false;
         if (evType !== "ALL" && prop.event_type !== evType) return false;
@@ -4624,7 +4679,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         if (!qRaw) return true;
 
         const fullHaystackNoTone = removeVietnameseTones(
-          `${prop.property_id} ${cat} ${prop.seo_title} ${prop.summary} ${prop.marketing_description} ${prop.public_location?.street} ${prop.public_location?.ward} ${prop.public_location?.district} ${prop.specs?.structure} ${prop.specs?.dimensions} ${prop.specs?.cashflow}`
+          `${prop.isConfirmedRoadFront?'mặt tiền đường':''} ${prop.landSubtype==='vacant'?'đất trống':prop.landSubtype==='old_house'?'nhà cấp 4 nhà cũ':''} ${prop.property_id} ${cat} ${prop.seo_title} ${prop.summary} ${prop.marketing_description} ${prop.public_location?.street} ${prop.public_location?.ward} ${prop.public_location?.district} ${prop.specs?.structure} ${prop.specs?.dimensions} ${prop.specs?.cashflow}`
         );
 
         if (parsed) {
@@ -4634,7 +4689,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             // District names are exact tokens: Quận 1 must not match Quận 10/11/12.
             const district = removeVietnameseTones(prop.public_location?.district || "").replace(/^quan go vap$/, "go vap");
             if (parsed.districts.length && !parsed.districts.some(rule => rule.matchTokens.includes(district))) return false;
-            if (!matchesSearchCategory(prop, ai.categories)) return false;
+            if (!matchesSearchCategory(prop, ai.categories) && !(options.related && ai.categories.includes('nha_pho'))) return false;
             const street = removeVietnameseTones(prop.public_location?.street || "");
             if (ai.street_keywords.length && !ai.street_keywords.some(s => street.includes(removeVietnameseTones(s)))) return false;
             // Hidden/unknown prices cannot satisfy a public numeric-price query.
@@ -4651,7 +4706,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           if (parsed.categoryExact) {
             const catNorm = removeVietnameseTones(canonicalCategory(parsed.categoryExact));
             const seoNorm = removeVietnameseTones(`${cat} ${prop.seo_title} ${prop.specs?.structure}`);
-            if (cat !== canonicalCategory(parsed.categoryExact)) return false;
+            if (cat !== canonicalCategory(parsed.categoryExact) && !(options.related && canonicalCategory(parsed.categoryExact)===BUSINESS_MAIN)) return false;
           }
 
           // Kiểm tra Quận TUYỆT ĐỐI CHÍNH XÁC: Chỉ đối soát với trường district và ward của tài sản
@@ -4723,7 +4778,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       });
 
       searchResultMeta.strictCount = list.length;
-      if (qRaw && !list.length && parsed?.aiFilter && !parsed.aiFilter.property_id) {
+      if (!options.related && !options.ignoreType && canonicalCategory(propType)!==BUSINESS_MAIN && !propType.startsWith('LAND_') && qRaw && !list.length && parsed?.aiFilter && !parsed.aiFilter.property_id) {
         const targetPrice = parsed.aiFilter.max_price_billion ?? parsed.aiFilter.min_price_billion;
         const ranked = candidates.map(prop => ({ prop, score: scorePropertyRelevance(prop, parsed) })).filter(item => item.score > 0);
         ranked.sort((a, b) => b.score - a.score || (targetPrice !== null ?
@@ -5008,7 +5063,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const cashflowVal = esc(form1Rental(prop));
 
       return `
-        <div onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
+        <div data-property-id="${esc(prop.property_id)}" onclick="openPropertyModal('${esc(prop.property_id)}')" class="property-card-item cursor-pointer bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 overflow-hidden card-elevate flex flex-col justify-between h-full shadow-xs hover:border-[#0284C7]/60 transition">
           <div class="flex flex-col flex-1">
 
             <!-- 1. ẢNH TÀI SẢN Ở ĐẦU THẺ, BO GÓC TRÊN, CÓ MÃ NSG NỔI TRÊN ẢNH -->
@@ -5506,6 +5561,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       renderInsightArticlesSection();
 
       const filtered = getFilteredProperties();
+      const related = getRelatedProperties();
       renderSearchAdvisor(filtered);
       updateFilterBadgesUI(filtered.length);
 
@@ -5541,6 +5597,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       document.getElementById("paginationSummary").innerHTML =
         `Đang hiển thị <strong>${visibleItems.length}</strong> trên <strong>${totalItems}</strong> tài sản (Trang ${currentPage}/${totalPages})`;
 
+      if(canonicalCategory(document.getElementById('typeFilter').value)===BUSINESS_MAIN)
+        document.getElementById('paginationSummary').innerHTML=filtered.length+' tài sản chính (+ '+related.length+' tài sản mặt tiền liên quan) · Trang '+currentPage+'/'+totalPages;
+      renderRelatedResults(related);
       const loadMoreWrap = document.getElementById("loadMoreWrapper");
       if (endIdx < totalItems) {
         loadMoreWrap.classList.remove("hidden");
@@ -6399,6 +6458,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
 
       return {
         display_facts: raw.display_facts,
+        primaryCategory: raw.primaryCategory || null,
+        isConfirmedRoadFront: raw.isConfirmedRoadFront === true,
+        landSubtype: raw.landSubtype || null,
         is_live_sync: true,
         is_hot: Boolean(raw.is_hot),
         is_price_masked: Boolean(raw.is_price_masked),
