@@ -1,154 +1,3952 @@
-/* nhatoSG Image Optimization Test Manifest (Batch 1.0 - 24 Images) */
+/* nhatoSG Verified WebP Optimization Manifest (PR #25 - 658 Verified Sets) */
 window.__OPTIMIZED_IMAGE_MAP__ = {
-  "web_images\\nsg-0664\\ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-1-3f010.jpg": {
-    "card": "./web_images/public/card/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-1-3f010.webp",
-    "gallery": "./web_images/public/gallery/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-1-3f010.webp",
-    "detail": "./web_images/public/detail/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-1-3f010.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-1-3f010.webp"
+  "web_images\\nsg-0501\\ban-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0501-hinh-1-86cf.jpg": {
+    "card": "./web_images/public/card/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-1-86cf.webp",
+    "detail": "./web_images/public/detail/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-1-86cf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-1-86cf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-1-86cf.webp"
   },
-  "web_images\\nsg-0664\\ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-2-e5965.jpg": {
-    "card": "./web_images/public/card/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-2-e5965.webp",
-    "gallery": "./web_images/public/gallery/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-2-e5965.webp",
-    "detail": "./web_images/public/detail/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-2-e5965.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0664/ban-nha-pho-thuong-mai-duong-hoang-hoa-tham-phuong-7-binh-thanh-nsg-0664-hinh-2-e5965.webp"
+  "web_images\\nsg-0501\\ban-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0501-hinh-2-9867.jpg": {
+    "card": "./web_images/public/card/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-2-9867.webp",
+    "detail": "./web_images/public/detail/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-2-9867.webp",
+    "gallery": "./web_images/public/gallery/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-2-9867.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-2-9867.webp"
   },
-  "web_images\\nsg-0577\\ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.jpg": {
-    "card": "./web_images/public/card/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
-    "gallery": "./web_images/public/gallery/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
-    "detail": "./web_images/public/detail/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp"
+  "web_images\\nsg-0501\\ban-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0501-hinh-3-e628.jpg": {
+    "card": "./web_images/public/card/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-3-e628.webp",
+    "detail": "./web_images/public/detail/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-3-e628.webp",
+    "gallery": "./web_images/public/gallery/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-3-e628.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0501/ban-nha-pho-mat-tien-duong-ho-tung-mau-phuong-ben-nghe-quan-1-nsg-0501-hinh-3-e628.webp"
   },
-  "web_images\\nsg-0501\\nsg-0501_web_4007ce.jpg": {
-    "card": "./web_images/public/card/NSG-0501/NSG-0501_web_4007ce.webp",
-    "gallery": "./web_images/public/gallery/NSG-0501/NSG-0501_web_4007ce.webp",
-    "detail": "./web_images/public/detail/NSG-0501/NSG-0501_web_4007ce.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0501/NSG-0501_web_4007ce.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-1-e87c.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-1-e87c.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-1-e87c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-1-e87c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-1-e87c.webp"
   },
-  "web_images\\nsg-0502\\nsg-0502_web_3ac0f6.jpg": {
-    "card": "./web_images/public/card/NSG-0502/NSG-0502_web_3ac0f6.webp",
-    "gallery": "./web_images/public/gallery/NSG-0502/NSG-0502_web_3ac0f6.webp",
-    "detail": "./web_images/public/detail/NSG-0502/NSG-0502_web_3ac0f6.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0502/NSG-0502_web_3ac0f6.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-2-7509.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-2-7509.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-2-7509.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-2-7509.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-2-7509.webp"
   },
-  "web_images\\nsg-0504\\nsg-0504_web_817050.jpg": {
-    "card": "./web_images/public/card/NSG-0504/NSG-0504_web_817050.webp",
-    "gallery": "./web_images/public/gallery/NSG-0504/NSG-0504_web_817050.webp",
-    "detail": "./web_images/public/detail/NSG-0504/NSG-0504_web_817050.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0504/NSG-0504_web_817050.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-3-2bc6.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-3-2bc6.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-3-2bc6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-3-2bc6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-3-2bc6.webp"
   },
-  "web_images\\nsg-0506\\nsg-0506_web_1d9a0c.jpg": {
-    "card": "./web_images/public/card/NSG-0506/NSG-0506_web_1d9a0c.webp",
-    "gallery": "./web_images/public/gallery/NSG-0506/NSG-0506_web_1d9a0c.webp",
-    "detail": "./web_images/public/detail/NSG-0506/NSG-0506_web_1d9a0c.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0506/NSG-0506_web_1d9a0c.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-4-4df5.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-4-4df5.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-4-4df5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-4-4df5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-4-4df5.webp"
   },
-  "web_images\\nsg-0507\\nsg-0507_web_ed86af.jpg": {
-    "card": "./web_images/public/card/NSG-0507/NSG-0507_web_ed86af.webp",
-    "gallery": "./web_images/public/gallery/NSG-0507/NSG-0507_web_ed86af.webp",
-    "detail": "./web_images/public/detail/NSG-0507/NSG-0507_web_ed86af.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0507/NSG-0507_web_ed86af.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-5-ad4c.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-5-ad4c.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-5-ad4c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-5-ad4c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-5-ad4c.webp"
   },
-  "web_images\\nsg-0508\\nsg-0508_web_e624b8.jpg": {
-    "card": "./web_images/public/card/NSG-0508/NSG-0508_web_e624b8.webp",
-    "gallery": "./web_images/public/gallery/NSG-0508/NSG-0508_web_e624b8.webp",
-    "detail": "./web_images/public/detail/NSG-0508/NSG-0508_web_e624b8.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0508/NSG-0508_web_e624b8.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-6-85f9.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-6-85f9.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-6-85f9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-6-85f9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-6-85f9.webp"
   },
-  "web_images\\nsg-0509\\nsg-0509_web_09ef22.jpg": {
-    "card": "./web_images/public/card/NSG-0509/NSG-0509_web_09ef22.webp",
-    "gallery": "./web_images/public/gallery/NSG-0509/NSG-0509_web_09ef22.webp",
-    "detail": "./web_images/public/detail/NSG-0509/NSG-0509_web_09ef22.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0509/NSG-0509_web_09ef22.webp"
+  "web_images\\nsg-0502\\ban-nha-pho-mat-tien-phuong-cho-quan-quan-5-nsg-0502-hinh-7-58ba.jpg": {
+    "card": "./web_images/public/card/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-7-58ba.webp",
+    "detail": "./web_images/public/detail/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-7-58ba.webp",
+    "gallery": "./web_images/public/gallery/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-7-58ba.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0502/ban-nha-pho-mat-tien-duong-nguyen-trai-phuong-cho-quan-quan-5-nsg-0502-hinh-7-58ba.webp"
   },
-  "web_images\\nsg-0510\\nsg-0510_web_80bdb1.jpg": {
-    "card": "./web_images/public/card/NSG-0510/NSG-0510_web_80bdb1.webp",
-    "gallery": "./web_images/public/gallery/NSG-0510/NSG-0510_web_80bdb1.webp",
-    "detail": "./web_images/public/detail/NSG-0510/NSG-0510_web_80bdb1.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0510/NSG-0510_web_80bdb1.webp"
+  "web_images\\nsg-0503\\ban-quy-dat-xay-cao-tang-phuong-binh-trung-tay-tp-thu-duc-nsg-0503-hinh-1-57d1.jpg": {
+    "card": "./web_images/public/card/NSG-0503/ban-quy-dat-xay-cao-tang-duong-d5-phuong-binh-trung-tay-tp-thu-duc-nsg-0503-hinh-1-57d1.webp",
+    "detail": "./web_images/public/detail/NSG-0503/ban-quy-dat-xay-cao-tang-duong-d5-phuong-binh-trung-tay-tp-thu-duc-nsg-0503-hinh-1-57d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0503/ban-quy-dat-xay-cao-tang-duong-d5-phuong-binh-trung-tay-tp-thu-duc-nsg-0503-hinh-1-57d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0503/ban-quy-dat-xay-cao-tang-duong-d5-phuong-binh-trung-tay-tp-thu-duc-nsg-0503-hinh-1-57d1.webp"
   },
-  "web_images\\nsg-0511\\nsg-0511_web_9a548f.jpg": {
-    "card": "./web_images/public/card/NSG-0511/NSG-0511_web_9a548f.webp",
-    "gallery": "./web_images/public/gallery/NSG-0511/NSG-0511_web_9a548f.webp",
-    "detail": "./web_images/public/detail/NSG-0511/NSG-0511_web_9a548f.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0511/NSG-0511_web_9a548f.webp"
+  "web_images\\nsg-0504\\ban-toa-nha-van-phong-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-1-c5e1.jpg": {
+    "card": "./web_images/public/card/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-1-c5e1.webp",
+    "detail": "./web_images/public/detail/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-1-c5e1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-1-c5e1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-1-c5e1.webp"
   },
-  "web_images\\nsg-0513\\nsg-0513_web_3fb7b9.jpg": {
-    "card": "./web_images/public/card/NSG-0513/NSG-0513_web_3fb7b9.webp",
-    "gallery": "./web_images/public/gallery/NSG-0513/NSG-0513_web_3fb7b9.webp",
-    "detail": "./web_images/public/detail/NSG-0513/NSG-0513_web_3fb7b9.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0513/NSG-0513_web_3fb7b9.webp"
+  "web_images\\nsg-0504\\ban-toa-nha-van-phong-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-2-ad0b.jpg": {
+    "card": "./web_images/public/card/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-2-ad0b.webp",
+    "detail": "./web_images/public/detail/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-2-ad0b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-2-ad0b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0504/ban-toa-nha-van-phong-duong-xuan-thuy-phuong-thao-dien-tp-thu-duc-nsg-0504-hinh-2-ad0b.webp"
   },
-  "web_images\\nsg-0503\\nsg-0503_web_e62421.jpg": {
-    "card": "./web_images/public/card/NSG-0503/NSG-0503_web_e62421.webp",
-    "gallery": "./web_images/public/gallery/NSG-0503/NSG-0503_web_e62421.webp",
-    "detail": "./web_images/public/detail/NSG-0503/NSG-0503_web_e62421.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0503/NSG-0503_web_e62421.webp"
+  "web_images\\nsg-0505\\ban-toa-chdv-khach-san-phuong-15-quan-tan-binh-nsg-0505-hinh-1-66c7.jpg": {
+    "card": "./web_images/public/card/NSG-0505/ban-toa-chdv-khach-san-duong-pham-van-bach-phuong-15-quan-tan-binh-nsg-0505-hinh-1-66c7.webp",
+    "detail": "./web_images/public/detail/NSG-0505/ban-toa-chdv-khach-san-duong-pham-van-bach-phuong-15-quan-tan-binh-nsg-0505-hinh-1-66c7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0505/ban-toa-chdv-khach-san-duong-pham-van-bach-phuong-15-quan-tan-binh-nsg-0505-hinh-1-66c7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0505/ban-toa-chdv-khach-san-duong-pham-van-bach-phuong-15-quan-tan-binh-nsg-0505-hinh-1-66c7.webp"
   },
-  "web_images\\nsg-0505\\nsg-0505_web_efe169.jpg": {
-    "card": "./web_images/public/card/NSG-0505/NSG-0505_web_efe169.webp",
-    "gallery": "./web_images/public/gallery/NSG-0505/NSG-0505_web_efe169.webp",
-    "detail": "./web_images/public/detail/NSG-0505/NSG-0505_web_efe169.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0505/NSG-0505_web_efe169.webp"
+  "web_images\\nsg-0506\\ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg": {
+    "card": "./web_images/public/card/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.webp",
+    "detail": "./web_images/public/detail/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.webp"
   },
-  "web_images\\nsg-0512\\nsg-0512_web_06df79.jpg": {
-    "card": "./web_images/public/card/NSG-0512/NSG-0512_web_06df79.webp",
-    "gallery": "./web_images/public/gallery/NSG-0512/NSG-0512_web_06df79.webp",
-    "detail": "./web_images/public/detail/NSG-0512/NSG-0512_web_06df79.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0512/NSG-0512_web_06df79.webp"
+  "web_images\\nsg-0506\\ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-2-9e74.jpg": {
+    "card": "./web_images/public/card/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-2-9e74.webp",
+    "detail": "./web_images/public/detail/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-2-9e74.webp",
+    "gallery": "./web_images/public/gallery/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-2-9e74.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-2-9e74.webp"
   },
-  "web_images\\nsg-0514\\nsg-0514_web_01efd2.jpg": {
-    "card": "./web_images/public/card/NSG-0514/NSG-0514_web_01efd2.webp",
-    "gallery": "./web_images/public/gallery/NSG-0514/NSG-0514_web_01efd2.webp",
-    "detail": "./web_images/public/detail/NSG-0514/NSG-0514_web_01efd2.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0514/NSG-0514_web_01efd2.webp"
+  "web_images\\nsg-0506\\ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-3-694e.jpg": {
+    "card": "./web_images/public/card/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-3-694e.webp",
+    "detail": "./web_images/public/detail/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-3-694e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-3-694e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-3-694e.webp"
   },
-  "web_images\\nsg-0515\\nsg-0515_web_5c5968.jpg": {
-    "card": "./web_images/public/card/NSG-0515/NSG-0515_web_5c5968.webp",
-    "gallery": "./web_images/public/gallery/NSG-0515/NSG-0515_web_5c5968.webp",
-    "detail": "./web_images/public/detail/NSG-0515/NSG-0515_web_5c5968.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0515/NSG-0515_web_5c5968.webp"
+  "web_images\\nsg-0506\\ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-4-9d7b.jpg": {
+    "card": "./web_images/public/card/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-4-9d7b.webp",
+    "detail": "./web_images/public/detail/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-4-9d7b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-4-9d7b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-4-9d7b.webp"
   },
-  "web_images\\nsg-0516\\nsg-0516_web_c260ba.jpg": {
-    "card": "./web_images/public/card/NSG-0516/NSG-0516_web_c260ba.webp",
-    "gallery": "./web_images/public/gallery/NSG-0516/NSG-0516_web_c260ba.webp",
-    "detail": "./web_images/public/detail/NSG-0516/NSG-0516_web_c260ba.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0516/NSG-0516_web_c260ba.webp"
+  "web_images\\nsg-0506\\ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-5-bbda.jpg": {
+    "card": "./web_images/public/card/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-5-bbda.webp",
+    "detail": "./web_images/public/detail/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-5-bbda.webp",
+    "gallery": "./web_images/public/gallery/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-5-bbda.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0506/ban-quy-dat-xay-cao-tang-duong-nguyen-trung-truc-phuong-ben-nghe-quan-1-nsg-0506-hinh-5-bbda.webp"
   },
-  "web_images\\nsg-0517\\nsg-0517_web_df282b.jpg": {
-    "card": "./web_images/public/card/NSG-0517/NSG-0517_web_df282b.webp",
-    "gallery": "./web_images/public/gallery/NSG-0517/NSG-0517_web_df282b.webp",
-    "detail": "./web_images/public/detail/NSG-0517/NSG-0517_web_df282b.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0517/NSG-0517_web_df282b.webp"
+  "web_images\\nsg-0507\\ban-quy-dat-xay-cao-tang-phuong-13-quan-tan-binh-nsg-0507-hinh-1-f60f.jpg": {
+    "card": "./web_images/public/card/NSG-0507/ban-quy-dat-xay-cao-tang-duong-dong-xoai-phuong-13-quan-tan-binh-nsg-0507-hinh-1-f60f.webp",
+    "detail": "./web_images/public/detail/NSG-0507/ban-quy-dat-xay-cao-tang-duong-dong-xoai-phuong-13-quan-tan-binh-nsg-0507-hinh-1-f60f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0507/ban-quy-dat-xay-cao-tang-duong-dong-xoai-phuong-13-quan-tan-binh-nsg-0507-hinh-1-f60f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0507/ban-quy-dat-xay-cao-tang-duong-dong-xoai-phuong-13-quan-tan-binh-nsg-0507-hinh-1-f60f.webp"
   },
-  "web_images\\nsg-0519\\nsg-0519_web_c68e66.jpg": {
-    "card": "./web_images/public/card/NSG-0519/NSG-0519_web_c68e66.webp",
-    "gallery": "./web_images/public/gallery/NSG-0519/NSG-0519_web_c68e66.webp",
-    "detail": "./web_images/public/detail/NSG-0519/NSG-0519_web_c68e66.webp",
-    "lightbox": "./web_images/public/lightbox/NSG-0519/NSG-0519_web_c68e66.webp"
+  "web_images\\nsg-0508\\ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg": {
+    "card": "./web_images/public/card/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.webp",
+    "detail": "./web_images/public/detail/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.webp"
+  },
+  "web_images\\nsg-0508\\ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-2-3670.jpg": {
+    "card": "./web_images/public/card/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-2-3670.webp",
+    "detail": "./web_images/public/detail/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-2-3670.webp",
+    "gallery": "./web_images/public/gallery/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-2-3670.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-2-3670.webp"
+  },
+  "web_images\\nsg-0508\\ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-3-6941.jpg": {
+    "card": "./web_images/public/card/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-3-6941.webp",
+    "detail": "./web_images/public/detail/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-3-6941.webp",
+    "gallery": "./web_images/public/gallery/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-3-6941.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0508/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-13-quan-3-nsg-0508-hinh-3-6941.webp"
+  },
+  "web_images\\nsg-0509\\ban-quy-dat-xay-cao-tang-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.jpg": {
+    "card": "./web_images/public/card/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.webp",
+    "detail": "./web_images/public/detail/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-1-bfa9.webp"
+  },
+  "web_images\\nsg-0509\\ban-quy-dat-xay-cao-tang-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.jpg": {
+    "card": "./web_images/public/card/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.webp",
+    "detail": "./web_images/public/detail/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.webp",
+    "gallery": "./web_images/public/gallery/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-2-4368.webp"
+  },
+  "web_images\\nsg-0509\\ban-quy-dat-xay-cao-tang-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.jpg": {
+    "card": "./web_images/public/card/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.webp",
+    "detail": "./web_images/public/detail/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0509/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-thuan-quan-7-nsg-0509-hinh-3-96d7.webp"
+  },
+  "web_images\\nsg-0510\\ban-nha-pho-mat-tien-phuong-25-binh-thanh-nsg-0510-hinh-1-f6ee.jpg": {
+    "card": "./web_images/public/card/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-1-f6ee.webp",
+    "detail": "./web_images/public/detail/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-1-f6ee.webp",
+    "gallery": "./web_images/public/gallery/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-1-f6ee.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-1-f6ee.webp"
+  },
+  "web_images\\nsg-0510\\ban-nha-pho-mat-tien-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.jpg": {
+    "card": "./web_images/public/card/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.webp",
+    "detail": "./web_images/public/detail/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0510/ban-nha-pho-mat-tien-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0510-hinh-2-3aa0.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-1-a239.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-1-a239.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-1-a239.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-1-a239.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-1-a239.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-2-f185.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-2-f185.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-2-f185.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-2-f185.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-2-f185.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-3-f4eb.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-3-f4eb.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-3-f4eb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-3-f4eb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-3-f4eb.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-4-89ef.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-4-89ef.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-4-89ef.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-4-89ef.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-4-89ef.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-5-6551.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-5-6551.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-5-6551.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-5-6551.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-5-6551.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-6-ffc6.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-6-ffc6.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-6-ffc6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-6-ffc6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-6-ffc6.webp"
+  },
+  "web_images\\nsg-0511\\ban-biet-thu-pho-phuong-10-quan-phu-nhuan-nsg-0511-hinh-7-2d9a.jpg": {
+    "card": "./web_images/public/card/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-7-2d9a.webp",
+    "detail": "./web_images/public/detail/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-7-2d9a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-7-2d9a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0511/ban-biet-thu-pho-duong-nguyen-trong-tuyen-phuong-10-quan-phu-nhuan-nsg-0511-hinh-7-2d9a.webp"
+  },
+  "web_images\\nsg-0512\\ban-quy-dat-xay-cao-tang-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-1-b185.jpg": {
+    "card": "./web_images/public/card/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-1-b185.webp",
+    "detail": "./web_images/public/detail/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-1-b185.webp",
+    "gallery": "./web_images/public/gallery/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-1-b185.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-1-b185.webp"
+  },
+  "web_images\\nsg-0512\\ban-quy-dat-xay-cao-tang-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-2-d1df.jpg": {
+    "card": "./web_images/public/card/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-2-d1df.webp",
+    "detail": "./web_images/public/detail/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-2-d1df.webp",
+    "gallery": "./web_images/public/gallery/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-2-d1df.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-2-d1df.webp"
+  },
+  "web_images\\nsg-0512\\ban-quy-dat-xay-cao-tang-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-3-aad6.jpg": {
+    "card": "./web_images/public/card/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-3-aad6.webp",
+    "detail": "./web_images/public/detail/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-3-aad6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-3-aad6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0512/ban-quy-dat-xay-cao-tang-duong-14-phuong-an-khanh-tp-thu-duc-nsg-0512-hinh-3-aad6.webp"
+  },
+  "web_images\\nsg-0513\\ban-nha-pho-mat-tien-phuong-12-quan-6-nsg-0513-hinh-1-515d.jpg": {
+    "card": "./web_images/public/card/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-1-515d.webp",
+    "detail": "./web_images/public/detail/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-1-515d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-1-515d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-1-515d.webp"
+  },
+  "web_images\\nsg-0513\\ban-nha-pho-mat-tien-phuong-12-quan-6-nsg-0513-hinh-2-4280.jpg": {
+    "card": "./web_images/public/card/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-2-4280.webp",
+    "detail": "./web_images/public/detail/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-2-4280.webp",
+    "gallery": "./web_images/public/gallery/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-2-4280.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-2-4280.webp"
+  },
+  "web_images\\nsg-0513\\ban-nha-pho-mat-tien-phuong-12-quan-6-nsg-0513-hinh-3-ba3f.jpg": {
+    "card": "./web_images/public/card/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-3-ba3f.webp",
+    "detail": "./web_images/public/detail/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-3-ba3f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-3-ba3f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-3-ba3f.webp"
+  },
+  "web_images\\nsg-0513\\ban-nha-pho-mat-tien-phuong-12-quan-6-nsg-0513-hinh-4-22d5.jpg": {
+    "card": "./web_images/public/card/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-4-22d5.webp",
+    "detail": "./web_images/public/detail/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-4-22d5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-4-22d5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0513/ban-nha-pho-mat-tien-duong-kinh-duong-vuong-phuong-12-quan-6-nsg-0513-hinh-4-22d5.webp"
+  },
+  "web_images\\nsg-0514\\ban-toa-chdv-khach-san-phuong-2-quan-tan-binh-nsg-0514-hinh-1-d4e0.jpg": {
+    "card": "./web_images/public/card/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-1-d4e0.webp",
+    "detail": "./web_images/public/detail/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-1-d4e0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-1-d4e0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-1-d4e0.webp"
+  },
+  "web_images\\nsg-0514\\ban-toa-chdv-khach-san-phuong-2-quan-tan-binh-nsg-0514-hinh-2-b24b.jpg": {
+    "card": "./web_images/public/card/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-2-b24b.webp",
+    "detail": "./web_images/public/detail/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-2-b24b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-2-b24b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-2-b24b.webp"
+  },
+  "web_images\\nsg-0514\\ban-toa-chdv-khach-san-phuong-2-quan-tan-binh-nsg-0514-hinh-3-4e87.jpg": {
+    "card": "./web_images/public/card/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-3-4e87.webp",
+    "detail": "./web_images/public/detail/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-3-4e87.webp",
+    "gallery": "./web_images/public/gallery/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-3-4e87.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0514/ban-toa-chdv-khach-san-duong-cuu-long-phuong-2-quan-tan-binh-nsg-0514-hinh-3-4e87.webp"
+  },
+  "web_images\\nsg-0515\\ban-quy-dat-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0515-hinh-1-7b53.jpg": {
+    "card": "./web_images/public/card/NSG-0515/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0515-hinh-1-7b53.webp",
+    "detail": "./web_images/public/detail/NSG-0515/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0515-hinh-1-7b53.webp",
+    "gallery": "./web_images/public/gallery/NSG-0515/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0515-hinh-1-7b53.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0515/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0515-hinh-1-7b53.webp"
+  },
+  "web_images\\nsg-0516\\ban-toa-nha-van-phong-quan-10-nsg-0516-hinh-1-fe0e.jpg": {
+    "card": "./web_images/public/card/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-1-fe0e.webp",
+    "detail": "./web_images/public/detail/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-1-fe0e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-1-fe0e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-1-fe0e.webp"
+  },
+  "web_images\\nsg-0516\\ban-toa-nha-van-phong-quan-10-nsg-0516-hinh-2-eba4.jpg": {
+    "card": "./web_images/public/card/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-2-eba4.webp",
+    "detail": "./web_images/public/detail/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-2-eba4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-2-eba4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0516/ban-toa-nha-van-phong-duong-duong-3-thang-2-phuong-14-quan-10-nsg-0516-hinh-2-eba4.webp"
+  },
+  "web_images\\nsg-0517\\ban-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.jpg": {
+    "card": "./web_images/public/card/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.webp",
+    "detail": "./web_images/public/detail/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.webp",
+    "gallery": "./web_images/public/gallery/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.webp"
+  },
+  "web_images\\nsg-0517\\ban-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0517-hinh-2-4488.jpg": {
+    "card": "./web_images/public/card/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-2-4488.webp",
+    "detail": "./web_images/public/detail/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-2-4488.webp",
+    "gallery": "./web_images/public/gallery/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-2-4488.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0517/ban-quy-dat-xay-cao-tang-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0517-hinh-2-4488.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-1-de3d.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-1-de3d.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-1-de3d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-1-de3d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-1-de3d.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-10-0a8e.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-10-0a8e.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-10-0a8e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-10-0a8e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-10-0a8e.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-2-d772.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-2-d772.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-2-d772.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-2-d772.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-2-d772.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-3-5e4d.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-3-5e4d.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-3-5e4d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-3-5e4d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-3-5e4d.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-4-f78a.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-4-f78a.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-4-f78a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-4-f78a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-4-f78a.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-5-8fd5.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-5-8fd5.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-5-8fd5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-5-8fd5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-5-8fd5.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-6-e02f.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-6-e02f.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-6-e02f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-6-e02f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-6-e02f.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-7-6080.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-7-6080.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-7-6080.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-7-6080.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-7-6080.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-8-6afb.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-8-6afb.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-8-6afb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-8-6afb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-8-6afb.webp"
+  },
+  "web_images\\nsg-0518\\ban-biet-thu-phuong-13-binh-thanh-nsg-0518-hinh-9-e552.jpg": {
+    "card": "./web_images/public/card/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-9-e552.webp",
+    "detail": "./web_images/public/detail/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-9-e552.webp",
+    "gallery": "./web_images/public/gallery/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-9-e552.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0518/ban-biet-thu-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0518-hinh-9-e552.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-1-7470.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-1-7470.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-1-7470.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-1-7470.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-1-7470.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-2-a385.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-2-a385.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-2-a385.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-2-a385.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-2-a385.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-3-0d99.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-3-0d99.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-3-0d99.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-3-0d99.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-3-0d99.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-4-5978.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-4-5978.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-4-5978.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-4-5978.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-4-5978.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-5-4368.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-5-4368.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-5-4368.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-5-4368.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-5-4368.webp"
+  },
+  "web_images\\nsg-0519\\ban-toa-chdv-khach-san-phuong-11-quan-3-nsg-0519-hinh-6-067a.jpg": {
+    "card": "./web_images/public/card/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-6-067a.webp",
+    "detail": "./web_images/public/detail/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-6-067a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-6-067a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0519/ban-toa-chdv-khach-san-duong-cach-mang-thang-8-phuong-11-quan-3-nsg-0519-hinh-6-067a.webp"
+  },
+  "web_images\\nsg-0520\\ban-nha-pho-mat-tien-phuong-2-quan-phu-nhuan-nsg-0520-hinh-1-4730.jpg": {
+    "card": "./web_images/public/card/NSG-0520/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-2-quan-phu-nhuan-nsg-0520-hinh-1-4730.webp",
+    "detail": "./web_images/public/detail/NSG-0520/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-2-quan-phu-nhuan-nsg-0520-hinh-1-4730.webp",
+    "gallery": "./web_images/public/gallery/NSG-0520/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-2-quan-phu-nhuan-nsg-0520-hinh-1-4730.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0520/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-2-quan-phu-nhuan-nsg-0520-hinh-1-4730.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-1-e290.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-1-e290.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-1-e290.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-1-e290.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-1-e290.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-2-6362.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-2-6362.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-2-6362.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-2-6362.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-2-6362.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-3-99aa.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-3-99aa.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-3-99aa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-3-99aa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-3-99aa.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-4-0039.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-4-0039.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-4-0039.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-4-0039.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-4-0039.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-5-0fdd.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-5-0fdd.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-5-0fdd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-5-0fdd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-5-0fdd.webp"
+  },
+  "web_images\\nsg-0522\\ban-biet-thu-phuong-22-binh-thanh-nsg-0522-hinh-6-1780.jpg": {
+    "card": "./web_images/public/card/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-6-1780.webp",
+    "detail": "./web_images/public/detail/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-6-1780.webp",
+    "gallery": "./web_images/public/gallery/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-6-1780.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0522/ban-biet-thu-duong-d7-saigon-pearl-phuong-22-binh-thanh-nsg-0522-hinh-6-1780.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-1-cffe.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-1-cffe.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-1-cffe.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-1-cffe.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-1-cffe.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-2-049e.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-2-049e.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-2-049e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-2-049e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-2-049e.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-3-c6c0.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-3-c6c0.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-3-c6c0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-3-c6c0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-3-c6c0.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-4-3b5d.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-4-3b5d.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-4-3b5d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-4-3b5d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-4-3b5d.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-5-f416.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-5-f416.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-5-f416.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-5-f416.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-5-f416.webp"
+  },
+  "web_images\\nsg-0523\\ban-toa-chdv-khach-san-phuong-4-quan-tan-binh-nsg-0523-hinh-6-0492.jpg": {
+    "card": "./web_images/public/card/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-6-0492.webp",
+    "detail": "./web_images/public/detail/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-6-0492.webp",
+    "gallery": "./web_images/public/gallery/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-6-0492.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0523/ban-toa-chdv-khach-san-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0523-hinh-6-0492.webp"
+  },
+  "web_images\\nsg-0524\\ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.jpg": {
+    "card": "./web_images/public/card/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.webp",
+    "detail": "./web_images/public/detail/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.webp"
+  },
+  "web_images\\nsg-0524\\ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-2-be2d.jpg": {
+    "card": "./web_images/public/card/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-2-be2d.webp",
+    "detail": "./web_images/public/detail/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-2-be2d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-2-be2d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-2-be2d.webp"
+  },
+  "web_images\\nsg-0524\\ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-3-4f1f.jpg": {
+    "card": "./web_images/public/card/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-3-4f1f.webp",
+    "detail": "./web_images/public/detail/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-3-4f1f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-3-4f1f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-3-4f1f.webp"
+  },
+  "web_images\\nsg-0524\\ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-4-274e.jpg": {
+    "card": "./web_images/public/card/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-4-274e.webp",
+    "detail": "./web_images/public/detail/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-4-274e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-4-274e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-4-274e.webp"
+  },
+  "web_images\\nsg-0524\\ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-5-41a3.jpg": {
+    "card": "./web_images/public/card/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-5-41a3.webp",
+    "detail": "./web_images/public/detail/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-5-41a3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-5-41a3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0524/ban-toa-nha-van-phong-duong-truong-chinh-phuong-14-quan-tan-binh-nsg-0524-hinh-5-41a3.webp"
+  },
+  "web_images\\nsg-0525\\ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg": {
+    "card": "./web_images/public/card/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.webp",
+    "detail": "./web_images/public/detail/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.webp",
+    "gallery": "./web_images/public/gallery/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.webp"
+  },
+  "web_images\\nsg-0525\\ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-2-3b43.jpg": {
+    "card": "./web_images/public/card/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-2-3b43.webp",
+    "detail": "./web_images/public/detail/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-2-3b43.webp",
+    "gallery": "./web_images/public/gallery/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-2-3b43.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-2-3b43.webp"
+  },
+  "web_images\\nsg-0525\\ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-3-a50a.jpg": {
+    "card": "./web_images/public/card/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-3-a50a.webp",
+    "detail": "./web_images/public/detail/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-3-a50a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-3-a50a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0525/ban-nha-pho-mat-tien-duong-dinh-bo-linh-phuong-26-binh-thanh-nsg-0525-hinh-3-a50a.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-1-6319.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-1-6319.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-1-6319.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-1-6319.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-1-6319.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-10-8073.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-10-8073.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-10-8073.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-10-8073.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-10-8073.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-11-1478.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-11-1478.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-11-1478.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-11-1478.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-11-1478.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-2-8ec4.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-2-8ec4.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-2-8ec4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-2-8ec4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-2-8ec4.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-3-f08f.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-3-f08f.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-3-f08f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-3-f08f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-3-f08f.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-4-7e20.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-4-7e20.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-4-7e20.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-4-7e20.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-4-7e20.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-5-15c8.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-5-15c8.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-5-15c8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-5-15c8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-5-15c8.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-6-9d6c.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-6-9d6c.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-6-9d6c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-6-9d6c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-6-9d6c.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-7-5baf.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-7-5baf.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-7-5baf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-7-5baf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-7-5baf.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-8-4ab1.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-8-4ab1.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-8-4ab1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-8-4ab1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-8-4ab1.webp"
+  },
+  "web_images\\nsg-0526\\ban-biet-thu-quan-7-nsg-0526-hinh-9-e35b.jpg": {
+    "card": "./web_images/public/card/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-9-e35b.webp",
+    "detail": "./web_images/public/detail/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-9-e35b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-9-e35b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0526/ban-biet-thu-duong-duong-so-6-kdc-cityland-phuong-tan-phu-quan-7-nsg-0526-hinh-9-e35b.webp"
+  },
+  "web_images\\nsg-0527\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0527-hinh-1-26d7.jpg": {
+    "card": "./web_images/public/card/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-1-26d7.webp",
+    "detail": "./web_images/public/detail/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-1-26d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-1-26d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-1-26d7.webp"
+  },
+  "web_images\\nsg-0527\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0527-hinh-2-f514.jpg": {
+    "card": "./web_images/public/card/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-2-f514.webp",
+    "detail": "./web_images/public/detail/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-2-f514.webp",
+    "gallery": "./web_images/public/gallery/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-2-f514.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-2-f514.webp"
+  },
+  "web_images\\nsg-0527\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0527-hinh-3-04bc.jpg": {
+    "card": "./web_images/public/card/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-3-04bc.webp",
+    "detail": "./web_images/public/detail/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-3-04bc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-3-04bc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-3-04bc.webp"
+  },
+  "web_images\\nsg-0527\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0527-hinh-4-7609.jpg": {
+    "card": "./web_images/public/card/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-4-7609.webp",
+    "detail": "./web_images/public/detail/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-4-7609.webp",
+    "gallery": "./web_images/public/gallery/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-4-7609.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-4-7609.webp"
+  },
+  "web_images\\nsg-0527\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0527-hinh-5-b195.jpg": {
+    "card": "./web_images/public/card/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-5-b195.webp",
+    "detail": "./web_images/public/detail/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-5-b195.webp",
+    "gallery": "./web_images/public/gallery/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-5-b195.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0527/ban-toa-chdv-khach-san-duong-le-lai-phuong-ben-thanh-quan-1-nsg-0527-hinh-5-b195.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-3-f2ed.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-3-f2ed.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-3-f2ed.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-3-f2ed.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-3-f2ed.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-4-c767.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-4-c767.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-4-c767.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-4-c767.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-4-c767.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-5-bb9a.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-5-bb9a.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-5-bb9a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-5-bb9a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-5-bb9a.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-6-4d16.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-6-4d16.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-6-4d16.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-6-4d16.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-6-4d16.webp"
+  },
+  "web_images\\nsg-0528\\ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-7-899a.jpg": {
+    "card": "./web_images/public/card/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-7-899a.webp",
+    "detail": "./web_images/public/detail/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-7-899a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-7-899a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0528/ban-toa-nha-van-phong-duong-hoang-viet-phuong-4-quan-tan-binh-nsg-0528-hinh-7-899a.webp"
+  },
+  "web_images\\nsg-0529\\ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg": {
+    "card": "./web_images/public/card/NSG-0529/ban-toa-nha-van-phong-duong-nguyen-thi-minh-khai-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.webp",
+    "detail": "./web_images/public/detail/NSG-0529/ban-toa-nha-van-phong-duong-nguyen-thi-minh-khai-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.webp",
+    "gallery": "./web_images/public/gallery/NSG-0529/ban-toa-nha-van-phong-duong-nguyen-thi-minh-khai-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0529/ban-toa-nha-van-phong-duong-nguyen-thi-minh-khai-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.webp"
+  },
+  "web_images\\nsg-0530\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0530-hinh-1-02a8.jpg": {
+    "card": "./web_images/public/card/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-1-02a8.webp",
+    "detail": "./web_images/public/detail/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-1-02a8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-1-02a8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-1-02a8.webp"
+  },
+  "web_images\\nsg-0530\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0530-hinh-2-61fb.jpg": {
+    "card": "./web_images/public/card/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-2-61fb.webp",
+    "detail": "./web_images/public/detail/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-2-61fb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-2-61fb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-2-61fb.webp"
+  },
+  "web_images\\nsg-0530\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0530-hinh-3-d9cb.jpg": {
+    "card": "./web_images/public/card/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-3-d9cb.webp",
+    "detail": "./web_images/public/detail/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-3-d9cb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-3-d9cb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-3-d9cb.webp"
+  },
+  "web_images\\nsg-0530\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0530-hinh-4-faab.jpg": {
+    "card": "./web_images/public/card/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-4-faab.webp",
+    "detail": "./web_images/public/detail/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-4-faab.webp",
+    "gallery": "./web_images/public/gallery/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-4-faab.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0530/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0530-hinh-4-faab.webp"
+  },
+  "web_images\\nsg-0531\\ban-toa-nha-van-phong-phuong-9-quan-3-nsg-0531-hinh-1-29fc.jpg": {
+    "card": "./web_images/public/card/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-1-29fc.webp",
+    "detail": "./web_images/public/detail/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-1-29fc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-1-29fc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-1-29fc.webp"
+  },
+  "web_images\\nsg-0531\\ban-toa-nha-van-phong-phuong-9-quan-3-nsg-0531-hinh-2-87f6.jpg": {
+    "card": "./web_images/public/card/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-2-87f6.webp",
+    "detail": "./web_images/public/detail/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-2-87f6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-2-87f6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-2-87f6.webp"
+  },
+  "web_images\\nsg-0531\\ban-toa-nha-van-phong-phuong-9-quan-3-nsg-0531-hinh-3-62ed.jpg": {
+    "card": "./web_images/public/card/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-3-62ed.webp",
+    "detail": "./web_images/public/detail/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-3-62ed.webp",
+    "gallery": "./web_images/public/gallery/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-3-62ed.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0531/ban-toa-nha-van-phong-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0531-hinh-3-62ed.webp"
+  },
+  "web_images\\nsg-0532\\ban-nha-pho-mat-tien-phuong-pham-ngu-lao-quan-1-nsg-0532-hinh-1-a0d6.jpg": {
+    "card": "./web_images/public/card/NSG-0532/ban-nha-pho-mat-tien-duong-nguyen-cu-trinh-phuong-pham-ngu-lao-quan-1-nsg-0532-hinh-1-a0d6.webp",
+    "detail": "./web_images/public/detail/NSG-0532/ban-nha-pho-mat-tien-duong-nguyen-cu-trinh-phuong-pham-ngu-lao-quan-1-nsg-0532-hinh-1-a0d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0532/ban-nha-pho-mat-tien-duong-nguyen-cu-trinh-phuong-pham-ngu-lao-quan-1-nsg-0532-hinh-1-a0d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0532/ban-nha-pho-mat-tien-duong-nguyen-cu-trinh-phuong-pham-ngu-lao-quan-1-nsg-0532-hinh-1-a0d6.webp"
+  },
+  "web_images\\nsg-0533\\ban-toa-chdv-khach-san-phuong-10-quan-phu-nhuan-nsg-0533-hinh-1-f2f3.jpg": {
+    "card": "./web_images/public/card/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-1-f2f3.webp",
+    "detail": "./web_images/public/detail/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-1-f2f3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-1-f2f3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-1-f2f3.webp"
+  },
+  "web_images\\nsg-0533\\ban-toa-chdv-khach-san-phuong-10-quan-phu-nhuan-nsg-0533-hinh-2-d3d7.jpg": {
+    "card": "./web_images/public/card/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-2-d3d7.webp",
+    "detail": "./web_images/public/detail/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-2-d3d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-2-d3d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-2-d3d7.webp"
+  },
+  "web_images\\nsg-0533\\ban-toa-chdv-khach-san-phuong-10-quan-phu-nhuan-nsg-0533-hinh-3-5a63.jpg": {
+    "card": "./web_images/public/card/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-3-5a63.webp",
+    "detail": "./web_images/public/detail/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-3-5a63.webp",
+    "gallery": "./web_images/public/gallery/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-3-5a63.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-3-5a63.webp"
+  },
+  "web_images\\nsg-0533\\ban-toa-chdv-khach-san-phuong-10-quan-phu-nhuan-nsg-0533-hinh-4-5177.jpg": {
+    "card": "./web_images/public/card/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-4-5177.webp",
+    "detail": "./web_images/public/detail/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-4-5177.webp",
+    "gallery": "./web_images/public/gallery/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-4-5177.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0533/ban-toa-chdv-khach-san-duong-le-van-sy-phuong-10-quan-phu-nhuan-nsg-0533-hinh-4-5177.webp"
+  },
+  "web_images\\nsg-0534\\ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.jpg": {
+    "card": "./web_images/public/card/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.webp",
+    "detail": "./web_images/public/detail/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.webp",
+    "gallery": "./web_images/public/gallery/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.webp"
+  },
+  "web_images\\nsg-0534\\ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-2-4d2d.jpg": {
+    "card": "./web_images/public/card/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-2-4d2d.webp",
+    "detail": "./web_images/public/detail/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-2-4d2d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-2-4d2d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0534/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0534-hinh-2-4d2d.webp"
+  },
+  "web_images\\nsg-0535\\ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.jpg": {
+    "card": "./web_images/public/card/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.webp",
+    "detail": "./web_images/public/detail/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.webp"
+  },
+  "web_images\\nsg-0535\\ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-2-d6c0.jpg": {
+    "card": "./web_images/public/card/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-2-d6c0.webp",
+    "detail": "./web_images/public/detail/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-2-d6c0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-2-d6c0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-2-d6c0.webp"
+  },
+  "web_images\\nsg-0535\\ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-3-b9a8.jpg": {
+    "card": "./web_images/public/card/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-3-b9a8.webp",
+    "detail": "./web_images/public/detail/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-3-b9a8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-3-b9a8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-3-b9a8.webp"
+  },
+  "web_images\\nsg-0535\\ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-4-5b46.jpg": {
+    "card": "./web_images/public/card/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-4-5b46.webp",
+    "detail": "./web_images/public/detail/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-4-5b46.webp",
+    "gallery": "./web_images/public/gallery/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-4-5b46.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-4-5b46.webp"
+  },
+  "web_images\\nsg-0535\\ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-5-48f7.jpg": {
+    "card": "./web_images/public/card/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-5-48f7.webp",
+    "detail": "./web_images/public/detail/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-5-48f7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-5-48f7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0535/ban-toa-nha-van-phong-duong-cong-hoa-phuong-12-quan-tan-binh-nsg-0535-hinh-5-48f7.webp"
+  },
+  "web_images\\nsg-0536\\ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg": {
+    "card": "./web_images/public/card/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.webp",
+    "detail": "./web_images/public/detail/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.webp",
+    "gallery": "./web_images/public/gallery/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.webp"
+  },
+  "web_images\\nsg-0536\\ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-2-bf40.jpg": {
+    "card": "./web_images/public/card/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-2-bf40.webp",
+    "detail": "./web_images/public/detail/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-2-bf40.webp",
+    "gallery": "./web_images/public/gallery/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-2-bf40.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-2-bf40.webp"
+  },
+  "web_images\\nsg-0536\\ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-3-825b.jpg": {
+    "card": "./web_images/public/card/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-3-825b.webp",
+    "detail": "./web_images/public/detail/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-3-825b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-3-825b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0536/ban-toa-chdv-khach-san-duong-nguyen-van-khoi-phuong-9-quan-go-vap-nsg-0536-hinh-3-825b.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-1-9cf8.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-1-9cf8.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-1-9cf8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-1-9cf8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-1-9cf8.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-2-e512.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-2-e512.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-2-e512.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-2-e512.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-2-e512.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-3-7f13.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-3-7f13.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-3-7f13.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-3-7f13.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-3-7f13.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-4-9c46.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-4-9c46.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-4-9c46.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-4-9c46.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-4-9c46.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-5-7678.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-5-7678.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-5-7678.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-5-7678.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-5-7678.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-6-d627.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-6-d627.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-6-d627.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-6-d627.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-6-d627.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-7-5b6d.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-7-5b6d.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-7-5b6d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-7-5b6d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-7-5b6d.webp"
+  },
+  "web_images\\nsg-0537\\ban-quy-dat-xay-cao-tang-phuong-an-phu-quan-2-nsg-0537-hinh-8-c4bb.jpg": {
+    "card": "./web_images/public/card/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-8-c4bb.webp",
+    "detail": "./web_images/public/detail/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-8-c4bb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-8-c4bb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0537/ban-quy-dat-xay-cao-tang-duong-bui-ta-han-phuong-an-phu-quan-2-nsg-0537-hinh-8-c4bb.webp"
+  },
+  "web_images\\nsg-0538\\ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg": {
+    "card": "./web_images/public/card/NSG-0538/ban-nha-pho-mat-tien-duong-nguyen-van-nguyen-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.webp",
+    "detail": "./web_images/public/detail/NSG-0538/ban-nha-pho-mat-tien-duong-nguyen-van-nguyen-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0538/ban-nha-pho-mat-tien-duong-nguyen-van-nguyen-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0538/ban-nha-pho-mat-tien-duong-nguyen-van-nguyen-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.webp"
   },
   "web_images\\nsg-0539\\ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.jpg": {
     "card": "./web_images/public/card/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.webp",
-    "gallery": "./web_images/public/gallery/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.webp",
     "detail": "./web_images/public/detail/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.webp",
+    "gallery": "./web_images/public/gallery/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.webp",
     "lightbox": "./web_images/public/lightbox/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-1-99ff.webp"
   },
-  "web_images\\nsg-0540\\ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.jpg": {
+  "web_images\\nsg-0539\\ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-2-a9af.jpg": {
+    "card": "./web_images/public/card/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-2-a9af.webp",
+    "detail": "./web_images/public/detail/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-2-a9af.webp",
+    "gallery": "./web_images/public/gallery/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-2-a9af.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-2-a9af.webp"
+  },
+  "web_images\\nsg-0539\\ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-3-ee94.jpg": {
+    "card": "./web_images/public/card/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-3-ee94.webp",
+    "detail": "./web_images/public/detail/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-3-ee94.webp",
+    "gallery": "./web_images/public/gallery/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-3-ee94.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-3-ee94.webp"
+  },
+  "web_images\\nsg-0539\\ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-4-ebd0.jpg": {
+    "card": "./web_images/public/card/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-4-ebd0.webp",
+    "detail": "./web_images/public/detail/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-4-ebd0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-4-ebd0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0539/ban-nha-pho-mat-tien-duong-duong-a4-phuong-12-quan-tan-binh-nsg-0539-hinh-4-ebd0.webp"
+  },
+  "web_images\\nsg-0540\\ban-toa-nha-van-phong-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.jpg": {
     "card": "./web_images/public/card/NSG-0540/ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.webp",
-    "gallery": "./web_images/public/gallery/NSG-0540/ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.webp",
     "detail": "./web_images/public/detail/NSG-0540/ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0540/ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.webp",
     "lightbox": "./web_images/public/lightbox/NSG-0540/ban-toa-nha-van-phong-duong-pho-quang-phuong-2-quan-tan-binh-nsg-0540-hinh-1-b81b.webp"
   },
-  "web_images\\nsg-0541\\ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.jpg": {
+  "web_images\\nsg-0541\\ban-quy-dat-xay-cao-tang-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.jpg": {
     "card": "./web_images/public/card/NSG-0541/ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.webp",
-    "gallery": "./web_images/public/gallery/NSG-0541/ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.webp",
     "detail": "./web_images/public/detail/NSG-0541/ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0541/ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.webp",
     "lightbox": "./web_images/public/lightbox/NSG-0541/ban-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0541-hinh-1-654e.webp"
   },
-  "web_images\\nsg-0591\\ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.jpg": {
+  "web_images\\nsg-0542\\ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg": {
+    "card": "./web_images/public/card/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.webp",
+    "detail": "./web_images/public/detail/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.webp"
+  },
+  "web_images\\nsg-0542\\ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-2-9fd7.jpg": {
+    "card": "./web_images/public/card/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-2-9fd7.webp",
+    "detail": "./web_images/public/detail/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-2-9fd7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-2-9fd7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-2-9fd7.webp"
+  },
+  "web_images\\nsg-0542\\ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-3-c75f.jpg": {
+    "card": "./web_images/public/card/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-3-c75f.webp",
+    "detail": "./web_images/public/detail/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-3-c75f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-3-c75f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0542/ban-toa-nha-van-phong-duong-hai-ba-trung-phuong-ben-nghe-quan-1-nsg-0542-hinh-3-c75f.webp"
+  },
+  "web_images\\nsg-0543\\ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-1-a03b.jpg": {
+    "card": "./web_images/public/card/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-1-a03b.webp",
+    "detail": "./web_images/public/detail/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-1-a03b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-1-a03b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-1-a03b.webp"
+  },
+  "web_images\\nsg-0543\\ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-2-e569.jpg": {
+    "card": "./web_images/public/card/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-2-e569.webp",
+    "detail": "./web_images/public/detail/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-2-e569.webp",
+    "gallery": "./web_images/public/gallery/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-2-e569.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0543/ban-nha-pho-mat-tien-duong-tran-quoc-toan-phuong-vo-thi-sau-quan-3-nsg-0543-hinh-2-e569.webp"
+  },
+  "web_images\\nsg-0544\\ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.jpg": {
+    "card": "./web_images/public/card/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.webp",
+    "detail": "./web_images/public/detail/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.webp",
+    "gallery": "./web_images/public/gallery/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.webp"
+  },
+  "web_images\\nsg-0544\\ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.jpg": {
+    "card": "./web_images/public/card/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.webp",
+    "detail": "./web_images/public/detail/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.webp"
+  },
+  "web_images\\nsg-0544\\ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-3-bb39.jpg": {
+    "card": "./web_images/public/card/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-3-bb39.webp",
+    "detail": "./web_images/public/detail/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-3-bb39.webp",
+    "gallery": "./web_images/public/gallery/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-3-bb39.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0544/ban-nha-pho-mat-tien-duong-hai-ba-trung-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-3-bb39.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-1-3699.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-1-3699.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-1-3699.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-1-3699.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-1-3699.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-2-ce22.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-2-ce22.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-2-ce22.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-2-ce22.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-2-ce22.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-3-f72f.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-3-f72f.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-3-f72f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-3-f72f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-3-f72f.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-4-eb22.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-4-eb22.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-4-eb22.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-4-eb22.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-4-eb22.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-5-fb11.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-5-fb11.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-5-fb11.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-5-fb11.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-5-fb11.webp"
+  },
+  "web_images\\nsg-0545\\ban-toa-chdv-khach-san-phuong-ben-nghe-quan-1-nsg-0545-hinh-6-cc4b.jpg": {
+    "card": "./web_images/public/card/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-6-cc4b.webp",
+    "detail": "./web_images/public/detail/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-6-cc4b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-6-cc4b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0545/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0545-hinh-6-cc4b.webp"
+  },
+  "web_images\\nsg-0546\\ban-toa-chdv-khach-san-phuong-da-kao-quan-1-nsg-0546-hinh-1-c0b5.jpg": {
+    "card": "./web_images/public/card/NSG-0546/ban-toa-chdv-khach-san-duong-mai-thi-luu-phuong-da-kao-quan-1-nsg-0546-hinh-1-c0b5.webp",
+    "detail": "./web_images/public/detail/NSG-0546/ban-toa-chdv-khach-san-duong-mai-thi-luu-phuong-da-kao-quan-1-nsg-0546-hinh-1-c0b5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0546/ban-toa-chdv-khach-san-duong-mai-thi-luu-phuong-da-kao-quan-1-nsg-0546-hinh-1-c0b5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0546/ban-toa-chdv-khach-san-duong-mai-thi-luu-phuong-da-kao-quan-1-nsg-0546-hinh-1-c0b5.webp"
+  },
+  "web_images\\nsg-0547\\ban-biet-thu-quan-2-nsg-0547-hinh-1-27c8.jpg": {
+    "card": "./web_images/public/card/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-1-27c8.webp",
+    "detail": "./web_images/public/detail/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-1-27c8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-1-27c8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-1-27c8.webp"
+  },
+  "web_images\\nsg-0547\\ban-biet-thu-quan-2-nsg-0547-hinh-2-0431.jpg": {
+    "card": "./web_images/public/card/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-2-0431.webp",
+    "detail": "./web_images/public/detail/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-2-0431.webp",
+    "gallery": "./web_images/public/gallery/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-2-0431.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-2-0431.webp"
+  },
+  "web_images\\nsg-0547\\ban-biet-thu-quan-2-nsg-0547-hinh-3-e37c.jpg": {
+    "card": "./web_images/public/card/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-3-e37c.webp",
+    "detail": "./web_images/public/detail/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-3-e37c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-3-e37c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-3-e37c.webp"
+  },
+  "web_images\\nsg-0547\\ban-biet-thu-quan-2-nsg-0547-hinh-4-f3d2.jpg": {
+    "card": "./web_images/public/card/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-4-f3d2.webp",
+    "detail": "./web_images/public/detail/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-4-f3d2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-4-f3d2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0547/ban-biet-thu-duong-duong-12-phuong-an-khanh-quan-2-nsg-0547-hinh-4-f3d2.webp"
+  },
+  "web_images\\nsg-0548\\ban-nha-pho-mat-tien-phuong-9-quan-tan-binh-nsg-0548-hinh-1-cd5f.jpg": {
+    "card": "./web_images/public/card/NSG-0548/ban-nha-pho-mat-tien-duong-au-co-phuong-9-quan-tan-binh-nsg-0548-hinh-1-cd5f.webp",
+    "detail": "./web_images/public/detail/NSG-0548/ban-nha-pho-mat-tien-duong-au-co-phuong-9-quan-tan-binh-nsg-0548-hinh-1-cd5f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0548/ban-nha-pho-mat-tien-duong-au-co-phuong-9-quan-tan-binh-nsg-0548-hinh-1-cd5f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0548/ban-nha-pho-mat-tien-duong-au-co-phuong-9-quan-tan-binh-nsg-0548-hinh-1-cd5f.webp"
+  },
+  "web_images\\nsg-0549\\ban-quy-dat-xay-cao-tang-phuong-thao-dien-quan-2-nsg-0549-hinh-1-fa27.jpg": {
+    "card": "./web_images/public/card/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-1-fa27.webp",
+    "detail": "./web_images/public/detail/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-1-fa27.webp",
+    "gallery": "./web_images/public/gallery/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-1-fa27.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-1-fa27.webp"
+  },
+  "web_images\\nsg-0549\\ban-quy-dat-xay-cao-tang-phuong-thao-dien-quan-2-nsg-0549-hinh-2-6ff3.jpg": {
+    "card": "./web_images/public/card/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-2-6ff3.webp",
+    "detail": "./web_images/public/detail/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-2-6ff3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-2-6ff3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0549/ban-quy-dat-xay-cao-tang-duong-quoc-huong-phuong-thao-dien-quan-2-nsg-0549-hinh-2-6ff3.webp"
+  },
+  "web_images\\nsg-0550\\ban-toa-nha-van-phong-quan-7-nsg-0550-hinh-1-e148.jpg": {
+    "card": "./web_images/public/card/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-1-e148.webp",
+    "detail": "./web_images/public/detail/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-1-e148.webp",
+    "gallery": "./web_images/public/gallery/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-1-e148.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-1-e148.webp"
+  },
+  "web_images\\nsg-0550\\ban-toa-nha-van-phong-quan-7-nsg-0550-hinh-2-eab3.jpg": {
+    "card": "./web_images/public/card/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-2-eab3.webp",
+    "detail": "./web_images/public/detail/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-2-eab3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-2-eab3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0550/ban-toa-nha-van-phong-duong-duong-so-13-phuong-tan-kieng-quan-7-nsg-0550-hinh-2-eab3.webp"
+  },
+  "web_images\\nsg-0551\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0551-hinh-1-7f55.jpg": {
+    "card": "./web_images/public/card/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-1-7f55.webp",
+    "detail": "./web_images/public/detail/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-1-7f55.webp",
+    "gallery": "./web_images/public/gallery/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-1-7f55.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-1-7f55.webp"
+  },
+  "web_images\\nsg-0551\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0551-hinh-2-d218.jpg": {
+    "card": "./web_images/public/card/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-2-d218.webp",
+    "detail": "./web_images/public/detail/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-2-d218.webp",
+    "gallery": "./web_images/public/gallery/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-2-d218.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-2-d218.webp"
+  },
+  "web_images\\nsg-0551\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0551-hinh-3-791f.jpg": {
+    "card": "./web_images/public/card/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-3-791f.webp",
+    "detail": "./web_images/public/detail/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-3-791f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-3-791f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0551/ban-toa-nha-van-phong-duong-tran-quang-khai-phuong-tan-dinh-quan-1-nsg-0551-hinh-3-791f.webp"
+  },
+  "web_images\\nsg-0552\\ban-quy-dat-xay-cao-tang-phuong-14-quan-go-vap-nsg-0552-hinh-1-b890.jpg": {
+    "card": "./web_images/public/card/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-1-b890.webp",
+    "detail": "./web_images/public/detail/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-1-b890.webp",
+    "gallery": "./web_images/public/gallery/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-1-b890.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-1-b890.webp"
+  },
+  "web_images\\nsg-0552\\ban-quy-dat-xay-cao-tang-phuong-14-quan-go-vap-nsg-0552-hinh-2-8476.jpg": {
+    "card": "./web_images/public/card/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-2-8476.webp",
+    "detail": "./web_images/public/detail/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-2-8476.webp",
+    "gallery": "./web_images/public/gallery/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-2-8476.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0552/ban-quy-dat-xay-cao-tang-duong-quang-trung-phuong-14-quan-go-vap-nsg-0552-hinh-2-8476.webp"
+  },
+  "web_images\\nsg-0553\\ban-quy-dat-xay-cao-tang-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-1-48cf.jpg": {
+    "card": "./web_images/public/card/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-1-48cf.webp",
+    "detail": "./web_images/public/detail/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-1-48cf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-1-48cf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-1-48cf.webp"
+  },
+  "web_images\\nsg-0553\\ban-quy-dat-xay-cao-tang-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-2-c4df.jpg": {
+    "card": "./web_images/public/card/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-2-c4df.webp",
+    "detail": "./web_images/public/detail/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-2-c4df.webp",
+    "gallery": "./web_images/public/gallery/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-2-c4df.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0553/ban-quy-dat-xay-cao-tang-duong-xuan-thuy-phuong-an-khanh-tp-thu-duc-nsg-0553-hinh-2-c4df.webp"
+  },
+  "web_images\\nsg-0554\\ban-quy-dat-xay-cao-tang-phuong-13-binh-thanh-nsg-0554-hinh-1-307b.jpg": {
+    "card": "./web_images/public/card/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-1-307b.webp",
+    "detail": "./web_images/public/detail/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-1-307b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-1-307b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-1-307b.webp"
+  },
+  "web_images\\nsg-0554\\ban-quy-dat-xay-cao-tang-phuong-13-binh-thanh-nsg-0554-hinh-2-5c4f.jpg": {
+    "card": "./web_images/public/card/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-2-5c4f.webp",
+    "detail": "./web_images/public/detail/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-2-5c4f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-2-5c4f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0554/ban-quy-dat-xay-cao-tang-duong-no-trang-long-phuong-13-binh-thanh-nsg-0554-hinh-2-5c4f.webp"
+  },
+  "web_images\\nsg-0555\\ban-nha-pho-mat-tien-phuong-tp-thu-duc-nsg-0555-hinh-1-f786.jpg": {
+    "card": "./web_images/public/card/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-1-f786.webp",
+    "detail": "./web_images/public/detail/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-1-f786.webp",
+    "gallery": "./web_images/public/gallery/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-1-f786.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-1-f786.webp"
+  },
+  "web_images\\nsg-0555\\ban-nha-pho-mat-tien-phuong-tp-thu-duc-nsg-0555-hinh-2-04e5.jpg": {
+    "card": "./web_images/public/card/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-2-04e5.webp",
+    "detail": "./web_images/public/detail/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-2-04e5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-2-04e5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-2-04e5.webp"
+  },
+  "web_images\\nsg-0555\\ban-nha-pho-mat-tien-phuong-tp-thu-duc-nsg-0555-hinh-3-1ad8.jpg": {
+    "card": "./web_images/public/card/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-3-1ad8.webp",
+    "detail": "./web_images/public/detail/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-3-1ad8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-3-1ad8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-3-1ad8.webp"
+  },
+  "web_images\\nsg-0555\\ban-nha-pho-mat-tien-phuong-tp-thu-duc-nsg-0555-hinh-4-8dbe.jpg": {
+    "card": "./web_images/public/card/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-4-8dbe.webp",
+    "detail": "./web_images/public/detail/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-4-8dbe.webp",
+    "gallery": "./web_images/public/gallery/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-4-8dbe.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0555/ban-nha-pho-mat-tien-duong-thao-dien-phuong-thao-dien-tp-thu-duc-nsg-0555-hinh-4-8dbe.webp"
+  },
+  "web_images\\nsg-0556\\ban-biet-thu-quan-2-nsg-0556-hinh-1-d5bb.jpg": {
+    "card": "./web_images/public/card/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-1-d5bb.webp",
+    "detail": "./web_images/public/detail/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-1-d5bb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-1-d5bb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-1-d5bb.webp"
+  },
+  "web_images\\nsg-0556\\ban-biet-thu-quan-2-nsg-0556-hinh-2-e5fe.jpg": {
+    "card": "./web_images/public/card/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-2-e5fe.webp",
+    "detail": "./web_images/public/detail/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-2-e5fe.webp",
+    "gallery": "./web_images/public/gallery/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-2-e5fe.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-2-e5fe.webp"
+  },
+  "web_images\\nsg-0556\\ban-biet-thu-quan-2-nsg-0556-hinh-3-18e9.jpg": {
+    "card": "./web_images/public/card/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-3-18e9.webp",
+    "detail": "./web_images/public/detail/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-3-18e9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-3-18e9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-3-18e9.webp"
+  },
+  "web_images\\nsg-0556\\ban-biet-thu-quan-2-nsg-0556-hinh-4-65f8.jpg": {
+    "card": "./web_images/public/card/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-4-65f8.webp",
+    "detail": "./web_images/public/detail/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-4-65f8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-4-65f8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-4-65f8.webp"
+  },
+  "web_images\\nsg-0556\\ban-biet-thu-quan-2-nsg-0556-hinh-5-6b34.jpg": {
+    "card": "./web_images/public/card/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-5-6b34.webp",
+    "detail": "./web_images/public/detail/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-5-6b34.webp",
+    "gallery": "./web_images/public/gallery/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-5-6b34.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0556/ban-biet-thu-duong-duong-so-12-phuong-thao-dien-quan-2-nsg-0556-hinh-5-6b34.webp"
+  },
+  "web_images\\nsg-0557\\ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0557-hinh-1-ae54.jpg": {
+    "card": "./web_images/public/card/NSG-0557/ban-toa-chdv-khach-san-duong-truong-quyen-phuong-6-quan-3-nsg-0557-hinh-1-ae54.webp",
+    "detail": "./web_images/public/detail/NSG-0557/ban-toa-chdv-khach-san-duong-truong-quyen-phuong-6-quan-3-nsg-0557-hinh-1-ae54.webp",
+    "gallery": "./web_images/public/gallery/NSG-0557/ban-toa-chdv-khach-san-duong-truong-quyen-phuong-6-quan-3-nsg-0557-hinh-1-ae54.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0557/ban-toa-chdv-khach-san-duong-truong-quyen-phuong-6-quan-3-nsg-0557-hinh-1-ae54.webp"
+  },
+  "web_images\\nsg-0558\\ban-nha-pho-mat-tien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-1-50c3.jpg": {
+    "card": "./web_images/public/card/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-1-50c3.webp",
+    "detail": "./web_images/public/detail/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-1-50c3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-1-50c3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-1-50c3.webp"
+  },
+  "web_images\\nsg-0558\\ban-nha-pho-mat-tien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-2-22a2.jpg": {
+    "card": "./web_images/public/card/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-2-22a2.webp",
+    "detail": "./web_images/public/detail/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-2-22a2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-2-22a2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-2-22a2.webp"
+  },
+  "web_images\\nsg-0558\\ban-nha-pho-mat-tien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-3-82cc.jpg": {
+    "card": "./web_images/public/card/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-3-82cc.webp",
+    "detail": "./web_images/public/detail/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-3-82cc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-3-82cc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-3-82cc.webp"
+  },
+  "web_images\\nsg-0558\\ban-nha-pho-mat-tien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-4-9ac5.jpg": {
+    "card": "./web_images/public/card/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-4-9ac5.webp",
+    "detail": "./web_images/public/detail/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-4-9ac5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-4-9ac5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0558/ban-nha-pho-mat-tien-duong-le-van-mien-phuong-thao-dien-tp-thu-duc-nsg-0558-hinh-4-9ac5.webp"
+  },
+  "web_images\\nsg-0559\\ban-quy-dat-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-1-dad3.jpg": {
+    "card": "./web_images/public/card/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-1-dad3.webp",
+    "detail": "./web_images/public/detail/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-1-dad3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-1-dad3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-1-dad3.webp"
+  },
+  "web_images\\nsg-0559\\ban-quy-dat-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-2-72d8.jpg": {
+    "card": "./web_images/public/card/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-2-72d8.webp",
+    "detail": "./web_images/public/detail/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-2-72d8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-2-72d8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-2-72d8.webp"
+  },
+  "web_images\\nsg-0559\\ban-quy-dat-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-3-981b.jpg": {
+    "card": "./web_images/public/card/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-3-981b.webp",
+    "detail": "./web_images/public/detail/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-3-981b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-3-981b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0559/ban-quy-dat-biet-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0559-hinh-3-981b.webp"
+  },
+  "web_images\\nsg-0560\\ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-1-c0c2.jpg": {
+    "card": "./web_images/public/card/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-1-c0c2.webp",
+    "detail": "./web_images/public/detail/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-1-c0c2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-1-c0c2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-1-c0c2.webp"
+  },
+  "web_images\\nsg-0560\\ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-2-2e70.jpg": {
+    "card": "./web_images/public/card/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-2-2e70.webp",
+    "detail": "./web_images/public/detail/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-2-2e70.webp",
+    "gallery": "./web_images/public/gallery/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-2-2e70.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0560/ban-quy-dat-biet-thu-duong-nguyen-van-huong-khu-eden-phuong-thao-dien-quan-2-nsg-0560-hinh-2-2e70.webp"
+  },
+  "web_images\\nsg-0561\\ban-quy-dat-xay-cao-tang-phuong-1-quan-11-nsg-0561-hinh-1-aee7.jpg": {
+    "card": "./web_images/public/card/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-1-aee7.webp",
+    "detail": "./web_images/public/detail/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-1-aee7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-1-aee7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-1-aee7.webp"
+  },
+  "web_images\\nsg-0561\\ban-quy-dat-xay-cao-tang-phuong-1-quan-11-nsg-0561-hinh-2-5e68.jpg": {
+    "card": "./web_images/public/card/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-2-5e68.webp",
+    "detail": "./web_images/public/detail/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-2-5e68.webp",
+    "gallery": "./web_images/public/gallery/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-2-5e68.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0561/ban-quy-dat-xay-cao-tang-duong-hong-bang-phuong-1-quan-11-nsg-0561-hinh-2-5e68.webp"
+  },
+  "web_images\\nsg-0562\\ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-1-7c7c.jpg": {
+    "card": "./web_images/public/card/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-1-7c7c.webp",
+    "detail": "./web_images/public/detail/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-1-7c7c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-1-7c7c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-1-7c7c.webp"
+  },
+  "web_images\\nsg-0562\\ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-2-ce4e.jpg": {
+    "card": "./web_images/public/card/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-2-ce4e.webp",
+    "detail": "./web_images/public/detail/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-2-ce4e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-2-ce4e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0562/ban-quy-dat-xay-cao-tang-duong-luy-ban-bich-phuong-hoa-thanh-quan-tan-phu-nsg-0562-hinh-2-ce4e.webp"
+  },
+  "web_images\\nsg-0563\\ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg": {
+    "card": "./web_images/public/card/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.webp",
+    "detail": "./web_images/public/detail/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.webp",
+    "gallery": "./web_images/public/gallery/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.webp"
+  },
+  "web_images\\nsg-0563\\ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-2-1afd.jpg": {
+    "card": "./web_images/public/card/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-2-1afd.webp",
+    "detail": "./web_images/public/detail/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-2-1afd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-2-1afd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-2-1afd.webp"
+  },
+  "web_images\\nsg-0563\\ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-3-e233.jpg": {
+    "card": "./web_images/public/card/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-3-e233.webp",
+    "detail": "./web_images/public/detail/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-3-e233.webp",
+    "gallery": "./web_images/public/gallery/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-3-e233.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0563/ban-toa-nha-van-phong-duong-vo-van-kiet-phuong-co-giang-quan-1-nsg-0563-hinh-3-e233.webp"
+  },
+  "web_images\\nsg-0564\\ban-quy-dat-xay-cao-tang-phuong-phu-my-quan-7-nsg-0564-hinh-1-f44e.jpg": {
+    "card": "./web_images/public/card/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-1-f44e.webp",
+    "detail": "./web_images/public/detail/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-1-f44e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-1-f44e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-1-f44e.webp"
+  },
+  "web_images\\nsg-0564\\ban-quy-dat-xay-cao-tang-phuong-phu-my-quan-7-nsg-0564-hinh-2-e7da.jpg": {
+    "card": "./web_images/public/card/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-2-e7da.webp",
+    "detail": "./web_images/public/detail/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-2-e7da.webp",
+    "gallery": "./web_images/public/gallery/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-2-e7da.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-2-e7da.webp"
+  },
+  "web_images\\nsg-0564\\ban-quy-dat-xay-cao-tang-phuong-phu-my-quan-7-nsg-0564-hinh-3-d6c5.jpg": {
+    "card": "./web_images/public/card/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-3-d6c5.webp",
+    "detail": "./web_images/public/detail/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-3-d6c5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-3-d6c5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0564/ban-quy-dat-xay-cao-tang-duong-huynh-tan-phat-phuong-phu-my-quan-7-nsg-0564-hinh-3-d6c5.webp"
+  },
+  "web_images\\nsg-0565\\ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-1-b1d6.jpg": {
+    "card": "./web_images/public/card/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-1-b1d6.webp",
+    "detail": "./web_images/public/detail/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-1-b1d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-1-b1d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-1-b1d6.webp"
+  },
+  "web_images\\nsg-0565\\ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-2-97b5.jpg": {
+    "card": "./web_images/public/card/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-2-97b5.webp",
+    "detail": "./web_images/public/detail/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-2-97b5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-2-97b5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0565/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-12-tan-binh-nsg-0565-hinh-2-97b5.webp"
+  },
+  "web_images\\nsg-0566\\ban-nha-pho-mat-tien-phuong-pham-ngu-lao-quan-1-nsg-0566-hinh-1-94d5.jpg": {
+    "card": "./web_images/public/card/NSG-0566/ban-nha-pho-mat-tien-duong-nguyen-thi-minh-khai-phuong-pham-ngu-lao-quan-1-nsg-0566-hinh-1-94d5.webp",
+    "detail": "./web_images/public/detail/NSG-0566/ban-nha-pho-mat-tien-duong-nguyen-thi-minh-khai-phuong-pham-ngu-lao-quan-1-nsg-0566-hinh-1-94d5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0566/ban-nha-pho-mat-tien-duong-nguyen-thi-minh-khai-phuong-pham-ngu-lao-quan-1-nsg-0566-hinh-1-94d5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0566/ban-nha-pho-mat-tien-duong-nguyen-thi-minh-khai-phuong-pham-ngu-lao-quan-1-nsg-0566-hinh-1-94d5.webp"
+  },
+  "web_images\\nsg-0567\\ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg": {
+    "card": "./web_images/public/card/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-1-da24.webp",
+    "detail": "./web_images/public/detail/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-1-da24.webp",
+    "gallery": "./web_images/public/gallery/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-1-da24.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-1-da24.webp"
+  },
+  "web_images\\nsg-0567\\ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-2-b491.jpg": {
+    "card": "./web_images/public/card/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-2-b491.webp",
+    "detail": "./web_images/public/detail/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-2-b491.webp",
+    "gallery": "./web_images/public/gallery/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-2-b491.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-2-b491.webp"
+  },
+  "web_images\\nsg-0567\\ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-3-e950.jpg": {
+    "card": "./web_images/public/card/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-3-e950.webp",
+    "detail": "./web_images/public/detail/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-3-e950.webp",
+    "gallery": "./web_images/public/gallery/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-3-e950.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0567/ban-toa-nha-van-phong-duong-bach-dang-phuong-2-tan-binh-nsg-0567-hinh-3-e950.webp"
+  },
+  "web_images\\nsg-0568\\ban-nha-pho-mat-tien-phuong-2-tan-binh-nsg-0568-hinh-1-1de2.jpg": {
+    "card": "./web_images/public/card/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-1-1de2.webp",
+    "detail": "./web_images/public/detail/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-1-1de2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-1-1de2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-1-1de2.webp"
+  },
+  "web_images\\nsg-0568\\ban-nha-pho-mat-tien-phuong-2-tan-binh-nsg-0568-hinh-2-759d.jpg": {
+    "card": "./web_images/public/card/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-2-759d.webp",
+    "detail": "./web_images/public/detail/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-2-759d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-2-759d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-2-759d.webp"
+  },
+  "web_images\\nsg-0568\\ban-nha-pho-mat-tien-phuong-2-tan-binh-nsg-0568-hinh-3-0d98.jpg": {
+    "card": "./web_images/public/card/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-3-0d98.webp",
+    "detail": "./web_images/public/detail/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-3-0d98.webp",
+    "gallery": "./web_images/public/gallery/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-3-0d98.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-3-0d98.webp"
+  },
+  "web_images\\nsg-0568\\ban-nha-pho-mat-tien-phuong-2-tan-binh-nsg-0568-hinh-4-207c.jpg": {
+    "card": "./web_images/public/card/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-4-207c.webp",
+    "detail": "./web_images/public/detail/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-4-207c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-4-207c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0568/ban-nha-pho-mat-tien-duong-lam-son-phuong-2-tan-binh-nsg-0568-hinh-4-207c.webp"
+  },
+  "web_images\\nsg-0569\\ban-quy-dat-xay-cao-tang-phuong-tan-dinh-quan-1-nsg-0569-hinh-1-9029.jpg": {
+    "card": "./web_images/public/card/NSG-0569/ban-quy-dat-xay-cao-tang-duong-vo-thi-sau-phuong-tan-dinh-quan-1-nsg-0569-hinh-1-9029.webp",
+    "detail": "./web_images/public/detail/NSG-0569/ban-quy-dat-xay-cao-tang-duong-vo-thi-sau-phuong-tan-dinh-quan-1-nsg-0569-hinh-1-9029.webp",
+    "gallery": "./web_images/public/gallery/NSG-0569/ban-quy-dat-xay-cao-tang-duong-vo-thi-sau-phuong-tan-dinh-quan-1-nsg-0569-hinh-1-9029.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0569/ban-quy-dat-xay-cao-tang-duong-vo-thi-sau-phuong-tan-dinh-quan-1-nsg-0569-hinh-1-9029.webp"
+  },
+  "web_images\\nsg-0570\\ban-nha-pho-mat-tien-phuong-quan-1-nsg-0570-hinh-1-5c56.jpg": {
+    "card": "./web_images/public/card/NSG-0570/ban-nha-pho-mat-tien-duong-pham-ngu-lao-phuong-pham-ngu-lao-quan-1-nsg-0570-hinh-1-5c56.webp",
+    "detail": "./web_images/public/detail/NSG-0570/ban-nha-pho-mat-tien-duong-pham-ngu-lao-phuong-pham-ngu-lao-quan-1-nsg-0570-hinh-1-5c56.webp",
+    "gallery": "./web_images/public/gallery/NSG-0570/ban-nha-pho-mat-tien-duong-pham-ngu-lao-phuong-pham-ngu-lao-quan-1-nsg-0570-hinh-1-5c56.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0570/ban-nha-pho-mat-tien-duong-pham-ngu-lao-phuong-pham-ngu-lao-quan-1-nsg-0570-hinh-1-5c56.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-2-1b1c.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-2-1b1c.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-2-1b1c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-2-1b1c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-2-1b1c.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-3-3e9f.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-3-3e9f.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-3-3e9f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-3-3e9f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-3-3e9f.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-4-ee46.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-4-ee46.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-4-ee46.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-4-ee46.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-4-ee46.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-5-ff7f.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-5-ff7f.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-5-ff7f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-5-ff7f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-5-ff7f.webp"
+  },
+  "web_images\\nsg-0571\\ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-6-76cd.jpg": {
+    "card": "./web_images/public/card/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-6-76cd.webp",
+    "detail": "./web_images/public/detail/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-6-76cd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-6-76cd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0571/ban-toa-chdv-khach-san-duong-quang-trung-phuong-11-quan-go-vap-nsg-0571-hinh-6-76cd.webp"
+  },
+  "web_images\\nsg-0572\\ban-quy-dat-xay-cao-tang-phuong-ben-thanh-quan-1-nsg-0572-hinh-1-222b.jpg": {
+    "card": "./web_images/public/card/NSG-0572/ban-quy-dat-xay-cao-tang-duong-de-tham-phuong-ben-thanh-quan-1-nsg-0572-hinh-1-222b.webp",
+    "detail": "./web_images/public/detail/NSG-0572/ban-quy-dat-xay-cao-tang-duong-de-tham-phuong-ben-thanh-quan-1-nsg-0572-hinh-1-222b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0572/ban-quy-dat-xay-cao-tang-duong-de-tham-phuong-ben-thanh-quan-1-nsg-0572-hinh-1-222b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0572/ban-quy-dat-xay-cao-tang-duong-de-tham-phuong-ben-thanh-quan-1-nsg-0572-hinh-1-222b.webp"
+  },
+  "web_images\\nsg-0573\\ban-toa-nha-van-phong-phuong-15-quan-10-nsg-0573-hinh-1-89e3.jpg": {
+    "card": "./web_images/public/card/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-1-89e3.webp",
+    "detail": "./web_images/public/detail/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-1-89e3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-1-89e3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-1-89e3.webp"
+  },
+  "web_images\\nsg-0573\\ban-toa-nha-van-phong-phuong-15-quan-10-nsg-0573-hinh-2-cc00.jpg": {
+    "card": "./web_images/public/card/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-2-cc00.webp",
+    "detail": "./web_images/public/detail/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-2-cc00.webp",
+    "gallery": "./web_images/public/gallery/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-2-cc00.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0573/ban-toa-nha-van-phong-duong-ho-ba-kien-phuong-15-quan-10-nsg-0573-hinh-2-cc00.webp"
+  },
+  "web_images\\nsg-0574\\ban-biet-thu-phuong-vo-thi-sau-quan-3-nsg-0574-hinh-1-7d5f.jpg": {
+    "card": "./web_images/public/card/NSG-0574/ban-biet-thu-duong-dien-bien-phu-phuong-vo-thi-sau-quan-3-nsg-0574-hinh-1-7d5f.webp",
+    "detail": "./web_images/public/detail/NSG-0574/ban-biet-thu-duong-dien-bien-phu-phuong-vo-thi-sau-quan-3-nsg-0574-hinh-1-7d5f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0574/ban-biet-thu-duong-dien-bien-phu-phuong-vo-thi-sau-quan-3-nsg-0574-hinh-1-7d5f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0574/ban-biet-thu-duong-dien-bien-phu-phuong-vo-thi-sau-quan-3-nsg-0574-hinh-1-7d5f.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-1-aaf9.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-1-aaf9.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-1-aaf9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-1-aaf9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-1-aaf9.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-10-b4656.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-10-b4656.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-10-b4656.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-10-b4656.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-10-b4656.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-2-4160.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-2-4160.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-2-4160.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-2-4160.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-2-4160.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-3-d602.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-3-d602.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-3-d602.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-3-d602.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-3-d602.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-4-7527.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-4-7527.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-4-7527.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-4-7527.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-4-7527.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-5-909b.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-5-909b.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-5-909b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-5-909b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-5-909b.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-6-d8681.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-6-d8681.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-6-d8681.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-6-d8681.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-6-d8681.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-7-c65ef.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-7-c65ef.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-7-c65ef.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-7-c65ef.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-7-c65ef.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-8-8ebb6.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-8-8ebb6.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-8-8ebb6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-8-8ebb6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-8-8ebb6.webp"
+  },
+  "web_images\\nsg-0575\\ban-toa-nha-van-phong-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-9-1c86b.jpg": {
+    "card": "./web_images/public/card/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-9-1c86b.webp",
+    "detail": "./web_images/public/detail/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-9-1c86b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-9-1c86b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0575/ban-toa-nha-van-phong-duong-le-van-quoi-phuong-binh-hung-hoa-binh-tan-nsg-0575-hinh-9-1c86b.webp"
+  },
+  "web_images\\nsg-0576\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0576-hinh-1-fe22a.jpg": {
+    "card": "./web_images/public/card/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-1-fe22a.webp",
+    "detail": "./web_images/public/detail/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-1-fe22a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-1-fe22a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-1-fe22a.webp"
+  },
+  "web_images\\nsg-0576\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0576-hinh-2-889a6.jpg": {
+    "card": "./web_images/public/card/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-2-889a6.webp",
+    "detail": "./web_images/public/detail/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-2-889a6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-2-889a6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-2-889a6.webp"
+  },
+  "web_images\\nsg-0576\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0576-hinh-3-b8681.jpg": {
+    "card": "./web_images/public/card/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-3-b8681.webp",
+    "detail": "./web_images/public/detail/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-3-b8681.webp",
+    "gallery": "./web_images/public/gallery/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-3-b8681.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0576/ban-toa-nha-van-phong-duong-thach-thi-thanh-phuong-tan-dinh-quan-1-nsg-0576-hinh-3-b8681.webp"
+  },
+  "web_images\\nsg-0577\\ban-quy-dat-xay-cao-tang-phuong-2-quan-5-nsg-0577-hinh-1-a2061.jpg": {
+    "card": "./web_images/public/card/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
+    "detail": "./web_images/public/detail/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
+    "gallery": "./web_images/public/gallery/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0577/ban-quy-dat-xay-cao-tang-duong-nguyen-van-cu-phuong-2-quan-5-nsg-0577-hinh-1-a2061.webp"
+  },
+  "web_images\\nsg-0578\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0578-hinh-1-da35d.jpg": {
+    "card": "./web_images/public/card/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-1-da35d.webp",
+    "detail": "./web_images/public/detail/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-1-da35d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-1-da35d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-1-da35d.webp"
+  },
+  "web_images\\nsg-0578\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0578-hinh-2-7e492.jpg": {
+    "card": "./web_images/public/card/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-2-7e492.webp",
+    "detail": "./web_images/public/detail/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-2-7e492.webp",
+    "gallery": "./web_images/public/gallery/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-2-7e492.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-2-7e492.webp"
+  },
+  "web_images\\nsg-0578\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0578-hinh-3-28087.jpg": {
+    "card": "./web_images/public/card/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-3-28087.webp",
+    "detail": "./web_images/public/detail/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-3-28087.webp",
+    "gallery": "./web_images/public/gallery/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-3-28087.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0578/ban-toa-nha-van-phong-duong-calmette-phuong-ben-thanh-quan-1-nsg-0578-hinh-3-28087.webp"
+  },
+  "web_images\\nsg-0579\\ban-toa-nha-van-phong-quan-7-nsg-0579-hinh-1-de4b1.jpg": {
+    "card": "./web_images/public/card/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-1-de4b1.webp",
+    "detail": "./web_images/public/detail/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-1-de4b1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-1-de4b1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-1-de4b1.webp"
+  },
+  "web_images\\nsg-0579\\ban-toa-nha-van-phong-quan-7-nsg-0579-hinh-2-f7947.jpg": {
+    "card": "./web_images/public/card/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-2-f7947.webp",
+    "detail": "./web_images/public/detail/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-2-f7947.webp",
+    "gallery": "./web_images/public/gallery/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-2-f7947.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-2-f7947.webp"
+  },
+  "web_images\\nsg-0579\\ban-toa-nha-van-phong-quan-7-nsg-0579-hinh-3-a5f96.jpg": {
+    "card": "./web_images/public/card/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-3-a5f96.webp",
+    "detail": "./web_images/public/detail/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-3-a5f96.webp",
+    "gallery": "./web_images/public/gallery/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-3-a5f96.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0579/ban-toa-nha-van-phong-duong-duong-so-7-phuong-tan-hung-quan-7-nsg-0579-hinh-3-a5f96.webp"
+  },
+  "web_images\\nsg-0580\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0580-hinh-1-b04d0.jpg": {
+    "card": "./web_images/public/card/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-1-b04d0.webp",
+    "detail": "./web_images/public/detail/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-1-b04d0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-1-b04d0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-1-b04d0.webp"
+  },
+  "web_images\\nsg-0580\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0580-hinh-2-56dc7.jpg": {
+    "card": "./web_images/public/card/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-2-56dc7.webp",
+    "detail": "./web_images/public/detail/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-2-56dc7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-2-56dc7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-2-56dc7.webp"
+  },
+  "web_images\\nsg-0580\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0580-hinh-3-c4846.jpg": {
+    "card": "./web_images/public/card/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-3-c4846.webp",
+    "detail": "./web_images/public/detail/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-3-c4846.webp",
+    "gallery": "./web_images/public/gallery/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-3-c4846.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-3-c4846.webp"
+  },
+  "web_images\\nsg-0580\\ban-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0580-hinh-4-634c2.jpg": {
+    "card": "./web_images/public/card/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-4-634c2.webp",
+    "detail": "./web_images/public/detail/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-4-634c2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-4-634c2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0580/ban-toa-nha-van-phong-duong-nguyen-trung-truc-phuong-ben-thanh-quan-1-nsg-0580-hinh-4-634c2.webp"
+  },
+  "web_images\\nsg-0581\\ban-toa-chdv-khach-san-phuong-co-giang-quan-1-nsg-0581-hinh-1-0a4c1.jpg": {
+    "card": "./web_images/public/card/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-1-0a4c1.webp",
+    "detail": "./web_images/public/detail/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-1-0a4c1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-1-0a4c1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-1-0a4c1.webp"
+  },
+  "web_images\\nsg-0581\\ban-toa-chdv-khach-san-phuong-co-giang-quan-1-nsg-0581-hinh-2-ed535.jpg": {
+    "card": "./web_images/public/card/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-2-ed535.webp",
+    "detail": "./web_images/public/detail/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-2-ed535.webp",
+    "gallery": "./web_images/public/gallery/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-2-ed535.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-2-ed535.webp"
+  },
+  "web_images\\nsg-0581\\ban-toa-chdv-khach-san-phuong-co-giang-quan-1-nsg-0581-hinh-3-59e77.jpg": {
+    "card": "./web_images/public/card/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-3-59e77.webp",
+    "detail": "./web_images/public/detail/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-3-59e77.webp",
+    "gallery": "./web_images/public/gallery/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-3-59e77.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-3-59e77.webp"
+  },
+  "web_images\\nsg-0581\\ban-toa-chdv-khach-san-phuong-co-giang-quan-1-nsg-0581-hinh-4-3473f.jpg": {
+    "card": "./web_images/public/card/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-4-3473f.webp",
+    "detail": "./web_images/public/detail/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-4-3473f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-4-3473f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0581/ban-toa-chdv-khach-san-duong-ho-hao-hon-phuong-co-giang-quan-1-nsg-0581-hinh-4-3473f.webp"
+  },
+  "web_images\\nsg-0582\\ban-toa-nha-van-phong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-1-8775c.jpg": {
+    "card": "./web_images/public/card/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-1-8775c.webp",
+    "detail": "./web_images/public/detail/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-1-8775c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-1-8775c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-1-8775c.webp"
+  },
+  "web_images\\nsg-0582\\ban-toa-nha-van-phong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-2-40bb5.jpg": {
+    "card": "./web_images/public/card/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-2-40bb5.webp",
+    "detail": "./web_images/public/detail/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-2-40bb5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-2-40bb5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-2-40bb5.webp"
+  },
+  "web_images\\nsg-0582\\ban-toa-nha-van-phong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-3-67a7b.jpg": {
+    "card": "./web_images/public/card/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-3-67a7b.webp",
+    "detail": "./web_images/public/detail/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-3-67a7b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-3-67a7b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0582/ban-toa-nha-van-phong-duong-tan-huong-phuong-tan-thanh-tan-phu-nsg-0582-hinh-3-67a7b.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-1-08d14.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-1-08d14.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-1-08d14.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-1-08d14.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-1-08d14.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-2-7d727.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-2-7d727.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-2-7d727.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-2-7d727.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-2-7d727.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-3-445d7.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-3-445d7.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-3-445d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-3-445d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-3-445d7.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-4-076eb.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-4-076eb.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-4-076eb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-4-076eb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-4-076eb.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-5-f6d7c.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-5-f6d7c.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-5-f6d7c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-5-f6d7c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-5-f6d7c.webp"
+  },
+  "web_images\\nsg-0583\\ban-nha-pho-mat-tien-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-6-3f109.jpg": {
+    "card": "./web_images/public/card/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-6-3f109.webp",
+    "detail": "./web_images/public/detail/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-6-3f109.webp",
+    "gallery": "./web_images/public/gallery/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-6-3f109.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0583/ban-nha-pho-mat-tien-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0583-hinh-6-3f109.webp"
+  },
+  "web_images\\nsg-0584\\ban-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-1-557d1.jpg": {
+    "card": "./web_images/public/card/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-1-557d1.webp",
+    "detail": "./web_images/public/detail/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-1-557d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-1-557d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-1-557d1.webp"
+  },
+  "web_images\\nsg-0584\\ban-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-2-8fef5.jpg": {
+    "card": "./web_images/public/card/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-2-8fef5.webp",
+    "detail": "./web_images/public/detail/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-2-8fef5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-2-8fef5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-2-8fef5.webp"
+  },
+  "web_images\\nsg-0584\\ban-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-3-44d71.jpg": {
+    "card": "./web_images/public/card/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-3-44d71.webp",
+    "detail": "./web_images/public/detail/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-3-44d71.webp",
+    "gallery": "./web_images/public/gallery/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-3-44d71.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0584/ban-quy-dat-xay-cao-tang-duong-ly-chinh-thang-phuong-vo-thi-sau-quan-3-nsg-0584-hinh-3-44d71.webp"
+  },
+  "web_images\\nsg-0585\\ban-toa-nha-thuong-mai-phuong-tan-dinh-quan-1-nsg-0585-hinh-1-f37aa.jpg": {
+    "card": "./web_images/public/card/NSG-0585/ban-toa-nha-thuong-mai-duong-nguyen-huu-cau-phuong-tan-dinh-quan-1-nsg-0585-hinh-1-f37aa.webp",
+    "detail": "./web_images/public/detail/NSG-0585/ban-toa-nha-thuong-mai-duong-nguyen-huu-cau-phuong-tan-dinh-quan-1-nsg-0585-hinh-1-f37aa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0585/ban-toa-nha-thuong-mai-duong-nguyen-huu-cau-phuong-tan-dinh-quan-1-nsg-0585-hinh-1-f37aa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0585/ban-toa-nha-thuong-mai-duong-nguyen-huu-cau-phuong-tan-dinh-quan-1-nsg-0585-hinh-1-f37aa.webp"
+  },
+  "web_images\\nsg-0586\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0586-hinh-1-4e479.jpg": {
+    "card": "./web_images/public/card/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-1-4e479.webp",
+    "detail": "./web_images/public/detail/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-1-4e479.webp",
+    "gallery": "./web_images/public/gallery/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-1-4e479.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-1-4e479.webp"
+  },
+  "web_images\\nsg-0586\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0586-hinh-2-98955.jpg": {
+    "card": "./web_images/public/card/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-2-98955.webp",
+    "detail": "./web_images/public/detail/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-2-98955.webp",
+    "gallery": "./web_images/public/gallery/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-2-98955.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-2-98955.webp"
+  },
+  "web_images\\nsg-0586\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0586-hinh-3-ba558.jpg": {
+    "card": "./web_images/public/card/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-3-ba558.webp",
+    "detail": "./web_images/public/detail/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-3-ba558.webp",
+    "gallery": "./web_images/public/gallery/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-3-ba558.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0586/ban-toa-chdv-khach-san-duong-suong-nguyet-anh-phuong-ben-thanh-quan-1-nsg-0586-hinh-3-ba558.webp"
+  },
+  "web_images\\nsg-0587\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0587-hinh-1-c652d.jpg": {
+    "card": "./web_images/public/card/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-1-c652d.webp",
+    "detail": "./web_images/public/detail/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-1-c652d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-1-c652d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-1-c652d.webp"
+  },
+  "web_images\\nsg-0587\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0587-hinh-2-c7cac.jpg": {
+    "card": "./web_images/public/card/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-2-c7cac.webp",
+    "detail": "./web_images/public/detail/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-2-c7cac.webp",
+    "gallery": "./web_images/public/gallery/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-2-c7cac.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-2-c7cac.webp"
+  },
+  "web_images\\nsg-0587\\ban-toa-chdv-khach-san-phuong-ben-thanh-quan-1-nsg-0587-hinh-3-a0100.jpg": {
+    "card": "./web_images/public/card/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-3-a0100.webp",
+    "detail": "./web_images/public/detail/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-3-a0100.webp",
+    "gallery": "./web_images/public/gallery/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-3-a0100.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0587/ban-toa-chdv-khach-san-duong-le-thanh-ton-phuong-ben-thanh-quan-1-nsg-0587-hinh-3-a0100.webp"
+  },
+  "web_images\\nsg-0588\\ban-toa-nha-van-phong-phuong-12-quan-10-nsg-0588-hinh-1-98fe7.jpg": {
+    "card": "./web_images/public/card/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-1-98fe7.webp",
+    "detail": "./web_images/public/detail/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-1-98fe7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-1-98fe7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-1-98fe7.webp"
+  },
+  "web_images\\nsg-0588\\ban-toa-nha-van-phong-phuong-12-quan-10-nsg-0588-hinh-2-1c756.jpg": {
+    "card": "./web_images/public/card/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-2-1c756.webp",
+    "detail": "./web_images/public/detail/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-2-1c756.webp",
+    "gallery": "./web_images/public/gallery/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-2-1c756.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0588/ban-toa-nha-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0588-hinh-2-1c756.webp"
+  },
+  "web_images\\nsg-0589\\ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg": {
+    "card": "./web_images/public/card/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.webp",
+    "detail": "./web_images/public/detail/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.webp"
+  },
+  "web_images\\nsg-0589\\ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-2-348d1.jpg": {
+    "card": "./web_images/public/card/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-2-348d1.webp",
+    "detail": "./web_images/public/detail/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-2-348d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-2-348d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-2-348d1.webp"
+  },
+  "web_images\\nsg-0589\\ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-3-19b9a.jpg": {
+    "card": "./web_images/public/card/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-3-19b9a.webp",
+    "detail": "./web_images/public/detail/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-3-19b9a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-3-19b9a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0589/ban-toa-nha-van-phong-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-3-19b9a.webp"
+  },
+  "web_images\\nsg-0590\\ban-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-1-fd7b8.jpg": {
+    "card": "./web_images/public/card/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-1-fd7b8.webp",
+    "detail": "./web_images/public/detail/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-1-fd7b8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-1-fd7b8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-1-fd7b8.webp"
+  },
+  "web_images\\nsg-0590\\ban-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-2-c156a.jpg": {
+    "card": "./web_images/public/card/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-2-c156a.webp",
+    "detail": "./web_images/public/detail/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-2-c156a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-2-c156a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0590/ban-quy-dat-xay-cao-tang-duong-pasteur-phuong-vo-thi-sau-quan-3-nsg-0590-hinh-2-c156a.webp"
+  },
+  "web_images\\nsg-0591\\ban-quy-dat-xay-cao-tang-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.jpg": {
     "card": "./web_images/public/card/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.webp",
-    "gallery": "./web_images/public/gallery/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.webp",
     "detail": "./web_images/public/detail/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.webp",
     "lightbox": "./web_images/public/lightbox/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-1-ee33f.webp"
+  },
+  "web_images\\nsg-0591\\ban-quy-dat-xay-cao-tang-phuong-14-phu-nhuan-nsg-0591-hinh-2-a56ec.jpg": {
+    "card": "./web_images/public/card/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-2-a56ec.webp",
+    "detail": "./web_images/public/detail/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-2-a56ec.webp",
+    "gallery": "./web_images/public/gallery/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-2-a56ec.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-2-a56ec.webp"
+  },
+  "web_images\\nsg-0591\\ban-quy-dat-xay-cao-tang-phuong-14-phu-nhuan-nsg-0591-hinh-3-39dce.jpg": {
+    "card": "./web_images/public/card/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-3-39dce.webp",
+    "detail": "./web_images/public/detail/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-3-39dce.webp",
+    "gallery": "./web_images/public/gallery/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-3-39dce.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0591/ban-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-14-phu-nhuan-nsg-0591-hinh-3-39dce.webp"
+  },
+  "web_images\\nsg-0592\\ban-quy-dat-biet-thu-chdv-quan-2-tp-thu-duc-nsg-0592-hinh-1-b18d6.jpg": {
+    "card": "./web_images/public/card/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-1-b18d6.webp",
+    "detail": "./web_images/public/detail/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-1-b18d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-1-b18d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-1-b18d6.webp"
+  },
+  "web_images\\nsg-0592\\ban-quy-dat-biet-thu-chdv-quan-2-tp-thu-duc-nsg-0592-hinh-2-a90d9.jpg": {
+    "card": "./web_images/public/card/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-2-a90d9.webp",
+    "detail": "./web_images/public/detail/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-2-a90d9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-2-a90d9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-2-a90d9.webp"
+  },
+  "web_images\\nsg-0592\\ban-quy-dat-biet-thu-chdv-quan-2-tp-thu-duc-nsg-0592-hinh-3-22559.jpg": {
+    "card": "./web_images/public/card/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-3-22559.webp",
+    "detail": "./web_images/public/detail/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-3-22559.webp",
+    "gallery": "./web_images/public/gallery/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-3-22559.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-3-22559.webp"
+  },
+  "web_images\\nsg-0592\\ban-quy-dat-biet-thu-chdv-quan-2-tp-thu-duc-nsg-0592-hinh-4-1f845.jpg": {
+    "card": "./web_images/public/card/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-4-1f845.webp",
+    "detail": "./web_images/public/detail/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-4-1f845.webp",
+    "gallery": "./web_images/public/gallery/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-4-1f845.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0592/ban-quy-dat-biet-thu-chdv-duong-duong-so-12-phuong-binh-an-quan-2-tp-thu-duc-nsg-0592-hinh-4-1f845.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-1-fb90c.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-1-fb90c.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-1-fb90c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-1-fb90c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-1-fb90c.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-2-83848.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-2-83848.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-2-83848.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-2-83848.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-2-83848.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-3-0a61b.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-3-0a61b.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-3-0a61b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-3-0a61b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-3-0a61b.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-4-fb90c.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-4-fb90c.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-4-fb90c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-4-fb90c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-4-fb90c.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-5-83848.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-5-83848.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-5-83848.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-5-83848.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-5-83848.webp"
+  },
+  "web_images\\nsg-0593\\ban-nha-pho-mat-tien-phuong-3-binh-thanh-nsg-0593-hinh-6-0a61b.jpg": {
+    "card": "./web_images/public/card/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-6-0a61b.webp",
+    "detail": "./web_images/public/detail/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-6-0a61b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-6-0a61b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0593/ban-nha-pho-mat-tien-duong-tran-nguyen-dan-phuong-3-binh-thanh-nsg-0593-hinh-6-0a61b.webp"
+  },
+  "web_images\\nsg-0597\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-1-d4ab9.jpg": {
+    "card": "./web_images/public/card/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-1-d4ab9.webp",
+    "detail": "./web_images/public/detail/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-1-d4ab9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-1-d4ab9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-1-d4ab9.webp"
+  },
+  "web_images\\nsg-0597\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-2-32c9b.jpg": {
+    "card": "./web_images/public/card/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-2-32c9b.webp",
+    "detail": "./web_images/public/detail/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-2-32c9b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-2-32c9b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0597/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0597-hinh-2-32c9b.webp"
+  },
+  "web_images\\nsg-0598\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-1-23176.jpg": {
+    "card": "./web_images/public/card/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-1-23176.webp",
+    "detail": "./web_images/public/detail/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-1-23176.webp",
+    "gallery": "./web_images/public/gallery/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-1-23176.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-1-23176.webp"
+  },
+  "web_images\\nsg-0598\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-2-3bc32.jpg": {
+    "card": "./web_images/public/card/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-2-3bc32.webp",
+    "detail": "./web_images/public/detail/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-2-3bc32.webp",
+    "gallery": "./web_images/public/gallery/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-2-3bc32.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-2-3bc32.webp"
+  },
+  "web_images\\nsg-0598\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-3-19656.jpg": {
+    "card": "./web_images/public/card/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-3-19656.webp",
+    "detail": "./web_images/public/detail/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-3-19656.webp",
+    "gallery": "./web_images/public/gallery/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-3-19656.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0598/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0598-hinh-3-19656.webp"
+  },
+  "web_images\\nsg-0599\\ban-toa-nha-van-phong-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-1-0592a.jpg": {
+    "card": "./web_images/public/card/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-1-0592a.webp",
+    "detail": "./web_images/public/detail/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-1-0592a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-1-0592a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-1-0592a.webp"
+  },
+  "web_images\\nsg-0599\\ban-toa-nha-van-phong-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-2-72ee8.jpg": {
+    "card": "./web_images/public/card/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-2-72ee8.webp",
+    "detail": "./web_images/public/detail/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-2-72ee8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-2-72ee8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-2-72ee8.webp"
+  },
+  "web_images\\nsg-0599\\ban-toa-nha-van-phong-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-3-a73f4.jpg": {
+    "card": "./web_images/public/card/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-3-a73f4.webp",
+    "detail": "./web_images/public/detail/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-3-a73f4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-3-a73f4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-3-a73f4.webp"
+  },
+  "web_images\\nsg-0599\\ban-toa-nha-van-phong-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-4-b4bc8.jpg": {
+    "card": "./web_images/public/card/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-4-b4bc8.webp",
+    "detail": "./web_images/public/detail/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-4-b4bc8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-4-b4bc8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0599/ban-toa-nha-van-phong-duong-tran-nao-phuong-an-khanh-quan-2-tp-thu-duc-nsg-0599-hinh-4-b4bc8.webp"
+  },
+  "web_images\\nsg-0600\\ban-quy-dat-tai-san-hien-huu-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-1-266d2.jpg": {
+    "card": "./web_images/public/card/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-1-266d2.webp",
+    "detail": "./web_images/public/detail/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-1-266d2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-1-266d2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-1-266d2.webp"
+  },
+  "web_images\\nsg-0600\\ban-quy-dat-tai-san-hien-huu-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-2-bf497.jpg": {
+    "card": "./web_images/public/card/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-2-bf497.webp",
+    "detail": "./web_images/public/detail/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-2-bf497.webp",
+    "gallery": "./web_images/public/gallery/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-2-bf497.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-2-bf497.webp"
+  },
+  "web_images\\nsg-0600\\ban-quy-dat-tai-san-hien-huu-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-3-ff6ad.jpg": {
+    "card": "./web_images/public/card/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-3-ff6ad.webp",
+    "detail": "./web_images/public/detail/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-3-ff6ad.webp",
+    "gallery": "./web_images/public/gallery/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-3-ff6ad.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0600/ban-quy-dat-tai-san-hien-huu-duong-tran-nao-phuong-binh-an-quan-2-tp-thu-duc-nsg-0600-hinh-3-ff6ad.webp"
+  },
+  "web_images\\nsg-0601\\ban-toa-nha-van-phong-phuong-9-quan-4-nsg-0601-hinh-1-a4f59.jpg": {
+    "card": "./web_images/public/card/NSG-0601/ban-toa-nha-van-phong-duong-ben-van-don-phuong-9-quan-4-nsg-0601-hinh-1-a4f59.webp",
+    "detail": "./web_images/public/detail/NSG-0601/ban-toa-nha-van-phong-duong-ben-van-don-phuong-9-quan-4-nsg-0601-hinh-1-a4f59.webp",
+    "gallery": "./web_images/public/gallery/NSG-0601/ban-toa-nha-van-phong-duong-ben-van-don-phuong-9-quan-4-nsg-0601-hinh-1-a4f59.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0601/ban-toa-nha-van-phong-duong-ben-van-don-phuong-9-quan-4-nsg-0601-hinh-1-a4f59.webp"
+  },
+  "web_images\\nsg-0602\\ban-quy-dat-tai-san-hien-huu-phuong-25-binh-thanh-nsg-0602-hinh-1-36e49.jpg": {
+    "card": "./web_images/public/card/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-1-36e49.webp",
+    "detail": "./web_images/public/detail/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-1-36e49.webp",
+    "gallery": "./web_images/public/gallery/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-1-36e49.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-1-36e49.webp"
+  },
+  "web_images\\nsg-0602\\ban-quy-dat-tai-san-hien-huu-phuong-25-binh-thanh-nsg-0602-hinh-2-21028.jpg": {
+    "card": "./web_images/public/card/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-2-21028.webp",
+    "detail": "./web_images/public/detail/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-2-21028.webp",
+    "gallery": "./web_images/public/gallery/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-2-21028.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-2-21028.webp"
+  },
+  "web_images\\nsg-0602\\ban-quy-dat-tai-san-hien-huu-phuong-25-binh-thanh-nsg-0602-hinh-3-32557.jpg": {
+    "card": "./web_images/public/card/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-3-32557.webp",
+    "detail": "./web_images/public/detail/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-3-32557.webp",
+    "gallery": "./web_images/public/gallery/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-3-32557.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0602/ban-quy-dat-tai-san-hien-huu-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0602-hinh-3-32557.webp"
+  },
+  "web_images\\nsg-0603\\ban-toa-chdv-khach-san-phuong-4-tan-binh-nsg-0603-hinh-1-9603a.jpg": {
+    "card": "./web_images/public/card/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-1-9603a.webp",
+    "detail": "./web_images/public/detail/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-1-9603a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-1-9603a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-1-9603a.webp"
+  },
+  "web_images\\nsg-0603\\ban-toa-chdv-khach-san-phuong-4-tan-binh-nsg-0603-hinh-2-8049d.jpg": {
+    "card": "./web_images/public/card/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-2-8049d.webp",
+    "detail": "./web_images/public/detail/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-2-8049d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-2-8049d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-2-8049d.webp"
+  },
+  "web_images\\nsg-0603\\ban-toa-chdv-khach-san-phuong-4-tan-binh-nsg-0603-hinh-3-67e31.jpg": {
+    "card": "./web_images/public/card/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-3-67e31.webp",
+    "detail": "./web_images/public/detail/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-3-67e31.webp",
+    "gallery": "./web_images/public/gallery/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-3-67e31.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-3-67e31.webp"
+  },
+  "web_images\\nsg-0603\\ban-toa-chdv-khach-san-phuong-4-tan-binh-nsg-0603-hinh-4-a9987.jpg": {
+    "card": "./web_images/public/card/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-4-a9987.webp",
+    "detail": "./web_images/public/detail/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-4-a9987.webp",
+    "gallery": "./web_images/public/gallery/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-4-a9987.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-4-a9987.webp"
+  },
+  "web_images\\nsg-0603\\ban-toa-chdv-khach-san-phuong-4-tan-binh-nsg-0603-hinh-5-6151a.jpg": {
+    "card": "./web_images/public/card/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-5-6151a.webp",
+    "detail": "./web_images/public/detail/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-5-6151a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-5-6151a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0603/ban-toa-chdv-khach-san-duong-nguyen-thai-binh-phuong-4-tan-binh-nsg-0603-hinh-5-6151a.webp"
+  },
+  "web_images\\nsg-0604\\ban-toa-nha-thuong-mai-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.jpg": {
+    "card": "./web_images/public/card/NSG-0604/ban-toa-nha-thuong-mai-duong-vuon-chuoi-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.webp",
+    "detail": "./web_images/public/detail/NSG-0604/ban-toa-nha-thuong-mai-duong-vuon-chuoi-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0604/ban-toa-nha-thuong-mai-duong-vuon-chuoi-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0604/ban-toa-nha-thuong-mai-duong-vuon-chuoi-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.webp"
+  },
+  "web_images\\nsg-0605\\ban-toa-nha-van-phong-phuong-17-binh-thanh-nsg-0605-hinh-1-bc464.jpg": {
+    "card": "./web_images/public/card/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-1-bc464.webp",
+    "detail": "./web_images/public/detail/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-1-bc464.webp",
+    "gallery": "./web_images/public/gallery/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-1-bc464.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-1-bc464.webp"
+  },
+  "web_images\\nsg-0605\\ban-toa-nha-van-phong-phuong-17-binh-thanh-nsg-0605-hinh-2-d1294.jpg": {
+    "card": "./web_images/public/card/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-2-d1294.webp",
+    "detail": "./web_images/public/detail/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-2-d1294.webp",
+    "gallery": "./web_images/public/gallery/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-2-d1294.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-2-d1294.webp"
+  },
+  "web_images\\nsg-0605\\ban-toa-nha-van-phong-phuong-17-binh-thanh-nsg-0605-hinh-3-a8082.jpg": {
+    "card": "./web_images/public/card/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-3-a8082.webp",
+    "detail": "./web_images/public/detail/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-3-a8082.webp",
+    "gallery": "./web_images/public/gallery/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-3-a8082.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-3-a8082.webp"
+  },
+  "web_images\\nsg-0605\\ban-toa-nha-van-phong-phuong-17-binh-thanh-nsg-0605-hinh-4-99fa0.jpg": {
+    "card": "./web_images/public/card/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-4-99fa0.webp",
+    "detail": "./web_images/public/detail/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-4-99fa0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-4-99fa0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0605/ban-toa-nha-van-phong-duong-nguyen-cuu-van-phuong-17-binh-thanh-nsg-0605-hinh-4-99fa0.webp"
+  },
+  "web_images\\nsg-0606\\ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0606-hinh-1-f959b.jpg": {
+    "card": "./web_images/public/card/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-1-f959b.webp",
+    "detail": "./web_images/public/detail/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-1-f959b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-1-f959b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-1-f959b.webp"
+  },
+  "web_images\\nsg-0606\\ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0606-hinh-2-c061a.jpg": {
+    "card": "./web_images/public/card/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-2-c061a.webp",
+    "detail": "./web_images/public/detail/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-2-c061a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-2-c061a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0606/ban-toa-nha-van-phong-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0606-hinh-2-c061a.webp"
+  },
+  "web_images\\nsg-0607\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-1-5fc06.jpg": {
+    "card": "./web_images/public/card/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-1-5fc06.webp",
+    "detail": "./web_images/public/detail/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-1-5fc06.webp",
+    "gallery": "./web_images/public/gallery/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-1-5fc06.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-1-5fc06.webp"
+  },
+  "web_images\\nsg-0607\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-2-1ac6a.jpg": {
+    "card": "./web_images/public/card/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-2-1ac6a.webp",
+    "detail": "./web_images/public/detail/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-2-1ac6a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-2-1ac6a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-2-1ac6a.webp"
+  },
+  "web_images\\nsg-0607\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-3-aef96.jpg": {
+    "card": "./web_images/public/card/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-3-aef96.webp",
+    "detail": "./web_images/public/detail/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-3-aef96.webp",
+    "gallery": "./web_images/public/gallery/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-3-aef96.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0607/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-ngo-cat-phuong-vo-thi-sau-quan-3-nsg-0607-hinh-3-aef96.webp"
+  },
+  "web_images\\nsg-0608\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0608-hinh-1-94793.jpg": {
+    "card": "./web_images/public/card/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-1-94793.webp",
+    "detail": "./web_images/public/detail/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-1-94793.webp",
+    "gallery": "./web_images/public/gallery/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-1-94793.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-1-94793.webp"
+  },
+  "web_images\\nsg-0608\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0608-hinh-2-97717.jpg": {
+    "card": "./web_images/public/card/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-2-97717.webp",
+    "detail": "./web_images/public/detail/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-2-97717.webp",
+    "gallery": "./web_images/public/gallery/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-2-97717.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-2-97717.webp"
+  },
+  "web_images\\nsg-0608\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0608-hinh-3-00234.jpg": {
+    "card": "./web_images/public/card/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-3-00234.webp",
+    "detail": "./web_images/public/detail/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-3-00234.webp",
+    "gallery": "./web_images/public/gallery/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-3-00234.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0608/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0608-hinh-3-00234.webp"
+  },
+  "web_images\\nsg-0609\\ban-biet-thu-dinh-thu-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-1-69755.jpg": {
+    "card": "./web_images/public/card/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-1-69755.webp",
+    "detail": "./web_images/public/detail/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-1-69755.webp",
+    "gallery": "./web_images/public/gallery/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-1-69755.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-1-69755.webp"
+  },
+  "web_images\\nsg-0609\\ban-biet-thu-dinh-thu-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-2-72212.jpg": {
+    "card": "./web_images/public/card/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-2-72212.webp",
+    "detail": "./web_images/public/detail/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-2-72212.webp",
+    "gallery": "./web_images/public/gallery/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-2-72212.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-2-72212.webp"
+  },
+  "web_images\\nsg-0609\\ban-biet-thu-dinh-thu-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-3-74326.jpg": {
+    "card": "./web_images/public/card/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-3-74326.webp",
+    "detail": "./web_images/public/detail/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-3-74326.webp",
+    "gallery": "./web_images/public/gallery/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-3-74326.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-3-74326.webp"
+  },
+  "web_images\\nsg-0609\\ban-biet-thu-dinh-thu-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-4-76324.jpg": {
+    "card": "./web_images/public/card/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-4-76324.webp",
+    "detail": "./web_images/public/detail/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-4-76324.webp",
+    "gallery": "./web_images/public/gallery/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-4-76324.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0609/ban-biet-thu-dinh-thu-duong-a13-kdt-sala-dai-quang-minh-phuong-thu-thiem-tp-thu-duc-nsg-0609-hinh-4-76324.webp"
+  },
+  "web_images\\nsg-0610\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.jpg": {
+    "card": "./web_images/public/card/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.webp",
+    "detail": "./web_images/public/detail/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.webp",
+    "gallery": "./web_images/public/gallery/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.webp"
+  },
+  "web_images\\nsg-0610\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-2-3384c.jpg": {
+    "card": "./web_images/public/card/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-2-3384c.webp",
+    "detail": "./web_images/public/detail/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-2-3384c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-2-3384c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-2-3384c.webp"
+  },
+  "web_images\\nsg-0610\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-3-ae79e.jpg": {
+    "card": "./web_images/public/card/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-3-ae79e.webp",
+    "detail": "./web_images/public/detail/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-3-ae79e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-3-ae79e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-13-quan-3-nsg-0610-hinh-3-ae79e.webp"
+  },
+  "web_images\\nsg-0611\\ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg": {
+    "card": "./web_images/public/card/NSG-0611/ban-toa-chdv-khach-san-duong-pham-dinh-toai-phuong-6-quan-3-nsg-0611-hinh-1-4499b.webp",
+    "detail": "./web_images/public/detail/NSG-0611/ban-toa-chdv-khach-san-duong-pham-dinh-toai-phuong-6-quan-3-nsg-0611-hinh-1-4499b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0611/ban-toa-chdv-khach-san-duong-pham-dinh-toai-phuong-6-quan-3-nsg-0611-hinh-1-4499b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0611/ban-toa-chdv-khach-san-duong-pham-dinh-toai-phuong-6-quan-3-nsg-0611-hinh-1-4499b.webp"
+  },
+  "web_images\\nsg-0612\\ban-nha-pho-mat-tien-phuong-15-quan-11-nsg-0612-hinh-1-a09db.jpg": {
+    "card": "./web_images/public/card/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-1-a09db.webp",
+    "detail": "./web_images/public/detail/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-1-a09db.webp",
+    "gallery": "./web_images/public/gallery/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-1-a09db.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-1-a09db.webp"
+  },
+  "web_images\\nsg-0612\\ban-nha-pho-mat-tien-phuong-15-quan-11-nsg-0612-hinh-2-0215a.jpg": {
+    "card": "./web_images/public/card/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-2-0215a.webp",
+    "detail": "./web_images/public/detail/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-2-0215a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-2-0215a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0612/ban-nha-pho-mat-tien-duong-ly-thuong-kiet-phuong-15-quan-11-nsg-0612-hinh-2-0215a.webp"
+  },
+  "web_images\\nsg-0613\\ban-quy-dat-tai-san-hien-huu-phuong-phu-my-quan-7-nsg-0613-hinh-1-87bd3.jpg": {
+    "card": "./web_images/public/card/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-1-87bd3.webp",
+    "detail": "./web_images/public/detail/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-1-87bd3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-1-87bd3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-1-87bd3.webp"
+  },
+  "web_images\\nsg-0613\\ban-quy-dat-tai-san-hien-huu-phuong-phu-my-quan-7-nsg-0613-hinh-2-00491.jpg": {
+    "card": "./web_images/public/card/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-2-00491.webp",
+    "detail": "./web_images/public/detail/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-2-00491.webp",
+    "gallery": "./web_images/public/gallery/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-2-00491.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0613/ban-quy-dat-tai-san-hien-huu-duong-hoang-quoc-viet-phuong-phu-my-quan-7-nsg-0613-hinh-2-00491.webp"
+  },
+  "web_images\\nsg-0614\\ban-quy-dat-tai-san-hien-huu-phuong-binh-thuan-quan-7-nsg-0614-hinh-1-9cc30.jpg": {
+    "card": "./web_images/public/card/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-1-9cc30.webp",
+    "detail": "./web_images/public/detail/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-1-9cc30.webp",
+    "gallery": "./web_images/public/gallery/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-1-9cc30.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-1-9cc30.webp"
+  },
+  "web_images\\nsg-0614\\ban-quy-dat-tai-san-hien-huu-phuong-binh-thuan-quan-7-nsg-0614-hinh-2-97da6.jpg": {
+    "card": "./web_images/public/card/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-2-97da6.webp",
+    "detail": "./web_images/public/detail/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-2-97da6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-2-97da6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-2-97da6.webp"
+  },
+  "web_images\\nsg-0614\\ban-quy-dat-tai-san-hien-huu-phuong-binh-thuan-quan-7-nsg-0614-hinh-3-7842e.jpg": {
+    "card": "./web_images/public/card/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-3-7842e.webp",
+    "detail": "./web_images/public/detail/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-3-7842e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-3-7842e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0614/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thi-thap-phuong-binh-thuan-quan-7-nsg-0614-hinh-3-7842e.webp"
+  },
+  "web_images\\nsg-0615\\ban-toa-nha-thuong-mai-khach-san-phuong-tan-phong-quan-7-nsg-0615-hinh-1-34b5d.jpg": {
+    "card": "./web_images/public/card/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-1-34b5d.webp",
+    "detail": "./web_images/public/detail/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-1-34b5d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-1-34b5d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-1-34b5d.webp"
+  },
+  "web_images\\nsg-0615\\ban-toa-nha-thuong-mai-khach-san-phuong-tan-phong-quan-7-nsg-0615-hinh-2-8cbd5.jpg": {
+    "card": "./web_images/public/card/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-2-8cbd5.webp",
+    "detail": "./web_images/public/detail/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-2-8cbd5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-2-8cbd5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0615/ban-toa-nha-thuong-mai-khach-san-duong-le-van-thiem-phuong-tan-phong-quan-7-nsg-0615-hinh-2-8cbd5.webp"
+  },
+  "web_images\\nsg-0616\\ban-quy-dat-tai-san-hien-huu-phuong-an-khanh-tp-thu-duc-nsg-0616-hinh-1-0bd33.jpg": {
+    "card": "./web_images/public/card/NSG-0616/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-tp-thu-duc-nsg-0616-hinh-1-0bd33.webp",
+    "detail": "./web_images/public/detail/NSG-0616/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-tp-thu-duc-nsg-0616-hinh-1-0bd33.webp",
+    "gallery": "./web_images/public/gallery/NSG-0616/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-tp-thu-duc-nsg-0616-hinh-1-0bd33.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0616/ban-quy-dat-tai-san-hien-huu-duong-luong-dinh-cua-phuong-an-khanh-tp-thu-duc-nsg-0616-hinh-1-0bd33.webp"
+  },
+  "web_images\\nsg-0617\\ban-quy-dat-tai-san-hien-huu-phuong-2-phu-nhuan-nsg-0617-hinh-1-f9055.jpg": {
+    "card": "./web_images/public/card/NSG-0617/ban-quy-dat-tai-san-hien-huu-duong-phan-dang-luu-phuong-2-phu-nhuan-nsg-0617-hinh-1-f9055.webp",
+    "detail": "./web_images/public/detail/NSG-0617/ban-quy-dat-tai-san-hien-huu-duong-phan-dang-luu-phuong-2-phu-nhuan-nsg-0617-hinh-1-f9055.webp",
+    "gallery": "./web_images/public/gallery/NSG-0617/ban-quy-dat-tai-san-hien-huu-duong-phan-dang-luu-phuong-2-phu-nhuan-nsg-0617-hinh-1-f9055.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0617/ban-quy-dat-tai-san-hien-huu-duong-phan-dang-luu-phuong-2-phu-nhuan-nsg-0617-hinh-1-f9055.webp"
+  },
+  "web_images\\nsg-0618\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0618-hinh-1-f7e44.jpg": {
+    "card": "./web_images/public/card/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-1-f7e44.webp",
+    "detail": "./web_images/public/detail/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-1-f7e44.webp",
+    "gallery": "./web_images/public/gallery/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-1-f7e44.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-1-f7e44.webp"
+  },
+  "web_images\\nsg-0618\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0618-hinh-2-6754d.jpg": {
+    "card": "./web_images/public/card/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-2-6754d.webp",
+    "detail": "./web_images/public/detail/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-2-6754d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-2-6754d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0618/ban-toa-nha-van-phong-duong-tan-cang-phuong-25-binh-thanh-nsg-0618-hinh-2-6754d.webp"
+  },
+  "web_images\\nsg-0619\\ban-quy-dat-tai-san-hien-huu-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-1-063fb.jpg": {
+    "card": "./web_images/public/card/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-1-063fb.webp",
+    "detail": "./web_images/public/detail/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-1-063fb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-1-063fb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-1-063fb.webp"
+  },
+  "web_images\\nsg-0619\\ban-quy-dat-tai-san-hien-huu-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-2-ff902.jpg": {
+    "card": "./web_images/public/card/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-2-ff902.webp",
+    "detail": "./web_images/public/detail/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-2-ff902.webp",
+    "gallery": "./web_images/public/gallery/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-2-ff902.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-2-ff902.webp"
+  },
+  "web_images\\nsg-0619\\ban-quy-dat-tai-san-hien-huu-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-3-dd9ae.jpg": {
+    "card": "./web_images/public/card/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-3-dd9ae.webp",
+    "detail": "./web_images/public/detail/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-3-dd9ae.webp",
+    "gallery": "./web_images/public/gallery/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-3-dd9ae.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-3-dd9ae.webp"
+  },
+  "web_images\\nsg-0619\\ban-quy-dat-tai-san-hien-huu-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-4-24e7c.jpg": {
+    "card": "./web_images/public/card/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-4-24e7c.webp",
+    "detail": "./web_images/public/detail/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-4-24e7c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-4-24e7c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0619/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huu-canh-phuong-thanh-my-tay-binh-thanh-nsg-0619-hinh-4-24e7c.webp"
+  },
+  "web_images\\nsg-0620\\ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.jpg": {
+    "card": "./web_images/public/card/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.webp",
+    "detail": "./web_images/public/detail/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.webp",
+    "gallery": "./web_images/public/gallery/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.webp"
+  },
+  "web_images\\nsg-0620\\ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-2-c99f1.jpg": {
+    "card": "./web_images/public/card/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-2-c99f1.webp",
+    "detail": "./web_images/public/detail/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-2-c99f1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-2-c99f1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-2-c99f1.webp"
+  },
+  "web_images\\nsg-0620\\ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-3-fa85c.jpg": {
+    "card": "./web_images/public/card/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-3-fa85c.webp",
+    "detail": "./web_images/public/detail/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-3-fa85c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-3-fa85c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0620/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-5-binh-thanh-nsg-0620-hinh-3-fa85c.webp"
+  },
+  "web_images\\nsg-0622\\ban-nha-pho-thuong-mai-tp-thu-duc-nsg-0622-hinh-1-06189.jpg": {
+    "card": "./web_images/public/card/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-1-06189.webp",
+    "detail": "./web_images/public/detail/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-1-06189.webp",
+    "gallery": "./web_images/public/gallery/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-1-06189.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-1-06189.webp"
+  },
+  "web_images\\nsg-0622\\ban-nha-pho-thuong-mai-tp-thu-duc-nsg-0622-hinh-2-6808e.jpg": {
+    "card": "./web_images/public/card/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-2-6808e.webp",
+    "detail": "./web_images/public/detail/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-2-6808e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-2-6808e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-2-6808e.webp"
+  },
+  "web_images\\nsg-0622\\ban-nha-pho-thuong-mai-tp-thu-duc-nsg-0622-hinh-3-e5ab2.jpg": {
+    "card": "./web_images/public/card/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-3-e5ab2.webp",
+    "detail": "./web_images/public/detail/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-3-e5ab2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-3-e5ab2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-3-e5ab2.webp"
+  },
+  "web_images\\nsg-0622\\ban-nha-pho-thuong-mai-tp-thu-duc-nsg-0622-hinh-4-84565.jpg": {
+    "card": "./web_images/public/card/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-4-84565.webp",
+    "detail": "./web_images/public/detail/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-4-84565.webp",
+    "gallery": "./web_images/public/gallery/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-4-84565.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0622/ban-nha-pho-thuong-mai-duong-duong-so-19-phuong-an-khanh-tp-thu-duc-nsg-0622-hinh-4-84565.webp"
+  },
+  "web_images\\nsg-0623\\ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg": {
+    "card": "./web_images/public/card/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.webp",
+    "detail": "./web_images/public/detail/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.webp"
+  },
+  "web_images\\nsg-0623\\ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg": {
+    "card": "./web_images/public/card/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.webp",
+    "detail": "./web_images/public/detail/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.webp",
+    "gallery": "./web_images/public/gallery/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0623/ban-nha-pho-mat-tien-duong-bach-dang-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.webp"
+  },
+  "web_images\\nsg-0624\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-12-quan-10-nsg-0624-hinh-1-c5189.jpg": {
+    "card": "./web_images/public/card/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-1-c5189.webp",
+    "detail": "./web_images/public/detail/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-1-c5189.webp",
+    "gallery": "./web_images/public/gallery/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-1-c5189.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-1-c5189.webp"
+  },
+  "web_images\\nsg-0624\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-12-quan-10-nsg-0624-hinh-2-e072f.jpg": {
+    "card": "./web_images/public/card/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-2-e072f.webp",
+    "detail": "./web_images/public/detail/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-2-e072f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-2-e072f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-2-e072f.webp"
+  },
+  "web_images\\nsg-0624\\ban-biet-thu-quy-dat-xay-cao-tang-phuong-12-quan-10-nsg-0624-hinh-3-703fc.jpg": {
+    "card": "./web_images/public/card/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-3-703fc.webp",
+    "detail": "./web_images/public/detail/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-3-703fc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-3-703fc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0624/ban-biet-thu-quy-dat-xay-cao-tang-duong-hoang-du-khuong-phuong-12-quan-10-nsg-0624-hinh-3-703fc.webp"
+  },
+  "web_images\\nsg-0625\\ban-quy-dat-tai-san-hien-huu-phuong-11-binh-thanh-nsg-0625-hinh-1-80ab1.jpg": {
+    "card": "./web_images/public/card/NSG-0625/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0625-hinh-1-80ab1.webp",
+    "detail": "./web_images/public/detail/NSG-0625/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0625-hinh-1-80ab1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0625/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0625-hinh-1-80ab1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0625/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-dau-phuong-11-binh-thanh-nsg-0625-hinh-1-80ab1.webp"
+  },
+  "web_images\\nsg-0626\\ban-biet-thu-dinh-thu-phuong-1-tan-binh-nsg-0626-hinh-1-8eef2.jpg": {
+    "card": "./web_images/public/card/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-1-8eef2.webp",
+    "detail": "./web_images/public/detail/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-1-8eef2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-1-8eef2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-1-8eef2.webp"
+  },
+  "web_images\\nsg-0626\\ban-biet-thu-dinh-thu-phuong-1-tan-binh-nsg-0626-hinh-2-492f2.jpg": {
+    "card": "./web_images/public/card/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-2-492f2.webp",
+    "detail": "./web_images/public/detail/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-2-492f2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-2-492f2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-2-492f2.webp"
+  },
+  "web_images\\nsg-0626\\ban-biet-thu-dinh-thu-phuong-1-tan-binh-nsg-0626-hinh-3-ed3c3.jpg": {
+    "card": "./web_images/public/card/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-3-ed3c3.webp",
+    "detail": "./web_images/public/detail/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-3-ed3c3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-3-ed3c3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-3-ed3c3.webp"
+  },
+  "web_images\\nsg-0626\\ban-biet-thu-dinh-thu-phuong-1-tan-binh-nsg-0626-hinh-4-964b2.jpg": {
+    "card": "./web_images/public/card/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-4-964b2.webp",
+    "detail": "./web_images/public/detail/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-4-964b2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-4-964b2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0626/ban-biet-thu-dinh-thu-duong-tan-canh-phuong-1-tan-binh-nsg-0626-hinh-4-964b2.webp"
+  },
+  "web_images\\nsg-0627\\ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.jpg": {
+    "card": "./web_images/public/card/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.webp",
+    "detail": "./web_images/public/detail/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.webp",
+    "gallery": "./web_images/public/gallery/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.webp"
+  },
+  "web_images\\nsg-0627\\ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-2-d431f.jpg": {
+    "card": "./web_images/public/card/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-2-d431f.webp",
+    "detail": "./web_images/public/detail/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-2-d431f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-2-d431f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-2-d431f.webp"
+  },
+  "web_images\\nsg-0627\\ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-3-57918.jpg": {
+    "card": "./web_images/public/card/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-3-57918.webp",
+    "detail": "./web_images/public/detail/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-3-57918.webp",
+    "gallery": "./web_images/public/gallery/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-3-57918.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0627/ban-quy-dat-tai-san-hien-huu-duong-nguyen-huy-luong-phuong-14-binh-thanh-nsg-0627-hinh-3-57918.webp"
+  },
+  "web_images\\nsg-0628\\ban-nha-pho-mat-tien-phuong-1-phu-nhuan-nsg-0628-hinh-1-6f0d7.jpg": {
+    "card": "./web_images/public/card/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-1-6f0d7.webp",
+    "detail": "./web_images/public/detail/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-1-6f0d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-1-6f0d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-1-6f0d7.webp"
+  },
+  "web_images\\nsg-0628\\ban-nha-pho-mat-tien-phuong-1-phu-nhuan-nsg-0628-hinh-2-2d873.jpg": {
+    "card": "./web_images/public/card/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-2-2d873.webp",
+    "detail": "./web_images/public/detail/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-2-2d873.webp",
+    "gallery": "./web_images/public/gallery/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-2-2d873.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0628/ban-nha-pho-mat-tien-duong-phan-dang-luu-phuong-1-phu-nhuan-nsg-0628-hinh-2-2d873.webp"
+  },
+  "web_images\\nsg-0629\\ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg": {
+    "card": "./web_images/public/card/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.webp",
+    "detail": "./web_images/public/detail/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.webp",
+    "gallery": "./web_images/public/gallery/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.webp"
+  },
+  "web_images\\nsg-0629\\ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-2-de540.jpg": {
+    "card": "./web_images/public/card/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-2-de540.webp",
+    "detail": "./web_images/public/detail/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-2-de540.webp",
+    "gallery": "./web_images/public/gallery/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-2-de540.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-2-de540.webp"
+  },
+  "web_images\\nsg-0629\\ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-3-96ea5.jpg": {
+    "card": "./web_images/public/card/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-3-96ea5.webp",
+    "detail": "./web_images/public/detail/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-3-96ea5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-3-96ea5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0629/ban-nha-pho-mat-tien-duong-phan-van-tri-phuong-14-binh-thanh-nsg-0629-hinh-3-96ea5.webp"
+  },
+  "web_images\\nsg-0630\\ban-toa-chdv-khach-san-phuong-binh-thuan-quan-7-nsg-0630-hinh-1-d7510.jpg": {
+    "card": "./web_images/public/card/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-1-d7510.webp",
+    "detail": "./web_images/public/detail/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-1-d7510.webp",
+    "gallery": "./web_images/public/gallery/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-1-d7510.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-1-d7510.webp"
+  },
+  "web_images\\nsg-0630\\ban-toa-chdv-khach-san-phuong-binh-thuan-quan-7-nsg-0630-hinh-2-fa84f.jpg": {
+    "card": "./web_images/public/card/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-2-fa84f.webp",
+    "detail": "./web_images/public/detail/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-2-fa84f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-2-fa84f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-2-fa84f.webp"
+  },
+  "web_images\\nsg-0630\\ban-toa-chdv-khach-san-phuong-binh-thuan-quan-7-nsg-0630-hinh-3-0075a.jpg": {
+    "card": "./web_images/public/card/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-3-0075a.webp",
+    "detail": "./web_images/public/detail/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-3-0075a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-3-0075a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0630/ban-toa-chdv-khach-san-duong-ly-phuc-man-phuong-binh-thuan-quan-7-nsg-0630-hinh-3-0075a.webp"
+  },
+  "web_images\\nsg-0631\\ban-toa-nha-thuong-mai-phuong-3-binh-thanh-nsg-0631-hinh-1-1ee3b.jpg": {
+    "card": "./web_images/public/card/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-1-1ee3b.webp",
+    "detail": "./web_images/public/detail/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-1-1ee3b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-1-1ee3b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-1-1ee3b.webp"
+  },
+  "web_images\\nsg-0631\\ban-toa-nha-thuong-mai-phuong-3-binh-thanh-nsg-0631-hinh-2-34b02.jpg": {
+    "card": "./web_images/public/card/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-2-34b02.webp",
+    "detail": "./web_images/public/detail/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-2-34b02.webp",
+    "gallery": "./web_images/public/gallery/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-2-34b02.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0631/ban-toa-nha-thuong-mai-duong-kdc-mieu-noi-phuong-3-binh-thanh-nsg-0631-hinh-2-34b02.webp"
+  },
+  "web_images\\nsg-0632\\ban-quy-dat-tai-san-hien-huu-tp-thu-duc-nsg-0632-hinh-1-c20d7.jpg": {
+    "card": "./web_images/public/card/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-1-c20d7.webp",
+    "detail": "./web_images/public/detail/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-1-c20d7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-1-c20d7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-1-c20d7.webp"
+  },
+  "web_images\\nsg-0632\\ban-quy-dat-tai-san-hien-huu-tp-thu-duc-nsg-0632-hinh-2-b54d6.jpg": {
+    "card": "./web_images/public/card/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-2-b54d6.webp",
+    "detail": "./web_images/public/detail/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-2-b54d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-2-b54d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-2-b54d6.webp"
+  },
+  "web_images\\nsg-0632\\ban-quy-dat-tai-san-hien-huu-tp-thu-duc-nsg-0632-hinh-3-4eed5.jpg": {
+    "card": "./web_images/public/card/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-3-4eed5.webp",
+    "detail": "./web_images/public/detail/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-3-4eed5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-3-4eed5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0632/ban-quy-dat-tai-san-hien-huu-duong-duong-so-2-khu-an-phu-the-vista-phuong-an-phu-tp-thu-duc-nsg-0632-hinh-3-4eed5.webp"
+  },
+  "web_images\\nsg-0633\\ban-quy-dat-tai-san-hien-huu-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-1-54b40.jpg": {
+    "card": "./web_images/public/card/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-1-54b40.webp",
+    "detail": "./web_images/public/detail/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-1-54b40.webp",
+    "gallery": "./web_images/public/gallery/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-1-54b40.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-1-54b40.webp"
+  },
+  "web_images\\nsg-0633\\ban-quy-dat-tai-san-hien-huu-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-2-312d6.jpg": {
+    "card": "./web_images/public/card/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-2-312d6.webp",
+    "detail": "./web_images/public/detail/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-2-312d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-2-312d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-2-312d6.webp"
+  },
+  "web_images\\nsg-0633\\ban-quy-dat-tai-san-hien-huu-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-3-32a17.jpg": {
+    "card": "./web_images/public/card/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-3-32a17.webp",
+    "detail": "./web_images/public/detail/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-3-32a17.webp",
+    "gallery": "./web_images/public/gallery/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-3-32a17.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0633/ban-quy-dat-tai-san-hien-huu-duong-cao-duc-lan-phuong-an-phu-tp-thu-duc-nsg-0633-hinh-3-32a17.webp"
+  },
+  "web_images\\nsg-0634\\ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-1-9b850.jpg": {
+    "card": "./web_images/public/card/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-1-9b850.webp",
+    "detail": "./web_images/public/detail/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-1-9b850.webp",
+    "gallery": "./web_images/public/gallery/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-1-9b850.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-1-9b850.webp"
+  },
+  "web_images\\nsg-0634\\ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-2-49387.jpg": {
+    "card": "./web_images/public/card/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-2-49387.webp",
+    "detail": "./web_images/public/detail/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-2-49387.webp",
+    "gallery": "./web_images/public/gallery/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-2-49387.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0634/ban-toa-nha-thuong-mai-nha-hang-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0634-hinh-2-49387.webp"
+  },
+  "web_images\\nsg-0635\\ban-quy-dat-xay-cao-tang-showroom-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-1-56bc1.jpg": {
+    "card": "./web_images/public/card/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-1-56bc1.webp",
+    "detail": "./web_images/public/detail/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-1-56bc1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-1-56bc1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-1-56bc1.webp"
+  },
+  "web_images\\nsg-0635\\ban-quy-dat-xay-cao-tang-showroom-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-2-ab20c.jpg": {
+    "card": "./web_images/public/card/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-2-ab20c.webp",
+    "detail": "./web_images/public/detail/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-2-ab20c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-2-ab20c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-2-ab20c.webp"
+  },
+  "web_images\\nsg-0635\\ban-quy-dat-xay-cao-tang-showroom-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-3-b922e.jpg": {
+    "card": "./web_images/public/card/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-3-b922e.webp",
+    "detail": "./web_images/public/detail/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-3-b922e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-3-b922e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-3-b922e.webp"
+  },
+  "web_images\\nsg-0635\\ban-quy-dat-xay-cao-tang-showroom-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-4-f695d.jpg": {
+    "card": "./web_images/public/card/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-4-f695d.webp",
+    "detail": "./web_images/public/detail/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-4-f695d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-4-f695d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0635/ban-quy-dat-xay-cao-tang-showroom-duong-quoc-lo-13-phuong-hiep-binh-phuoc-tp-thu-duc-nsg-0635-hinh-4-f695d.webp"
+  },
+  "web_images\\nsg-0636\\ban-toa-nha-van-phong-thuong-mai-phuong-9-quan-3-nsg-0636-hinh-1-e147b.jpg": {
+    "card": "./web_images/public/card/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-1-e147b.webp",
+    "detail": "./web_images/public/detail/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-1-e147b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-1-e147b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-1-e147b.webp"
+  },
+  "web_images\\nsg-0636\\ban-toa-nha-van-phong-thuong-mai-phuong-9-quan-3-nsg-0636-hinh-2-11aee.jpg": {
+    "card": "./web_images/public/card/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-2-11aee.webp",
+    "detail": "./web_images/public/detail/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-2-11aee.webp",
+    "gallery": "./web_images/public/gallery/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-2-11aee.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-2-11aee.webp"
+  },
+  "web_images\\nsg-0636\\ban-toa-nha-van-phong-thuong-mai-phuong-9-quan-3-nsg-0636-hinh-3-6ae49.jpg": {
+    "card": "./web_images/public/card/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-3-6ae49.webp",
+    "detail": "./web_images/public/detail/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-3-6ae49.webp",
+    "gallery": "./web_images/public/gallery/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-3-6ae49.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-3-6ae49.webp"
+  },
+  "web_images\\nsg-0636\\ban-toa-nha-van-phong-thuong-mai-phuong-9-quan-3-nsg-0636-hinh-4-da24c.jpg": {
+    "card": "./web_images/public/card/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-4-da24c.webp",
+    "detail": "./web_images/public/detail/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-4-da24c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-4-da24c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0636/ban-toa-nha-van-phong-thuong-mai-duong-nguyen-phuc-nguyen-phuong-9-quan-3-nsg-0636-hinh-4-da24c.webp"
+  },
+  "web_images\\nsg-0637\\ban-cum-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0637-hinh-1-a9193.jpg": {
+    "card": "./web_images/public/card/NSG-0637/ban-cum-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0637-hinh-1-a9193.webp",
+    "detail": "./web_images/public/detail/NSG-0637/ban-cum-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0637-hinh-1-a9193.webp",
+    "gallery": "./web_images/public/gallery/NSG-0637/ban-cum-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0637-hinh-1-a9193.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0637/ban-cum-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-gia-tri-phuong-25-binh-thanh-nsg-0637-hinh-1-a9193.webp"
+  },
+  "web_images\\nsg-0638\\ban-toa-nha-van-phong-showroom-phuong-tan-dinh-quan-1-nsg-0638-hinh-1-29052.jpg": {
+    "card": "./web_images/public/card/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-1-29052.webp",
+    "detail": "./web_images/public/detail/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-1-29052.webp",
+    "gallery": "./web_images/public/gallery/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-1-29052.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-1-29052.webp"
+  },
+  "web_images\\nsg-0638\\ban-toa-nha-van-phong-showroom-phuong-tan-dinh-quan-1-nsg-0638-hinh-2-1c453.jpg": {
+    "card": "./web_images/public/card/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-2-1c453.webp",
+    "detail": "./web_images/public/detail/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-2-1c453.webp",
+    "gallery": "./web_images/public/gallery/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-2-1c453.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-2-1c453.webp"
+  },
+  "web_images\\nsg-0638\\ban-toa-nha-van-phong-showroom-phuong-tan-dinh-quan-1-nsg-0638-hinh-3-3f12c.jpg": {
+    "card": "./web_images/public/card/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-3-3f12c.webp",
+    "detail": "./web_images/public/detail/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-3-3f12c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-3-3f12c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0638/ban-toa-nha-van-phong-showroom-duong-tran-nhat-duat-phuong-tan-dinh-quan-1-nsg-0638-hinh-3-3f12c.webp"
+  },
+  "web_images\\nsg-0639\\ban-toa-can-ho-dich-vu-van-phong-phuong-co-giang-quan-1-nsg-0639-hinh-1-16568.jpg": {
+    "card": "./web_images/public/card/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-1-16568.webp",
+    "detail": "./web_images/public/detail/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-1-16568.webp",
+    "gallery": "./web_images/public/gallery/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-1-16568.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-1-16568.webp"
+  },
+  "web_images\\nsg-0639\\ban-toa-can-ho-dich-vu-van-phong-phuong-co-giang-quan-1-nsg-0639-hinh-2-e041f.jpg": {
+    "card": "./web_images/public/card/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-2-e041f.webp",
+    "detail": "./web_images/public/detail/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-2-e041f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-2-e041f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0639/ban-toa-can-ho-dich-vu-van-phong-duong-co-bac-phuong-co-giang-quan-1-nsg-0639-hinh-2-e041f.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-1-e4e4d.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-1-e4e4d.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-1-e4e4d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-1-e4e4d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-1-e4e4d.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-10-a90aa.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-10-a90aa.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-10-a90aa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-10-a90aa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-10-a90aa.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-11-f99af.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-11-f99af.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-11-f99af.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-11-f99af.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-11-f99af.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-12-4babc.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-12-4babc.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-12-4babc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-12-4babc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-12-4babc.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-13-d2e2c.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-13-d2e2c.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-13-d2e2c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-13-d2e2c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-13-d2e2c.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-14-1a499.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-14-1a499.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-14-1a499.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-14-1a499.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-14-1a499.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-15-bf20a.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-15-bf20a.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-15-bf20a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-15-bf20a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-15-bf20a.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-16-238b8.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-16-238b8.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-16-238b8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-16-238b8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-16-238b8.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-17-b3d5a.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-17-b3d5a.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-17-b3d5a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-17-b3d5a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-17-b3d5a.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-2-75b4c.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-2-75b4c.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-2-75b4c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-2-75b4c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-2-75b4c.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-3-9d61a.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-3-9d61a.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-3-9d61a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-3-9d61a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-3-9d61a.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-4-73172.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-4-73172.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-4-73172.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-4-73172.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-4-73172.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-5-78ff4.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-5-78ff4.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-5-78ff4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-5-78ff4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-5-78ff4.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-6-722aa.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-6-722aa.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-6-722aa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-6-722aa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-6-722aa.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-7-6b1a3.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-7-6b1a3.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-7-6b1a3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-7-6b1a3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-7-6b1a3.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-8-8e5a9.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-8-8e5a9.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-8-8e5a9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-8-8e5a9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-8-8e5a9.webp"
+  },
+  "web_images\\nsg-0640\\ban-toa-nha-thuong-mai-van-phong-phuong-1-go-vap-nsg-0640-hinh-9-eb078.jpg": {
+    "card": "./web_images/public/card/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-9-eb078.webp",
+    "detail": "./web_images/public/detail/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-9-eb078.webp",
+    "gallery": "./web_images/public/gallery/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-9-eb078.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0640/ban-toa-nha-thuong-mai-van-phong-duong-le-quang-dinh-phuong-1-go-vap-nsg-0640-hinh-9-eb078.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-1-08c6d.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-1-08c6d.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-1-08c6d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-1-08c6d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-1-08c6d.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-2-98332.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-2-98332.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-2-98332.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-2-98332.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-2-98332.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-3-2cac6.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-3-2cac6.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-3-2cac6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-3-2cac6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-3-2cac6.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-4-0ed49.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-4-0ed49.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-4-0ed49.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-4-0ed49.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-4-0ed49.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-5-83f40.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-5-83f40.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-5-83f40.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-5-83f40.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-5-83f40.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-6-7e87d.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-6-7e87d.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-6-7e87d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-6-7e87d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-6-7e87d.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-7-ac686.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-7-ac686.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-7-ac686.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-7-ac686.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-7-ac686.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-8-aa9b6.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-8-aa9b6.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-8-aa9b6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-8-aa9b6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-8-aa9b6.webp"
+  },
+  "web_images\\nsg-0641\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0641-hinh-9-a9d3c.jpg": {
+    "card": "./web_images/public/card/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-9-a9d3c.webp",
+    "detail": "./web_images/public/detail/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-9-a9d3c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-9-a9d3c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0641/ban-toa-khach-san-chdv-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0641-hinh-9-a9d3c.webp"
+  },
+  "web_images\\nsg-0642\\ban-toa-nha-van-phong-phuong-11-phu-nhuan-nsg-0642-hinh-1-b1934.jpg": {
+    "card": "./web_images/public/card/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-1-b1934.webp",
+    "detail": "./web_images/public/detail/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-1-b1934.webp",
+    "gallery": "./web_images/public/gallery/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-1-b1934.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-1-b1934.webp"
+  },
+  "web_images\\nsg-0642\\ban-toa-nha-van-phong-phuong-11-phu-nhuan-nsg-0642-hinh-2-b0449.jpg": {
+    "card": "./web_images/public/card/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-2-b0449.webp",
+    "detail": "./web_images/public/detail/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-2-b0449.webp",
+    "gallery": "./web_images/public/gallery/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-2-b0449.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-2-b0449.webp"
+  },
+  "web_images\\nsg-0642\\ban-toa-nha-van-phong-phuong-11-phu-nhuan-nsg-0642-hinh-3-d8a18.jpg": {
+    "card": "./web_images/public/card/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-3-d8a18.webp",
+    "detail": "./web_images/public/detail/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-3-d8a18.webp",
+    "gallery": "./web_images/public/gallery/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-3-d8a18.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-3-d8a18.webp"
+  },
+  "web_images\\nsg-0642\\ban-toa-nha-van-phong-phuong-11-phu-nhuan-nsg-0642-hinh-4-73c44.jpg": {
+    "card": "./web_images/public/card/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-4-73c44.webp",
+    "detail": "./web_images/public/detail/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-4-73c44.webp",
+    "gallery": "./web_images/public/gallery/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-4-73c44.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0642/ban-toa-nha-van-phong-duong-le-quy-don-phuong-11-phu-nhuan-nsg-0642-hinh-4-73c44.webp"
+  },
+  "web_images\\nsg-0643\\ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.jpg": {
+    "card": "./web_images/public/card/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.webp",
+    "detail": "./web_images/public/detail/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.webp"
+  },
+  "web_images\\nsg-0643\\ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-2-a8a82.jpg": {
+    "card": "./web_images/public/card/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-2-a8a82.webp",
+    "detail": "./web_images/public/detail/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-2-a8a82.webp",
+    "gallery": "./web_images/public/gallery/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-2-a8a82.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-2-a8a82.webp"
+  },
+  "web_images\\nsg-0643\\ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-3-6d201.jpg": {
+    "card": "./web_images/public/card/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-3-6d201.webp",
+    "detail": "./web_images/public/detail/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-3-6d201.webp",
+    "gallery": "./web_images/public/gallery/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-3-6d201.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-3-6d201.webp"
+  },
+  "web_images\\nsg-0643\\ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-4-9d043.jpg": {
+    "card": "./web_images/public/card/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-4-9d043.webp",
+    "detail": "./web_images/public/detail/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-4-9d043.webp",
+    "gallery": "./web_images/public/gallery/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-4-9d043.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0643/ban-toa-nha-van-phong-duong-nguyen-van-troi-phuong-1-tan-binh-nsg-0643-hinh-4-9d043.webp"
+  },
+  "web_images\\nsg-0644\\ban-quy-dat-tai-san-hien-huu-phuong-8-phu-nhuan-nsg-0644-hinh-1-8464e.jpg": {
+    "card": "./web_images/public/card/NSG-0644/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-8-phu-nhuan-nsg-0644-hinh-1-8464e.webp",
+    "detail": "./web_images/public/detail/NSG-0644/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-8-phu-nhuan-nsg-0644-hinh-1-8464e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0644/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-8-phu-nhuan-nsg-0644-hinh-1-8464e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0644/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-8-phu-nhuan-nsg-0644-hinh-1-8464e.webp"
+  },
+  "web_images\\nsg-0645\\ban-toa-nha-van-phong-showroom-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-1-effc8.jpg": {
+    "card": "./web_images/public/card/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-1-effc8.webp",
+    "detail": "./web_images/public/detail/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-1-effc8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-1-effc8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-1-effc8.webp"
+  },
+  "web_images\\nsg-0645\\ban-toa-nha-van-phong-showroom-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-2-0d0c1.jpg": {
+    "card": "./web_images/public/card/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-2-0d0c1.webp",
+    "detail": "./web_images/public/detail/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-2-0d0c1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-2-0d0c1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0645/ban-toa-nha-van-phong-showroom-duong-luong-dinh-cua-phuong-an-phu-tp-thu-duc-nsg-0645-hinh-2-0d0c1.webp"
+  },
+  "web_images\\nsg-0646\\ban-toa-nha-van-phong-clinic-phuong-3-quan-3-nsg-0646-hinh-1-e227e.jpg": {
+    "card": "./web_images/public/card/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-1-e227e.webp",
+    "detail": "./web_images/public/detail/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-1-e227e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-1-e227e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-1-e227e.webp"
+  },
+  "web_images\\nsg-0646\\ban-toa-nha-van-phong-clinic-phuong-3-quan-3-nsg-0646-hinh-2-6c27d.jpg": {
+    "card": "./web_images/public/card/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-2-6c27d.webp",
+    "detail": "./web_images/public/detail/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-2-6c27d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-2-6c27d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-2-6c27d.webp"
+  },
+  "web_images\\nsg-0646\\ban-toa-nha-van-phong-clinic-phuong-3-quan-3-nsg-0646-hinh-3-7ad4f.jpg": {
+    "card": "./web_images/public/card/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-3-7ad4f.webp",
+    "detail": "./web_images/public/detail/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-3-7ad4f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-3-7ad4f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0646/ban-toa-nha-van-phong-clinic-duong-ban-co-phuong-3-quan-3-nsg-0646-hinh-3-7ad4f.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-1-7d738.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-1-7d738.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-1-7d738.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-1-7d738.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-1-7d738.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-2-d6764.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-2-d6764.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-2-d6764.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-2-d6764.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-2-d6764.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-3-376d1.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-3-376d1.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-3-376d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-3-376d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-3-376d1.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-4-3a851.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-4-3a851.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-4-3a851.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-4-3a851.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-4-3a851.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-5-0d3a3.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-5-0d3a3.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-5-0d3a3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-5-0d3a3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-5-0d3a3.webp"
+  },
+  "web_images\\nsg-0647\\ban-toa-nha-van-phong-phuong-5-phu-nhuan-nsg-0647-hinh-6-61e0a.jpg": {
+    "card": "./web_images/public/card/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-6-61e0a.webp",
+    "detail": "./web_images/public/detail/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-6-61e0a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-6-61e0a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0647/ban-toa-nha-van-phong-duong-nguyen-thuong-hien-phuong-5-phu-nhuan-nsg-0647-hinh-6-61e0a.webp"
+  },
+  "web_images\\nsg-0648\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-1-26b6d.jpg": {
+    "card": "./web_images/public/card/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-1-26b6d.webp",
+    "detail": "./web_images/public/detail/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-1-26b6d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-1-26b6d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-1-26b6d.webp"
+  },
+  "web_images\\nsg-0648\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-2-eb086.jpg": {
+    "card": "./web_images/public/card/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-2-eb086.webp",
+    "detail": "./web_images/public/detail/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-2-eb086.webp",
+    "gallery": "./web_images/public/gallery/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-2-eb086.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-2-eb086.webp"
+  },
+  "web_images\\nsg-0648\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-3-df046.jpg": {
+    "card": "./web_images/public/card/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-3-df046.webp",
+    "detail": "./web_images/public/detail/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-3-df046.webp",
+    "gallery": "./web_images/public/gallery/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-3-df046.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-3-df046.webp"
+  },
+  "web_images\\nsg-0648\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-4-158d1.jpg": {
+    "card": "./web_images/public/card/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-4-158d1.webp",
+    "detail": "./web_images/public/detail/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-4-158d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-4-158d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0648/ban-quy-dat-tai-san-hien-huu-duong-le-quy-don-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0648-hinh-4-158d1.webp"
+  },
+  "web_images\\nsg-0649\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-1-c4eaf.jpg": {
+    "card": "./web_images/public/card/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-1-c4eaf.webp",
+    "detail": "./web_images/public/detail/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-1-c4eaf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-1-c4eaf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-1-c4eaf.webp"
+  },
+  "web_images\\nsg-0649\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-2-eecfa.jpg": {
+    "card": "./web_images/public/card/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-2-eecfa.webp",
+    "detail": "./web_images/public/detail/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-2-eecfa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-2-eecfa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-2-eecfa.webp"
+  },
+  "web_images\\nsg-0649\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-3-a914e.jpg": {
+    "card": "./web_images/public/card/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-3-a914e.webp",
+    "detail": "./web_images/public/detail/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-3-a914e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-3-a914e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-3-a914e.webp"
+  },
+  "web_images\\nsg-0649\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-4-585c1.jpg": {
+    "card": "./web_images/public/card/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-4-585c1.webp",
+    "detail": "./web_images/public/detail/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-4-585c1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-4-585c1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-4-585c1.webp"
+  },
+  "web_images\\nsg-0649\\ban-quy-dat-tai-san-hien-huu-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-5-bbddb.jpg": {
+    "card": "./web_images/public/card/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-5-bbddb.webp",
+    "detail": "./web_images/public/detail/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-5-bbddb.webp",
+    "gallery": "./web_images/public/gallery/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-5-bbddb.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0649/ban-quy-dat-tai-san-hien-huu-duong-le-ngo-cat-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0649-hinh-5-bbddb.webp"
+  },
+  "web_images\\nsg-0650\\ban-quy-dat-tai-san-hien-huu-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-1-11cf0.jpg": {
+    "card": "./web_images/public/card/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-1-11cf0.webp",
+    "detail": "./web_images/public/detail/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-1-11cf0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-1-11cf0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-1-11cf0.webp"
+  },
+  "web_images\\nsg-0650\\ban-quy-dat-tai-san-hien-huu-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-2-cdd55.jpg": {
+    "card": "./web_images/public/card/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-2-cdd55.webp",
+    "detail": "./web_images/public/detail/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-2-cdd55.webp",
+    "gallery": "./web_images/public/gallery/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-2-cdd55.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0650/ban-quy-dat-tai-san-hien-huu-duong-nguyen-thai-hoc-phuong-cau-ong-lanh-quan-1-nsg-0650-hinh-2-cdd55.webp"
+  },
+  "web_images\\nsg-0651\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0651-hinh-1-8cd83.jpg": {
+    "card": "./web_images/public/card/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-1-8cd83.webp",
+    "detail": "./web_images/public/detail/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-1-8cd83.webp",
+    "gallery": "./web_images/public/gallery/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-1-8cd83.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-1-8cd83.webp"
+  },
+  "web_images\\nsg-0651\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0651-hinh-2-25670.jpg": {
+    "card": "./web_images/public/card/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-2-25670.webp",
+    "detail": "./web_images/public/detail/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-2-25670.webp",
+    "gallery": "./web_images/public/gallery/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-2-25670.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-2-25670.webp"
+  },
+  "web_images\\nsg-0651\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0651-hinh-3-09f02.jpg": {
+    "card": "./web_images/public/card/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-3-09f02.webp",
+    "detail": "./web_images/public/detail/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-3-09f02.webp",
+    "gallery": "./web_images/public/gallery/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-3-09f02.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-3-09f02.webp"
+  },
+  "web_images\\nsg-0651\\ban-toa-khach-san-chdv-phuong-ben-thanh-quan-1-nsg-0651-hinh-4-e9f4f.jpg": {
+    "card": "./web_images/public/card/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-4-e9f4f.webp",
+    "detail": "./web_images/public/detail/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-4-e9f4f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-4-e9f4f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0651/ban-toa-khach-san-chdv-duong-bui-thi-xuan-phuong-ben-thanh-quan-1-nsg-0651-hinh-4-e9f4f.webp"
+  },
+  "web_images\\nsg-0652\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0652-hinh-1-957c8.jpg": {
+    "card": "./web_images/public/card/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-1-957c8.webp",
+    "detail": "./web_images/public/detail/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-1-957c8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-1-957c8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-1-957c8.webp"
+  },
+  "web_images\\nsg-0652\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0652-hinh-2-06d45.jpg": {
+    "card": "./web_images/public/card/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-2-06d45.webp",
+    "detail": "./web_images/public/detail/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-2-06d45.webp",
+    "gallery": "./web_images/public/gallery/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-2-06d45.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-2-06d45.webp"
+  },
+  "web_images\\nsg-0652\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0652-hinh-3-806a5.jpg": {
+    "card": "./web_images/public/card/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-3-806a5.webp",
+    "detail": "./web_images/public/detail/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-3-806a5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-3-806a5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-3-806a5.webp"
+  },
+  "web_images\\nsg-0652\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-ben-nghe-quan-1-nsg-0652-hinh-4-b5ac7.jpg": {
+    "card": "./web_images/public/card/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-4-b5ac7.webp",
+    "detail": "./web_images/public/detail/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-4-b5ac7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-4-b5ac7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0652/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-le-thanh-ton-phuong-ben-nghe-quan-1-nsg-0652-hinh-4-b5ac7.webp"
+  },
+  "web_images\\nsg-0653\\ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0653-hinh-1-ac117.jpg": {
+    "card": "./web_images/public/card/NSG-0653/ban-toa-nha-van-phong-duong-dien-bien-phu-phuong-da-kao-quan-1-nsg-0653-hinh-1-ac117.webp",
+    "detail": "./web_images/public/detail/NSG-0653/ban-toa-nha-van-phong-duong-dien-bien-phu-phuong-da-kao-quan-1-nsg-0653-hinh-1-ac117.webp",
+    "gallery": "./web_images/public/gallery/NSG-0653/ban-toa-nha-van-phong-duong-dien-bien-phu-phuong-da-kao-quan-1-nsg-0653-hinh-1-ac117.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0653/ban-toa-nha-van-phong-duong-dien-bien-phu-phuong-da-kao-quan-1-nsg-0653-hinh-1-ac117.webp"
+  },
+  "web_images\\nsg-0654\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg": {
+    "card": "./web_images/public/card/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.webp",
+    "detail": "./web_images/public/detail/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.webp"
+  },
+  "web_images\\nsg-0654\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg": {
+    "card": "./web_images/public/card/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.webp",
+    "detail": "./web_images/public/detail/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.webp"
+  },
+  "web_images\\nsg-0655\\ban-toa-nha-van-phong-chdv-tp-thu-duc-nsg-0655-hinh-1-bfef0.jpg": {
+    "card": "./web_images/public/card/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-1-bfef0.webp",
+    "detail": "./web_images/public/detail/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-1-bfef0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-1-bfef0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-1-bfef0.webp"
+  },
+  "web_images\\nsg-0655\\ban-toa-nha-van-phong-chdv-tp-thu-duc-nsg-0655-hinh-2-e4a6c.jpg": {
+    "card": "./web_images/public/card/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-2-e4a6c.webp",
+    "detail": "./web_images/public/detail/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-2-e4a6c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-2-e4a6c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-2-e4a6c.webp"
+  },
+  "web_images\\nsg-0655\\ban-toa-nha-van-phong-chdv-tp-thu-duc-nsg-0655-hinh-3-450dc.jpg": {
+    "card": "./web_images/public/card/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-3-450dc.webp",
+    "detail": "./web_images/public/detail/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-3-450dc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-3-450dc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-3-450dc.webp"
+  },
+  "web_images\\nsg-0655\\ban-toa-nha-van-phong-chdv-tp-thu-duc-nsg-0655-hinh-4-f682f.jpg": {
+    "card": "./web_images/public/card/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-4-f682f.webp",
+    "detail": "./web_images/public/detail/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-4-f682f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-4-f682f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0655/ban-toa-nha-van-phong-chdv-duong-duong-so-1-phuong-an-khanh-tp-thu-duc-nsg-0655-hinh-4-f682f.webp"
+  },
+  "web_images\\nsg-0656\\ban-quy-dat-tai-san-hien-huu-phuong-15-phu-nhuan-nsg-0656-hinh-1-70c13.jpg": {
+    "card": "./web_images/public/card/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-1-70c13.webp",
+    "detail": "./web_images/public/detail/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-1-70c13.webp",
+    "gallery": "./web_images/public/gallery/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-1-70c13.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-1-70c13.webp"
+  },
+  "web_images\\nsg-0656\\ban-quy-dat-tai-san-hien-huu-phuong-15-phu-nhuan-nsg-0656-hinh-2-9ba36.jpg": {
+    "card": "./web_images/public/card/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-2-9ba36.webp",
+    "detail": "./web_images/public/detail/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-2-9ba36.webp",
+    "gallery": "./web_images/public/gallery/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-2-9ba36.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-2-9ba36.webp"
+  },
+  "web_images\\nsg-0656\\ban-quy-dat-tai-san-hien-huu-phuong-15-phu-nhuan-nsg-0656-hinh-3-344f5.jpg": {
+    "card": "./web_images/public/card/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-3-344f5.webp",
+    "detail": "./web_images/public/detail/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-3-344f5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-3-344f5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0656/ban-quy-dat-tai-san-hien-huu-duong-nguyen-van-troi-phuong-15-phu-nhuan-nsg-0656-hinh-3-344f5.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-1-b1ede.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-1-b1ede.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-1-b1ede.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-1-b1ede.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-1-b1ede.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-2-a266e.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-2-a266e.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-2-a266e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-2-a266e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-2-a266e.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-3-817de.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-3-817de.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-3-817de.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-3-817de.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-3-817de.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-4-2a14e.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-4-2a14e.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-4-2a14e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-4-2a14e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-4-2a14e.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-5-096a4.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-5-096a4.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-5-096a4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-5-096a4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-5-096a4.webp"
+  },
+  "web_images\\nsg-0657\\ban-toa-nha-van-phong-showroom-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-6-d5576.jpg": {
+    "card": "./web_images/public/card/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-6-d5576.webp",
+    "detail": "./web_images/public/detail/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-6-d5576.webp",
+    "gallery": "./web_images/public/gallery/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-6-d5576.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0657/ban-toa-nha-van-phong-showroom-duong-ba-huyen-thanh-quan-phuong-vo-thi-sau-phuong-6-cu-quan-3-nsg-0657-hinh-6-d5576.webp"
+  },
+  "web_images\\nsg-0658\\ban-quy-dat-xay-biet-thu-chdv-tp-thu-duc-nsg-0658-hinh-1-60bd3.jpg": {
+    "card": "./web_images/public/card/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-1-60bd3.webp",
+    "detail": "./web_images/public/detail/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-1-60bd3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-1-60bd3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-1-60bd3.webp"
+  },
+  "web_images\\nsg-0658\\ban-quy-dat-xay-biet-thu-chdv-tp-thu-duc-nsg-0658-hinh-2-3e05f.jpg": {
+    "card": "./web_images/public/card/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-2-3e05f.webp",
+    "detail": "./web_images/public/detail/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-2-3e05f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-2-3e05f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-2-3e05f.webp"
+  },
+  "web_images\\nsg-0658\\ban-quy-dat-xay-biet-thu-chdv-tp-thu-duc-nsg-0658-hinh-3-6d791.jpg": {
+    "card": "./web_images/public/card/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-3-6d791.webp",
+    "detail": "./web_images/public/detail/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-3-6d791.webp",
+    "gallery": "./web_images/public/gallery/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-3-6d791.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-3-6d791.webp"
+  },
+  "web_images\\nsg-0658\\ban-quy-dat-xay-biet-thu-chdv-tp-thu-duc-nsg-0658-hinh-4-d7ed4.jpg": {
+    "card": "./web_images/public/card/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-4-d7ed4.webp",
+    "detail": "./web_images/public/detail/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-4-d7ed4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-4-d7ed4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0658/ban-quy-dat-xay-biet-thu-chdv-duong-duong-so-47-phuong-thao-dien-tp-thu-duc-nsg-0658-hinh-4-d7ed4.webp"
+  },
+  "web_images\\nsg-0659\\ban-nha-pho-thuong-mai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.jpg": {
+    "card": "./web_images/public/card/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.webp",
+    "detail": "./web_images/public/detail/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-1-6c5f7.webp"
+  },
+  "web_images\\nsg-0659\\ban-nha-pho-thuong-mai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.jpg": {
+    "card": "./web_images/public/card/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.webp",
+    "detail": "./web_images/public/detail/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-2-447c1.webp"
+  },
+  "web_images\\nsg-0659\\ban-nha-pho-thuong-mai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.jpg": {
+    "card": "./web_images/public/card/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.webp",
+    "detail": "./web_images/public/detail/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.webp",
+    "gallery": "./web_images/public/gallery/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0659/ban-nha-pho-thuong-mai-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0659-hinh-3-0c946.webp"
+  },
+  "web_images\\nsg-0660\\ban-quy-dat-tai-san-hien-huu-phuong-4-phu-nhuan-nsg-0660-hinh-1-01424.jpg": {
+    "card": "./web_images/public/card/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-1-01424.webp",
+    "detail": "./web_images/public/detail/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-1-01424.webp",
+    "gallery": "./web_images/public/gallery/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-1-01424.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-1-01424.webp"
+  },
+  "web_images\\nsg-0660\\ban-quy-dat-tai-san-hien-huu-phuong-4-phu-nhuan-nsg-0660-hinh-2-04609.jpg": {
+    "card": "./web_images/public/card/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-2-04609.webp",
+    "detail": "./web_images/public/detail/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-2-04609.webp",
+    "gallery": "./web_images/public/gallery/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-2-04609.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-2-04609.webp"
+  },
+  "web_images\\nsg-0660\\ban-quy-dat-tai-san-hien-huu-phuong-4-phu-nhuan-nsg-0660-hinh-3-07241.jpg": {
+    "card": "./web_images/public/card/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-3-07241.webp",
+    "detail": "./web_images/public/detail/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-3-07241.webp",
+    "gallery": "./web_images/public/gallery/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-3-07241.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-3-07241.webp"
+  },
+  "web_images\\nsg-0660\\ban-quy-dat-tai-san-hien-huu-phuong-4-phu-nhuan-nsg-0660-hinh-4-09927.jpg": {
+    "card": "./web_images/public/card/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-4-09927.webp",
+    "detail": "./web_images/public/detail/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-4-09927.webp",
+    "gallery": "./web_images/public/gallery/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-4-09927.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-4-09927.webp"
+  },
+  "web_images\\nsg-0660\\ban-quy-dat-tai-san-hien-huu-phuong-4-phu-nhuan-nsg-0660-hinh-5-12860.jpg": {
+    "card": "./web_images/public/card/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-5-12860.webp",
+    "detail": "./web_images/public/detail/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-5-12860.webp",
+    "gallery": "./web_images/public/gallery/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-5-12860.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0660/ban-quy-dat-tai-san-hien-huu-duong-nguyen-kiem-phuong-4-phu-nhuan-nsg-0660-hinh-5-12860.webp"
+  },
+  "web_images\\nsg-0661\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-1-8e895.jpg": {
+    "card": "./web_images/public/card/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-1-8e895.webp",
+    "detail": "./web_images/public/detail/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-1-8e895.webp",
+    "gallery": "./web_images/public/gallery/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-1-8e895.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-1-8e895.webp"
+  },
+  "web_images\\nsg-0661\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-2-815bd.jpg": {
+    "card": "./web_images/public/card/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-2-815bd.webp",
+    "detail": "./web_images/public/detail/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-2-815bd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-2-815bd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-2-815bd.webp"
+  },
+  "web_images\\nsg-0661\\ban-toa-nha-thuong-mai-nha-pho-mat-tien-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-3-e7ba6.jpg": {
+    "card": "./web_images/public/card/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-3-e7ba6.webp",
+    "detail": "./web_images/public/detail/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-3-e7ba6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-3-e7ba6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0661/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-de-tham-phuong-pham-ngu-lao-quan-1-nsg-0661-hinh-3-e7ba6.webp"
+  },
+  "web_images\\nsg-0662\\ban-toa-chdv-toa-nha-van-phong-phuong-13-binh-thanh-nsg-0662-hinh-1-8eee7.jpg": {
+    "card": "./web_images/public/card/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-1-8eee7.webp",
+    "detail": "./web_images/public/detail/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-1-8eee7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-1-8eee7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-1-8eee7.webp"
+  },
+  "web_images\\nsg-0662\\ban-toa-chdv-toa-nha-van-phong-phuong-13-binh-thanh-nsg-0662-hinh-2-91de4.jpg": {
+    "card": "./web_images/public/card/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-2-91de4.webp",
+    "detail": "./web_images/public/detail/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-2-91de4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-2-91de4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-2-91de4.webp"
+  },
+  "web_images\\nsg-0662\\ban-toa-chdv-toa-nha-van-phong-phuong-13-binh-thanh-nsg-0662-hinh-3-6f162.jpg": {
+    "card": "./web_images/public/card/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-3-6f162.webp",
+    "detail": "./web_images/public/detail/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-3-6f162.webp",
+    "gallery": "./web_images/public/gallery/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-3-6f162.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-3-6f162.webp"
+  },
+  "web_images\\nsg-0662\\ban-toa-chdv-toa-nha-van-phong-phuong-13-binh-thanh-nsg-0662-hinh-4-980a4.jpg": {
+    "card": "./web_images/public/card/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-4-980a4.webp",
+    "detail": "./web_images/public/detail/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-4-980a4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-4-980a4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0662/ban-toa-chdv-toa-nha-van-phong-duong-dang-thuy-tram-phuong-13-binh-thanh-nsg-0662-hinh-4-980a4.webp"
+  },
+  "web_images\\nsg-0663\\ban-toa-nha-thuong-mai-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-1-1a113.jpg": {
+    "card": "./web_images/public/card/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-1-1a113.webp",
+    "detail": "./web_images/public/detail/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-1-1a113.webp",
+    "gallery": "./web_images/public/gallery/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-1-1a113.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-1-1a113.webp"
+  },
+  "web_images\\nsg-0663\\ban-toa-nha-thuong-mai-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-2-a506c.jpg": {
+    "card": "./web_images/public/card/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-2-a506c.webp",
+    "detail": "./web_images/public/detail/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-2-a506c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-2-a506c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-2-a506c.webp"
+  },
+  "web_images\\nsg-0663\\ban-toa-nha-thuong-mai-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-3-bb678.jpg": {
+    "card": "./web_images/public/card/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-3-bb678.webp",
+    "detail": "./web_images/public/detail/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-3-bb678.webp",
+    "gallery": "./web_images/public/gallery/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-3-bb678.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0663/ban-toa-nha-thuong-mai-duong-bach-dang-phuong-tan-son-hoa-tan-binh-nsg-0663-hinh-3-bb678.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-1-d403f.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-1-d403f.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-1-d403f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-1-d403f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-1-d403f.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-10-637cc.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-10-637cc.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-10-637cc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-10-637cc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-10-637cc.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-11-8e1c2.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-11-8e1c2.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-11-8e1c2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-11-8e1c2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-11-8e1c2.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-12-0d6cd.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-12-0d6cd.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-12-0d6cd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-12-0d6cd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-12-0d6cd.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-13-53d82.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-13-53d82.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-13-53d82.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-13-53d82.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-13-53d82.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-14-35936.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-14-35936.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-14-35936.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-14-35936.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-14-35936.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-2-787d2.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-2-787d2.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-2-787d2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-2-787d2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-2-787d2.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-3-637cc.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-3-637cc.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-3-637cc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-3-637cc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-3-637cc.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-4-8e1c2.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-4-8e1c2.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-4-8e1c2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-4-8e1c2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-4-8e1c2.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-5-0d6cd.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-5-0d6cd.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-5-0d6cd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-5-0d6cd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-5-0d6cd.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-6-53d82.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-6-53d82.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-6-53d82.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-6-53d82.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-6-53d82.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-7-35936.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-7-35936.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-7-35936.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-7-35936.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-7-35936.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-8-d403f.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-8-d403f.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-8-d403f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-8-d403f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-8-d403f.webp"
+  },
+  "web_images\\nsg-0665\\ban-toa-can-ho-dich-vu-chdv-phuong-phu-thuan-quan-7-nsg-0665-hinh-9-787d2.jpg": {
+    "card": "./web_images/public/card/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-9-787d2.webp",
+    "detail": "./web_images/public/detail/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-9-787d2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-9-787d2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0665/ban-toa-can-ho-dich-vu-chdv-duong-cao-thi-chinh-phuong-phu-thuan-quan-7-nsg-0665-hinh-9-787d2.webp"
+  },
+  "web_images\\nsg-0666\\ban-toa-nha-van-phong-phuong-12-tan-binh-nsg-0666-hinh-1-9257a.jpg": {
+    "card": "./web_images/public/card/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-1-9257a.webp",
+    "detail": "./web_images/public/detail/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-1-9257a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-1-9257a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-1-9257a.webp"
+  },
+  "web_images\\nsg-0666\\ban-toa-nha-van-phong-phuong-12-tan-binh-nsg-0666-hinh-2-53e50.jpg": {
+    "card": "./web_images/public/card/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-2-53e50.webp",
+    "detail": "./web_images/public/detail/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-2-53e50.webp",
+    "gallery": "./web_images/public/gallery/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-2-53e50.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-2-53e50.webp"
+  },
+  "web_images\\nsg-0666\\ban-toa-nha-van-phong-phuong-12-tan-binh-nsg-0666-hinh-3-36aaa.jpg": {
+    "card": "./web_images/public/card/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-3-36aaa.webp",
+    "detail": "./web_images/public/detail/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-3-36aaa.webp",
+    "gallery": "./web_images/public/gallery/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-3-36aaa.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0666/ban-toa-nha-van-phong-duong-truong-hoang-thanh-phuong-12-tan-binh-nsg-0666-hinh-3-36aaa.webp"
+  },
+  "web_images\\nsg-0668\\ban-nha-pho-thuong-mai-pho-tay-phuong-ben-thanh-quan-1-nsg-0668-hinh-1-2e23f.jpg": {
+    "card": "./web_images/public/card/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-1-2e23f.webp",
+    "detail": "./web_images/public/detail/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-1-2e23f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-1-2e23f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-1-2e23f.webp"
+  },
+  "web_images\\nsg-0668\\ban-nha-pho-thuong-mai-pho-tay-phuong-ben-thanh-quan-1-nsg-0668-hinh-2-42034.jpg": {
+    "card": "./web_images/public/card/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-2-42034.webp",
+    "detail": "./web_images/public/detail/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-2-42034.webp",
+    "gallery": "./web_images/public/gallery/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-2-42034.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-2-42034.webp"
+  },
+  "web_images\\nsg-0668\\ban-nha-pho-thuong-mai-pho-tay-phuong-ben-thanh-quan-1-nsg-0668-hinh-3-091d6.jpg": {
+    "card": "./web_images/public/card/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-3-091d6.webp",
+    "detail": "./web_images/public/detail/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-3-091d6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-3-091d6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-3-091d6.webp"
+  },
+  "web_images\\nsg-0668\\ban-nha-pho-thuong-mai-pho-tay-phuong-ben-thanh-quan-1-nsg-0668-hinh-4-42cc8.jpg": {
+    "card": "./web_images/public/card/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-4-42cc8.webp",
+    "detail": "./web_images/public/detail/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-4-42cc8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-4-42cc8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0668/ban-nha-pho-thuong-mai-pho-tay-bui-vien-duong-bui-vien-phuong-ben-thanh-quan-1-nsg-0668-hinh-4-42cc8.webp"
+  },
+  "web_images\\nsg-0669\\ban-biet-thu-toa-nha-van-phong-phuong-12-quan-10-nsg-0669-hinh-1-df6ec.jpg": {
+    "card": "./web_images/public/card/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-1-df6ec.webp",
+    "detail": "./web_images/public/detail/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-1-df6ec.webp",
+    "gallery": "./web_images/public/gallery/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-1-df6ec.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-1-df6ec.webp"
+  },
+  "web_images\\nsg-0669\\ban-biet-thu-toa-nha-van-phong-phuong-12-quan-10-nsg-0669-hinh-2-7e340.jpg": {
+    "card": "./web_images/public/card/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-2-7e340.webp",
+    "detail": "./web_images/public/detail/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-2-7e340.webp",
+    "gallery": "./web_images/public/gallery/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-2-7e340.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-2-7e340.webp"
+  },
+  "web_images\\nsg-0669\\ban-biet-thu-toa-nha-van-phong-phuong-12-quan-10-nsg-0669-hinh-3-5be34.jpg": {
+    "card": "./web_images/public/card/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-3-5be34.webp",
+    "detail": "./web_images/public/detail/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-3-5be34.webp",
+    "gallery": "./web_images/public/gallery/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-3-5be34.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0669/ban-biet-thu-toa-nha-van-phong-duong-le-hong-phong-phuong-12-quan-10-nsg-0669-hinh-3-5be34.webp"
+  },
+  "web_images\\nsg-0670\\ban-toa-can-ho-dich-vu-khach-san-van-phong-phuong-12-quan-10-nsg-0670-hinh-1-9a91a.jpg": {
+    "card": "./web_images/public/card/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-1-9a91a.webp",
+    "detail": "./web_images/public/detail/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-1-9a91a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-1-9a91a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-1-9a91a.webp"
+  },
+  "web_images\\nsg-0670\\ban-toa-can-ho-dich-vu-khach-san-van-phong-phuong-12-quan-10-nsg-0670-hinh-2-33f07.jpg": {
+    "card": "./web_images/public/card/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-2-33f07.webp",
+    "detail": "./web_images/public/detail/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-2-33f07.webp",
+    "gallery": "./web_images/public/gallery/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-2-33f07.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-2-33f07.webp"
+  },
+  "web_images\\nsg-0670\\ban-toa-can-ho-dich-vu-khach-san-van-phong-phuong-12-quan-10-nsg-0670-hinh-3-056bd.jpg": {
+    "card": "./web_images/public/card/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-3-056bd.webp",
+    "detail": "./web_images/public/detail/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-3-056bd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-3-056bd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0670/ban-toa-can-ho-dich-vu-khach-san-van-phong-duong-cach-mang-thang-tam-phuong-12-quan-10-nsg-0670-hinh-3-056bd.webp"
+  },
+  "web_images\\nsg-0671\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.jpg": {
+    "card": "./web_images/public/card/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.webp",
+    "detail": "./web_images/public/detail/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.webp"
+  },
+  "web_images\\nsg-0671\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-2-bb0dd.jpg": {
+    "card": "./web_images/public/card/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-2-bb0dd.webp",
+    "detail": "./web_images/public/detail/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-2-bb0dd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-2-bb0dd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0671/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-2-bb0dd.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-10-61891.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-10-61891.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-10-61891.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-10-61891.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-10-61891.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-11-c6337.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-11-c6337.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-11-c6337.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-11-c6337.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-11-c6337.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-12-47c06.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-12-47c06.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-12-47c06.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-12-47c06.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-12-47c06.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-13-5923f.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-13-5923f.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-13-5923f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-13-5923f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-13-5923f.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-2-e3c9d.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-2-e3c9d.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-2-e3c9d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-2-e3c9d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-2-e3c9d.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-3-61891.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-3-61891.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-3-61891.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-3-61891.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-3-61891.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-4-c6337.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-4-c6337.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-4-c6337.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-4-c6337.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-4-c6337.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-5-47c06.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-5-47c06.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-5-47c06.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-5-47c06.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-5-47c06.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-6-5923f.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-6-5923f.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-6-5923f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-6-5923f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-6-5923f.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-7-0939c.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-7-0939c.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-7-0939c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-7-0939c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-7-0939c.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-8-f58f1.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-8-f58f1.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-8-f58f1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-8-f58f1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-8-f58f1.webp"
+  },
+  "web_images\\nsg-0672\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-9-e3c9d.jpg": {
+    "card": "./web_images/public/card/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-9-e3c9d.webp",
+    "detail": "./web_images/public/detail/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-9-e3c9d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-9-e3c9d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0672/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-9-e3c9d.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.webp"
+  },
+  "web_images\\nsg-0673\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.jpg": {
+    "card": "./web_images/public/card/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.webp",
+    "detail": "./web_images/public/detail/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0673/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-1-94705.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-1-94705.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-1-94705.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-1-94705.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-1-94705.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-2-fa51c.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-2-fa51c.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-2-fa51c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-2-fa51c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-2-fa51c.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-3-e3372.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-3-e3372.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-3-e3372.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-3-e3372.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-3-e3372.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-4-e4a1c.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-4-e4a1c.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-4-e4a1c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-4-e4a1c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-4-e4a1c.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-5-0613f.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-5-0613f.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-5-0613f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-5-0613f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-5-0613f.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-6-943b5.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-6-943b5.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-6-943b5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-6-943b5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-6-943b5.webp"
+  },
+  "web_images\\nsg-0674\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-7-15199.jpg": {
+    "card": "./web_images/public/card/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-7-15199.webp",
+    "detail": "./web_images/public/detail/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-7-15199.webp",
+    "gallery": "./web_images/public/gallery/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-7-15199.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0674/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-quoc-huong-phuong-thao-dien-tp-thu-duc-nsg-0674-hinh-7-15199.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-10-75cdf.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-10-75cdf.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-10-75cdf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-10-75cdf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-10-75cdf.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-11-bf376.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-11-bf376.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-11-bf376.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-11-bf376.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-11-bf376.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-12-cb3f6.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-12-cb3f6.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-12-cb3f6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-12-cb3f6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-12-cb3f6.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-2-1b9d1.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-2-1b9d1.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-2-1b9d1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-2-1b9d1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-2-1b9d1.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-3-4ed63.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-3-4ed63.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-3-4ed63.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-3-4ed63.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-3-4ed63.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-4-52483.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-4-52483.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-4-52483.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-4-52483.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-4-52483.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-5-eaef4.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-5-eaef4.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-5-eaef4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-5-eaef4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-5-eaef4.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-6-0f4bf.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-6-0f4bf.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-6-0f4bf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-6-0f4bf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-6-0f4bf.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-7-3f1d0.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-7-3f1d0.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-7-3f1d0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-7-3f1d0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-7-3f1d0.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-8-48b56.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-8-48b56.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-8-48b56.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-8-48b56.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-8-48b56.webp"
+  },
+  "web_images\\nsg-0675\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-9-61447.jpg": {
+    "card": "./web_images/public/card/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-9-61447.webp",
+    "detail": "./web_images/public/detail/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-9-61447.webp",
+    "gallery": "./web_images/public/gallery/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-9-61447.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0675/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-9-61447.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-2-28bc7.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-2-28bc7.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-2-28bc7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-2-28bc7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-2-28bc7.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-3-d419e.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-3-d419e.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-3-d419e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-3-d419e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-3-d419e.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-4-8b630.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-4-8b630.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-4-8b630.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-4-8b630.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-4-8b630.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-5-7c588.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-5-7c588.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-5-7c588.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-5-7c588.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-5-7c588.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-6-38a00.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-6-38a00.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-6-38a00.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-6-38a00.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-6-38a00.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-7-42ae6.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-7-42ae6.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-7-42ae6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-7-42ae6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-7-42ae6.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-8-18024.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-8-18024.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-8-18024.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-8-18024.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-8-18024.webp"
+  },
+  "web_images\\nsg-0676\\ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-9-22df8.jpg": {
+    "card": "./web_images/public/card/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-9-22df8.webp",
+    "detail": "./web_images/public/detail/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-9-22df8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-9-22df8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0676/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-9-22df8.webp"
+  },
+  "web_images\\nsg-0677\\ban-toa-nha-van-phong-commercial-building-phuong-5-quan-3-nsg-0677-hinh-1-2b05c.jpg": {
+    "card": "./web_images/public/card/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-1-2b05c.webp",
+    "detail": "./web_images/public/detail/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-1-2b05c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-1-2b05c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-1-2b05c.webp"
+  },
+  "web_images\\nsg-0677\\ban-toa-nha-van-phong-commercial-building-phuong-5-quan-3-nsg-0677-hinh-2-b8b97.jpg": {
+    "card": "./web_images/public/card/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-2-b8b97.webp",
+    "detail": "./web_images/public/detail/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-2-b8b97.webp",
+    "gallery": "./web_images/public/gallery/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-2-b8b97.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0677/ban-toa-nha-van-phong-commercial-building-duong-cao-thang-phuong-5-quan-3-nsg-0677-hinh-2-b8b97.webp"
+  },
+  "web_images\\nsg-0678\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-1-0d40d.jpg": {
+    "card": "./web_images/public/card/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-1-0d40d.webp",
+    "detail": "./web_images/public/detail/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-1-0d40d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-1-0d40d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-1-0d40d.webp"
+  },
+  "web_images\\nsg-0678\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-2-ff510.jpg": {
+    "card": "./web_images/public/card/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-2-ff510.webp",
+    "detail": "./web_images/public/detail/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-2-ff510.webp",
+    "gallery": "./web_images/public/gallery/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-2-ff510.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-2-ff510.webp"
+  },
+  "web_images\\nsg-0678\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-3-2259f.jpg": {
+    "card": "./web_images/public/card/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-3-2259f.webp",
+    "detail": "./web_images/public/detail/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-3-2259f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-3-2259f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-3-2259f.webp"
+  },
+  "web_images\\nsg-0678\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-4-955e7.jpg": {
+    "card": "./web_images/public/card/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-4-955e7.webp",
+    "detail": "./web_images/public/detail/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-4-955e7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-4-955e7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0678/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-pham-viet-chanh-phuong-nguyen-cu-trinh-quan-1-nsg-0678-hinh-4-955e7.webp"
+  },
+  "web_images\\nsg-0679\\ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.jpg": {
+    "card": "./web_images/public/card/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.webp",
+    "detail": "./web_images/public/detail/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.webp"
+  },
+  "web_images\\nsg-0679\\ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-2-b85fc.jpg": {
+    "card": "./web_images/public/card/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-2-b85fc.webp",
+    "detail": "./web_images/public/detail/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-2-b85fc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-2-b85fc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-2-b85fc.webp"
+  },
+  "web_images\\nsg-0679\\ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-3-a1adf.jpg": {
+    "card": "./web_images/public/card/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-3-a1adf.webp",
+    "detail": "./web_images/public/detail/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-3-a1adf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-3-a1adf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-3-a1adf.webp"
+  },
+  "web_images\\nsg-0679\\ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-4-a4f80.jpg": {
+    "card": "./web_images/public/card/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-4-a4f80.webp",
+    "detail": "./web_images/public/detail/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-4-a4f80.webp",
+    "gallery": "./web_images/public/gallery/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-4-a4f80.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-duong-tu-xuong-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-4-a4f80.webp"
+  },
+  "web_images\\nsg-0680\\ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-tan-dinh-quan-1-nsg-0680-hinh-1-6c9e2.jpg": {
+    "card": "./web_images/public/card/NSG-0680/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-phi-khanh-phuong-tan-dinh-quan-1-nsg-0680-hinh-1-6c9e2.webp",
+    "detail": "./web_images/public/detail/NSG-0680/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-phi-khanh-phuong-tan-dinh-quan-1-nsg-0680-hinh-1-6c9e2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0680/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-phi-khanh-phuong-tan-dinh-quan-1-nsg-0680-hinh-1-6c9e2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0680/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-nguyen-phi-khanh-phuong-tan-dinh-quan-1-nsg-0680-hinh-1-6c9e2.webp"
+  },
+  "web_images\\nsg-0681\\ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg": {
+    "card": "./web_images/public/card/NSG-0681/ban-toa-nha-van-phong-duong-tran-khac-chan-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.webp",
+    "detail": "./web_images/public/detail/NSG-0681/ban-toa-nha-van-phong-duong-tran-khac-chan-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.webp",
+    "gallery": "./web_images/public/gallery/NSG-0681/ban-toa-nha-van-phong-duong-tran-khac-chan-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0681/ban-toa-nha-van-phong-duong-tran-khac-chan-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.webp"
+  },
+  "web_images\\nsg-0682\\ban-toa-nha-van-phong-complex-phuong-tan-thanh-tan-phu-nsg-0682-hinh-1-2a0b4.jpg": {
+    "card": "./web_images/public/card/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-1-2a0b4.webp",
+    "detail": "./web_images/public/detail/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-1-2a0b4.webp",
+    "gallery": "./web_images/public/gallery/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-1-2a0b4.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-1-2a0b4.webp"
+  },
+  "web_images\\nsg-0682\\ban-toa-nha-van-phong-complex-phuong-tan-thanh-tan-phu-nsg-0682-hinh-2-2ba40.jpg": {
+    "card": "./web_images/public/card/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-2-2ba40.webp",
+    "detail": "./web_images/public/detail/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-2-2ba40.webp",
+    "gallery": "./web_images/public/gallery/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-2-2ba40.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-2-2ba40.webp"
+  },
+  "web_images\\nsg-0682\\ban-toa-nha-van-phong-complex-phuong-tan-thanh-tan-phu-nsg-0682-hinh-3-206ec.jpg": {
+    "card": "./web_images/public/card/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-3-206ec.webp",
+    "detail": "./web_images/public/detail/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-3-206ec.webp",
+    "gallery": "./web_images/public/gallery/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-3-206ec.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0682/ban-toa-nha-van-phong-complex-duong-tan-son-nhi-phuong-tan-thanh-tan-phu-nsg-0682-hinh-3-206ec.webp"
+  },
+  "web_images\\nsg-0683\\ban-toa-nha-van-phong-phuong-7-quan-5-nsg-0683-hinh-1-51567.jpg": {
+    "card": "./web_images/public/card/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-1-51567.webp",
+    "detail": "./web_images/public/detail/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-1-51567.webp",
+    "gallery": "./web_images/public/gallery/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-1-51567.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-1-51567.webp"
+  },
+  "web_images\\nsg-0683\\ban-toa-nha-van-phong-phuong-7-quan-5-nsg-0683-hinh-2-b581f.jpg": {
+    "card": "./web_images/public/card/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-2-b581f.webp",
+    "detail": "./web_images/public/detail/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-2-b581f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-2-b581f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-2-b581f.webp"
+  },
+  "web_images\\nsg-0683\\ban-toa-nha-van-phong-phuong-7-quan-5-nsg-0683-hinh-3-efe0e.jpg": {
+    "card": "./web_images/public/card/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-3-efe0e.webp",
+    "detail": "./web_images/public/detail/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-3-efe0e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-3-efe0e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0683/ban-toa-nha-van-phong-duong-nguyen-tri-phuong-phuong-7-quan-5-nsg-0683-hinh-3-efe0e.webp"
+  },
+  "web_images\\nsg-0684\\ban-quy-dat-xay-cao-tang-showroom-phuong-7-phu-nhuan-nsg-0684-hinh-1-d61de.jpg": {
+    "card": "./web_images/public/card/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-1-d61de.webp",
+    "detail": "./web_images/public/detail/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-1-d61de.webp",
+    "gallery": "./web_images/public/gallery/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-1-d61de.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-1-d61de.webp"
+  },
+  "web_images\\nsg-0684\\ban-quy-dat-xay-cao-tang-showroom-phuong-7-phu-nhuan-nsg-0684-hinh-2-796b9.jpg": {
+    "card": "./web_images/public/card/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-2-796b9.webp",
+    "detail": "./web_images/public/detail/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-2-796b9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-2-796b9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-2-796b9.webp"
+  },
+  "web_images\\nsg-0684\\ban-quy-dat-xay-cao-tang-showroom-phuong-7-phu-nhuan-nsg-0684-hinh-3-e85df.jpg": {
+    "card": "./web_images/public/card/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-3-e85df.webp",
+    "detail": "./web_images/public/detail/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-3-e85df.webp",
+    "gallery": "./web_images/public/gallery/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-3-e85df.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-3-e85df.webp"
+  },
+  "web_images\\nsg-0684\\ban-quy-dat-xay-cao-tang-showroom-phuong-7-phu-nhuan-nsg-0684-hinh-4-0d756.jpg": {
+    "card": "./web_images/public/card/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-4-0d756.webp",
+    "detail": "./web_images/public/detail/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-4-0d756.webp",
+    "gallery": "./web_images/public/gallery/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-4-0d756.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0684/ban-quy-dat-xay-cao-tang-showroom-duong-phan-dang-luu-phuong-7-phu-nhuan-nsg-0684-hinh-4-0d756.webp"
+  },
+  "web_images\\nsg-0685\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0685-hinh-1-c2884.jpg": {
+    "card": "./web_images/public/card/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-1-c2884.webp",
+    "detail": "./web_images/public/detail/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-1-c2884.webp",
+    "gallery": "./web_images/public/gallery/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-1-c2884.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-1-c2884.webp"
+  },
+  "web_images\\nsg-0685\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0685-hinh-2-ba862.jpg": {
+    "card": "./web_images/public/card/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-2-ba862.webp",
+    "detail": "./web_images/public/detail/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-2-ba862.webp",
+    "gallery": "./web_images/public/gallery/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-2-ba862.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-2-ba862.webp"
+  },
+  "web_images\\nsg-0685\\ban-toa-nha-van-phong-phuong-25-binh-thanh-nsg-0685-hinh-3-7a6e6.jpg": {
+    "card": "./web_images/public/card/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-3-7a6e6.webp",
+    "detail": "./web_images/public/detail/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-3-7a6e6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-3-7a6e6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0685/ban-toa-nha-van-phong-duong-ung-van-khiem-phuong-25-binh-thanh-nsg-0685-hinh-3-7a6e6.webp"
+  },
+  "web_images\\nsg-0686\\ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-3-binh-thanh-nsg-0686-hinh-1-7a0b6.jpg": {
+    "card": "./web_images/public/card/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-1-7a0b6.webp",
+    "detail": "./web_images/public/detail/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-1-7a0b6.webp",
+    "gallery": "./web_images/public/gallery/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-1-7a0b6.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-1-7a0b6.webp"
+  },
+  "web_images\\nsg-0686\\ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-3-binh-thanh-nsg-0686-hinh-2-5ce49.jpg": {
+    "card": "./web_images/public/card/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-2-5ce49.webp",
+    "detail": "./web_images/public/detail/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-2-5ce49.webp",
+    "gallery": "./web_images/public/gallery/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-2-5ce49.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-2-5ce49.webp"
+  },
+  "web_images\\nsg-0686\\ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-3-binh-thanh-nsg-0686-hinh-3-c4a6a.jpg": {
+    "card": "./web_images/public/card/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-3-c4a6a.webp",
+    "detail": "./web_images/public/detail/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-3-c4a6a.webp",
+    "gallery": "./web_images/public/gallery/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-3-c4a6a.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-3-c4a6a.webp"
+  },
+  "web_images\\nsg-0686\\ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-phuong-3-binh-thanh-nsg-0686-hinh-4-641f1.jpg": {
+    "card": "./web_images/public/card/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-4-641f1.webp",
+    "detail": "./web_images/public/detail/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-4-641f1.webp",
+    "gallery": "./web_images/public/gallery/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-4-641f1.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0686/ban-nha-pho-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-duyet-phuong-3-binh-thanh-nsg-0686-hinh-4-641f1.webp"
+  },
+  "web_images\\nsg-0687\\ban-toa-khach-san-chdv-phuong-2-tan-binh-nsg-0687-hinh-1-07076.jpg": {
+    "card": "./web_images/public/card/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-1-07076.webp",
+    "detail": "./web_images/public/detail/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-1-07076.webp",
+    "gallery": "./web_images/public/gallery/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-1-07076.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-1-07076.webp"
+  },
+  "web_images\\nsg-0687\\ban-toa-khach-san-chdv-phuong-2-tan-binh-nsg-0687-hinh-2-4381f.jpg": {
+    "card": "./web_images/public/card/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-2-4381f.webp",
+    "detail": "./web_images/public/detail/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-2-4381f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-2-4381f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0687/ban-toa-khach-san-chdv-duong-lam-son-phuong-2-tan-binh-nsg-0687-hinh-2-4381f.webp"
+  },
+  "web_images\\nsg-0689\\ban-toa-nha-van-phong-8-go-vap-nsg-0689-hinh-1-ce125.jpg": {
+    "card": "./web_images/public/card/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-1-ce125.webp",
+    "detail": "./web_images/public/detail/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-1-ce125.webp",
+    "gallery": "./web_images/public/gallery/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-1-ce125.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-1-ce125.webp"
+  },
+  "web_images\\nsg-0689\\ban-toa-nha-van-phong-8-go-vap-nsg-0689-hinh-2-6afb5.jpg": {
+    "card": "./web_images/public/card/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-2-6afb5.webp",
+    "detail": "./web_images/public/detail/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-2-6afb5.webp",
+    "gallery": "./web_images/public/gallery/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-2-6afb5.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-2-6afb5.webp"
+  },
+  "web_images\\nsg-0689\\ban-toa-nha-van-phong-8-go-vap-nsg-0689-hinh-3-35b17.jpg": {
+    "card": "./web_images/public/card/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-3-35b17.webp",
+    "detail": "./web_images/public/detail/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-3-35b17.webp",
+    "gallery": "./web_images/public/gallery/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-3-35b17.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-3-35b17.webp"
+  },
+  "web_images\\nsg-0689\\ban-toa-nha-van-phong-8-go-vap-nsg-0689-hinh-4-4db7c.jpg": {
+    "card": "./web_images/public/card/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-4-4db7c.webp",
+    "detail": "./web_images/public/detail/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-4-4db7c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-4-4db7c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-4-4db7c.webp"
+  },
+  "web_images\\nsg-0689\\ban-toa-nha-van-phong-8-go-vap-nsg-0689-hinh-5-6b674.jpg": {
+    "card": "./web_images/public/card/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-5-6b674.webp",
+    "detail": "./web_images/public/detail/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-5-6b674.webp",
+    "gallery": "./web_images/public/gallery/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-5-6b674.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0689/ban-toa-nha-van-phong-duong-duong-so-18-phuong-8-go-vap-nsg-0689-hinh-5-6b674.webp"
+  },
+  "web_images\\nsg-0690\\ban-toa-nha-van-phong-complex-phuong-1-binh-thanh-nsg-0690-hinh-1-b600d.jpg": {
+    "card": "./web_images/public/card/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-1-b600d.webp",
+    "detail": "./web_images/public/detail/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-1-b600d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-1-b600d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-1-b600d.webp"
+  },
+  "web_images\\nsg-0690\\ban-toa-nha-van-phong-complex-phuong-1-binh-thanh-nsg-0690-hinh-2-1d4df.jpg": {
+    "card": "./web_images/public/card/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-2-1d4df.webp",
+    "detail": "./web_images/public/detail/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-2-1d4df.webp",
+    "gallery": "./web_images/public/gallery/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-2-1d4df.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-2-1d4df.webp"
+  },
+  "web_images\\nsg-0690\\ban-toa-nha-van-phong-complex-phuong-1-binh-thanh-nsg-0690-hinh-3-f384e.jpg": {
+    "card": "./web_images/public/card/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-3-f384e.webp",
+    "detail": "./web_images/public/detail/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-3-f384e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-3-f384e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-3-f384e.webp"
+  },
+  "web_images\\nsg-0690\\ban-toa-nha-van-phong-complex-phuong-1-binh-thanh-nsg-0690-hinh-4-be37c.jpg": {
+    "card": "./web_images/public/card/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-4-be37c.webp",
+    "detail": "./web_images/public/detail/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-4-be37c.webp",
+    "gallery": "./web_images/public/gallery/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-4-be37c.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-4-be37c.webp"
+  },
+  "web_images\\nsg-0690\\ban-toa-nha-van-phong-complex-phuong-1-binh-thanh-nsg-0690-hinh-5-7bef3.jpg": {
+    "card": "./web_images/public/card/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-5-7bef3.webp",
+    "detail": "./web_images/public/detail/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-5-7bef3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-5-7bef3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0690/ban-toa-nha-van-phong-complex-duong-le-van-duyet-phuong-1-binh-thanh-nsg-0690-hinh-5-7bef3.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-1-a1395.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-1-a1395.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-1-a1395.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-1-a1395.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-1-a1395.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-2-b682b.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-2-b682b.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-2-b682b.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-2-b682b.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-2-b682b.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-3-dfc22.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-3-dfc22.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-3-dfc22.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-3-dfc22.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-3-dfc22.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-4-56ca3.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-4-56ca3.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-4-56ca3.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-4-56ca3.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-4-56ca3.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-5-1791e.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-5-1791e.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-5-1791e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-5-1791e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-5-1791e.webp"
+  },
+  "web_images\\nsg-0691\\ban-showroom-thuong-mai-quy-dat-xay-cao-tang-phuong-2-tan-binh-nsg-0691-hinh-6-1d364.jpg": {
+    "card": "./web_images/public/card/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-6-1d364.webp",
+    "detail": "./web_images/public/detail/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-6-1d364.webp",
+    "gallery": "./web_images/public/gallery/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-6-1d364.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0691/ban-showroom-thuong-mai-quy-dat-xay-cao-tang-duong-le-van-sy-phuong-2-tan-binh-nsg-0691-hinh-6-1d364.webp"
+  },
+  "web_images\\nsg-0692\\ban-quy-dat-du-an-quy-dat-xay-cao-tang-phuong-tay-thanh-tan-phu-nsg-0692-hinh-1-a1c67.jpg": {
+    "card": "./web_images/public/card/NSG-0692/ban-quy-dat-du-an-quy-dat-xay-cao-tang-duong-le-trong-tan-phuong-tay-thanh-tan-phu-nsg-0692-hinh-1-a1c67.webp",
+    "detail": "./web_images/public/detail/NSG-0692/ban-quy-dat-du-an-quy-dat-xay-cao-tang-duong-le-trong-tan-phuong-tay-thanh-tan-phu-nsg-0692-hinh-1-a1c67.webp",
+    "gallery": "./web_images/public/gallery/NSG-0692/ban-quy-dat-du-an-quy-dat-xay-cao-tang-duong-le-trong-tan-phuong-tay-thanh-tan-phu-nsg-0692-hinh-1-a1c67.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0692/ban-quy-dat-du-an-quy-dat-xay-cao-tang-duong-le-trong-tan-phuong-tay-thanh-tan-phu-nsg-0692-hinh-1-a1c67.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.webp"
+  },
+  "web_images\\nsg-0693\\ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.jpg": {
+    "card": "./web_images/public/card/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.webp",
+    "detail": "./web_images/public/detail/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.webp",
+    "gallery": "./web_images/public/gallery/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0693/ban-toa-can-ho-dich-vu-chdv-duong-nguyen-trai-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.webp"
+  },
+  "web_images\\nsg-0694\\ban-khach-san-toa-nha-commercial-phuong-tan-phong-quan-7-nsg-0694-hinh-1-650a2.jpg": {
+    "card": "./web_images/public/card/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-1-650a2.webp",
+    "detail": "./web_images/public/detail/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-1-650a2.webp",
+    "gallery": "./web_images/public/gallery/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-1-650a2.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-1-650a2.webp"
+  },
+  "web_images\\nsg-0694\\ban-khach-san-toa-nha-commercial-phuong-tan-phong-quan-7-nsg-0694-hinh-2-a7753.jpg": {
+    "card": "./web_images/public/card/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-2-a7753.webp",
+    "detail": "./web_images/public/detail/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-2-a7753.webp",
+    "gallery": "./web_images/public/gallery/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-2-a7753.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0694/ban-khach-san-toa-nha-commercial-duong-hung-gia-5-phuong-tan-phong-quan-7-nsg-0694-hinh-2-a7753.webp"
+  },
+  "web_images\\nsg-0695\\ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-phuong-15-tan-binh-nsg-0695-hinh-1-5b01e.jpg": {
+    "card": "./web_images/public/card/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-1-5b01e.webp",
+    "detail": "./web_images/public/detail/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-1-5b01e.webp",
+    "gallery": "./web_images/public/gallery/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-1-5b01e.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-1-5b01e.webp"
+  },
+  "web_images\\nsg-0695\\ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-phuong-15-tan-binh-nsg-0695-hinh-2-6c032.jpg": {
+    "card": "./web_images/public/card/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-2-6c032.webp",
+    "detail": "./web_images/public/detail/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-2-6c032.webp",
+    "gallery": "./web_images/public/gallery/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-2-6c032.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-2-6c032.webp"
+  },
+  "web_images\\nsg-0695\\ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-phuong-15-tan-binh-nsg-0695-hinh-3-46828.jpg": {
+    "card": "./web_images/public/card/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-3-46828.webp",
+    "detail": "./web_images/public/detail/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-3-46828.webp",
+    "gallery": "./web_images/public/gallery/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-3-46828.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0695/ban-quy-dat-xay-cao-tang-tru-so-truong-hoc-duong-phan-huy-ich-phuong-15-tan-binh-nsg-0695-hinh-3-46828.webp"
+  },
+  "web_images\\nsg-0696\\ban-toa-nha-van-phong-nha-pho-thuong-mai-phuong-12-quan-10-nsg-0696-hinh-1-ee248.jpg": {
+    "card": "./web_images/public/card/NSG-0696/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-su-van-hanh-phuong-12-quan-10-nsg-0696-hinh-1-ee248.webp",
+    "detail": "./web_images/public/detail/NSG-0696/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-su-van-hanh-phuong-12-quan-10-nsg-0696-hinh-1-ee248.webp",
+    "gallery": "./web_images/public/gallery/NSG-0696/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-su-van-hanh-phuong-12-quan-10-nsg-0696-hinh-1-ee248.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0696/ban-toa-nha-van-phong-nha-pho-thuong-mai-duong-su-van-hanh-phuong-12-quan-10-nsg-0696-hinh-1-ee248.webp"
+  },
+  "web_images\\nsg-0697\\ban-nha-pho-thuong-mai-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0697-hinh-1-96387.jpg": {
+    "card": "./web_images/public/card/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-1-96387.webp",
+    "detail": "./web_images/public/detail/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-1-96387.webp",
+    "gallery": "./web_images/public/gallery/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-1-96387.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-1-96387.webp"
+  },
+  "web_images\\nsg-0697\\ban-nha-pho-thuong-mai-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0697-hinh-2-45525.jpg": {
+    "card": "./web_images/public/card/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-2-45525.webp",
+    "detail": "./web_images/public/detail/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-2-45525.webp",
+    "gallery": "./web_images/public/gallery/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-2-45525.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-2-45525.webp"
+  },
+  "web_images\\nsg-0697\\ban-nha-pho-thuong-mai-toa-nha-van-phong-phuong-ben-thanh-quan-1-nsg-0697-hinh-3-a7ae7.jpg": {
+    "card": "./web_images/public/card/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-3-a7ae7.webp",
+    "detail": "./web_images/public/detail/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-3-a7ae7.webp",
+    "gallery": "./web_images/public/gallery/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-3-a7ae7.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0697/ban-nha-pho-thuong-mai-toa-nha-van-phong-duong-nguyen-trai-phuong-ben-thanh-quan-1-nsg-0697-hinh-3-a7ae7.webp"
+  },
+  "web_images\\nsg-0699\\ban-toa-can-ho-dich-vu-day-tro-dong-tien-phuong-13-binh-thanh-nsg-0699-hinh-1-3eb8.jpg": {
+    "card": "./web_images/public/card/NSG-0699/ban-toa-can-ho-dich-vu-day-tro-dong-tien-duong-pham-van-dong-khu-binh-loi-phuong-13-binh-thanh-nsg-0699-hinh-1-3eb8.webp",
+    "detail": "./web_images/public/detail/NSG-0699/ban-toa-can-ho-dich-vu-day-tro-dong-tien-duong-pham-van-dong-khu-binh-loi-phuong-13-binh-thanh-nsg-0699-hinh-1-3eb8.webp",
+    "gallery": "./web_images/public/gallery/NSG-0699/ban-toa-can-ho-dich-vu-day-tro-dong-tien-duong-pham-van-dong-khu-binh-loi-phuong-13-binh-thanh-nsg-0699-hinh-1-3eb8.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0699/ban-toa-can-ho-dich-vu-day-tro-dong-tien-duong-pham-van-dong-khu-binh-loi-phuong-13-binh-thanh-nsg-0699-hinh-1-3eb8.webp"
+  },
+  "web_images\\nsg-0700\\ban-lo-dat-trong-tp-thu-duc-nsg-0700-hinh-1-6b748.jpg": {
+    "card": "./web_images/public/card/NSG-0700/ban-lo-dat-trong-duong-duong-so-66-gan-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0700-hinh-1-6b748.webp",
+    "detail": "./web_images/public/detail/NSG-0700/ban-lo-dat-trong-duong-duong-so-66-gan-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0700-hinh-1-6b748.webp",
+    "gallery": "./web_images/public/gallery/NSG-0700/ban-lo-dat-trong-duong-duong-so-66-gan-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0700-hinh-1-6b748.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0700/ban-lo-dat-trong-duong-duong-so-66-gan-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0700-hinh-1-6b748.webp"
+  },
+  "web_images\\nsg-0701\\ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg": {
+    "card": "./web_images/public/card/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.webp",
+    "detail": "./web_images/public/detail/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.webp",
+    "gallery": "./web_images/public/gallery/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.webp"
+  },
+  "web_images\\nsg-0701\\ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-2-f43b0.jpg": {
+    "card": "./web_images/public/card/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-2-f43b0.webp",
+    "detail": "./web_images/public/detail/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-2-f43b0.webp",
+    "gallery": "./web_images/public/gallery/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-2-f43b0.webp",
+    "lightbox": "./web_images/public/lightbox/NSG-0701/ban-toa-nha-goc-2-mat-tien-duong-no-trang-long-phuong-12-binh-thanh-nsg-0701-hinh-2-f43b0.webp"
   }
 };
 
