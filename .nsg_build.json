@@ -1,18 +1,18 @@
 {
-  "base_web_commit": "89bc78c3dec99bcbd0dc817d52e5a90b0f00205c",
-  "db_fingerprint": "cf61cfb78efc180639d68d52b065dde7b0e80d93b7db7c40636998ed22cc5d42",
-  "payload_sha256": "684946e1e2d2bd8bc21c8fc6d287019821b17a28c3690556f0a8c1c25dd38bb7",
+  "application_sha256": {
+    "listing_display.py": "1f0a043ea3e99602325eaf150a90a0131d6b3ea825b7eb05d75d4023961a187e",
+    "nhatosg_admin_cms.py": "e231c28cc89befa34f760fcda0d6040e4b6f0683d65f0046e5d9dce0a961e109"
+  },
+  "base_web_commit": "ccd908b9110d9895cee482c8639b1f27b7363878",
+  "db_fingerprint": "0fe6a5c47dbe3f17ba975615877b002e181db2c3e17ab50cfa20f4669dbb5e5f",
+  "index_sha256": "41e1d9b2d8b72f30ed7d58f8cfd1194360e36a9de25363107f876fc03cb680ca",
+  "payload_sha256": "930708caf680b1516b5bac862ec1f016d0dfec452857be13b3e2314add60b9da",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "9bdfe4708aeb8a340c81f3a342ef48f4f519d6fee23ef3db451a0a4085efa12c",
-  "release_id": "category-related-20261117",
-  "index_sha256": "8e4d6cb6ffa1ac8e454356d1c1e82c198f1b97ff0a668e9fd5f654cc29f9a4c6",
-  "application_sha256": {
-    "nhatosg_admin_cms.py": "9bdfe4708aeb8a340c81f3a342ef48f4f519d6fee23ef3db451a0a4085efa12c",
-    "listing_display.py": "1f0a043ea3e99602325eaf150a90a0131d6b3ea825b7eb05d75d4023961a187e"
-  }
+  "publisher_sha256": "e231c28cc89befa34f760fcda0d6040e4b6f0683d65f0046e5d9dce0a961e109",
+  "release_id": "category-related-20261117"
 }
