@@ -2678,6 +2678,13 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return Math.round(monthly * 100) / 100;
     }
 
+    function clean_text(value) {
+      return String(value??'').replace(/\s+/g,' ').trim().replace(/\s+([),.;:])/g,'$1')
+        .replace(/\(\s+/g,'(').replace(/căn\s+góc/giu,'Căn góc')
+        .replace(/(\d)\.(\d{1,2})(?=\s*(?:m²|m2|m\b|năm|tháng))/gu,'$1,$2')
+        .replace(/\s*m(?:2|²)(?=\s|[),.;:]|$)/giu,'m²');
+    }
+
     function formNumber(value) {
       return Number(value).toLocaleString("vi-VN", {maximumFractionDigits: 2});
     }
@@ -2693,7 +2700,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const rental = prop.display_facts?.rental || {};
       if (prop.is_price_masked || !rental.amount_display) return "-";
       const term = rental.remaining_term ? " · " + rental.remaining_term : "";
-      return rental.kind + ": " + rental.amount_display + term;
+      return clean_text(rental.kind + ": " + rental.amount_display + term);
     }
 
     function renderForm2Html(prop) {
@@ -2701,14 +2708,14 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const rental = prop.display_facts?.rental || {};
       const m = computeMetrics(prop);
       const area = Number(prop.specs?.recognized_area_m2 || 0);
-      const specs = '<ul style="list-style:disc;padding-left:1.3em">' + (prop.display_facts?.spec_items || []).map(([key,value]) => '<li><strong>'+esc(key)+':</strong> '+esc(value)+'</li>').join('')+'</ul>';
+      const specs = '<ul style="list-style:disc;padding-left:1.3em">' + (prop.display_facts?.spec_items || []).map(([key,value]) => '<li><strong>'+esc(key)+':</strong> '+esc(clean_text(value))+'</li>').join('')+'</ul>';
       const loc = prop.public_location || {};
       const fallback = [loc.street, loc.ward, loc.district].filter(Boolean).join(", ") + ".";
-      const location = prop.display_facts?.broker_text || fallback;
+      const location = clean_text(prop.display_facts?.broker_text || fallback);
       let finance = "";
       if (!m.isMasked && rental.amount_display) {
         const term = rental.remaining_term ? " · " + rental.remaining_term : "";
-        finance += "<p>" + esc(rental.kind) + ": <strong>" + esc(rental.amount_display) + "</strong>" + esc(term) + "</p>";
+        finance += "<p>" + esc(rental.kind) + ": <strong>" + esc(rental.amount_display) + "</strong>" + esc(clean_text(term)) + "</p>";
       }
       if (!m.isMasked && rental.projected_display) {
         finance += "<p>Dự kiến: <strong>" + esc(rental.projected_display) + "</strong> (khi lấp đầy)</p>";
@@ -2873,7 +2880,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     function displayCategoryName(category) { return canonicalCategory(category); }
 
     function usableDisplayValue(value) {
-      const text = String(value ?? "").trim();
+      const text = clean_text(value);
       return /^(?:(?:phường\s+)?chưa rõ|chưa có thông tin|đang cập nhật|n\/?a|--)[.!]?$/iu.test(text) ? "" : text;
     }
 
@@ -6411,7 +6418,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         specs: {
           recognized_area_m2: Number(raw.specs?.recognized_area_m2 || 0),
           dimensions: usableDisplayValue(raw.specs?.dimensions),
-          structure: String(raw.specs?.structure || "N/A"),
+          structure: clean_text(raw.specs?.structure || "N/A"),
           cashflow: rentalDisplayValue(raw.specs?.cashflow)
         },
         pricing: {
