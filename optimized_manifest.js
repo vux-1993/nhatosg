@@ -4878,8 +4878,10 @@ function resolveVariantImageUrl(originalUrl, variant) {
   if (!originalUrl || typeof originalUrl !== "string") return originalUrl;
   const map = window.__OPTIMIZED_IMAGE_MAP__;
   if (!map) return originalUrl;
-  const cleanKey = originalUrl.replace(/^\.?\//, "").replace(/\//g, "\\").toLowerCase();
-  const entry = map[cleanKey];
+  const clean = originalUrl.replace(/^https?:\/\/[^/]+\//i, "").replace(/^\.?\//, "").toLowerCase();
+  const cleanBack = clean.replace(/\//g, "\\");
+  const cleanFwd = clean.replace(/\\/g, "/");
+  const entry = map[cleanBack] || map[cleanFwd];
   if (entry && entry[variant || "card"]) {
     return entry[variant || "card"];
   }
