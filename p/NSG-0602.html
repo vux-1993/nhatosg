@@ -648,6 +648,52 @@ try {
       color: #FFFFFF;
     }
   }
+<!-- NSG_VIP_UX_STYLE_START -->
+  .p-save-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+    padding: 6px 12px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--bg-soft, #F1F5F9); color: var(--text-main);
+    font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.18s;
+  }
+  html.dark .p-save-btn { background: #1E293B; color: #F8FAFC; border-color: #334155; }
+  .p-save-btn.saved { background: #E11D48; color: #FFFFFF; border-color: #FB7185; }
+  .p-related-sec { margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .p-related-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+  .p-related-head h3 { font-size: 17px; font-weight: 900; color: var(--text-main); margin: 0; }
+  .p-related-more { font-size: 13px; font-weight: 700; color: var(--primary); text-decoration: none; }
+  .p-related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .p-rel-card {
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    background: var(--bg-card); transition: transform 0.18s, box-shadow 0.18s;
+  }
+  .p-rel-card:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,0.12); }
+  .p-rel-img { position: relative; width: 100%; height: 148px; background: #0F172A; }
+  .p-rel-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .p-rel-id {
+    position: absolute; top: 8px; left: 8px; background: #FBBF24; color: #0F172A;
+    font-family: ui-monospace, monospace; font-size: 10.5px; font-weight: 800;
+    padding: 2px 7px; border-radius: 5px;
+  }
+  .p-rel-price {
+    position: absolute; bottom: 8px; right: 8px; background: rgba(15,23,42,0.88);
+    color: #34D399; font-size: 12.5px; font-weight: 800; padding: 3px 8px; border-radius: 7px;
+  }
+  .p-rel-body { padding: 11px 12px; }
+  .p-rel-cat { font-size: 10.5px; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 4px; }
+  .p-rel-title {
+    font-size: 13.5px; font-weight: 800; color: var(--text-main); line-height: 1.38;
+    margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .p-rel-meta { font-size: 11.5px; color: var(--text-sub); font-weight: 600; }
+  @media (max-width: 767px) {
+    .p-related-grid { grid-template-columns: 1fr; gap: 12px; }
+    .p-rel-card { flex-direction: row; min-height: 104px; }
+    .p-rel-img { width: 124px; min-width: 124px; height: auto; }
+    .p-rel-body { flex: 1; min-width: 0; padding: 10px; }
+    .p-save-btn { padding: 6px 9px; font-size: 12px; }
+  }
+<!-- NSG_VIP_UX_STYLE_END -->
 </style>
 </head>
 <body>
@@ -655,7 +701,8 @@ try {
 <header class="site-header">
   <a href="/" class="brand">nhato<span>SG</span></a>
   <div class="header-right">
-    <a href="/" class="header-cta">← Xem Toàn Bộ 350 Tài Sản</a>
+    <a href="/" class="header-cta">← Xem Toàn Bộ 354 Tài Sản</a>
+    <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0602 vào danh sách quan tâm">♡ Lưu</button><!-- NSG_VIP_SAVE_BTN_END -->
     <button type="button" id="pThemeBtn" class="theme-btn" onclick="toggleStaticTheme()" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện Sáng / Tối">🌙</button>
   </div>
 </header>
@@ -705,11 +752,14 @@ try {
     </div>
 
     
-<div class="footer-hub-nav">
+<!-- NSG_VIP_RELATED_START -->
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0517.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0517/ban-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.jpg" data-raw="web_images/NSG-0517/ban-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0517/ban-quy-dat-xay-cao-tang-phuong-25-binh-thanh-nsg-0517-hinh-1-4208.jpg" alt="Ảnh thực tế Đất / Nhà cấp 4 tại Đường Ung Văn Khiêm, Phường 25, Bình Thạnh - Mã NSG-0517" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0517]</span><span class="p-rel-price">70.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Đất / Nhà cấp 4</div><div class="p-rel-title">Bán Quỹ Đất &amp; Tài Sản Hiện Hữu Phường 25, Bình Thạnh – DT 241m², 70 Tỷ</div><div class="p-rel-meta">Đường Ung Văn Khiêm, Phường 25, Bình Thạnh · 241,8m²</div></div></a><a href="/p/NSG-0620.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0620/ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.jpg" data-raw="web_images/NSG-0620/ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0620/ban-quy-dat-tai-san-hien-huu-phuong-5-binh-thanh-nsg-0620-hinh-1-afa29.jpg" alt="Ảnh thực tế Đất / Nhà cấp 4 tại Đường Nguyễn Văn Đậu, Phường 5, Bình Thạnh - Mã NSG-0620" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0620]</span><span class="p-rel-price">72.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Đất / Nhà cấp 4</div><div class="p-rel-title">Bán Quỹ Đất &amp; Tài Sản Hiện Hữu Phường 5, Bình Thạnh – Hầm 3 Tầng, 72 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Văn Đậu, Phường 5, Bình Thạnh · 422m²</div></div></a><a href="/p/NSG-0627.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0627/ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.jpg" data-raw="web_images/NSG-0627/ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0627/ban-quy-dat-tai-san-hien-huu-phuong-14-binh-thanh-nsg-0627-hinh-1-d7616.jpg" alt="Ảnh thực tế Đất / Nhà cấp 4 tại Đường Nguyễn Huy Lượng, Phường 14, Bình Thạnh - Mã NSG-0627" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0627]</span><span class="p-rel-price">72.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Đất / Nhà cấp 4</div><div class="p-rel-title">Bán Quỹ Đất &amp; Tài Sản Hiện Hữu Phường 14, Bình Thạnh – DT 280m², 72 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Huy Lượng, Phường 14, Bình Thạnh · 280,7m²</div></div></a></div></section>
+<!-- NSG_VIP_RELATED_END -->
+    <div class="footer-hub-nav">
   <div class="footer-hub-inner">
     <h4>DANH MỤC ĐẦU TƯ TRỌNG ĐIỂM</h4>
     <div class="footer-hub-grid">
-      <a href="/" class="footer-hub-pill active" aria-current="page" title="Trang chủ nhatoSG">Trang Chủ</a><a href="/building/" class="footer-hub-pill" title="Tòa nhà văn phòng TP.HCM">Building TP.HCM</a><a href="/ban-nha-mat-tien-quan-1.html" class="footer-hub-pill" title="Mặt tiền Quận 1">Nhà Mặt Tiền Q1</a><a href="/ban-nha-mat-tien-quan-3.html" class="footer-hub-pill" title="Mặt tiền Quận 3">Nhà Mặt Tiền Q3</a><a href="/ban-khach-san-chdv-tphcm.html" class="footer-hub-pill" title="Khách sạn và CHDV">Khách Sạn & CHDV</a><a href="/ban-biet-thu-thao-dien.html" class="footer-hub-pill" title="Biệt thự Thảo Điền">Biệt Thự Thảo Điền</a><a href="/ban-building-binh-thanh.html" class="footer-hub-pill" title="Tòa văn phòng Bình Thạnh">Building Bình Thạnh</a><a href="/danh-muc-toan-kho.html" class="footer-hub-pill" title="Toàn kho bất động sản">Danh Mục Toàn Kho</a>
+      <a href="/" class="footer-hub-pill" title="Trang chủ nhatoSG">Trang Chủ</a><a href="/building/" class="footer-hub-pill" title="Tòa nhà văn phòng TP.HCM">Building TP.HCM</a><a href="/ban-nha-mat-tien-quan-1.html" class="footer-hub-pill" title="Mặt tiền Quận 1">Nhà Mặt Tiền Q1</a><a href="/ban-nha-mat-tien-quan-3.html" class="footer-hub-pill" title="Mặt tiền Quận 3">Nhà Mặt Tiền Q3</a><a href="/ban-building-binh-thanh.html" class="footer-hub-pill" title="Tòa văn phòng Bình Thạnh">Building Bình Thạnh</a><a href="/ban-nha-mat-tien-phu-nhuan.html" class="footer-hub-pill" title="Nhà mặt tiền & Building Phú Nhuận">Mặt Tiền Phú Nhuận</a><a href="/ban-nha-mat-tien-tan-binh.html" class="footer-hub-pill" title="Nhà mặt tiền & Building Tân Bình">Mặt Tiền Tân Bình</a><a href="/ban-nha-mat-tien-quan-10.html" class="footer-hub-pill" title="Nhà mặt tiền & Building Quận 10">Mặt Tiền Quận 10</a><a href="/ban-nha-mat-tien-quan-7.html" class="footer-hub-pill" title="Nhà mặt tiền & Biệt thự Quận 7">Nhà & Biệt Thự Q7</a><a href="/ban-nha-mat-tien-tp-thu-duc.html" class="footer-hub-pill" title="Biệt thự, Mặt tiền & Building TP. Thủ Đức">BĐS TP. Thủ Đức</a><a href="/ban-khach-san-chdv-tphcm.html" class="footer-hub-pill" title="Khách sạn và CHDV TP.HCM">Khách Sạn & CHDV</a><a href="/ban-biet-thu-thao-dien.html" class="footer-hub-pill" title="Biệt thự Thảo Điền">Biệt Thự Thảo Điền</a><a href="/danh-muc-toan-kho.html" class="footer-hub-pill" title="Toàn kho bất động sản">Danh Mục Toàn Kho</a>
     </div>
   </div>
 </div>
@@ -737,7 +787,7 @@ try {
 
 <footer class="site-footer">
   <p>© 2026 nhatoSG — Hệ thống Thông tin &amp; Cố vấn Đầu tư Bất động sản Trung tâm TP.HCM</p>
-  <p style="margin-top: 6px;"><a href="/">Xem toàn bộ kho 350 tài sản nhà phố mặt tiền &amp; tòa nhà TP.HCM</a></p>
+  <p style="margin-top: 6px;"><a href="/">Xem toàn bộ kho 354 tài sản nhà phố mặt tiền &amp; tòa nhà TP.HCM</a></p>
 </footer>
 
 <script>
@@ -911,5 +961,68 @@ try {
   }
 })();
 </script>
+<!-- NSG_VIP_UX_SCRIPT_START -->
+<script>
+(function() {
+  var PID = "NSG-0602";
+  function readArr(key) {
+    try {
+      var a = JSON.parse(localStorage.getItem(key) || "[]");
+      return Array.isArray(a) ? a : [];
+    } catch (e) { return []; }
+  }
+  function writeArr(key, arr) {
+    try { localStorage.setItem(key, JSON.stringify(arr)); } catch (e) {}
+  }
+  // Record into Recently Viewed (max 8, MRU first)
+  var recents = readArr("nhatosg_recent_ids").filter(function(x) { return x && x !== PID; });
+  recents.unshift(PID);
+  writeArr("nhatosg_recent_ids", recents.slice(0, 8));
+
+  function syncSavedState() {
+    var saved = readArr("nhatosg_saved_ids");
+    var isSaved = saved.indexOf(PID) !== -1;
+    var btn = document.getElementById("pSaveFavBtn");
+    if (btn) {
+      btn.classList.toggle("saved", isSaved);
+      btn.textContent = isSaved ? "❤️ Đã lưu" : "♡ Lưu";
+    }
+  }
+  window.toggleStaticSaved = function() {
+    var saved = readArr("nhatosg_saved_ids");
+    var idx = saved.indexOf(PID);
+    var nowSaved = false;
+    if (idx === -1) { saved.unshift(PID); nowSaved = true; }
+    else { saved.splice(idx, 1); }
+    writeArr("nhatosg_saved_ids", saved.slice(0, 60));
+    syncSavedState();
+    var toast = document.getElementById("pZaloToast");
+    if (toast) {
+      toast.textContent = nowSaved ? ("❤️ Đã lưu [" + PID + "] vào Tài sản Quan Tâm") : ("Đã bỏ lưu [" + PID + "]");
+      toast.style.display = "block";
+      setTimeout(function() { toast.style.display = "none"; }, 2200);
+    }
+  };
+  function upgradeRelatedWebp() {
+    if (!window.__OPTIMIZED_IMAGE_MAP__) return;
+    var imgs = document.querySelectorAll(".p-related-sec img[data-raw]");
+    for (var i = 0; i < imgs.length; i++) {
+      var raw = String(imgs[i].getAttribute("data-raw") || "").replace(/^\.?\//, "").replace(/\//g, "\\").toLowerCase();
+      var entry = window.__OPTIMIZED_IMAGE_MAP__[raw];
+      if (entry && entry.card) {
+        imgs[i].src = "/" + String(entry.card).replace(/^\.?\//, "");
+      }
+    }
+  }
+  syncSavedState();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", upgradeRelatedWebp);
+  } else {
+    upgradeRelatedWebp();
+  }
+  window.addEventListener("load", upgradeRelatedWebp);
+})();
+</script>
+<!-- NSG_VIP_UX_SCRIPT_END -->
 </body>
 </html>

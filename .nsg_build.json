@@ -1,13 +1,13 @@
 {
-  "base_web_commit": "b16f4a8e1bb65dafb149316117f6c8051c2f0939",
+  "base_web_commit": "decacf6b47ccef5d33fd7165092157ea29671912",
   "db_fingerprint": "0a90eaeaee0622991a54e4121824ccd89a7db37da2af19454dd04c6994205892",
-  "payload_sha256": "1431fc28ae10c4cc0557e809ef465d522806a5d2c7704c565cf07f89594e7954",
+  "payload_sha256": "60f5deb879edd1bd3edf5f5ac7df5e6a836717421c766861ec8fc86c2c323203",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "ce2e851db13ec5828ea5b18d3fb5ea946da1c28b85e98486ad20262f58815ef6",
-  "release_id": "mobile-ux-sync-pr27-20261118"
+  "publisher_sha256": "76081dd66bb7535826a7b11497754cbea7c2864931f70ae59bdb9d35b6ce06dd",
+  "release_id": "master-blueprint-v1-pr29-20261118"
 }
