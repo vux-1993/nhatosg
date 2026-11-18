@@ -1,13 +1,13 @@
 {
-  "base_web_commit": "60756f7d50e7e3b198007c92fda78e70c5a9437c",
+  "base_web_commit": "0fd6c29ed9b140061b3bc633d5a14a7c813c8905",
   "db_fingerprint": "3b56935f742863ac05e9a0e6b7d533c653c43a6454e4871da10c82b03449fc31",
-  "payload_sha256": "aaeb10615117adaae9b8542738a01193f7e638b967d346e848b3a3272e16b177",
+  "payload_sha256": "fd3ecbfac3b45b43b1d771d55b4208844b31b06404695c96374fa27ddb83a970",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "a038d7ec899ee0ae3b5944609a5c4d84ec34193ed7a8df209cb8c25fb5c657d3",
-  "release_id": "overnight-batch3-4-pr26-20261118"
+  "publisher_sha256": "ce2e851db13ec5828ea5b18d3fb5ea946da1c28b85e98486ad20262f58815ef6",
+  "release_id": "mobile-ux-sync-pr27-20261118"
 }
