@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nhà Sài Gòn (nhatoSG) — Bất động sản giá trị thực TP.HCM &amp; TP. Thủ Đức. Tuyển chọn 350 tài sản giá trị thực: Tòa nhà văn phòng, nhà mặt tiền kinh doanh, khách sạn, CHDV và biệt thự trung tâm TP.HCM. Hotline/Zalo: 0916.23.9898 (Vũ)." />
+  <meta name="description" content="Nhà Sài Gòn (nhatoSG) — Bất động sản giá trị thực TP.HCM &amp; TP. Thủ Đức. Tuyển chọn 354 tài sản giá trị thực: Tòa nhà văn phòng, nhà mặt tiền kinh doanh, khách sạn, CHDV và biệt thự trung tâm TP.HCM. Hotline/Zalo: 0916.23.9898 (Vũ)." />
   <title>Bán Nhà Mặt Tiền, Building, Khách Sạn TP.HCM | Nhà Sài Gòn (nhatoSG)</title>
   <link rel="canonical" id="canonicalLinkTag" href="https://nhatosg.com.vn/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -27,7 +27,7 @@
   </script>
   <script src="./nsg_icons.js?v=20261118_pr29"></script>
   <script src="./optimized_manifest.js?v=20261118_pr29" defer></script>
-  <script src="./properties_data.js?v=20261118132121" defer></script>
+  <script src="./properties_data.js?v=20261118151801" defer></script>
   <style>
     html {
       font-size: 17.5px;
@@ -1708,7 +1708,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261118132121";
+    script.src = "./properties_data.js?v=20261118151801";
     script.defer = true;
     script.onload = function() {
       window.__NHATOSG_DATA_READY__ = true;
@@ -4551,6 +4551,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         mustHaveBasement: false,
         categoryKeywords: [],
         categoryExact: null,
+        landSubtype: null,
         streetPhraseNoTone: "",
         freeTokens: []
       };
@@ -4587,21 +4588,26 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         }
       });
 
-      // 3. Phân loại loại hình chính xác (categoryExact)
+      // 3. Phân loại loại hình chính xác (5 danh mục chuẩn + landSubtype)
       if (/\b(?:toa\s+nha|toa\s+van\s+phong|van\s+phong|building|office|cao\s+oc)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Tòa Văn Phòng";
+        parsed.categoryExact = "Tòa Nhà Văn Phòng (Building)";
         parsed.categoryKeywords.push("van phong", "building", "toa");
       } else if (/\b(?:chdv|can\s+ho\s+dich\s+vu|khach\s+san|hotel)\b/i.test(qNoTone)) {
         parsed.categoryExact = "Tòa CHDV / Khách Sạn";
         parsed.categoryKeywords.push("khach san", "chdv");
-      } else if (/\b(?:biet\s+thu|villa|dinh\s+thu)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Biệt Thự / Dinh Thự";
-        parsed.categoryKeywords.push("biet thu", "dinh thu");
-      } else if (/\b(?:quy\s+dat|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|du\s+an)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Quỹ Đất Xây Cao Tầng";
-        parsed.categoryKeywords.push("quy dat", "lo dat", "dat");
-      } else if (/\b(?:nha\s+pho|mat\s+tien|shophouse)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Nhà Phố Mặt Tiền";
+      } else if (/\b(?:biet\s+thu|villa|dinh\s+thu|compound)\b/i.test(qNoTone)) {
+        parsed.categoryExact = "Biệt Thự / Dinh Thự / Compound";
+        parsed.categoryKeywords.push("biet thu", "dinh thu", "compound");
+      } else if (/\b(?:quy\s+dat|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|lo\s+dat(?:\s+trong)?|nha\s+cap\s*4|cap\s*4|nha\s+cu|du\s+an)\b/i.test(qNoTone)) {
+        parsed.categoryExact = "Đất / Nhà cấp 4";
+        parsed.categoryKeywords.push("quy dat", "lo dat", "dat", "cap 4", "nha cu");
+        if (/\b(?:dat\s+trong|lo\s+dat\s+trong)\b/i.test(qNoTone)) {
+          parsed.landSubtype = "vacant";
+        } else if (/\b(?:nha\s+cap\s*4|cap\s*4|nha\s+cu)\b/i.test(qNoTone)) {
+          parsed.landSubtype = "old_house";
+        }
+      } else if (/\b(?:nha\s+pho|mat\s+tien|shophouse|nha\s+mat\s+tien)\b/i.test(qNoTone)) {
+        parsed.categoryExact = "Nhà Mặt Tiền Kinh Doanh";
         parsed.categoryKeywords.push("nha pho", "mat tien");
       }
 
@@ -4654,11 +4660,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         .replace(/(?:dong tien|thue|hd thue|hdt|thu nhap)\s*(?:tren|>|tu)?\s*\d+\s*(?:tr|trieu)/g, " ");
 
       const catPhrases = [
-        "toa van phong", "van phong", "building", "cao oc", "office",
+        "toa nha van phong", "toa van phong", "toa nha", "van phong", "building", "cao oc", "office",
         "toa chdv", "chdv", "can ho dich vu", "khach san", "hotel",
-        "biet thu", "dinh thu", "villa",
-        "quy dat xay cao tang", "quy dat", "dat lon", "dat trong", "du an",
-        "nha pho mat tien", "nha pho", "mat tien", "shophouse"
+        "biet thu", "dinh thu", "villa", "compound",
+        "quy dat xay cao tang", "quy dat", "dat lon", "lo dat trong", "dat trong", "lo dat", "nha cap 4", "cap 4", "nha cu", "du an",
+        "nha mat tien kinh doanh", "nha mat tien", "nha pho mat tien", "nha pho", "mat tien", "shophouse"
       ];
       catPhrases.forEach(cp => {
         residual = residual.replace(new RegExp(`(^|\\s)${cp}(\\s|$)`, "gi"), " ");
@@ -4700,20 +4706,21 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const explicitDistrict = /\b(?:quan\s*\d+|q\.?\s*\d+|binh thanh|phu nhuan|tan binh|tan phu|go vap|binh tan)\b/.test(qNoTone);
       if (region.length && !explicitDistrict) parsed.districts = region.map(label => ({ label, matchTokens: [removeVietnameseTones(label)] }));
       if (/\bchi quan 1 (?:va|hoac|&) quan 3\b/.test(qNoTone)) parsed.districts = ["Quận 1", "Quận 3"].map(label => ({ label, matchTokens: [removeVietnameseTones(label)] }));
-      const categoryCodes = Object.keys(AI_CATEGORY_LABELS).filter(c => AI_CATEGORY_LABELS[c] === parsed.categoryExact);
+      const categoryCodes = parsed.categoryExact ? [parsed.categoryExact] : [];
       const publicStreets = [...new Set(propertiesData.map(p => String(p.public_location?.street || "").trim()).filter(Boolean))];
       const streetQuery = qNoTone.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ");
       const streetKeywords = publicStreets.filter(street => {
         const s = removeVietnameseTones(street).replace(/^duong\s+/, "");
         return s.length > 3 && (` ${streetQuery} `).includes(` ${s} `) && cleanSearchStreetKeyword(street);
       });
-      const hasStructured = parsed.propCode || parsed.districts.length || categoryCodes.length ||
+      const hasStructured = parsed.propCode || parsed.districts.length || categoryCodes.length || parsed.landSubtype ||
         [parsed.minPriceBil, parsed.maxPriceBil, parsed.minAreaM2, parsed.minWidthM, parsed.minCashflowMil].some(v => v !== null) || parsed.mustHaveBasement || parsed.onlyUpdate;
       const streetOnly = cleanSearchStreetKeyword(cleanedResidual);
       const floorQuery = qNoTone.match(/(?:tu|tren|it nhat)?\s*(\d+)\s*(?:tang|lau)\b/);
       const filter = {
         property_id: parsed.propCode ? `NSG-${parsed.propCode.padStart(4, "0")}` : null,
         districts: parsed.districts.map(d => d.label), categories: categoryCodes,
+        landSubtype: parsed.landSubtype || null,
         street_keywords: streetKeywords.length ? streetKeywords.slice(0, 4) : (!hasStructured && streetOnly ? [streetOnly] : []),
         min_price_billion: parsed.minPriceBil, max_price_billion: parsed.maxPriceBil,
         min_width_m: parsed.minWidthM, min_area_m2: parsed.minAreaM2, min_floors: floorQuery ? Number(floorQuery[1]) : null,
@@ -4812,34 +4819,37 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return parsed;
     }
     function adaptAiSearchFilter(filter) {
+      if (!filter || typeof filter !== "object" || Array.isArray(filter)) return null;
+      const normalized = Object.hasOwn(filter, "landSubtype") ? { ...filter } : { ...filter, landSubtype: null };
       const numbers = ["min_price_billion", "max_price_billion", "min_width_m", "min_area_m2", "min_floors", "min_rent_million"];
       const booleans = ["has_basement", "has_rental_income", "only_discounted"];
-      const keys = ["property_id", "districts", "street_keywords", "categories", ...numbers, ...booleans];
+      const keys = ["property_id", "districts", "street_keywords", "categories", "landSubtype", ...numbers, ...booleans];
       const districts = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Bình Thạnh", "Phú Nhuận", "Tân Bình", "Tân Phú", "Gò Vấp", "Quận Gò Vấp", "Bình Tân", "TP. Thủ Đức", "Thủ Đức", "Bình Chánh", "Nhà Bè", "Hóc Môn", "Củ Chi", "Cần Giờ"];
-      if (!filter || typeof filter !== "object" || Array.isArray(filter) || Object.keys(filter).length !== keys.length || keys.some(k => !Object.hasOwn(filter, k))) return null;
-      if (filter.property_id !== null && (typeof filter.property_id !== "string" || !/^NSG-\d{4}$/.test(filter.property_id))) return null;
+      if (Object.keys(normalized).length !== keys.length || keys.some(k => !Object.hasOwn(normalized, k))) return null;
+      if (![null, "vacant", "old_house"].includes(normalized.landSubtype)) return null;
+      if (normalized.property_id !== null && (typeof normalized.property_id !== "string" || !/^NSG-\d{4}$/.test(normalized.property_id))) return null;
       for (const [key, allowed, max] of [["districts", districts, 8], ["categories", Object.keys(AI_CATEGORY_LABELS), 5], ["street_keywords", null, 4]]) {
-        if (!Array.isArray(filter[key]) || filter[key].length > max || filter[key].some(v => typeof v !== "string" || !v.trim() || v.length > 60 || /[<>\x00-\x1f]/.test(v) || (allowed && !allowed.includes(v)))) return null;
+        if (!Array.isArray(normalized[key]) || normalized[key].length > max || normalized[key].some(v => typeof v !== "string" || !v.trim() || v.length > 60 || /[<>\x00-\x1f]/.test(v) || (allowed && !allowed.includes(v)))) return null;
       }
-      if (numbers.some(k => filter[k] !== null && (typeof filter[k] !== "number" || !Number.isFinite(filter[k]) || filter[k] < 0 || filter[k] > 1000000))) return null;
-      if (filter.min_floors !== null && (!Number.isInteger(filter.min_floors) || filter.min_floors > 200)) return null;
-      if (filter.min_price_billion !== null && filter.max_price_billion !== null && filter.min_price_billion > filter.max_price_billion) return null;
-      if (booleans.some(k => filter[k] !== null && typeof filter[k] !== "boolean")) return null;
-      filter = { ...filter, street_keywords: filter.street_keywords.map(cleanSearchStreetKeyword).filter(Boolean) };
-      if (!Object.values(filter).some(v => Array.isArray(v) ? v.length : v !== null)) return null;
+      if (numbers.some(k => normalized[k] !== null && (typeof normalized[k] !== "number" || !Number.isFinite(normalized[k]) || normalized[k] < 0 || normalized[k] > 1000000))) return null;
+      if (normalized.min_floors !== null && (!Number.isInteger(normalized.min_floors) || normalized.min_floors > 200)) return null;
+      if (normalized.min_price_billion !== null && normalized.max_price_billion !== null && normalized.min_price_billion > normalized.max_price_billion) return null;
+      if (booleans.some(k => normalized[k] !== null && typeof normalized[k] !== "boolean")) return null;
+      const cleanFilter = { ...normalized, street_keywords: normalized.street_keywords.map(cleanSearchStreetKeyword).filter(Boolean) };
+      if (!Object.values(cleanFilter).some(v => Array.isArray(v) ? v.length : v !== null)) return null;
       const parsed = {
         propCode: null, districts: [], maxPriceBil: null, minPriceBil: null, minAreaM2: null,
         minWidthM: null, minCashflowMil: null, onlyUpdate: false, mustHaveBasement: false,
-        categoryKeywords: [], categoryExact: null, streetPhraseNoTone: "", freeTokens: []
+        categoryKeywords: [], categoryExact: null, landSubtype: cleanFilter.landSubtype, streetPhraseNoTone: "", freeTokens: []
       };
-      parsed.propCode = filter.property_id ? filter.property_id.slice(4) : null;
-      parsed.districts = filter.districts.map(label => ({ label, matchTokens: /thu duc|quan [29]$/.test(removeVietnameseTones(label)) ? ["thu duc", "quan 2", "quan 9"] : [removeVietnameseTones(label).replace(/^quan go vap$/, "go vap")] }));
-      parsed.minPriceBil = filter.min_price_billion;
-      parsed.maxPriceBil = filter.max_price_billion;
-      parsed.minAreaM2 = filter.min_area_m2;
-      parsed.minWidthM = filter.min_width_m;
-      parsed.minCashflowMil = filter.min_rent_million;
-      parsed.aiFilter = filter;
+      parsed.propCode = cleanFilter.property_id ? cleanFilter.property_id.slice(4) : null;
+      parsed.districts = cleanFilter.districts.map(label => ({ label, matchTokens: /thu duc|quan [29]$/.test(removeVietnameseTones(label)) ? ["thu duc", "quan 2", "quan 9"] : [removeVietnameseTones(label).replace(/^quan go vap$/, "go vap")] }));
+      parsed.minPriceBil = cleanFilter.min_price_billion;
+      parsed.maxPriceBil = cleanFilter.max_price_billion;
+      parsed.minAreaM2 = cleanFilter.min_area_m2;
+      parsed.minWidthM = cleanFilter.min_width_m;
+      parsed.minCashflowMil = cleanFilter.min_rent_million;
+      parsed.aiFilter = cleanFilter;
       return parsed;
     }
 
@@ -5019,7 +5029,9 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const tags = [];
       if (filter?.property_id) tags.push(filter.property_id);
       if (filter?.districts.length) tags.push(filter.districts.join(" / "));
-      if (filter?.categories.length) tags.push(filter.categories.map(c => AI_CATEGORY_LABELS[c]).join(" / "));
+      if (filter?.categories.length) tags.push([...new Set(filter.categories.map(c => AI_CATEGORY_LABELS[c] || c))].join(" / "));
+      if (filter?.landSubtype === "vacant") tags.push("Nhóm con: Đất trống");
+      else if (filter?.landSubtype === "old_house") tags.push("Nhóm con: Nhà cấp 4 / Nhà cũ");
       if (filter?.street_keywords.length) tags.push(`Đường: ${filter.street_keywords.join(" / ")}`);
       if (filter?.min_price_billion !== null && filter?.min_price_billion !== undefined) tags.push(`Từ ${filter.min_price_billion} tỷ`);
       if (filter?.max_price_billion !== null && filter?.max_price_billion !== undefined) tags.push(`Đến ${filter.max_price_billion} tỷ`);
@@ -7170,7 +7182,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
       return new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "./properties_data.js?v=20261118132121&t=" + Date.now();
+        script.src = "./properties_data.js?v=20261118151801&t=" + Date.now();
         script.onload = function() {
           resolve(window.__NHATOSG_DATA__ || null);
         };
@@ -7326,7 +7338,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           };
         } else {
           var script = document.createElement("script");
-          script.src = "./properties_data.js?v=20261118132121&t=" + Date.now();
+          script.src = "./properties_data.js?v=20261118151801&t=" + Date.now();
           script.onload = function() {
             renderPublicCatalogWithData();
           };

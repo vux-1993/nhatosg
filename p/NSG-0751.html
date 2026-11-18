@@ -812,10 +812,12 @@ try {
 
   function resolveRootWebp(rawPath, variant, fallbackAbs) {
     if (!rawPath || !window.__OPTIMIZED_IMAGE_MAP__) return fallbackAbs;
-    var key = String(rawPath).replace(/^https?:\/\/[^/]+\//i, "").replace(/^\.?\//, "").replace(/\//g, "\\").toLowerCase();
-    var entry = window.__OPTIMIZED_IMAGE_MAP__[key];
+    var clean = String(rawPath).replace(/^https?:\/\/[^/]+\//i, "").replace(/^\.?\//, "").toLowerCase();
+    var kBack = clean.replace(/\//g, "\\");
+    var kFwd = clean.replace(/\\/g, "/");
+    var entry = window.__OPTIMIZED_IMAGE_MAP__[kBack] || window.__OPTIMIZED_IMAGE_MAP__[kFwd];
     if (entry && entry[variant]) {
-      return "/" + String(entry[variant]).replace(/^\.?\//, "");
+      return "/" + String(entry[variant]).replace(/^\.?\//, "").replace(/\\/g, "/");
     }
     return fallbackAbs;
   }
@@ -1007,10 +1009,12 @@ try {
     if (!window.__OPTIMIZED_IMAGE_MAP__) return;
     var imgs = document.querySelectorAll(".p-related-sec img[data-raw]");
     for (var i = 0; i < imgs.length; i++) {
-      var raw = String(imgs[i].getAttribute("data-raw") || "").replace(/^\.?\//, "").replace(/\//g, "\\").toLowerCase();
-      var entry = window.__OPTIMIZED_IMAGE_MAP__[raw];
+      var clean = String(imgs[i].getAttribute("data-raw") || "").replace(/^https?:\/\/[^/]+\//i, "").replace(/^\.?\//, "").toLowerCase();
+      var kBack = clean.replace(/\//g, "\\");
+      var kFwd = clean.replace(/\\/g, "/");
+      var entry = window.__OPTIMIZED_IMAGE_MAP__[kBack] || window.__OPTIMIZED_IMAGE_MAP__[kFwd];
       if (entry && entry.card) {
-        imgs[i].src = "/" + String(entry.card).replace(/^\.?\//, "");
+        imgs[i].src = "/" + String(entry.card).replace(/^\.?\//, "").replace(/\\/g, "/");
       }
     }
   }

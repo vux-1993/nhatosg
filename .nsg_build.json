@@ -1,13 +1,13 @@
 {
-  "base_web_commit": "decacf6b47ccef5d33fd7165092157ea29671912",
+  "base_web_commit": "ab26632dd5efe42546d0631332db86c1cc58ddb9",
   "db_fingerprint": "0a90eaeaee0622991a54e4121824ccd89a7db37da2af19454dd04c6994205892",
-  "payload_sha256": "60f5deb879edd1bd3edf5f5ac7df5e6a836717421c766861ec8fc86c2c323203",
+  "payload_sha256": "cf25cadd2aeacbb95893f6717a3f38cdf9e87d5521b81226b85351c7707f5dea",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "76081dd66bb7535826a7b11497754cbea7c2864931f70ae59bdb9d35b6ce06dd",
-  "release_id": "master-blueprint-v1-pr29-20261118"
+  "publisher_sha256": "7d8e870cbdb44cb3062e8a53c386cdba445438389921f9dfc781e65f4e5cd7a6",
+  "release_id": "final-polish-pr30-sync356-20261118"
 }
