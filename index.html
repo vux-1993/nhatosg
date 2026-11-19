@@ -27,7 +27,7 @@
   </script>
   <script src="./nsg_icons.js?v=20261118_pr29"></script>
   <script src="./optimized_manifest.js?v=20261118_pr29" defer></script>
-  <script src="./properties_data.js?v=20261118151801" defer></script>
+  <script src="./properties_data.js?v=20261119202709" defer></script>
   <style>
     html {
       font-size: 17.5px;
@@ -91,13 +91,6 @@
     ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
     /* Watermark chuẩn đặt chính giữa ảnh, độ đậm rõ nét chống xóa */
-    /* KHÓA BẢO VỆ CHỐNG TẢI ẢNH GỐC & CHẶN MENU CHUỘT PHẢI / NHẤN GIỮ TRÊN MOBILE & PC */
-    img, .property-card-item img, .gallery-container img, #galleryMainImage, #lightboxMainImg {
-      -webkit-touch-callout: none !important;
-      -webkit-user-select: none !important;
-      user-select: none !important;
-      pointer-events: none !important;
-    }
 
     html, body {
       overflow-x: hidden;
@@ -388,7 +381,6 @@
     /* 6. ĐỒNG BỘ 4 CỬA SỔ MODAL & DRAWER TRONG DARK MODE */
     body.v5-dark-mode #propertyModal > div,
     body.v5-dark-mode #insightModal > div,
-    body.v5-dark-mode #memberAuthModal > div,
     body.v5-dark-mode #compareModal > div,
     body.v5-dark-mode #advancedFilterDrawer {
       background-color: #0F172A !important;
@@ -396,8 +388,7 @@
       border-color: rgba(251, 191, 36, 0.38) !important;
       box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.92), 0 0 35px rgba(251, 191, 36, 0.12) !important;
     }
-    body.v5-dark-mode #propertyModal > div > div:first-child,
-    body.v5-dark-mode #memberAuthModal .bg-slate-50 {
+    body.v5-dark-mode #propertyModal > div > div:first-child {
       background-color: #0B1120 !important;
       border-color: #1E293B !important;
     }
@@ -465,48 +456,6 @@
     }
     .aspect-square {
       aspect-ratio: 1 / 1;
-    }
-    .auto-rows-fr {
-      grid-auto-rows: minmax(0, 1fr);
-    }
-    @keyframes skeleton-shimmer {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .skeleton-shimmer {
-      position: absolute;
-      inset: 0;
-      background-color: #e2e8f0;
-      overflow: hidden;
-      z-index: 10;
-      pointer-events: none;
-      transition: opacity 0.35s ease-out;
-    }
-    .skeleton-shimmer::after {
-      content: "";
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      transform: translateX(-100%);
-      background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.6) 20%,
-        rgba(255, 255, 255, 0.8) 60%,
-        rgba(255, 255, 255, 0)
-      );
-      animation: skeleton-shimmer 1.8s infinite;
-    }
-    .dark .skeleton-shimmer {
-      background-color: #1e293b;
-    }
-    .dark .skeleton-shimmer::after {
-      background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0,
-        rgba(255, 255, 255, 0.08) 20%,
-        rgba(255, 255, 255, 0.15) 60%,
-        rgba(255, 255, 255, 0)
-      );
     }
     img.lazy-property-img {
       transition: opacity 0.35s ease-in-out, transform 0.5s ease-out;
@@ -1708,7 +1657,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261118151801";
+    script.src = "./properties_data.js?v=20261119202709";
     script.defer = true;
     script.onload = function() {
       window.__NHATOSG_DATA_READY__ = true;
@@ -1813,10 +1762,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       </nav>
 
       <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 whitespace-nowrap">
-        <button type="button" id="headerAiBtn" onclick="toggleAiCoPilot()" title="Trợ lý AI Phân Tích (Admin)" style="display: none !important;" class="hidden px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-xs sm:text-[13px] items-center gap-1.5 transition shadow-xs cursor-pointer whitespace-nowrap" aria-hidden="true">
-          <span>✨</span>
-          <span class="hidden sm:inline">AI Phân Tích</span>
-        </button>
         <button
           type="button"
           id="headerSavedBtn"
@@ -2474,19 +2419,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
             </div>
           </details>
 
-          <!-- Accordion 2: Ước tính giá trị nhà xây sẵn & Đơn giá đất thực tế -->
-          <details id="accUnitCost" open class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
-            <summary class="cursor-pointer font-extrabold text-sm sm:text-base text-[#0F172A] p-4 bg-slate-50 group-open:bg-slate-100 flex items-center justify-between transition select-none">
-              <span class="flex items-center gap-2">
-                <i data-lucide="calculator" class="w-4 h-4 text-[#0284C7]"></i>
-                <span>Ước tính giá trị nhà xây sẵn &amp; Đơn giá đất thực tế</span>
-              </span>
-              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform"></i>
-            </summary>
-            <div class="p-4 sm:p-5 border-t border-slate-100">
-              <div id="modalUnitCostBreakdown"></div>
-            </div>
-          </details>
 
           <!-- Accordion 3: Lịch sử thay đổi giá chào -->
           <details id="accPriceHistory" class="group rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-2xs">
@@ -2703,55 +2635,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     </div>
   </div>
 
-    <!-- =========================================================================
-       MODAL 4: THÀNH VIÊN & KHÁCH HÀNG THÂN THIẾT NHATOSG (V5.2)
-       ========================================================================= -->
-  <!-- [V6 RETIRED] Member Auth Modal retired. Inquiries redirected to direct Zalo consultation (0916.23.9898) -->
-  <div id="memberAuthModal" class="hidden" style="display:none;" aria-hidden="true"></div>
-  <!-- === NHATOSG AI CO-PILOT DRAWER (ADMIN ONLY) === -->
-<div id="aiCoPilotDrawer" class="hidden fixed inset-y-0 right-0 w-full sm:w-[450px] bg-[#0B1120] border-l border-amber-400/30 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col" style="display: none !important;" aria-hidden="true">
-  <!-- Header -->
-  <div class="px-5 py-4 border-b border-slate-800 bg-[#0F172A] flex justify-between items-center">
-    <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-full bg-amber-400/20 border border-amber-400/50 flex items-center justify-center text-amber-400">✨</div>
-      <div>
-        <h3 class="text-white font-extrabold text-sm uppercase tracking-wide">nhatoSG AI Co-Pilot</h3>
-        <p class="text-xs text-emerald-400 font-mono">Trợ lý Phân tích Hệ thống</p>
-      </div>
-    </div>
-    <button onclick="toggleAiCoPilot()" class="text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition">✕</button>
-  </div>
-
-
-
-  <!-- Chat History -->
-  <div id="aiChatHistory" class="flex-1 overflow-y-auto p-5 space-y-4 bg-[#060A12]">
-    <div class="flex gap-3">
-      <div class="w-7 h-7 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-xs shrink-0">✨</div>
-      <div class="bg-slate-800 text-slate-200 text-[13.5px] p-3 rounded-2xl rounded-tl-sm leading-relaxed border border-slate-700">
-        Chào sếp, tôi là AI phân tích dữ liệu của nhatoSG. Sếp muốn so sánh tài sản, định giá hay viết bài đăng Zalo cho căn nào?
-      </div>
-    </div>
-  </div>
-
-  <!-- Chat Input -->
-  <div class="p-4 border-t border-slate-800 bg-[#0F172A]">
-    <div id="aiContextBadge" class="hidden mb-2 px-2 py-1 rounded bg-sky-500/20 border border-sky-500/30 text-[11px] text-sky-300 font-mono w-max">
-      Đính kèm ngữ cảnh: Căn <span id="aiContextPropId"></span>
-    </div>
-    <div class="relative">
-      <textarea id="aiChatInput" rows="2" placeholder="Hỏi AI phân tích..." class="w-full bg-slate-900 border border-slate-700 rounded-xl pl-4 pr-12 py-3 text-white text-[14px] focus:border-amber-400 outline-none resize-none leading-relaxed"></textarea>
-      <button onclick="sendAiMessage()" id="aiSendBtn" class="absolute right-2 bottom-2 w-8 h-8 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-900 flex items-center justify-center transition">
-        ➤
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Nút Float Mở Chat AI -->
-<button id="floatAiBtn" onclick="toggleAiCoPilot()" class="hidden fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 shadow-[0_0_20px_rgba(251,191,36,0.4)] text-slate-900 items-center justify-center text-2xl cursor-pointer hover:scale-110 transition-transform" style="display: none !important;" aria-hidden="true">
-  ✨
-</button>
 
   <!-- END OF MODALS (DÁN TIẾP ĐỢT 2 NGAY DƯỚI DÒNG NÀY) -->
 <!-- =========================================================================
@@ -3365,28 +3248,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
     }
 
-    async function sha256Hex(str) {
-      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-    }
-    window.sha256Hex = sha256Hex;
-
-    async function computeClientAuthToken(phone, pin, role = "MEMBER") {
-      const cleanPhone = String(phone || "").replace(/\D/g, "");
-      let cleanPin = String(pin || "").trim();
-      if (cleanPin.length !== 64 || !/^[0-9a-fA-F]{64}$/.test(cleanPin)) {
-        cleanPin = await sha256Hex(cleanPin);
-      }
-      const cleanRole = String(role || "MEMBER").toUpperCase().trim();
-      let h = "NSG_V55::" + cleanPhone + "::" + cleanPin + "::" + cleanRole;
-      const enc = new TextEncoder();
-      for (let i = 0; i < 500; i++) {
-        const buf = await crypto.subtle.digest("SHA-256", enc.encode(h));
-        h = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
-      }
-      return h;
-    }
-    window.computeClientAuthToken = computeClientAuthToken;
 
     function isCurrentUserAdmin() {
       const token = localStorage.getItem("NSG_ADMIN_TOKEN") || sessionStorage.getItem("NSG_ADMIN_TOKEN");
@@ -3426,37 +3287,17 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         }
       }
 
-      const floatAiBtn = document.getElementById("floatAiBtn");
-      const headerAiBtn = document.getElementById("headerAiBtn");
       const modalAdminPrintBtn = document.getElementById("modalAdminPrintBtn");
 
       if (isAdmin && isLocalAdminRuntime()) {
-        if (floatAiBtn) {
-          floatAiBtn.classList.remove("hidden");
-          floatAiBtn.style.display = "flex";
-        }
-        if (headerAiBtn) {
-          headerAiBtn.classList.remove("hidden");
-          headerAiBtn.style.display = "inline-flex";
-        }
         if (modalAdminPrintBtn) modalAdminPrintBtn.style.display = "inline-flex";
       } else {
-        if (floatAiBtn) {
-          floatAiBtn.classList.add("hidden");
-          floatAiBtn.style.display = "none";
-        }
-        if (headerAiBtn) {
-          headerAiBtn.classList.add("hidden");
-          headerAiBtn.style.display = "none";
-        }
         if (modalAdminPrintBtn) modalAdminPrintBtn.style.display = "none";
       }
     }
     window.updateMemberHeaderUI = updateHeaderMemberStatus;
     window.printAdminPropertyPDF = function() { window.print(); };
 
-    /* === NHATOSG AI CO-PILOT LOGIC === */
-    let isAiDrawerOpen = false;
 
     // QUY TẮC XÁC ĐỊNH ADMIN LOCAL HỢP LỆ (KHÔNG DỰA VÀO QUERY / HASH / TOKEN PUBLIC)
     function isLocalAdminRuntime() {
@@ -3474,415 +3315,17 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     }
     window.isLocalAdminRuntime = isLocalAdminRuntime;
 
-    // KHÓA HOÀN TOÀN AI CO-PILOT TRÊN WEBSITE PUBLIC NGAY TỪ KHỞI TẠO
-    if (!isLocalAdminRuntime()) {
-      try {
-        document.getElementById("aiCoPilotDrawer")?.remove();
-        document.getElementById("floatAiBtn")?.remove();
-        document.getElementById("headerAiBtn")?.remove();
-      } catch (e) {}
-
-      // Safe no-op stubs
-      window.toggleAiCoPilot = function() {};
-      window.toggleAiDrawer = function() {};
-      window.sendAiMessage = function() {};
-      window.updateAiContextBadge = function() {};
-    } else {
-      // Chỉ đăng ký phím tắt khi ở môi trường Local Admin Cổng 8888
-      window.addEventListener("keydown", (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === "a") {
-          e.preventDefault();
-          toggleAiCoPilot();
-        }
-      });
-    }
-
-    function toggleAiCoPilot() {
-      if (!isLocalAdminRuntime()) {
-        return; // Hoàn toàn vô hiệu hóa AI Co-Pilot trên public web
-      }
-      const drawer = document.getElementById("aiCoPilotDrawer");
-      if (!drawer) return;
-      isAiDrawerOpen = !isAiDrawerOpen;
-      if (isAiDrawerOpen) {
-        drawer.classList.remove("hidden");
-        drawer.style.display = "flex";
-        drawer.classList.remove("translate-x-full");
-        try {
-          localStorage.removeItem("NSG_GEMINI_API_KEY");
-          sessionStorage.removeItem("NSG_GEMINI_API_KEY");
-        } catch(e) {}
-        updateAiContextBadge();
-        const chatInput = document.getElementById("aiChatInput");
-        if (chatInput) {
-          setTimeout(() => chatInput.focus(), 300);
-          if (!chatInput.dataset.enterBound) {
-            chatInput.dataset.enterBound = "true";
-            chatInput.addEventListener("keydown", (e) => {
-              if (e.key === "Enter" && !e.shiftKey) {
-                e.preventDefault();
-                sendAiMessage();
-              }
-            });
-          }
-        }
-      } else {
-        drawer.classList.add("translate-x-full");
-        setTimeout(() => {
-          if (!isAiDrawerOpen) {
-            drawer.classList.add("hidden");
-            drawer.style.display = "none";
-          }
-        }, 300);
-      }
-    }
-    if (isLocalAdminRuntime()) {
-      window.toggleAiCoPilot = toggleAiCoPilot;
-      window.toggleAiDrawer = toggleAiCoPilot;
-    }
-
     // Gemini API Key được quản lý 100% phía Server Core (Port 8888), Frontend không lưu Key
     try {
       localStorage.removeItem("NSG_GEMINI_API_KEY");
       sessionStorage.removeItem("NSG_GEMINI_API_KEY");
     } catch(e) {}
 
-    function updateAiContextBadge() {
-      if (!isLocalAdminRuntime()) return;
-      const badge = document.getElementById("aiContextBadge");
-      const propIdSpan = document.getElementById("aiContextPropId");
-      if (!badge || !propIdSpan) return;
-      if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
-        badge.classList.remove("hidden");
-        propIdSpan.textContent = activeModalProperty.property_id;
-      } else {
-        badge.classList.add("hidden");
-      }
-    }
-
-    function addAiMessage(text, isUser = false) {
-      if (!isLocalAdminRuntime()) return;
-      const history = document.getElementById("aiChatHistory");
-      if (!history) return;
-      const msgDiv = document.createElement("div");
-      msgDiv.className = isUser ? "flex gap-3 flex-row-reverse" : "flex gap-3";
-
-      const safeText = esc(text);
-      let innerHtml = "";
-      if (isUser) {
-        innerHtml = `<div class="bg-amber-500 text-slate-900 text-[13.5px] p-3 rounded-2xl rounded-tr-sm leading-relaxed max-w-[85%] font-medium">${safeText.replace(/\n/g, '<br>')}</div>`;
-      } else {
-        const formattedText = safeText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-        innerHtml = `<div class="w-7 h-7 rounded-full bg-amber-400/20 border border-amber-400 flex items-center justify-center text-xs shrink-0">✨</div>
-                     <div class="bg-slate-800 text-slate-200 text-[13.5px] p-3 rounded-2xl rounded-tl-sm leading-relaxed border border-slate-700 max-w-[85%]">${formattedText}</div>`;
-      }
-      msgDiv.innerHTML = innerHtml;
-      history.appendChild(msgDiv);
-      history.scrollTop = history.scrollHeight;
-    }
-
-    async function sendAiMessage() {
-      if (!isLocalAdminRuntime()) return;
-      const inputEl = document.getElementById("aiChatInput");
-      const userText = inputEl ? inputEl.value.trim() : "";
-      if (!userText) return;
-
-      inputEl.value = "";
-      addAiMessage(userText, true);
-
-      const sendBtn = document.getElementById("aiSendBtn");
-      if (sendBtn) {
-        sendBtn.innerHTML = "⏳";
-        sendBtn.disabled = true;
-      }
-
-      // 1. Ngữ cảnh căn đang mở trong Modal
-      let contextString = "";
-      if (typeof activeModalProperty !== 'undefined' && activeModalProperty && !document.getElementById("propertyModal")?.classList.contains("hidden")) {
-        const contextPrice = activeModalProperty.is_price_masked ? "Giá Thỏa Thuận Kín" : `${activeModalProperty.pricing?.current_price_billion || ""} Tỷ`;
-        contextString = `\n[TÀI SẢN ĐANG XEM: Mã ${activeModalProperty.property_id}, nằm tại ${activeModalProperty.public_location?.street || ""}, Quận ${activeModalProperty.public_location?.district || ""}. Giá chào: ${contextPrice}. DTCN: ${activeModalProperty.specs?.recognized_area_m2 || ""}m². Kết cấu: ${activeModalProperty.specs?.structure || ""}. Dòng tiền: ${activeModalProperty.specs?.cashflow || ""}]. Hãy dùng thông tin này nếu câu hỏi liên quan đến tài sản hiện tại.`;
-      }
-
-      // 2. Ngữ cảnh tóm tắt toàn bộ kho hàng (Tổng số căn & Top 5 căn giảm giá sâu nhất)
-      let warehouseSummary = "";
-      const allProps = (window.__NHATOSG_DATA__ && window.__NHATOSG_DATA__.records) || [];
-      if (allProps.length > 0) {
-        const withDrops = allProps.map(p => {
-          const initP = Number(p.pricing?.initial_asking_billion || p.pricing?.current_price_billion || 0);
-          const currP = Number(p.pricing?.current_price_billion || 0);
-          const drop = (initP > currP) ? (initP - currP) : 0;
-          return { id: p.property_id, title: p.seo_title, district: p.public_location?.district, initP, currP, drop };
-        }).filter(x => x.drop > 0).sort((a, b) => b.drop - a.drop).slice(0, 5);
-
-        warehouseSummary = `\n[TỔNG QUAN KHO HÀNG NHATOSG: Hiện có ${allProps.length} bất động sản niêm yết trên hệ thống. `;
-        if (withDrops.length > 0) {
-          warehouseSummary += `Top 5 căn giảm giá sâu nhất: ` + withDrops.map(d => `${d.id} (${d.district}, giảm ${d.drop.toFixed(1)} Tỷ từ ${d.initP} xuống ${d.currP} Tỷ)`).join("; ") + `.]`;
-        } else {
-          warehouseSummary += `]`;
-        }
-      }
-
-      const promptSystem = "Bạn là nhatoSG AI Co-Pilot — Trợ lý cố vấn đầu tư bất động sản cao cấp của hệ thống nhatoSG Sài Gòn. Hãy trả lời ngắn gọn, chuyên nghiệp, thông minh, chuẩn xác số liệu và đúng trọng tâm.\n" + contextString + warehouseSummary + "\n\nCâu hỏi của Quản trị viên: " + userText;
-
-      const aiPayload = {
-        prompt: promptSystem,
-        user_question: userText,
-        context: contextString + warehouseSummary
-      };
-
-      const endpointsToTry = ["/api/ai_chat"];
-      if (window.location.origin && !window.location.origin.includes(":8888")) {
-        endpointsToTry.push("http://127.0.0.1:8888/api/ai_chat");
-      }
-
-      let aiText = null;
-      let lastErr = "";
-
-      for (const ep of endpointsToTry) {
-        try {
-          const resp = await fetch(ep, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(aiPayload)
-          });
-          if (resp.ok) {
-            const data = await resp.json();
-            aiText = data?.reply || data?.text || data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
-            if (aiText) break;
-          } else {
-            const errJson = await resp.json().catch(() => ({}));
-            lastErr = errJson?.error || `HTTP ${resp.status}`;
-          }
-        } catch (e) {
-          lastErr = e.message;
-        }
-      }
-
-      if (aiText) {
-        addAiMessage(aiText, false);
-      } else {
-        addAiMessage(`⚠️ Không thể kết nối mô hình AI (${lastErr || 'Lỗi kết nối máy chủ Admin CMS'}). Vui lòng đảm bảo hệ thống Admin CMS (cổng 8888) đang hoạt động.`, false);
-      }
-
-      if (sendBtn) {
-        sendBtn.innerHTML = "➤";
-        sendBtn.disabled = false;
-      }
-    }
-    if (isLocalAdminRuntime()) {
-      window.sendAiMessage = sendAiMessage;
-    }
-
-    function switchAuthTab(tab) {
-      const loginForm = document.getElementById("memberLoginForm");
-      const regForm = document.getElementById("memberRegisterForm");
-      const loginBtn = document.getElementById("authTabLoginBtn");
-      const regBtn = document.getElementById("authTabRegBtn");
-      const loginErr = document.getElementById("loginErrorMsg");
-      const loginSucc = document.getElementById("loginSuccessMsg");
-      const regErr = document.getElementById("regErrorMsg");
-      const regSucc = document.getElementById("regSuccessMsg");
-
-      if (loginErr) loginErr.classList.add("hidden");
-      if (loginSucc) loginSucc.classList.add("hidden");
-      if (regErr) regErr.classList.add("hidden");
-      if (regSucc) regSucc.classList.add("hidden");
-
-      if (tab === "REGISTER") {
-        if (loginForm) loginForm.classList.add("hidden");
-        if (regForm) regForm.classList.remove("hidden");
-        if (loginBtn) {
-          loginBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer";
-        }
-        if (regBtn) {
-          regBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-amber-500 text-amber-600 transition cursor-pointer";
-        }
-      } else {
-        if (loginForm) loginForm.classList.remove("hidden");
-        if (regForm) regForm.classList.add("hidden");
-        if (loginBtn) {
-          loginBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-[#0284C7] text-[#0284C7] transition cursor-pointer";
-        }
-        if (regBtn) {
-          regBtn.className = "pb-2.5 px-3 text-xs sm:text-[13px] font-extrabold border-b-2 border-transparent text-slate-500 hover:text-slate-800 transition cursor-pointer";
-        }
-      }
-    }
-    window.switchAuthTab = switchAuthTab;
-
     function openMemberAuthModal() {
       window.open("https://zalo.me/0916239898", "_blank", "noopener,noreferrer");
-      return;
-      const session = getCurrentMemberSession();
-      const loggedInView = document.getElementById("memberLoggedInView");
-      const loginForm = document.getElementById("memberLoginForm");
-      const regForm = document.getElementById("memberRegisterForm");
-      const errBox = document.getElementById("loginErrorMsg");
-      const succBox = document.getElementById("loginSuccessMsg");
-      const tabSwitcher = document.getElementById("authTabLoginBtn")?.parentElement;
-
-      if (errBox) errBox.classList.add("hidden");
-      if (succBox) succBox.classList.add("hidden");
-
-      const isAdmin = isCurrentUserAdmin();
-      const isMember = isCurrentUserMember();
-
-      if ((isAdmin || isMember) && session && session.phone) {
-        if (loggedInView) {
-          loggedInView.classList.remove("hidden");
-          const nameEl = document.getElementById("loggedInMemberName");
-          if (nameEl) nameEl.textContent = session.display_name || session.name || "Quý Khách";
-          const phoneEl = document.getElementById("loggedInMemberPhone");
-          if (phoneEl) phoneEl.textContent = "SĐT: " + session.phone;
-          const roleEl = document.getElementById("loggedInMemberRole");
-          if (roleEl) roleEl.textContent = isAdmin ? "Vai trò: QUẢN TRỊ VIÊN (ADMIN)" : "Vai trò: THÀNH VIÊN VIP (MEMBER)";
-          const badgeEl = document.getElementById("loggedInMemberBadge");
-          if (badgeEl) badgeEl.textContent = isAdmin ? "✓ Đã mở khóa toàn bộ quyền Admin & AI Co-Pilot" : "✓ Đã mở khóa xem lịch sử giá tài sản";
-        }
-        if (tabSwitcher) tabSwitcher.classList.add("hidden");
-        if (loginForm) loginForm.classList.add("hidden");
-        if (regForm) regForm.classList.add("hidden");
-      } else {
-        if (loggedInView) loggedInView.classList.add("hidden");
-        if (tabSwitcher) tabSwitcher.classList.remove("hidden");
-        switchAuthTab("LOGIN");
-      }
-      document.getElementById("memberAuthModal")?.classList.remove("hidden");
-      if (window.renderScopedLucideIcons) {
-        renderScopedLucideIcons("#memberAuthModal");
-      } else if (window.lucide) {
-        lucide.createIcons();
-      }
     }
     window.openMemberAuthModal = openMemberAuthModal;
 
-    function closeMemberAuthModal() {
-      document.getElementById("memberAuthModal")?.classList.add("hidden");
-    }
-    window.closeMemberAuthModal = closeMemberAuthModal;
-
-    function memberLogout() {
-      localStorage.removeItem("NHATOSG_CLIENT_SESSION");
-      localStorage.removeItem("NHATOSG_SESSION");
-      localStorage.removeItem("NHATOSG_MEMBER_SESSION_V1");
-      localStorage.removeItem("NSG_ADMIN_TOKEN");
-      localStorage.removeItem("NSG_MEMBER_TOKEN");
-      localStorage.removeItem("NSG_SECURE_TOKEN");
-      sessionStorage.removeItem("NSG_ADMIN_TOKEN");
-      sessionStorage.removeItem("NSG_MEMBER_TOKEN");
-      updateHeaderMemberStatus();
-      closeMemberAuthModal();
-      window.location.reload();
-    }
-    window.memberLogout = memberLogout;
-    window.handleMemberLogout = memberLogout;
-
-    async function handleMemberLoginSubmit(e) {
-      e.preventDefault();
-      const phoneInput = document.getElementById("loginPhoneInput");
-      const pinInput = document.getElementById("loginPinInput");
-      const errBox = document.getElementById("loginErrorMsg");
-      const succBox = document.getElementById("loginSuccessMsg");
-
-      const phone = phoneInput ? phoneInput.value.trim() : "";
-      const pin = pinInput ? pinInput.value.trim() : "";
-
-      if (errBox) errBox.classList.add("hidden");
-      if (succBox) succBox.classList.add("hidden");
-
-      if (!isValidVietnamPhone(phone)) {
-        if (errBox) {
-          errBox.textContent = "Vui lòng nhập số điện thoại Việt Nam hợp lệ (10 số).";
-          errBox.classList.remove("hidden");
-        }
-        return;
-      }
-      if (!pin) {
-        if (errBox) {
-          errBox.textContent = "Vui lòng nhập mã PIN / Mật khẩu.";
-          errBox.classList.remove("hidden");
-        }
-        return;
-      }
-
-      if (succBox) {
-        succBox.textContent = "⏳ Đang xác thực mã hóa đa vòng SHA-256...";
-        succBox.classList.remove("hidden");
-      }
-
-      const adminToken = await computeClientAuthToken(phone, pin, "ADMIN");
-      const memberToken = await computeClientAuthToken(phone, pin, "MEMBER");
-      const hashes = [];
-
-      const adminMatch = hashes.find(m => m.auth_token === adminToken && m.role === "ADMIN");
-      const memberMatch = hashes.find(m => m.auth_token === memberToken);
-
-      if (adminMatch) {
-        localStorage.setItem("NSG_ADMIN_TOKEN", adminToken);
-        sessionStorage.setItem("NSG_ADMIN_TOKEN", adminToken);
-        const sessionObj = {
-          name: adminMatch.display_name,
-          display_name: adminMatch.display_name,
-          phone: phone,
-          role: "ADMIN",
-          logged_in_at: new Date().toISOString()
-        };
-        localStorage.setItem("NHATOSG_SESSION", JSON.stringify(sessionObj));
-        localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(sessionObj));
-
-        if (succBox) {
-          succBox.textContent = "✓ Đăng nhập Quản Trị Viên thành công! Đang kích hoạt Admin Studio & AI Co-Pilot...";
-          succBox.classList.remove("hidden");
-        }
-        updateHeaderMemberStatus();
-        setTimeout(() => {
-          closeMemberAuthModal();
-        }, 700);
-        return;
-      }
-
-      if (memberMatch) {
-        localStorage.setItem("NSG_MEMBER_TOKEN", memberToken);
-        sessionStorage.setItem("NSG_MEMBER_TOKEN", memberToken);
-        const sessionObj = {
-          name: memberMatch.display_name,
-          display_name: memberMatch.display_name,
-          phone: phone,
-          role: "MEMBER",
-          logged_in_at: new Date().toISOString()
-        };
-        localStorage.setItem("NHATOSG_SESSION", JSON.stringify(sessionObj));
-        localStorage.setItem("NHATOSG_CLIENT_SESSION", JSON.stringify(sessionObj));
-
-        if (succBox) {
-          succBox.textContent = "✓ Đăng nhập Thành Viên VIP thành công! Đã mở khóa xem chi tiết lịch sử giá.";
-          succBox.classList.remove("hidden");
-        }
-        updateHeaderMemberStatus();
-        setTimeout(() => {
-          closeMemberAuthModal();
-        }, 700);
-        return;
-      }
-
-      if (succBox) succBox.classList.add("hidden");
-      if (errBox) {
-        errBox.textContent = "Số điện thoại hoặc Mã PIN không đúng, hoặc tài khoản chưa được duyệt kích hoạt từ Admin Studio.";
-        errBox.classList.remove("hidden");
-      }
-    }
-    window.handleMemberLoginSubmit = handleMemberLoginSubmit;
-    window.handleClientSessionSubmit = handleMemberLoginSubmit;
-
-    async function handleMemberRegisterSubmit(e) {
-      if (e && e.preventDefault) e.preventDefault();
-      window.open("https://zalo.me/0916239898", "_blank", "noopener,noreferrer");
-      if (typeof closeMemberAuthModal === "function") {
-        closeMemberAuthModal();
-      }
-      return false;
-    }
-    window.handleMemberRegisterSubmit = handleMemberRegisterSubmit;
 
     async function copyCurrentPropertyLink() {
       if (!activeModalProperty) return;
@@ -6405,140 +5848,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
     // =========================================================================
     // BẢNG BÓC TÁCH ĐƠN GIÁ ĐẤT & TIỀN XÂY DỰNG TRONG MODAL CHI TIẾT
     // =========================================================================
-    function renderUnitCostBreakdownHtml(prop) {
-      const m = computeMetrics(prop);
-      if (m.isMasked) {
-        return `
-          <div class="p-4 rounded-xl bg-sky-50 border border-sky-200 text-center text-sm font-semibold text-[#0284C7]">
-            🔒 Phân tích đơn giá và giá trị kết cấu được bảo mật theo yêu cầu của Chủ tài sản. Liên hệ trực tiếp chuyên gia nhatoSG để nhận hồ sơ thẩm định chi tiết.
-          </div>
-        `;
-      }
-      const area = prop.specs?.recognized_area_m2 || 0;
-      return `
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3 mb-4">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#0284C7]"></span>
-            <h4 class="text-sm font-extrabold uppercase tracking-wider text-[#0F172A]">
-              TẠM TÍNH GIÁ TRỊ TÒA NHÀ &amp; TIỀN ĐẤT
-            </h4>
-          </div>
-          <span class="text-[13px] font-mono font-bold text-slate-600">
-            Quy mô: <span class="text-[#0F172A]">${esc(prop.specs?.structure)}</span> (~${esc(m.floorAreaM2)} m² sàn)
-          </span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 font-mono">
-          <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
-            <div class="text-[13.5px] font-sans font-bold text-slate-700">1. Đơn giá chào bán (Tính gộp cả nhà &amp; đất)</div>
-            <div class="text-xl font-extrabold text-[#0F172A] mt-1">~ ${esc(m.pricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans text-slate-500 mt-0.5">
-              Tính trên giá chào ${esc(m.currP)} Tỷ chia cho ${esc(area)} m² đất công nhận
-            </div>
-          </div>
-
-          <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 shadow-2xs">
-            <div class="text-[13.5px] font-sans font-bold text-amber-900">2. Ước tính giá trị tòa nhà trên đất (Tiền xác nhà)</div>
-            <div class="text-xl font-extrabold text-[#D97706] mt-1">~ ${esc(m.estBuildValueBil)} Tỷ</div>
-            <div class="text-[13px] font-sans text-amber-800 mt-0.5">
-              Tạm tính ${esc(m.floorAreaM2)}m² sàn × ${esc(m.buildUnitRateMil)} tr/m² (${esc(m.structGradeLabel)})
-            </div>
-          </div>
-
-          <div class="p-3.5 rounded-xl bg-sky-50 border-2 border-sky-300 shadow-2xs">
-            <div class="text-[13.5px] font-sans font-extrabold text-[#0369A1]">3. Đơn giá đất thực tế (Sau khi trừ tiền nhà)</div>
-            <div class="text-xl font-extrabold text-[#0284C7] mt-1">~ ${esc(m.netLandPricePerM2Mil)} Triệu / m²</div>
-            <div class="text-[13px] font-sans font-semibold text-slate-600 mt-0.5">
-              Tiền đất còn khoảng ${esc(m.netLandValueBil)} Tỷ (chia cho ${esc(area)} m² đất công nhận)
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function renderStructuredDescriptionHtml(prop) {
-      const catName = resolveCategoryName(prop);
-      const dims = usableDisplayValue(prop.specs?.dimensions);
-      const areaM2 = prop.specs?.recognized_area_m2 || 0;
-      const struct = prop.specs?.structure || "Đang cập nhật";
-      const cashflow = rentalDisplayValue(prop.specs?.cashflow);
-
-      const rawDesc = String(prop.marketing_description || prop.summary || "").trim();
-      const sections = new Map();
-      let heading = "";
-      for (const fragment of rawDesc.split(/\r?\n|(?=\s*•\s*)/)) {
-        const line = fragment.replace(/^[\s•*–-]+/u, "").trim();
-        if (!line) continue;
-        const match = line.match(/^([^:]{1,70}):\s*(.*)$/u);
-        if (match) {
-          heading = match[1].trim().replace(/\s+/g, " ");
-          if (/^vị trí (?:&|và) (?:kết nối|lợi thế)$/iu.test(heading)) heading = "Vị trí & Kết nối";
-          if (/^khai thác (?:&|và) pháp lý$/iu.test(heading)) heading = "Khai thác & Pháp lý";
-          if (/^(?:thông số(?::|$| (?:&|và) (?:kết cấu|hiện trạng|quy hoạch|tiềm năng))|thông & kết cấu)/iu.test(heading)) {
-            heading = "Thông số & Kết cấu";
-          }
-        }
-        const text = match ? match[2].trim() : line;
-        if (!/[\p{L}\p{N}]/u.test(text)) continue;
-        const key = heading.toLocaleLowerCase("vi");
-        if (!sections.has(key)) sections.set(key, { heading, parts: [] });
-        const parts = sections.get(key).parts;
-        if (!parts.includes(text)) parts.push(text);
-      }
-      const specKey = "thông số & kết cấu";
-      const extraSpecs = sections.get(specKey)?.parts || [];
-      sections.delete(specKey);
-
-      const specsBlockHtml = `
-        <div class="modal-desc-box p-4 sm:p-5 rounded-2xl">
-          <div class="text-sm font-extrabold uppercase tracking-wider modal-desc-title mb-2.5 flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-            <span>Thông số &amp; Kết cấu thực tế:</span>
-          </div>
-          <ul class="space-y-2 text-[15.5px] modal-desc-text font-medium pl-1">
-            <li class="flex items-start gap-2">
-              <span class="modal-desc-bullet font-bold">•</span>
-              <span><strong>Diện tích thực:</strong> ${dims ? `<span class="font-mono font-extrabold">${esc(dims)}</span> ` : ""}<span class="modal-desc-sub">Công nhận sổ: <strong class="font-mono text-[#0284C7]">${esc(areaM2)}m²</strong></span></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="modal-desc-bullet font-bold">•</span>
-              <span><strong>Kết cấu:</strong> <span>${esc(struct)}</span></span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="modal-desc-bullet font-bold">•</span>
-              <span><strong>Loại hình &amp; Khai thác:</strong> <span class="font-bold text-[#0284C7]">${esc(displayCategoryName(catName))}</span> ${cashflow ? `<span class="modal-desc-sub">(${esc(cashflow)})</span>` : ""}</span>
-            </li>
-          </ul>
-          ${extraSpecs.map(line => `<p class="modal-desc-text mt-2">${esc(line)}</p>`).join("")}
-        </div>
-      `;
-
-      const detailItemsHtml = [...sections.values()].map(({ heading, parts }) => {
-        const body = parts.map(part => `<p>${esc(part)}</p>`).join("");
-        if (heading) {
-          return `
-            <div class="modal-desc-box p-3.5 rounded-xl shadow-2xs">
-              <div class="text-[14px] font-extrabold uppercase tracking-wider modal-desc-title mb-1">• ${esc(heading)}:</div>
-              <div class="text-[15.5px] modal-desc-text leading-relaxed pl-3 font-medium">${body}</div>
-            </div>
-          `;
-        }
-        return `
-          <div class="modal-desc-box p-3.5 rounded-xl text-[15.5px] modal-desc-text leading-relaxed font-medium">
-            ${body}
-          </div>
-        `;
-      }).join("");
-
-      const dueDiligenceBoxHtml = `
-        <div class="modal-due-diligence p-3.5 rounded-xl text-[13.5px] leading-relaxed">
-          <span class="font-extrabold uppercase text-xs block mb-1">⚖️ Lưu ý thông tin</span>
-          Thông số diện tích, kết cấu và giá chào bán được cập nhật theo hồ sơ hiện trạng. Anh/chị quan tâm vui lòng liên hệ trực tiếp để nhận thông tin chi tiết, kiểm tra quy hoạch và hẹn xem thực tế.
-        </div>
-      `;
-
-      return specsBlockHtml + `<div class="space-y-2.5">${detailItemsHtml}</div>` + dueDiligenceBoxHtml;
-    }
 
     function updateLoanCalculator() {
       if (!activeModalProperty) return;
@@ -6569,7 +5878,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const prop = propertiesData.find(p => p.property_id === propId);
       if (!prop) return;
       document.body.classList.add("modal-open");
-      if (typeof updateAiContextBadge === 'function') setTimeout(updateAiContextBadge, 100);
       activeModalProperty = prop;
       trackVisitorEvent("PROPERTY_VIEW", prop.property_id);
       currentGalleryIndex = 0;
@@ -6660,16 +5968,11 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
         const el = document.getElementById(id);
         if (el) el.removeAttribute("open");
       });
-      ["accDescription", "accUnitCost"].forEach(id => {
+      ["accDescription"].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.setAttribute("open", "");
       });
 
-      // Render nội dung bên trong các accordion
-      const breakdownEl = document.getElementById("modalUnitCostBreakdown");
-      if (breakdownEl) {
-        breakdownEl.innerHTML = ""; breakdownEl.closest("details")?.setAttribute("hidden", "");
-      }
 
       const descEl = document.getElementById("modalDescription");
       if (descEl) {
@@ -6755,7 +6058,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       const modalEl = document.getElementById("propertyModal");
       const wasOpen = modalEl && !modalEl.classList.contains("hidden");
       document.body.classList.remove("modal-open");
-      if (typeof updateAiContextBadge === 'function') setTimeout(updateAiContextBadge, 100);
       if (modalEl) {
         modalEl.classList.add("hidden");
         modalEl.style.display = "";
@@ -7182,7 +6484,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       }
       return new Promise((resolve) => {
         const script = document.createElement("script");
-        script.src = "./properties_data.js?v=20261118151801&t=" + Date.now();
+        script.src = "./properties_data.js?v=20261119202709&t=" + Date.now();
         script.onload = function() {
           resolve(window.__NHATOSG_DATA__ || null);
         };
@@ -7213,7 +6515,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           return;
         }
         closePropertyModal(false);
-        closeMemberAuthModal();
         closeCompareModal(false);
         closeInsightModal(false);
         closeAdvancedFilterDrawer(false);
@@ -7316,11 +6617,6 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
       trackVisitorEvent("PAGE_VIEW");
       if (window.lucide) lucide.createIcons();
 
-      if (!isLocalAdminRuntime()) {
-        document.getElementById("headerAiBtn")?.remove();
-        document.getElementById("floatAiBtn")?.remove();
-        document.getElementById("aiCoPilotDrawer")?.remove();
-      }
 
       // Đảm bảo chỉ khi window.__NHATOSG_DATA__ đã tồn tại thì mới vẽ giao diện
       if (window.__NHATOSG_DATA_READY__ || (window.__NHATOSG_DATA__ && Array.isArray(window.__NHATOSG_DATA__.records))) {
@@ -7338,7 +6634,7 @@ body.v5-dark-mode #hotRadarPagination .bg-slate-100 {
           };
         } else {
           var script = document.createElement("script");
-          script.src = "./properties_data.js?v=20261118151801&t=" + Date.now();
+          script.src = "./properties_data.js?v=20261119202709&t=" + Date.now();
           script.onload = function() {
             renderPublicCatalogWithData();
           };
