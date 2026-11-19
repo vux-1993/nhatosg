@@ -1,13 +1,13 @@
 {
-  "base_web_commit": "ab26632dd5efe42546d0631332db86c1cc58ddb9",
-  "db_fingerprint": "0a90eaeaee0622991a54e4121824ccd89a7db37da2af19454dd04c6994205892",
-  "payload_sha256": "cf25cadd2aeacbb95893f6717a3f38cdf9e87d5521b81226b85351c7707f5dea",
+  "base_web_commit": "960cdec0535dbbcee26d8d42d9ccff7b2b070c73",
+  "db_fingerprint": "cff4b352a00ff7b1f3c5e1d9fee6e61740a1e667ac0f3557c7f7ba93743fc256",
+  "payload_sha256": "36466518606039262a4dc7982a031fe78ca6935995dedf33bc09a8b919539974",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_property_ids": [
     "NSG-0826",
     "NSG-0843"
   ],
-  "publisher_sha256": "7d8e870cbdb44cb3062e8a53c386cdba445438389921f9dfc781e65f4e5cd7a6",
-  "release_id": "final-polish-pr30-sync356-20261118"
+  "publisher_sha256": "3371d4e01d0ada2b5ccfa45ebcad5f0299031bcef092522b47ad543fdf13d9e0",
+  "release_id": "master-blueprint-v2-modular-20261119"
 }
