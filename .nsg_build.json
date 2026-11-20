@@ -1,10 +1,10 @@
 {
-  "base_web_commit": "3f2114880c317ad142621cb7d01c35afb7a22dfb",
-  "db_fingerprint": "cff4b352a00ff7b1f3c5e1d9fee6e61740a1e667ac0f3557c7f7ba93743fc256",
-  "payload_sha256": "36466518606039262a4dc7982a031fe78ca6935995dedf33bc09a8b919539974",
+  "base_web_commit": "8d105659f253c318d0430fb97be380b81a555e2f",
+  "db_fingerprint": "33b3149aa507a76370e26a2618b032b0b2cb65912878ff46275f87eb0d6c182d",
+  "payload_sha256": "4378b0c51ff2f3c781bff00552fe132edb82ccd1d82921edd5f424718861900e",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_scope_sha256": "3b3de331260a4aedc99bdd319a1858149d8395a3a077e96f12ca879b50525807",
-  "publisher_sha256": "3371d4e01d0ada2b5ccfa45ebcad5f0299031bcef092522b47ad543fdf13d9e0",
+  "publisher_sha256": "b57d80291707c2be2ea4a9c722042dd026f1c4943fe6da509dbf38b868591ada",
   "release_id": "master-blueprint-v2-modular-20261119"
 }
