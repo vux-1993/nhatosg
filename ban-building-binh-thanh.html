@@ -2,7 +2,8 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Tòa Nhà Văn Phòng Bình Thạnh — 9 Building Thương Mại Trọng Điểm | nhatoSG</title>
 <meta name="description" content="Danh mục tòa nhà văn phòng và building thương mại tại Quận Bình Thạnh cửa ngõ Quận 1. Thông tin diện tích sàn, kết cấu hầm tầng và vị trí kết nối giao thông.">
@@ -15,44 +16,70 @@
 (function() {
   try {
     var saved = localStorage.getItem("nhatosg_theme_mode");
-    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (saved === "dark" || (!saved && prefersDark)) {
+    var mode = (saved === "dark" || saved === "light") ? saved : "light";
+    if (mode === "dark") {
       document.documentElement.classList.add("dark");
+    }
+    document.documentElement.setAttribute("data-theme", mode);
+    if (saved === "dark" || saved === "light") {
+      var cm = document.querySelector('meta[name="color-scheme"]');
+      if (cm) cm.content = mode;
     }
   } catch (e) {}
 })();
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="/optimized_manifest.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Tòa Nhà Văn Phòng Bình Thạnh — 9 Building Thương Mại Khai Thác Cho Thuê", "numberOfItems": 9, "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://nhatosg.com.vn/p/NSG-0832.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 6 Tầng, 38 Tỷ"}, {"@type": "ListItem", "position": 2, "url": "https://nhatosg.com.vn/p/NSG-0790.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 5 Tầng, 47 Tỷ"}, {"@type": "ListItem", "position": 3, "url": "https://nhatosg.com.vn/p/NSG-0746.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – 8 Tầng Thang Máy, 33 Tỷ"}, {"@type": "ListItem", "position": 4, "url": "https://nhatosg.com.vn/p/NSG-0690.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 8 Tầng, 560 Tỷ"}, {"@type": "ListItem", "position": 5, "url": "https://nhatosg.com.vn/p/NSG-0685.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 7 Tầng, 45 Tỷ"}, {"@type": "ListItem", "position": 6, "url": "https://nhatosg.com.vn/p/NSG-0618.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 8 Tầng, 400 Tỷ"}, {"@type": "ListItem", "position": 7, "url": "https://nhatosg.com.vn/p/NSG-0606.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 7 Tầng, 110 Tỷ"}, {"@type": "ListItem", "position": 8, "url": "https://nhatosg.com.vn/p/NSG-0605.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 7 Tầng, 65 Tỷ"}, {"@type": "ListItem", "position": 9, "url": "https://nhatosg.com.vn/p/NSG-0534.html", "name": "Bán Tòa Nhà Văn Phòng Bình Thạnh – Hầm 6 Tầng, 85 Tỷ"}]}</script>
 <style>
   :root {
-    --primary: #0284C7;
-    --primary-dark: #0369A1;
-    --text-main: #0F172A;
-    --text-sub: #475569;
-    --bg-page: #F8FAFC;
-    --bg-card: #FFFFFF;
-    --bg-pill: #F1F5F9;
-    --border: #E2E8F0;
+    color-scheme: light;
+    --primary: #8C3B2B;
+    --primary-dark: #722E21;
+    --bronze: #7C5A32;
+    --text-main: #181816;
+    --text-sub: #46413A;
+    --bg-page: #F6F3EC;
+    --bg-card: #FAF8F3;
+    --bg-pill: #EFECE4;
+    --bg-mat: #EAE5DB;
+    --border: #DED9CE;
+    --border-strong: #C5BEB0;
+    --cta-bg: #181816;
+    --cta-fg: #FAF8F3;
+    --cta-hover: #2E2D29;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
   }
   html.dark {
-    --primary: #38BDF8;
-    --primary-dark: #0284C7;
-    --text-main: #F8FAFC;
-    --text-sub: #CBD5E1;
-    --bg-page: #0B1120;
-    --bg-card: #0F172A;
-    --bg-pill: #1E293B;
-    --border: #1E293B;
+    color-scheme: dark;
+    --primary: #D6AE7E;
+    --primary-dark: #C89D6C;
+    --bronze: #D6AE7E;
+    --text-main: #F3F0E8;
+    --text-sub: #C2BCB0;
+    --bg-page: #111110;
+    --bg-card: #181816;
+    --bg-pill: #161513;
+    --bg-mat: #0B0B0A;
+    --border: #282724;
+    --border-strong: #3B3934;
+    --cta-bg: #C89D6C;
+    --cta-fg: #111110;
+    --cta-hover: #D6AE80;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { max-width: 100%; overflow-x: hidden; }
+  html, body { max-width: 100%; overflow-x: clip; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--sans);
     background: var(--bg-page);
     color: var(--text-main);
-    line-height: 1.5;
+    line-height: 1.55;
     padding: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   .site-header {
     max-width: 1120px;
@@ -64,30 +91,29 @@
     padding: 12px 16px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 4px;
   }
-  .brand { font-size: 18px; font-weight: 900; color: var(--primary); text-decoration: none; }
-  .brand span { color: #F59E0B; }
+  .brand { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--text-main); text-decoration: none; }
+  .brand span { color: var(--primary); }
   .header-actions { display: flex; align-items: center; gap: 8px; }
-  .header-cta { font-size: 13px; font-weight: 700; color: var(--text-sub); text-decoration: none; padding: 6px 10px; border-radius: 8px; background: var(--bg-pill); border: 1px solid var(--border); }
-  .header-cta:hover { color: var(--primary); }
-  .theme-btn { width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg-pill); color: var(--text-main); cursor: pointer; font-size: 15px; }
+  .header-cta { font-size: 13px; font-weight: 600; color: var(--text-sub); text-decoration: none; padding: 6px 10px; border-radius: 2px; background: var(--bg-pill); border: 1px solid var(--border); }
+  .header-cta:hover { color: var(--primary); border-color: var(--primary); }
+  .theme-btn { width: 36px; height: 36px; border-radius: 2px; border: 1px solid var(--border-strong); background: var(--bg-pill); color: var(--text-main); cursor: pointer; font-size: 15px; }
   .hub-container {
     max-width: 1120px;
     margin: 0 auto;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 28px 22px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(24, 24, 22, 0.06);
   }
   .hub-breadcrumbs { font-size: 13px; color: var(--text-sub); margin-bottom: 14px; }
-  .hub-breadcrumbs a { color: var(--primary); text-decoration: none; font-weight: 700; }
+  .hub-breadcrumbs a { color: var(--primary); text-decoration: none; font-weight: 600; }
   .hub-header { margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 18px; }
-  .hub-header h1 { font-size: 26px; font-weight: 900; color: var(--text-main); margin-bottom: 10px; line-height: 1.3; }
-  .hub-intro { font-size: 15px; color: var(--text-sub); line-height: 1.6; max-width: 880px; }
-  .hub-meta-count { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 800; color: #0284C7; background: rgba(2,132,199,0.12); padding: 4px 12px; border-radius: 8px; }
-  html.dark .hub-meta-count { color: #38BDF8; background: rgba(56,189,248,0.14); }
+  .hub-header h1 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--text-main); margin-bottom: 10px; line-height: 1.25; }
+  .hub-intro { font-size: 15px; color: var(--text-sub); line-height: 1.65; max-width: 880px; }
+  .hub-meta-count { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--primary); background: var(--bg-pill); border: 1px solid var(--border); padding: 4px 12px; border-radius: 2px; }
   .hub-cat-bar {
     display: flex;
     flex-wrap: wrap;
@@ -96,30 +122,30 @@
   }
   .hub-cat-pill {
     padding: 7px 13px;
-    border-radius: 9999px;
+    border-radius: 2px;
     border: 1px solid var(--border);
     background: var(--bg-pill);
     color: var(--text-main);
     font-size: 12.5px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.18s;
   }
   .hub-cat-pill.active, .hub-cat-pill:hover {
-    background: #0284C7;
-    color: #FFFFFF;
-    border-color: #0284C7;
+    background: var(--cta-bg);
+    color: var(--cta-fg);
+    border-color: var(--cta-bg);
   }
   .hub-cross-banner {
     margin-bottom: 20px;
     padding: 13px 16px;
-    background: rgba(2, 132, 199, 0.09);
-    border: 1px solid rgba(2, 132, 199, 0.28);
-    border-radius: 12px;
+    background: var(--bg-pill);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
     font-size: 14px;
     color: var(--text-main);
   }
-  .hub-cross-banner a { font-weight: 800; color: var(--primary); text-decoration: underline; }
+  .hub-cross-banner a { font-weight: 700; color: var(--primary); text-decoration: underline; }
   .hub-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
@@ -130,11 +156,11 @@
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 2px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   }
-  .hub-card:hover { transform: translateY(-3px); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12); }
+  .hub-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12); }
   .hub-card-link { text-decoration: none; color: inherit; display: block; }
   .hub-fav-btn {
     position: absolute;
@@ -142,49 +168,51 @@
     right: 10px;
     z-index: 4;
     padding: 4px 10px;
-    border-radius: 9999px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(15, 23, 42, 0.78);
-    color: #F8FAFC;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(24, 24, 22, 0.82);
+    color: #FAF8F3;
     font-size: 11.5px;
-    font-weight: 800;
+    font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(4px);
   }
-  .hub-fav-btn.saved { background: rgba(225, 29, 72, 0.92); border-color: #FB7185; color: #FFFFFF; }
-  .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: #0F172A; }
+  .hub-fav-btn.saved { background: var(--cta-bg); border-color: var(--primary); color: var(--cta-fg); }
+  .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: var(--bg-mat); }
   .hub-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hub-card-badge {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #FBBF24;
-    color: #0F172A;
-    font-family: ui-monospace, monospace;
-    font-weight: 800;
+    background: rgba(24, 24, 22, 0.84);
+    color: #FAF8F3;
+    font-family: var(--mono);
+    font-weight: 600;
     font-size: 11px;
     padding: 3px 8px;
-    border-radius: 6px;
+    border-radius: 2px;
   }
   .hub-card-price {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: rgba(15, 23, 42, 0.88);
-    color: #34D399;
-    font-weight: 800;
-    font-size: 13.5px;
+    background: rgba(24, 24, 22, 0.88);
+    color: #D6AE7E;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
     padding: 4px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
   }
   .hub-card-body { padding: 15px; }
-  .hub-cat-tag { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+  .hub-cat-tag { font-family: var(--mono); font-size: 10.5px; font-weight: 600; color: var(--bronze); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
   .hub-card-title {
-    font-size: 15.5px;
-    font-weight: 800;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
     color: var(--text-main);
-    line-height: 1.4;
+    line-height: 1.35;
     margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -192,25 +220,25 @@
     overflow: hidden;
   }
   .hub-card-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .spec-pill { font-size: 12px; background: var(--bg-pill); color: var(--text-sub); padding: 3px 8px; border-radius: 6px; font-weight: 600; }
-  .hub-card-footer { border-top: 1px dashed var(--border); padding-top: 10px; display: flex; justify-content: flex-end; }
-  .view-detail-btn { font-size: 12.5px; font-weight: 800; color: var(--primary); }
+  .spec-pill { font-size: 12px; background: var(--bg-pill); color: var(--text-sub); padding: 3px 8px; border-radius: 2px; border: 1px solid var(--border); font-weight: 500; }
+  .hub-card-footer { border-top: 1px solid var(--border); padding-top: 10px; display: flex; justify-content: flex-end; }
+  .view-detail-btn { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--primary); }
   .footer-hub-nav { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--border); }
   .footer-hub-inner { width: 100%; }
-  .footer-hub-nav h4 { font-size: 12.5px; font-weight: 800; color: var(--text-sub); letter-spacing: 0.05em; margin-bottom: 12px; text-transform: uppercase; }
+  .footer-hub-nav h4 { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--text-sub); letter-spacing: 0.06em; margin-bottom: 12px; text-transform: uppercase; }
   .footer-hub-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .footer-hub-pill {
     display: inline-flex; align-items: center; padding: 6px 13px;
     background: var(--bg-pill); color: var(--text-main);
-    border-radius: 9999px; font-size: 12.5px; font-weight: 700;
+    border-radius: 2px; font-size: 12.5px; font-weight: 500;
     text-decoration: none; border: 1px solid var(--border); transition: all 0.2s;
   }
-  .footer-hub-pill:hover, .footer-hub-pill.active { background: #0284C7; color: #FFFFFF; border-color: #0284C7; }
+  .footer-hub-pill:hover, .footer-hub-pill.active { background: var(--cta-bg); color: var(--cta-fg); border-color: var(--cta-bg); }
   @media (max-width: 639px) {
     body { padding: 8px; }
-    .hub-container { padding: 16px 12px; border-radius: 16px; }
-    .hub-header h1 { font-size: 20px; }
-    .hub-grid { grid-template-columns: 1fr; gap: 14px; }
+    .hub-container { padding: 16px 12px; border-radius: 2px; }
+    .hub-header h1 { font-size: 22px; }
+    .hub-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
     .hub-cat-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
     .hub-cat-pill { white-space: nowrap; flex-shrink: 0; }
   }
@@ -259,7 +287,7 @@
             <span class="spec-pill">226,3m²</span>
             <span class="spec-pill">Hầm + 6 tầng, tổng diện tích sử dụng 1120m²</span>
           </div>
-          <div class="hub-card-rental" title="Liên Hệ" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
+          <div class="hub-card-rental" title="Liên Hệ" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -282,7 +310,7 @@
             <span class="spec-pill">160,6m²</span>
             <span class="spec-pill">Hầm + 5 tầng + Thang máy (Tổng sàn 866,7m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 150 triệu/tháng · Còn 2 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 150 triệu/tháng · Còn 2 năm</div>
+          <div class="hub-card-rental" title="HĐT: 150 triệu/tháng · Còn 2 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 150 triệu/tháng · Còn 2 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -305,7 +333,7 @@
             <span class="spec-pill">281m²</span>
             <span class="spec-pill">8 Tầng + Thang máy (Tổng sàn 1.400,3m²)</span>
           </div>
-          <div class="hub-card-rental" title="Liên Hệ" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
+          <div class="hub-card-rental" title="Liên Hệ" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -328,7 +356,7 @@
             <span class="spec-pill">1004,8m²</span>
             <span class="spec-pill">Hầm, 8 Tầng (DTS 5.000m², Ngang 16,5m, Nở Hậu 24m, Cụm 2 Tòa Thông Hầm &amp; Tầng)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 500 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 500 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 500 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 500 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -351,7 +379,7 @@
             <span class="spec-pill">112,4m²</span>
             <span class="spec-pill">Hầm, 7 Tầng (DTS &gt;600m², Ngang 7m, Hẻm 8m Thông)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 130–155 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 130–155 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 130–155 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 130–155 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -374,7 +402,7 @@
             <span class="spec-pill">900m²</span>
             <span class="spec-pill">Hầm, 8 Tầng, 2 Thang Máy (Sàn 7.000m², Nở Hậu 25m)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 1800 triệu/tháng · Còn 4 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 1800 triệu/tháng · Còn 4 năm</div>
+          <div class="hub-card-rental" title="HĐT: 1800 triệu/tháng · Còn 4 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 1800 triệu/tháng · Còn 4 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -397,7 +425,7 @@
             <span class="spec-pill">282,4m²</span>
             <span class="spec-pill">Hầm, 7 Tầng, Thang Máy (Sàn 1,627,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 170 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 170 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 170 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 170 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -420,7 +448,7 @@
             <span class="spec-pill">200m²</span>
             <span class="spec-pill">Hầm, 7 Tầng, Thang Máy (Sàn 888m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 110 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 110 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 110 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 110 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -443,7 +471,7 @@
             <span class="spec-pill">241,4m²</span>
             <span class="spec-pill">Hầm, 6 Tầng, ST (Sàn 1,477,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 200 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 200 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 200 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 200 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -471,7 +499,11 @@
   }
   window.toggleHubTheme = function() {
     var isDark = document.documentElement.classList.toggle("dark");
-    try { localStorage.setItem("nhatosg_theme_mode", isDark ? "dark" : "light"); } catch (e) {}
+    var mode = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", mode);
+    var cm = document.querySelector('meta[name="color-scheme"]');
+    if (cm) cm.content = mode;
+    try { localStorage.setItem("nhatosg_theme_mode", mode); } catch (e) {}
     syncThemeBtn();
   };
   function readSavedIds() {

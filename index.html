@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="description" content="Nhà Sài Gòn (nhatoSG) — Bất động sản giá trị thực TP.HCM &amp; TP. Thủ Đức. Tuyển chọn 359 tài sản giá trị thực: Nhà mặt tiền kinh doanh, tòa nhà văn phòng, khách sạn, CHDV và biệt thự trung tâm. Địa chỉ: 40 Hoàng Việt, Phường Tân Sơn Nhất, TP.HCM. Hotline/Zalo: 0916.23.9898 (Vũ)." />
@@ -87,13 +87,13 @@
       --surface: #FAF8F3;
       --mat: #EAE5DB;
       --ink: #181816;
-      --muted: #6B655C;
+      --muted: #46413A;
       --line: #DED9CE;
       --line-strong: #C5BEB0;
       --field-border: #837B6F;
       --accent: #8C3B2B;
       --accent-soft: rgba(140, 59, 43, 0.09);
-      --bronze: #9A7447;
+      --bronze: #7C5A32;
       --danger: #8C3B2B;
       --cta-bg: #181816;
       --cta-fg: #FAF8F3;
@@ -114,14 +114,14 @@
       --paper-2: #161513;
       --surface: #181816;
       --mat: #0B0B0A;
-      --ink: #EDEAE4;
-      --muted: #9A9489;
+      --ink: #F3F0E8;
+      --muted: #C2BCB0;
       --line: #282724;
       --line-strong: #3B3934;
       --field-border: #6E695F;
-      --accent: #C89D6C;
-      --accent-soft: rgba(200, 157, 108, 0.12);
-      --bronze: #C89D6C;
+      --accent: #D6AE7E;
+      --accent-soft: rgba(214, 174, 126, 0.14);
+      --bronze: #D6AE7E;
       --danger: #D97762;
       --cta-bg: #C89D6C;
       --cta-fg: #111110;
@@ -138,14 +138,14 @@
         --paper-2: #161513;
         --surface: #181816;
         --mat: #0B0B0A;
-        --ink: #EDEAE4;
-        --muted: #9A9489;
+        --ink: #F3F0E8;
+        --muted: #C2BCB0;
         --line: #282724;
         --line-strong: #3B3934;
         --field-border: #6E695F;
-        --accent: #C89D6C;
-        --accent-soft: rgba(200, 157, 108, 0.12);
-        --bronze: #C89D6C;
+        --accent: #D6AE7E;
+        --accent-soft: rgba(214, 174, 126, 0.14);
+        --bronze: #D6AE7E;
         --danger: #D97762;
         --cta-bg: #C89D6C;
         --cta-fg: #111110;
@@ -164,6 +164,8 @@
       scroll-behavior: smooth;
       scroll-padding-top: 82px;
       scroll-padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
+      overflow-x: clip;
+      max-width: 100%;
     }
 
     body {
@@ -175,12 +177,15 @@
       line-height: 1.6;
       font-variant-numeric: tabular-nums;
       overflow-wrap: break-word;
+      overflow-x: clip;
+      max-width: 100%;
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     body.is-locked {
       overflow: hidden;
+      overscroll-behavior: none;
     }
 
     button, input, select, textarea {
@@ -452,6 +457,12 @@
       justify-content: space-between;
     }
 
+    .hero-grid > *,
+    .contact-grid > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
     .hero-left {
       min-width: 0;
     }
@@ -593,6 +604,8 @@
     }
 
     .hero-sc-media .media-frame-inner {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       display: flex;
@@ -606,7 +619,7 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center 35%;
+      object-position: center 36%;
       transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -614,14 +627,81 @@
       transform: scale(1.022);
     }
 
-    .hero-sc-media.is-passepartout {
-      padding: 8px 12px;
+    .hero-sc-media.is-passepartout,
+    .card-media.is-passepartout,
+    .ledger-thumb.is-passepartout {
+      padding: 0;
       background-color: var(--mat);
     }
 
-    .hero-sc-media.is-passepartout .media-frame-inner {
+    .hero-sc-media.is-passepartout::before,
+    .card-media.is-passepartout::before,
+    .ledger-thumb.is-passepartout::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: var(--media-bg, none);
+      background-size: cover;
+      background-position: center;
+      filter: blur(26px) saturate(0.75);
+      transform: scale(1.18);
+      opacity: 0.28;
+      pointer-events: none;
+    }
+
+    .hero-sc-media.is-passepartout.is-portrait .media-frame-inner,
+    .card-media.is-passepartout.is-portrait .media-frame-inner {
       width: auto;
       height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      border-left: 1px solid var(--line-strong);
+      border-right: 1px solid var(--line-strong);
+      border-top: 0;
+      border-bottom: 0;
+      background-color: var(--surface);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-sc-media.is-passepartout.is-portrait img,
+    .card-media.is-passepartout.is-portrait img {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .hero-sc-media.is-passepartout.is-wide .media-frame-inner,
+    .card-media.is-passepartout.is-wide .media-frame-inner {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      border-left: 0;
+      border-right: 0;
+      background-color: var(--surface);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-sc-media.is-passepartout.is-wide img,
+    .card-media.is-passepartout.is-wide img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    .hero-sc-media.is-passepartout.is-tiny .media-frame-inner,
+    .card-media.is-passepartout.is-tiny .media-frame-inner {
+      width: auto;
+      height: auto;
       max-width: 100%;
       max-height: 100%;
       border: 1px solid var(--line-strong);
@@ -629,11 +709,12 @@
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     }
 
-    .hero-sc-media.is-passepartout img {
+    .hero-sc-media.is-passepartout.is-tiny img,
+    .card-media.is-passepartout.is-tiny img {
       width: auto;
-      height: 100%;
-      max-width: min(100%, var(--nat-w, 100%));
-      max-height: min(100%, var(--nat-h, 100%));
+      height: auto;
+      max-width: min(100%, var(--max-disp-w, 100%));
+      max-height: min(100%, var(--max-disp-h, 100%));
       object-fit: contain;
       object-position: center center;
     }
@@ -735,7 +816,7 @@
     .search-rail {
       margin-top: 42px;
       display: grid;
-      grid-template-columns: 1.45fr 1.15fr 1fr 0.95fr auto;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 0.95fr) auto;
       border: 1px solid var(--ink);
       background-color: var(--surface);
       border-radius: 2px;
@@ -824,6 +905,7 @@
     .section-note {
       font-family: var(--mono);
       font-size: 11.5px;
+      font-weight: 500;
       color: var(--muted);
       max-width: 390px;
       text-align: right;
@@ -852,6 +934,7 @@
 
     /* Khung ảnh đại diện 108x78 trong Dòng Ngang (hỗ trợ Passe-Partout & Anti-Upscale) */
     .ledger-thumb {
+      position: relative;
       width: 108px;
       height: 78px;
       border: 1px solid var(--line);
@@ -865,23 +948,44 @@
     }
 
     .ledger-thumb img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 35%;
+      object-position: center 36%;
       display: block;
     }
 
-    .ledger-thumb.is-passepartout {
-      padding: 4px;
-      background-color: var(--mat);
+    .ledger-thumb.is-passepartout.is-portrait img {
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-left: 1px solid var(--line-strong);
+      border-right: 1px solid var(--line-strong);
+      background-color: var(--surface);
     }
 
-    .ledger-thumb.is-passepartout img {
+    .ledger-thumb.is-passepartout.is-wide img {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-top: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      background-color: var(--surface);
+    }
+
+    .ledger-thumb.is-passepartout.is-tiny img {
       width: auto;
       height: auto;
-      max-width: min(100%, var(--nat-w, 100%));
-      max-height: min(100%, var(--nat-h, 100%));
+      max-width: min(100%, var(--max-disp-w, 100%));
+      max-height: min(100%, var(--max-disp-h, 100%));
       object-fit: contain;
       object-position: center;
       border: 1px solid var(--line-strong);
@@ -906,6 +1010,7 @@
     .feature-sub {
       margin: 3px 0 0;
       font-size: 12.5px;
+      font-weight: 500;
       color: var(--muted);
     }
 
@@ -1293,6 +1398,8 @@
     }
 
     .media-frame-inner {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       display: flex;
@@ -1306,36 +1413,8 @@
       height: 100%;
       display: block;
       object-fit: cover;
-      object-position: center 34%;
+      object-position: center 36%;
       transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .card-media.is-passepartout {
-      padding: 12px 16px;
-      background-color: var(--mat);
-    }
-
-    .card-media.is-passepartout .media-frame-inner {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-      border: 1px solid var(--line-strong);
-      background-color: var(--surface);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    }
-
-    .card-media.is-passepartout img {
-      width: auto;
-      height: auto;
-      max-width: min(100%, var(--nat-w, 100%));
-      max-height: min(100%, var(--nat-h, 100%));
-      object-fit: contain;
-      object-position: center center;
-    }
-
-    .atelier-cards.mode-grid .card-media.is-passepartout img {
-      max-height: min(245px, var(--nat-h, 245px));
     }
 
     .atelier-card:hover .card-media:not(.is-passepartout) img {
@@ -1457,6 +1536,7 @@
     .card-district-tag {
       font-family: var(--mono);
       font-size: 11px;
+      font-weight: 500;
       color: var(--muted);
       flex-shrink: 0;
     }
@@ -1473,13 +1553,14 @@
     .card-ward {
       margin: 0;
       font-size: 12px;
+      font-weight: 500;
       color: var(--muted);
       min-height: 19px;
     }
 
     .spec-matrix-2x2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -1504,6 +1585,7 @@
       display: block;
       font-family: var(--mono);
       font-size: 11px;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--muted);
@@ -1634,7 +1716,7 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
       gap: 56px;
       align-items: start;
     }
@@ -1666,7 +1748,7 @@
 
     .contact-form-row2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 12px;
     }
 
@@ -1878,6 +1960,11 @@
       position: fixed;
       inset: 0;
       z-index: 60;
+      width: 100%;
+      max-width: 100vw;
+      max-width: 100dvw;
+      overflow: hidden;
+      overscroll-behavior: contain;
       background-color: rgba(11, 11, 10, 0.76);
       backdrop-filter: blur(2px);
       display: none;
@@ -1890,14 +1977,18 @@
     }
 
     .dossier-panel {
-      width: min(1080px, 100vw);
-      height: 100svh;
+      width: min(1080px, 100%);
+      max-width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       background-color: var(--surface);
       border-left: 1px solid var(--line);
       box-shadow: var(--shadow-panel);
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      overflow-x: hidden;
+      overscroll-behavior: contain;
     }
 
     .dossier-topbar {
@@ -1961,6 +2052,9 @@
 
     .dossier-scroll {
       flex: 1;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
       overflow-y: auto;
       padding: 24px 28px 44px;
       overscroll-behavior: contain;
@@ -1968,15 +2062,42 @@
 
     .dossier-grid {
       display: grid;
-      grid-template-columns: 1.16fr 0.84fr;
-      gap: 34px;
+      grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+      grid-template-rows: max-content 1fr;
+      column-gap: 34px;
+      row-gap: 20px;
       align-items: start;
+    }
+
+    .dossier-grid > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .dossier-media-col {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .dossier-related-col {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .dossier-info-col {
+      grid-column: 2;
+      grid-row: 1 / span 2;
     }
 
     .dossier-thumbs-top {
       display: flex;
       gap: 8px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
       padding-bottom: 10px;
     }
 
@@ -2069,96 +2190,119 @@
       border-color: var(--ink);
     }
 
-    .security-box {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      background-color: var(--paper);
-    }
-
-    .security-box-title {
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    .security-box p {
-      margin: 0;
-      font-size: 12.5px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .dossier-editorial-sections {
-      margin-top: 22px;
-      border-top: 1px solid var(--line);
+    .dossier-related-block {
+      margin-top: 4px;
       padding-top: 18px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .dossier-ed-block h4 {
-      font-family: var(--serif);
-      font-size: 16.5px;
-      font-weight: 600;
-      margin: 0 0 5px;
-      color: var(--ink);
-    }
-
-    .dossier-ed-block p {
-      margin: 0;
-      font-size: 13.5px;
-      line-height: 1.68;
-      color: var(--muted);
-    }
-
-    /* Accordions gọn chuẩn modern-web-guidance: chevron nằm trước label, không lồng H1..H6 */
-    .dossier-accordions {
-      margin-top: 20px;
       border-top: 1px solid var(--line);
     }
 
-    details.nsg-acc {
-      border-bottom: 1px solid var(--line);
+    .dossier-related-kicker {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    details.nsg-acc > summary {
+    .dossier-related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    /* Accordions gọn chuẩn modern-web-guidance: SVG chevron xoay 0deg <-> 180deg, không lồng H1..H6 */
+    details.nsg-acc > summary.nsg-acc-sum {
       list-style: none;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 13px 2px;
+      justify-content: space-between;
+      gap: 10px;
       cursor: pointer;
       font-family: var(--sans);
-      font-size: 13.5px;
-      font-weight: 600;
       color: var(--ink);
       user-select: none;
     }
 
-    details.nsg-acc > summary::-webkit-details-marker {
+    details.nsg-acc > summary.nsg-acc-sum::-webkit-details-marker {
       display: none;
     }
 
-    details.nsg-acc > summary::before {
-      content: "▸";
-      font-size: 13px;
+    .nsg-acc-chevron {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
       color: var(--accent);
-      display: inline-block;
-      transition: transform 0.2s ease;
+      transition: transform 0.22s ease;
     }
 
-    details.nsg-acc[open] > summary::before {
-      transform: rotate(90deg);
+    details.nsg-acc[open] > summary.nsg-acc-sum .nsg-acc-chevron {
+      transform: rotate(180deg);
+    }
+
+    details.nsg-acc::details-content {
+      interpolate-size: allow-keywords;
+      overflow: clip;
+      contain: layout;
+    }
+
+    details.nsg-acc:not([open])::details-content {
+      block-size: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      details.nsg-acc::details-content {
+        transition: block-size, content-visibility, display;
+        transition-duration: 0.26s;
+        transition-timing-function: ease-in-out;
+        transition-behavior: allow-discrete;
+      }
+    }
+
+    details.nsg-acc-price {
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px dashed var(--line);
+      border-bottom: 0;
+    }
+
+    details.nsg-acc-price > summary.nsg-acc-sum {
+      padding: 3px 0;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    details.nsg-acc-price > summary.nsg-acc-sum:hover {
+      color: var(--ink);
+    }
+
+    details.nsg-acc-row {
+      border-bottom: 1px solid var(--line);
+    }
+
+    details.nsg-acc-row > summary.nsg-acc-sum {
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    details.nsg-acc-loan {
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    details.nsg-acc-loan > summary.nsg-acc-sum {
+      padding: 12px 0;
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .acc-body {
-      padding: 4px 0 16px;
+      padding: 4px 0 14px;
       display: grid;
       gap: 10px;
     }
@@ -2184,7 +2328,7 @@
 
     .loan-metrics {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 10px;
     }
 
@@ -2268,6 +2412,7 @@
 
     .dossier-kv-row span:first-child {
       color: var(--muted);
+      font-weight: 500;
       flex-shrink: 0;
     }
 
@@ -2362,7 +2507,7 @@
       background-color: var(--paper);
       padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
       gap: 8px;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
     .dossier-mobile-cta-bar a,
@@ -2397,20 +2542,25 @@
     /* 10. SAVED DRAWER, COMPARE MODAL, LIGHTBOX & TOAST                     */
     /* ===================================================================== */
     .drawer-panel {
-      width: min(440px, 100vw);
-      height: 100svh;
+      width: min(440px, 100%);
+      max-width: 100vw;
+      height: 100vh;
+      height: 100dvh;
       background-color: var(--surface);
       border-left: 1px solid var(--line);
       box-shadow: var(--shadow-panel);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow-x: hidden;
+      overscroll-behavior: contain;
     }
 
     .center-modal {
       margin: auto;
       width: min(920px, calc(100vw - 24px));
-      max-height: calc(100svh - 32px);
+      max-height: calc(100vh - 32px);
+      max-height: calc(100dvh - 32px);
       background-color: var(--surface);
       border: 1px solid var(--line-strong);
       border-radius: 2px;
@@ -2557,15 +2707,22 @@
       .hero-grid,
       .contact-grid,
       .dossier-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        gap: 24px;
+      }
+      .dossier-media-col,
+      .dossier-info-col,
+      .dossier-related-col {
+        grid-column: 1 !important;
+        grid-row: auto !important;
       }
       .hero-sc {
         max-width: 500px;
         justify-self: start;
       }
       .search-rail {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
       .search-rail label:nth-child(1) {
         grid-column: 1 / -1;
@@ -2586,7 +2743,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
       .articles-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .article-col {
         padding: 20px 0;
@@ -2683,14 +2840,6 @@
       .hero-sc-media {
         aspect-ratio: 3 / 2;
       }
-      .hero-sc-media.is-passepartout {
-        padding: 8px 10px;
-      }
-      .hero-sc-media.is-passepartout img {
-        height: 100%;
-        width: auto;
-        max-height: min(100%, var(--nat-h, 100%));
-      }
       .hero-sc-foot {
         padding: 8px 8px;
         gap: 6px;
@@ -2731,7 +2880,7 @@
       }
       .mobile-quick-actions {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 6px;
         margin-top: 18px;
       }
@@ -2858,17 +3007,11 @@
         height: 44px;
       }
       .atelier-cards.mode-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 16px;
       }
       .atelier-card {
         box-shadow: none;
-      }
-      .card-media.is-passepartout {
-        padding: 10px 13px;
-      }
-      .card-media.is-passepartout img {
-        max-height: min(210px, var(--nat-h, 210px)) !important;
       }
       .media-step {
         opacity: 1;
@@ -2905,7 +3048,7 @@
         gap: 28px;
       }
       .contact-form-row2 {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .btn-bronze-solid,
       .btn-dark-outline {
@@ -2919,7 +3062,8 @@
 
       /* Dossier Mobile + Thanh CTA Đôi Ghim Cố Định Đáy */
       .dossier-panel {
-        width: 100vw;
+        width: 100%;
+        max-width: 100vw;
       }
       .dossier-topbar {
         padding: 10px 12px;
@@ -2967,6 +3111,12 @@
       .dossier-cta-stack {
         display: none;
       }
+      details.nsg-acc-loan {
+        margin-top: 0;
+      }
+      .dossier-related-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
       .dossier-mobile-cta-bar {
         display: grid;
       }
@@ -2984,14 +3134,15 @@
       }
       .compare-bar > div:last-child {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       }
       .lightbox-overlay {
         padding: 12px;
       }
       .center-modal {
         width: calc(100vw - 18px);
-        max-height: calc(100svh - 18px);
+        max-height: calc(100vh - 18px);
+        max-height: calc(100dvh - 18px);
       }
       .toast {
         left: 12px;
@@ -3001,7 +3152,7 @@
       }
       .mobile-call-dock {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         position: fixed;
         z-index: 44;
         left: 0;
@@ -4056,8 +4207,8 @@
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">' +
           '<rect width="800" height="600" fill="#EAE5DB"/>' +
           '<rect x="24" y="24" width="752" height="552" fill="none" stroke="#C5BEB0" stroke-width="2"/>' +
-          '<text x="400" y="294" text-anchor="middle" fill="#6B655C" font-family="Georgia,serif" font-size="34">nhatoSG</text>' +
-          '<text x="400" y="334" text-anchor="middle" fill="#6B655C" font-family="monospace" font-size="14">Hình ảnh đang đồng bộ</text>' +
+          '<text x="400" y="294" text-anchor="middle" fill="#46413A" font-family="Georgia,serif" font-size="34">nhatoSG</text>' +
+          '<text x="400" y="334" text-anchor="middle" fill="#46413A" font-family="monospace" font-size="14">Hình ảnh đang đồng bộ</text>' +
         "</svg>"
       );
 
@@ -4089,6 +4240,7 @@
     let activeDossierId = null;
     let activeDossierPhotoIdx = 0;
     let toastTimer = null;
+    let savedPageScrollY = 0;
 
     // Ngăn xếp lịch sử cho nút Back điện thoại
     const overlayHistoryStack = [];
@@ -4382,15 +4534,29 @@
       const h = imgEl.naturalHeight;
       imgEl.style.setProperty("--nat-w", w + "px");
       imgEl.style.setProperty("--nat-h", h + "px");
+      imgEl.style.setProperty("--max-disp-w", Math.round(w * 1.25) + "px");
+      imgEl.style.setProperty("--max-disp-h", Math.round(h * 1.25) + "px");
 
       const container = imgEl.closest(".card-media, .ledger-thumb, .hero-sc-media");
       if (!container) return;
 
       const ratio = w / h;
       const rect = container.getBoundingClientRect();
-      const isUndersized = rect.width > 0 && rect.height > 0 && (w < rect.width * 0.95 || h < rect.height * 0.95);
-      const needsPassePartout = passePartoutEnabled && (ratio < 1.08 || ratio > 1.68 || isUndersized);
+      const isSeverelySmall = rect.width > 0 && rect.height > 0 && (w * 1.25 < rect.width || h * 1.25 < rect.height);
+      const isPortrait = ratio < 0.90;
+      const isWide = ratio > 1.80;
+      const needsPassePartout = passePartoutEnabled && (isPortrait || isWide || isSeverelySmall);
+
+      if (needsPassePartout) {
+        const safeSrc = String(imgEl.currentSrc || imgEl.src || "").replace(/(["\\])/g, "\\$1");
+        container.style.setProperty("--media-bg", safeSrc ? 'url("' + safeSrc + '")' : "none");
+      } else {
+        container.style.removeProperty("--media-bg");
+      }
       container.classList.toggle("is-passepartout", needsPassePartout);
+      container.classList.toggle("is-portrait", needsPassePartout && isPortrait && !isSeverelySmall);
+      container.classList.toggle("is-wide", needsPassePartout && isWide && !isSeverelySmall);
+      container.classList.toggle("is-tiny", needsPassePartout && isSeverelySmall);
     }
 
     function hydrateRenderedImages() {
@@ -5128,7 +5294,7 @@
         const el = document.getElementById("dossierOverlay");
         if (el && !el.classList.contains("open")) {
           el.classList.add("open");
-          document.body.classList.add("is-locked");
+          lockPageScroll();
         }
       } else if (alreadyOpen) {
         try {
@@ -5137,7 +5303,11 @@
       } else {
         openOverlay("dossierOverlay", "?id=" + encodeURIComponent(p.id));
       }
-      document.getElementById("dossierScrollBody").scrollTop = 0;
+      const scrollBody = document.getElementById("dossierScrollBody");
+      if (scrollBody) {
+        scrollBody.scrollTop = 0;
+        scrollBody.scrollLeft = 0;
+      }
     }
 
     function buildPriceHistoryAccordionHtml(p) {
@@ -5236,9 +5406,17 @@
       }
     }
 
-    function renderDossierContent() {
+    function renderDossierContent(opts) {
+      opts = opts || {};
       const p = getProp(activeDossierId);
       if (!p) return;
+      const preserve = Boolean(opts.preserveOpenState);
+      const prevPriceOpen = preserve && Boolean(document.getElementById("accPriceHistory")?.open);
+      const prevLocOpen = preserve && Boolean(document.getElementById("accLocationNote")?.open);
+      const prevLoanOpen = preserve && Boolean(document.getElementById("accLoanCalc")?.open);
+      const prevLtv = preserve ? (document.getElementById("loanLtvSlider")?.value || "40") : "40";
+      const prevThumbScroll = preserve ? (document.querySelector("#dossierScrollBody .dossier-thumbs-top")?.scrollLeft || 0) : 0;
+
       const curPhoto = p.photos[activeDossierPhotoIdx] || p.photos[0];
       const isSaved = savedIds.includes(p.id);
       const isComp = compareIds.includes(p.id);
@@ -5255,9 +5433,12 @@
         .filter(function (x) { return x.id !== p.id && (x.district === p.district || x.category === p.category); })
         .slice(0, 2);
 
-      document.getElementById("dossierScrollBody").innerHTML = `
+      const chevronSvg = '<svg class="nsg-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,9L12,15L18,9"/></svg>';
+
+      const scrollBody = document.getElementById("dossierScrollBody");
+      scrollBody.innerHTML = `
         <div class="dossier-grid">
-          <div>
+          <div class="dossier-media-col">
             <div class="dossier-thumbs-top">
               ${p.photos.map(function (url, idx) {
                 return `
@@ -5292,92 +5473,9 @@
                 </div>
               </div>
             </div>
-
-            <div class="security-box">
-              <div class="security-box-title">QUY CHUẨN BẢO MẬT THÔNG TIN</div>
-              <p>
-                Số nhà &amp; Sổ hồng bảo mật nội bộ — Vũ cung cấp trực tiếp qua Zalo <strong style="font-family:var(--mono); color:var(--ink);">0916.23.9898</strong> nhằm bảo vệ sự riêng tư cho chủ sở hữu và hoạt động khai thác hiện hữu của tài sản.
-              </p>
-            </div>
-
-            <div class="dossier-editorial-sections">
-              <div class="dossier-ed-block">
-                <h4>1. Thông số &amp; kết cấu thực tế</h4>
-                ${p.specItems && p.specItems.length
-                  ? `<ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.72;">${p.specItems.map(function (kv) {
-                      return `<li><strong style="color:var(--ink);">${esc(kv[0])}:</strong> ${esc(kv[1])}</li>`;
-                    }).join("")}</ul>`
-                  : `<p>${esc(p.sec1)}</p>`}
-              </div>
-              <div class="dossier-ed-block">
-                <h4>2. Vị trí &amp; điểm đáng chú ý</h4>
-                <p>${esc(p.sec2)}</p>
-              </div>
-              ${p.sec3 ? `
-                <div class="dossier-ed-block">
-                  <h4>3. Khai thác &amp; dòng tiền</h4>
-                  <p>${esc(p.sec3)}</p>
-                </div>
-              ` : ""}
-            </div>
-
-            <!-- Accordions gọn theo index.html (Lịch sử giá & Tính vốn vay) -->
-            <div class="dossier-accordions">
-              <details class="nsg-acc">
-                <summary>Lịch sử thay đổi giá chào bán</summary>
-                <div class="acc-body">
-                  ${buildPriceHistoryAccordionHtml(p)}
-                </div>
-              </details>
-
-              <details class="nsg-acc">
-                <summary>Tính vốn tự có &amp; chi phí vay (Mô phỏng tham khảo)</summary>
-                <div class="acc-body">
-                  <div class="loan-box">
-                    <div style="display:flex; justify-content:space-between; align-items:center; font-size:12.5px;">
-                      <label for="loanLtvSlider">Tỷ lệ vay Ngân hàng (Lãi suất giả định 7,5%/năm):</label>
-                      <strong id="loanLtvLabel" style="font-family:var(--mono); color:var(--accent);">40%</strong>
-                    </div>
-                    <input id="loanLtvSlider" type="range" min="0" max="70" step="5" value="40" oninput="updateLoanCalculator()" style="width:100%; accent-color:var(--accent);" />
-                    <div class="loan-metrics">
-                      <div class="loan-metric-cell">
-                        <span style="color:var(--muted);">Vốn tự có cần chuẩn bị</span>
-                        <strong id="loanEquityValue">--</strong>
-                      </div>
-                      <div class="loan-metric-cell">
-                        <span style="color:var(--muted);">Lãi vay dự kiến / Dòng tiền</span>
-                        <strong id="loanInterestVsRent">--</strong>
-                      </div>
-                    </div>
-                    <p style="margin:0; font-size:11.5px; color:var(--muted); font-style:italic;">
-                      *Kết quả mang tính ước tính tham khảo theo lãi suất 7,5%/năm; không phải cam kết tín dụng ngân hàng.
-                    </p>
-                  </div>
-                </div>
-              </details>
-            </div>
-
-            ${related.length ? `
-              <div style="margin-top:24px; padding-top:18px; border-top:1px solid var(--line);">
-                <div style="font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:10px;">
-                  TÀI SẢN CÙNG KHU VỰC
-                </div>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
-                  ${related.map(function (r) {
-                    return `
-                      <button type="button" onclick="openDossier('${esc(r.id)}')" style="padding:10px 12px; border:1px solid var(--line); background:var(--paper); text-align:left; border-radius:2px;">
-                        <div style="font-family:var(--mono); font-size:10.5px; color:var(--accent);">${esc(r.district)} · ${r.masked ? "Liên Hệ" : esc(fmtBil(r.price))}</div>
-                        <div style="font-family:var(--serif); font-size:16px; font-weight:600; margin-top:2px;">${esc(r.streetDisplay)}</div>
-                        <div style="font-size:11.5px; color:var(--muted); margin-top:2px;">${esc(r.dimsShort)}${r.area > 0 ? " · CN " + esc(fmtNum(r.area)) + "m²" : ""}</div>
-                      </button>
-                    `;
-                  }).join("")}
-                </div>
-              </div>
-            ` : ""}
           </div>
 
-          <div>
+          <div class="dossier-info-col">
             <p class="dossier-loc-kicker">${esc([p.district, p.ward].filter(Boolean).join(" · ").toUpperCase())}</p>
             <h2 class="dossier-title">${esc(p.streetDisplay)}, ${esc(p.district)}</h2>
 
@@ -5387,6 +5485,16 @@
                 ${!p.masked && p.dropText ? `<span style="color:var(--danger); font-weight:600;">${esc(p.dropText)}</span>` : ""}
               </div>
               ${priceDisplay}
+
+              <details class="nsg-acc nsg-acc-price" id="accPriceHistory">
+                <summary class="nsg-acc-sum">
+                  <span>Lịch sử thay đổi giá chào bán</span>
+                  ${chevronSvg}
+                </summary>
+                <div class="acc-body">
+                  ${buildPriceHistoryAccordionHtml(p)}
+                </div>
+              </details>
             </div>
 
             <div class="dossier-kv-list">
@@ -5414,8 +5522,19 @@
               </div>
             </div>
 
+            <details class="nsg-acc nsg-acc-row" id="accLocationNote">
+              <summary class="nsg-acc-sum">
+                <span>Vị trí &amp; điểm đáng chú ý</span>
+                ${chevronSvg}
+              </summary>
+              <div class="acc-body">
+                <p style="margin:0; font-size:13.5px; line-height:1.68; color:var(--muted);">${esc(p.sec2)}</p>
+                ${(p.masked || p.cashflowMasked) && p.sec3 ? `<p style="margin:8px 0 0; font-size:12.5px; line-height:1.6; color:var(--accent);">${esc(p.sec3)}</p>` : ""}
+              </div>
+            </details>
+
             <div class="dossier-utility-links">
-              <button type="button" onclick="toggleCompare('${esc(p.id)}'); renderDossierContent();">
+              <button type="button" onclick="toggleCompare('${esc(p.id)}'); renderDossierContent({ preserveOpenState: true });">
                 ${isComp ? "✓ Đã thêm vào bàn cân so sánh" : "+ So sánh thông số"}
               </button>
               <a href="p/${encodeURIComponent(p.id)}.html" target="_blank" rel="noopener">
@@ -5431,9 +5550,76 @@
                 NHẬN SỔ HỒNG ZALO
               </button>
             </div>
+
+            <details class="nsg-acc nsg-acc-loan" id="accLoanCalc">
+              <summary class="nsg-acc-sum">
+                <span>Tính vốn tự có &amp; chi phí vay (Mô phỏng tham khảo)</span>
+                ${chevronSvg}
+              </summary>
+              <div class="acc-body">
+                <div class="loan-box">
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:12.5px;">
+                    <label for="loanLtvSlider">Tỷ lệ vay Ngân hàng (Lãi suất giả định 7,5%/năm):</label>
+                    <strong id="loanLtvLabel" style="font-family:var(--mono); color:var(--accent);">40%</strong>
+                  </div>
+                  <input id="loanLtvSlider" type="range" min="0" max="70" step="5" value="40" oninput="updateLoanCalculator()" style="width:100%; accent-color:var(--accent);" />
+                  <div class="loan-metrics">
+                    <div class="loan-metric-cell">
+                      <span style="color:var(--muted);">Vốn tự có cần chuẩn bị</span>
+                      <strong id="loanEquityValue">--</strong>
+                    </div>
+                    <div class="loan-metric-cell">
+                      <span style="color:var(--muted);">Lãi vay dự kiến / Dòng tiền</span>
+                      <strong id="loanInterestVsRent">--</strong>
+                    </div>
+                  </div>
+                  <p style="margin:0; font-size:11.5px; color:var(--muted); font-style:italic;">
+                    *Kết quả mang tính ước tính tham khảo theo lãi suất 7,5%/năm; không phải cam kết tín dụng ngân hàng.
+                  </p>
+                </div>
+              </div>
+            </details>
           </div>
+
+          ${related.length ? `
+            <div class="dossier-related-col">
+              <div class="dossier-related-block">
+                <div class="dossier-related-kicker">TÀI SẢN CÙNG KHU VỰC</div>
+                <div class="dossier-related-grid">
+                  ${related.map(function (r) {
+                    return `
+                      <button type="button" onclick="openDossier('${esc(r.id)}')" style="padding:10px 12px; border:1px solid var(--line); background:var(--paper); text-align:left; border-radius:2px;">
+                        <div style="font-family:var(--mono); font-size:10.5px; color:var(--accent);">${esc(r.district)} · ${r.masked ? "Liên Hệ" : esc(fmtBil(r.price))}</div>
+                        <div style="font-family:var(--serif); font-size:16px; font-weight:600; margin-top:2px;">${esc(r.streetDisplay)}</div>
+                        <div style="font-size:11.5px; color:var(--muted); margin-top:2px;">${esc(r.dimsShort)}${r.area > 0 ? " · CN " + esc(fmtNum(r.area)) + "m²" : ""}</div>
+                      </button>
+                    `;
+                  }).join("")}
+                </div>
+              </div>
+            </div>
+          ` : ""}
         </div>
       `;
+
+      if (prevPriceOpen) {
+        const elP = document.getElementById("accPriceHistory");
+        if (elP) elP.open = true;
+      }
+      if (prevLocOpen) {
+        const elL = document.getElementById("accLocationNote");
+        if (elL) elL.open = true;
+      }
+      if (prevLoanOpen) {
+        const elC = document.getElementById("accLoanCalc");
+        if (elC) elC.open = true;
+      }
+      const ltvEl = document.getElementById("loanLtvSlider");
+      if (ltvEl) ltvEl.value = prevLtv;
+      if (prevThumbScroll > 0) {
+        const thumbs = scrollBody.querySelector(".dossier-thumbs-top");
+        if (thumbs) thumbs.scrollLeft = prevThumbScroll;
+      }
 
       updateLoanCalculator();
       requestAnimationFrame(hydrateRenderedImages);
@@ -5441,14 +5627,14 @@
 
     function selectDossierPhoto(idx) {
       activeDossierPhotoIdx = idx;
-      renderDossierContent();
+      renderDossierContent({ preserveOpenState: true });
     }
 
     function stepDossierPhoto(delta) {
       const p = getProp(activeDossierId);
       if (!p || p.photos.length <= 1) return;
       activeDossierPhotoIdx = (activeDossierPhotoIdx + delta + p.photos.length) % p.photos.length;
-      renderDossierContent();
+      renderDossierContent({ preserveOpenState: true });
       if (document.getElementById("lightboxOverlay").classList.contains("open")) {
         syncLightboxView();
       }
@@ -5457,7 +5643,7 @@
     function openLightbox() {
       syncLightboxView();
       document.getElementById("lightboxOverlay").classList.add("open");
-      document.body.classList.add("is-locked");
+      lockPageScroll();
       pushHistoryStep("lightboxOverlay");
     }
 
@@ -5482,9 +5668,7 @@
       const lb = document.getElementById("lightboxOverlay");
       if (!lb.classList.contains("open")) return;
       lb.classList.remove("open");
-      if (!document.querySelector(".overlay.open")) {
-        document.body.classList.remove("is-locked");
-      }
+      unlockPageScroll();
       popHistoryStep("lightboxOverlay", fromPopstate);
     }
 
@@ -5510,7 +5694,7 @@
       syncSavedBadge();
       renderDirectory();
       if (document.getElementById("dossierOverlay").classList.contains("open") && activeDossierId === id) {
-        renderDossierContent();
+        renderDossierContent({ preserveOpenState: true });
       }
       if (document.getElementById("savedOverlay").classList.contains("open")) {
         renderSavedDrawerList();
@@ -5757,11 +5941,40 @@
       } catch (e) {}
     }
 
+    function lockPageScroll() {
+      if (document.body.classList.contains("is-locked")) return;
+      savedPageScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.classList.add("is-locked");
+      document.body.style.position = "fixed";
+      document.body.style.top = (-savedPageScrollY) + "px";
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    }
+
+    function unlockPageScroll() {
+      if (document.querySelector(".overlay.open") || document.getElementById("lightboxOverlay").classList.contains("open")) {
+        return;
+      }
+      if (!document.body.classList.contains("is-locked")) return;
+      document.body.classList.remove("is-locked");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      const htmlEl = document.documentElement;
+      const prevSB = htmlEl.style.scrollBehavior;
+      htmlEl.style.scrollBehavior = "auto";
+      window.scrollTo(0, savedPageScrollY || 0);
+      htmlEl.style.scrollBehavior = prevSB;
+    }
+
     function openOverlay(id, nextUrl) {
       const el = document.getElementById(id);
       if (!el || el.classList.contains("open")) return;
       el.classList.add("open");
-      document.body.classList.add("is-locked");
+      lockPageScroll();
       pushHistoryStep(id, nextUrl);
     }
 
@@ -5769,9 +5982,7 @@
       const el = document.getElementById(id);
       if (!el || !el.classList.contains("open")) return;
       el.classList.remove("open");
-      if (!document.querySelector(".overlay.open") && !document.getElementById("lightboxOverlay").classList.contains("open")) {
-        document.body.classList.remove("is-locked");
-      }
+      unlockPageScroll();
       if (id === "dossierOverlay") {
         syncDossierMetadata(null);
       }
