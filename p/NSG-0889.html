@@ -304,6 +304,51 @@ try {
     color: var(--text-muted);
     margin-top: 5px;
   }
+  .p-price-acc {
+    margin-top: 12px;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  .p-price-acc-sum {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 4px 0;
+  }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+  }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .p-hist-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+  }
+  .p-hist-item strong { color: var(--text-main); font-weight: 600; }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: var(--mono); font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
+  .p-hist-drop { color: var(--badge-drop-fg); }
   /* Smart Gallery (Zalo In-App & Mobile-First) */
   .p-gallery-shell {
     background: var(--bg-mat);
@@ -736,6 +781,15 @@ try {
   .price-val { color: var(--text-main); }
   .price-masked .price-val { color: var(--primary); }
   .price-sub { color: var(--text-muted); }
+  .p-price-acc { margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .p-price-acc-sum { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; color: var(--text-main); padding: 4px 0; }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s ease; }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body { padding-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .p-hist-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--border); }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: ui-monospace, monospace; font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
   .spec-item, .desc-card { background: var(--bg-sub); border-color: var(--border); color: var(--text-main); border-radius: 4px; }
   .spec-lbl { color: var(--text-muted); }
   .spec-val, .desc-heading { color: var(--text-main); }
@@ -836,12 +890,13 @@ try {
             <div class="price-label">MỨC GIÁ CHÀO BÁN</div>
             <div class="price-val-row"><span class="price-val">38 Tỷ</span></div>
             <div class="price-sub">Đơn vị: Tỷ đồng Việt Nam · Đã đối chiếu hiện trạng công trình thực tế.</div>
+            <details class="p-price-acc" id="pAccPriceHistory"><summary class="p-price-acc-sum"><span>Lịch sử thay đổi giá chào bán</span><svg class="p-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,9L12,15L18,9"/></svg></summary><div class="p-price-acc-body"><div class="p-hist-item"><div><strong>Giá chào ban đầu</strong><div class="p-hist-sub">18/11/2026 · Chưa ghi nhận biến động giá</div></div><span class="p-hist-val">38 Tỷ</span></div></div></details>
           </div>
 
     <div class="p-gallery-shell" oncontextmenu="return false;">
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="" aria-hidden="true" />
-        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -849,7 +904,7 @@ try {
         <span class="p-gal-count">📷 Ảnh <span id="pGalIdx">1</span>/2</span>
         <button type="button" class="p-gal-full-btn" onclick="openStaticLightbox()">Xem trọn bộ 2 hình ảnh</button>
       </div>
-      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
+      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" data-raw="./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
     </div>
 
     <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 6,8 × 24m</li><li><strong>Diện tích công nhận:</strong> 158,7m²</li><li><strong>Kết cấu:</strong> 1 Hầm, 5 Tầng, mái che thang, hẻm hậu phía sau</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ nằm trên trục Đường Quang Trung, Phường 11, Gò Vấp, kết nối thuận tiện với nút giao Thống Nhất, sở hữu lối đi hẻm hậu thông thoáng. Sở hữu khuôn đất nở hậu vuông vắn, công trình trang bị sẵn tầng hầm đậu xe phục vụ khai thác đồng bộ. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>70 triệu/tháng</strong>· Còn 10 năm</p></section></div>
@@ -862,7 +917,7 @@ try {
 
     
 <!-- NSG_VIP_RELATED_START -->
-<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0762.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" data-raw="web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Dương Quảng Hàm, Phường 5, Gò Vấp - Mã NSG-0762" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0762]</span><span class="p-rel-price">38.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 5, Gò Vấp – Hầm 6 Tầng, 38 Tỷ</div><div class="p-rel-meta">Đường Dương Quảng Hàm, Phường 5, Gò Vấp · 268m²</div></div></a><a href="/p/NSG-0536.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" data-raw="web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Nguyễn Văn Khối, Phường 9, Gò Vấp - Mã NSG-0536" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0536]</span><span class="p-rel-price">48.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 9, Gò Vấp – Hầm 6 Tầng, 48 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Văn Khối, Phường 9, Gò Vấp · 247,7m²</div></div></a><a href="/p/NSG-0571.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" data-raw="web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Quang Trung, Phường 11, Gò Vấp - Mã NSG-0571" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0571]</span><span class="p-rel-price">50.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – Hầm 7 Tầng, 50 Tỷ</div><div class="p-rel-meta">Đường Quang Trung, Phường 11, Gò Vấp · 198,7m²</div></div></a></div></section>
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0762.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" data-raw="web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0762/ban-toa-chdv-khach-san-duong-duong-quang-ham-phuong-5-go-vap-nsg-0762-hinh-1-03ff2.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Dương Quảng Hàm, Phường 5, Gò Vấp - Mã NSG-0762" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0762]</span><span class="p-rel-price">38 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 5, Gò Vấp – Hầm 6 Tầng, 38 Tỷ</div><div class="p-rel-meta">Đường Dương Quảng Hàm, Phường 5, Gò Vấp · 268m²</div></div></a><a href="/p/NSG-0536.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" data-raw="web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0536/ban-toa-chdv-khach-san-phuong-9-quan-go-vap-nsg-0536-hinh-1-7225.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Nguyễn Văn Khối, Phường 9, Gò Vấp - Mã NSG-0536" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0536]</span><span class="p-rel-price">48 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 9, Gò Vấp – Hầm 6 Tầng, 48 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Văn Khối, Phường 9, Gò Vấp · 247,7m²</div></div></a><a href="/p/NSG-0571.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" data-raw="web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0571/ban-toa-chdv-khach-san-phuong-11-quan-go-vap-nsg-0571-hinh-1-1f54.jpg" alt="Ảnh thực tế Tòa CHDV / Khách Sạn tại Đường Quang Trung, Phường 11, Gò Vấp - Mã NSG-0571" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0571]</span><span class="p-rel-price">50 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa CHDV / Khách Sạn</div><div class="p-rel-title">Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – Hầm 7 Tầng, 50 Tỷ</div><div class="p-rel-meta">Đường Quang Trung, Phường 11, Gò Vấp · 198,7m²</div></div></a></div></section>
 <!-- NSG_VIP_RELATED_END -->
     <div class="footer-hub-nav">
   <div class="footer-hub-inner">
@@ -887,7 +942,7 @@ try {
     <button type="button" class="p-lb-close" onclick="closeStaticLightbox(false)">Đóng ✕</button>
   </div>
   <div class="p-lb-stage" id="pLbStage">
-    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -901,7 +956,7 @@ try {
 
 <script>
 (function() {
-  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg", "raw": "./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg", "cap": "Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg", "raw": "./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg", "cap": "Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38.0 Tỷ - Ảnh #2"}];
+  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg", "raw": "./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-1-4efd.jpg", "cap": "Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg", "raw": "./web_images/NSG-0889/ban-toa-chdv-khach-san-phuong-11-go-vap-nsg-0889-hinh-2-3fb5.jpg", "cap": "Bán Tòa CHDV / Khách Sạn Phường 11, Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ - DT 6,8m × 24m (nở hậu) (CN 158.7m²) - Giá chào 38 Tỷ - Ảnh #2"}];
   var ZALO_TEXT = "Chào Vũ (nhatoSG), tôi quan tâm đến mã tài sản [NSG-0889] - Bán tòa khách sạn Quang Trung, Gò Vấp – 1 hầm, 5 tầng, 38 tỷ (38 Tỷ). Nhờ Vũ gửi trọn bộ Sổ Hồng gốc, quy hoạch và vị trí chính xác qua Zalo giúp tôi nhé!";
   var curIdx = 0;
   var lastSwipeTs = 0;

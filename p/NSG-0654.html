@@ -304,6 +304,51 @@ try {
     color: var(--text-muted);
     margin-top: 5px;
   }
+  .p-price-acc {
+    margin-top: 12px;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  .p-price-acc-sum {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 4px 0;
+  }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+  }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .p-hist-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+  }
+  .p-hist-item strong { color: var(--text-main); font-weight: 600; }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: var(--mono); font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
+  .p-hist-drop { color: var(--badge-drop-fg); }
   /* Smart Gallery (Zalo In-App & Mobile-First) */
   .p-gallery-shell {
     background: var(--bg-mat);
@@ -736,6 +781,15 @@ try {
   .price-val { color: var(--text-main); }
   .price-masked .price-val { color: var(--primary); }
   .price-sub { color: var(--text-muted); }
+  .p-price-acc { margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .p-price-acc-sum { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; color: var(--text-main); padding: 4px 0; }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s ease; }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body { padding-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .p-hist-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--border); }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: ui-monospace, monospace; font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
   .spec-item, .desc-card { background: var(--bg-sub); border-color: var(--border); color: var(--text-main); border-radius: 4px; }
   .spec-lbl { color: var(--text-muted); }
   .spec-val, .desc-heading { color: var(--text-main); }
@@ -836,12 +890,13 @@ try {
             <div class="price-label">MỨC GIÁ CHÀO BÁN</div>
             <div class="price-val-row"><span class="price-val">29 Tỷ</span></div>
             <div class="price-sub">Đơn vị: Tỷ đồng Việt Nam · Đã đối chiếu hiện trạng công trình thực tế.</div>
+            <details class="p-price-acc" id="pAccPriceHistory"><summary class="p-price-acc-sum"><span>Lịch sử thay đổi giá chào bán</span><svg class="p-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,9L12,15L18,9"/></svg></summary><div class="p-price-acc-body"><div class="p-hist-item"><div><strong>Giá chào ban đầu</strong><div class="p-hist-sub">Chưa ghi nhận biến động giá</div></div><span class="p-hist-val">29 Tỷ</span></div></div></details>
           </div>
 
     <div class="p-gallery-shell" oncontextmenu="return false;">
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="" aria-hidden="true" />
-        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -849,7 +904,7 @@ try {
         <span class="p-gal-count">📷 Ảnh <span id="pGalIdx">1</span>/2</span>
         <button type="button" class="p-gal-full-btn" onclick="openStaticLightbox()">Xem trọn bộ 2 hình ảnh</button>
       </div>
-      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
+      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" data-raw="web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
     </div>
 
     <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 13,5 × 3,05m</li><li><strong>Diện tích công nhận:</strong> 41,1m²</li><li><strong>Kết cấu:</strong> 5 Tầng, Thang Máy (Căn góc 3 Mặt Tiền Thông Thoáng)</li><li><strong>Đặc điểm:</strong> Căn góc</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Bất động sản tọa lạc mặt tiền Đường Phan Văn Trường, Phường Bến Thành, Quận 1, kết nối giao thông thuận tiện ra Calmette, Lê Thánh Tôn, Nguyễn Thái Học, Hàm Nghi và đại lộ Võ Văn Kiệt. Sở hữu lợi thế góc ba mặt thoáng hiếm có giúp nhận diện thương hiệu nổi bật, công trình trang bị sẵn thang máy phục vụ khai thác đồng bộ. Phù hợp kinh doanh showroom, phòng khám, văn phòng công ty hoặc tích lũy tài sản giữ giá bền vững.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>80 triệu/tháng</strong></p></section></div>
@@ -862,7 +917,7 @@ try {
 
     
 <!-- NSG_VIP_RELATED_START -->
-<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0895.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" data-raw="web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Đặng Dung, Phường Tân Định, Quận 1 - Mã NSG-0895" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0895]</span><span class="p-rel-price">30.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Tân Định, Quận 1 – 2 Tầng, 30 Tỷ</div><div class="p-rel-meta">Đường Đặng Dung, Phường Tân Định, Quận 1 · 94m²</div></div></a><a href="/p/NSG-0876.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" data-raw="web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Võ Văn Kiệt, Phường Bến Thành, Quận 1 - Mã NSG-0876" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0876]</span><span class="p-rel-price">30.5 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Bến Thành, Quận 1 – 5 Tầng, 30.5 Tỷ</div><div class="p-rel-meta">Đường Võ Văn Kiệt, Phường Bến Thành, Quận 1 · 84,7m²</div></div></a><a href="/p/NSG-0538.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" data-raw="web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Nguyễn Văn Nguyễn, Phường Tân Định, Quận 1 - Mã NSG-0538" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0538]</span><span class="p-rel-price">27.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Tân Định, Quận 1 – 5 Tầng, 27 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Văn Nguyễn, Phường Tân Định, Quận 1 · 82m²</div></div></a></div></section>
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0895.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" data-raw="web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0895/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0895-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Đặng Dung, Phường Tân Định, Quận 1 - Mã NSG-0895" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0895]</span><span class="p-rel-price">30 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Tân Định, Quận 1 – 2 Tầng, 30 Tỷ</div><div class="p-rel-meta">Đường Đặng Dung, Phường Tân Định, Quận 1 · 94m²</div></div></a><a href="/p/NSG-0876.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" data-raw="web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0876/ban-nha-pho-mat-tien-phuong-ben-thanh-quan-1-nsg-0876-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Võ Văn Kiệt, Phường Bến Thành, Quận 1 - Mã NSG-0876" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0876]</span><span class="p-rel-price">30,5 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Bến Thành, Quận 1 – 5 Tầng, 30.5 Tỷ</div><div class="p-rel-meta">Đường Võ Văn Kiệt, Phường Bến Thành, Quận 1 · 84,7m²</div></div></a><a href="/p/NSG-0538.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" data-raw="web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0538/ban-nha-pho-mat-tien-phuong-tan-dinh-quan-1-nsg-0538-hinh-1-68c5.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Nguyễn Văn Nguyễn, Phường Tân Định, Quận 1 - Mã NSG-0538" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0538]</span><span class="p-rel-price">27 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường Tân Định, Quận 1 – 5 Tầng, 27 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Văn Nguyễn, Phường Tân Định, Quận 1 · 82m²</div></div></a></div></section>
 <!-- NSG_VIP_RELATED_END -->
     <div class="footer-hub-nav">
   <div class="footer-hub-inner">
@@ -887,7 +942,7 @@ try {
     <button type="button" class="p-lb-close" onclick="closeStaticLightbox(false)">Đóng ✕</button>
   </div>
   <div class="p-lb-stage" id="pLbStage">
-    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg" alt="Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -901,7 +956,7 @@ try {
 
 <script>
 (function() {
-  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg", "raw": "web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg", "cap": "Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg", "raw": "web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg", "cap": "Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29.0 Tỷ - Ảnh #2"}];
+  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg", "raw": "web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-1-a89f2.jpg", "cap": "Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg", "raw": "web_images/NSG-0654/ban-toa-nha-thuong-mai-nha-pho-mat-tien-duong-phan-van-truong-phuong-ben-thanh-quan-1-nsg-0654-hinh-2-589b8.jpg", "cap": "Bán Tòa Nhà Thương Mại Phường Bến Thành, Quận 1 – 5 Tầng, 29 Tỷ - DT 13,5m × 3,05m (Căn góc 3 Mặt Tiền) (CN 41.1m²) - Giá chào 29 Tỷ - Ảnh #2"}];
   var ZALO_TEXT = "Chào Vũ (nhatoSG), tôi quan tâm đến mã tài sản [NSG-0654] - Bán nhà mặt tiền Phan Văn Trường, Quận 1 – 5 tầng, 29 tỷ (29 Tỷ). Nhờ Vũ gửi trọn bộ Sổ Hồng gốc, quy hoạch và vị trí chính xác qua Zalo giúp tôi nhé!";
   var curIdx = 0;
   var lastSwipeTs = 0;

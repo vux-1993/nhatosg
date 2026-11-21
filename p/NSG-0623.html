@@ -304,6 +304,51 @@ try {
     color: var(--text-muted);
     margin-top: 5px;
   }
+  .p-price-acc {
+    margin-top: 12px;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  .p-price-acc-sum {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 4px 0;
+  }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+  }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .p-hist-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+  }
+  .p-hist-item strong { color: var(--text-main); font-weight: 600; }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: var(--mono); font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
+  .p-hist-drop { color: var(--badge-drop-fg); }
   /* Smart Gallery (Zalo In-App & Mobile-First) */
   .p-gallery-shell {
     background: var(--bg-mat);
@@ -736,6 +781,15 @@ try {
   .price-val { color: var(--text-main); }
   .price-masked .price-val { color: var(--primary); }
   .price-sub { color: var(--text-muted); }
+  .p-price-acc { margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .p-price-acc-sum { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; color: var(--text-main); padding: 4px 0; }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s ease; }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body { padding-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .p-hist-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--border); }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: ui-monospace, monospace; font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
   .spec-item, .desc-card { background: var(--bg-sub); border-color: var(--border); color: var(--text-main); border-radius: 4px; }
   .spec-lbl { color: var(--text-muted); }
   .spec-val, .desc-heading { color: var(--text-main); }
@@ -836,12 +890,13 @@ try {
             <div class="price-label">MỨC GIÁ CHÀO BÁN</div>
             <div class="price-val-row"><span class="price-val">26 Tỷ</span></div>
             <div class="price-sub">Đơn vị: Tỷ đồng Việt Nam · Đã đối chiếu hiện trạng công trình thực tế.</div>
+            <details class="p-price-acc" id="pAccPriceHistory"><summary class="p-price-acc-sum"><span>Lịch sử thay đổi giá chào bán</span><svg class="p-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,9L12,15L18,9"/></svg></summary><div class="p-price-acc-body"><div class="p-hist-item"><div><strong>Giá chào ban đầu</strong><div class="p-hist-sub">Chưa ghi nhận biến động giá</div></div><span class="p-hist-val">26 Tỷ</span></div></div></details>
           </div>
 
     <div class="p-gallery-shell" oncontextmenu="return false;">
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="" aria-hidden="true" />
-        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -849,10 +904,10 @@ try {
         <span class="p-gal-count">📷 Ảnh <span id="pGalIdx">1</span>/2</span>
         <button type="button" class="p-gal-full-btn" onclick="openStaticLightbox()">Xem trọn bộ 2 hình ảnh</button>
       </div>
-      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
+      <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" data-raw="web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button></div>
     </div>
 
-    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,23 × 13m</li><li><strong>Diện tích công nhận:</strong> 93,5m²</li><li><strong>Kết cấu:</strong> Trệt, 2 Lầu (Căn góc 2 Mặt Tiền, Hẻm Hông 6m)</li><li><strong>Đặc điểm:</strong> Căn góc</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Bất động sản nằm trên trục Đường Bạch Đằng, Phường 24, Bình Thạnh, ngay sát Chợ Bà Chiểu và Ngã tư Hàng Xanh, kết nối giao thông thuận tiện ra Điện Biên Phủ, Đinh Bộ Lĩnh, Xô Viết Nghệ Tĩnh, Phan Đăng Lưu và Cầu Sài Gòn, di chuyển sang Quận 1 và TP. Sở hữu lợi thế Căn góc hai mặt thoáng giúp tối ưu ánh sáng tự nhiên và độ nhận diện. Phù hợp kinh doanh showroom, phòng khám, văn phòng công ty hoặc tích lũy tài sản giữ giá bền vững.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Sẵn sàng bàn giao</strong></p></section></div>
+    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,23 × 13m</li><li><strong>Diện tích công nhận:</strong> 93,5m²</li><li><strong>Kết cấu:</strong> Trệt, 2 Lầu (Căn góc 2 Mặt Tiền, Hẻm Hông 6m)</li><li><strong>Đặc điểm:</strong> Căn góc</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Bất động sản nằm trên trục Đường Bạch Đằng, Phường 24, Bình Thạnh, ngay sát Chợ Bà Chiểu và Ngã tư Hàng Xanh, kết nối giao thông thuận tiện ra Điện Biên Phủ, Đinh Bộ Lĩnh, Xô Viết Nghệ Tĩnh, Phan Đăng Lưu và Cầu Sài Gòn, di chuyển sang Quận 1 và TP. Sở hữu lợi thế Căn góc hai mặt thoáng giúp tối ưu ánh sáng tự nhiên và độ nhận diện. Phù hợp kinh doanh showroom, phòng khám, văn phòng công ty hoặc tích lũy tài sản giữ giá bền vững.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Liên Hệ</strong></p></section></div>
 
     <div class="actions-bar">
       <a href="/?id=NSG-0623" class="btn btn-primary">🌐 Mở Trên Kho Tương Tác nhatoSG</a>
@@ -862,7 +917,7 @@ try {
 
     
 <!-- NSG_VIP_RELATED_START -->
-<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0701.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" data-raw="web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Nơ Trang Long, Phường 12, Bình Thạnh - Mã NSG-0701" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0701]</span><span class="p-rel-price">32.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 12, Bình Thạnh – 7 Tầng, 32 Tỷ</div><div class="p-rel-meta">Đường Nơ Trang Long, Phường 12, Bình Thạnh · 157,2m²</div></div></a><a href="/p/NSG-0629.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" data-raw="web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Phan Văn Trị, Phường 14, Bình Thạnh - Mã NSG-0629" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0629]</span><span class="p-rel-price">33.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường 14, Bình Thạnh – 4 Tầng, 33 Tỷ</div><div class="p-rel-meta">Đường Phan Văn Trị, Phường 14, Bình Thạnh · 136,2m²</div></div></a><a href="/p/NSG-0525.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" data-raw="web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Đinh Bộ Lĩnh, Phường 26, Bình Thạnh - Mã NSG-0525" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0525]</span><span class="p-rel-price">43.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường 26, Bình Thạnh – 3 Tầng, 43 Tỷ</div><div class="p-rel-meta">Đường Đinh Bộ Lĩnh, Phường 26, Bình Thạnh · 105m²</div></div></a></div></section>
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0701.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" data-raw="web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0701/ban-toa-nha-goc-2-mat-tien-phuong-12-binh-thanh-nsg-0701-hinh-1-bd9fc.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Nơ Trang Long, Phường 12, Bình Thạnh - Mã NSG-0701" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0701]</span><span class="p-rel-price">32 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 12, Bình Thạnh – 7 Tầng, 32 Tỷ</div><div class="p-rel-meta">Đường Nơ Trang Long, Phường 12, Bình Thạnh · 157,2m²</div></div></a><a href="/p/NSG-0629.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" data-raw="web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0629/ban-nha-pho-mat-tien-phuong-14-binh-thanh-nsg-0629-hinh-1-67532.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Phan Văn Trị, Phường 14, Bình Thạnh - Mã NSG-0629" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0629]</span><span class="p-rel-price">33 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường 14, Bình Thạnh – 4 Tầng, 33 Tỷ</div><div class="p-rel-meta">Đường Phan Văn Trị, Phường 14, Bình Thạnh · 136,2m²</div></div></a><a href="/p/NSG-0525.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" data-raw="web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0525/ban-nha-pho-mat-tien-phuong-26-binh-thanh-nsg-0525-hinh-1-9726.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Đinh Bộ Lĩnh, Phường 26, Bình Thạnh - Mã NSG-0525" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0525]</span><span class="p-rel-price">43 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Nhà Mặt Tiền Kinh Doanh</div><div class="p-rel-title">Bán Nhà Phố Mặt Tiền Phường 26, Bình Thạnh – 3 Tầng, 43 Tỷ</div><div class="p-rel-meta">Đường Đinh Bộ Lĩnh, Phường 26, Bình Thạnh · 105m²</div></div></a></div></section>
 <!-- NSG_VIP_RELATED_END -->
     <div class="footer-hub-nav">
   <div class="footer-hub-inner">
@@ -887,7 +942,7 @@ try {
     <button type="button" class="p-lb-close" onclick="closeStaticLightbox(false)">Đóng ✕</button>
   </div>
   <div class="p-lb-stage" id="pLbStage">
-    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg" alt="Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -901,7 +956,7 @@ try {
 
 <script>
 (function() {
-  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg", "raw": "web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg", "cap": "Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg", "raw": "web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg", "cap": "Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26.0 Tỷ - Ảnh #2"}];
+  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg", "raw": "web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-1-2bda7.jpg", "cap": "Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #1"}, {"abs": "https://nhatosg.com.vn/web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg", "raw": "web_images/NSG-0623/ban-nha-pho-mat-tien-phuong-24-binh-thanh-nsg-0623-hinh-2-fe8ae.jpg", "cap": "Bán Nhà Phố Mặt Tiền Phường 24, Bình Thạnh – 2 Lầu, 26 Tỷ - DT 7,23m × 13m (Căn góc 2 Mặt Tiền) (CN 93.5m²) - Giá chào 26 Tỷ - Ảnh #2"}];
   var ZALO_TEXT = "Chào Vũ (nhatoSG), tôi quan tâm đến mã tài sản [NSG-0623] - Bán nhà mặt tiền Bạch Đằng, Bình Thạnh – 2 lầu, 26 tỷ (26 Tỷ). Nhờ Vũ gửi trọn bộ Sổ Hồng gốc, quy hoạch và vị trí chính xác qua Zalo giúp tôi nhé!";
   var curIdx = 0;
   var lastSwipeTs = 0;
