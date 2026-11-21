@@ -210,6 +210,31 @@ try {
   }
   .badge-new { background: var(--bg-sub); color: var(--primary); border: 1px solid var(--border-strong); }
   .badge-update { background: var(--bg-sub); color: var(--bronze); border: 1px solid var(--border-strong); }
+  .badge-sold { background: var(--cta-bg); color: var(--cta-fg); border: 1px solid var(--bronze); letter-spacing: 0.06em; }
+  .p-sold-ribbon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 6;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(24, 24, 22, 0.9);
+    color: #D6AE7E;
+    border: 1px solid rgba(214, 174, 126, 0.65);
+  }
+  .price-box.price-sold {
+    background: var(--price-bg);
+    border-color: var(--bronze);
+  }
+  .price-box.price-sold .price-val {
+    color: var(--bronze);
+    font-family: var(--serif);
+    font-weight: 600;
+  }
   .badge-loc {
     font-size: 12.5px;
     font-weight: 600;
@@ -865,8 +890,8 @@ try {
   <a href="/" class="brand">nhato<span>SG</span></a>
   <div class="header-right">
     <a href="/" class="header-cta">← Xem Toàn Bộ 359 Tài Sản</a>
-    <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0534 vào danh sách quan tâm">♡ Lưu</button><!-- NSG_VIP_SAVE_BTN_END -->
-    <button type="button" id="pThemeBtn" class="theme-btn" onclick="toggleStaticTheme()" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện Sáng / Tối">🌙</button>
+    <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0534 vào danh sách quan tâm"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button><!-- NSG_VIP_SAVE_BTN_END -->
+    <button type="button" id="pThemeBtn" class="theme-btn" onclick="toggleStaticTheme()" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện Sáng / Tối"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </div>
 </header>
 
@@ -898,6 +923,7 @@ try {
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0534/ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0534/ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.jpg" data-raw="web_images/NSG-0534/ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0534/ban-toa-nha-van-phong-phuong-11-binh-thanh-nsg-0534-hinh-1-0b59.jpg" alt="Bán Tòa Nhà Văn Phòng Phường 11, Bình Thạnh – Hầm 6 Tầng, 85 Tỷ - DT 11m × 30m (CN 241.4m²) - Giá chào 85 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
+        
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
       <div class="p-gallery-toolbar">
@@ -962,10 +988,12 @@ try {
   var lastSwipeTs = 0;
   var suppressPop = false;
 
+  var SVG_MOON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  var SVG_SUN = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
   function syncThemeIcon() {
     var btn = document.getElementById("pThemeBtn");
     var isDark = document.documentElement.classList.contains("dark");
-    if (btn) btn.textContent = isDark ? "☀️" : "🌙";
+    if (btn) btn.innerHTML = isDark ? SVG_SUN : SVG_MOON;
   }
 
   window.toggleStaticTheme = function() {
@@ -1135,6 +1163,10 @@ try {
 <script>
 (function() {
   var PID = "NSG-0534";
+  var SVG_MOON = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>";
+  var SVG_SUN = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg>";
+  var SVG_HEART_EMPTY = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
+  var SVG_HEART_FILLED = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
   if (typeof window.toggleStaticTheme !== "function") {
     window.toggleStaticTheme = function() {
       var isDark = document.documentElement.classList.toggle("dark");
@@ -1144,10 +1176,10 @@ try {
       if (cm) cm.content = mode;
       try { localStorage.setItem("nhatosg_theme_mode", mode); } catch (e) {}
       var tb = document.getElementById("pThemeBtn");
-      if (tb) tb.textContent = isDark ? "☀️" : "🌙";
+      if (tb) tb.innerHTML = isDark ? SVG_SUN : SVG_MOON;
     };
     var initTb = document.getElementById("pThemeBtn");
-    if (initTb) initTb.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+    if (initTb) initTb.innerHTML = document.documentElement.classList.contains("dark") ? SVG_SUN : SVG_MOON;
   }
   function readArr(key) {
     try {
@@ -1169,7 +1201,7 @@ try {
     var btn = document.getElementById("pSaveFavBtn");
     if (btn) {
       btn.classList.toggle("saved", isSaved);
-      btn.textContent = isSaved ? "❤️ Đã lưu" : "♡ Lưu";
+      btn.innerHTML = (isSaved ? SVG_HEART_FILLED : SVG_HEART_EMPTY) + "<span>" + (isSaved ? "Đã lưu" : "Lưu") + "</span>";
     }
   }
   window.toggleStaticSaved = function() {
@@ -1182,7 +1214,7 @@ try {
     syncSavedState();
     var toast = document.getElementById("pZaloToast");
     if (toast) {
-      toast.textContent = nowSaved ? ("❤️ Đã lưu [" + PID + "] vào Tài sản Quan Tâm") : ("Đã bỏ lưu [" + PID + "]");
+      toast.textContent = nowSaved ? ("✓ Đã lưu [" + PID + "] vào Tài sản Quan Tâm") : ("Đã bỏ lưu [" + PID + "]");
       toast.style.display = "block";
       setTimeout(function() { toast.style.display = "none"; }, 2200);
     }
