@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="Bán Nhà Mặt Tiền, Building, Khách Sạn TP.HCM | Nhà Sài Gòn (nhatoSG)" />
   <meta name="twitter:description" content="Tài sản nhà phố mặt tiền, building văn phòng, khách sạn &amp; biệt thự trung tâm TP.HCM – TP. Thủ Đức. Hotline/Zalo: 0916.23.9898 (Vũ)." />
   <meta name="twitter:image" content="https://nhatosg.com.vn/web_images/NSG-0753/ban-nha-pho-mat-tien-duong-nguyen-thien-thuat-phuong-24-binh-thanh-nsg-0753-hinh-1-7ac26.jpg" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23181816'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='%23C89D6C' font-family='Georgia,serif' font-size='26' font-weight='700'%3ESG%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Ccircle cx='32' cy='32' r='29.5' fill='%23161513' stroke='%23D6AE7E' stroke-width='2.2'/%3E%3Cpath d='M17.4 23.2C20.2 27.3 21.9 31.3 21.9 34.7C21.9 37.8 19.9 39.8 17.4 39.8C14.9 39.8 12.9 37.8 12.9 34.7C12.9 31.3 14.6 27.3 17.4 23.2Z' fill='%231F1D1A' stroke='%23D6AE7E' stroke-width='1.7'/%3E%3Cpath d='M17.4 47V30.8M17.4 37.2L15.1 34.8M17.4 34.5L19.6 32.3' stroke='%23D6AE7E' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M24 47V16.2L29.8 13.8V47H24Z' fill='%23F3F0E8' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M29.8 47V13.8L35.6 11.4V47H29.8Z' fill='%23C89D6C' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Crect x='37.2' y='22.4' width='11.2' height='24.6' fill='%231F1D1A' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Crect x='39.5' y='25.0' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='28.4' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='31.8' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='35.2' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='38.6' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Cpath d='M34.5 47C40 42.2 47.5 42.2 52.6 46.6' stroke='%23D6AE7E' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='11.5' y1='47' x2='52.5' y2='47' stroke='%23D6AE7E' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='16' y1='51.2' x2='48' y2='51.2' stroke='%23D6AE7E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <link rel="prefetch" href="./style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261121215746";
+    script.src = "./properties_data.js?v=20261121230746";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -101,6 +101,13 @@
       --stage-bar: rgba(24, 24, 22, 0.84);
       --shadow-panel: -18px 0 48px rgba(24, 24, 22, 0.14);
       --shadow-card: 0 12px 30px rgba(24, 24, 22, 0.06);
+      --logo-bg: #FAF8F3;
+      --logo-ring: #7C5A32;
+      --logo-tower-light: #FAF8F3;
+      --logo-tower-dark: #181816;
+      --logo-tower-stroke: #181816;
+      --logo-bldg-fill: #EFECE4;
+      --logo-accent: #8C3B2B;
       --max: 1480px;
       --serif-display: 'Newsreader', 'Lora', Georgia, serif;
       --serif: 'Lora', Georgia, serif;
@@ -129,6 +136,13 @@
       --stage-bar: rgba(11, 11, 10, 0.88);
       --shadow-panel: -24px 0 64px rgba(0, 0, 0, 0.65);
       --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.36);
+      --logo-bg: #161513;
+      --logo-ring: #D6AE7E;
+      --logo-tower-light: #F3F0E8;
+      --logo-tower-dark: #C89D6C;
+      --logo-tower-stroke: #D6AE7E;
+      --logo-bldg-fill: #1F1D1A;
+      --logo-accent: #C89D6C;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -153,6 +167,13 @@
         --stage-bar: rgba(11, 11, 10, 0.88);
         --shadow-panel: -24px 0 64px rgba(0, 0, 0, 0.65);
         --shadow-card: 0 14px 34px rgba(0, 0, 0, 0.36);
+        --logo-bg: #161513;
+        --logo-ring: #D6AE7E;
+        --logo-tower-light: #F3F0E8;
+        --logo-tower-dark: #C89D6C;
+        --logo-tower-stroke: #D6AE7E;
+        --logo-bldg-fill: #1F1D1A;
+        --logo-accent: #C89D6C;
       }
     }
 
@@ -162,7 +183,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 82px;
+      scroll-padding-top: 90px;
       scroll-padding-bottom: calc(4rem + env(safe-area-inset-bottom, 0px));
       overflow-x: clip;
       max-width: 100%;
@@ -253,54 +274,87 @@
     }
 
     .nav {
-      min-height: 70px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 18px;
       min-width: 0;
     }
 
     .brand {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       flex-shrink: 0;
     }
 
-    .brand strong {
+    .brand-emblem {
+      width: 44px;
+      height: 44px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand-lockup {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .brand strong,
+    .brand-lockup strong {
       font-family: var(--serif);
-      font-size: 29px;
+      font-size: 25px;
       font-weight: 600;
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.025em;
       color: var(--ink);
     }
 
-    .brand strong em {
+    .brand strong em,
+    .brand-lockup strong em {
       font-style: normal;
       color: var(--accent);
     }
 
-    .brand span {
+    .brand-tagline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-family: var(--mono);
-      font-size: 10.5px;
+      font-size: 9.5px;
+      font-weight: 500;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .brand-tagline::before,
+    .brand-tagline::after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 1px;
+      background-color: var(--bronze);
+      opacity: 0.85;
+      flex-shrink: 0;
     }
 
     .links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      font-size: 13px;
+      gap: clamp(28px, 3vw, 44px);
+      font-size: 14px;
       font-weight: 500;
       color: var(--muted);
     }
 
     .links a {
-      padding: 4px 0;
+      padding: 6px 2px;
       border-bottom: 1px solid transparent;
       white-space: nowrap;
       transition: color 0.15s ease, border-color 0.15s ease;
@@ -309,6 +363,17 @@
     .links a:hover {
       color: var(--ink);
       border-bottom-color: var(--accent);
+    }
+
+    @media (max-width: 1260px) and (min-width: 1061px) {
+      .links {
+        gap: clamp(16px, 1.9vw, 28px);
+        font-size: 13.5px;
+      }
+    }
+
+    .only-mobile {
+      display: none;
     }
 
     .head-actions {
@@ -479,19 +544,19 @@
 
     .hero h1 {
       font-family: var(--serif-display);
-      font-size: clamp(27px, 3.8vw, 60px);
+      font-size: clamp(44px, 4.8vw, 68px);
       font-weight: 500;
       line-height: 1.08;
-      letter-spacing: -0.028em;
+      letter-spacing: -0.03em;
       margin: 0;
       max-width: 100%;
       color: var(--ink);
     }
 
     .hero h1 em {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 400;
+      font-family: inherit;
+      font-style: normal;
+      font-weight: 600;
       color: var(--accent);
     }
 
@@ -502,10 +567,10 @@
 
     .hero-rule {
       display: block;
-      width: 48px;
+      width: 52px;
       height: 1px;
       background-color: var(--bronze);
-      margin: 20px 0 12px;
+      margin: 18px 0 16px;
     }
 
     .hero-sub {
@@ -2821,12 +2886,27 @@
         z-index: 50;
       }
       .nav {
-        min-height: 58px;
+        min-height: 60px;
         gap: 6px;
       }
-      .brand { gap: 0; }
-      .brand strong { font-size: 25px; }
-      .brand span { display: none; }
+      .brand { gap: 8px; }
+      .brand-emblem {
+        width: 36px;
+        height: 36px;
+      }
+      .brand-lockup { gap: 2px; }
+      .brand strong,
+      .brand-lockup strong { font-size: 21px; }
+      .brand-tagline {
+        display: flex;
+        font-size: 8.5px;
+        letter-spacing: 0.12em;
+        gap: 4px;
+      }
+      .brand-tagline::before,
+      .brand-tagline::after {
+        width: 7px;
+      }
       .head-actions { gap: 6px; }
       .head-actions .btn.primary {
         min-height: 40px;
@@ -2835,9 +2915,10 @@
         font-size: 12px;
       }
       .mobile-subnav {
-        gap: 12px;
-        padding: 8px 14px;
-        font-size: 12px;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 9px 16px;
+        font-size: 13px;
       }
 
       /* Hero & Search + Showcase */
@@ -2848,11 +2929,12 @@
         gap: 18px;
       }
       .hero h1 {
-        font-size: clamp(26px, 7.1vw, 42px);
+        font-size: clamp(36px, 9.5vw, 46px);
         line-height: 1.08;
       }
       .hero-rule {
-        margin: 14px 0 9px;
+        width: 52px;
+        margin: 14px 0 12px;
       }
       .hero-sub {
         font-size: 13px;
@@ -2969,16 +3051,23 @@
         max-width: none;
         font-size: 11px;
       }
+      .only-desktop {
+        display: none !important;
+      }
+      .only-mobile {
+        display: block;
+      }
       .feature-row {
-        grid-template-columns: 92px minmax(0, 1fr);
-        gap: 8px 12px;
-        padding: 14px 2px;
-        align-items: start;
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 3px 12px;
+        padding: 13px 2px;
+        align-items: center;
       }
       .ledger-thumb {
-        width: 92px;
-        height: 70px;
+        width: 88px;
+        height: 68px;
         grid-row: 1 / span 3;
+        align-self: center;
       }
       .feature-info-col,
       .feature-spec-col,
@@ -2990,13 +3079,44 @@
         justify-content: flex-start;
       }
       .feature-street {
-        font-size: 17.5px;
+        font-size: 16.5px;
+        line-height: 1.24;
       }
       .feature-sub {
         font-size: 12px;
       }
+      .feature-loc-mobile {
+        margin: 2px 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .feature-spec-mobile {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 2px 6px;
+        font-size: 12px;
+        line-height: 1.38;
+        color: var(--muted);
+      }
+      .feature-spec-mobile .m-dt {
+        font-weight: 500;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+      .feature-spec-mobile .m-yield.is-hl {
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .feature-price-col {
+        margin-top: 2px;
+      }
       .feature-price {
-        font-size: 19.5px;
+        font-size: 18.5px;
+      }
+      #featuredLedger .feature-drop {
+        display: none !important;
       }
       .ledger-row-actions {
         justify-content: flex-start;
@@ -3229,18 +3349,28 @@
         padding-left: 12px;
         padding-right: 12px;
       }
-      .brand strong { font-size: 22px; }
+      .brand { gap: 6px; }
+      .brand-emblem {
+        width: 32px;
+        height: 32px;
+      }
+      .brand strong,
+      .brand-lockup strong { font-size: 19px; }
+      .brand-tagline {
+        font-size: 8px;
+        letter-spacing: 0.1em;
+      }
       .head-actions .btn.primary {
         padding: 0 8px;
         font-size: 11px;
       }
       .feature-row {
         grid-template-columns: 82px minmax(0, 1fr);
-        gap: 6px 10px;
+        gap: 3px 10px;
       }
       .ledger-thumb {
         width: 82px;
-        height: 62px;
+        height: 64px;
       }
     }
   </style>
@@ -3251,7 +3381,7 @@
   <!-- 1. DẢI THÔNG TIN ĐẦU TRANG -->
   <div class="topline">
     <div class="wrap">
-      <span>nhatoSG — Nhà Sài Gòn · Thông tin được chọn lọc và đối chiếu hồ sơ</span>
+      <span>nhatoSG — Nhà Sài Gòn · Thông tin được chọn lọc</span>
       <span>TP.HCM – TP. Thủ Đức · Hotline/Zalo: 0916.23.9898 ( Vũ )</span>
     </div>
   </div>
@@ -3260,8 +3390,26 @@
   <header class="site-head">
     <div class="wrap nav">
       <a class="brand" href="#top" onclick="resetAllFilters()">
-        <strong>nhato<em>SG</em></strong>
-        <span>TP.HCM – TP. Thủ Đức</span>
+        <svg class="brand-emblem" width="44" height="44" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="29.5" fill="var(--logo-bg)" stroke="var(--logo-ring)" stroke-width="1.9" />
+          <path d="M17.4 23.2C20.2 27.3 21.9 31.3 21.9 34.7C21.9 37.8 19.9 39.8 17.4 39.8C14.9 39.8 12.9 37.8 12.9 34.7C12.9 31.3 14.6 27.3 17.4 23.2Z" fill="var(--logo-bldg-fill)" stroke="var(--logo-ring)" stroke-width="1.5" stroke-linejoin="round" />
+          <path d="M17.4 47V30.8M17.4 37.2L15.1 34.8M17.4 34.5L19.6 32.3" stroke="var(--logo-ring)" stroke-width="1.35" stroke-linecap="round" />
+          <path d="M24 47V16.2L29.8 13.8V47H24Z" fill="var(--logo-tower-light)" stroke="var(--logo-tower-stroke)" stroke-width="1.5" stroke-linejoin="round" />
+          <path d="M29.8 47V13.8L35.6 11.4V47H29.8Z" fill="var(--logo-tower-dark)" stroke="var(--logo-tower-stroke)" stroke-width="1.5" stroke-linejoin="round" />
+          <rect x="37.2" y="22.4" width="11.2" height="24.6" fill="var(--logo-bldg-fill)" stroke="var(--logo-tower-stroke)" stroke-width="1.5" stroke-linejoin="round" />
+          <rect x="39.5" y="25.0" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="28.4" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="31.8" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="35.2" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="38.6" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <path d="M34.5 47C40 42.2 47.5 42.2 52.6 46.6" stroke="var(--logo-ring)" stroke-width="1.5" stroke-linecap="round" />
+          <line x1="11.5" y1="47" x2="52.5" y2="47" stroke="var(--logo-ring)" stroke-width="1.7" stroke-linecap="round" />
+          <line x1="16" y1="51.2" x2="48" y2="51.2" stroke="var(--logo-ring)" stroke-width="1.4" stroke-linecap="round" />
+        </svg>
+        <span class="brand-lockup">
+          <strong>nhato<em>SG</em></strong>
+          <span class="brand-tagline">NHÀ SÀI GÒN</span>
+        </span>
       </a>
 
       <nav class="links" aria-label="Điều hướng chính">
@@ -3334,7 +3482,7 @@
         <div class="hero-grid">
           <div class="hero-left">
             <p class="kicker">NHÀ MẶT TIỀN · BUILDING · KHÁCH SẠN · BIỆT THỰ</p>
-            <h1>Tìm đúng tài sản.<br /><em>TP.HCM – <span class="nowrap-city">TP. Thủ Đức</span></em></h1>
+            <h1>Kho nhato<em>SG</em></h1>
             <span class="hero-rule" aria-hidden="true"></span>
             <p class="hero-sub">Mỗi tài sản một giá trị riêng, liên hệ để biết chi tiết về sản phẩm</p>
           </div>
@@ -3601,7 +3749,25 @@
   <!-- 9. FOOTER -->
   <footer class="footer">
     <div class="wrap">
-      <div><strong style="font-family:var(--serif); font-size:16px; color:var(--ink);">nhatoSG</strong> · Nhà Sài Gòn — 40 Hoàng Việt, Phường Tân Sơn Nhất, TP.HCM</div>
+      <div style="display:inline-flex; align-items:center; gap:10px; flex-wrap:wrap;">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+          <circle cx="32" cy="32" r="29.5" fill="var(--logo-bg)" stroke="var(--logo-ring)" stroke-width="2.1" />
+          <path d="M17.4 23.2C20.2 27.3 21.9 31.3 21.9 34.7C21.9 37.8 19.9 39.8 17.4 39.8C14.9 39.8 12.9 37.8 12.9 34.7C12.9 31.3 14.6 27.3 17.4 23.2Z" fill="var(--logo-bldg-fill)" stroke="var(--logo-ring)" stroke-width="1.6" stroke-linejoin="round" />
+          <path d="M17.4 47V30.8M17.4 37.2L15.1 34.8M17.4 34.5L19.6 32.3" stroke="var(--logo-ring)" stroke-width="1.45" stroke-linecap="round" />
+          <path d="M24 47V16.2L29.8 13.8V47H24Z" fill="var(--logo-tower-light)" stroke="var(--logo-tower-stroke)" stroke-width="1.6" stroke-linejoin="round" />
+          <path d="M29.8 47V13.8L35.6 11.4V47H29.8Z" fill="var(--logo-tower-dark)" stroke="var(--logo-tower-stroke)" stroke-width="1.6" stroke-linejoin="round" />
+          <rect x="37.2" y="22.4" width="11.2" height="24.6" fill="var(--logo-bldg-fill)" stroke="var(--logo-tower-stroke)" stroke-width="1.6" stroke-linejoin="round" />
+          <rect x="39.5" y="25.0" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="28.4" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="31.8" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="35.2" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <rect x="39.5" y="38.6" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent)" />
+          <path d="M34.5 47C40 42.2 47.5 42.2 52.6 46.6" stroke="var(--logo-ring)" stroke-width="1.6" stroke-linecap="round" />
+          <line x1="11.5" y1="47" x2="52.5" y2="47" stroke="var(--logo-ring)" stroke-width="1.8" stroke-linecap="round" />
+          <line x1="16" y1="51.2" x2="48" y2="51.2" stroke="var(--logo-ring)" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span><strong style="font-family:var(--serif); font-size:16px; color:var(--ink);">nhatoSG</strong> · Nhà Sài Gòn — 40 Hoàng Việt, Phường Tân Sơn Nhất, TP.HCM</span>
+      </div>
       <div class="footer-right">
         <span>Hotline / Zalo: <a href="tel:0916239898" onclick="copyPhoneToast()" style="color:var(--ink); text-decoration:underline;">0916.23.9898</a> ( Vũ )</span>
         <span class="footer-social">
@@ -4447,7 +4613,12 @@
           : (Number(pr.initial_asking_billion || 0) > 0 ? Number(pr.initial_asking_billion) : price);
       const diffBil = !masked && oldPrice > price && price > 0 ? Number((oldPrice - price).toFixed(1)) : 0;
       const dropPct = !masked && oldPrice > 0 && diffBil > 0 ? Number(((diffBil / oldPrice) * 100).toFixed(1)) : 0;
-      const dropText = diffBil > 0 ? ("Giảm " + fmtNum(diffBil) + " Tỷ (-" + fmtNum(dropPct) + "%)") : "";
+      const dropText = diffBil > 0 ? ("Giảm " + fmtNum(diffBil) + " Tỷ") : "";
+
+      const mobileLocation = [ward, district].filter(Boolean).join(", ") || "TP.HCM";
+      const mobileAreaLine = (width > 0 && length > 0)
+        ? ("DT: " + fmtNum(width) + " × " + fmtNum(length) + "m")
+        : (area > 0 ? ("DT: " + fmtNum(area) + "m²") : (rawDimsStr ? ("DT: " + rawDimsStr) : "DT: Liên Hệ"));
 
       // Khai thác & Dòng tiền (tách bảo mật dòng tiền + trung thực khi thiếu thông số)
       const rental = rec.display_facts?.rental || {};
@@ -4528,6 +4699,14 @@
         sec3 = clean_text(rentParts.join(" · "));
       }
 
+      const mobileYieldBase = clean_text(yieldShort || "Liên Hệ")
+        .replace(/\s*[·(]\s*(?:HĐ\s*)?còn\s+[^)·]+/gi, "")
+        .replace(/\s*triệu\s*\/\s*tháng/gi, " tr/tháng")
+        .replace(/\s+tr\/tháng/gi, " tr/tháng")
+        .replace(/\s*\)\s*$/, "")
+        .trim();
+      const mobileYieldLine = mobileYieldBase || "Liên Hệ";
+
       return {
         order: idx,
         id: id,
@@ -4538,6 +4717,9 @@
         streetDisplay: streetDisplay,
         ward: ward,
         district: district,
+        mobileLocation: mobileLocation,
+        mobileAreaLine: mobileAreaLine,
+        mobileYieldLine: mobileYieldLine,
         dimsShort: dimsShort,
         dimsFull: dimsFull,
         dimsAreaLine: dimsAreaLine,
@@ -4899,11 +5081,19 @@
           </div>
           <div class="feature-info-col">
             <h3 class="feature-street">${esc(p.streetDisplay)}</h3>
-            <p class="feature-sub">${esc(areaMeta)}</p>
+            <p class="feature-sub only-desktop">${esc(areaMeta)}</p>
+            <p class="feature-sub only-mobile feature-loc-mobile">${esc(p.mobileLocation)}</p>
           </div>
           <div class="feature-spec-col">
-            <div style="font-size:13px; font-weight:500; color:var(--ink);">${esc(p.dimsAreaLine || p.dimsShort)}</div>
-            <p class="feature-sub" ${p.isYieldHighlight ? 'style="color:var(--accent); font-weight:500;"' : ""}>${esc(p.yieldFull)}</p>
+            <div class="only-desktop">
+              <div style="font-size:13px; font-weight:500; color:var(--ink);">${esc(p.dimsAreaLine || p.dimsShort)}</div>
+              <p class="feature-sub" ${p.isYieldHighlight ? 'style="color:var(--accent); font-weight:500;"' : ""}>${esc(p.yieldFull)}</p>
+            </div>
+            <div class="only-mobile feature-spec-mobile">
+              <span class="m-dt">${esc(p.mobileAreaLine)}</span>
+              <span aria-hidden="true">·</span>
+              <span class="m-yield ${p.isYieldHighlight ? "is-hl" : ""}">${esc(p.mobileYieldLine)}</span>
+            </div>
           </div>
           <div class="feature-price-col">
             ${priceColHtml}

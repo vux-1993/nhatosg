@@ -8,6 +8,7 @@
 <title>Bán tòa văn phòng Bạch Đằng, Tân Bình – hầm, 9 tầng, 160 tỷ | nhatoSG</title>
 <meta name="description" content="Bán tòa văn phòng tại Đường Bạch Đằng, Phường 2, Tân Bình. Diện tích công nhận: 328m² (9m (NH 17m) × 30m), kết cấu: Hầm, 9 Tầng, 2 Thang Máy, PCCC (Sàn 2.326m²). Mức giá chào công khai: 160 Tỷ.">
 <link rel="canonical" href="https://nhatosg.com.vn/p/NSG-0567.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Ccircle cx='32' cy='32' r='29.5' fill='%23161513' stroke='%23D6AE7E' stroke-width='2.2'/%3E%3Cpath d='M17.4 23.2C20.2 27.3 21.9 31.3 21.9 34.7C21.9 37.8 19.9 39.8 17.4 39.8C14.9 39.8 12.9 37.8 12.9 34.7C12.9 31.3 14.6 27.3 17.4 23.2Z' fill='%231F1D1A' stroke='%23D6AE7E' stroke-width='1.7'/%3E%3Cpath d='M17.4 47V30.8M17.4 37.2L15.1 34.8M17.4 34.5L19.6 32.3' stroke='%23D6AE7E' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M24 47V16.2L29.8 13.8V47H24Z' fill='%23F3F0E8' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M29.8 47V13.8L35.6 11.4V47H29.8Z' fill='%23C89D6C' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Crect x='37.2' y='22.4' width='11.2' height='24.6' fill='%231F1D1A' stroke='%23D6AE7E' stroke-width='1.6' stroke-linejoin='round'/%3E%3Crect x='39.5' y='25.0' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='28.4' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='31.8' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='35.2' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Crect x='39.5' y='38.6' width='6.6' height='1.6' rx='0.4' fill='%23C89D6C'/%3E%3Cpath d='M34.5 47C40 42.2 47.5 42.2 52.6 46.6' stroke='%23D6AE7E' stroke-width='1.6' stroke-linecap='round'/%3E%3Cline x1='11.5' y1='47' x2='52.5' y2='47' stroke='%23D6AE7E' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='16' y1='51.2' x2='48' y2='51.2' stroke='%23D6AE7E' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta property="og:title" content="Bán tòa văn phòng Bạch Đằng, Tân Bình – hầm, 9 tầng, 160 tỷ">
 <meta property="og:description" content="Bán tòa văn phòng tại Đường Bạch Đằng, Phường 2, Tân Bình. Diện tích công nhận: 328m² (9m (NH 17m) × 30m), kết cấu: Hầm, 9 Tầng, 2 Thang Máy, PCCC (Sàn 2.326m²). Mức giá chào công khai: 160 Tỷ.">
 <meta property="og:image" content="https://nhatosg.com.vn/web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg">
@@ -122,16 +123,75 @@ try {
     border-radius: 4px;
     box-shadow: 0 4px 14px rgba(24, 24, 22, 0.04);
   }
+  
+  :root {
+    --logo-bg: #FAF8F3;
+    --logo-ring: #7C5A32;
+    --logo-tower-light: #FAF8F3;
+    --logo-tower-dark: #181816;
+    --logo-tower-stroke: #181816;
+    --logo-bldg-fill: #EFECE4;
+    --logo-accent: #8C3B2B;
+  }
+  html.dark, html[data-theme="dark"] {
+    --logo-bg: #161513;
+    --logo-ring: #D6AE7E;
+    --logo-tower-light: #F3F0E8;
+    --logo-tower-dark: #C89D6C;
+    --logo-tower-stroke: #D6AE7E;
+    --logo-bldg-fill: #1F1D1A;
+    --logo-accent: #C89D6C;
+  }
   .brand {
-    font-family: var(--serif);
-    font-weight: 600;
-    font-size: 22px;
-    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
+    color: var(--text-main);
+    flex-shrink: 0;
+  }
+  .brand-emblem { width: 38px; height: 38px; display: block; flex-shrink: 0; }
+  .brand-lockup { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .brand-name, .brand strong {
+    font-family: var(--serif, 'Lora', Georgia, serif);
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1;
     letter-spacing: -0.02em;
+    color: var(--text-main);
+  }
+  .brand-name span, .brand span { color: var(--primary); }
+  .brand .brand-tagline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 8.5px;
+    font-weight: 500;
+    color: var(--text-muted, var(--text-sub, #46413A));
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1.1;
     white-space: nowrap;
   }
-  .brand span { color: var(--primary); }
+  .brand .brand-tagline::before,
+  .brand .brand-tagline::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    background-color: var(--bronze, #7C5A32);
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  @media (max-width: 639px) {
+    .brand { gap: 8px; }
+    .brand-emblem { width: 32px; height: 32px; }
+    .brand-name, .brand strong { font-size: 18.5px; }
+    .brand .brand-tagline { font-size: 7.5px; letter-spacing: 0.11em; gap: 4px; }
+    .brand .brand-tagline::before, .brand .brand-tagline::after { width: 6px; }
+  }
+
   .header-right {
     display: flex;
     align-items: center;
@@ -696,7 +756,6 @@ try {
       border-radius: 2px;
       margin-bottom: 10px;
     }
-    .brand { font-size: 19px; }
     .header-cta {
       font-size: 12px;
       padding: 6px 10px;
@@ -791,9 +850,80 @@ try {
     --cta-hover: #D6AE80;
   }
   body { background-color: var(--bg-main); color: var(--text-main); overflow-x: clip; }
-  .brand { color: var(--text-main); }
-  .brand span { color: var(--primary); }
   .site-header { background: var(--bg-card); border-color: var(--border); border-radius: 4px; flex-wrap: wrap; gap: 8px; }
+
+  :root {
+    --logo-bg: #FAF8F3;
+    --logo-ring: #7C5A32;
+    --logo-tower-light: #FAF8F3;
+    --logo-tower-dark: #181816;
+    --logo-tower-stroke: #181816;
+    --logo-bldg-fill: #EFECE4;
+    --logo-accent: #8C3B2B;
+  }
+  html.dark, html[data-theme="dark"] {
+    --logo-bg: #161513;
+    --logo-ring: #D6AE7E;
+    --logo-tower-light: #F3F0E8;
+    --logo-tower-dark: #C89D6C;
+    --logo-tower-stroke: #D6AE7E;
+    --logo-bldg-fill: #1F1D1A;
+    --logo-accent: #C89D6C;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    flex-shrink: 0;
+  }
+  .brand-emblem { width: 38px; height: 38px; display: block; flex-shrink: 0; }
+  .brand-lockup { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .brand-name, .brand strong {
+    font-family: var(--serif, 'Lora', Georgia, serif);
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+  }
+  .brand-name span, .brand span { color: var(--primary); }
+  .brand .brand-tagline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 8.5px;
+    font-weight: 500;
+    color: var(--text-muted, var(--text-sub, #46413A));
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .brand .brand-tagline::before,
+  .brand .brand-tagline::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    background-color: var(--bronze, #7C5A32);
+    opacity: 0.85;
+    flex-shrink: 0;
+  }
+  @media (max-width: 639px) {
+    .brand { gap: 8px; }
+    .brand-emblem { width: 32px; height: 32px; }
+    .brand-name, .brand strong { font-size: 18.5px; }
+    .brand .brand-tagline { font-size: 7.5px; letter-spacing: 0.11em; gap: 4px; }
+    .brand .brand-tagline::before, .brand .brand-tagline::after { width: 6px; }
+  }
+
+  .brand { color: var(--text-main); }
+  .brand-name, .brand strong { color: var(--text-main); }
+  .brand-name span, .brand > span { color: var(--primary); }
+  .brand .brand-tagline { color: var(--text-muted); }
   .header-cta { background: var(--cta-bg); color: var(--cta-fg); border: 1px solid var(--cta-bg); border-radius: 2px; padding: 6px 12px; }
   .property-article { background: var(--bg-card); border-color: var(--border); border-radius: 4px; box-shadow: none; }
   .property-title { color: var(--text-main); }
@@ -887,7 +1017,7 @@ try {
 <body>
 
 <header class="site-header">
-  <a href="/" class="brand">nhato<span>SG</span></a>
+  <a href="/" class="brand"><svg class="brand-emblem" width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="32" cy="32" r="29.5" fill="var(--logo-bg, #FAF8F3)" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.9"/><path d="M17.4 23.2C20.2 27.3 21.9 31.3 21.9 34.7C21.9 37.8 19.9 39.8 17.4 39.8C14.9 39.8 12.9 37.8 12.9 34.7C12.9 31.3 14.6 27.3 17.4 23.2Z" fill="var(--logo-bldg-fill, #EFECE4)" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.5" stroke-linejoin="round"/><path d="M17.4 47V30.8M17.4 37.2L15.1 34.8M17.4 34.5L19.6 32.3" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.35" stroke-linecap="round"/><path d="M24 47V16.2L29.8 13.8V47H24Z" fill="var(--logo-tower-light, #FAF8F3)" stroke="var(--logo-tower-stroke, #181816)" stroke-width="1.5" stroke-linejoin="round"/><path d="M29.8 47V13.8L35.6 11.4V47H29.8Z" fill="var(--logo-tower-dark, #181816)" stroke="var(--logo-tower-stroke, #181816)" stroke-width="1.5" stroke-linejoin="round"/><rect x="37.2" y="22.4" width="11.2" height="24.6" fill="var(--logo-bldg-fill, #EFECE4)" stroke="var(--logo-tower-stroke, #181816)" stroke-width="1.5" stroke-linejoin="round"/><rect x="39.5" y="25.0" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent, #8C3B2B)"/><rect x="39.5" y="28.4" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent, #8C3B2B)"/><rect x="39.5" y="31.8" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent, #8C3B2B)"/><rect x="39.5" y="35.2" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent, #8C3B2B)"/><rect x="39.5" y="38.6" width="6.6" height="1.6" rx="0.4" fill="var(--logo-accent, #8C3B2B)"/><path d="M34.5 47C40 42.2 47.5 42.2 52.6 46.6" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.5" stroke-linecap="round"/><line x1="11.5" y1="47" x2="52.5" y2="47" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.7" stroke-linecap="round"/><line x1="16" y1="51.2" x2="48" y2="51.2" stroke="var(--logo-ring, #7C5A32)" stroke-width="1.4" stroke-linecap="round"/></svg><span class="brand-lockup"><strong class="brand-name">nhato<span>SG</span></strong><span class="brand-tagline">NHÀ SÀI GÒN</span></span></a>
   <div class="header-right">
     <a href="/" class="header-cta">← Xem Toàn Bộ 359 Tài Sản</a>
     <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0567 vào danh sách quan tâm"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button><!-- NSG_VIP_SAVE_BTN_END -->
