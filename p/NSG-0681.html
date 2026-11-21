@@ -304,6 +304,51 @@ try {
     color: var(--text-muted);
     margin-top: 5px;
   }
+  .p-price-acc {
+    margin-top: 12px;
+    border-top: 1px dashed var(--border);
+    padding-top: 8px;
+  }
+  .p-price-acc-sum {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 4px 0;
+  }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+  }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .p-hist-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12.5px;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+  }
+  .p-hist-item strong { color: var(--text-main); font-weight: 600; }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: var(--mono); font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
+  .p-hist-drop { color: var(--badge-drop-fg); }
   /* Smart Gallery (Zalo In-App & Mobile-First) */
   .p-gallery-shell {
     background: var(--bg-mat);
@@ -736,6 +781,15 @@ try {
   .price-val { color: var(--text-main); }
   .price-masked .price-val { color: var(--primary); }
   .price-sub { color: var(--text-muted); }
+  .p-price-acc { margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 8px; }
+  .p-price-acc-sum { display: flex; align-items: center; justify-content: space-between; gap: 10px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; color: var(--text-main); padding: 4px 0; }
+  .p-price-acc-sum::-webkit-details-marker { display: none; }
+  .p-acc-chevron { width: 16px; height: 16px; flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s ease; }
+  .p-price-acc[open] .p-acc-chevron { transform: rotate(180deg); }
+  .p-price-acc-body { padding-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .p-hist-item { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; font-size: 12.5px; padding: 6px 0; border-top: 1px solid var(--border); }
+  .p-hist-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .p-hist-val { font-family: ui-monospace, monospace; font-weight: 600; color: var(--text-main); flex-shrink: 0; text-align: right; }
   .spec-item, .desc-card { background: var(--bg-sub); border-color: var(--border); color: var(--text-main); border-radius: 4px; }
   .spec-lbl { color: var(--text-muted); }
   .spec-val, .desc-heading { color: var(--text-main); }
@@ -836,12 +890,13 @@ try {
             <div class="price-label">MỨC GIÁ CHÀO BÁN</div>
             <div class="price-val-row"><span class="price-val">140 Tỷ</span></div>
             <div class="price-sub">Đơn vị: Tỷ đồng Việt Nam · Đã đối chiếu hiện trạng công trình thực tế.</div>
+            <details class="p-price-acc" id="pAccPriceHistory"><summary class="p-price-acc-sum"><span>Lịch sử thay đổi giá chào bán</span><svg class="p-acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,9L12,15L18,9"/></svg></summary><div class="p-price-acc-body"><div class="p-hist-item"><div><strong>Giá chào ban đầu</strong><div class="p-hist-sub">22/10/2026 · Chưa ghi nhận biến động giá</div></div><span class="p-hist-val">140 Tỷ</span></div></div></details>
           </div>
 
     <div class="p-gallery-shell" oncontextmenu="return false;">
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" alt="" aria-hidden="true" />
-        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" data-raw="web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" alt="Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140.0 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" data-raw="web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" alt="Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
         
       </div>
@@ -862,7 +917,7 @@ try {
 
     
 <!-- NSG_VIP_RELATED_START -->
-<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0529.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" data-raw="web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Nguyễn Thị Minh Khai, Phường Đa Kao, Quận 1 - Mã NSG-0529" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0529]</span><span class="p-rel-price">125.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Đa Kao, Quận 1 – Hầm Lửng 6 Tầng, 125 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Thị Minh Khai, Phường Đa Kao, Quận 1 · 140m²</div></div></a><a href="/p/NSG-0542.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" data-raw="web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Hai Bà Trưng, Phường Bến Nghé, Quận 1 - Mã NSG-0542" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0542]</span><span class="p-rel-price">120.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Bến Nghé, Quận 1 – 7 Tầng, 120 Tỷ</div><div class="p-rel-meta">Đường Hai Bà Trưng, Phường Bến Nghé, Quận 1 · 93,6m²</div></div></a><a href="/p/NSG-0563.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" data-raw="web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Võ Văn Kiệt, Phường Cô Giang, Quận 1 - Mã NSG-0563" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0563]</span><span class="p-rel-price">120.0 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Cô Giang, Quận 1 – 5 Tầng, 120 Tỷ</div><div class="p-rel-meta">Đường Võ Văn Kiệt, Phường Cô Giang, Quận 1 · 178m²</div></div></a></div></section>
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0529.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" data-raw="web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0529/ban-toa-nha-van-phong-phuong-da-kao-quan-1-nsg-0529-hinh-1-7554.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Nguyễn Thị Minh Khai, Phường Đa Kao, Quận 1 - Mã NSG-0529" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0529]</span><span class="p-rel-price">125 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Đa Kao, Quận 1 – Hầm Lửng 6 Tầng, 125 Tỷ</div><div class="p-rel-meta">Đường Nguyễn Thị Minh Khai, Phường Đa Kao, Quận 1 · 140m²</div></div></a><a href="/p/NSG-0542.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" data-raw="web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0542/ban-toa-nha-van-phong-phuong-ben-nghe-quan-1-nsg-0542-hinh-1-c0d9.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Hai Bà Trưng, Phường Bến Nghé, Quận 1 - Mã NSG-0542" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0542]</span><span class="p-rel-price">120 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Bến Nghé, Quận 1 – 7 Tầng, 120 Tỷ</div><div class="p-rel-meta">Đường Hai Bà Trưng, Phường Bến Nghé, Quận 1 · 93,6m²</div></div></a><a href="/p/NSG-0563.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" data-raw="web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0563/ban-toa-nha-van-phong-phuong-co-giang-quan-1-nsg-0563-hinh-1-aa22.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Võ Văn Kiệt, Phường Cô Giang, Quận 1 - Mã NSG-0563" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0563]</span><span class="p-rel-price">120 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường Cô Giang, Quận 1 – 5 Tầng, 120 Tỷ</div><div class="p-rel-meta">Đường Võ Văn Kiệt, Phường Cô Giang, Quận 1 · 178m²</div></div></a></div></section>
 <!-- NSG_VIP_RELATED_END -->
     <div class="footer-hub-nav">
   <div class="footer-hub-inner">
@@ -887,7 +942,7 @@ try {
     <button type="button" class="p-lb-close" onclick="closeStaticLightbox(false)">Đóng ✕</button>
   </div>
   <div class="p-lb-stage" id="pLbStage">
-    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" alt="Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140.0 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg" alt="Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
     
   </div>
 </div>
@@ -901,7 +956,7 @@ try {
 
 <script>
 (function() {
-  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg", "raw": "web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg", "cap": "Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140.0 Tỷ - Ảnh #1"}];
+  var GALLERY = [{"abs": "https://nhatosg.com.vn/web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg", "raw": "web_images/NSG-0681/ban-toa-nha-van-phong-phuong-tan-dinh-quan-1-nsg-0681-hinh-1-a5acf.jpg", "cap": "Bán Tòa Nhà Văn Phòng Phường Tân Định, Quận 1 – Hầm 8 Tầng, 140 Tỷ - DT 8m × 24m (CN 187.6m²) - Giá chào 140 Tỷ - Ảnh #1"}];
   var ZALO_TEXT = "Chào Vũ (nhatoSG), tôi quan tâm đến mã tài sản [NSG-0681] - Bán tòa văn phòng Trần Khắc Chân, Quận 1 – hầm, 8 tầng, 140 tỷ (140 Tỷ). Nhờ Vũ gửi trọn bộ Sổ Hồng gốc, quy hoạch và vị trí chính xác qua Zalo giúp tôi nhé!";
   var curIdx = 0;
   var lastSwipeTs = 0;
