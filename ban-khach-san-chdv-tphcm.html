@@ -2,7 +2,8 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Khách Sạn &amp; Căn Hộ Dịch Vụ TP.HCM — 52 Tòa Đang Khai Thác | nhatoSG</title>
 <meta name="description" content="Danh mục khách sạn và tòa căn hộ dịch vụ (CHDV) nguyên căn tại TP.HCM. Thông tin quy mô phòng, kết cấu xây dựng và hiện trạng khai thác kinh doanh theo hồ sơ từng tài sản.">
@@ -15,44 +16,70 @@
 (function() {
   try {
     var saved = localStorage.getItem("nhatosg_theme_mode");
-    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (saved === "dark" || (!saved && prefersDark)) {
+    var mode = (saved === "dark" || saved === "light") ? saved : "light";
+    if (mode === "dark") {
       document.documentElement.classList.add("dark");
+    }
+    document.documentElement.setAttribute("data-theme", mode);
+    if (saved === "dark" || saved === "light") {
+      var cm = document.querySelector('meta[name="color-scheme"]');
+      if (cm) cm.content = mode;
     }
   } catch (e) {}
 })();
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="/optimized_manifest.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Bán Khách Sạn & Tòa Căn Hộ Dịch Vụ (CHDV) TP.HCM — 52 Tài Sản", "numberOfItems": 52, "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://nhatosg.com.vn/p/NSG-0546.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Đa Kao, Quận 1 – Hầm Trệt 4 Tầng, 40 Tỷ"}, {"@type": "ListItem", "position": 2, "url": "https://nhatosg.com.vn/p/NSG-0889.html", "name": "Bán Tòa CHDV / Khách Sạn Gò Vấp – 1 Hầm 5 Tầng, 38 Tỷ"}, {"@type": "ListItem", "position": 3, "url": "https://nhatosg.com.vn/p/NSG-0586.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – Hầm 7 Tầng, 63 Tỷ"}, {"@type": "ListItem", "position": 4, "url": "https://nhatosg.com.vn/p/NSG-0579.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Tân Hưng, Quận 7 – Hầm 8 Tầng, 72 Tỷ"}, {"@type": "ListItem", "position": 5, "url": "https://nhatosg.com.vn/p/NSG-0639.html", "name": "Bán Nhà, Quận 1 – DT 217m², 95 Tỷ"}, {"@type": "ListItem", "position": 6, "url": "https://nhatosg.com.vn/p/NSG-0527.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – Hầm 8 Tầng, 110 Tỷ"}, {"@type": "ListItem", "position": 7, "url": "https://nhatosg.com.vn/p/NSG-0866.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm Lửng 8 Tầng, 80 Tỷ"}, {"@type": "ListItem", "position": 8, "url": "https://nhatosg.com.vn/p/NSG-0858.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 7 Tầng Thang Máy, 42 Tỷ"}, {"@type": "ListItem", "position": 9, "url": "https://nhatosg.com.vn/p/NSG-0857.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 7 Tầng Thang Máy, 32 Tỷ"}, {"@type": "ListItem", "position": 10, "url": "https://nhatosg.com.vn/p/NSG-0840.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 4 Tầng, 42 Tỷ"}, {"@type": "ListItem", "position": 11, "url": "https://nhatosg.com.vn/p/NSG-0786.html", "name": "Bán Tòa CHDV / Khách Sạn Phường An Phú, TP. Thủ Đức – Hầm 4 Tầng, 29 Tỷ"}, {"@type": "ListItem", "position": 12, "url": "https://nhatosg.com.vn/p/NSG-0780.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Tân Quy, Quận 7 – Hầm 8 Tầng, 160 Tỷ"}, {"@type": "ListItem", "position": 13, "url": "https://nhatosg.com.vn/p/NSG-0769.html", "name": "Bán Tòa CHDV / Khách Sạn Gò Vấp – Hầm 8 Tầng, 125 Tỷ"}, {"@type": "ListItem", "position": 14, "url": "https://nhatosg.com.vn/p/NSG-0765.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 8 Tầng, 99 Tỷ"}, {"@type": "ListItem", "position": 15, "url": "https://nhatosg.com.vn/p/NSG-0762.html", "name": "Bán Tòa CHDV / Khách Sạn Gò Vấp – Hầm 6 Tầng, 38 Tỷ"}, {"@type": "ListItem", "position": 16, "url": "https://nhatosg.com.vn/p/NSG-0758.html", "name": "Bán Tòa CHDV / Khách Sạn Bình Thạnh – 4 Lầu, 47 Tỷ"}, {"@type": "ListItem", "position": 17, "url": "https://nhatosg.com.vn/p/NSG-0749.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 9 Tầng Thang Máy, 55 Tỷ"}, {"@type": "ListItem", "position": 18, "url": "https://nhatosg.com.vn/p/NSG-0754.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Phạm Ngũ Lão, Quận 1 – 12 Tầng, 60 Tỷ"}, {"@type": "ListItem", "position": 19, "url": "https://nhatosg.com.vn/p/NSG-0743.html", "name": "Bán Biệt Thự Tân Bình – 5 Tầng, 38 Tỷ"}, {"@type": "ListItem", "position": 20, "url": "https://nhatosg.com.vn/p/NSG-0728.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 10 – 6 Tầng, 22 Tỷ"}, {"@type": "ListItem", "position": 21, "url": "https://nhatosg.com.vn/p/NSG-0725.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 1 Hầm 6 Tầng, 55 Tỷ"}, {"@type": "ListItem", "position": 22, "url": "https://nhatosg.com.vn/p/NSG-0723.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 4 Tầng, 33 Tỷ"}, {"@type": "ListItem", "position": 23, "url": "https://nhatosg.com.vn/p/NSG-0722.html", "name": "Bán Tòa CHDV / Khách Sạn Bình Thạnh – Hầm 6 Tầng, 35 Tỷ"}, {"@type": "ListItem", "position": 24, "url": "https://nhatosg.com.vn/p/NSG-0699.html", "name": "Bán Tòa CHDV / Khách Sạn Bình Thạnh – 2 Tầng, 80 Tỷ"}, {"@type": "ListItem", "position": 25, "url": "https://nhatosg.com.vn/p/NSG-0693.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ"}, {"@type": "ListItem", "position": 26, "url": "https://nhatosg.com.vn/p/NSG-0694.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Tân Phong, Quận 7 – Hầm 5 Tầng, 70 Tỷ"}, {"@type": "ListItem", "position": 27, "url": "https://nhatosg.com.vn/p/NSG-0687.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 6 Tầng, 90 Tỷ"}, {"@type": "ListItem", "position": 28, "url": "https://nhatosg.com.vn/p/NSG-0670.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 10 – 10 Tầng, 37 Tỷ"}, {"@type": "ListItem", "position": 29, "url": "https://nhatosg.com.vn/p/NSG-0665.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Phú Thuận, Quận 7 – Hầm 7 Tầng, 54 Tỷ"}, {"@type": "ListItem", "position": 30, "url": "https://nhatosg.com.vn/p/NSG-0662.html", "name": "Bán Tòa CHDV / Khách Sạn Bình Thạnh – Hầm 6 Tầng, 85 Tỷ"}, {"@type": "ListItem", "position": 31, "url": "https://nhatosg.com.vn/p/NSG-0651.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – 10 Tầng, 81 Tỷ"}, {"@type": "ListItem", "position": 32, "url": "https://nhatosg.com.vn/p/NSG-0641.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – Hầm 8 Tầng, 110 Tỷ"}, {"@type": "ListItem", "position": 33, "url": "https://nhatosg.com.vn/p/NSG-0630.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bình Thuận, Quận 7 – 7 Tầng, 32 Tỷ"}, {"@type": "ListItem", "position": 34, "url": "https://nhatosg.com.vn/p/NSG-0615.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Tân Phong, Quận 7 – Hầm 5 Tầng, 220 Tỷ"}, {"@type": "ListItem", "position": 35, "url": "https://nhatosg.com.vn/p/NSG-0611.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 3 – Hầm Lửng 5 Tầng, 105 Tỷ"}, {"@type": "ListItem", "position": 36, "url": "https://nhatosg.com.vn/p/NSG-0603.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 6 Tầng, 62 Tỷ"}, {"@type": "ListItem", "position": 37, "url": "https://nhatosg.com.vn/p/NSG-0580.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – 5 Tầng, 125 Tỷ"}, {"@type": "ListItem", "position": 38, "url": "https://nhatosg.com.vn/p/NSG-0589.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Võ Thị Sáu, Quận 3 – Hầm 5 Tầng, 75 Tỷ"}, {"@type": "ListItem", "position": 39, "url": "https://nhatosg.com.vn/p/NSG-0587.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Thành, Quận 1 – 8 Tầng, 200 Tỷ"}, {"@type": "ListItem", "position": 40, "url": "https://nhatosg.com.vn/p/NSG-0581.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Cô Giang, Quận 1 – 6 Tầng, 150 Tỷ"}, {"@type": "ListItem", "position": 41, "url": "https://nhatosg.com.vn/p/NSG-0571.html", "name": "Bán Tòa CHDV / Khách Sạn Gò Vấp – Hầm 7 Tầng, 50 Tỷ"}, {"@type": "ListItem", "position": 42, "url": "https://nhatosg.com.vn/p/NSG-0565.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – 5 Tầng, 45 Tỷ"}, {"@type": "ListItem", "position": 43, "url": "https://nhatosg.com.vn/p/NSG-0564.html", "name": "Bán Quỹ Đất & Tài Sản Hiện Hữu Phường Phú Mỹ, Quận 7 – DT 1144m², 110 Tỷ"}, {"@type": "ListItem", "position": 44, "url": "https://nhatosg.com.vn/p/NSG-0557.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 3 – 6 Tầng, 53 Tỷ"}, {"@type": "ListItem", "position": 45, "url": "https://nhatosg.com.vn/p/NSG-0536.html", "name": "Bán Tòa CHDV / Khách Sạn Gò Vấp – Hầm 6 Tầng, 48 Tỷ"}, {"@type": "ListItem", "position": 46, "url": "https://nhatosg.com.vn/p/NSG-0533.html", "name": "Bán Tòa CHDV / Khách Sạn Phú Nhuận – Hầm 8 Tầng, 85 Tỷ"}, {"@type": "ListItem", "position": 47, "url": "https://nhatosg.com.vn/p/NSG-0545.html", "name": "Bán Tòa CHDV / Khách Sạn Phường Bến Nghé, Quận 1 – Hầm 9 Tầng, 110 Tỷ"}, {"@type": "ListItem", "position": 48, "url": "https://nhatosg.com.vn/p/NSG-0523.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 8 Tầng, 120 Tỷ"}, {"@type": "ListItem", "position": 49, "url": "https://nhatosg.com.vn/p/NSG-0519.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 3 – 5 Tầng, 35 Tỷ"}, {"@type": "ListItem", "position": 50, "url": "https://nhatosg.com.vn/p/NSG-0514.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm Lửng 4 Tầng, 55 Tỷ"}, {"@type": "ListItem", "position": 51, "url": "https://nhatosg.com.vn/p/NSG-0508.html", "name": "Bán Tòa CHDV / Khách Sạn Quận 3 – 3 Tầng, 28 Tỷ"}, {"@type": "ListItem", "position": 52, "url": "https://nhatosg.com.vn/p/NSG-0505.html", "name": "Bán Tòa CHDV / Khách Sạn Tân Bình – Hầm 6 Tầng, 69 Tỷ"}]}</script>
 <style>
   :root {
-    --primary: #0284C7;
-    --primary-dark: #0369A1;
-    --text-main: #0F172A;
-    --text-sub: #475569;
-    --bg-page: #F8FAFC;
-    --bg-card: #FFFFFF;
-    --bg-pill: #F1F5F9;
-    --border: #E2E8F0;
+    color-scheme: light;
+    --primary: #8C3B2B;
+    --primary-dark: #722E21;
+    --bronze: #7C5A32;
+    --text-main: #181816;
+    --text-sub: #46413A;
+    --bg-page: #F6F3EC;
+    --bg-card: #FAF8F3;
+    --bg-pill: #EFECE4;
+    --bg-mat: #EAE5DB;
+    --border: #DED9CE;
+    --border-strong: #C5BEB0;
+    --cta-bg: #181816;
+    --cta-fg: #FAF8F3;
+    --cta-hover: #2E2D29;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
   }
   html.dark {
-    --primary: #38BDF8;
-    --primary-dark: #0284C7;
-    --text-main: #F8FAFC;
-    --text-sub: #CBD5E1;
-    --bg-page: #0B1120;
-    --bg-card: #0F172A;
-    --bg-pill: #1E293B;
-    --border: #1E293B;
+    color-scheme: dark;
+    --primary: #D6AE7E;
+    --primary-dark: #C89D6C;
+    --bronze: #D6AE7E;
+    --text-main: #F3F0E8;
+    --text-sub: #C2BCB0;
+    --bg-page: #111110;
+    --bg-card: #181816;
+    --bg-pill: #161513;
+    --bg-mat: #0B0B0A;
+    --border: #282724;
+    --border-strong: #3B3934;
+    --cta-bg: #C89D6C;
+    --cta-fg: #111110;
+    --cta-hover: #D6AE80;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { max-width: 100%; overflow-x: hidden; }
+  html, body { max-width: 100%; overflow-x: clip; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--sans);
     background: var(--bg-page);
     color: var(--text-main);
-    line-height: 1.5;
+    line-height: 1.55;
     padding: 14px;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   .site-header {
     max-width: 1120px;
@@ -64,30 +91,29 @@
     padding: 12px 16px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: 4px;
   }
-  .brand { font-size: 18px; font-weight: 900; color: var(--primary); text-decoration: none; }
-  .brand span { color: #F59E0B; }
+  .brand { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--text-main); text-decoration: none; }
+  .brand span { color: var(--primary); }
   .header-actions { display: flex; align-items: center; gap: 8px; }
-  .header-cta { font-size: 13px; font-weight: 700; color: var(--text-sub); text-decoration: none; padding: 6px 10px; border-radius: 8px; background: var(--bg-pill); border: 1px solid var(--border); }
-  .header-cta:hover { color: var(--primary); }
-  .theme-btn { width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--border); background: var(--bg-pill); color: var(--text-main); cursor: pointer; font-size: 15px; }
+  .header-cta { font-size: 13px; font-weight: 600; color: var(--text-sub); text-decoration: none; padding: 6px 10px; border-radius: 2px; background: var(--bg-pill); border: 1px solid var(--border); }
+  .header-cta:hover { color: var(--primary); border-color: var(--primary); }
+  .theme-btn { width: 36px; height: 36px; border-radius: 2px; border: 1px solid var(--border-strong); background: var(--bg-pill); color: var(--text-main); cursor: pointer; font-size: 15px; }
   .hub-container {
     max-width: 1120px;
     margin: 0 auto;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 4px;
     padding: 28px 22px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 12px rgba(24, 24, 22, 0.06);
   }
   .hub-breadcrumbs { font-size: 13px; color: var(--text-sub); margin-bottom: 14px; }
-  .hub-breadcrumbs a { color: var(--primary); text-decoration: none; font-weight: 700; }
+  .hub-breadcrumbs a { color: var(--primary); text-decoration: none; font-weight: 600; }
   .hub-header { margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 18px; }
-  .hub-header h1 { font-size: 26px; font-weight: 900; color: var(--text-main); margin-bottom: 10px; line-height: 1.3; }
-  .hub-intro { font-size: 15px; color: var(--text-sub); line-height: 1.6; max-width: 880px; }
-  .hub-meta-count { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 800; color: #0284C7; background: rgba(2,132,199,0.12); padding: 4px 12px; border-radius: 8px; }
-  html.dark .hub-meta-count { color: #38BDF8; background: rgba(56,189,248,0.14); }
+  .hub-header h1 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--text-main); margin-bottom: 10px; line-height: 1.25; }
+  .hub-intro { font-size: 15px; color: var(--text-sub); line-height: 1.65; max-width: 880px; }
+  .hub-meta-count { display: inline-block; margin-top: 10px; font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--primary); background: var(--bg-pill); border: 1px solid var(--border); padding: 4px 12px; border-radius: 2px; }
   .hub-cat-bar {
     display: flex;
     flex-wrap: wrap;
@@ -96,30 +122,30 @@
   }
   .hub-cat-pill {
     padding: 7px 13px;
-    border-radius: 9999px;
+    border-radius: 2px;
     border: 1px solid var(--border);
     background: var(--bg-pill);
     color: var(--text-main);
     font-size: 12.5px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.18s;
   }
   .hub-cat-pill.active, .hub-cat-pill:hover {
-    background: #0284C7;
-    color: #FFFFFF;
-    border-color: #0284C7;
+    background: var(--cta-bg);
+    color: var(--cta-fg);
+    border-color: var(--cta-bg);
   }
   .hub-cross-banner {
     margin-bottom: 20px;
     padding: 13px 16px;
-    background: rgba(2, 132, 199, 0.09);
-    border: 1px solid rgba(2, 132, 199, 0.28);
-    border-radius: 12px;
+    background: var(--bg-pill);
+    border: 1px solid var(--border-strong);
+    border-radius: 2px;
     font-size: 14px;
     color: var(--text-main);
   }
-  .hub-cross-banner a { font-weight: 800; color: var(--primary); text-decoration: underline; }
+  .hub-cross-banner a { font-weight: 700; color: var(--primary); text-decoration: underline; }
   .hub-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
@@ -130,11 +156,11 @@
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 2px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   }
-  .hub-card:hover { transform: translateY(-3px); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12); }
+  .hub-card:hover { transform: translateY(-2px); border-color: var(--border-strong); box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12); }
   .hub-card-link { text-decoration: none; color: inherit; display: block; }
   .hub-fav-btn {
     position: absolute;
@@ -142,49 +168,51 @@
     right: 10px;
     z-index: 4;
     padding: 4px 10px;
-    border-radius: 9999px;
-    border: 1px solid rgba(255,255,255,0.25);
-    background: rgba(15, 23, 42, 0.78);
-    color: #F8FAFC;
+    border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.28);
+    background: rgba(24, 24, 22, 0.82);
+    color: #FAF8F3;
     font-size: 11.5px;
-    font-weight: 800;
+    font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(4px);
   }
-  .hub-fav-btn.saved { background: rgba(225, 29, 72, 0.92); border-color: #FB7185; color: #FFFFFF; }
-  .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: #0F172A; }
+  .hub-fav-btn.saved { background: var(--cta-bg); border-color: var(--primary); color: var(--cta-fg); }
+  .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: var(--bg-mat); }
   .hub-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hub-card-badge {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #FBBF24;
-    color: #0F172A;
-    font-family: ui-monospace, monospace;
-    font-weight: 800;
+    background: rgba(24, 24, 22, 0.84);
+    color: #FAF8F3;
+    font-family: var(--mono);
+    font-weight: 600;
     font-size: 11px;
     padding: 3px 8px;
-    border-radius: 6px;
+    border-radius: 2px;
   }
   .hub-card-price {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: rgba(15, 23, 42, 0.88);
-    color: #34D399;
-    font-weight: 800;
-    font-size: 13.5px;
+    background: rgba(24, 24, 22, 0.88);
+    color: #D6AE7E;
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 13px;
     padding: 4px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
   }
   .hub-card-body { padding: 15px; }
-  .hub-cat-tag { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
+  .hub-cat-tag { font-family: var(--mono); font-size: 10.5px; font-weight: 600; color: var(--bronze); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
   .hub-card-title {
-    font-size: 15.5px;
-    font-weight: 800;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
     color: var(--text-main);
-    line-height: 1.4;
+    line-height: 1.35;
     margin-bottom: 10px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -192,25 +220,25 @@
     overflow: hidden;
   }
   .hub-card-specs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-  .spec-pill { font-size: 12px; background: var(--bg-pill); color: var(--text-sub); padding: 3px 8px; border-radius: 6px; font-weight: 600; }
-  .hub-card-footer { border-top: 1px dashed var(--border); padding-top: 10px; display: flex; justify-content: flex-end; }
-  .view-detail-btn { font-size: 12.5px; font-weight: 800; color: var(--primary); }
+  .spec-pill { font-size: 12px; background: var(--bg-pill); color: var(--text-sub); padding: 3px 8px; border-radius: 2px; border: 1px solid var(--border); font-weight: 500; }
+  .hub-card-footer { border-top: 1px solid var(--border); padding-top: 10px; display: flex; justify-content: flex-end; }
+  .view-detail-btn { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--primary); }
   .footer-hub-nav { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--border); }
   .footer-hub-inner { width: 100%; }
-  .footer-hub-nav h4 { font-size: 12.5px; font-weight: 800; color: var(--text-sub); letter-spacing: 0.05em; margin-bottom: 12px; text-transform: uppercase; }
+  .footer-hub-nav h4 { font-family: var(--mono); font-size: 11.5px; font-weight: 600; color: var(--text-sub); letter-spacing: 0.06em; margin-bottom: 12px; text-transform: uppercase; }
   .footer-hub-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .footer-hub-pill {
     display: inline-flex; align-items: center; padding: 6px 13px;
     background: var(--bg-pill); color: var(--text-main);
-    border-radius: 9999px; font-size: 12.5px; font-weight: 700;
+    border-radius: 2px; font-size: 12.5px; font-weight: 500;
     text-decoration: none; border: 1px solid var(--border); transition: all 0.2s;
   }
-  .footer-hub-pill:hover, .footer-hub-pill.active { background: #0284C7; color: #FFFFFF; border-color: #0284C7; }
+  .footer-hub-pill:hover, .footer-hub-pill.active { background: var(--cta-bg); color: var(--cta-fg); border-color: var(--cta-bg); }
   @media (max-width: 639px) {
     body { padding: 8px; }
-    .hub-container { padding: 16px 12px; border-radius: 16px; }
-    .hub-header h1 { font-size: 20px; }
-    .hub-grid { grid-template-columns: 1fr; gap: 14px; }
+    .hub-container { padding: 16px 12px; border-radius: 2px; }
+    .hub-header h1 { font-size: 22px; }
+    .hub-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
     .hub-cat-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
     .hub-cat-pill { white-space: nowrap; flex-shrink: 0; }
   }
@@ -255,7 +283,7 @@
             <span class="spec-pill">146,2m²</span>
             <span class="spec-pill">Hầm, Trệt, 4 Tầng, ST, Thang Máy (21 Phòng + MB)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 110 triệu/tháng · Còn 3 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 110 triệu/tháng · Còn 3 năm</div>
+          <div class="hub-card-rental" title="HĐT: 110 triệu/tháng · Còn 3 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 110 triệu/tháng · Còn 3 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -278,7 +306,7 @@
             <span class="spec-pill">158,7m²</span>
             <span class="spec-pill">1 Hầm, 5 Tầng, mái che thang, hẻm hậu phía sau</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 70 triệu/tháng · Còn 10 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 70 triệu/tháng · Còn 10 năm</div>
+          <div class="hub-card-rental" title="HĐT: 70 triệu/tháng · Còn 10 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 70 triệu/tháng · Còn 10 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -301,7 +329,7 @@
             <span class="spec-pill">83m²</span>
             <span class="spec-pill">Hầm, 7 Tầng (17 Phòng Khách Sạn, PCCC Đầy Đủ)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 165 triệu/tháng · Còn 4 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 165 triệu/tháng · Còn 4 năm</div>
+          <div class="hub-card-rental" title="HĐT: 165 triệu/tháng · Còn 4 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 165 triệu/tháng · Còn 4 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -324,7 +352,7 @@
             <span class="spec-pill">241m²</span>
             <span class="spec-pill">Hầm, 8 Tầng, Thang Thoát Hiểm, PCCC (Căn góc 2 Mặt Tiền)</span>
           </div>
-          <div class="hub-card-rental" title="Đang kinh doanh nhà hàng 2 tầng (các tầng trên trống sẵn sàng bàn giao)" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Đang kinh doanh nhà hàng 2 tầng</div>
+          <div class="hub-card-rental" title="Đang kinh doanh nhà hàng 2 tầng (các tầng trên trống sẵn sàng bàn giao)" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Đang kinh doanh nhà hàng 2 tầng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -347,7 +375,7 @@
             <span class="spec-pill">217,4m²</span>
             <span class="spec-pill">Khối MT (Hầm + 9 Tầng) + Khối Hẻm 14m Sau (3 Tầng), 26 CHDV Full Nội Thất</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 235 triệu/tháng · Còn 8 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 235 triệu/tháng · Còn 8 năm</div>
+          <div class="hub-card-rental" title="HĐT: 235 triệu/tháng · Còn 8 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 235 triệu/tháng · Còn 8 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -370,7 +398,7 @@
             <span class="spec-pill">144m²</span>
             <span class="spec-pill">Hầm, 8 Tầng, 46 Phòng (Sàn 1.100m²)</span>
           </div>
-          <div class="hub-card-rental" title="Liên Hệ" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
+          <div class="hub-card-rental" title="Liên Hệ" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -393,7 +421,7 @@
             <span class="spec-pill">144m²</span>
             <span class="spec-pill">Hầm + Lửng + 8 tầng</span>
           </div>
-          <div class="hub-card-rental" title="Liên Hệ" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
+          <div class="hub-card-rental" title="Liên Hệ" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -416,7 +444,7 @@
             <span class="spec-pill">187m²</span>
             <span class="spec-pill">Trệt + 7 tầng + thang máy</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 110 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 110 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 110 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 110 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -439,7 +467,7 @@
             <span class="spec-pill">71,8m²</span>
             <span class="spec-pill">7 tầng + thang máy</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 100–130 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 100–130 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 100–130 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 100–130 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -462,7 +490,7 @@
             <span class="spec-pill">121,4m²</span>
             <span class="spec-pill">4 tầng + sân thượng, 26 phòng</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 200 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 200 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 200 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 200 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -485,7 +513,7 @@
             <span class="spec-pill">120m²</span>
             <span class="spec-pill">Hầm + 4 tầng</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 75 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 75 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 75 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 75 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -508,7 +536,7 @@
             <span class="spec-pill">410,2m²</span>
             <span class="spec-pill">Hầm + 8 tầng (Tổng sàn 2.289m²)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 800 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 800 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 800 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 800 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -531,7 +559,7 @@
             <span class="spec-pill">456,3m²</span>
             <span class="spec-pill">Hầm + 8 tầng (Tổng sàn khoảng 2.641m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 300 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 300 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 300 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 300 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -554,7 +582,7 @@
             <span class="spec-pill">640m²</span>
             <span class="spec-pill">Hầm + 8 tầng (Tổng sàn 2.559,9m²)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 1221 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 1221 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 1221 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 1221 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -577,7 +605,7 @@
             <span class="spec-pill">268m²</span>
             <span class="spec-pill">Hầm + 6 tầng + Thang máy (Tổng sàn 992,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 190 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 190 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 190 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 190 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -600,7 +628,7 @@
             <span class="spec-pill">217m²</span>
             <span class="spec-pill">Trệt + Lửng + 4 lầu + Sân thượng (22 phòng khách sạn, căn hộ 2PN và quầy bar)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 200 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 200 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -623,7 +651,7 @@
             <span class="spec-pill">160m²</span>
             <span class="spec-pill">9 Tầng + Thang máy (PCCC đầy đủ)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 220 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 220 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 220 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 220 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -646,7 +674,7 @@
             <span class="spec-pill">49,8m²</span>
             <span class="spec-pill">12 Tầng + Sân thượng</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 180 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 180 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 180 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 180 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -669,7 +697,7 @@
             <span class="spec-pill">208,1m²</span>
             <span class="spec-pill">5 Tầng (23 CHDV)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 150 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 150 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 150 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 150 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -692,7 +720,7 @@
             <span class="spec-pill">87,7m²</span>
             <span class="spec-pill">6 tầng (16 căn hộ dịch vụ)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 100 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 100 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 100 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 100 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -715,7 +743,7 @@
             <span class="spec-pill">132,8m²</span>
             <span class="spec-pill">1 Hầm + 6 Tầng + MCCT (31 phòng full nội thất cao cấp + 1 mặt bằng)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 140 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 140 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 140 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 140 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -738,7 +766,7 @@
             <span class="spec-pill">134,3m²</span>
             <span class="spec-pill">Hầm + 4 Tầng + Sân thượng (23 phòng full nội thất)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 100 triệu/tháng · Còn hơn 3 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 100 triệu/tháng · Còn hơn 3 năm</div>
+          <div class="hub-card-rental" title="HĐT: 100 triệu/tháng · Còn hơn 3 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 100 triệu/tháng · Còn hơn 3 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -761,7 +789,7 @@
             <span class="spec-pill">104,6m²</span>
             <span class="spec-pill">Hầm + 6 Tầng (16 phòng)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 170 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 170 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 170 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 170 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -784,7 +812,7 @@
             <span class="spec-pill">691,5m²</span>
             <span class="spec-pill">2 Tầng, Gác (Ngang 25,5m Khủng, 80 Phòng Trọ, Có Hẻm Hông, DTCN 691,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 150 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 150 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 150 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 150 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -807,7 +835,7 @@
             <span class="spec-pill">121,38m²</span>
             <span class="spec-pill">Hầm, 5 Tầng (20 Phòng + MBKD, Ngang 12m Khủng, Khuôn Viên 240m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 160 triệu/tháng · Còn 3 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 160 triệu/tháng · Còn 3 năm</div>
+          <div class="hub-card-rental" title="HĐT: 160 triệu/tháng · Còn 3 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 160 triệu/tháng · Còn 3 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -830,7 +858,7 @@
             <span class="spec-pill">194,9m²</span>
             <span class="spec-pill">Hầm, 5 Tầng (DTS 686m², 17 Phòng + 1 Mặt Bằng)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 120 triệu/tháng · Còn 2 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 120 triệu/tháng · Còn 2 năm</div>
+          <div class="hub-card-rental" title="HĐT: 120 triệu/tháng · Còn 2 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 120 triệu/tháng · Còn 2 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -853,7 +881,7 @@
             <span class="spec-pill">172,2m²</span>
             <span class="spec-pill">Hầm, 6 Tầng, Sân Thượng (Ngang 7m Khủng, DTCN 172,2m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 240 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 240 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 240 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 240 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -876,7 +904,7 @@
             <span class="spec-pill">64m²</span>
             <span class="spec-pill">10 Tầng, Sân Thượng, Thang Máy, PCCC (19 Phòng)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 100 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 100 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 100 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 100 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -899,7 +927,7 @@
             <span class="spec-pill">168m²</span>
             <span class="spec-pill">Hầm, 7 Tầng, MCCT (DTS 1,163,6m², Ngang 8m, 35 CHDV + Penthouse)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 230 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 230 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 230 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 230 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -922,7 +950,7 @@
             <span class="spec-pill">316,8m²</span>
             <span class="spec-pill">Hầm, 6 Tầng (36 CHDV + 1 Mặt Bằng, PCCC Đầy Đủ)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 220 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 220 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 220 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 220 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -945,7 +973,7 @@
             <span class="spec-pill">71m²</span>
             <span class="spec-pill">10 Tầng (37 Phòng Khách Sạn / CHDV, Quy Mô Khủng)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 195 triệu/tháng · Còn 3 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 195 triệu/tháng · Còn 3 năm</div>
+          <div class="hub-card-rental" title="HĐT: 195 triệu/tháng · Còn 3 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 195 triệu/tháng · Còn 3 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -968,7 +996,7 @@
             <span class="spec-pill">125m²</span>
             <span class="spec-pill">Hầm, 8 Tầng, Sân Thượng (32 Phòng Khách Sạn, PCCC Đạt Chuẩn)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 350 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 350 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 350 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 350 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -991,7 +1019,7 @@
             <span class="spec-pill">134,5m²</span>
             <span class="spec-pill">7 Tầng, Thang Máy, PCCC (20 Phòng Khách Sạn + 2 Phòng NV, Sàn 739m²)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 200–220 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200–220 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 200–220 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200–220 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1014,7 +1042,7 @@
             <span class="spec-pill">431,5m²</span>
             <span class="spec-pill">Hầm, 5 Tầng (Căn góc 2 Mặt Tiền, Quy Mô Khủng)</span>
           </div>
-          <div class="hub-card-rental" title="Đang kinh doanh Cafe - Karaoke - Khách Sạn" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Đang kinh doanh Cafe - Karaoke - Khách Sạn</div>
+          <div class="hub-card-rental" title="Đang kinh doanh Cafe - Karaoke - Khách Sạn" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Đang kinh doanh Cafe - Karaoke - Khách Sạn</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1037,7 +1065,7 @@
             <span class="spec-pill">199,8m²</span>
             <span class="spec-pill">Hầm, Lửng, 5 Tầng, MCCT (21 Phòng Full Nội Thất, Sàn 731,1m²)</span>
           </div>
-          <div class="hub-card-rental" title="Gia chủ cam kết thuê lại 300 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Gia chủ cam kết thuê lại 300 triệu/tháng</div>
+          <div class="hub-card-rental" title="Gia chủ cam kết thuê lại 300 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Gia chủ cam kết thuê lại 300 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1060,7 +1088,7 @@
             <span class="spec-pill">179,8m²</span>
             <span class="spec-pill">Hầm, 6 Tầng (30 Phòng Full Nội Thất, Sàn ~1.100m²)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 450–500 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 450–500 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 450–500 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 450–500 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1083,7 +1111,7 @@
             <span class="spec-pill">220,5m²</span>
             <span class="spec-pill">5 Tầng (Khuôn Đất Vuông Vức 220,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="Liên Hệ" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
+          <div class="hub-card-rental" title="Liên Hệ" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Liên Hệ</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1106,7 +1134,7 @@
             <span class="spec-pill">166,6m²</span>
             <span class="spec-pill">Hầm, 5 Tầng (Sàn 722,5m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 195 triệu/tháng · Còn 4 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 195 triệu/tháng · Còn 4 năm</div>
+          <div class="hub-card-rental" title="HĐT: 195 triệu/tháng · Còn 4 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 195 triệu/tháng · Còn 4 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1129,7 +1157,7 @@
             <span class="spec-pill">147,3m²</span>
             <span class="spec-pill">8 Tầng, Thang Máy (29 Phòng Khách Sạn, 1 Mặt Bằng Kinh Doanh)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 345 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 345 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 345 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 345 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1152,7 +1180,7 @@
             <span class="spec-pill">309m²</span>
             <span class="spec-pill">6 Tầng, Thang Máy (27 Phòng CHDV, Hồ Bơi, Sân Vườn)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 500 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 500 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 500 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 500 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1175,7 +1203,7 @@
             <span class="spec-pill">198,7m²</span>
             <span class="spec-pill">Hầm, 7 Tầng, Thang Máy (75 Phòng CHDV, Sàn 836,6m²)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 300 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 300 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 300 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 300 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1198,7 +1226,7 @@
             <span class="spec-pill">166,3m²</span>
             <span class="spec-pill">Hầm, Lửng, 5 Tầng, MCCT (30 Phòng Full Nội Thất)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 200 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 200 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 200 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1221,7 +1249,7 @@
             <span class="spec-pill">1144m²</span>
             <span class="spec-pill">Nhà Cấp 4 (94 Phòng CHDV + 2 Mặt Bằng)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 350 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 350 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 350 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 350 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1244,7 +1272,7 @@
             <span class="spec-pill">101,5m²</span>
             <span class="spec-pill">6 Tầng, Thang Máy (11 Phòng CHDV)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 168 triệu/tháng · Còn &gt;1.5 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 168 triệu/tháng · Còn &gt;1.5 năm</div>
+          <div class="hub-card-rental" title="HĐT: 168 triệu/tháng · Còn &gt;1.5 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 168 triệu/tháng · Còn &gt;1.5 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1267,7 +1295,7 @@
             <span class="spec-pill">247,7m²</span>
             <span class="spec-pill">Hầm, 6 Tầng, Thang Máy, 52 Phòng (Sàn 1,250,7m², Đủ PCCC)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 160 triệu/tháng · Còn 3 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 160 triệu/tháng · Còn 3 năm</div>
+          <div class="hub-card-rental" title="HĐT: 160 triệu/tháng · Còn 3 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 160 triệu/tháng · Còn 3 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1290,7 +1318,7 @@
             <span class="spec-pill">160m²</span>
             <span class="spec-pill">Hầm, 8 Tầng</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 300 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 300 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 300 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 300 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1313,7 +1341,7 @@
             <span class="spec-pill">92,4m²</span>
             <span class="spec-pill">Hầm, 9 Tầng (15 Phòng CHDV)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 250 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 250 triệu/tháng</div>
+          <div class="hub-card-rental" title="HĐT: 250 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 250 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1336,7 +1364,7 @@
             <span class="spec-pill">238m²</span>
             <span class="spec-pill">Hầm, 8 Tầng, ST, 38 Phòng (Đủ PCCC)</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 450–500 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 450–500 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 450–500 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 450–500 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1359,7 +1387,7 @@
             <span class="spec-pill">86,4m²</span>
             <span class="spec-pill">5 Tầng, Lửng, MCT, 15 CHDV &amp; 1 MB</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 120 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 120 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 120 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 120 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1382,7 +1410,7 @@
             <span class="spec-pill">114m²</span>
             <span class="spec-pill">Hầm, Lửng, 4 Tầng, ST, 23 Phòng (Căn góc 2 Mặt Tiền)</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 190 triệu/tháng · Còn 5 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 190 triệu/tháng · Còn 5 năm</div>
+          <div class="hub-card-rental" title="HĐT: 190 triệu/tháng · Còn 5 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 190 triệu/tháng · Còn 5 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1405,7 +1433,7 @@
             <span class="spec-pill">89,1m²</span>
             <span class="spec-pill">3 Tầng</span>
           </div>
-          <div class="hub-card-rental" title="HĐT: 40 triệu/tháng · Còn hơn 1 năm" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 40 triệu/tháng · Còn hơn 1 năm</div>
+          <div class="hub-card-rental" title="HĐT: 40 triệu/tháng · Còn hơn 1 năm" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">HĐT: 40 triệu/tháng · Còn hơn 1 năm</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1428,7 +1456,7 @@
             <span class="spec-pill">282,1m²</span>
             <span class="spec-pill">Hầm, 6 Tầng, 50 Phòng</span>
           </div>
-          <div class="hub-card-rental" title="Dòng tiền: 300 triệu/tháng" style="color:#15803d;font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 300 triệu/tháng</div>
+          <div class="hub-card-rental" title="Dòng tiền: 300 triệu/tháng" style="color:var(--primary, #8C3B2B);font-weight:700;font-size:13px;margin:2px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Dòng tiền: 300 triệu/tháng</div>
           <div class="hub-card-footer">
             <span class="view-detail-btn">Xem Chi Tiết Hồ Sơ →</span>
           </div>
@@ -1456,7 +1484,11 @@
   }
   window.toggleHubTheme = function() {
     var isDark = document.documentElement.classList.toggle("dark");
-    try { localStorage.setItem("nhatosg_theme_mode", isDark ? "dark" : "light"); } catch (e) {}
+    var mode = isDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", mode);
+    var cm = document.querySelector('meta[name="color-scheme"]');
+    if (cm) cm.content = mode;
+    try { localStorage.setItem("nhatosg_theme_mode", mode); } catch (e) {}
     syncThemeBtn();
   };
   function readSavedIds() {
