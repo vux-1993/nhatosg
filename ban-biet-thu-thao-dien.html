@@ -167,6 +167,9 @@
     top: 10px;
     right: 10px;
     z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     padding: 4px 10px;
     border-radius: 2px;
     border: 1px solid rgba(255,255,255,0.28);
@@ -176,6 +179,21 @@
     font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(4px);
+  }
+  .hub-sold-ribbon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 4;
+    background: rgba(24, 24, 22, 0.9);
+    color: #D6AE7E;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 2px;
+    border: 1px solid rgba(214, 174, 126, 0.65);
   }
   .hub-fav-btn.saved { background: var(--cta-bg); border-color: var(--primary); color: var(--cta-fg); }
   .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: var(--bg-mat); }
@@ -250,7 +268,7 @@
   <div class="header-actions">
     <a href="/" class="header-cta">Kho 359 Tài Sản</a>
     <a href="https://zalo.me/0916239898" target="_blank" rel="noopener" class="header-cta">Zalo Vũ: 0916.23.9898</a>
-    <button type="button" id="hubThemeBtn" class="theme-btn" onclick="toggleHubTheme()" aria-label="Đổi giao diện Sáng / Tối">🌙</button>
+    <button type="button" id="hubThemeBtn" class="theme-btn" onclick="toggleHubTheme()" aria-label="Đổi giao diện Sáng / Tối"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </div>
 </header>
 
@@ -268,11 +286,12 @@
   <main class="hub-grid" id="hubGrid">
     
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0761">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0761" onclick="toggleHubSaved('NSG-0761', event)" aria-label="Lưu tài sản NSG-0761">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0761" onclick="toggleHubSaved('NSG-0761', event)" aria-label="Lưu tài sản NSG-0761"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0761.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0761/ban-biet-thu-dinh-thu-duong-duong-so-46-phuong-thao-dien-tp-thu-duc-nsg-0761-hinh-1-cce27.jpg" data-raw="web_images/NSG-0761/ban-biet-thu-dinh-thu-duong-duong-so-46-phuong-thao-dien-tp-thu-duc-nsg-0761-hinh-1-cce27.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0761/ban-biet-thu-dinh-thu-duong-duong-so-46-phuong-thao-dien-tp-thu-duc-nsg-0761-hinh-1-cce27.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Số 46, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0761" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0761]</span>
+          
           <span class="hub-card-price">850.0 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -291,11 +310,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0718">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0718" onclick="toggleHubSaved('NSG-0718', event)" aria-label="Lưu tài sản NSG-0718">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0718" onclick="toggleHubSaved('NSG-0718', event)" aria-label="Lưu tài sản NSG-0718"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0718.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0718/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0718-hinh-1-1b6ea.jpg" data-raw="web_images/NSG-0718/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0718-hinh-1-1b6ea.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0718/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0718-hinh-1-1b6ea.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Duy Hiệu, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0718" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0718]</span>
+          
           <span class="hub-card-price">76 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -314,11 +334,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0868">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0868" onclick="toggleHubSaved('NSG-0868', event)" aria-label="Lưu tài sản NSG-0868">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0868" onclick="toggleHubSaved('NSG-0868', event)" aria-label="Lưu tài sản NSG-0868"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0868.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0868/ban-biet-thu-dinh-thu-thao-dien-tp-thu-duc-nsg-0868-hinh-1-4efd.jpg" data-raw="web_images/NSG-0868/ban-biet-thu-dinh-thu-thao-dien-tp-thu-duc-nsg-0868-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0868/ban-biet-thu-dinh-thu-thao-dien-tp-thu-duc-nsg-0868-hinh-1-4efd.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0868" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0868]</span>
+          
           <span class="hub-card-price">130 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -337,11 +358,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0850">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0850" onclick="toggleHubSaved('NSG-0850', event)" aria-label="Lưu tài sản NSG-0850">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0850" onclick="toggleHubSaved('NSG-0850', event)" aria-label="Lưu tài sản NSG-0850"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0850.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0850/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0850-hinh-1-4efd.jpg" data-raw="web_images/NSG-0850/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0850-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0850/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0850-hinh-1-4efd.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0850" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0850]</span>
+          
           <span class="hub-card-price">220 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -360,11 +382,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0847">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0847" onclick="toggleHubSaved('NSG-0847', event)" aria-label="Lưu tài sản NSG-0847">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0847" onclick="toggleHubSaved('NSG-0847', event)" aria-label="Lưu tài sản NSG-0847"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0847.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0847/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0847-hinh-1-4efd.jpg" data-raw="web_images/NSG-0847/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0847-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0847/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0847-hinh-1-4efd.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Fideco Thảo Điền, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0847" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0847]</span>
+          
           <span class="hub-card-price">160 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -383,11 +406,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0752">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0752" onclick="toggleHubSaved('NSG-0752', event)" aria-label="Lưu tài sản NSG-0752">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0752" onclick="toggleHubSaved('NSG-0752', event)" aria-label="Lưu tài sản NSG-0752"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0752.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0752/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0752-hinh-1-a1562.jpg" data-raw="web_images/NSG-0752/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0752-hinh-1-a1562.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0752/ban-biet-thu-dinh-thu-duong-nguyen-van-huong-phuong-thao-dien-tp-thu-duc-nsg-0752-hinh-1-a1562.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0752" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0752]</span>
+          
           <span class="hub-card-price">58 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -406,11 +430,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0709">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0709" onclick="toggleHubSaved('NSG-0709', event)" aria-label="Lưu tài sản NSG-0709">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0709" onclick="toggleHubSaved('NSG-0709', event)" aria-label="Lưu tài sản NSG-0709"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0709.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0709/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0709-hinh-1-6853d.jpg" data-raw="web_images/NSG-0709/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0709-hinh-1-6853d.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0709/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0709-hinh-1-6853d.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Quốc Hương, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0709" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0709]</span>
+          
           <span class="hub-card-price">110 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -429,11 +454,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0676">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0676" onclick="toggleHubSaved('NSG-0676', event)" aria-label="Lưu tài sản NSG-0676">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0676" onclick="toggleHubSaved('NSG-0676', event)" aria-label="Lưu tài sản NSG-0676"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0676.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0676/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.jpg" data-raw="web_images/NSG-0676/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0676/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0676-hinh-1-796b7.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0676" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0676]</span>
+          
           <span class="hub-card-price">105 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -452,11 +478,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0675">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0675" onclick="toggleHubSaved('NSG-0675', event)" aria-label="Lưu tài sản NSG-0675">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0675" onclick="toggleHubSaved('NSG-0675', event)" aria-label="Lưu tài sản NSG-0675"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0675.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0675/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.jpg" data-raw="web_images/NSG-0675/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0675/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0675-hinh-1-a6708.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0675" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0675]</span>
+          
           <span class="hub-card-price">100 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -475,11 +502,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0672">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0672" onclick="toggleHubSaved('NSG-0672', event)" aria-label="Lưu tài sản NSG-0672">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0672" onclick="toggleHubSaved('NSG-0672', event)" aria-label="Lưu tài sản NSG-0672"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0672.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0672/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.jpg" data-raw="web_images/NSG-0672/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0672/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0672-hinh-1-f58f1.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0672" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0672]</span>
+          
           <span class="hub-card-price">115 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -498,11 +526,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0671">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0671" onclick="toggleHubSaved('NSG-0671', event)" aria-label="Lưu tài sản NSG-0671">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0671" onclick="toggleHubSaved('NSG-0671', event)" aria-label="Lưu tài sản NSG-0671"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0671.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0671/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.jpg" data-raw="web_images/NSG-0671/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0671/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0671-hinh-1-449fc.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0671" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0671]</span>
+          
           <span class="hub-card-price">120 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -521,11 +550,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0673">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0673" onclick="toggleHubSaved('NSG-0673', event)" aria-label="Lưu tài sản NSG-0673">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0673" onclick="toggleHubSaved('NSG-0673', event)" aria-label="Lưu tài sản NSG-0673"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0673.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0673" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0673]</span>
+          
           <span class="hub-card-price">140 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -544,11 +574,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Biệt Thự / Dinh Thự / Compound" data-pid="NSG-0556">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0556" onclick="toggleHubSaved('NSG-0556', event)" aria-label="Lưu tài sản NSG-0556">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0556" onclick="toggleHubSaved('NSG-0556', event)" aria-label="Lưu tài sản NSG-0556"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0556.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0556/ban-biet-thu-quan-2-nsg-0556-hinh-1-d5bb.jpg" data-raw="web_images/NSG-0556/ban-biet-thu-quan-2-nsg-0556-hinh-1-d5bb.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0556/ban-biet-thu-quan-2-nsg-0556-hinh-1-d5bb.jpg" alt="Ảnh thực tế Biệt Thự / Dinh Thự / Compound tại Đường Số 12, Phường Thảo Điền, TP. Thủ Đức - Mã NSG-0556" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0556]</span>
+          
           <span class="hub-card-price">85 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -581,9 +612,13 @@
 
 <script>
 (function() {
+  var SVG_MOON = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>";
+  var SVG_SUN = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg>";
+  var SVG_HEART_EMPTY = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
+  var SVG_HEART_FILLED = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
   function syncThemeBtn() {
     var b = document.getElementById("hubThemeBtn");
-    if (b) b.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+    if (b) b.innerHTML = document.documentElement.classList.contains("dark") ? SVG_SUN : SVG_MOON;
   }
   window.toggleHubTheme = function() {
     var isDark = document.documentElement.classList.toggle("dark");
@@ -607,7 +642,7 @@
       var id = btns[i].getAttribute("data-fav-id");
       var on = saved.indexOf(id) !== -1;
       btns[i].classList.toggle("saved", on);
-      btns[i].textContent = on ? "❤️ Đã lưu" : "♡ Lưu";
+      btns[i].innerHTML = (on ? SVG_HEART_FILLED : SVG_HEART_EMPTY) + "<span>" + (on ? "Đã lưu" : "Lưu") + "</span>";
     }
   }
   window.toggleHubSaved = function(pid, ev) {

@@ -210,6 +210,31 @@ try {
   }
   .badge-new { background: var(--bg-sub); color: var(--primary); border: 1px solid var(--border-strong); }
   .badge-update { background: var(--bg-sub); color: var(--bronze); border: 1px solid var(--border-strong); }
+  .badge-sold { background: var(--cta-bg); color: var(--cta-fg); border: 1px solid var(--bronze); letter-spacing: 0.06em; }
+  .p-sold-ribbon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 6;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(24, 24, 22, 0.9);
+    color: #D6AE7E;
+    border: 1px solid rgba(214, 174, 126, 0.65);
+  }
+  .price-box.price-sold {
+    background: var(--price-bg);
+    border-color: var(--bronze);
+  }
+  .price-box.price-sold .price-val {
+    color: var(--bronze);
+    font-family: var(--serif);
+    font-weight: 600;
+  }
   .badge-loc {
     font-size: 12.5px;
     font-weight: 600;
@@ -865,8 +890,8 @@ try {
   <a href="/" class="brand">nhato<span>SG</span></a>
   <div class="header-right">
     <a href="/" class="header-cta">← Xem Toàn Bộ 359 Tài Sản</a>
-    <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0643 vào danh sách quan tâm">♡ Lưu</button><!-- NSG_VIP_SAVE_BTN_END -->
-    <button type="button" id="pThemeBtn" class="theme-btn" onclick="toggleStaticTheme()" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện Sáng / Tối">🌙</button>
+    <!-- NSG_VIP_SAVE_BTN_START --><button type="button" id="pSaveFavBtn" class="p-save-btn" onclick="toggleStaticSaved()" title="Lưu tài sản NSG-0643 vào danh sách quan tâm"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button><!-- NSG_VIP_SAVE_BTN_END -->
+    <button type="button" id="pThemeBtn" class="theme-btn" onclick="toggleStaticTheme()" title="Đổi giao diện Sáng / Tối" aria-label="Đổi giao diện Sáng / Tối"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </div>
 </header>
 
@@ -898,6 +923,7 @@ try {
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0643/ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0643/ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.jpg" data-raw="web_images/NSG-0643/ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0643/ban-toa-nha-van-phong-phuong-1-tan-binh-nsg-0643-hinh-1-dd24c.jpg" alt="Bán Tòa Nhà Văn Phòng Phường 1, Tân Bình – Hầm 10 Tầng, 145 Tỷ - DT 11m × 16m (CN 168.7m²) - Giá chào 145 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
         <div class="p-watermark">NHATOSG.COM.VN</div>
+        
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
       <div class="p-gallery-toolbar">
@@ -917,7 +943,7 @@ try {
 
     
 <!-- NSG_VIP_RELATED_START -->
-<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0567.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" data-raw="web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Bạch Đằng, Phường 2, Tân Bình - Mã NSG-0567" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0567]</span><span class="p-rel-price">160 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 2, Tân Bình – Hầm 9 Tầng, 160 Tỷ</div><div class="p-rel-meta">Đường Bạch Đằng, Phường 2, Tân Bình · 328m²</div></div></a><a href="/p/NSG-0528.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" data-raw="web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Hoàng Việt, Phường 4, Tân Bình - Mã NSG-0528" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0528]</span><span class="p-rel-price">165 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 4, Tân Bình – 2 Hầm 9 Tầng, 165 Tỷ</div><div class="p-rel-meta">Đường Hoàng Việt, Phường 4, Tân Bình · 240,6m²</div></div></a><a href="/p/NSG-0535.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0535/ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.jpg" data-raw="web_images/NSG-0535/ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0535/ban-toa-nha-van-phong-phuong-12-quan-tan-binh-nsg-0535-hinh-1-9fa0.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Cộng Hòa, Phường 12, Tân Bình - Mã NSG-0535" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0535]</span><span class="p-rel-price">170 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 12, Tân Bình – 2 Hầm 11 Tầng, 170 Tỷ</div><div class="p-rel-meta">Đường Cộng Hòa, Phường 12, Tân Bình · 252,2m²</div></div></a></div></section>
+<section class="p-related-sec" aria-label="Tài sản cùng khu vực và phân khúc phù hợp"><div class="p-related-head"><h3>🏢 Tài Sản Cùng Khu Vực &amp; Phân Khúc Phù Hợp</h3><a href="/" class="p-related-more">Mở bộ lọc tương tác →</a></div><div class="p-related-grid"><a href="/p/NSG-0567.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" data-raw="web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0567/ban-toa-nha-van-phong-phuong-2-tan-binh-nsg-0567-hinh-1-da24.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Bạch Đằng, Phường 2, Tân Bình - Mã NSG-0567" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0567]</span><span class="p-rel-price">160 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 2, Tân Bình – Hầm 9 Tầng, 160 Tỷ</div><div class="p-rel-meta">Đường Bạch Đằng, Phường 2, Tân Bình · 328m²</div></div></a><a href="/p/NSG-0528.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" data-raw="web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Hoàng Việt, Phường 4, Tân Bình - Mã NSG-0528" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0528]</span><span class="p-rel-price">165 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 4, Tân Bình – 2 Hầm 9 Tầng, 165 Tỷ</div><div class="p-rel-meta">Đường Hoàng Việt, Phường 4, Tân Bình · 240,6m²</div></div></a><a href="/p/NSG-0524.html" class="p-rel-card"><div class="p-rel-img"><img src="https://nhatosg.com.vn/web_images/NSG-0524/ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.jpg" data-raw="web_images/NSG-0524/ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0524/ban-toa-nha-van-phong-phuong-14-quan-tan-binh-nsg-0524-hinh-1-fdfc.jpg" alt="Ảnh thực tế Tòa Nhà Văn Phòng (Building) tại Đường Trường Chinh, Phường 14, Tân Bình - Mã NSG-0524" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-rel-id">[NSG-0524]</span><span class="p-rel-price">270 Tỷ</span></div><div class="p-rel-body"><div class="p-rel-cat">Tòa Nhà Văn Phòng (Building)</div><div class="p-rel-title">Bán Tòa Nhà Văn Phòng Phường 14, Tân Bình – Hầm 8 Tầng, 270 Tỷ</div><div class="p-rel-meta">Đường Trường Chinh, Phường 14, Tân Bình · 604,4m²</div></div></a></div></section>
 <!-- NSG_VIP_RELATED_END -->
     <div class="footer-hub-nav">
   <div class="footer-hub-inner">
@@ -962,10 +988,12 @@ try {
   var lastSwipeTs = 0;
   var suppressPop = false;
 
+  var SVG_MOON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
+  var SVG_SUN = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
   function syncThemeIcon() {
     var btn = document.getElementById("pThemeBtn");
     var isDark = document.documentElement.classList.contains("dark");
-    if (btn) btn.textContent = isDark ? "☀️" : "🌙";
+    if (btn) btn.innerHTML = isDark ? SVG_SUN : SVG_MOON;
   }
 
   window.toggleStaticTheme = function() {
@@ -1135,6 +1163,10 @@ try {
 <script>
 (function() {
   var PID = "NSG-0643";
+  var SVG_MOON = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>";
+  var SVG_SUN = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg>";
+  var SVG_HEART_EMPTY = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
+  var SVG_HEART_FILLED = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
   if (typeof window.toggleStaticTheme !== "function") {
     window.toggleStaticTheme = function() {
       var isDark = document.documentElement.classList.toggle("dark");
@@ -1144,10 +1176,10 @@ try {
       if (cm) cm.content = mode;
       try { localStorage.setItem("nhatosg_theme_mode", mode); } catch (e) {}
       var tb = document.getElementById("pThemeBtn");
-      if (tb) tb.textContent = isDark ? "☀️" : "🌙";
+      if (tb) tb.innerHTML = isDark ? SVG_SUN : SVG_MOON;
     };
     var initTb = document.getElementById("pThemeBtn");
-    if (initTb) initTb.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+    if (initTb) initTb.innerHTML = document.documentElement.classList.contains("dark") ? SVG_SUN : SVG_MOON;
   }
   function readArr(key) {
     try {
@@ -1169,7 +1201,7 @@ try {
     var btn = document.getElementById("pSaveFavBtn");
     if (btn) {
       btn.classList.toggle("saved", isSaved);
-      btn.textContent = isSaved ? "❤️ Đã lưu" : "♡ Lưu";
+      btn.innerHTML = (isSaved ? SVG_HEART_FILLED : SVG_HEART_EMPTY) + "<span>" + (isSaved ? "Đã lưu" : "Lưu") + "</span>";
     }
   }
   window.toggleStaticSaved = function() {
@@ -1182,7 +1214,7 @@ try {
     syncSavedState();
     var toast = document.getElementById("pZaloToast");
     if (toast) {
-      toast.textContent = nowSaved ? ("❤️ Đã lưu [" + PID + "] vào Tài sản Quan Tâm") : ("Đã bỏ lưu [" + PID + "]");
+      toast.textContent = nowSaved ? ("✓ Đã lưu [" + PID + "] vào Tài sản Quan Tâm") : ("Đã bỏ lưu [" + PID + "]");
       toast.style.display = "block";
       setTimeout(function() { toast.style.display = "none"; }, 2200);
     }

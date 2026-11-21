@@ -167,6 +167,9 @@
     top: 10px;
     right: 10px;
     z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     padding: 4px 10px;
     border-radius: 2px;
     border: 1px solid rgba(255,255,255,0.28);
@@ -176,6 +179,21 @@
     font-weight: 600;
     cursor: pointer;
     backdrop-filter: blur(4px);
+  }
+  .hub-sold-ribbon {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 4;
+    background: rgba(24, 24, 22, 0.9);
+    color: #D6AE7E;
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 2px;
+    border: 1px solid rgba(214, 174, 126, 0.65);
   }
   .hub-fav-btn.saved { background: var(--cta-bg); border-color: var(--primary); color: var(--cta-fg); }
   .hub-card-img-wrap { position: relative; width: 100%; height: 204px; background: var(--bg-mat); }
@@ -250,7 +268,7 @@
   <div class="header-actions">
     <a href="/" class="header-cta">Kho 359 Tài Sản</a>
     <a href="https://zalo.me/0916239898" target="_blank" rel="noopener" class="header-cta">Zalo Vũ: 0916.23.9898</a>
-    <button type="button" id="hubThemeBtn" class="theme-btn" onclick="toggleHubTheme()" aria-label="Đổi giao diện Sáng / Tối">🌙</button>
+    <button type="button" id="hubThemeBtn" class="theme-btn" onclick="toggleHubTheme()" aria-label="Đổi giao diện Sáng / Tối"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
   </div>
 </header>
 
@@ -268,11 +286,12 @@
   <main class="hub-grid" id="hubGrid">
     
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0544">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0544" onclick="toggleHubSaved('NSG-0544', event)" aria-label="Lưu tài sản NSG-0544">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0544" onclick="toggleHubSaved('NSG-0544', event)" aria-label="Lưu tài sản NSG-0544"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0544.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0544/ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.jpg" data-raw="web_images/NSG-0544/ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0544/ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Hai Bà Trưng, Phường Võ Thị Sáu, Quận 3 - Mã NSG-0544" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0544]</span>
+          
           <span class="hub-card-price">160 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -291,11 +310,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0887">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0887" onclick="toggleHubSaved('NSG-0887', event)" aria-label="Lưu tài sản NSG-0887">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0887" onclick="toggleHubSaved('NSG-0887', event)" aria-label="Lưu tài sản NSG-0887"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0887.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0887/ban-nha-pho-mat-tien-phuong-3-quan-3-nsg-0887-hinh-1-4efd.jpg" data-raw="web_images/NSG-0887/ban-nha-pho-mat-tien-phuong-3-quan-3-nsg-0887-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0887/ban-nha-pho-mat-tien-phuong-3-quan-3-nsg-0887-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Điện Biên Phủ, Phường 3, Quận 3 - Mã NSG-0887" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0887]</span>
+          
           <span class="hub-card-price">97,5 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -314,11 +334,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0886">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0886" onclick="toggleHubSaved('NSG-0886', event)" aria-label="Lưu tài sản NSG-0886">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0886" onclick="toggleHubSaved('NSG-0886', event)" aria-label="Lưu tài sản NSG-0886"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0886.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0886/ban-nha-pho-mat-tien-phuong-5-quan-3-nsg-0886-hinh-1-4efd.jpg" data-raw="web_images/NSG-0886/ban-nha-pho-mat-tien-phuong-5-quan-3-nsg-0886-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0886/ban-nha-pho-mat-tien-phuong-5-quan-3-nsg-0886-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Võ Văn Tần, Phường 5, Quận 3 - Mã NSG-0886" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0886]</span>
+          
           <span class="hub-card-price">110 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -337,11 +358,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0872">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0872" onclick="toggleHubSaved('NSG-0872', event)" aria-label="Lưu tài sản NSG-0872">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0872" onclick="toggleHubSaved('NSG-0872', event)" aria-label="Lưu tài sản NSG-0872"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0872.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0872/ban-nha-pho-mat-tien-phuong-nhieu-loc-chua-ro-nsg-0872-hinh-1-4efd.jpg" data-raw="web_images/NSG-0872/ban-nha-pho-mat-tien-phuong-nhieu-loc-chua-ro-nsg-0872-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0872/ban-nha-pho-mat-tien-phuong-nhieu-loc-chua-ro-nsg-0872-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Lê Văn Sỹ, Phường Nhiêu Lộc, Quận 3 - Mã NSG-0872" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0872]</span>
+          
           <span class="hub-card-price">36 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -360,11 +382,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0865">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0865" onclick="toggleHubSaved('NSG-0865', event)" aria-label="Lưu tài sản NSG-0865">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0865" onclick="toggleHubSaved('NSG-0865', event)" aria-label="Lưu tài sản NSG-0865"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0865.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0865/ban-nha-pho-mat-tien-phuong-13-quan-3-nsg-0865-hinh-1-4efd.jpg" data-raw="web_images/NSG-0865/ban-nha-pho-mat-tien-phuong-13-quan-3-nsg-0865-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0865/ban-nha-pho-mat-tien-phuong-13-quan-3-nsg-0865-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Lê Văn Sỹ, Phường 13, Quận 3 - Mã NSG-0865" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0865]</span>
+          
           <span class="hub-card-price">50 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -383,11 +406,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0833">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0833" onclick="toggleHubSaved('NSG-0833', event)" aria-label="Lưu tài sản NSG-0833">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0833" onclick="toggleHubSaved('NSG-0833', event)" aria-label="Lưu tài sản NSG-0833"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0833.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0833/ban-nha-pho-mat-tien-phuong-1-quan-3-nsg-0833-hinh-1-4efd.jpg" data-raw="web_images/NSG-0833/ban-nha-pho-mat-tien-phuong-1-quan-3-nsg-0833-hinh-1-4efd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0833/ban-nha-pho-mat-tien-phuong-1-quan-3-nsg-0833-hinh-1-4efd.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Điện Biên Phủ, Phường 1, Quận 3 - Mã NSG-0833" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0833]</span>
+          
           <span class="hub-card-price">62 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -406,11 +430,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0764">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0764" onclick="toggleHubSaved('NSG-0764', event)" aria-label="Lưu tài sản NSG-0764">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0764" onclick="toggleHubSaved('NSG-0764', event)" aria-label="Lưu tài sản NSG-0764"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0764.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0764/ban-nha-pho-mat-tien-duong-tran-quoc-thao-phuong-7-quan-3-nsg-0764-hinh-1-dd0a4.jpg" data-raw="web_images/NSG-0764/ban-nha-pho-mat-tien-duong-tran-quoc-thao-phuong-7-quan-3-nsg-0764-hinh-1-dd0a4.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0764/ban-nha-pho-mat-tien-duong-tran-quoc-thao-phuong-7-quan-3-nsg-0764-hinh-1-dd0a4.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Trần Quốc Thảo, Phường 7, Quận 3 - Mã NSG-0764" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0764]</span>
+          
           <span class="hub-card-price">45 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -429,11 +454,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0751">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0751" onclick="toggleHubSaved('NSG-0751', event)" aria-label="Lưu tài sản NSG-0751">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0751" onclick="toggleHubSaved('NSG-0751', event)" aria-label="Lưu tài sản NSG-0751"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0751.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0751/ban-nha-pho-mat-tien-duong-cao-thang-phuong-ban-co-quan-3-nsg-0751-hinh-1-a9814.jpg" data-raw="web_images/NSG-0751/ban-nha-pho-mat-tien-duong-cao-thang-phuong-ban-co-quan-3-nsg-0751-hinh-1-a9814.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0751/ban-nha-pho-mat-tien-duong-cao-thang-phuong-ban-co-quan-3-nsg-0751-hinh-1-a9814.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Cao Thắng, Phường Bàn Cờ, Quận 3 - Mã NSG-0751" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0751]</span>
+          
           <span class="hub-card-price">38 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -452,11 +478,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0756">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0756" onclick="toggleHubSaved('NSG-0756', event)" aria-label="Lưu tài sản NSG-0756">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0756" onclick="toggleHubSaved('NSG-0756', event)" aria-label="Lưu tài sản NSG-0756"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0756.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0756/ban-nha-pho-mat-tien-duong-vo-van-tan-phuong-6-quan-3-nsg-0756-hinh-1-07281.jpg" data-raw="web_images/NSG-0756/ban-nha-pho-mat-tien-duong-vo-van-tan-phuong-6-quan-3-nsg-0756-hinh-1-07281.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0756/ban-nha-pho-mat-tien-duong-vo-van-tan-phuong-6-quan-3-nsg-0756-hinh-1-07281.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Võ Văn Tần, Phường 6, Quận 3 - Mã NSG-0756" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0756]</span>
+          
           <span class="hub-card-price">80 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -475,11 +502,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0679">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0679" onclick="toggleHubSaved('NSG-0679', event)" aria-label="Lưu tài sản NSG-0679">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0679" onclick="toggleHubSaved('NSG-0679', event)" aria-label="Lưu tài sản NSG-0679"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0679.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.jpg" data-raw="web_images/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0679/ban-toa-nha-van-phong-biet-thu-thuong-mai-phuong-vo-thi-sau-quan-3-nsg-0679-hinh-1-b74c0.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Tú Xương, Phường Võ Thị Sáu, Quận 3 - Mã NSG-0679" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0679]</span>
+          
           <span class="hub-card-price">95 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -498,11 +526,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0610">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0610" onclick="toggleHubSaved('NSG-0610', event)" aria-label="Lưu tài sản NSG-0610">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0610" onclick="toggleHubSaved('NSG-0610', event)" aria-label="Lưu tài sản NSG-0610"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0610.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.jpg" data-raw="web_images/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0610/ban-biet-thu-quy-dat-xay-cao-tang-phuong-13-quan-3-nsg-0610-hinh-1-8bb73.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Lê Văn Sỹ, Phường 13, Quận 3 - Mã NSG-0610" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0610]</span>
+          
           <span class="hub-card-price">65 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -521,11 +550,12 @@
       </a>
     </article>
     <article class="hub-card" data-cat="Nhà Mặt Tiền Kinh Doanh" data-pid="NSG-0604">
-      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0604" onclick="toggleHubSaved('NSG-0604', event)" aria-label="Lưu tài sản NSG-0604">♡ Lưu</button>
+      <button type="button" class="hub-fav-btn" data-fav-id="NSG-0604" onclick="toggleHubSaved('NSG-0604', event)" aria-label="Lưu tài sản NSG-0604"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><span>Lưu</span></button>
       <a href="/p/NSG-0604.html" class="hub-card-link">
         <div class="hub-card-img-wrap">
           <img src="https://nhatosg.com.vn/web_images/NSG-0604/ban-toa-nha-thuong-mai-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.jpg" data-raw="web_images/NSG-0604/ban-toa-nha-thuong-mai-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0604/ban-toa-nha-thuong-mai-phuong-4-quan-3-nsg-0604-hinh-1-f73f7.jpg" alt="Ảnh thực tế Nhà Mặt Tiền Kinh Doanh tại Đường Vườn Chuối, Phường 4, Quận 3 - Mã NSG-0604" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
           <span class="card-id-tag hub-card-badge">[NSG-0604]</span>
+          
           <span class="hub-card-price">85 Tỷ</span>
         </div>
         <div class="hub-card-body">
@@ -558,9 +588,13 @@
 
 <script>
 (function() {
+  var SVG_MOON = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\"/></svg>";
+  var SVG_SUN = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.85\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2\"/><path d=\"M12 20v2\"/><path d=\"m4.93 4.93 1.41 1.41\"/><path d=\"m17.66 17.66 1.41 1.41\"/><path d=\"M2 12h2\"/><path d=\"M20 12h2\"/><path d=\"m6.34 17.66-1.41 1.41\"/><path d=\"m19.07 4.93-1.41 1.41\"/></svg>";
+  var SVG_HEART_EMPTY = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
+  var SVG_HEART_FILLED = "<svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\"/></svg>";
   function syncThemeBtn() {
     var b = document.getElementById("hubThemeBtn");
-    if (b) b.textContent = document.documentElement.classList.contains("dark") ? "☀️" : "🌙";
+    if (b) b.innerHTML = document.documentElement.classList.contains("dark") ? SVG_SUN : SVG_MOON;
   }
   window.toggleHubTheme = function() {
     var isDark = document.documentElement.classList.toggle("dark");
@@ -584,7 +618,7 @@
       var id = btns[i].getAttribute("data-fav-id");
       var on = saved.indexOf(id) !== -1;
       btns[i].classList.toggle("saved", on);
-      btns[i].textContent = on ? "❤️ Đã lưu" : "♡ Lưu";
+      btns[i].innerHTML = (on ? SVG_HEART_FILLED : SVG_HEART_EMPTY) + "<span>" + (on ? "Đã lưu" : "Lưu") + "</span>";
     }
   }
   window.toggleHubSaved = function(pid, ev) {
