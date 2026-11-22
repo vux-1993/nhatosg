@@ -60,7 +60,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261122111429";
+    script.src = "./properties_data.js?v=20261122121233";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -5110,9 +5110,18 @@
       "tai san", "bat dong san", "bds", "can ban", "tim", "mua", "ban", "cho", "co",
       "khu vuc", "duong", "tuyen duong", "phuong", "can", "chinh chu", "gia", "tam",
       "khoang", "quanh", "duoi", "tren", "tu", "den", "va", "hoac", "cua", "tai",
-      "o", "la", "ty", "tr", "trieu", "m2", "cn", "nhu", "loai", "hinh", "tot", "dep",
+      "o", "la", "ty", "tỷ", "tr", "trieu", "m2", "cn", "nhu", "loai", "hinh", "tot", "dep",
       "kinh doanh", "cho thue", "khai thac", "dong tien", "thu nhap", "giam gia",
-      "dieu chinh", "ha gia", "chiet khau", "update", "hang ngop", "cat lo"
+      "dieu chinh", "ha gia", "chiet khau", "update", "hang ngop", "cat lo",
+      "toi", "em", "em oi", "anh", "chi", "anh chi", "vu", "nhatosg", "minh", "ben",
+      "nao", "khong", "ko", "nhe", "nha", "giup", "giup em", "hoi", "xem", "tu van",
+      "goi y", "ngan sach", "tai chinh", "muc gia", "ha xuong", "giam xuong", "noi len",
+      "len tam", "xuong tam", "tam do", "muc do", "them", "nua", "khac", "tuong tu",
+      "so sanh", "nhung can", "cac can", "may can", "mot vai", "phu hop", "sat nhu cau",
+      "tieu chi", "uu tien", "hien tai", "thuc te", "cho hoi", "da co", "la gi",
+      "bao nhieu", "the nao", "ra sao", "vay", "duoc khong", "duoc ko", "hoi cao",
+      "hoi thap", "thi co", "thi sao", "thi can", "can nao", "khong em",
+      "hop dong thue", "hd thue", "thue"
     ]);
 
     const REAL_ESTATE_ABBR_RULES = [
@@ -5177,14 +5186,22 @@
         subAreaTokens: [],
         maxPriceBil: null,
         minPriceBil: null,
+        minPriceStrict: false,
+        maxPriceStrict: false,
         minAreaM2: null,
+        minAreaStrict: false,
         minWidthM: null,
+        minWidthStrict: false,
         minFloors: null,
         minCashflowMil: null,
+        minCashflowStrict: false,
+        maxCashflowMil: null,
+        maxCashflowStrict: false,
         onlyUpdate: false,
         mustHaveBasement: false,
         mustHaveRentalIncome: false,
         categoryKeywords: [],
+        categoriesAllowed: [],
         categoryExact: null,
         preferKeyword: "",
         landSubtype: null,
@@ -5230,49 +5247,85 @@
         }
       });
 
+      const addCat = (label, kws) => {
+        if (!parsed.categoriesAllowed.includes(label)) parsed.categoriesAllowed.push(label);
+        kws.forEach(k => parsed.categoryKeywords.push(k));
+      };
       if (/\b(?:toa\s+nha|toa\s+van\s+phong|van\s+phong|building|office|cao\s+oc)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Tòa Nhà Văn Phòng (Building)";
-        parsed.categoryKeywords.push("van phong", "building", "toa");
-      } else if (/\b(?:chdv|can\s+ho\s+dich\s+vu|khach\s+san|hotel)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Tòa CHDV / Khách Sạn";
-        parsed.categoryKeywords.push("khach san", "chdv");
-      } else if (/\b(?:biet\s+thu|villa|dinh\s+thu|compound)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Biệt thự / Dinh thự";
-        parsed.categoryKeywords.push("biet thu", "dinh thu", "compound");
-      } else if (/\b(?:quy\s+dat|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|lo\s+dat(?:\s+trong)?|nha\s+cap\s*4|cap\s*4|nha\s+cu|du\s+an)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Đất / Nhà Cấp 4";
-        parsed.categoryKeywords.push("quy dat", "lo dat", "dat", "cap 4", "nha cu");
+        addCat("Tòa Nhà Văn Phòng (Building)", ["van phong", "building", "toa"]);
+      }
+      if (/\b(?:chdv|can\s+ho\s+dich\s+vu|khach\s+san|hotel)\b/i.test(qNoTone)) {
+        addCat("Tòa CHDV / Khách Sạn", ["khach san", "chdv"]);
+      }
+      if (/\b(?:biet\s+thu|villa|dinh\s+thu|compound)\b/i.test(qNoTone)) {
+        addCat("Biệt thự / Dinh thự", ["biet thu", "dinh thu", "compound"]);
+      }
+      if (/\b(?:quy\s+dat|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|lo\s+dat(?:\s+trong)?|nha\s+cap\s*4|cap\s*4|nha\s+cu|du\s+an)\b/i.test(qNoTone)) {
+        addCat("Đất / Nhà Cấp 4", ["quy dat", "lo dat", "dat", "cap 4", "nha cu"]);
         if (/\b(?:dat\s+trong|lo\s+dat\s+trong)\b/i.test(qNoTone)) parsed.landSubtype = "vacant";
         else if (/\b(?:nha\s+cap\s*4|cap\s*4|nha\s+cu)\b/i.test(qNoTone)) parsed.landSubtype = "old_house";
-      } else if (/\b(?:nha\s+pho|mat\s+tien|shophouse|nha\s+mat\s+tien|showroom)\b/i.test(qNoTone)) {
-        parsed.categoryExact = "Nhà Mặt Tiền Kinh Doanh";
-        parsed.categoryKeywords.push("nha pho", "mat tien");
+      }
+      if (/\b(?:nha\s+pho|nha\s+mat\s+tien|mat\s+tien|shophouse|showroom)\b/i.test(qNoTone)) {
+        addCat("Nhà Mặt Tiền Kinh Doanh", ["nha pho", "mat tien"]);
         if (/\bshowroom\b/i.test(qNoTone)) parsed.preferKeyword = "showroom";
       }
+      if (parsed.categoriesAllowed.length === 1) {
+        parsed.categoryExact = parsed.categoriesAllowed[0];
+      }
 
-      const rangeMatch = qNoTone.match(/(?:tu\s*)?(\d+(?:[.,]\d+)?)\s*(?:ty)?\s*(?:den|-|toi|~)\s*(\d+(?:[.,]\d+)?)\s*ty/);
+      const rangeMatch = qNoTone.match(/(?:tu\s+|khoang\s+|tam\s+|quanh\s+)?(\d+(?:[.,]\d+)?)\s*(?:ty)?\s*(?:den|-|toi|~)\s*(\d+(?:[.,]\d+)?)\s*ty/);
       if (rangeMatch) {
-        parsed.minPriceBil = parseFloat(rangeMatch[1].replace(",", "."));
-        parsed.maxPriceBil = parseFloat(rangeMatch[2].replace(",", "."));
+        let a = parseFloat(rangeMatch[1].replace(",", "."));
+        let b = parseFloat(rangeMatch[2].replace(",", "."));
+        if (a > b) { const tmp = a; a = b; b = tmp; }
+        parsed.minPriceBil = a;
+        parsed.maxPriceBil = b;
+        parsed.minPriceStrict = false;
+        parsed.maxPriceStrict = false;
       } else {
-        const underMatch = qNoTone.match(/(?:duoi|nho hon|<=?|toi da|duoi muc)\s*(\d+(?:[.,]\d+)?)\s*ty/);
-        if (underMatch) parsed.maxPriceBil = parseFloat(underMatch[1].replace(",", "."));
-        const overMatch = qNoTone.match(/(?:tren|lon hon|>=?|tu)\s*(\d+(?:[.,]\d+)?)\s*ty/);
-        if (overMatch) parsed.minPriceBil = parseFloat(overMatch[1].replace(",", "."));
+        const underMatch = qNoTone.match(/(?:(duoi(?:\s+muc)?|nho\s+hon|<)|(toi\s+da|khong\s+qua|<=))\s*(\d+(?:[.,]\d+)?)\s*ty|(\d+(?:[.,]\d+)?)\s*ty\s*(do\s+lai|tro\s+xuong)/);
+        if (underMatch) {
+          parsed.maxPriceBil = parseFloat((underMatch[3] || underMatch[4]).replace(",", "."));
+          parsed.maxPriceStrict = Boolean(underMatch[1]);
+        }
+        const overMatch = qNoTone.match(/(?:(tren|hon|lon\s+hon|vuot|>)|(tu|>=|it\s+nhat|toi\s+thieu))\s*(\d+(?:[.,]\d+)?)\s*ty|(\d+(?:[.,]\d+)?)\s*ty\s*(tro\s+len)/);
+        if (overMatch) {
+          parsed.minPriceBil = parseFloat((overMatch[3] || overMatch[4]).replace(",", "."));
+          parsed.minPriceStrict = Boolean(overMatch[1]);
+        }
         const aroundMatch = qNoTone.match(/(?:tam|khoang|quanh|gia)\s*(\d+(?:[.,]\d+)?)\s*ty/);
-        if (aroundMatch && !parsed.minPriceBil && !parsed.maxPriceBil) {
+        if (aroundMatch && parsed.minPriceBil === null && parsed.maxPriceBil === null) {
           const target = parseFloat(aroundMatch[1].replace(",", "."));
-          parsed.minPriceBil = +(target * 0.8).toFixed(1);
-          parsed.maxPriceBil = +(target * 1.2).toFixed(1);
+          parsed.minPriceBil = +(target * 0.85).toFixed(1);
+          parsed.maxPriceBil = +(target * 1.15).toFixed(1);
         }
       }
 
-      const widthMatch = qNoTone.match(/ngang\s*(?:tren|>=?|tu)?\s*(\d+(?:[.,]\d+)?)\s*m?/);
-      if (widthMatch) parsed.minWidthM = parseFloat(widthMatch[1].replace(",", "."));
-      const areaMatch = qNoTone.match(/(?:dt|dien tich(?: cong nhan)?|cn|cong nhan)\s*(?:tren|>=?|tu)?\s*(\d+(?:[.,]\d+)?)\s*m?/);
-      if (areaMatch) parsed.minAreaM2 = parseFloat(areaMatch[1].replace(",", "."));
-      const cfMatch = qNoTone.match(/(?:dong tien|thue|hop dong thue|hd thue|thu nhap)\s*(?:tren|>=?|tu)?\s*(\d+)\s*(?:tr|trieu)/);
-      if (cfMatch) parsed.minCashflowMil = parseFloat(cfMatch[1]);
+      const widthMatch = qNoTone.match(/ngang\s*(?:(tren|hon|lon\s+hon|>)|(>=|tu|it\s+nhat|toi\s+thieu))?\s*(\d+(?:[.,]\d+)?)\s*m?/);
+      if (widthMatch) {
+        parsed.minWidthM = parseFloat(widthMatch[3].replace(",", "."));
+        parsed.minWidthStrict = Boolean(widthMatch[1]);
+      }
+      const areaMatch = qNoTone.match(/(?:dt|dien tich(?: cong nhan)?|cn|cong nhan)\s*(?:(tren|hon|lon\s+hon|>)|(>=|tu|it\s+nhat|toi\s+thieu))?\s*(\d+(?:[.,]\d+)?)\s*m?/);
+      if (areaMatch) {
+        parsed.minAreaM2 = parseFloat(areaMatch[3].replace(",", "."));
+        parsed.minAreaStrict = Boolean(areaMatch[1]);
+      }
+
+      const cfUnderMatch = qNoTone.match(/(?:(duoi(?:\s+muc)?|nho\s+hon|<)|(toi\s+da|khong\s+qua|<=))\s*(\d+(?:[.,]\d+)?)\s*(?:trieu|tr)(?:\s*(?:\/\s*thang|\/th|moi\s+thang|thang))?(?=$|[\s,.;:!?/])/);
+      if (cfUnderMatch) {
+        parsed.maxCashflowMil = parseFloat(cfUnderMatch[3].replace(",", "."));
+        parsed.maxCashflowStrict = Boolean(cfUnderMatch[1]);
+      } else {
+        const cfOverMatch = qNoTone.match(/(?:(tren|hon|lon\s+hon|vuot|>)|(tu|>=|it\s+nhat|toi\s+thieu))?\s*(\d+(?:[.,]\d+)?)\s*(?:trieu|tr)(?:\s*(?:\/\s*thang|\/th|moi\s+thang|thang))?(?=$|[\s,.;:!?/])/);
+        if (cfOverMatch && (/(?:dong tien|thu nhap|hop dong thue|hd thue|cho thue|thue|khai thac|\/\s*thang|moi\s+thang|trieu)/.test(qNoTone) || cfOverMatch[1] || cfOverMatch[2])) {
+          const cfVal = parseFloat(cfOverMatch[3].replace(",", "."));
+          if (cfVal > 0) {
+            parsed.minCashflowMil = cfVal;
+            parsed.minCashflowStrict = Boolean(cfOverMatch[1]);
+          }
+        }
+      }
       const floorQuery = qNoTone.match(/(?:tu|tren|it nhat)?\s*(\d+)\s*(?:tang|lau)\b/);
       if (floorQuery) parsed.minFloors = parseInt(floorQuery[1], 10);
 
@@ -5282,18 +5335,18 @@
       if (/\b(?:co ham|1 ham|2 ham|3 ham|co tang ham|ham)\b/.test(qNoTone)) {
         parsed.mustHaveBasement = true;
       }
-      if (parsed.minCashflowMil !== null || /\b(?:co hop dong thue|co hd thue|co dong tien|dong tien|dang cho thue)\b/.test(qNoTone)) {
+      if (parsed.minCashflowMil !== null || parsed.maxCashflowMil !== null || /\b(?:co hop dong thue|co hd thue|co dong tien|dong tien|dang cho thue)\b/.test(qNoTone)) {
         parsed.mustHaveRentalIncome = true;
       }
 
-      let residual = (" " + qNoTone + " ")
+      let residual = (" " + qNoTone.replace(/[,.;!?/]+/g, " ") + " ")
         .replace(/\bnsg[\s\-]?\d{3,4}\b/g, " ")
-        .replace(/(?:tu\s*)?\d+(?:[.,]\d+)?\s*(?:ty)?\s*(?:den|-|toi|~)\s*\d+(?:[.,]\d+)?\s*ty/g, " ")
-        .replace(/(?:duoi|nho hon|<=?|toi da|tren|lon hon|>=?|tu|tam|khoang|quanh|gia)\s*\d+(?:[.,]\d+)?\s*ty/g, " ")
-        .replace(/\b\d+(?:[.,]\d+)?\s*ty\b/g, " ")
-        .replace(/ngang\s*(?:tren|>=?|tu)?\s*\d+(?:[.,]\d+)?\s*m?/g, " ")
-        .replace(/(?:dt|dien tich(?: cong nhan)?|cn|cong nhan)\s*(?:tren|>=?|tu)?\s*\d+(?:[.,]\d+)?\s*m(?:2)?/g, " ")
-        .replace(/(?:dong tien|thue|hop dong thue|hd thue|thu nhap)\s*(?:tren|>=?|tu)?\s*\d+\s*(?:tr|trieu)(?:\/thang)?/g, " ")
+        .replace(/(?:tu\s+|khoang\s+|tam\s+|quanh\s+)?\d+(?:[.,]\d+)?\s*(?:ty)?\s*(?:den|-|toi|~)\s*\d+(?:[.,]\d+)?\s*ty\b/g, " ")
+        .replace(/(?:duoi(?:\s+muc)?|nho\s+hon|<=?|toi\s+da|khong\s+qua|tren|hon|lon\s+hon|vuot|>=?|tu|it\s+nhat|toi\s+thieu|tam|khoang|quanh|gia)\s*\d+(?:[.,]\d+)?\s*ty\b/g, " ")
+        .replace(/\b\d+(?:[.,]\d+)?\s*ty(?:\s*(?:do\s+lai|tro\s+xuong|tro\s+len))?\b/g, " ")
+        .replace(/ngang\s*(?:tren|hon|lon\s+hon|>=?|tu|it\s+nhat|toi\s+thieu)?\s*\d+(?:[.,]\d+)?\s*m?/g, " ")
+        .replace(/(?:dt|dien tich(?: cong nhan)?|cn|cong nhan)\s*(?:tren|hon|lon\s+hon|>=?|tu|it\s+nhat|toi\s+thieu)?\s*\d+(?:[.,]\d+)?\s*m(?:2)?/g, " ")
+        .replace(/(?:(?:tren|hon|lon\s+hon|vuot|duoi(?:\s+muc)?|nho\s+hon|toi\s+da|khong\s+qua|<=?|>=?|tu|it\s+nhat|toi\s+thieu)\s+)?\d+(?:[.,]\d+)?\s*(?:trieu|tr)(?:\s*(?:moi\s+thang|thang|th))?\b/g, " ")
         .replace(/(?:tu|tren|it nhat)?\s*\d+\s*(?:tang|lau)\b/g, " ")
         .replace(/\b(?:co tang ham|co ham|[123]\s*ham|ham)\b/g, " ");
 
@@ -5313,7 +5366,10 @@
         "cityland", "phu my hung", "san bay", "kinh doanh"
       ];
       distStopWords.forEach(dw => { residual = residual.replace(new RegExp("(^|\\s)" + dw + "(\\s|$)", "gi"), " "); });
-      VI_STOP_WORDS.forEach(sw => { residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sw) + "(\\s|$)", "gi"), " "); });
+      subAreaCandidates.forEach(sa => { residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sa) + "(\\s|$)", "gi"), " "); });
+      Array.from(VI_STOP_WORDS).sort((a, b) => b.length - a.length).forEach(sw => {
+        residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sw) + "(\\s|$)", "gi"), " ");
+      });
 
       if (parsed.districts.length === 0) {
         let region = [];
@@ -5336,6 +5392,108 @@
         /\b(?:dien tich lon nhat|dien tich giam dan)\b/.test(qNoTone) ? "area_desc" : null;
 
       return parsed;
+    }
+
+    function hasNumericBounds(parsed) {
+      if (!parsed) return false;
+      return parsed.minPriceBil !== null ||
+        parsed.maxPriceBil !== null ||
+        parsed.minCashflowMil !== null ||
+        parsed.maxCashflowMil !== null ||
+        parsed.minWidthM !== null ||
+        parsed.minAreaM2 !== null ||
+        parsed.minFloors !== null;
+    }
+
+    function resolveEffectiveChatConstraints(rawQuestion, history) {
+      const cur = parseNaturalLanguageQuery(rawQuestion);
+      if (!cur) return null;
+      const curNoTone = removeVietnameseTones(rawQuestion);
+      const isTopicSwitchCue = /\b(?:chuyen sang|tim them loai|doi sang|con o quan|tim o)\b/.test(curNoTone);
+      const isNarrowFollowUp = /\b(?:ha xuong|giam xuong|noi len|len tam|xuong tam|thap hon|cao hon|re hon|tam nay|tam do|muc do|khu do|o do|o tren|may can tren|cac can tren|can nay|can nao|nhu vay)\b/.test(curNoTone);
+      const isLegalOrDetailFollowUp = /\b(?:pccc|hoan cong|so hong|phap ly|lo gioi|quy hoach|so sanh|chi tiet|hien trang|noi that|thang may|hop dong thue)\b/.test(curNoTone) &&
+        !hasNumericBounds(cur) &&
+        !cur.districts.length &&
+        !cur.categoriesAllowed.length;
+      cur._isLegalOrDetailFollowUp = isLegalOrDetailFollowUp;
+      cur._categoriesInherited = false;
+
+      if (!Array.isArray(history) || !history.length || cur.propCode || isTopicSwitchCue) {
+        return cur;
+      }
+
+      const userTurns = history.filter(t => t && t.role === "user" && typeof t.text === "string" && t.text.trim());
+      if (!userTurns.length) return cur;
+
+      let inheritedDist = [];
+      let inheritedSub = [];
+      let inheritedCats = [];
+      let inheritedBasement = false;
+      let inheritedMinPrice = null;
+      let inheritedMaxPrice = null;
+      let inheritedMinPriceStrict = false;
+      let inheritedMaxPriceStrict = false;
+      let inheritedMinCf = null;
+      let inheritedMinCfStrict = false;
+      let inheritedMinWidth = null;
+      let inheritedMinArea = null;
+
+      for (let i = userTurns.length - 1; i >= 0 && i >= userTurns.length - 3; i--) {
+        const prev = parseNaturalLanguageQuery(userTurns[i].text);
+        if (!prev) continue;
+        if (!inheritedDist.length && prev.districts.length) {
+          inheritedDist = prev.districts.slice();
+          inheritedSub = prev.subAreaTokens.slice();
+        }
+        if (!inheritedCats.length && prev.categoriesAllowed && prev.categoriesAllowed.length) {
+          inheritedCats = prev.categoriesAllowed.slice();
+        }
+        if (prev.mustHaveBasement) inheritedBasement = true;
+        if (inheritedMinPrice === null && prev.minPriceBil !== null) {
+          inheritedMinPrice = prev.minPriceBil;
+          inheritedMinPriceStrict = prev.minPriceStrict;
+        }
+        if (inheritedMaxPrice === null && prev.maxPriceBil !== null) {
+          inheritedMaxPrice = prev.maxPriceBil;
+          inheritedMaxPriceStrict = prev.maxPriceStrict;
+        }
+        if (inheritedMinCf === null && prev.minCashflowMil !== null) {
+          inheritedMinCf = prev.minCashflowMil;
+          inheritedMinCfStrict = prev.minCashflowStrict;
+        }
+        if (inheritedMinWidth === null && prev.minWidthM !== null) inheritedMinWidth = prev.minWidthM;
+        if (inheritedMinArea === null && prev.minAreaM2 !== null) inheritedMinArea = prev.minAreaM2;
+        if (prev.districts.length && (prev.categoriesAllowed.length || hasNumericBounds(prev))) break;
+      }
+
+      const curSpecifiesNewLocation = cur.districts.length > 0 || cur.subAreaTokens.length > 0;
+      const shouldInheritDomain = isNarrowFollowUp || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur));
+      if (!curSpecifiesNewLocation && shouldInheritDomain && inheritedDist.length) {
+        cur.districts = inheritedDist;
+        cur.subAreaTokens = inheritedSub;
+      }
+      if (!cur.categoriesAllowed.length && inheritedCats.length && (isNarrowFollowUp || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur)))) {
+        cur.categoriesAllowed = inheritedCats.slice();
+        cur.categoryExact = cur.categoriesAllowed.length === 1 ? cur.categoriesAllowed[0] : null;
+        cur._categoriesInherited = true;
+      }
+      if (!cur.mustHaveBasement && inheritedBasement && (isNarrowFollowUp || isLegalOrDetailFollowUp || !curSpecifiesNewLocation)) {
+        cur.mustHaveBasement = true;
+      }
+      if (cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalOrDetailFollowUp || (!hasNumericBounds(cur) && isNarrowFollowUp))) {
+        cur.minPriceBil = inheritedMinPrice;
+        cur.maxPriceBil = inheritedMaxPrice;
+        cur.minPriceStrict = inheritedMinPriceStrict;
+        cur.maxPriceStrict = inheritedMaxPriceStrict;
+      }
+      if (cur.minCashflowMil === null && (isLegalOrDetailFollowUp || isNarrowFollowUp || (cur.minPriceBil !== null && inheritedMinCf !== null && isNarrowFollowUp))) {
+        cur.minCashflowMil = inheritedMinCf;
+        cur.minCashflowStrict = inheritedMinCfStrict;
+        if (inheritedMinCf !== null) cur.mustHaveRentalIncome = true;
+      }
+      if (cur.minWidthM === null && isLegalOrDetailFollowUp) cur.minWidthM = inheritedMinWidth;
+      if (cur.minAreaM2 === null && isLegalOrDetailFollowUp) cur.minAreaM2 = inheritedMinArea;
+      return cur;
     }
   </script>
 
@@ -6265,23 +6423,25 @@
       if (parsedQuery.subAreaTokens && parsedQuery.subAreaTokens.length) {
         tags.push("Khu con: " + parsedQuery.subAreaTokens.join(", "));
       }
-      if (parsedQuery.categoryExact) {
+      if (parsedQuery.categoriesAllowed && parsedQuery.categoriesAllowed.length > 1) {
+        tags.push("Loại: " + parsedQuery.categoriesAllowed.join(" / "));
+      } else if (parsedQuery.categoryExact) {
         tags.push("Loại: " + parsedQuery.categoryExact);
       }
       if (parsedQuery.minPriceBil !== null || parsedQuery.maxPriceBil !== null) {
         if (parsedQuery.minPriceBil !== null && parsedQuery.maxPriceBil !== null) {
           tags.push("Giá: " + parsedQuery.minPriceBil + "–" + parsedQuery.maxPriceBil + " Tỷ");
         } else if (parsedQuery.maxPriceBil !== null) {
-          tags.push("Giá <= " + parsedQuery.maxPriceBil + " Tỷ");
+          tags.push("Giá " + (parsedQuery.maxPriceStrict ? "< " : "<= ") + parsedQuery.maxPriceBil + " Tỷ");
         } else {
-          tags.push("Giá >= " + parsedQuery.minPriceBil + " Tỷ");
+          tags.push("Giá " + (parsedQuery.minPriceStrict ? "> " : ">= ") + parsedQuery.minPriceBil + " Tỷ");
         }
       }
-      if (parsedQuery.minWidthM !== null) tags.push("Ngang >= " + parsedQuery.minWidthM + "m");
-      if (parsedQuery.minAreaM2 !== null) tags.push("DTCN >= " + parsedQuery.minAreaM2 + "m²");
+      if (parsedQuery.minWidthM !== null) tags.push("Ngang " + (parsedQuery.minWidthStrict ? "> " : ">= ") + parsedQuery.minWidthM + "m");
+      if (parsedQuery.minAreaM2 !== null) tags.push("DTCN " + (parsedQuery.minAreaStrict ? "> " : ">= ") + parsedQuery.minAreaM2 + "m²");
       if (parsedQuery.minFloors !== null) tags.push(">= " + parsedQuery.minFloors + " tầng");
       if (parsedQuery.mustHaveBasement) tags.push("Có hầm");
-      if (parsedQuery.minCashflowMil !== null) tags.push("HĐT >= " + parsedQuery.minCashflowMil + " tr/tháng");
+      if (parsedQuery.minCashflowMil !== null) tags.push("HĐT " + (parsedQuery.minCashflowStrict ? "> " : ">= ") + parsedQuery.minCashflowMil + " tr/tháng");
       else if (parsedQuery.mustHaveRentalIncome) tags.push("Có hợp đồng thuê");
       if (parsedQuery.onlyUpdate) tags.push("Vừa giảm giá");
       if (parsedQuery.freeTokens && parsedQuery.freeTokens.length) {
@@ -6314,8 +6474,11 @@
       document.getElementById("quickDiscoveryStatus").textContent = label ? "Đang lọc: " + label : "";
     }
 
-    function propertyMatchesParsedQuery(p, parsed) {
+    function propertyMatchesNumericAndGeo(p, parsed, opts) {
       if (!parsed) return true;
+      opts = opts || {};
+      const ignoreCategory = Boolean(opts.ignoreCategory);
+      const nearPct = Number(opts.nearPct || 0);
       if (parsed.propCode) {
         const pidNum = String(p.id || "").replace(/^NSG-/i, "");
         if (!pidNum.includes(parsed.propCode) && foldVi(p.id) !== ("nsg-" + parsed.propCode)) return false;
@@ -6334,8 +6497,13 @@
         });
         if (!matchSub) return false;
       }
-      if (parsed.categoryExact) {
-        if (canonicalCategory(p.category) !== canonicalCategory(parsed.categoryExact)) return false;
+      if (!ignoreCategory) {
+        if (parsed.categoriesAllowed && parsed.categoriesAllowed.length) {
+          const cNorm = canonicalCategory(p.category);
+          if (!parsed.categoriesAllowed.some(function (cat) { return canonicalCategory(cat) === cNorm; })) return false;
+        } else if (parsed.categoryExact) {
+          if (canonicalCategory(p.category) !== canonicalCategory(parsed.categoryExact)) return false;
+        }
       }
       if (parsed.landSubtype === "vacant") {
         if (!containsPhraseWordBoundary(foldVi(p.structFull + " " + p.sec2), "dat trong")) return false;
@@ -6344,25 +6512,45 @@
         if (!containsPhraseWordBoundary(lh, "cap 4") && !containsPhraseWordBoundary(lh, "nha cu")) return false;
       }
 
-      // Tuyệt đối không bao giờ lọt căn che giá (masked) hoặc Đã Bán vào kết quả lọc theo mức giá / giảm giá / dòng tiền
       const hasPriceConstraint = parsed.minPriceBil !== null || parsed.maxPriceBil !== null;
       if (hasPriceConstraint) {
         if (p.isSold || p.masked || !(p.price > 0)) return false;
-        if (parsed.minPriceBil !== null && p.price < parsed.minPriceBil) return false;
-        if (parsed.maxPriceBil !== null && p.price > parsed.maxPriceBil) return false;
+        const tol = nearPct > 0 ? nearPct : 0;
+        if (parsed.minPriceBil !== null) {
+          const minAllowed = tol > 0 ? parsed.minPriceBil * (1 - tol) : parsed.minPriceBil;
+          if (tol === 0 && parsed.minPriceStrict ? !(p.price > minAllowed) : !(p.price >= minAllowed)) return false;
+        }
+        if (parsed.maxPriceBil !== null) {
+          const maxAllowed = tol > 0 ? parsed.maxPriceBil * (1 + tol) : parsed.maxPriceBil;
+          if (tol === 0 && parsed.maxPriceStrict ? !(p.price < maxAllowed) : !(p.price <= maxAllowed)) return false;
+        }
       }
       if (parsed.onlyUpdate) {
         if (p.isSold || p.masked || !(p.dropPct > 0)) return false;
       }
       if (parsed.mustHaveRentalIncome) {
         if (p.isSold || p.masked || p.cashflowMasked || !p.hasCashflow || p.yieldFull === "Liên Hệ") return false;
-        if (parsed.minCashflowMil !== null && Number(p.monthlyMil || 0) < parsed.minCashflowMil) return false;
+        const cfVal = Number(p.monthlyMil || 0);
+        if (parsed.minCashflowMil !== null) {
+          const tol = nearPct > 0 ? nearPct : 0;
+          const minCfAllowed = tol > 0 ? parsed.minCashflowMil * (1 - tol) : parsed.minCashflowMil;
+          if (!(cfVal > 0)) return false;
+          if (tol === 0 && parsed.minCashflowStrict ? !(cfVal > minCfAllowed) : !(cfVal >= minCfAllowed)) return false;
+        }
+        if (parsed.maxCashflowMil !== null) {
+          const tol = nearPct > 0 ? nearPct : 0;
+          const maxCfAllowed = tol > 0 ? parsed.maxCashflowMil * (1 + tol) : parsed.maxCashflowMil;
+          if (!(cfVal > 0)) return false;
+          if (tol === 0 && parsed.maxCashflowStrict ? !(cfVal < maxCfAllowed) : !(cfVal <= maxCfAllowed)) return false;
+        }
       }
       if (parsed.minWidthM !== null) {
-        if (!(Number(p.widthM || 0) >= parsed.minWidthM)) return false;
+        const w = Number(p.widthM || 0);
+        if (parsed.minWidthStrict ? !(w > parsed.minWidthM) : !(w >= parsed.minWidthM)) return false;
       }
       if (parsed.minAreaM2 !== null) {
-        if (!(Number(p.area || 0) >= parsed.minAreaM2)) return false;
+        const a = Number(p.area || 0);
+        if (parsed.minAreaStrict ? !(a > parsed.minAreaM2) : !(a >= parsed.minAreaM2)) return false;
       }
       if (parsed.minFloors !== null) {
         if (!(Number(p.floorsCount || 0) >= parsed.minFloors)) return false;
@@ -6370,7 +6558,12 @@
       if (parsed.mustHaveBasement) {
         if (!p.hasBasement) return false;
       }
-      if (parsed.freeTokens && parsed.freeTokens.length) {
+      return true;
+    }
+
+    function propertyMatchesParsedQuery(p, parsed) {
+      if (!propertyMatchesNumericAndGeo(p, parsed)) return false;
+      if (parsed && parsed.freeTokens && parsed.freeTokens.length) {
         const hay = p.searchHayFolded || foldVi(p.streetDisplay + " " + p.ward + " " + p.district + " " + p.category + " " + p.structFull);
         if (parsed.streetPhraseNoTone && containsPhraseWordBoundary(hay, parsed.streetPhraseNoTone)) {
           return true;
@@ -7210,29 +7403,79 @@
     }
 
     let lastDossierSwipeTs = 0;
+    let lastDossierTouchTapTs = 0;
 
     function handleDossierStageTap() {
-      if (Date.now() - lastDossierSwipeTs < 350) return;
+      if (Date.now() - lastDossierSwipeTs < 220) return;
+      if (Date.now() - lastDossierTouchTapTs < 450) return;
       openLightbox();
     }
 
     function bindStageSwipe(el) {
       if (!el || el.dataset.nsgSwipeBound === "1") return;
       el.dataset.nsgSwipeBound = "1";
+      let tracking = false;
+      let moved = false;
+      let multiTouch = false;
       let sx = 0;
       let sy = 0;
+      let t0 = 0;
+      let startScrollTop = 0;
+      const scrollBody = document.getElementById("dossierScrollBody");
+      const resetTouch = () => {
+        tracking = false;
+        moved = false;
+        multiTouch = false;
+      };
       el.addEventListener("touchstart", function (ev) {
+        if (ev.touches && ev.touches.length > 1) {
+          multiTouch = true;
+          return;
+        }
         if (!ev.changedTouches || !ev.changedTouches.length) return;
+        tracking = true;
+        moved = false;
+        multiTouch = false;
         sx = ev.changedTouches[0].clientX;
         sy = ev.changedTouches[0].clientY;
+        t0 = Date.now();
+        startScrollTop = scrollBody ? scrollBody.scrollTop : 0;
       }, { passive: true });
+      el.addEventListener("touchmove", function (ev) {
+        if (!tracking || !ev.touches || !ev.touches.length) return;
+        if (ev.touches.length > 1) {
+          multiTouch = true;
+          return;
+        }
+        const dx = ev.touches[0].clientX - sx;
+        const dy = ev.touches[0].clientY - sy;
+        if (Math.abs(dx) > 10 || Math.abs(dy) > 10) moved = true;
+      }, { passive: true });
+      el.addEventListener("touchcancel", resetTouch, { passive: true });
       el.addEventListener("touchend", function (ev) {
-        if (!ev.changedTouches || !ev.changedTouches.length) return;
-        const dx = ev.changedTouches[0].clientX - sx;
-        const dy = ev.changedTouches[0].clientY - sy;
-        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (!tracking || !ev.changedTouches || !ev.changedTouches.length) {
+          resetTouch();
+          return;
+        }
+        const t = ev.changedTouches[0];
+        const dx = t.clientX - sx;
+        const dy = t.clientY - sy;
+        const dt = Date.now() - t0;
+        const dScroll = scrollBody ? Math.abs(scrollBody.scrollTop - startScrollTop) : 0;
+        const wasMoved = moved;
+        const wasMulti = multiTouch;
+        resetTouch();
+        if (wasMulti) return;
+        if (Math.abs(dx) > 36 && Math.abs(dx) > Math.abs(dy) * 1.15 && dScroll < 24) {
           lastDossierSwipeTs = Date.now();
           stepDossierPhoto(dx < 0 ? 1 : -1);
+          return;
+        }
+        if (!wasMoved && Math.abs(dx) <= 10 && Math.abs(dy) <= 10 && dScroll <= 6 && dt < 450) {
+          if (Date.now() - lastDossierSwipeTs < 180) return;
+          if (ev.target && ev.target.closest && ev.target.closest("button,a,summary")) return;
+          lastDossierTouchTapTs = Date.now();
+          openLightbox();
         }
       }, { passive: true });
     }
@@ -7253,8 +7496,10 @@
     }
 
     function openLightbox() {
+      const lb = document.getElementById("lightboxOverlay");
+      if (!lb || lb.classList.contains("open")) return;
       syncLightboxView();
-      document.getElementById("lightboxOverlay").classList.add("open");
+      lb.classList.add("open");
       lockPageScroll();
       pushHistoryStep("lightboxOverlay");
     }
@@ -7974,7 +8219,10 @@
       return String(text || "")
         .replace(/\r\n?/g, "\n")
         .replace(/\bNSG[-_\s]?\d{3,5}\b/gi, "")
-        .replace(/\(\s*\)|\[\s*\]/g, "")
+        .replace(/\(\s*(?:mã|căn)?\s*\)|\[\s*\]/gi, "")
+        .replace(/(\p{Ll})(?=(?:Anh\/Chị|Anh|Chị|Vũ|Em)(?:[\s.,;:!?)]|$))/gu, "$1 ")
+        .replace(/(\p{Ll}\.)(\p{Lu}\p{Ll})/gu, "$1 $2")
+        .replace(/([,;!?])(\p{L})/gu, "$1 $2")
         .replace(/[ \t]{2,}/g, " ")
         .replace(/[ \t]+([.,;:!?])/g, "$1")
         .replace(/[ \t]+\n/g, "\n")
@@ -7986,7 +8234,10 @@
     function formatAiBotMarkdownHtml(text) {
       const clean = sanitizeProseNsgCodes(text);
       if (!clean) return "";
-      const escaped = esc(clean).replace(/\*\*([^*\n]{1,140}?)\*\*/g, "<strong>$1</strong>");
+      let escaped = esc(clean)
+        .replace(/^([ \t]*)\*[ \t]+/gm, "$1• ")
+        .replace(/\*\*([^\n*]{1,160}?)\*\*/g, "<strong>$1</strong>")
+        .replace(/(^|[\s(>\[])\*([^\s*](?:[^*\n]{0,158}[^\s*])?)\*(?=$|[\s.,;:!?<)\]])/gm, "$1<em>$2</em>");
       const paras = escaped.split(/\n{2,}/).map(function (blk) {
         return blk.trim();
       }).filter(Boolean);
@@ -8066,7 +8317,8 @@
     }
 
     function buildLocalRagPayload(question, recentIds) {
-      const parsed = parseNaturalLanguageQuery(question);
+      const hist = (typeof aiChatHistory !== "undefined" && Array.isArray(aiChatHistory)) ? aiChatHistory : [];
+      const parsed = resolveEffectiveChatConstraints(question, hist);
       const activePool = PROPERTIES.filter(function (p) { return !p.isSold; });
       const activeById = new Map();
       activePool.forEach(function (p) { activeById.set(String(p.id || "").toUpperCase(), p); });
@@ -8097,24 +8349,44 @@
       }
 
       let matched = parsed ? activePool.filter(function (p) { return propertyMatchesParsedQuery(p, parsed); }) : [];
-      if (!matched.length && parsed && (parsed.districts.length || parsed.categoryExact)) {
+      if (!matched.length && parsed && parsed.freeTokens && parsed.freeTokens.length) {
+        matched = activePool.filter(function (p) { return propertyMatchesNumericAndGeo(p, parsed); });
+      }
+      if (!matched.length && parsed && parsed._categoriesInherited) {
         matched = activePool.filter(function (p) {
-          const okD = !parsed.districts.length || parsed.districts.some(function (dr) {
-            return dr.matchTokens.some(function (tok) { return foldVi(p.district).includes(tok); });
-          });
-          const okC = !parsed.categoryExact || canonicalCategory(p.category) === canonicalCategory(parsed.categoryExact);
-          return okD && okC;
+          return propertyMatchesNumericAndGeo(p, parsed, { ignoreCategory: true });
         });
       }
-      if (!matched.length && streetMatched.length) {
+
+      const nearSet = new Set();
+      let nearPool = [];
+      if (!matched.length && parsed && (parsed.minPriceBil !== null || parsed.maxPriceBil !== null || parsed.minCashflowMil !== null || parsed.maxCashflowMil !== null)) {
+        nearPool = activePool.filter(function (p) {
+          return !propertyMatchesNumericAndGeo(p, parsed) &&
+            propertyMatchesNumericAndGeo(p, parsed, { nearPct: 0.0499 });
+        }).sort(function (a, b) {
+          const scoreGap = function (x) {
+            let gap = 0;
+            if (parsed.maxPriceBil !== null && x.price > parsed.maxPriceBil) gap += (x.price - parsed.maxPriceBil) / parsed.maxPriceBil;
+            if (parsed.minPriceBil !== null && x.price < parsed.minPriceBil) gap += (parsed.minPriceBil - x.price) / parsed.minPriceBil;
+            if (parsed.minCashflowMil !== null && x.monthlyMil < parsed.minCashflowMil) gap += (parsed.minCashflowMil - x.monthlyMil) / parsed.minCashflowMil;
+            return gap;
+          };
+          return scoreGap(a) - scoreGap(b);
+        }).slice(0, 2);
+        nearPool.forEach(function (p) {
+          nearSet.add(String(p.id || "").toUpperCase());
+        });
+        matched = nearPool.slice();
+      } else if (!matched.length && streetMatched.length && !hasNumericBounds(parsed)) {
         matched = streetMatched.slice();
       }
-      if (!matched.length) {
+      if (!matched.length && (!parsed || (!hasNumericBounds(parsed) && !parsed.districts.length && !(parsed.categoriesAllowed && parsed.categoriesAllowed.length)))) {
         matched = activePool.slice().sort(function (a, b) {
           if (Boolean(b.isHot) !== Boolean(a.isHot)) return b.isHot ? 1 : -1;
           return (b.dropPct || 0) - (a.dropPct || 0);
         });
-      } else if (parsed) {
+      } else if (parsed && !nearPool.length) {
         matched = matched.slice().sort(function (a, b) {
           return scorePropertyForSearch(b, parsed) - scorePropertyForSearch(a, parsed);
         });
@@ -8122,20 +8394,26 @@
 
       const combined = [];
       const pushed = new Set();
+      const allowRecentPrepend = Boolean(parsed && parsed._isLegalOrDetailFollowUp) || !hasNumericBounds(parsed);
       recentList.forEach(function (id) {
         const p = activeById.get(id);
-        if (p && !pushed.has(id)) {
+        if (!p || pushed.has(id)) return;
+        const fits = parsed ? propertyMatchesNumericAndGeo(p, parsed, { ignoreCategory: Boolean(parsed._categoriesInherited) }) : true;
+        if (fits || allowRecentPrepend) {
+          if (parsed && hasNumericBounds(parsed) && !fits) return;
           pushed.add(id);
           combined.push(p);
         }
       });
-      streetMatched.forEach(function (p) {
-        const id = String(p.id || "").toUpperCase();
-        if (id && !pushed.has(id)) {
-          pushed.add(id);
-          combined.push(p);
-        }
-      });
+      if (!hasNumericBounds(parsed)) {
+        streetMatched.forEach(function (p) {
+          const id = String(p.id || "").toUpperCase();
+          if (id && !pushed.has(id)) {
+            pushed.add(id);
+            combined.push(p);
+          }
+        });
+      }
       matched.forEach(function (p) {
         const id = String(p.id || "").toUpperCase();
         if (id && !pushed.has(id)) {
@@ -8160,16 +8438,20 @@
           district: p.district,
           dimsShort: p.dimsShort,
           area: p.area,
+          widthM: Number(p.widthM || 0),
           structFull: p.structFull,
           masked: Boolean(p.masked),
           cashflowMasked: Boolean(p.cashflowMasked),
           isSold: Boolean(p.isSold),
           price: p.masked ? 0 : p.price,
           priceDisplay: p.masked ? "Liên Hệ (thỏa thuận kín)" : fmtBil(p.price),
+          monthlyMil: (!p.masked && !p.isSold && !p.cashflowMasked && p.monthlyMil > 0) ? Number(p.monthlyMil) : 0,
           yieldFull: p.cashflowMasked ? "Liên Hệ" : p.yieldFull,
           sec2: safeSec2,
           dropInfo: (!p.masked && !p.isSold && p.dropText) ? (p.dropText + (p.dropPct ? " (" + p.dropPct + "%)" : "")) : "",
-          recentSuggested: recentSet.has(pid)
+          recentSuggested: recentSet.has(pid),
+          isNearMatch: nearSet.has(pid),
+          nearNote: nearSet.has(pid) ? "GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH" : ""
         };
       });
 
@@ -8222,7 +8504,7 @@
       } else {
         const htmlStr = formatAiBotMarkdownHtml(text);
         if (typeof Element !== "undefined" && "setHTML" in Element.prototype && typeof bubble.setHTML === "function") {
-          bubble.setHTML(htmlStr, { sanitizer: { elements: ["p", "strong", "br"], attributes: ["class"] } });
+          bubble.setHTML(htmlStr, { sanitizer: { elements: ["p", "strong", "em", "br"], attributes: ["class"] } });
         } else {
           bubble.innerHTML = htmlStr;
         }
@@ -8435,9 +8717,30 @@
 
         if (resp.ok && data && data.reply) {
           if (typingEl) typingEl.remove();
-          const recIds = Array.isArray(data.recommended_ids)
+          let recIds = Array.isArray(data.recommended_ids)
             ? data.recommended_ids.slice(0, 4)
             : [];
+          const effConstraints = resolveEffectiveChatConstraints(q, aiChatHistory);
+          if (effConstraints && hasNumericBounds(effConstraints) && Array.isArray(rag.candidates) && rag.candidates.length) {
+            const strictPropIds = new Set(
+              rag.candidates
+                .filter(function (c) {
+                  const p = getProp(c.id);
+                  return p && propertyMatchesNumericAndGeo(p, effConstraints, { ignoreCategory: Boolean(effConstraints._categoriesInherited) });
+                })
+                .map(function (c) { return String(c.id || "").toUpperCase(); })
+            );
+            if (strictPropIds.size > 0) {
+              recIds = recIds.filter(function (id) { return strictPropIds.has(String(id || "").toUpperCase()); });
+            } else {
+              const nearAllowedIds = new Set(
+                rag.candidates
+                  .filter(function (c) { return Boolean(c.isNearMatch); })
+                  .map(function (c) { return String(c.id || "").toUpperCase(); })
+              );
+              recIds = recIds.filter(function (id) { return nearAllowedIds.has(String(id || "").toUpperCase()); }).slice(0, 2);
+            }
+          }
           const cleanReply = sanitizeProseNsgCodes(data.reply);
           appendAiMessage("bot", cleanReply, recIds, "");
           aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply, recommendedIds: recIds });
