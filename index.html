@@ -60,7 +60,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261122093254";
+    script.src = "./properties_data.js?v=20261122111429";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -2195,6 +2195,7 @@
     }
 
     .dossier-thumb {
+      position: relative;
       width: 82px;
       height: 58px;
       padding: 0;
@@ -2232,6 +2233,7 @@
       position: relative;
       width: 100%;
       height: min(440px, 52vh);
+      --stage-inner-h: calc(min(440px, 52vh) - 24px);
       padding: 12px;
       display: flex;
       align-items: center;
@@ -2239,26 +2241,96 @@
       background-color: var(--mat);
     }
 
-    .p-watermark {
+    .nsg-stage-fit,
+    .nsg-lb-fit {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .nsg-wm-bounds {
       position: absolute;
+      inset: 0;
+      z-index: 3;
+      container-type: inline-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .p-watermark {
+      position: relative;
       z-index: 3;
       font-family: var(--mono);
       font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      color: rgba(250, 248, 243, 0.48);
+      font-size: clamp(11px, 3.2vw, 15px);
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-align: center;
+      max-width: 82%;
+      color: #FAF8F3;
+      opacity: 0.48;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
       pointer-events: none;
       user-select: none;
+      word-break: keep-all;
+    }
+
+    .p-watermark .wm-part {
+      display: inline-block;
+      white-space: nowrap;
     }
 
     .p-watermark.wm-hidden {
-      display: none;
+      display: none !important;
+    }
+
+    .card-media .media-frame-inner .p-watermark,
+    .hero-sc-media .media-frame-inner .p-watermark {
+      font-size: clamp(9.5px, 2.2vw, 12px);
+      letter-spacing: 0.08em;
+      max-width: 82%;
+      opacity: 0.42;
+    }
+
+    @supports (font-size: 1cqw) {
+      .card-media .media-frame-inner .p-watermark,
+      .hero-sc-media .media-frame-inner .p-watermark {
+        font-size: clamp(9.5px, 2.6cqw, 12px);
+      }
+    }
+
+    .dossier-stage-canvas .p-watermark {
+      font-size: clamp(11px, 3.2vw, 15px);
+      letter-spacing: 0.08em;
+      max-width: 82%;
+      opacity: 0.48;
+    }
+
+    @supports (font-size: 1cqw) {
+      .dossier-stage-canvas .p-watermark {
+        font-size: min(clamp(11px, 3.2vw, 15px), 9.2cqw);
+      }
+    }
+
+    .lightbox-overlay .p-watermark {
+      font-size: clamp(14px, 2.2vw, 21px);
+      letter-spacing: 0.12em;
+      max-width: 82%;
+      opacity: 0.48;
     }
 
     .dossier-stage-canvas img {
       max-width: min(100%, var(--nat-w, 100%));
-      max-height: min(100%, var(--nat-h, 100%));
+      max-height: min(var(--stage-inner-h, 416px), var(--nat-h, 100vh));
       width: auto;
       height: auto;
       object-fit: contain;
@@ -3275,6 +3347,7 @@
       }
       .dossier-stage-canvas {
         height: 290px;
+        --stage-inner-h: 274px;
         padding: 8px;
       }
       .dossier-kv-row {
@@ -3557,34 +3630,8 @@
       cursor: pointer;
     }
 
-    .ai-head-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0 12px;
-      height: 38px;
-      border-radius: 2px;
-      border: 1px solid var(--bronze);
-      background: var(--accent-soft);
-      color: var(--ink);
-      font-size: 12.5px;
-      font-weight: 600;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    .ai-head-trigger:hover {
-      background: var(--surface);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .ai-head-trigger svg {
-      width: 15px;
-      height: 15px;
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-    .ai-head-trigger[hidden],
-    .ai-chat-fab[hidden] {
+    .ai-chat-fab[hidden],
+    .ai-chat-nudge[hidden] {
       display: none !important;
     }
 
@@ -3593,34 +3640,155 @@
       right: 24px;
       bottom: 24px;
       z-index: 44;
+      width: 52px;
+      height: 52px;
+      padding: 0;
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      height: 44px;
-      padding: 0 16px;
-      border-radius: 2px;
-      border: 1px solid var(--bronze);
-      background: var(--cta-bg);
-      color: var(--cta-fg);
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+      justify-content: center;
+      border: 1.5px solid #7C5A32;
+      background: #181816;
+      color: #FAF8F3;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
       cursor: pointer;
-      transition: transform 0.15s ease, background-color 0.15s ease;
+      transition: transform 0.18s ease, scale 0.15s ease, background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
     }
-    .ai-chat-fab:hover {
-      background: var(--cta-hover);
-      transform: translateY(-1px);
+    html:not([data-theme="dark"]) .ai-chat-fab:hover {
+      border-color: #8C3B2B;
+      box-shadow: 0 12px 28px rgba(140, 59, 43, 0.34), 0 0 0 3px rgba(140, 59, 43, 0.18);
+      transform: translateY(-2px);
+    }
+    html[data-theme="dark"] .ai-chat-fab {
+      background: #1F1D1A;
+      border: 1.5px solid #D6AE7E;
+      color: #D6AE7E;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+    html[data-theme="dark"] .ai-chat-fab:hover {
+      background: #C89D6C;
+      border-color: #C89D6C;
+      color: #111110;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(200, 157, 108, 0.28);
+    }
+    .ai-chat-fab:active {
+      scale: 0.96;
+    }
+    .ai-chat-fab:focus-visible {
+      outline: 2px solid var(--bronze);
+      outline-offset: 3px;
+    }
+    .ai-chat-fab::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--bronze);
+      opacity: 0;
+      pointer-events: none;
+    }
+    @keyframes nsgChatPulseRing {
+      0% { transform: scale(0.95); opacity: 0.72; }
+      75% { transform: scale(1.42); opacity: 0; }
+      100% { transform: scale(1.42); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .ai-chat-fab.is-pulsing::after {
+        animation: nsgChatPulseRing 1.6s ease-out 3 forwards;
+      }
     }
     #compareBar:not(.hidden) ~ #aiChatFab {
       bottom: 88px;
     }
     .ai-chat-fab svg {
-      width: 17px;
-      height: 17px;
+      width: 23px;
+      height: 23px;
       flex-shrink: 0;
+      pointer-events: none;
+    }
+
+    .ai-chat-nudge {
+      position: fixed;
+      right: 86px;
+      bottom: 26px;
+      z-index: 44;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: min(296px, calc(100vw - 106px));
+      padding: 8px 10px 8px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--bronze);
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+      transform-origin: right center;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .ai-chat-nudge::after {
+      content: "";
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      background: var(--surface);
+      border-right: 1px solid var(--bronze);
+      border-top: 1px solid var(--bronze);
+      transform: translateY(-50%) rotate(45deg);
+      pointer-events: none;
+    }
+    .ai-chat-nudge.is-hiding {
+      opacity: 0;
+      transform: translateX(8px) scale(0.96);
+    }
+    #compareBar:not(.hidden) ~ #aiChatNudge {
+      bottom: 90px;
+    }
+    .ai-nudge-open {
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.42;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+    }
+    .ai-nudge-open:hover {
+      color: var(--accent);
+    }
+    .ai-nudge-close {
+      position: relative;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .ai-nudge-close::after {
+      content: "";
+      position: absolute;
+      inset: -10px;
+    }
+    .ai-nudge-close:hover {
+      color: var(--ink);
+      border-color: var(--bronze);
+    }
+    body.is-locked .ai-chat-fab,
+    body.is-locked .ai-chat-nudge {
+      display: none !important;
     }
 
     #aiChatOverlay {
@@ -3639,17 +3807,34 @@
       overflow: hidden;
       overscroll-behavior: contain;
     }
-    .ai-chat-subbar {
-      padding: 10px 20px;
+    .ai-chat-guide {
+      padding: 9px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+    .ai-chat-guide a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .ai-chat-member-bar {
+      padding: 8px 20px;
       border-bottom: 1px solid var(--line);
       background: var(--paper);
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
       gap: 8px;
       font-size: 11.5px;
       color: var(--muted);
+      flex-shrink: 0;
+    }
+    .ai-chat-member-bar[hidden] {
+      display: none !important;
     }
     .ai-mode-pill {
       display: inline-flex;
@@ -3907,23 +4092,30 @@
     }
 
     @media (max-width: 680px) {
-      .ai-head-trigger span {
-        display: none;
-      }
-      .ai-head-trigger {
-        width: 36px;
-        padding: 0;
-        justify-content: center;
-      }
       .ai-chat-fab {
-        right: 12px;
+        right: 14px;
         bottom: calc(74px + env(safe-area-inset-bottom, 0px));
-        height: 40px;
-        padding: 0 13px;
+        width: 46px;
+        height: 46px;
+      }
+      .ai-chat-fab svg {
+        width: 20px;
+        height: 20px;
+      }
+      .ai-chat-nudge {
+        right: 68px;
+        bottom: calc(74px + env(safe-area-inset-bottom, 0px));
+        max-width: calc(100vw - 84px);
+        padding: 7px 9px 7px 11px;
+      }
+      .ai-nudge-open {
         font-size: 12px;
       }
       #compareBar:not(.hidden) ~ #aiChatFab {
-        bottom: calc(136px + env(safe-area-inset-bottom, 0px));
+        bottom: calc(184px + env(safe-area-inset-bottom, 0px));
+      }
+      #compareBar:not(.hidden) ~ #aiChatNudge {
+        bottom: calc(184px + env(safe-area-inset-bottom, 0px));
       }
       .ai-chat-composer textarea,
       .ai-member-gate input {
@@ -3984,22 +4176,6 @@
       </nav>
 
       <div class="head-actions">
-        <button
-          type="button"
-          class="ai-head-trigger"
-          id="openAiChatHeaderBtn"
-          aria-controls="aiChatOverlay"
-          aria-expanded="false"
-          onclick="openAiChatDrawer()"
-          title="Trợ lý Tư vấn AI Kho nhatoSG"
-          aria-label="Mở Trợ lý Tư vấn AI Kho nhatoSG"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-          <span>Tư vấn AI</span>
-        </button>
-
         <button
           type="button"
           class="btn icon-btn"
@@ -4448,9 +4624,10 @@
 
   <!-- 13. FULLSCREEN LIGHTBOX XEM ẢNH GỐC KHÔNG PHÓNG VỠ -->
   <div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-label="Xem ảnh thực tế toàn màn hình" onclick="if(event.target===this) closeLightbox()">
-    <div style="position:relative; display:inline-flex; align-items:center; justify-content:center; max-width:94vw; max-height:82svh;">
+    <div class="nsg-lb-fit" id="lightboxImgWrap" style="position:relative; display:inline-block; line-height:0; max-width:94vw; max-height:82svh;">
       <img id="lightboxImage" src="" alt="Ảnh thực tế bất động sản" />
-      <div class="p-watermark" id="lightboxWatermark">nhatoSG · 0916.23.9898</div>
+      <div class="nsg-touch-shield" aria-hidden="true"></div>
+      <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark" id="lightboxWatermark"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
     </div>
     <div style="margin-top:14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:center;">
       <button type="button" class="btn-dark-outline" style="height:36px; padding:0 12px;" onclick="stepDossierPhoto(-1)">‹ Ảnh trước</button>
@@ -4476,20 +4653,21 @@
 
   <div class="toast" id="toastBox" role="status" aria-live="polite"></div>
 
-  <!-- 15. NGĂN KÉO TƯ VẤN TRỰC TUYẾN — KHO NHATOSG (V4.8) -->
-  <div class="overlay" id="aiChatOverlay" role="dialog" aria-modal="true" aria-label="nhatoSG — Tư Vấn Trực Tuyến" onclick="if(event.target===this) closeOverlay('aiChatOverlay')">
+  <!-- 15. NGĂN KÉO TƯ VẤN TRỰC TUYẾN — KHO NHATOSG (V4.10) -->
+  <div class="overlay" id="aiChatOverlay" role="dialog" aria-modal="true" aria-label="Hỏi nhanh Kho nhatoSG" onclick="if(event.target===this) closeOverlay('aiChatOverlay')">
     <aside class="ai-chat-panel">
       <div class="dossier-topbar">
-        <div>
-          <div class="kicker" style="margin:0 0 2px;">TRỢ LÝ CÁ NHÂN · KHO NHÀ SÀI GÒN</div>
-          <strong style="font-family:var(--serif); font-size:21px; font-weight:600;">nhatoSG — Tư Vấn Trực Tuyến</strong>
-        </div>
-        <button type="button" class="top-rect-btn" onclick="closeOverlay('aiChatOverlay')" aria-label="Đóng khung tư vấn">× Đóng</button>
+        <strong style="font-family:var(--serif); font-size:21px; font-weight:600;">Hỏi nhanh Kho nhatoSG</strong>
+        <button type="button" class="top-rect-btn" onclick="closeOverlay('aiChatOverlay')" aria-label="Đóng khung chat">× Đóng</button>
       </div>
 
-      <div class="ai-chat-subbar">
-        <span class="ai-mode-pill" id="aiChatModeBadge">Chế độ Công khai</span>
-        <span id="aiChatHintText">Đối chiếu trực tiếp từ 358+ tài sản thực tế tại TP.HCM &amp; Thủ Đức</span>
+      <div class="ai-chat-guide">
+        💡 Hỗ trợ lọc nhanh sản phẩm trên web — để cập nhật thông tin sát nhất hoặc làm việc trực tiếp chủ nhà, Anh/Chị cứ <a href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" onclick="handleDirectZalo()">nhắn Zalo</a> / <a href="tel:0916239898" onclick="copyPhoneToast()">gọi Vũ (0916.23.9898)</a> nhé.
+      </div>
+
+      <div class="ai-chat-member-bar" id="aiChatMemberNotice" hidden>
+        <span class="ai-mode-pill is-member">Chỉ Thành Viên</span>
+        <span>Quyền hỏi đáp riêng cho Thành Viên đã xác thực</span>
       </div>
 
       <div class="ai-chat-prompts" id="aiChatQuickPrompts" aria-label="Câu hỏi gợi ý">
@@ -4511,7 +4689,7 @@
           <input id="aiMemberCodeInput" type="password" autocomplete="current-password" required placeholder="Mã truy cập / PIN Thành Viên" />
           <div id="aiMemberAuthErr" style="font-size:12px; color:#b91c1c; min-height:16px;"></div>
           <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <button type="submit" id="aiMemberAuthBtn" class="btn-bronze-solid" style="height:40px; flex:1 1 160px;">Mở khóa Trợ lý AI</button>
+            <button type="submit" id="aiMemberAuthBtn" class="btn-bronze-solid" style="height:40px; flex:1 1 160px;">Mở khóa</button>
             <a class="btn-dark-outline" style="height:40px;" href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" onclick="handleDirectZalo()">Nhận mã qua Zalo</a>
           </div>
         </form>
@@ -4520,7 +4698,7 @@
       <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite"></div>
 
       <form class="ai-chat-composer" id="aiChatComposerForm" onsubmit="submitAiChatQuestion(event)">
-        <textarea id="aiChatInput" rows="2" maxlength="500" placeholder="Nhắn nhu cầu cùng nhatoSG (VD: Tìm mặt tiền Q1 tầm 80 tỷ)..." onkeydown="handleAiChatInputKeydown(event)"></textarea>
+        <textarea id="aiChatInput" rows="2" maxlength="500" placeholder="Nhắn nhu cầu tìm nhà của Anh/Chị..." onkeydown="handleAiChatInputKeydown(event)"></textarea>
         <button type="submit" id="aiChatSendBtn" class="btn-bronze-solid" style="height:44px; padding:0 16px;">Gửi</button>
       </form>
     </aside>
@@ -4533,13 +4711,19 @@
     aria-controls="aiChatOverlay"
     aria-expanded="false"
     onclick="openAiChatDrawer()"
-    aria-label="Mở Trợ lý AI — Kho nhatoSG"
+    aria-label="Hỏi nhanh Kho nhatoSG"
+    title="Hỏi nhanh Kho nhatoSG"
   >
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M16.5 9.5c0-3-3.1-5.5-7-5.5s-7 2.5-7 5.5c0 1.4.7 2.7 1.8 3.6L3.5 16l3.3-1.1c.8.3 1.8.4 2.7.4.5 0 1 0 1.5-.1" />
+      <path d="M10.5 14.5c0 2.5 2.7 4.5 6 4.5.8 0 1.6-.1 2.3-.4l2.7.9-.6-2.3c.9-.7 1.6-1.7 1.6-2.7 0-2.5-2.7-4.5-6-4.5s-6 2-6 4.5Z" />
     </svg>
-    <span>Trợ Lý AI</span>
   </button>
+
+  <div class="ai-chat-nudge" id="aiChatNudge" role="status" hidden>
+    <button type="button" class="ai-nudge-open" onclick="openAiChatDrawer()">Cần tìm nhanh tài sản phù hợp, Anh/Chị bấm vào đây nhé 👋</button>
+    <button type="button" class="ai-nudge-close" onclick="dismissAiChatNudge(event)" aria-label="Đóng lời nhắc">×</button>
+  </div>
 
   <div class="mobile-call-dock" aria-label="Liên hệ nhanh trên điện thoại">
     <a href="tel:0916239898" onclick="copyPhoneToast()">Gọi Vũ · 0916.23.9898</a>
@@ -5778,6 +5962,7 @@
           </div>
 
           <div class="hero-sc-media">
+            <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
             <div class="media-frame-inner">
               <img
                 src="${esc(phUrl)}"
@@ -5787,6 +5972,8 @@
                 onload="inspectImageAspect(this)"
                 onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}';inspectImageAspect(this)"
               />
+              <div class="nsg-touch-shield" aria-hidden="true"></div>
+              <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark${isWmV2Photo(phUrl) ? " wm-hidden" : ""}"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
             </div>
           </div>
         </button>
@@ -5845,6 +6032,7 @@
               onload="inspectImageAspect(this)"
               onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}';inspectImageAspect(this)"
             />
+            <span class="nsg-touch-shield" aria-hidden="true"></span>
           </div>
           <div class="feature-info-col">
             <h3 class="feature-street">${esc(p.streetDisplay)}</h3>
@@ -6332,6 +6520,7 @@
         return `
           <article class="atelier-card">
             <div class="card-media" onclick="openDossier('${esc(p.id)}')">
+              <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
               <div class="media-frame-inner">
                 <img
                   src="${esc(phUrl)}"
@@ -6340,6 +6529,8 @@
                   onload="inspectImageAspect(this)"
                   onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}';inspectImageAspect(this)"
                 />
+                <div class="nsg-touch-shield" aria-hidden="true"></div>
+                <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark${isWmV2Photo(phUrl) ? " wm-hidden" : ""}"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
               </div>
 
               <span class="media-counter">${curIdx + 1}/${p.photos.length}</span>
@@ -6449,7 +6640,10 @@
       document.getElementById("recentList").innerHTML = items.map(function (p) {
         return `
           <button type="button" class="recent-item" onclick="openDossier('${esc(p.id)}')">
-            <img src="${esc(p.photos[0])}" alt="${esc(p.streetDisplay)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
+            <span class="nsg-img-shield-wrap" style="width:60px; height:46px; display:block;">
+              <img src="${esc(p.photos[0])}" alt="${esc(p.streetDisplay)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
+              <span class="nsg-touch-shield" aria-hidden="true"></span>
+            </span>
             <div class="recent-item-body">
               <small>${esc(p.district)} · ${p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : esc(fmtBil(p.price)))}</small>
               <strong>${esc(p.streetDisplay)}, ${esc(p.district)}</strong>
@@ -6834,21 +7028,26 @@
                     aria-label="Xem ảnh ${idx + 1}"
                   >
                     <img src="${esc(url)}" alt="Ảnh thu nhỏ ${idx + 1}" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
+                    <span class="nsg-touch-shield" aria-hidden="true"></span>
                   </button>
                 `;
               }).join("")}
             </div>
 
             <div class="dossier-stage">
-              <div class="dossier-stage-canvas" onclick="openLightbox()">
-                <img
-                  id="dossierStageImg"
-                  src="${esc(curPhoto)}"
-                  alt="${esc(p.streetDisplay)}, ${esc(p.district)} — Ảnh ${activeDossierPhotoIdx + 1}"
-                  onload="inspectImageAspect(this)"
-                  onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'"
-                />
-                <div class="p-watermark${isWmV2Photo(curPhoto) ? " wm-hidden" : ""}">nhatoSG · 0916.23.9898</div>
+              <div class="dossier-stage-canvas" id="dossierStageCanvas" onclick="handleDossierStageTap()">
+                <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
+                <div class="nsg-stage-fit" id="dossierImgFit">
+                  <img
+                    id="dossierStageImg"
+                    src="${esc(curPhoto)}"
+                    alt="${esc(p.streetDisplay)}, ${esc(p.district)} — Ảnh ${activeDossierPhotoIdx + 1}"
+                    onload="inspectImageAspect(this)"
+                    onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'"
+                  />
+                  <div class="nsg-touch-shield" aria-hidden="true"></div>
+                  <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark${isWmV2Photo(curPhoto) ? " wm-hidden" : ""}"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
+                </div>
               </div>
               <div class="dossier-stage-bar">
                 <span>Ảnh ${activeDossierPhotoIdx + 1} / ${p.photos.length}</span>
@@ -7006,7 +7205,36 @@
       }
 
       updateLoanCalculator();
+      bindStageSwipe(document.getElementById("dossierStageCanvas"));
       requestAnimationFrame(hydrateRenderedImages);
+    }
+
+    let lastDossierSwipeTs = 0;
+
+    function handleDossierStageTap() {
+      if (Date.now() - lastDossierSwipeTs < 350) return;
+      openLightbox();
+    }
+
+    function bindStageSwipe(el) {
+      if (!el || el.dataset.nsgSwipeBound === "1") return;
+      el.dataset.nsgSwipeBound = "1";
+      let sx = 0;
+      let sy = 0;
+      el.addEventListener("touchstart", function (ev) {
+        if (!ev.changedTouches || !ev.changedTouches.length) return;
+        sx = ev.changedTouches[0].clientX;
+        sy = ev.changedTouches[0].clientY;
+      }, { passive: true });
+      el.addEventListener("touchend", function (ev) {
+        if (!ev.changedTouches || !ev.changedTouches.length) return;
+        const dx = ev.changedTouches[0].clientX - sx;
+        const dy = ev.changedTouches[0].clientY - sy;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          lastDossierSwipeTs = Date.now();
+          stepDossierPhoto(dx < 0 ? 1 : -1);
+        }
+      }, { passive: true });
     }
 
     function selectDossierPhoto(idx) {
@@ -7102,13 +7330,15 @@
       wrap.innerHTML = items.map(function (p) {
         return `
           <div style="display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line);">
-            <img
-              src="${esc(p.photos[0])}"
-              alt="${esc(p.streetDisplay)}"
-              onclick="closeOverlay('savedOverlay'); openDossier('${esc(p.id)}')"
-              onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'"
-              style="width:76px; height:56px; object-fit:cover; border:1px solid var(--line); cursor:pointer; flex-shrink:0;"
-            />
+            <div class="nsg-media-shield" onclick="closeOverlay('savedOverlay'); openDossier('${esc(p.id)}')" style="position:relative; width:76px; height:56px; border:1px solid var(--line); cursor:pointer; flex-shrink:0; overflow:hidden; background:var(--mat);">
+              <img
+                src="${esc(p.photos[0])}"
+                alt="${esc(p.streetDisplay)}"
+                onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'"
+                style="width:100%; height:100%; object-fit:cover; display:block;"
+              />
+              <span class="nsg-touch-shield" aria-hidden="true"></span>
+            </div>
             <div onclick="closeOverlay('savedOverlay'); openDossier('${esc(p.id)}')" style="flex:1; min-width:0; cursor:pointer;">
               <small style="font-family:var(--mono); font-size:10.5px; color:var(--accent); display:block;">
                 ${esc(p.district)} · ${p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : esc(fmtBil(p.price)))}
@@ -7528,7 +7758,9 @@
       renderDirectory();
       renderRecentStrip();
       renderArticles();
+      bindStageSwipe(document.getElementById("lightboxOverlay"));
       loadPublicWebChatConfig();
+      scheduleAiChatNudge();
 
       const deepId = resolveInitialDeepLinkId();
       if (deepId && getProp(deepId)) {
@@ -7548,10 +7780,11 @@
       }
     });
     // =========================================================================
-    // 10. TRỢ LÝ TƯ VẤN AI — KHO NHATOSG (3 CHẾ ĐỘ: PUBLIC / MEMBERS_ONLY / OFF)
+    // 10. HỎI NHANH KHO NHATOSG (3 CHẾ ĐỘ: PUBLIC / MEMBERS_ONLY / OFF)
     // =========================================================================
     const AI_CHAT_WORKER_DEFAULT = "https://nhatosg-search-ai.nhatosg.workers.dev";
     const AI_CHAT_STORAGE_KEY = "nhatosg_web_ai_chat_auth_v1";
+    const AI_CHAT_NUDGE_KEY = "nsg_chat_nudge_shown";
     let aiChatConfig = {
       mode: "PUBLIC",
       enabled: true,
@@ -7563,6 +7796,8 @@
     let aiChatHistory = [];
     let aiChatSending = false;
     let aiChatBootstrapped = false;
+    let aiNudgeShowTimer = null;
+    let aiNudgeHideTimer = null;
 
     function normalizeMemberIdentJs(raw) {
       const s = String(raw || "").trim().replace(/[\s.\-]+/g, "");
@@ -7625,36 +7860,78 @@
       return Boolean(sess && sess.token);
     }
 
+    function dismissAiChatNudge(ev) {
+      if (ev && ev.stopPropagation) ev.stopPropagation();
+      if (aiNudgeShowTimer) {
+        clearTimeout(aiNudgeShowTimer);
+        aiNudgeShowTimer = null;
+      }
+      if (aiNudgeHideTimer) {
+        clearTimeout(aiNudgeHideTimer);
+        aiNudgeHideTimer = null;
+      }
+      try {
+        if (typeof sessionStorage !== "undefined") sessionStorage.setItem(AI_CHAT_NUDGE_KEY, "1");
+      } catch (e) {}
+      const fabBtn = document.getElementById("aiChatFab");
+      if (fabBtn) fabBtn.classList.remove("is-pulsing");
+      const nudgeEl = document.getElementById("aiChatNudge");
+      if (!nudgeEl || nudgeEl.hidden) return;
+      nudgeEl.classList.add("is-hiding");
+      setTimeout(function () {
+        nudgeEl.hidden = true;
+        nudgeEl.classList.remove("is-hiding");
+      }, 280);
+    }
+
+    function scheduleAiChatNudge() {
+      if (typeof document === "undefined" || !document.getElementById("aiChatFab")) return;
+      if (aiChatConfig.mode === "OFF" || aiChatConfig.enabled === false) return;
+      try {
+        if (typeof sessionStorage !== "undefined" && sessionStorage.getItem(AI_CHAT_NUDGE_KEY) === "1") return;
+      } catch (e) {}
+      if (aiNudgeShowTimer) return;
+      aiNudgeShowTimer = setTimeout(function () {
+        aiNudgeShowTimer = null;
+        if (aiChatConfig.mode === "OFF" || aiChatConfig.enabled === false) return;
+        if (document.body && document.body.classList.contains("is-locked")) return;
+        if (document.getElementById("aiChatOverlay")?.classList.contains("open")) return;
+        try {
+          if (typeof sessionStorage !== "undefined" && sessionStorage.getItem(AI_CHAT_NUDGE_KEY) === "1") return;
+          if (typeof sessionStorage !== "undefined") sessionStorage.setItem(AI_CHAT_NUDGE_KEY, "1");
+        } catch (e) {}
+        const fabBtn = document.getElementById("aiChatFab");
+        const nudgeEl = document.getElementById("aiChatNudge");
+        if (fabBtn) fabBtn.classList.add("is-pulsing");
+        if (nudgeEl) {
+          nudgeEl.classList.remove("is-hiding");
+          nudgeEl.hidden = false;
+        }
+        aiNudgeHideTimer = setTimeout(function () {
+          dismissAiChatNudge();
+        }, 6500);
+      }, 1800);
+    }
+
     function applyAiChatGovernanceUI() {
       const mode = String(aiChatConfig.mode || "PUBLIC").toUpperCase();
       const enabled = mode !== "OFF" && aiChatConfig.enabled !== false;
-      const headBtn = document.getElementById("openAiChatHeaderBtn");
       const fabBtn = document.getElementById("aiChatFab");
-      const badgeEl = document.getElementById("aiChatModeBadge");
-      const hintEl = document.getElementById("aiChatHintText");
+      const memberBar = document.getElementById("aiChatMemberNotice");
       const gateBox = document.getElementById("aiMemberGateBox");
       const composer = document.getElementById("aiChatComposerForm");
       const prompts = document.getElementById("aiChatQuickPrompts");
 
-      if (headBtn) headBtn.hidden = !enabled;
       if (fabBtn) fabBtn.hidden = !enabled;
       if (!enabled) {
+        dismissAiChatNudge();
         if (document.getElementById("aiChatOverlay")?.classList.contains("open")) {
           closeOverlay("aiChatOverlay");
         }
         return;
       }
 
-      if (badgeEl) {
-        badgeEl.className = "ai-mode-pill" + (mode === "MEMBERS_ONLY" ? " is-member" : "");
-        badgeEl.textContent = mode === "MEMBERS_ONLY" ? "Chỉ Thành Viên" : "Chế độ Công khai";
-      }
-      const activeCnt = PROPERTIES.filter(function (p) { return !p.isSold; }).length;
-      if (hintEl) {
-        hintEl.textContent = mode === "MEMBERS_ONLY"
-          ? "Quyền hỏi đáp riêng cho Thành Viên đã xác thực"
-          : ("Đối chiếu trực tiếp từ " + activeCnt + "+ tài sản thực tế tại TP.HCM & Thủ Đức");
-      }
+      if (memberBar) memberBar.hidden = mode !== "MEMBERS_ONLY";
 
       const verified = isAiMemberVerified();
       if (gateBox) gateBox.hidden = verified;
@@ -7667,15 +7944,16 @@
       if (!box || box.children.length > 0) return;
       appendAiMessage(
         "bot",
-        "Xin chào Anh/Chị, em là **nhatoSG**. Anh/Chị đang tìm nhà mặt tiền, building văn phòng, khách sạn có dòng tiền hay biệt thự khu vực nào ạ?\n\nAnh/Chị cứ nhắn tự nhiên theo nhu cầu (tầm tài chính, quận, bề ngang hoặc mục đích khai thác), em sẽ lọc ngay những tài sản phù hợp nhất trong kho gửi mình xem nhé.",
+        "Chào Anh/Chị 👋 Em hỗ trợ tìm nhanh sản phẩm trên web của Vũ (nhatoSG). Anh/Chị đang tìm nhà mặt tiền, building hay biệt thự khu nào, tầm tài chính khoảng bao nhiêu cứ nhắn tự nhiên để em lọc căn phù hợp gửi mình xem trước nhé!",
         [],
-        "nhatoSG · Tư vấn cá nhân"
+        ""
       );
     }
 
     function openAiChatDrawer() {
+      dismissAiChatNudge();
       if (aiChatConfig.mode === "OFF" || aiChatConfig.enabled === false) {
-        showToast("Trợ lý AI hiện đang tạm tắt bởi Quản trị viên.");
+        showToast("Khung chat tìm nhanh hiện đang tạm tắt.");
         return;
       }
       applyAiChatGovernanceUI();
@@ -7912,7 +8190,10 @@
         const specLine = [p.dimsShort, p.area > 0 ? (fmtNum(p.area) + "m²") : "", p.structShort].filter(Boolean).join(" · ");
         return (
           '<article class="ai-prop-card">' +
-            '<img src="' + esc(p.photos[0] || FALLBACK_SVG_URL) + '" alt="' + esc(p.streetDisplay) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + FALLBACK_SVG_URL + '\'" />' +
+            '<span class="nsg-img-shield-wrap" style="width:76px; height:62px; display:block;">' +
+              '<img src="' + esc(p.photos[0] || FALLBACK_SVG_URL) + '" alt="' + esc(p.streetDisplay) + '" loading="lazy" onerror="this.onerror=null;this.src=\'' + FALLBACK_SVG_URL + '\'" />' +
+              '<span class="nsg-touch-shield" aria-hidden="true"></span>' +
+            '</span>' +
             '<div class="ai-prop-info">' +
               '<h4 class="ai-prop-title">' + esc(p.streetDisplay) + ', ' + esc(p.district) + '</h4>' +
               '<p class="ai-prop-sub">' + esc(p.category) + (specLine ? " · " + esc(specLine) : "") + '</p>' +
@@ -8056,14 +8337,14 @@
     function buildLocalAdvisorFallbackReply(rag, question) {
       if (isSocialGreetingJs(question)) {
         return {
-          text: "Dạ em chào Anh/Chị, em là **nhatoSG** đây ạ.\n\nAnh/Chị đang tìm mặt tiền kinh doanh, tòa nhà văn phòng, khách sạn có sẵn dòng tiền hay biệt thự khu vực nào để em chọn lọc sản phẩm phù hợp nhất gửi mình xem trước ạ?",
+          text: "Chào Anh/Chị 👋 Em hỗ trợ tìm nhanh sản phẩm trên web của Vũ (nhatoSG).\n\nAnh/Chị đang tìm nhà mặt tiền, building hay biệt thự khu nào, tầm tài chính khoảng bao nhiêu cứ nhắn tự nhiên để em lọc căn phù hợp gửi mình xem trước nhé!",
           ids: []
         };
       }
       const top = (rag && rag.candidates) ? rag.candidates.slice(0, 3) : [];
       if (!top.length) {
         return {
-          text: "Hiện tại trong giỏ công khai của **nhatoSG** chưa có căn khớp đồng thời mọi tiêu chí vừa nêu.\n\nAnh/Chị có thể mở rộng khu vực hoặc nhắn trực tiếp **Zalo Vũ (0916.23.9898)** để em rà soát thêm nguồn ký gửi kín ngoài web nhé.",
+          text: "Trên web hiện chưa có căn nào khớp hết các tiêu chí Anh/Chị vừa nhắn.\n\nAnh/Chị thử nới nhẹ khu vực hoặc tầm tiền giúp em, hoặc nhắn thẳng Zalo / gọi **Vũ (0916.23.9898)** để Vũ kiểm tra thêm nguồn bên ngoài chưa kịp lên web nhé.",
           ids: []
         };
       }
@@ -8072,9 +8353,9 @@
       }).join("; ");
       return {
         text: sanitizeProseNsgCodes(
-          "Dạ theo nhu cầu của Anh/Chị, em lọc nhanh vài phương án sáng nhất trong kho **Nhà Sài Gòn**: " +
+          "Dạ theo nhu cầu mình vừa nhắn, em lọc trước mấy căn trên web thấy hợp lý: " +
           listTxt +
-          ".\n\nAnh/Chị muốn em so sánh sâu hơn về mặt tiền, công năng hay hiệu suất thuê căn nào thì cứ nhắn em nhé; khi cần đối chiếu sổ hồng mình nhắn **Zalo Vũ (0916.23.9898)** ạ."
+          ".\n\nAnh/Chị bấm vào từng căn xem hình và thông số nhé; cần cập nhật tình trạng mới nhất, xem sổ hồng hay làm việc trực tiếp chủ nhà thì Anh/Chị cứ nhắn Zalo / gọi **Vũ (0916.23.9898)** ạ."
         ),
         ids: top.map(function (c) { return c.id; })
       };
@@ -8102,8 +8383,8 @@
       }
 
       inp.value = "";
-      appendAiMessage("user", q, [], "Anh/Chị");
-      const typingEl = appendAiMessage("bot", "Em đang rà soát kho Nhà Sài Gòn cho Anh/Chị...", [], "");
+      appendAiMessage("user", q, [], "");
+      const typingEl = appendAiMessage("bot", "Em đang lọc nhanh sản phẩm trên web của Vũ...", [], "");
       aiChatSending = true;
       if (sendBtn) sendBtn.disabled = true;
 
@@ -8138,7 +8419,7 @@
           if (typingEl) typingEl.remove();
           aiChatConfig.mode = "MEMBERS_ONLY";
           applyAiChatGovernanceUI();
-          appendAiMessage("bot", "Phiên Thành Viên chưa hợp lệ hoặc đã được thu hồi. Anh/Chị vui lòng đăng nhập lại bằng mã mới nhất ạ.", [], "Bảo mật");
+          appendAiMessage("bot", "Phiên Thành Viên chưa hợp lệ hoặc đã hết hạn. Anh/Chị nhập lại mã mới giúp em nhé.", [], "");
           return;
         }
         if (resp.status === 403 || resp.status === 429) {
@@ -8148,7 +8429,7 @@
             aiChatConfig.enabled = false;
             applyAiChatGovernanceUI();
           }
-          appendAiMessage("bot", data.message || "Tạm thời chưa gửi được tin nhắn lúc này, Anh/Chị thử lại giúp em sau ít giây nhé.", [], "Thông báo");
+          appendAiMessage("bot", data.message || "Tạm thời chưa gửi được tin nhắn lúc này, Anh/Chị thử lại giúp em sau ít giây nhé.", [], "");
           return;
         }
 
@@ -8158,7 +8439,7 @@
             ? data.recommended_ids.slice(0, 4)
             : [];
           const cleanReply = sanitizeProseNsgCodes(data.reply);
-          appendAiMessage("bot", cleanReply, recIds, data.source === "gemini" ? "nhatoSG · Cố vấn Gemini" : "nhatoSG · Kho Nhà Sài Gòn");
+          appendAiMessage("bot", cleanReply, recIds, "");
           aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply, recommendedIds: recIds });
           if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
           return;
@@ -8167,7 +8448,7 @@
       } catch (e) {
         if (typingEl) typingEl.remove();
         const fbRes = buildLocalAdvisorFallbackReply(rag, q);
-        appendAiMessage("bot", fbRes.text, fbRes.ids, "nhatoSG · Đối chiếu kho");
+        appendAiMessage("bot", fbRes.text, fbRes.ids, "");
         aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: fbRes.text, recommendedIds: fbRes.ids });
         if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
       } finally {
