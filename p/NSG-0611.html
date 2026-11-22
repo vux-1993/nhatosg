@@ -481,11 +481,13 @@ try {
     font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.16em;
-    color: rgba(250, 248, 243, 0.34);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.48);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
+    user-select: none;
   }
+  .p-watermark.wm-hidden { display: none; }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -1013,6 +1015,10 @@ try {
   }
 </style>
 <!-- NSG_VIP_UX_STYLE_END -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<!-- nsg-web-security-shield -->
+<link rel="stylesheet" href="/web_security_shield.css">
+<script src="/web_security_shield.js" defer></script>
 </head>
 <body>
 
@@ -1052,7 +1058,7 @@ try {
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0611/ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0611/ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg" data-raw="web_images/NSG-0611/ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0611/ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 6, Quận 3 – Hầm Lửng 5 Tầng, 105 Tỷ - DT 7,4m (NH 12,63m) × 22m (CN 199.8m²) - Giá chào 105 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark">NHATOSG.COM.VN</div>
+        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
         
         
       </div>
@@ -1063,7 +1069,7 @@ try {
       
     </div>
 
-    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,4 × 22m</li><li><strong>Diện tích công nhận:</strong> 199,8m²</li><li><strong>Kết cấu:</strong> Hầm, Lửng, 5 Tầng, MCCT (21 Phòng Full Nội Thất, Sàn 731,1m²)</li><li><strong>Đặc điểm:</strong> Nở hậu 12,63m</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ tọa lạc mặt tiền Đường Phạm Đình Toái, Phường 6, Quận 3, kết nối giao thông thuận tiện ra Điện Biên Phủ, Võ Văn Tần, Nguyễn Thông, Trương Định và Cách Mạng Tháng 8, di chuyển vào lõi trung tâm Quận 1 chỉ mất 3 phút. Sở hữu khuôn đất nở hậu vuông vắn, công trình trang bị sẵn tầng hầm đậu xe phục vụ khai thác đồng bộ. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Gia chủ cam kết thuê lại 300 triệu/tháng</strong></p></section></div>
+    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,4 × 22m</li><li><strong>Diện tích công nhận:</strong> 199,8m²</li><li><strong>Kết cấu:</strong> Hầm, Lửng, 5 Tầng, MCCT (21 Phòng Full Nội Thất, Sàn 731,1m²)</li><li><strong>Đặc điểm:</strong> Nở hậu 12,63m</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ tọa lạc mặt tiền Đường Phạm Đình Toái, Phường 6, Quận 3, khu vực giao thương thuận tiện và kết nối nhanh ra các trục đường chính. Sở hữu khuôn đất nở hậu vuông vắn, công trình trang bị sẵn tầng hầm đậu xe phục vụ khai thác đồng bộ. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Gia chủ cam kết thuê lại 300 triệu/tháng</strong></p></section></div>
 
     <div class="actions-bar">
       <a href="/?id=NSG-0611" class="btn btn-primary">🌐 Mở Trên Kho Tương Tác nhatoSG</a>
@@ -1099,6 +1105,7 @@ try {
   </div>
   <div class="p-lb-stage" id="pLbStage">
     <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0611/ban-toa-chdv-khach-san-phuong-6-quan-3-nsg-0611-hinh-1-4499b.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 6, Quận 3 – Hầm Lửng 5 Tầng, 105 Tỷ - DT 7,4m (NH 12,63m) × 22m (CN 199.8m²) - Giá chào 105 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
     
   </div>
 </div>
@@ -1172,6 +1179,11 @@ try {
       lbImg.alt = item.cap;
       lbImg.src = resolveRootWebp(item.raw, "lightbox", item.abs);
     }
+    var isWmV2 = /(?:^|[\/_-])wmv2(?:[._-]|$)/i.test(String(item.raw || item.abs || ""));
+    var wmStage = document.getElementById("pWatermark");
+    var wmLb = document.getElementById("pLbWatermark");
+    if (wmStage) wmStage.classList.toggle("wm-hidden", isWmV2);
+    if (wmLb) wmLb.classList.toggle("wm-hidden", isWmV2);
 
     var strip = document.getElementById("pThumbStrip");
     if (strip) {

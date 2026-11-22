@@ -122,15 +122,19 @@ async function derivePbkdf2Hex(loginNorm, code, saltHex, iterations) {
 }
 
 async function getHmacKey(env) {
-  const rawSeed = String(env.CHAT_HMAC_SECRET || env.GEMINI_API_KEY || "nhatosg-v46-fallback-seed");
+  const rawSeed = String(env.CHAT_HMAC_SECRET || "").trim();
+  if (rawSeed.length < 32) {
+    return null;
+  }
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(rawSeed));
   return crypto.subtle.importKey("raw", digest, { name: "HMAC", hash: "SHA-256" }, false, ["sign", "verify"]);
 }
 
 async function signSessionToken(slotId, configRev, env) {
+  const key = await getHmacKey(env);
+  if (!key) return null;
   const exp = Math.floor(Date.now() / 1000) + TOKEN_TTL_SEC;
   const payload = b64UrlEncode(new TextEncoder().encode(JSON.stringify({ sid: slotId, rev: configRev, exp })));
-  const key = await getHmacKey(env);
   const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload));
   return { token: `${payload}.${b64UrlEncode(new Uint8Array(sig))}`, exp };
 }
@@ -140,6 +144,7 @@ async function verifySessionToken(token, cfg, env) {
   const [payload, sigB64] = token.split(".", 2);
   try {
     const key = await getHmacKey(env);
+    if (!key) return null;
     const ok = await crypto.subtle.verify(
       "HMAC",
       key,
@@ -149,10 +154,8 @@ async function verifySessionToken(token, cfg, env) {
     if (!ok) return null;
     const claims = JSON.parse(new TextDecoder().decode(b64UrlDecode(payload)));
     if (!claims || Number(claims.exp || 0) <= Date.now() / 1000) return null;
-    if (cfg.config_rev && claims.rev !== cfg.config_rev) return null;
-    const activeSlots = Array.isArray(cfg.member_verifiers) ? cfg.member_verifiers : [];
-    const match = activeSlots.find((s) => s && s.slot_id === claims.sid);
-    return match ? claims.sid : null;
+    if (!cfg.config_rev || claims.rev !== cfg.config_rev) return null;
+    return String(claims.sid || "").trim() || null;
   } catch {
     return null;
   }
@@ -182,7 +185,6 @@ async function fetchLiveConfig(env) {
     config_rev: "default",
     rate_limit_public_per_15m: 20,
     max_question_chars: MAX_QUESTION_CHARS,
-    member_verifiers: [],
   };
 }
 
@@ -245,7 +247,7 @@ export default {
       if (!isAllowedOrigin(origin)) return jsonResp({ ok: false, error: "ORIGIN_NOT_ALLOWED" }, 403);
       return new Response(null, { status: 204, headers });
     }
-    if (origin && !isAllowedOrigin(origin)) {
+    if (!isAllowedOrigin(origin)) {
       return jsonResp({ ok: false, error: "ORIGIN_NOT_ALLOWED" }, 403);
     }
 
@@ -295,16 +297,29 @@ export default {
         return jsonResp({ ok: false, error: "AUTH_RATE_LIMITED" }, 429);
       }
       if (cfg.mode === "OFF") return jsonResp({ ok: false, error: "CHAT_OFF" }, 403);
+      const hmacKey = await getHmacKey(env);
+      let serverVerifiers = [];
+      try {
+        const parsed = env.MEMBER_VERIFIERS_JSON ? JSON.parse(String(env.MEMBER_VERIFIERS_JSON)) : [];
+        if (Array.isArray(parsed)) serverVerifiers = parsed;
+      } catch {
+        serverVerifiers = [];
+      }
+      if (!hmacKey || !serverVerifiers.length) {
+        return jsonResp({ ok: false, error: "AUTH_UNAVAILABLE" }, 503);
+      }
       const ident = normalizeLoginId(body.identifier || "");
       const code = String(body.access_code || "").trim();
       if (!ident || !code) return jsonResp({ ok: false, error: "MISSING_CREDENTIALS" }, 400);
 
-      for (const slot of cfg.member_verifiers || []) {
-        if (!slot || !slot.salt || !slot.verifier) continue;
+      for (const slot of serverVerifiers) {
+        if (!slot || !slot.salt || !slot.verifier || !slot.slot_id) continue;
+        if (slot.login_norm && !timingSafeEqualStr(ident, String(slot.login_norm))) continue;
         const candHex = await derivePbkdf2Hex(ident, code, slot.salt, slot.iterations || 120000);
         if (timingSafeEqualStr(candHex, slot.verifier)) {
-          const { token, exp } = await signSessionToken(slot.slot_id, cfg.config_rev, env);
-          return jsonResp({ ok: true, token, slot_id: slot.slot_id, config_rev: cfg.config_rev, expires_at: exp });
+          const signed = await signSessionToken(slot.slot_id, cfg.config_rev, env);
+          if (!signed) return jsonResp({ ok: false, error: "AUTH_UNAVAILABLE" }, 503);
+          return jsonResp({ ok: true, token: signed.token, config_rev: cfg.config_rev, expires_at: signed.exp });
         }
       }
       return jsonResp({ ok: false, error: "INVALID_CREDENTIALS" }, 401);
@@ -321,20 +336,17 @@ export default {
     let rateKey = `pub:${clientIp}`;
     let limit = Number(cfg.rate_limit_public_per_15m || 20);
     if (cfg.mode === "MEMBERS_ONLY") {
+      const hmacKey = await getHmacKey(env);
+      if (!hmacKey) {
+        return jsonResp({ ok: false, error: "AUTH_UNAVAILABLE" }, 503);
+      }
       const authHdr = request.headers.get("Authorization") || "";
       const bearer = authHdr.toLowerCase().startsWith("bearer ") ? authHdr.slice(7).trim() : "";
       const verifiedSid = await verifySessionToken(bearer, cfg, env);
-      let slotAuthed = false;
-      if (!verifiedSid && body.member_slot_id && body.member_verifier_proof) {
-        const matchSlot = (cfg.member_verifiers || []).find((s) => s && s.slot_id === body.member_slot_id);
-        if (matchSlot && timingSafeEqualStr(body.member_verifier_proof, matchSlot.verifier)) {
-          slotAuthed = true;
-        }
-      }
-      if (!verifiedSid && !slotAuthed) {
+      if (!verifiedSid) {
         return jsonResp({ ok: false, error: "MEMBER_AUTH_REQUIRED" }, 401);
       }
-      rateKey = `mem:${verifiedSid || body.member_slot_id}:${clientIp}`;
+      rateKey = `mem:${verifiedSid}:${clientIp}`;
       limit = MEMBER_CHAT_LIMIT;
     }
 
@@ -417,7 +429,17 @@ export default {
         if (!raw) continue;
         try {
           const parsed = JSON.parse(raw);
-          const ans = stripNsgCodes(parsed.answer || "");
+          if (
+            !parsed ||
+            typeof parsed !== "object" ||
+            Array.isArray(parsed) ||
+            typeof parsed.answer !== "string" ||
+            Object.keys(parsed).some((k) => k !== "answer" && k !== "recommended_ids") ||
+            (parsed.recommended_ids !== undefined && !Array.isArray(parsed.recommended_ids))
+          ) {
+            continue;
+          }
+          const ans = stripNsgCodes(parsed.answer);
           const recIds = (Array.isArray(parsed.recommended_ids) ? parsed.recommended_ids : [])
             .map((x) => String(x || "").trim().toUpperCase())
             .filter((x) => validIds.has(x))
@@ -433,17 +455,7 @@ export default {
             });
           }
         } catch {
-          const ans = stripNsgCodes(raw);
-          if (ans) {
-            return jsonResp({
-              ok: true,
-              reply: ans,
-              recommended_ids: candidates.slice(0, 3).map((c) => c.id),
-              model,
-              source: "gemini",
-              mode: cfg.mode,
-            });
-          }
+          continue;
         }
       }
       return jsonResp({ ok: false, fallback: true, reason: "MODEL_UNAVAILABLE" }, 503);

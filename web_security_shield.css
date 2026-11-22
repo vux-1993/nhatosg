@@ -1,0 +1,37 @@
+/* Preserve clicks and touch handlers on the existing gallery containers. */
+html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
+.dossier-thumb, .recent-item, #lightboxOverlay, .p-gallery-stage, .p-thumb-strip, .p-lb-stage,
+.hub-card-img-wrap, .ai-prop-card, .nsg-media-shield) {
+  -webkit-touch-callout: none !important;
+  -webkit-user-drag: none !important;
+  user-select: none !important;
+}
+html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
+.dossier-thumb, .recent-item, #lightboxOverlay, .p-gallery-stage, .p-thumb-strip, .p-lb-stage,
+.hub-card-img-wrap, .ai-prop-card, .nsg-media-shield) img {
+  pointer-events: none !important;
+  -webkit-user-drag: none !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+}
+/* Transparent layer preserves the existing frame's hit targets. */
+html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
+.p-gallery-stage, .p-lb-stage, .hub-card-img-wrap, .nsg-media-shield)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+html.nsg-detail-dimmed :is(.dossier-stage-canvas, #lightboxOverlay, .p-gallery-stage, .p-lb-stage) img {
+  filter: blur(16px) brightness(.55) !important;
+}
+@media print {
+  body > * { display: none !important; }
+  body::before {
+    display: block;
+    content: "nhatoSG — Xem nội dung trực tiếp trên website.";
+    color: black;
+    background: white;
+  }
+}

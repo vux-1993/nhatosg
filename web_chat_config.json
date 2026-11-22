@@ -6,6 +6,5 @@
   "worker_url": "https://nhatosg-search-ai.nhatosg.workers.dev/",
   "rate_limit_public_per_15m": 20,
   "max_question_chars": 500,
-  "member_verifiers": [],
   "updated_at": "2026-11-22 01:07:43"
 }
