@@ -19,7 +19,7 @@ const MEMBER_CHAT_LIMIT = 60;
 const rateBuckets = new Map();
 let cachedSiteConfig = null;
 let cachedSiteConfigAt = 0;
-const unavailable404Until = new Map();
+const modelCooldownUntil = new Map();
 
 function isAllowedOrigin(origin) {
   if (!origin) return false;
@@ -850,7 +850,7 @@ export default {
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
         {
           method: "POST",
-          signal: AbortSignal.timeout(12000),
+          signal: AbortSignal.timeout(model === MODEL_CHAIN[0] ? 6500 : 11000),
           headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: sysInstruction }] },
@@ -863,7 +863,7 @@ export default {
 
     let anyTimeout = false;
     for (const model of MODEL_CHAIN) {
-      const skipUntil = unavailable404Until.get(model) || 0;
+      const skipUntil = modelCooldownUntil.get(model) || 0;
       if (skipUntil > Date.now()) continue;
       const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-3.") || model.startsWith("gemini-2.5-");
       try {
@@ -874,11 +874,14 @@ export default {
         }
         if (resp.status === 404) {
           await resp.body?.cancel();
-          unavailable404Until.set(model, Date.now() + 10 * 60 * 1000);
+          modelCooldownUntil.set(model, Date.now() + 10 * 60 * 1000);
           continue;
         }
         if ([403, 429, 500, 502, 503, 504].includes(resp.status)) {
           await resp.body?.cancel();
+          if ([429, 500, 502, 503, 504].includes(resp.status)) {
+            modelCooldownUntil.set(model, Date.now() + 90 * 1000);
+          }
           continue;
         }
         if (!resp.ok) {
@@ -917,6 +920,7 @@ export default {
         }
       } catch (err) {
         if (err && err.name === "TimeoutError") anyTimeout = true;
+        modelCooldownUntil.set(model, Date.now() + 90 * 1000);
         continue;
       }
     }
