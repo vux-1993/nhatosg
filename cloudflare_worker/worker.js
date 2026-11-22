@@ -19,6 +19,7 @@ const MEMBER_CHAT_LIMIT = 60;
 const rateBuckets = new Map();
 let cachedSiteConfig = null;
 let cachedSiteConfigAt = 0;
+const unavailable404Until = new Map();
 
 function isAllowedOrigin(origin) {
   if (!origin) return false;
@@ -191,8 +192,9 @@ async function fetchLiveConfig(env) {
 function stripNsgCodes(text) {
   return String(text || "")
     .replace(/\r\n?/g, "\n")
+    .replace(/(?:\(\s*)?\*{1,3}\s*(?:mã\s+|căn\s+)?\[?\s*\bNSG[-_\s]?\d{3,5}\b\s*\]?\s*\*{1,3}(?:\s*\))?/gi, "")
     .replace(/\bNSG[-_\s]?\d{3,5}\b/gi, "")
-    .replace(/\(\s*(?:mã|căn)?\s*\)|\[\s*\]/gi, "")
+    .replace(/\(\s*(?:mã|căn|\*+)?\s*\)|\[\s*(?:mã|căn|\*+)?\s*\]|\*{4,}/gi, "")
     .replace(/(\p{Ll})(?=(?:Anh\/Chị|Anh|Chị|Vũ|Em)(?:[\s.,;:!?)]|$))/gu, "$1 ")
     .replace(/(\p{Ll}\.)(\p{Lu}\p{Ll})/gu, "$1 $2")
     .replace(/([,;!?])(\p{L})/gu, "$1 $2")
@@ -202,6 +204,31 @@ function stripNsgCodes(text) {
     .replace(/\n[ \t]+/g, "\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
+}
+
+export function throttleRedundantZaloCta(answer, question, recIds, partition, candidates) {
+  const ans = String(answer || "").trim();
+  if (!ans) return ans;
+  const qFold = foldViSimple(question);
+  const isGreeting =
+    qFold.length <= 75 &&
+    !/\b(?:tim|mua|ban|can|nha|mat tien|building|toa nha|van phong|khach san|chdv|biet thu|dat|quan|q\d+|thu duc|binh thanh|tan binh|phu nhuan|go vap|ty|trieu|ngang|ham|dien tich|hop dong thue|dong tien|gia|giam|pccc|hoan cong|so hong)\b/.test(qFold) &&
+    /^(?:da\s+)?(?:xin\s+)?(?:chao|alo|hello|hi|hey|em oi|ad oi|co ai|cam on|thank|ok)\b/.test(qFold);
+  if (isGreeting) return ans;
+  const hasCtaIntent = /\b(?:so hong|phap ly|hoan cong|pccc|nghiem thu|giay to|so nha|dia chi|hen xem|di xem|xem nha|xem thuc te|khao sat|thuong luong|tra gia|gia chot|chot gia|lam viec truc tiep|gap chu|chu nha|lien he|zalo|sdt|so dien thoai|goi vu|alo vu)\b/.test(qFold);
+  const recSet = new Set(recIds || []);
+  const hasMaskedRec = (candidates || []).some((c) => recSet.has(c.id) && (c.masked || c.cashflowMasked));
+  const noExactMatches = recIds.length === 0 || (partition && partition.nearIds && partition.nearIds.size > 0);
+  if (hasCtaIntent || hasMaskedRec || noExactMatches) return ans;
+  const paras = ans.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  if (paras.length >= 2 && /(?:zalo|0916[\s.]?23[\s.]?9898|gọi\s+trực\s+tiếp\s*\**\s*Vũ)/i.test(paras[paras.length - 1])) {
+    paras[paras.length - 1] =
+      recIds.length > 1
+        ? "Trong mấy phương án trên, Anh/Chị ưu tiên khu vực hay hiệu suất khai thác nào hơn để em lọc chi tiết thêm nhé?"
+        : "Anh/Chị xem qua thông số căn này thấy quy mô và tầm tài chính đã sát ý mình chưa ạ?";
+    return paras.join("\n\n");
+  }
+  return ans;
 }
 
 function foldViSimple(str) {
@@ -779,7 +806,7 @@ export default {
       "- CẤM TUYỆT ĐỐI từ ngữ sáo rỗng, bóng bẩy hoặc sai vai vế: KHÔNG dùng \"quý khách\", \"siêu phẩm\", \"đẳng cấp thượng lưu\", \"tài sản tinh tuyển\", \"cố vấn chiến lược\", \"kiệt tác\", \"cơ hội vàng\", \"thực sự thiện chí\", \"trang cá nhân chính chủ\"; KHÔNG xưng \"bạn\", \"tôi\", \"hệ thống\"; KHÔNG tự bịa tâm lý hay lý do bán của chủ nhà; KHÔNG ghép dính chữ thiếu dấu cách (như \"gìAnh/Chị\").\n" +
       "- Đi thẳng vào thông số thực tế (trục đường, bề ngang, diện tích công nhận, kết cấu/hầm/thang máy, dòng tiền công khai, đơn giá/m² ước tính khi đủ số liệu). Chia đoạn bằng \\n\\n, nhấn đậm nhẹ **tên đường / điểm nổi bật** vừa mắt.\n\n" +
       "QUY TẮC TIẾT CHẾ LỜI MỜI ZALO (BẮT BUỘC):\n" +
-      "- Trên hộp thoại chat đã có sẵn thanh Zalo/SĐT của Vũ và từng thẻ nhà đều có nút \"Nhắn Zalo\". Do đó CẤM lặp lại câu mời nhắn Zalo hoặc đọc số 0916.23.9898 ở cuối các lượt chào hỏi, lọc căn thông thường, thu hẹp ngân sách hay so sánh thông số — thay vào đó kết bằng 1 câu hỏi gợi mở tự nhiên hoặc nhận xét ngắn hữu ích.\n" +
+      "- Trên hộp thoại chat đã có sẵn thanh Zalo/SĐT của Vũ và từng thẻ nhà đều có nút \"Nhắn Zalo\". Do đó CẤM lặp lại câu mời nhắn Zalo hoặc đọc số 0916.23.9898 ở cuối các lượt chào hỏi, lọc căn thông thường, thu hẹp ngân sách hay so sánh thông số — và TUYỆT ĐỐI KHÔNG tự thêm câu mào 'nếu cần xem sổ hồng / hẹn đi xem thì nhắn Zalo Vũ...' khi trong tin nhắn khách KHÔNG nhắc tới sổ hồng, PCCC, số nhà hay hẹn xem.\n" +
       "- CHỈ được mời Anh/Chị nhắn Zalo hoặc gọi **Vũ (0916.23.9898)** đúng 4 tình huống: (1) Hỏi kiểm tra sổ hồng, hoàn công, biên bản nghiệm thu PCCC hoặc pháp lý gốc; (2) Hỏi số nhà chính xác hoặc hẹn đi xem thực tế; (3) Cần thương lượng giá chốt, làm việc trực tiếp chủ nhà, hoặc hỏi căn để giá \"Liên Hệ\"; (4) Web có 0 căn khớp hoàn toàn nên cần Vũ rà thêm nguồn bên ngoài.\n\n" +
       "CÁCH XỬ LÝ TỪNG TÌNH HUỐNG:\n" +
       "1. Chào hỏi xã giao hoặc mới mở lời (\"Chào em\", \"Alo\"...): Đáp thân thiện ngắn gọn, hỏi khu vực/loại hình/ngân sách và BẮT BUỘC trả recommended_ids: [].\n" +
@@ -794,7 +821,6 @@ export default {
       (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ (Tối đa 14 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
-    const signal = AbortSignal.timeout(14000);
     const callModel = async (model, allowThinking) => {
       const genConfig = {
         temperature: 0.7,
@@ -824,7 +850,7 @@ export default {
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
         {
           method: "POST",
-          signal,
+          signal: AbortSignal.timeout(12000),
           headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: sysInstruction }] },
@@ -835,21 +861,29 @@ export default {
       );
     };
 
-    try {
-      for (const model of MODEL_CHAIN) {
-        const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-2.5-");
+    let anyTimeout = false;
+    for (const model of MODEL_CHAIN) {
+      const skipUntil = unavailable404Until.get(model) || 0;
+      if (skipUntil > Date.now()) continue;
+      const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-3.") || model.startsWith("gemini-2.5-");
+      try {
         let resp = await callModel(model, supportsThinking);
         if (resp.status === 400 && supportsThinking) {
           await resp.body?.cancel();
           resp = await callModel(model, false);
         }
-        if ([403, 404, 429, 503].includes(resp.status)) {
+        if (resp.status === 404) {
+          await resp.body?.cancel();
+          unavailable404Until.set(model, Date.now() + 10 * 60 * 1000);
+          continue;
+        }
+        if ([403, 429, 500, 502, 503, 504].includes(resp.status)) {
           await resp.body?.cancel();
           continue;
         }
         if (!resp.ok) {
           await resp.body?.cancel();
-          return jsonResp({ ok: false, fallback: true, reason: "AI_UNAVAILABLE" }, 502);
+          continue;
         }
         const data = await resp.json();
         const raw = data?.candidates?.[0]?.content?.parts
@@ -858,37 +892,34 @@ export default {
           .join("")
           .trim();
         if (!raw) continue;
-        try {
-          const parsed = JSON.parse(raw);
-          if (
-            !parsed ||
-            typeof parsed !== "object" ||
-            Array.isArray(parsed) ||
-            typeof parsed.answer !== "string" ||
-            Object.keys(parsed).some((k) => k !== "answer" && k !== "recommended_ids") ||
-            (parsed.recommended_ids !== undefined && !Array.isArray(parsed.recommended_ids))
-          ) {
-            continue;
-          }
-          const ans = stripNsgCodes(parsed.answer);
-          const recIds = strictPostFilterRecommendedIds(parsed.recommended_ids, partition, validIds);
-          if (ans) {
-            return jsonResp({
-              ok: true,
-              reply: ans,
-              recommended_ids: recIds,
-              model,
-              source: "gemini",
-              mode: cfg.mode,
-            });
-          }
-        } catch {
+        const parsed = JSON.parse(raw);
+        if (
+          !parsed ||
+          typeof parsed !== "object" ||
+          Array.isArray(parsed) ||
+          typeof parsed.answer !== "string" ||
+          Object.keys(parsed).some((k) => k !== "answer" && k !== "recommended_ids") ||
+          (parsed.recommended_ids !== undefined && !Array.isArray(parsed.recommended_ids))
+        ) {
           continue;
         }
+        const recIds = strictPostFilterRecommendedIds(parsed.recommended_ids, partition, validIds);
+        const ans = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
+        if (ans) {
+          return jsonResp({
+            ok: true,
+            reply: ans,
+            recommended_ids: recIds,
+            model,
+            source: "gemini",
+            mode: cfg.mode,
+          });
+        }
+      } catch (err) {
+        if (err && err.name === "TimeoutError") anyTimeout = true;
+        continue;
       }
-      return jsonResp({ ok: false, fallback: true, reason: "MODEL_UNAVAILABLE" }, 503);
-    } catch {
-      return jsonResp({ ok: false, fallback: true, reason: signal.aborted ? "AI_TIMEOUT" : "AI_UNAVAILABLE" }, 504);
     }
+    return jsonResp({ ok: false, fallback: true, reason: anyTimeout ? "AI_TIMEOUT" : "MODEL_UNAVAILABLE" }, 503);
   },
 };
