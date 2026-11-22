@@ -60,7 +60,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261122074848";
+    script.src = "./properties_data.js?v=20261122091714";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -3672,10 +3672,16 @@
       padding: 10px 20px;
       border-bottom: 1px solid var(--line);
       display: flex;
+      flex-wrap: wrap;
       gap: 6px;
-      overflow-x: auto;
+      overflow-x: hidden;
       flex-shrink: 0;
       background: var(--surface);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .ai-chat-prompts::-webkit-scrollbar {
+      display: none;
     }
     .ai-prompt-btn {
       flex: 0 0 auto;
@@ -3693,6 +3699,8 @@
       background: var(--accent-soft);
     }
     .ai-chat-messages {
+      --scrollbar-thumb: var(--muted);
+      --scrollbar-track: var(--paper);
       flex: 1 1 auto;
       min-height: 0;
       overflow-y: auto;
@@ -3701,6 +3709,24 @@
       flex-direction: column;
       gap: 14px;
       overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    }
+    @supports not (scrollbar-color: auto) {
+      .ai-chat-messages {
+        scrollbar-width: auto;
+      }
+      .ai-chat-messages::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      .ai-chat-messages::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 2px;
+      }
+      .ai-chat-messages::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+      }
     }
     .ai-msg {
       display: flex;
@@ -3724,11 +3750,22 @@
       background: var(--paper);
       color: var(--ink);
       font-size: 13.5px;
-      line-height: 1.55;
-      white-space: pre-wrap;
+      line-height: 1.6;
+      white-space: normal;
       word-break: break-word;
     }
+    .ai-bubble .ai-p {
+      margin: 0 0 8px;
+    }
+    .ai-bubble .ai-p:last-child {
+      margin-bottom: 0;
+    }
+    .ai-bubble strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
     .ai-msg.user .ai-bubble {
+      white-space: pre-wrap;
       border-color: var(--bronze);
       background: var(--accent-soft);
     }
@@ -4439,27 +4476,27 @@
 
   <div class="toast" id="toastBox" role="status" aria-live="polite"></div>
 
-  <!-- 15. NGĂN KÉO TRỢ LÝ TƯ VẤN AI — KHO NHATOSG (V4.6) -->
-  <div class="overlay" id="aiChatOverlay" role="dialog" aria-modal="true" aria-label="Trợ lý AI — Kho nhatoSG" onclick="if(event.target===this) closeOverlay('aiChatOverlay')">
+  <!-- 15. NGĂN KÉO TƯ VẤN TRỰC TUYẾN — KHO NHATOSG (V4.8) -->
+  <div class="overlay" id="aiChatOverlay" role="dialog" aria-modal="true" aria-label="nhatoSG — Tư Vấn Trực Tuyến" onclick="if(event.target===this) closeOverlay('aiChatOverlay')">
     <aside class="ai-chat-panel">
       <div class="dossier-topbar">
         <div>
-          <div class="kicker" style="margin:0 0 2px;">CỐ VẤN KHO BĐS TP.HCM – THỦ ĐỨC</div>
-          <strong style="font-family:var(--serif); font-size:21px; font-weight:600;">Trợ Lý AI — Kho nhatoSG</strong>
+          <div class="kicker" style="margin:0 0 2px;">TRỢ LÝ CÁ NHÂN · KHO NHÀ SÀI GÒN</div>
+          <strong style="font-family:var(--serif); font-size:21px; font-weight:600;">nhatoSG — Tư Vấn Trực Tuyến</strong>
         </div>
-        <button type="button" class="top-rect-btn" onclick="closeOverlay('aiChatOverlay')" aria-label="Đóng trợ lý AI">× Đóng</button>
+        <button type="button" class="top-rect-btn" onclick="closeOverlay('aiChatOverlay')" aria-label="Đóng khung tư vấn">× Đóng</button>
       </div>
 
       <div class="ai-chat-subbar">
         <span class="ai-mode-pill" id="aiChatModeBadge">Chế độ Công khai</span>
-        <span id="aiChatHintText">Đối chiếu trực tiếp từ 359+ hồ sơ đã kiểm chứng</span>
+        <span id="aiChatHintText">Đối chiếu trực tiếp từ 358+ tài sản thực tế tại TP.HCM &amp; Thủ Đức</span>
       </div>
 
       <div class="ai-chat-prompts" id="aiChatQuickPrompts" aria-label="Câu hỏi gợi ý">
-        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Gợi ý 3 căn mặt tiền Quận 1 hoặc Quận 3 tầm 60-120 tỷ đang có dòng tiền thuê')">Mặt tiền Q1/Q3 có dòng tiền</button>
-        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Building văn phòng có hầm khu trung tâm hoặc Bình Thạnh tầm 50-150 tỷ')">Building có hầm trung tâm</button>
-        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Biệt thự hoặc quỹ đất lớn Thảo Điền TP. Thủ Đức ngang trên 10m')">Biệt thự / Quỹ đất Thảo Điền</button>
-        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Nhà mặt tiền hoặc khách sạn vừa giảm giá sâu dễ thương lượng')">Tài sản giảm giá sâu</button>
+        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Em chọn giúp vài căn mặt tiền Quận 1 hoặc Quận 3 đang có sẵn hợp đồng thuê tốt nhé')">Tìm mặt tiền Q1, Q3 có sẵn HĐT</button>
+        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Gợi ý giúp Anh/Chị các tòa building văn phòng có hầm tầm dưới 120 tỷ')">Building văn phòng có hầm &lt; 120 tỷ</button>
+        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Trong kho hiện có căn mặt tiền hoặc tòa nhà nào vừa điều chỉnh giảm giá tốt không em?')">Tài sản vừa giảm giá tốt</button>
+        <button type="button" class="ai-prompt-btn" onclick="sendSuggestedAiPrompt('Cho Anh/Chị xem các căn biệt thự hoặc khuôn đất lớn khu Thảo Điền TP. Thủ Đức')">Biệt thự / Khuôn đất lớn Thảo Điền</button>
       </div>
 
       <div class="ai-member-gate" id="aiMemberGateBox" hidden>
@@ -4483,8 +4520,8 @@
       <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite"></div>
 
       <form class="ai-chat-composer" id="aiChatComposerForm" onsubmit="submitAiChatQuestion(event)">
-        <textarea id="aiChatInput" rows="2" maxlength="500" placeholder="Hỏi AI (VD: Building Q1 có hầm < 120 tỷ)..." onkeydown="handleAiChatInputKeydown(event)"></textarea>
-        <button type="submit" id="aiChatSendBtn" class="btn-bronze-solid" style="height:44px; padding:0 16px;">Gửi AI</button>
+        <textarea id="aiChatInput" rows="2" maxlength="500" placeholder="Nhắn nhu cầu cùng nhatoSG (VD: Tìm mặt tiền Q1 tầm 80 tỷ)..." onkeydown="handleAiChatInputKeydown(event)"></textarea>
+        <button type="submit" id="aiChatSendBtn" class="btn-bronze-solid" style="height:44px; padding:0 16px;">Gửi</button>
       </form>
     </aside>
   </div>
@@ -7612,10 +7649,11 @@
         badgeEl.className = "ai-mode-pill" + (mode === "MEMBERS_ONLY" ? " is-member" : "");
         badgeEl.textContent = mode === "MEMBERS_ONLY" ? "Chỉ Thành Viên" : "Chế độ Công khai";
       }
+      const activeCnt = PROPERTIES.filter(function (p) { return !p.isSold; }).length;
       if (hintEl) {
         hintEl.textContent = mode === "MEMBERS_ONLY"
           ? "Quyền hỏi đáp riêng cho Thành Viên đã xác thực"
-          : "Đối chiếu từ 359+ hồ sơ đã kiểm chứng · Không lộ thông tin mật";
+          : ("Đồng hành cùng " + activeCnt + " hồ sơ đã kiểm chứng · Không lộ thông tin mật");
       }
 
       const verified = isAiMemberVerified();
@@ -7629,9 +7667,9 @@
       if (!box || box.children.length > 0) return;
       appendAiMessage(
         "bot",
-        "Chào Anh/Chị, tôi là Trợ lý AI của Nhà Sài Gòn (nhatoSG). Anh/Chị có thể nêu khu vực, loại tài sản, mức tài chính hoặc nhu cầu khai thác dòng tiền — tôi sẽ đối chiếu dữ liệu kho hiện hữu và đề xuất các hồ sơ phù hợp.",
+        "Xin chào Anh/Chị, em là **nhatoSG** — chuyên viên tư vấn bất động sản tại Nhà Sài Gòn.\n\nAnh/Chị đang quan tâm nhà phố mặt tiền, building văn phòng, khách sạn có dòng tiền hay biệt thự khu vực nào để em lọc nhanh các hồ sơ sát nhu cầu nhất gửi mình xem ạ?",
         [],
-        "Cố vấn nhatoSG"
+        "nhatoSG · Tư vấn cá nhân"
       );
     }
 
@@ -7656,15 +7694,118 @@
 
     function sanitizeProseNsgCodes(text) {
       return String(text || "")
+        .replace(/\r\n?/g, "\n")
         .replace(/\bNSG[-_\s]?\d{3,5}\b/gi, "")
         .replace(/\(\s*\)|\[\s*\]/g, "")
-        .replace(/\s{2,}/g, " ")
+        .replace(/[ \t]{2,}/g, " ")
+        .replace(/[ \t]+([.,;:!?])/g, "$1")
+        .replace(/[ \t]+\n/g, "\n")
+        .replace(/\n[ \t]+/g, "\n")
+        .replace(/\n{3,}/g, "\n\n")
         .trim();
     }
 
-    function buildLocalRagPayload(question) {
+    function formatAiBotMarkdownHtml(text) {
+      const clean = sanitizeProseNsgCodes(text);
+      if (!clean) return "";
+      const escaped = esc(clean).replace(/\*\*([^*\n]{1,140}?)\*\*/g, "<strong>$1</strong>");
+      const paras = escaped.split(/\n{2,}/).map(function (blk) {
+        return blk.trim();
+      }).filter(Boolean);
+      return paras.map(function (para) {
+        return '<p class="ai-p">' + para.replace(/\n/g, "<br>") + "</p>";
+      }).join("");
+    }
+
+    function buildCatalogOverviewSummary() {
+      const activePool = PROPERTIES.filter(function (p) { return !p.isSold; });
+      if (!activePool.length) return "Kho Nhà Sài Gòn hiện đang cập nhật giỏ hàng.";
+      const distCnt = {};
+      const catCnt = {};
+      const publicPrices = [];
+      let cashflowCnt = 0;
+      activePool.forEach(function (p) {
+        const dt = String(p.district || "TP.HCM").trim();
+        const cat = String(p.category || "BĐS").trim();
+        distCnt[dt] = (distCnt[dt] || 0) + 1;
+        catCnt[cat] = (catCnt[cat] || 0) + 1;
+        if (!p.masked && Number(p.price) > 0) publicPrices.push(Number(p.price));
+        if (p.hasCashflow) cashflowCnt += 1;
+      });
+      const topDist = Object.keys(distCnt)
+        .sort(function (a, b) { return distCnt[b] - distCnt[a]; })
+        .slice(0, 8)
+        .map(function (k) { return k + " (" + distCnt[k] + ")"; })
+        .join(", ");
+      const topCats = Object.keys(catCnt)
+        .sort(function (a, b) { return catCnt[b] - catCnt[a]; })
+        .slice(0, 6)
+        .map(function (k) { return k + " (" + catCnt[k] + ")"; })
+        .join(", ");
+      let priceRange = "đa dạng phân khúc";
+      if (publicPrices.length) {
+        const minP = Math.min.apply(null, publicPrices);
+        const maxP = Math.max.apply(null, publicPrices);
+        priceRange = fmtNum(minP) + "–" + fmtNum(maxP) + " Tỷ";
+      }
+      return (
+        "Tổng giỏ hàng đang chào: " + activePool.length + " tài sản (" + priceRange + "; " +
+        cashflowCnt + " căn có dòng tiền HĐT). " +
+        "Phân bổ quận chính: " + topDist + ". Loại hình: " + topCats + "."
+      );
+    }
+
+    function getRecentSuggestedIdsFromHistory() {
+      const hist = (typeof aiChatHistory !== "undefined" && Array.isArray(aiChatHistory)) ? aiChatHistory : [];
+      const collected = [];
+      const seen = new Set();
+      let botTurnsWithCards = 0;
+      for (let i = hist.length - 1; i >= 0 && botTurnsWithCards < 2; i--) {
+        const turn = hist[i];
+        if (!turn || turn.role !== "assistant" || !Array.isArray(turn.recommendedIds) || !turn.recommendedIds.length) continue;
+        botTurnsWithCards += 1;
+        turn.recommendedIds.forEach(function (rawId) {
+          const id = String(rawId || "").trim().toUpperCase();
+          if (id && !seen.has(id)) {
+            seen.add(id);
+            collected.push(id);
+          }
+        });
+      }
+      return collected.slice(0, 6);
+    }
+
+    function buildLocalRagPayload(question, recentIds) {
       const parsed = parseNaturalLanguageQuery(question);
       const activePool = PROPERTIES.filter(function (p) { return !p.isSold; });
+      const activeById = new Map();
+      activePool.forEach(function (p) { activeById.set(String(p.id || "").toUpperCase(), p); });
+
+      const recentList = Array.isArray(recentIds)
+        ? recentIds.map(function (x) { return String(x || "").trim().toUpperCase(); }).filter(function (id) { return activeById.has(id); })
+        : [];
+      const recentSet = new Set(recentList);
+
+      const qFoldWords = foldVi(question || "").replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean);
+      const multiStreetPhrases = [];
+      for (let n = 2; n <= 3; n++) {
+        for (let i = 0; i <= qFoldWords.length - n; i++) {
+          const phrase = qFoldWords.slice(i, i + n).join(" ");
+          if (phrase.length >= 6) multiStreetPhrases.push(phrase);
+        }
+      }
+
+      const streetMatched = [];
+      if (multiStreetPhrases.length) {
+        activePool.forEach(function (p) {
+          const stHay = foldVi((p.streetDisplay || "") + " " + (p.street || ""));
+          if (!stHay) return;
+          if (multiStreetPhrases.some(function (ph) { return stHay.includes(ph); })) {
+            streetMatched.push(p);
+          }
+        });
+      }
+
       let matched = parsed ? activePool.filter(function (p) { return propertyMatchesParsedQuery(p, parsed); }) : [];
       if (!matched.length && parsed && (parsed.districts.length || parsed.categoryExact)) {
         matched = activePool.filter(function (p) {
@@ -7674,6 +7815,9 @@
           const okC = !parsed.categoryExact || canonicalCategory(p.category) === canonicalCategory(parsed.categoryExact);
           return okD && okC;
         });
+      }
+      if (!matched.length && streetMatched.length) {
+        matched = streetMatched.slice();
       }
       if (!matched.length) {
         matched = activePool.slice().sort(function (a, b) {
@@ -7686,8 +7830,38 @@
         });
       }
 
-      const top10 = matched.slice(0, 10);
-      const candidates = top10.map(function (p) {
+      const combined = [];
+      const pushed = new Set();
+      recentList.forEach(function (id) {
+        const p = activeById.get(id);
+        if (p && !pushed.has(id)) {
+          pushed.add(id);
+          combined.push(p);
+        }
+      });
+      streetMatched.forEach(function (p) {
+        const id = String(p.id || "").toUpperCase();
+        if (id && !pushed.has(id)) {
+          pushed.add(id);
+          combined.push(p);
+        }
+      });
+      matched.forEach(function (p) {
+        const id = String(p.id || "").toUpperCase();
+        if (id && !pushed.has(id)) {
+          pushed.add(id);
+          combined.push(p);
+        }
+      });
+
+      const topCandidates = combined.slice(0, 14);
+      const candidates = topCandidates.map(function (p) {
+        const pid = String(p.id || "").toUpperCase();
+        const isMask = Boolean(p.masked || p.isSold);
+        let safeSec2 = sanitizeProseNsgCodes(p.sec2 || "");
+        if (isMask && safeSec2) {
+          safeSec2 = safeSec2.replace(/\b\d+(?:[.,]\d+)?\s*(?:tỷ|tỉ|triệu|tr|usd|\$)(?:\/tháng|\/năm)?(?=$|[\s,.;:)\]!?/])/gi, "thỏa thuận");
+        }
         return {
           id: p.id,
           category: p.category,
@@ -7702,15 +7876,17 @@
           isSold: Boolean(p.isSold),
           price: p.masked ? 0 : p.price,
           priceDisplay: p.masked ? "Liên Hệ (thỏa thuận kín)" : fmtBil(p.price),
-          yieldFull: p.cashflowMasked ? "Liên Hệ" : p.yieldFull
+          yieldFull: p.cashflowMasked ? "Liên Hệ" : p.yieldFull,
+          sec2: safeSec2,
+          dropInfo: (!p.masked && !p.isSold && p.dropText) ? (p.dropText + (p.dropPct ? " (" + p.dropPct + "%)" : "")) : "",
+          recentSuggested: recentSet.has(pid)
         };
       });
 
-      const activeCount = activePool.length;
       return {
         candidateIds: candidates.map(function (c) { return c.id; }),
         candidates: candidates,
-        warehouseSummary: "Kho Nhà Sài Gòn hiện có " + activeCount + " tài sản đang chào bán tại TP.HCM và TP. Thủ Đức."
+        warehouseSummary: buildCatalogOverviewSummary()
       };
     }
 
@@ -7744,12 +7920,32 @@
       if (!box) return null;
       const wrap = document.createElement("div");
       wrap.className = "ai-msg " + (role === "user" ? "user" : "bot");
-      const safeText = role === "user" ? String(text || "") : sanitizeProseNsgCodes(text);
+      const bubble = document.createElement("div");
+      bubble.className = "ai-bubble";
+      if (role === "user") {
+        bubble.textContent = String(text || "");
+      } else {
+        const htmlStr = formatAiBotMarkdownHtml(text);
+        if (typeof Element !== "undefined" && "setHTML" in Element.prototype && typeof bubble.setHTML === "function") {
+          bubble.setHTML(htmlStr, { sanitizer: { elements: ["p", "strong", "br"], attributes: ["class"] } });
+        } else {
+          bubble.innerHTML = htmlStr;
+        }
+      }
+      wrap.appendChild(bubble);
+
       const cardsHtml = role === "user" ? "" : renderAiAttachedCardsHtml(recIds);
-      wrap.innerHTML =
-        '<div class="ai-bubble">' + esc(safeText) + '</div>' +
-        cardsHtml +
-        (metaLabel ? '<span class="ai-msg-meta">' + esc(metaLabel) + '</span>' : '');
+      if (cardsHtml) {
+        const cardsHolder = document.createElement("div");
+        cardsHolder.innerHTML = cardsHtml;
+        if (cardsHolder.firstElementChild) wrap.appendChild(cardsHolder.firstElementChild);
+      }
+      if (metaLabel) {
+        const metaEl = document.createElement("span");
+        metaEl.className = "ai-msg-meta";
+        metaEl.textContent = String(metaLabel);
+        wrap.appendChild(metaEl);
+      }
       box.appendChild(wrap);
       box.scrollTop = box.scrollHeight;
       return wrap;
@@ -7834,19 +8030,40 @@
       }
     }
 
-    function buildLocalAdvisorFallbackReply(rag) {
+    function isSocialGreetingJs(question) {
+      const q = String(question || "").toLowerCase().replace(/[!?.,:;~"'()]+/g, " ").replace(/\s+/g, " ").trim();
+      if (!q || q.length > 75) return false;
+      if (/\b(?:tìm|mua|bán|căn|nhà|mặt\s*tiền|building|tòa\s*nhà|văn\s*phòng|khách\s*sạn|chdv|biệt\s*thự|đất|quận|q\d+|thủ\s*đức|bình\s*thạnh|tân\s*bình|phú\s*nhuận|gò\s*vấp|tỷ|tỉ|triệu|ngang|hầm|diện\s*tích|hđt|dòng\s*tiền|giá|giảm)\b/i.test(q)) {
+        return false;
+      }
+      return /^(?:dạ\s+)?(?:xin\s+)?(?:chào|alo|hello|hi|hey|good\s*(?:morning|afternoon|evening)|em\s*ơi|ad\s*ơi|có\s*ai\s*(?:trực|ở\s*đây)\s*(?:không|ko|k)|cần\s*tư\s*vấn\s*(?:nhé|ạ)?)\b/i.test(q);
+    }
+
+    function buildLocalAdvisorFallbackReply(rag, question) {
+      if (isSocialGreetingJs(question)) {
+        return {
+          text: "Dạ em chào Anh/Chị, em là **nhatoSG** đây ạ.\n\nAnh/Chị đang tìm mặt tiền kinh doanh, tòa nhà văn phòng, khách sạn có sẵn dòng tiền hay biệt thự khu vực nào để em chọn lọc sản phẩm phù hợp nhất gửi mình xem trước ạ?",
+          ids: []
+        };
+      }
       const top = (rag && rag.candidates) ? rag.candidates.slice(0, 3) : [];
       if (!top.length) {
-        return "Hiện kho công khai chưa có căn khớp đồng thời toàn bộ điều kiện vừa nêu. Anh/Chị có thể mở rộng khu vực hoặc nhắn trực tiếp Zalo 0916.23.9898 (Vũ) để rà soát hồ sơ kín phù hợp.";
+        return {
+          text: "Hiện tại trong giỏ công khai của **nhatoSG** chưa có căn khớp đồng thời mọi tiêu chí vừa nêu.\n\nAnh/Chị có thể mở rộng khu vực hoặc nhắn trực tiếp **Zalo Vũ (0916.23.9898)** để em rà soát thêm nguồn ký gửi kín ngoài web nhé.",
+          ids: []
+        };
       }
       const listTxt = top.map(function (c) {
-        return c.streetDisplay + " (" + c.district + ", " + c.priceDisplay + ")";
+        return "**" + c.streetDisplay + "** (" + c.district + ", " + c.priceDisplay + ")";
       }).join("; ");
-      return sanitizeProseNsgCodes(
-        "Dựa trên kho tài sản hiện hữu của Nhà Sài Gòn, các lựa chọn sát nhu cầu nhất gồm: " +
-        listTxt +
-        ". Anh/Chị có thể bấm Xem chi tiết trên từng thẻ bên dưới hoặc nhắn Zalo Vũ 0916.23.9898 để nhận sổ hồng đối chiếu."
-      );
+      return {
+        text: sanitizeProseNsgCodes(
+          "Dạ theo nhu cầu của Anh/Chị, em lọc nhanh vài phương án sáng nhất trong kho **Nhà Sài Gòn**: " +
+          listTxt +
+          ".\n\nAnh/Chị muốn em so sánh sâu hơn về mặt tiền, công năng hay hiệu suất thuê căn nào thì cứ nhắn em nhé; khi cần đối chiếu sổ hồng mình nhắn **Zalo Vũ (0916.23.9898)** ạ."
+        ),
+        ids: top.map(function (c) { return c.id; })
+      };
     }
 
     async function submitAiChatQuestion(ev) {
@@ -7871,21 +8088,23 @@
       }
 
       inp.value = "";
-      appendAiMessage("user", q, [], "Bạn");
-      const typingEl = appendAiMessage("bot", "Đang đối chiếu kho tài sản Nhà Sài Gòn...", [], "");
+      appendAiMessage("user", q, [], "Anh/Chị");
+      const typingEl = appendAiMessage("bot", "Em đang rà soát kho Nhà Sài Gòn cho Anh/Chị...", [], "");
       aiChatSending = true;
       if (sendBtn) sendBtn.disabled = true;
 
-      const rag = buildLocalRagPayload(q);
+      const recentIds = getRecentSuggestedIdsFromHistory();
+      const rag = buildLocalRagPayload(q, recentIds);
       const sess = loadAiMemberSession() || {};
       const headers = { "Content-Type": "application/json" };
       if (sess.token) headers["Authorization"] = "Bearer " + sess.token;
 
       const bodyPayload = {
         question: q,
-        history: aiChatHistory.slice(-4),
+        history: aiChatHistory.slice(-12),
         candidate_ids: rag.candidateIds,
         candidates: rag.candidates,
+        catalog_overview: rag.catalogOverview,
         warehouse_summary: rag.warehouseSummary
       };
 
@@ -7905,7 +8124,7 @@
           if (typingEl) typingEl.remove();
           aiChatConfig.mode = "MEMBERS_ONLY";
           applyAiChatGovernanceUI();
-          appendAiMessage("bot", "Phiên Thành Viên chưa hợp lệ hoặc đã được thu hồi. Vui lòng đăng nhập lại bằng mã mới nhất.", [], "Bảo mật");
+          appendAiMessage("bot", "Phiên Thành Viên chưa hợp lệ hoặc đã được thu hồi. Anh/Chị vui lòng đăng nhập lại bằng mã mới nhất ạ.", [], "Bảo mật");
           return;
         }
         if (resp.status === 403 || resp.status === 429) {
@@ -7915,27 +8134,28 @@
             aiChatConfig.enabled = false;
             applyAiChatGovernanceUI();
           }
-          appendAiMessage("bot", data.message || "Tạm thời không thể gửi câu hỏi lúc này.", [], "Thông báo");
+          appendAiMessage("bot", data.message || "Tạm thời chưa gửi được tin nhắn lúc này, Anh/Chị thử lại giúp em sau ít giây nhé.", [], "Thông báo");
           return;
         }
 
         if (resp.ok && data && data.reply) {
           if (typingEl) typingEl.remove();
-          const recIds = Array.isArray(data.recommended_ids) && data.recommended_ids.length
-            ? data.recommended_ids
-            : rag.candidateIds.slice(0, 3);
+          const recIds = Array.isArray(data.recommended_ids)
+            ? data.recommended_ids.slice(0, 4)
+            : [];
           const cleanReply = sanitizeProseNsgCodes(data.reply);
-          appendAiMessage("bot", cleanReply, recIds, data.source === "gemini" ? "Cố vấn AI · Gemini" : "Tổng hợp kho Nhà Sài Gòn");
-          aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply });
+          appendAiMessage("bot", cleanReply, recIds, data.source === "gemini" ? "nhatoSG · Cố vấn Gemini" : "nhatoSG · Kho Nhà Sài Gòn");
+          aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply, recommendedIds: recIds });
+          if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
           return;
         }
         throw new Error("FALLBACK_LOCAL");
       } catch (e) {
         if (typingEl) typingEl.remove();
-        const fbText = buildLocalAdvisorFallbackReply(rag);
-        const fbIds = rag.candidateIds.slice(0, 3);
-        appendAiMessage("bot", fbText, fbIds, "Đối chiếu kho cục bộ");
-        aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: fbText });
+        const fbRes = buildLocalAdvisorFallbackReply(rag, q);
+        appendAiMessage("bot", fbRes.text, fbRes.ids, "nhatoSG · Đối chiếu kho");
+        aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: fbRes.text, recommendedIds: fbRes.ids });
+        if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
       } finally {
         aiChatSending = false;
         if (sendBtn) sendBtn.disabled = false;

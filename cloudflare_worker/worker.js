@@ -1,12 +1,12 @@
 /**
- * nhatoSG Web AI Chat Advisor Worker (V4.6).
+ * nhatoSG Web AI Chat Advisor Worker (V4.8 — Gemini 4 Hydrogen + Em là nhatoSG).
  * Legacy /ai-search and search-bar { query } requests are permanently disabled (HTTP 410).
  * Credentials live solely in Worker secrets (env.GEMINI_API_KEY); no inventory or PII is stored here.
  */
 export const MODEL_CHAIN = [
+  "gemini-4-hydrogen",
   "gemini-3.5-flash-lite",
   "gemini-3.1-flash-lite",
-  "gemini-4-hydrogen",
 ];
 
 const DEFAULT_CONFIG_URL = "https://nhatosg.com.vn/web_chat_config.json";
@@ -190,16 +190,21 @@ async function fetchLiveConfig(env) {
 
 function stripNsgCodes(text) {
   return String(text || "")
+    .replace(/\r\n?/g, "\n")
     .replace(/\bNSG[-_\s]?\d{3,5}\b/gi, "")
     .replace(/\(\s*\)|\[\s*\]/g, "")
-    .replace(/\s{2,}/g, " ")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/[ \t]+([.,;:!?])/g, "$1")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n[ \t]+/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
 function sanitizeCandidates(rawCandidates) {
   if (!Array.isArray(rawCandidates)) return [];
   const clean = [];
-  for (const c of rawCandidates.slice(0, 10)) {
+  for (const c of rawCandidates.slice(0, 14)) {
     if (!c || typeof c !== "object") continue;
     const id = String(c.id || c.property_id || "").trim().toUpperCase();
     if (!/^NSG-\d{3,5}$/.test(id)) continue;
@@ -207,6 +212,11 @@ function sanitizeCandidates(rawCandidates) {
     const cfMasked = Boolean(c.cashflowMasked || c.is_cashflow_masked);
     const priceTxt = c.isSold ? "Đã Bán" : masked ? "Liên Hệ (thỏa thuận kín)" : String(c.priceDisplay || (c.price > 0 ? `${c.price} Tỷ` : "Liên Hệ"));
     const cfTxt = cfMasked ? "Liên Hệ" : String(c.yieldFull || c.cashflow || "Liên Hệ");
+    let highlight = stripNsgCodes(String(c.sec2 || c.highlight || "").slice(0, 220));
+    if (masked || c.isSold) {
+      highlight = highlight.replace(/\b\d+(?:[.,]\d+)?\s*(?:tỷ|tỉ|triệu|tr|usd|\$)(?:\/tháng|\/năm)?(?=$|[\s,.;:)\]!?/])/gi, "thỏa thuận");
+    }
+    const dropNote = (!masked && !c.isSold && c.dropInfo) ? stripNsgCodes(String(c.dropInfo).slice(0, 60)) : "";
     clean.push({
       id,
       street: String(c.streetDisplay || c.street || "").slice(0, 80),
@@ -218,6 +228,9 @@ function sanitizeCandidates(rawCandidates) {
       structure: String(c.structFull || c.structure || "Liên Hệ").slice(0, 100),
       priceTxt: priceTxt.slice(0, 60),
       cfTxt: cfTxt.slice(0, 80),
+      highlight,
+      dropNote,
+      recentSuggested: Boolean(c.recentSuggested),
     });
   }
   return clean;
@@ -276,9 +289,9 @@ export default {
     let body;
     try {
       const lenHdr = Number(request.headers.get("Content-Length") || 0);
-      if (lenHdr > 32768) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
+      if (lenHdr > 65536) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
       const rawTxt = await request.text();
-      if (rawTxt.length > 32768) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
+      if (rawTxt.length > 65536) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
       body = JSON.parse(rawTxt);
     } catch {
       return jsonResp({ ok: false, error: "INVALID_JSON" }, 400);
@@ -364,54 +377,84 @@ export default {
 
     const candidates = sanitizeCandidates(body.candidates);
     const validIds = new Set(candidates.map((c) => c.id));
-    const histLines = (Array.isArray(body.history) ? body.history.slice(-4) : [])
+    const histLines = (Array.isArray(body.history) ? body.history.slice(-12) : [])
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
-      .map((t) => `${t.role === "user" ? "Khách" : "Cố vấn"}: ${t.text.trim().slice(0, 300)}`);
+      .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (nhatoSG)"}: ${t.text.trim().slice(0, 450)}`);
 
-    const ragLines = candidates.map(
-      (c) =>
-        `- ID:${c.id} | ${c.category} | Đường ${c.street}, ${c.ward ? c.ward + ", " : ""}${c.district} | KT: ${c.dims} | DTCN: ${c.area} | Kết cấu: ${c.structure} | Giá: ${c.priceTxt} | Khai thác: ${c.cfTxt}`
-    );
+    const ragLines = candidates.map((c) => {
+      const tags = [c.recentSuggested ? "Vừa gợi ý ở lượt trước" : "", c.dropNote].filter(Boolean).join(" · ");
+      const tail = c.highlight ? ` | Điểm nhấn: ${c.highlight}` : "";
+      return `- ID:${c.id}${tags ? ` (${tags})` : ""} | ${c.category} | Đường ${c.street}, ${c.ward ? c.ward + ", " : ""}${c.district} | KT: ${c.dims} | DTCN: ${c.area} | Kết cấu: ${c.structure} | Giá: ${c.priceTxt} | Khai thác: ${c.cfTxt}${tail}`;
+    });
+    const catalogOverview = String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
     const sysInstruction =
-      "Bạn là Cố vấn Bất Động Sản cao cấp của Nhà Sài Gòn (nhatoSG) tại TP.HCM – TP. Thủ Đức.\n" +
-      "1. Trả lời điềm đạm, súc tích bằng tiếng Việt (3-6 câu).\n" +
-      "2. CHỈ dùng thông số có thật trong DANH SÁCH TÀI SẢN KHO bên dưới; 0 bịa căn ảo, 0 suy đoán pháp lý ngoài dữ liệu.\n" +
-      "3. TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (chỉ đưa vào 'recommended_ids').\n" +
-      "4. Hướng dẫn khách bấm Xem chi tiết ở thẻ bên dưới hoặc nhắn Zalo Vũ 0916.23.9898.";
+      "Em tên là nhatoSG — chuyên viên tư vấn bất động sản cá nhân đồng hành cùng khách hàng tại Nhà Sài Gòn (nhatoSG), am hiểu phân khúc nhà phố mặt tiền, building văn phòng, khách sạn có dòng tiền và biệt thự từ 20 – 200+ tỷ tại TP.HCM & TP. Thủ Đức.\n\n" +
+      "PHONG CÁCH GIAO TIẾP BẮT BUỘC:\n" +
+      "- Luôn xưng \"em\" (lần đầu hoặc khi tự giới thiệu thì xưng \"em là nhatoSG\") và gọi khách là \"Anh/Chị\" (xen chữ \"mình\" tự nhiên, ấm áp). TUYỆT ĐỐI KHÔNG xưng \"bạn\", \"tôi\", \"hệ thống\"; bỏ hoàn toàn lối nói chatbot máy móc như \"Bạn có thể tham khảo...\", \"Mời bạn bấm Xem chi tiết ở các thẻ bên dưới...\".\n" +
+      "- Viết tiếng Việt tự nhiên, mềm mại, thông minh và có chiều sâu tư vấn như chuyên gia thực thụ trò chuyện trực tiếp. Chia đoạn thoáng bằng \\n\\n và nhấn đậm nhẹ **tên đường / lợi thế cốt lõi** (bề ngang rộng, hầm đậu xe, PCCC, hiệu suất dòng tiền).\n\n" +
+      "CÁCH XỬ LÝ TỪNG TÌNH HUỐNG:\n" +
+      "1. Chào hỏi xã giao hoặc trò chuyện mở (\"Chào em\", \"Alo\", \"Có ai trực không\"...): Đáp lại ấm áp, tự nhiên (VD: \"Dạ em chào Anh/Chị, em là nhatoSG đây ạ. Anh/Chị đang tìm mặt tiền kinh doanh, tòa nhà văn phòng, khách sạn có sẵn dòng tiền hay biệt thự khu vực nào để em chọn lọc sản phẩm phù hợp nhất gửi mình xem trước ạ?\") và BẮT BUỘC trả recommended_ids: [] (tuyệt đối không gắn thẻ nhà khi khách chưa nêu nhu cầu).\n" +
+      "2. Hỏi tư vấn chiến lược, so sánh khu vực/căn vừa xem, hiệu suất cho thuê, pháp lý/PCCC hoặc tổng quan giỏ hàng: Suy luận sâu sắc, phân tích thẳng vào bản chất (trục đường, bề ngang, đơn giá/m² công nhận ước tính nếu giá & diện tích công khai, dòng tiền HĐT, thanh khoản). Nếu tiêu chí còn rộng (VD chỉ nói \"tìm nhà Quận 1\"), gợi ý 2–3 lựa chọn tiêu biểu rồi khéo léo hỏi thêm 1 câu ngắn để thu hẹp đúng gu Anh/Chị. Chỉ đưa ID vào recommended_ids (0–4 căn) khi thực sự hữu ích để hiển thị thẻ minh họa.\n" +
+      "3. Hỏi tìm sản phẩm cụ thể: Chọn lọc 1 đến tối đa 4 căn sát nhu cầu nhất vào recommended_ids, nêu gọn lý do từng căn đáng cân nhắc thay vì đọc lại y nguyên bảng thông số. Nếu kho chưa có căn khớp 100% tiêu chí khắt khe, nói thật lòng tinh tế, gợi ý phương án gần nhất hiện có và mời Anh/Chị nhắn Zalo Vũ (0916.23.9898) kiểm tra nguồn ký gửi kín.\n\n" +
+      "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
+      "- Chỉ khẳng định thông số thực tế có trong BẢN ĐỒ TOÀN KHO và DANH SÁCH ỨNG VIÊN bên dưới (0 bịa đặt căn ngoài kho, 0 suy đoán pháp lý ngoài dữ liệu).\n" +
+      "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong mảng 'recommended_ids').\n" +
+      "- Không chèn câu mời Zalo máy móc ở mọi câu trả lời — chỉ nhắc khéo Zalo Vũ (0916.23.9898) khi Anh/Chị hỏi sổ hồng, số nhà chính xác, thương lượng giá chốt, căn bảo mật giá (Liên Hệ) hoặc nguồn kín ngoài kho.";
 
     const userPrompt =
-      (body.warehouse_summary ? `Tổng quan kho: ${String(body.warehouse_summary).slice(0, 220)}\n` : "") +
-      (histLines.length ? `Hội thoại gần đây:\n${histLines.join("\n")}\n` : "") +
-      `DANH SÁCH TÀI SẢN KHO (Tối đa 10 căn phù hợp nhất):\n${ragLines.join("\n") || "(Chưa có căn khớp)"}\n\nCâu hỏi của khách: ${question}`;
+      (catalogOverview ? `BẢN ĐỒ TOÀN KHO NHATOSG:\n${catalogOverview}\n\n` : "") +
+      (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
+      `DANH SÁCH ỨNG VIÊN LIÊN QUAN NHẤT (Tối đa 14 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
-    const signal = AbortSignal.timeout(12000);
+    const signal = AbortSignal.timeout(22000);
+    const callModel = async (model, allowThinking) => {
+      const genConfig = {
+        temperature: 0.7,
+        topP: 0.92,
+        maxOutputTokens: 2048,
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: "OBJECT",
+          required: ["answer", "recommended_ids"],
+          properties: {
+            answer: {
+              type: "STRING",
+              description: "Câu trả lời tiếng Việt tự nhiên bằng giọng em - nhatoSG, chia đoạn \\n\\n, nhấn đậm nhẹ **...**, tuyệt đối không chứa mã NSG-XXXX.",
+            },
+            recommended_ids: {
+              type: "ARRAY",
+              items: { type: "STRING" },
+              description: "Danh sách 0 đến tối đa 4 mã ID tài sản phù hợp nhất để hiện thẻ; trả mảng rỗng [] khi chào hỏi xã giao hoặc chưa cần hiện thẻ.",
+            },
+          },
+        },
+      };
+      if (allowThinking) {
+        genConfig.thinkingConfig = { thinkingBudget: 1024 };
+      }
+      return fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: "POST",
+          signal,
+          headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+          body: JSON.stringify({
+            systemInstruction: { parts: [{ text: sysInstruction }] },
+            contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+            generationConfig: genConfig,
+          }),
+        }
+      );
+    };
+
     try {
       for (const model of MODEL_CHAIN) {
-        const resp = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
-          {
-            method: "POST",
-            signal,
-            headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-            body: JSON.stringify({
-              systemInstruction: { parts: [{ text: sysInstruction }] },
-              contents: [{ role: "user", parts: [{ text: userPrompt }] }],
-              generationConfig: {
-                temperature: 0.25,
-                maxOutputTokens: 600,
-                responseMimeType: "application/json",
-                responseSchema: {
-                  type: "OBJECT",
-                  required: ["answer", "recommended_ids"],
-                  properties: {
-                    answer: { type: "STRING" },
-                    recommended_ids: { type: "ARRAY", items: { type: "STRING" } },
-                  },
-                },
-              },
-            }),
-          }
-        );
+        const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-2.5-");
+        let resp = await callModel(model, supportsThinking);
+        if (resp.status === 400 && supportsThinking) {
+          await resp.body?.cancel();
+          resp = await callModel(model, false);
+        }
         if ([403, 404, 429, 503].includes(resp.status)) {
           await resp.body?.cancel();
           continue;
@@ -443,12 +486,12 @@ export default {
           const recIds = (Array.isArray(parsed.recommended_ids) ? parsed.recommended_ids : [])
             .map((x) => String(x || "").trim().toUpperCase())
             .filter((x) => validIds.has(x))
-            .slice(0, 6);
+            .slice(0, 4);
           if (ans) {
             return jsonResp({
               ok: true,
               reply: ans,
-              recommended_ids: recIds.length ? recIds : candidates.slice(0, 3).map((c) => c.id),
+              recommended_ids: recIds,
               model,
               source: "gemini",
               mode: cfg.mode,
