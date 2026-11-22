@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="nhatoSG — Nhà Sài Gòn">
+  <defs>
+    <linearGradient id="nsgPhBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6F3EC"/>
+      <stop offset="100%" stop-color="#EAE5DB"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#nsgPhBg)"/>
+  <rect x="24" y="24" width="752" height="552" rx="6" fill="none" stroke="#C5BEB0" stroke-width="1.5"/>
+  <g stroke="#9A442E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.48">
+    <path d="M235 335 H565"/>
+    <path d="M265 349 H535"/>
+    <path d="M350 335 V214 L388 198 V335"/>
+    <path d="M388 335 V184 L424 196 V335"/>
+    <path d="M438 335 V236 H502 V335"/>
+    <path d="M454 256 H486 M454 276 H486 M454 296 H486 M454 316 H486"/>
+    <path d="M300 335 V268 H338 V335"/>
+  </g>
+  <text x="400" y="398" text-anchor="middle" fill="#181816" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="600" letter-spacing="-0.5">nhato<tspan fill="#9A442E">SG</tspan></text>
+  <text x="400" y="428" text-anchor="middle" fill="#46413A" font-family="ui-monospace, Consolas, monospace" font-size="13" letter-spacing="1.4">HÌNH ẢNH THỰC TẾ CUNG CẤP TRỰC TIẾP QUA ZALO · 0916.23.9898</text>
+</svg>

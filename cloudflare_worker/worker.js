@@ -192,9 +192,11 @@ async function fetchLiveConfig(env) {
 function stripNsgCodes(text) {
   return String(text || "")
     .replace(/\r\n?/g, "\n")
-    .replace(/(?:\(\s*)?\*{1,3}\s*(?:mã\s+|căn\s+)?\[?\s*\bNSG[-_\s]?\d{3,5}\b\s*\]?\s*\*{1,3}(?:\s*\))?/gi, "")
+    .replace(/(?:\(\s*)?\*{0,3}\s*(?:id|mã\s*(?:căn|tài\s*sản|số|sp)?|căn)\s*[:#-]?\s*\*{0,3}\s*\[?\s*\bNSG[-_\s]?\d{3,5}\b\s*\]?\s*\*{0,3}(?:\s*\))?/gi, "")
+    .replace(/(?:\(\s*)?\*{1,3}\s*\[?\s*\bNSG[-_\s]?\d{3,5}\b\s*\]?\s*\*{1,3}(?:\s*\))?/gi, "")
     .replace(/\bNSG[-_\s]?\d{3,5}\b/gi, "")
-    .replace(/\(\s*(?:mã|căn|\*+)?\s*\)|\[\s*(?:mã|căn|\*+)?\s*\]|\*{4,}/gi, "")
+    .replace(/\(\s*(?:id|mã\s*(?:căn|tài\s*sản|số|sp)?|căn|\*+)?\s*[:#-]?\s*\)|\[\s*(?:id|mã\s*(?:căn|tài\s*sản|số|sp)?|căn|\*+)?\s*[:#-]?\s*\]|\*{4,}/gi, "")
+    .replace(/(?:^|[\s,;—–-])(?:id|mã\s*(?:căn|tài\s*sản)|mã\s*số)\s*[:#-]\s*(?=[.,;!?)\]\n—–-]|$)/gi, "")
     .replace(/(\p{Ll})(?=(?:Anh\/Chị|Anh|Chị|Vũ|Em)(?:[\s.,;:!?)]|$))/gu, "$1 ")
     .replace(/(\p{Ll}\.)(\p{Lu}\p{Ll})/gu, "$1 $2")
     .replace(/([,;!?])(\p{L})/gu, "$1 $2")
