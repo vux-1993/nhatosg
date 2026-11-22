@@ -481,11 +481,13 @@ try {
     font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.16em;
-    color: rgba(250, 248, 243, 0.34);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.48);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
+    user-select: none;
   }
+  .p-watermark.wm-hidden { display: none; }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -1013,6 +1015,10 @@ try {
   }
 </style>
 <!-- NSG_VIP_UX_STYLE_END -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<!-- nsg-web-security-shield -->
+<link rel="stylesheet" href="/web_security_shield.css">
+<script src="/web_security_shield.js" defer></script>
 </head>
 <body>
 
@@ -1052,7 +1058,7 @@ try {
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0506/ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0506/ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg" data-raw="web_images/NSG-0506/ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0506/ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg" alt="Bán Quỹ Đất &amp; Tài Sản Hiện Hữu Phường Bến Nghé, Quận 1 – DT 343m², 515 Tỷ - DT 11,7m × 30m (CN 343m²) - Giá chào 515 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark">NHATOSG.COM.VN</div>
+        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
         
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -1099,6 +1105,7 @@ try {
   </div>
   <div class="p-lb-stage" id="pLbStage">
     <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0506/ban-quy-dat-xay-cao-tang-phuong-ben-nghe-quan-1-nsg-0506-hinh-1-68f4.jpg" alt="Bán Quỹ Đất &amp; Tài Sản Hiện Hữu Phường Bến Nghé, Quận 1 – DT 343m², 515 Tỷ - DT 11,7m × 30m (CN 343m²) - Giá chào 515 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -1172,6 +1179,11 @@ try {
       lbImg.alt = item.cap;
       lbImg.src = resolveRootWebp(item.raw, "lightbox", item.abs);
     }
+    var isWmV2 = /(?:^|[\/_-])wmv2(?:[._-]|$)/i.test(String(item.raw || item.abs || ""));
+    var wmStage = document.getElementById("pWatermark");
+    var wmLb = document.getElementById("pLbWatermark");
+    if (wmStage) wmStage.classList.toggle("wm-hidden", isWmV2);
+    if (wmLb) wmLb.classList.toggle("wm-hidden", isWmV2);
 
     var strip = document.getElementById("pThumbStrip");
     if (strip) {

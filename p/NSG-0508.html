@@ -481,11 +481,13 @@ try {
     font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.16em;
-    color: rgba(250, 248, 243, 0.34);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.48);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
+    user-select: none;
   }
+  .p-watermark.wm-hidden { display: none; }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -1013,6 +1015,10 @@ try {
   }
 </style>
 <!-- NSG_VIP_UX_STYLE_END -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<!-- nsg-web-security-shield -->
+<link rel="stylesheet" href="/web_security_shield.css">
+<script src="/web_security_shield.js" defer></script>
 </head>
 <body>
 
@@ -1052,7 +1058,7 @@ try {
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" data-raw="web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 13, Quận 3 – 3 Tầng, 28 Tỷ - DT 7,2m × 12m (CN 89.1m²) - Giá chào 28 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark">NHATOSG.COM.VN</div>
+        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
         
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -1063,7 +1069,7 @@ try {
       <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" data-raw="web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 13, Quận 3 – 3 Tầng, 28 Tỷ - DT 7,2m × 12m (CN 89.1m²) - Giá chào 28 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-2-3670.jpg" data-raw="web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-2-3670.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-2-3670.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 13, Quận 3 – 3 Tầng, 28 Tỷ - DT 7,2m × 12m (CN 89.1m²) - Giá chào 28 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button><button type="button" class="p-thumb-btn" data-idx="2" onclick="selectStaticSlide(2)" aria-label="Xem ảnh #3"><img src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-3-6941.jpg" data-raw="web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-3-6941.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-3-6941.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 13, Quận 3 – 3 Tầng, 28 Tỷ - DT 7,2m × 12m (CN 89.1m²) - Giá chào 28 Tỷ - Ảnh #3" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#3</span></button></div>
     </div>
 
-    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,2 × 12m</li><li><strong>Diện tích công nhận:</strong> 89,1m²</li><li><strong>Diện tích khuôn viên:</strong> 101m²</li><li><strong>Kết cấu:</strong> 3 Tầng</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ nằm trên trục Đường Lê Văn Sỹ, Phường 13, Quận 3, khu vực giao thương thuận tiện và kết nối nhanh ra các trục đường chính. Sở hữu hiện trạng công trình kiên cố, không gian bên trong thông suốt dễ bố trí công năng. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>40 triệu/tháng</strong>· Còn hơn 1 năm</p></section></div>
+    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 7,2 × 12m</li><li><strong>Diện tích công nhận:</strong> 89,1m²</li><li><strong>Diện tích khuôn viên:</strong> 101m²</li><li><strong>Kết cấu:</strong> 3 Tầng</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ nằm trên trục Đường Lê Văn Sỹ, Phường 13, Quận 3, kết nối hẻm xe tải thông thoáng kết nối hai trục chính Lê Văn Sỹ và Trường Sa, Phường 13, Quận 3 – khu vực trung tâm sầm uất, giao thông kết nối tiện lợi. Sở hữu hiện trạng công trình kiên cố, không gian bên trong thông suốt dễ bố trí công năng. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>40 triệu/tháng</strong>· Còn hơn 1 năm</p></section></div>
 
     <div class="actions-bar">
       <a href="/?id=NSG-0508" class="btn btn-primary">🌐 Mở Trên Kho Tương Tác nhatoSG</a>
@@ -1099,6 +1105,7 @@ try {
   </div>
   <div class="p-lb-stage" id="pLbStage">
     <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0508/ban-toa-chdv-khach-san-phuong-13-quan-3-nsg-0508-hinh-1-5cfb.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường 13, Quận 3 – 3 Tầng, 28 Tỷ - DT 7,2m × 12m (CN 89.1m²) - Giá chào 28 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -1172,6 +1179,11 @@ try {
       lbImg.alt = item.cap;
       lbImg.src = resolveRootWebp(item.raw, "lightbox", item.abs);
     }
+    var isWmV2 = /(?:^|[\/_-])wmv2(?:[._-]|$)/i.test(String(item.raw || item.abs || ""));
+    var wmStage = document.getElementById("pWatermark");
+    var wmLb = document.getElementById("pLbWatermark");
+    if (wmStage) wmStage.classList.toggle("wm-hidden", isWmV2);
+    if (wmLb) wmLb.classList.toggle("wm-hidden", isWmV2);
 
     var strip = document.getElementById("pThumbStrip");
     if (strip) {

@@ -481,11 +481,13 @@ try {
     font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.16em;
-    color: rgba(250, 248, 243, 0.34);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.48);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
+    user-select: none;
   }
+  .p-watermark.wm-hidden { display: none; }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -1013,6 +1015,10 @@ try {
   }
 </style>
 <!-- NSG_VIP_UX_STYLE_END -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<!-- nsg-web-security-shield -->
+<link rel="stylesheet" href="/web_security_shield.css">
+<script src="/web_security_shield.js" defer></script>
 </head>
 <body>
 
@@ -1052,7 +1058,7 @@ try {
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark">NHATOSG.COM.VN</div>
+        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
         
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -1063,7 +1069,7 @@ try {
       <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-2-db93d.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button><button type="button" class="p-thumb-btn" data-idx="2" onclick="selectStaticSlide(2)" aria-label="Xem ảnh #3"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-3-e2abd.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #3" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#3</span></button><button type="button" class="p-thumb-btn" data-idx="3" onclick="selectStaticSlide(3)" aria-label="Xem ảnh #4"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-4-c1fb0.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #4" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#4</span></button><button type="button" class="p-thumb-btn" data-idx="4" onclick="selectStaticSlide(4)" aria-label="Xem ảnh #5"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-5-785b8.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #5" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#5</span></button><button type="button" class="p-thumb-btn" data-idx="5" onclick="selectStaticSlide(5)" aria-label="Xem ảnh #6"><img src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.jpg" data-raw="web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-6-30c7e.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #6" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#6</span></button></div>
     </div>
 
-    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 17 × 21m</li><li><strong>Diện tích công nhận:</strong> 307m²</li><li><strong>Diện tích khuôn viên:</strong> 357m²</li><li><strong>Kết cấu:</strong> Trệt, 2 Lầu (Góc 3 Mặt Tiền, DTCN 307m², Tổng Đất 357m²)</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Biệt thự tọa lạc mặt tiền Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức, thuộc Khu Biệt thự Compound Thảo Điền 2, đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Sở hữu lợi thế góc ba mặt thoáng hiếm có giúp nhận diện thương hiệu nổi bật. Phù hợp an cư yên tĩnh, làm tư gia kết hợp văn phòng đại diện hoặc giữ tài sản lâu dài.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Liên Hệ</strong></p></section></div>
+    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 17 × 21m</li><li><strong>Diện tích công nhận:</strong> 307m²</li><li><strong>Diện tích khuôn viên:</strong> 357m²</li><li><strong>Kết cấu:</strong> Trệt, 2 Lầu (Góc 3 Mặt Tiền, DTCN 307m², Tổng Đất 357m²)</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Biệt thự tọa lạc mặt tiền Đường Nguyễn Văn Hưởng, Phường Thảo Điền, TP. Thủ Đức, khu vực giao thương thuận tiện và kết nối nhanh ra các trục đường chính. Sở hữu lợi thế góc ba mặt thoáng hiếm có giúp nhận diện thương hiệu nổi bật. Phù hợp an cư yên tĩnh, làm tư gia kết hợp văn phòng đại diện hoặc giữ tài sản lâu dài.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>Hiện trạng khai thác: <strong>Liên Hệ</strong></p></section></div>
 
     <div class="actions-bar">
       <a href="/?id=NSG-0673" class="btn btn-primary">🌐 Mở Trên Kho Tương Tác nhatoSG</a>
@@ -1099,6 +1105,7 @@ try {
   </div>
   <div class="p-lb-stage" id="pLbStage">
     <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0673/ban-biet-thu-dinh-thu-phuong-thao-dien-tp-thu-duc-nsg-0673-hinh-1-d6b55.jpg" alt="Bán Biệt Thự Phường Thảo Điền, TP. Thủ Đức – 2 Lầu, 140 Tỷ - DT 17m × 21m (Góc 3 Mặt Tiền) (CN 307m²) - Giá chào 140 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -1172,6 +1179,11 @@ try {
       lbImg.alt = item.cap;
       lbImg.src = resolveRootWebp(item.raw, "lightbox", item.abs);
     }
+    var isWmV2 = /(?:^|[\/_-])wmv2(?:[._-]|$)/i.test(String(item.raw || item.abs || ""));
+    var wmStage = document.getElementById("pWatermark");
+    var wmLb = document.getElementById("pLbWatermark");
+    if (wmStage) wmStage.classList.toggle("wm-hidden", isWmV2);
+    if (wmLb) wmLb.classList.toggle("wm-hidden", isWmV2);
 
     var strip = document.getElementById("pThumbStrip");
     if (strip) {

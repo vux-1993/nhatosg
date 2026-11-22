@@ -481,11 +481,13 @@ try {
     font-family: var(--mono);
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 0.16em;
-    color: rgba(250, 248, 243, 0.34);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.48);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
+    user-select: none;
   }
+  .p-watermark.wm-hidden { display: none; }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -1013,6 +1015,10 @@ try {
   }
 </style>
 <!-- NSG_VIP_UX_STYLE_END -->
+<meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
+<!-- nsg-web-security-shield -->
+<link rel="stylesheet" href="/web_security_shield.css">
+<script src="/web_security_shield.js" defer></script>
 </head>
 <body>
 
@@ -1052,7 +1058,7 @@ try {
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" alt="" aria-hidden="true" />
         <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark">NHATOSG.COM.VN</div>
+        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
         
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -1063,7 +1069,7 @@ try {
       <div class="p-thumb-strip" id="pThumbStrip"><button type="button" class="p-thumb-btn active" data-idx="0" onclick="selectStaticSlide(0)" aria-label="Xem ảnh #1"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #1" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#1</span></button><button type="button" class="p-thumb-btn" data-idx="1" onclick="selectStaticSlide(1)" aria-label="Xem ảnh #2"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-2-7e04d.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #2" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#2</span></button><button type="button" class="p-thumb-btn" data-idx="2" onclick="selectStaticSlide(2)" aria-label="Xem ảnh #3"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-3-8d3f9.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #3" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#3</span></button><button type="button" class="p-thumb-btn" data-idx="3" onclick="selectStaticSlide(3)" aria-label="Xem ảnh #4"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-4-b0a6f.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #4" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#4</span></button><button type="button" class="p-thumb-btn" data-idx="4" onclick="selectStaticSlide(4)" aria-label="Xem ảnh #5"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-5-1bcb8.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #5" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#5</span></button><button type="button" class="p-thumb-btn" data-idx="5" onclick="selectStaticSlide(5)" aria-label="Xem ảnh #6"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-6-425dd.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #6" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#6</span></button><button type="button" class="p-thumb-btn" data-idx="6" onclick="selectStaticSlide(6)" aria-label="Xem ảnh #7"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-7-09cfe.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #7" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#7</span></button><button type="button" class="p-thumb-btn" data-idx="7" onclick="selectStaticSlide(7)" aria-label="Xem ảnh #8"><img src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.jpg" data-raw="web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-8-e8e92.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #8" loading="lazy" decoding="async" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" /><span class="p-thumb-num">#8</span></button></div>
     </div>
 
-    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 12 × 20m</li><li><strong>Diện tích công nhận:</strong> 121,38m²</li><li><strong>Kết cấu:</strong> Hầm, 5 Tầng (20 Phòng + MBKD, Ngang 12m Khủng, Khuôn Viên 240m²)</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ nằm trên trục Đường Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, thuộc khu Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1 – khu vực trung tâm thương mại - thời trang - giải trí khu vực hoạt động thương mại sôi động. Sở hữu khuôn đất sở hữu bề ngang rộng thoáng, công trình trang bị sẵn tầng hầm đậu xe phục vụ khai thác đồng bộ. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>160 triệu/tháng</strong>· Còn 3 năm</p></section></div>
+    <div class="form2-details"><section data-form="specs"><h3>1. Thông số &amp; kết cấu thực tế</h3><ul style="list-style:disc;padding-left:1.3em"><li><strong>Kích thước:</strong> 12 × 20m</li><li><strong>Diện tích công nhận:</strong> 121,38m²</li><li><strong>Kết cấu:</strong> Hầm, 5 Tầng (20 Phòng + MBKD, Ngang 12m Khủng, Khuôn Viên 240m²)</li></ul></section><section data-form="location"><h3>2. Vị trí &amp; điểm đáng chú ý</h3><p>Tòa nhà dịch vụ nằm trên trục Đường Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, kết nối hẻm ô tô rộng rãi, thông thoáng thuộc khu Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1 – khu vực trung tâm thương mại - thời trang - giải trí khu vực hoạt động thương mại sôi động. Sở hữu khuôn đất sở hữu bề ngang rộng thoáng, công trình trang bị sẵn tầng hầm đậu xe phục vụ khai thác đồng bộ. Phù hợp vận hành khách sạn, căn hộ dịch vụ hoặc tích lũy tài sản tạo dòng tiền đều đặn.</p></section><section data-form="rental"><h3>3. Khai thác &amp; dòng tiền</h3><p>HĐT: <strong>160 triệu/tháng</strong>· Còn 3 năm</p></section></div>
 
     <div class="actions-bar">
       <a href="/?id=NSG-0693" class="btn btn-primary">🌐 Mở Trên Kho Tương Tác nhatoSG</a>
@@ -1099,6 +1105,7 @@ try {
   </div>
   <div class="p-lb-stage" id="pLbStage">
     <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0693/ban-toa-can-ho-dich-vu-chdv-phuong-nguyen-cu-trinh-quan-1-nsg-0693-hinh-1-1865d.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Nguyễn Cư Trinh, Quận 1 – Hầm 5 Tầng, 68 Tỷ - DT 12m × 20m (CN 121.38m²) - Giá chào 68 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
@@ -1172,6 +1179,11 @@ try {
       lbImg.alt = item.cap;
       lbImg.src = resolveRootWebp(item.raw, "lightbox", item.abs);
     }
+    var isWmV2 = /(?:^|[\/_-])wmv2(?:[._-]|$)/i.test(String(item.raw || item.abs || ""));
+    var wmStage = document.getElementById("pWatermark");
+    var wmLb = document.getElementById("pLbWatermark");
+    if (wmStage) wmStage.classList.toggle("wm-hidden", isWmV2);
+    if (wmLb) wmLb.classList.toggle("wm-hidden", isWmV2);
 
     var strip = document.getElementById("pThumbStrip");
     if (strip) {
