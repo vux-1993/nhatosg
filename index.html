@@ -60,7 +60,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261122091714";
+    script.src = "./properties_data.js?v=20261122093254";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -7653,7 +7653,7 @@
       if (hintEl) {
         hintEl.textContent = mode === "MEMBERS_ONLY"
           ? "Quyền hỏi đáp riêng cho Thành Viên đã xác thực"
-          : ("Đồng hành cùng " + activeCnt + " hồ sơ đã kiểm chứng · Không lộ thông tin mật");
+          : ("Đối chiếu trực tiếp từ " + activeCnt + "+ tài sản thực tế tại TP.HCM & Thủ Đức");
       }
 
       const verified = isAiMemberVerified();
@@ -7667,7 +7667,7 @@
       if (!box || box.children.length > 0) return;
       appendAiMessage(
         "bot",
-        "Xin chào Anh/Chị, em là **nhatoSG** — chuyên viên tư vấn bất động sản tại Nhà Sài Gòn.\n\nAnh/Chị đang quan tâm nhà phố mặt tiền, building văn phòng, khách sạn có dòng tiền hay biệt thự khu vực nào để em lọc nhanh các hồ sơ sát nhu cầu nhất gửi mình xem ạ?",
+        "Xin chào Anh/Chị, em là **nhatoSG**. Anh/Chị đang tìm nhà mặt tiền, building văn phòng, khách sạn có dòng tiền hay biệt thự khu vực nào ạ?\n\nAnh/Chị cứ nhắn tự nhiên theo nhu cầu (tầm tài chính, quận, bề ngang hoặc mục đích khai thác), em sẽ lọc ngay những tài sản phù hợp nhất trong kho gửi mình xem nhé.",
         [],
         "nhatoSG · Tư vấn cá nhân"
       );
@@ -7721,21 +7721,33 @@
       const activePool = PROPERTIES.filter(function (p) { return !p.isSold; });
       if (!activePool.length) return "Kho Nhà Sài Gòn hiện đang cập nhật giỏ hàng.";
       const distCnt = {};
+      const distPrices = {};
       const catCnt = {};
       const publicPrices = [];
       let cashflowCnt = 0;
+      let dropCnt = 0;
       activePool.forEach(function (p) {
         const dt = String(p.district || "TP.HCM").trim();
         const cat = String(p.category || "BĐS").trim();
         distCnt[dt] = (distCnt[dt] || 0) + 1;
         catCnt[cat] = (catCnt[cat] || 0) + 1;
-        if (!p.masked && Number(p.price) > 0) publicPrices.push(Number(p.price));
+        if (!p.masked && Number(p.price) > 0) {
+          const pv = Number(p.price);
+          publicPrices.push(pv);
+          if (!distPrices[dt]) distPrices[dt] = [];
+          distPrices[dt].push(pv);
+        }
         if (p.hasCashflow) cashflowCnt += 1;
+        if (!p.masked && Number(p.dropPct) > 0) dropCnt += 1;
       });
       const topDist = Object.keys(distCnt)
         .sort(function (a, b) { return distCnt[b] - distCnt[a]; })
         .slice(0, 8)
-        .map(function (k) { return k + " (" + distCnt[k] + ")"; })
+        .map(function (k) {
+          const dp = distPrices[k] || [];
+          const dRng = dp.length ? (", " + fmtNum(Math.min.apply(null, dp)) + "–" + fmtNum(Math.max.apply(null, dp)) + " Tỷ") : "";
+          return k + " (" + distCnt[k] + " căn" + dRng + ")";
+        })
         .join(", ");
       const topCats = Object.keys(catCnt)
         .sort(function (a, b) { return catCnt[b] - catCnt[a]; })
@@ -7750,7 +7762,7 @@
       }
       return (
         "Tổng giỏ hàng đang chào: " + activePool.length + " tài sản (" + priceRange + "; " +
-        cashflowCnt + " căn có dòng tiền HĐT). " +
+        cashflowCnt + " căn có dòng tiền HĐT; " + dropCnt + " căn vừa điều chỉnh giảm giá). " +
         "Phân bổ quận chính: " + topDist + ". Loại hình: " + topCats + "."
       );
     }
@@ -7883,10 +7895,12 @@
         };
       });
 
+      const ov = buildCatalogOverviewSummary();
       return {
         candidateIds: candidates.map(function (c) { return c.id; }),
         candidates: candidates,
-        warehouseSummary: buildCatalogOverviewSummary()
+        catalogOverview: ov,
+        warehouseSummary: ov
       };
     }
 
