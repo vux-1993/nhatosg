@@ -1,27 +1,51 @@
 /* Preserve clicks and touch handlers on the existing gallery containers. */
 html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
 .dossier-thumb, .recent-item, #lightboxOverlay, .p-gallery-stage, .p-thumb-strip, .p-lb-stage,
-.hub-card-img-wrap, .ai-prop-card, .nsg-media-shield) {
+.hub-card-img-wrap, .p-rel-img, .gallery-item, .ai-prop-card, .nsg-media-shield,
+.nsg-img-shield-wrap, .nsg-stage-fit, .nsg-lb-fit, .p-stage-fit, .p-lb-fit) {
   -webkit-touch-callout: none !important;
   -webkit-user-drag: none !important;
+  -webkit-user-select: none !important;
   user-select: none !important;
 }
 html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
 .dossier-thumb, .recent-item, #lightboxOverlay, .p-gallery-stage, .p-thumb-strip, .p-lb-stage,
-.hub-card-img-wrap, .ai-prop-card, .nsg-media-shield) img {
+.hub-card-img-wrap, .p-rel-img, .gallery-item, .ai-prop-card, .nsg-media-shield,
+.nsg-img-shield-wrap, .nsg-stage-fit, .nsg-lb-fit, .p-stage-fit, .p-lb-fit) img {
   pointer-events: none !important;
   -webkit-user-drag: none !important;
   -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
   user-select: none !important;
 }
-/* Transparent layer preserves the existing frame's hit targets. */
-html.nsg-shield-active :is(.hero-sc-media, .ledger-thumb, .card-media, .dossier-stage-canvas,
-.p-gallery-stage, .p-lb-stage, .hub-card-img-wrap, .nsg-media-shield)::after {
-  content: "";
+/* Real hit-test touch shield directly above property images to block iOS/Android long-press menus. */
+html.nsg-shield-active .nsg-touch-shield {
   position: absolute;
   inset: 0;
-  background: transparent;
-  pointer-events: none;
+  z-index: 2;
+  display: block;
+  background: rgba(0, 0, 0, 0.001);
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  touch-action: pan-y pinch-zoom;
+}
+html:not(.nsg-shield-active) .nsg-touch-shield {
+  display: none !important;
+  pointer-events: none !important;
+}
+.nsg-img-shield-wrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+html.nsg-shield-active :is(.media-step, .card-compare-btn, .card-save-btn, .media-counter,
+.card-sold-badge, .p-gal-nav, .p-sold-ribbon, .p-rel-id, .p-rel-price,
+.card-id-tag, .hub-card-badge, .hub-card-price, .hub-sold-badge) {
+  z-index: 4;
 }
 html.nsg-detail-dimmed :is(.dossier-stage-canvas, #lightboxOverlay, .p-gallery-stage, .p-lb-stage) img {
   filter: blur(16px) brightness(.55) !important;

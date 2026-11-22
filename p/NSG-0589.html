@@ -464,30 +464,78 @@ try {
     transform: scale(1.08);
     pointer-events: none;
   }
-  #pMainImg {
+  .p-stage-fit {
     position: relative;
     z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
     max-width: 100%;
     max-height: 100%;
+  }
+  #pMainImg {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    max-height: clamp(240px, 44vh, 460px);
     width: auto;
-    height: 100%;
+    height: auto;
     object-fit: contain;
     display: block;
     pointer-events: none;
   }
-  .p-watermark {
+  .nsg-wm-bounds {
     position: absolute;
+    inset: 0;
+    z-index: 3;
+    container-type: inline-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .p-watermark {
+    position: relative;
     z-index: 3;
     font-family: var(--mono);
     font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    color: rgba(250, 248, 243, 0.48);
+    font-size: clamp(11px, 3.2vw, 15px);
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-align: center;
+    max-width: 82%;
+    color: #FAF8F3;
+    opacity: 0.48;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.58);
     pointer-events: none;
     user-select: none;
+    word-break: keep-all;
   }
-  .p-watermark.wm-hidden { display: none; }
+  .p-watermark .wm-part {
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .p-watermark.wm-hidden { display: none !important; }
+  #pGalleryStage .p-watermark {
+    font-size: clamp(11px, 3.2vw, 15px);
+    letter-spacing: 0.08em;
+    max-width: 82%;
+    opacity: 0.48;
+  }
+  @supports (font-size: 1cqw) {
+    #pGalleryStage .p-watermark {
+      font-size: min(clamp(11px, 3.2vw, 15px), 9.2cqw);
+    }
+  }
+  .p-lb-stage .p-watermark {
+    font-size: clamp(14px, 2.2vw, 21px);
+    letter-spacing: 0.12em;
+    max-width: 82%;
+    opacity: 0.48;
+  }
   .p-gal-nav {
     position: absolute;
     top: 0;
@@ -723,10 +771,23 @@ try {
     overflow: hidden;
     margin: 8px 0;
   }
+  .p-lb-fit {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    max-width: 94vw;
+    max-height: calc(100svh - 96px);
+  }
   #pLbImg {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 94vw;
+    max-height: calc(100svh - 96px);
+    width: auto;
+    height: auto;
     object-fit: contain;
+    display: block;
   }
   .p-toast {
     position: fixed;
@@ -1057,8 +1118,12 @@ try {
     <div class="p-gallery-shell" oncontextmenu="return false;">
       <div class="p-gallery-stage" id="pGalleryStage" onclick="handleStageTap()">
         <img class="p-stage-blur" id="pBlurImg" src="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" alt="" aria-hidden="true" />
-        <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" data-raw="web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Võ Thị Sáu, Quận 3 – Hầm 5 Tầng, 75 Tỷ - DT 7m × 24m (CN 166.6m²) - Giá chào 75 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-        <div class="p-watermark" id="pWatermark">nhatoSG · 0916.23.9898</div>
+        <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
+        <div class="p-stage-fit" id="pStageFit">
+          <img id="pMainImg" src="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" data-raw="web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" data-fallback="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Võ Thị Sáu, Quận 3 – Hầm 5 Tầng, 75 Tỷ - DT 7m × 24m (CN 166.6m²) - Giá chào 75 Tỷ - Ảnh #1" loading="eager" fetchpriority="high" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+          <div class="nsg-touch-shield" aria-hidden="true"></div>
+          <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark" id="pWatermark"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
+        </div>
         
         <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
       </div>
@@ -1104,8 +1169,11 @@ try {
     <button type="button" class="p-lb-close" onclick="closeStaticLightbox(false)">Đóng ✕</button>
   </div>
   <div class="p-lb-stage" id="pLbStage">
-    <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Võ Thị Sáu, Quận 3 – Hầm 5 Tầng, 75 Tỷ - DT 7m × 24m (CN 166.6m²) - Giá chào 75 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
-    <div class="p-watermark" id="pLbWatermark">nhatoSG · 0916.23.9898</div>
+    <div class="p-lb-fit" id="pLbFit">
+      <img id="pLbImg" src="https://nhatosg.com.vn/web_images/NSG-0589/ban-toa-nha-van-phong-phuong-vo-thi-sau-quan-3-nsg-0589-hinh-1-8e49e.jpg" alt="Bán Tòa CHDV / Khách Sạn Phường Võ Thị Sáu, Quận 3 – Hầm 5 Tầng, 75 Tỷ - DT 7m × 24m (CN 166.6m²) - Giá chào 75 Tỷ - Ảnh #1" onerror="if(this.dataset.fallback&&this.src!==this.dataset.fallback){this.src=this.dataset.fallback;}" />
+      <div class="nsg-touch-shield" aria-hidden="true"></div>
+      <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark" id="pLbWatermark"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
+    </div>
     <button type="button" class="p-gal-nav p-gal-prev" onclick="stepStaticSlide(-1)" aria-label="Ảnh trước">‹</button><button type="button" class="p-gal-nav p-gal-next" onclick="stepStaticSlide(1)" aria-label="Ảnh tiếp">›</button>
   </div>
 </div>
