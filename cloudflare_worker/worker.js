@@ -4,16 +4,16 @@
  * Credentials live solely in Worker secrets (env.GEMINI_API_KEY); no inventory or PII is stored here.
  */
 export const MODEL_CHAIN = [
-  "gemini-3.5-flash-lite",
-  "gemini-4-hydrogen",
   "gemini-3.1-flash-lite",
+  "gemini-3.5-flash-lite",
 ];
 const MODEL_ATTEMPT_MS = {
-  "gemini-3.5-flash-lite": 8000,
-  "gemini-4-hydrogen": 7000,
-  "gemini-3.1-flash-lite": 6000,
+  "gemini-3.1-flash-lite": 4100,
+  "gemini-3.5-flash-lite": 5500,
 };
-const MODEL_CHAIN_BUDGET_MS = 18000;
+const CHAT_BUDGET_MS = 7400;
+const SITE_CONFIG_TTL_MS = 60000;
+const SITE_CONFIG_TIMEOUT_MS = 950;
 
 const DEFAULT_CONFIG_URL = "https://nhatosg.com.vn/web_chat_config.json";
 const MAX_QUESTION_CHARS = 500;
@@ -23,9 +23,9 @@ const AUTH_LIMIT = 10;
 const MEMBER_CHAT_LIMIT = 60;
 
 const rateBuckets = new Map();
-let cachedSiteConfig = null;
-let cachedSiteConfigAt = 0;
+let cachedSiteConfig;
 const modelCooldownUntil = new Map();
+const modelsUnsupportedThinking = new Set();
 
 function isAllowedOrigin(origin) {
   if (!origin) return false;
@@ -168,31 +168,52 @@ async function verifySessionToken(token, cfg, env) {
   }
 }
 
-async function fetchLiveConfig(env) {
-  const now = Date.now();
-  if (cachedSiteConfig && now - cachedSiteConfigAt < 30000) {
-    return cachedSiteConfig;
-  }
-  const url = String(env.WEB_CHAT_CONFIG_URL || DEFAULT_CONFIG_URL);
+async function withinTimeout(ms, operation) {
+  const controller = new AbortController();
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      const error = new DOMException("Request deadline exceeded", "TimeoutError");
+      reject(error);
+      controller.abort(error);
+    }, ms);
+  });
   try {
-    const res = await fetch(url, { headers: { "Accept": "application/json" } });
-    if (res.ok) {
-      const data = await res.json();
-      if (data && typeof data === "object" && ["PUBLIC", "MEMBERS_ONLY", "OFF"].includes(data.mode)) {
-        cachedSiteConfig = data;
-        cachedSiteConfigAt = now;
-        return data;
-      }
-    }
-  } catch {
-    // Keep prior cache or safe fallback below.
+    return await Promise.race([timeout, operation(controller.signal)]);
+  } finally {
+    clearTimeout(timer);
   }
-  return cachedSiteConfig || {
-    mode: "PUBLIC",
-    config_rev: "default",
-    rate_limit_public_per_15m: 20,
-    max_question_chars: MAX_QUESTION_CHARS,
-  };
+}
+
+async function fetchLiveConfig(env) {
+  const url = String(env.WEB_CHAT_CONFIG_URL || DEFAULT_CONFIG_URL);
+  if (cachedSiteConfig?.url === url && Date.now() < cachedSiteConfig.expiresAt) {
+    return cachedSiteConfig.value;
+  }
+  try {
+    const value = await withinTimeout(SITE_CONFIG_TIMEOUT_MS, async (signal) => {
+      const response = await fetch(url, { signal, headers: { "Accept": "application/json" } });
+      if (!response.ok) {
+        response.body?.cancel().catch(() => {});
+        throw new Error("Config unavailable");
+      }
+      const config = await response.json();
+      if (!["PUBLIC", "MEMBERS_ONLY", "OFF"].includes(config?.mode)) throw new Error("Invalid config");
+      return config;
+    });
+    cachedSiteConfig = { url, value, expiresAt: Date.now() + SITE_CONFIG_TTL_MS };
+    return value;
+  } catch {
+    return { mode: "OFF", config_rev: "" };
+  }
+}
+
+function modelThinkingBudget(model) {
+  return model === "gemini-3.1-flash-lite" && !modelsUnsupportedThinking.has(model) ? 0 : null;
+}
+
+function rejectsThinking(data) {
+  return /think(?:ing)?|reasoning/i.test(String(data?.error?.message || ""));
 }
 
 function stripNsgCodes(text) {
@@ -807,6 +828,7 @@ export default {
       return jsonResp({ ok: false, disabled: true, reason: "SEARCH_LOCAL_ONLY" }, 410);
     }
 
+    const chatDeadline = performance.now() + CHAT_BUDGET_MS;
     const cfg = await fetchLiveConfig(env);
     if (request.method === "GET" && url.pathname === "/api/public/web-chat/status") {
       return jsonResp({
@@ -829,10 +851,11 @@ export default {
     try {
       const lenHdr = Number(request.headers.get("Content-Length") || 0);
       if (lenHdr > 65536) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
-      const rawTxt = await request.text();
+      const rawTxt = await withinTimeout(Math.max(1, Math.floor(chatDeadline - performance.now())), () => request.text());
       if (rawTxt.length > 65536) return jsonResp({ ok: false, error: "REQUEST_TOO_LARGE" }, 413);
       body = JSON.parse(rawTxt);
-    } catch {
+    } catch (error) {
+      if (error?.name === "TimeoutError") return jsonResp({ ok: false, error: "REQUEST_TIMEOUT" }, 408);
       return jsonResp({ ok: false, error: "INVALID_JSON" }, 400);
     }
     if (!body || typeof body !== "object") return jsonResp({ ok: false, error: "INVALID_BODY" }, 400);
@@ -973,13 +996,12 @@ export default {
       statsLine +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
-    const modelDeadline = performance.now() + MODEL_CHAIN_BUDGET_MS;
-    const remainingBudget = () => Math.floor(modelDeadline - performance.now());
+    const remainingBudget = () => Math.floor(chatDeadline - performance.now());
     const timingEnabled = env.NSG_AI_TIMING_DIAG === "1";
     const timing = (model, phase, durationMs, status = null) => {
       if (timingEnabled) console.info(JSON.stringify({ event: "ai_model_attempt", model, phase, durationMs, status }));
     };
-    const callModel = async (model, allowThinking, timeoutMs) => {
+    const callModel = async (model, thinkingBudget, signal) => {
       const genConfig = {
         temperature: 0.7,
         topP: 0.92,
@@ -1001,14 +1023,14 @@ export default {
           },
         },
       };
-      if (allowThinking) {
-        genConfig.thinkingConfig = { thinkingBudget: 384 };
+      if (thinkingBudget !== null) {
+        genConfig.thinkingConfig = { thinkingBudget };
       }
       return fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
         {
           method: "POST",
-          signal: AbortSignal.timeout(timeoutMs),
+          signal,
           headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: sysInstruction }] },
@@ -1030,43 +1052,50 @@ export default {
         timing(model, "cooldown", 0);
         continue;
       }
-      const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-3.") || model.startsWith("gemini-2.5-");
+      let fullAttemptBudget = false;
       try {
-        const run = async (allowThinking, phase) => {
+        const run = async (thinkingBudget) => {
           const start = performance.now();
-          const cap = Math.max(1, Math.min(MODEL_ATTEMPT_MS[model], remainingBudget()));
+          const cap = Math.min(MODEL_ATTEMPT_MS[model], remainingBudget());
+          if (cap <= 0) throw new DOMException("Chat budget exhausted", "TimeoutError");
+          fullAttemptBudget = cap === MODEL_ATTEMPT_MS[model];
+          let status = null;
           try {
-            const response = await callModel(model, allowThinking, cap);
-            timing(model, phase, Math.round(performance.now() - start), response.status);
+            const response = await withinTimeout(cap, async (signal) => {
+              const res = await callModel(model, thinkingBudget, signal);
+              status = res.status;
+              timing(model, "headers", Math.round(performance.now() - start), status);
+              let data;
+              if (res.ok || (status === 400 && thinkingBudget !== null)) {
+                data = await res.json();
+              } else {
+                res.body?.cancel().catch(() => {});
+              }
+              return { status, ok: res.ok, data };
+            });
+            timing(model, "complete", Math.round(performance.now() - start), status);
             return response;
           } catch (err) {
-            timing(model, err?.name === "TimeoutError" ? "timeout" : "fetch_error",
-              Math.round(performance.now() - start));
+            const failed = err?.name === "TimeoutError" ? (status === null ? "headers_timeout" : "body_timeout") : "request_error";
+            timing(model, failed, Math.round(performance.now() - start), status);
             throw err;
           }
         };
-        let resp = await run(supportsThinking, "headers");
-        if (resp.status === 400 && supportsThinking && remainingBudget() >= 1000) {
-          await resp.body?.cancel();
-          resp = await run(false, "retry_without_thinking");
+        const thinkingBudget = modelThinkingBudget(model);
+        const resp = await run(thinkingBudget);
+        if (resp.status === 400 && thinkingBudget !== null && rejectsThinking(resp.data)) {
+          modelsUnsupportedThinking.add(model);
         }
         if (resp.status === 404) {
-          await resp.body?.cancel();
-          modelCooldownUntil.set(model, Date.now() + 10 * 60 * 1000);
+          modelCooldownUntil.set(model, Date.now() + 600000);
           continue;
         }
-        if ([403, 429, 500, 502, 503, 504].includes(resp.status)) {
-          await resp.body?.cancel();
-          if ([429, 500, 502, 503, 504].includes(resp.status)) {
-            modelCooldownUntil.set(model, Date.now() + 90 * 1000);
-          }
+        if ([429, 500, 502, 503, 504].includes(resp.status)) {
+          modelCooldownUntil.set(model, Date.now() + 45000);
           continue;
         }
-        if (!resp.ok) {
-          await resp.body?.cancel();
-          continue;
-        }
-        const data = await resp.json();
+        if (!resp.ok) continue;
+        const { data } = resp;
         const raw = data?.candidates?.[0]?.content?.parts
           ?.filter((p) => !p.thought)
           .map((p) => p.text || "")
@@ -1112,8 +1141,10 @@ export default {
           });
         }
       } catch (err) {
-        if (err && err.name === "TimeoutError") anyTimeout = true;
-        modelCooldownUntil.set(model, Date.now() + 90 * 1000);
+        if (err?.name === "TimeoutError") {
+          anyTimeout = true;
+          if (fullAttemptBudget) modelCooldownUntil.set(model, Date.now() + 20000);
+        }
         continue;
       }
     }
