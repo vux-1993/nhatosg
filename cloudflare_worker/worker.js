@@ -4,10 +4,16 @@
  * Credentials live solely in Worker secrets (env.GEMINI_API_KEY); no inventory or PII is stored here.
  */
 export const MODEL_CHAIN = [
-  "gemini-4-hydrogen",
   "gemini-3.5-flash-lite",
+  "gemini-4-hydrogen",
   "gemini-3.1-flash-lite",
 ];
+const MODEL_ATTEMPT_MS = {
+  "gemini-3.5-flash-lite": 8000,
+  "gemini-4-hydrogen": 7000,
+  "gemini-3.1-flash-lite": 6000,
+};
+const MODEL_CHAIN_BUDGET_MS = 18000;
 
 const DEFAULT_CONFIG_URL = "https://nhatosg.com.vn/web_chat_config.json";
 const MAX_QUESTION_CHARS = 500;
@@ -967,7 +973,13 @@ export default {
       statsLine +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
-    const callModel = async (model, allowThinking) => {
+    const modelDeadline = performance.now() + MODEL_CHAIN_BUDGET_MS;
+    const remainingBudget = () => Math.floor(modelDeadline - performance.now());
+    const timingEnabled = env.NSG_AI_TIMING_DIAG === "1";
+    const timing = (model, phase, durationMs, status = null) => {
+      if (timingEnabled) console.info(JSON.stringify({ event: "ai_model_attempt", model, phase, durationMs, status }));
+    };
+    const callModel = async (model, allowThinking, timeoutMs) => {
       const genConfig = {
         temperature: 0.7,
         topP: 0.92,
@@ -996,7 +1008,7 @@ export default {
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
         {
           method: "POST",
-          signal: AbortSignal.timeout(model === MODEL_CHAIN[0] ? 6500 : 11000),
+          signal: AbortSignal.timeout(timeoutMs),
           headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: sysInstruction }] },
@@ -1009,14 +1021,34 @@ export default {
 
     let anyTimeout = false;
     for (const model of MODEL_CHAIN) {
+      if (remainingBudget() <= 0) {
+        anyTimeout = true;
+        break;
+      }
       const skipUntil = modelCooldownUntil.get(model) || 0;
-      if (skipUntil > Date.now()) continue;
+      if (skipUntil > Date.now()) {
+        timing(model, "cooldown", 0);
+        continue;
+      }
       const supportsThinking = model.startsWith("gemini-4-") || model.startsWith("gemini-3.") || model.startsWith("gemini-2.5-");
       try {
-        let resp = await callModel(model, supportsThinking);
-        if (resp.status === 400 && supportsThinking) {
+        const run = async (allowThinking, phase) => {
+          const start = performance.now();
+          const cap = Math.max(1, Math.min(MODEL_ATTEMPT_MS[model], remainingBudget()));
+          try {
+            const response = await callModel(model, allowThinking, cap);
+            timing(model, phase, Math.round(performance.now() - start), response.status);
+            return response;
+          } catch (err) {
+            timing(model, err?.name === "TimeoutError" ? "timeout" : "fetch_error",
+              Math.round(performance.now() - start));
+            throw err;
+          }
+        };
+        let resp = await run(supportsThinking, "headers");
+        if (resp.status === 400 && supportsThinking && remainingBudget() >= 1000) {
           await resp.body?.cancel();
-          resp = await callModel(model, false);
+          resp = await run(false, "retry_without_thinking");
         }
         if (resp.status === 404) {
           await resp.body?.cancel();
@@ -1040,8 +1072,17 @@ export default {
           .map((p) => p.text || "")
           .join("")
           .trim();
-        if (!raw) continue;
-        const parsed = JSON.parse(raw);
+        if (!raw) {
+          timing(model, "empty_response", 0);
+          continue;
+        }
+        let parsed;
+        try {
+          parsed = JSON.parse(raw);
+        } catch (err) {
+          timing(model, "invalid_json", 0);
+          throw err;
+        }
         if (
           !parsed ||
           typeof parsed !== "object" ||
@@ -1059,6 +1100,7 @@ export default {
         });
         const ans = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
         if (ans) {
+          timing(model, "selected", 0);
           return jsonResp({
             ok: true,
             reply: ans,
