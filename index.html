@@ -59,7 +59,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261123171614";
+    script.src = "./properties_data.js?v=20261123195251";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -720,6 +720,8 @@
       gap: 5px 8px;
       margin-top: 2px;
     }
+
+    .masked-price-contact { color: var(--bronze); font-weight: 700; }
 
     .hero-sc-price-old {
       font-family: var(--mono);
@@ -5337,6 +5339,9 @@
         display_facts: raw.display_facts,
         primaryCategory: raw.primaryCategory || null,
         isConfirmedRoadFront: raw.isConfirmedRoadFront === true,
+        is_true_street_front: raw.is_true_street_front === true,
+        search_groups: Array.isArray(raw.search_groups) ? raw.search_groups : undefined,
+        masked_anchor_price_billion: isMasked && !isSold ? Number(raw.masked_anchor_price_billion) || 0 : 0,
         landSubtype: raw.landSubtype || null,
         is_live_sync: true,
         is_sold: isSold,
@@ -5385,6 +5390,44 @@
 
     function resolveCategoryName(prop) {
       return canonicalCategory(prop?.primaryCategory || prop?.category);
+    }
+
+    const SEARCH_GROUP_KEYS = {
+      "Nhà Mặt Tiền Kinh Doanh": "townhouse", "Tòa Nhà Văn Phòng (Building)": "building",
+      "Tòa CHDV / Khách Sạn": "chdv_hotel", "Biệt Thự / Dinh Thự / Compound": "villa", "Đất / Nhà cấp 4": "land"
+    };
+
+    function searchGroupWeight(p, category) {
+      const label = canonicalCategory(category);
+      if (!Array.isArray(p.search_groups)) return canonicalCategory(p.category) === label ? 100 : 0;
+      return p.search_groups.find(g => g.group === SEARCH_GROUP_KEYS[label])?.weight || 0;
+    }
+
+    function bestSearchGroupWeight(p, parsed, chosen = "ALL") {
+      const categories = chosen !== "ALL" ? [chosen] : parsed?.categoriesAllowed?.length
+        ? parsed.categoriesAllowed : parsed?.categoryExact ? [parsed.categoryExact] : [];
+      return categories.reduce((best, category) => Math.max(best, searchGroupWeight(p, category)), 0);
+    }
+
+    function publicFilterPrice(p) {
+      return p.isSold ? 0 : Number(p.masked ? p.maskedAnchor : p.price) || 0;
+    }
+
+    function maskedAnchorHtml(p, className = "card-price-old") {
+      return p.maskedAnchor ? `<del class="${className}">${esc(fmtBil(p.maskedAnchor))}</del>` : '<span>Giá thỏa thuận</span>';
+    }
+
+    function maskedPublicPriceHtml(p) {
+      return maskedAnchorHtml(p) + ' <span class="masked-price-contact">Liên Hệ</span>';
+    }
+
+    function publicPriceHtml(p) {
+      return p.isSold ? "Đã Bán" : p.masked ? maskedPublicPriceHtml(p) : esc(fmtBil(p.price));
+    }
+
+    function publicCategoryKicker(p) {
+      return p.is_true_street_front && searchGroupWeight(p, "Nhà Mặt Tiền Kinh Doanh") === 85
+        ? p.category + " · MẶT TIỀN" : p.category;
     }
 
     const AI_CATEGORY_LABELS = {
@@ -6227,6 +6270,9 @@
         dropText: dropText,
         dropPct: dropPct,
         masked: masked,
+        maskedAnchor: masked && !isSold ? Number(rec.masked_anchor_price_billion) || 0 : 0,
+        search_groups: rec.search_groups,
+        is_true_street_front: rec.is_true_street_front,
         photos: photos,
         realPhotoCount: realPhotoCount,
         heroCoverUrl: photos[0],
@@ -6496,7 +6542,7 @@
             <div class="hero-sc-kicker">${esc(p.category)} · ${esc(p.district)}</div>
             <div class="hero-sc-title">${esc(titleLine)}</div>
             <div class="hero-sc-price">
-              <span>Giá chào: ${esc(fmtBil(p.price))}</span>
+              ${p.masked ? maskedPublicPriceHtml(p) : `<span>Giá chào: ${esc(fmtBil(p.price))}</span>`}
               ${p.oldPrice ? `<span class="hero-sc-price-old">${esc(fmtBil(p.oldPrice))}</span>` : ""}
               ${metaParts.length ? `<span class="hero-sc-price-meta">· ${esc(metaParts.join(" · "))}</span>` : ""}
             </div>
@@ -6547,8 +6593,7 @@
         ? `<div class="feature-price-wrap"><span class="feature-price" style="color:var(--bronze);">Đã Bán</span></div>
            <div class="feature-drop">Tài sản đã giao dịch</div>`
         : p.masked
-          ? `<div class="feature-price-wrap"><span class="feature-price">Liên Hệ</span></div>
-             <div class="feature-drop">Hồ sơ bảo mật giá</div>`
+          ? `<div class="feature-price-wrap">${maskedAnchorHtml(p, "feature-old")}<span class="feature-price">Liên Hệ</span></div>`
           : `<div class="feature-price-wrap">${p.oldPrice ? `<span class="feature-old">${esc(fmtBil(p.oldPrice))}</span>` : ""}<span class="feature-price">${esc(fmtBil(p.price))}</span></div>
              ${p.dropText ? `<div class="feature-drop">${esc(p.dropText)}</div>` : ""}`;
 
@@ -6913,10 +6958,9 @@
       }
       if (!ignoreCategory) {
         if (parsed.categoriesAllowed && parsed.categoriesAllowed.length) {
-          const cNorm = canonicalCategory(p.category);
-          if (!parsed.categoriesAllowed.some(function (cat) { return canonicalCategory(cat) === cNorm; })) return false;
+          if (!parsed.categoriesAllowed.some(cat => searchGroupWeight(p, cat) > 0)) return false;
         } else if (parsed.categoryExact) {
-          if (canonicalCategory(p.category) !== canonicalCategory(parsed.categoryExact)) return false;
+          if (!searchGroupWeight(p, parsed.categoryExact)) return false;
         }
       }
       if (parsed.landSubtype === "vacant") {
@@ -6928,15 +6972,16 @@
 
       const hasPriceConstraint = parsed.minPriceBil !== null || parsed.maxPriceBil !== null;
       if (hasPriceConstraint) {
-        if (p.isSold || p.masked || !(p.price > 0)) return false;
+        const amount = publicFilterPrice(p);
+        if (!(amount > 0)) return false;
         const tol = nearPct > 0 ? nearPct : 0;
         if (parsed.minPriceBil !== null) {
           const minAllowed = tol > 0 ? parsed.minPriceBil * (1 - tol) : parsed.minPriceBil;
-          if (tol === 0 && parsed.minPriceStrict ? !(p.price > minAllowed) : !(p.price >= minAllowed)) return false;
+          if (tol === 0 && parsed.minPriceStrict ? !(amount > minAllowed) : !(amount >= minAllowed)) return false;
         }
         if (parsed.maxPriceBil !== null) {
           const maxAllowed = tol > 0 ? parsed.maxPriceBil * (1 + tol) : parsed.maxPriceBil;
-          if (tol === 0 && parsed.maxPriceStrict ? !(p.price < maxAllowed) : !(p.price <= maxAllowed)) return false;
+          if (tol === 0 && parsed.maxPriceStrict ? !(amount < maxAllowed) : !(amount <= maxAllowed)) return false;
         }
       }
       if (parsed.onlyUpdate) {
@@ -7042,14 +7087,15 @@
           (p.masked || p.isSold || p.cashflowMasked || !p.hasCashflow || p.yieldFull === "Liên Hệ" ||
            /(?:rao\s+thuê|dự\s+kiến|ước\s+tính|tiềm\s+năng)/iu.test(p.yieldFull + " " + p.yieldShort))) return false;
         if (activeDistrict !== "ALL" && p.district !== activeDistrict) return false;
-        if (activeCategory !== "ALL" && p.category !== activeCategory) return false;
+        if (activeCategory !== "ALL" && !searchGroupWeight(p, activeCategory)) return false;
 
         // Tuyệt đối không dùng giá mật ẩn của căn che giá (is_price_masked) hoặc căn đã bán để lọc khoảng giá
         if (pr !== "ALL") {
-          if (p.isSold || p.masked || p.price <= 0) return false;
-          if (pr === "UNDER_50" && p.price > 50) return false;
-          if (pr === "50_100" && (p.price <= 50 || p.price > 100)) return false;
-          if (pr === "OVER_100" && p.price <= 100) return false;
+          const amount = publicFilterPrice(p);
+          if (amount <= 0) return false;
+          if (pr === "UNDER_50" && amount > 50) return false;
+          if (pr === "50_100" && (amount <= 50 || amount > 100)) return false;
+          if (pr === "OVER_100" && amount <= 100) return false;
         }
 
         if (parsed && !propertyMatchesParsedQuery(p, parsed)) return false;
@@ -7064,6 +7110,8 @@
 
       list.sort(function (a, b) {
         if (Boolean(a.isSold) !== Boolean(b.isSold)) return a.isSold ? 1 : -1;
+        const groupOrder = bestSearchGroupWeight(b, parsed, activeCategory) - bestSearchGroupWeight(a, parsed, activeCategory);
+        if (groupOrder) return groupOrder;
         if (effectiveSort === "NEWEST") {
           return a.order - b.order;
         }
@@ -7144,13 +7192,13 @@
         const priceLeftHtml = p.isSold
           ? `<span class="card-price-main is-sold">Đã Bán</span>`
           : p.masked
-            ? `<span class="card-price-main">Liên Hệ</span>`
+            ? maskedAnchorHtml(p)
             : `<span class="card-price-main">${esc(fmtBil(p.price))}</span>${p.oldPrice ? `<span class="card-price-old">${esc(fmtBil(p.oldPrice))}</span>` : ""}`;
 
         const badgeRightHtml = p.isSold
           ? `<span class="card-badge-right is-sold">Đã giao dịch</span>`
           : p.masked
-            ? `<span class="card-badge-right">Bảo mật giá chốt</span>`
+            ? `<span class="card-badge-right">Liên Hệ</span>`
             : p.dropText
               ? `<span class="card-badge-right is-drop">${esc(p.dropText)}</span>`
               : "";
@@ -7202,7 +7250,7 @@
             <div class="card-body" onclick="openDossier('${esc(p.id)}')">
               <div>
                 <div class="card-meta-row">
-                  <span class="card-cat">${esc(p.category)}</span>
+                  <span class="card-cat">${esc(publicCategoryKicker(p))}</span>
                   <span class="card-district-tag">${esc(p.district)}</span>
                 </div>
                 <h3 class="card-title">${esc(p.streetDisplay)}, ${esc(p.district)}</h3>
@@ -7287,7 +7335,7 @@
               <span class="nsg-touch-shield" aria-hidden="true"></span>
             </span>
             <div class="recent-item-body">
-              <small>${esc(p.district)} · ${p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : esc(fmtBil(p.price)))}</small>
+              <small>${esc(p.district)} · ${publicPriceHtml(p)}</small>
               <strong>${esc(p.streetDisplay)}, ${esc(p.district)}</strong>
             </div>
           </button>
@@ -7536,7 +7584,7 @@
         return `
           <div class="hist-item">
             <span>Mức giá chào hiện tại</span>
-            <strong class="font-mono">${p.masked ? "Liên Hệ" : esc(fmtBil(p.price))}</strong>
+            <strong class="font-mono">${publicPriceHtml(p)}</strong>
           </div>
         `;
       }
@@ -7641,7 +7689,7 @@
       const priceDisplay = p.isSold
         ? `<div class="dossier-price-val is-sold">Đã Bán</div>`
         : p.masked
-          ? `<div class="dossier-price-val">Liên Hệ</div>`
+          ? `<div class="dossier-price-val">${maskedPublicPriceHtml(p)}</div>`
           : `<div class="dossier-price-val">${esc(fmtBil(p.price))} ${p.oldPrice ? `<span class="card-price-old" style="font-size:15px;">${esc(fmtBil(p.oldPrice))}</span>` : ""}</div>`;
 
       const related = PROPERTIES
@@ -8019,7 +8067,6 @@
       document.getElementById("curatedCards").innerHTML = ids.map((id, index) => {
         const p = getProp(id);
         const photo = p.photos[0];
-        const price = p.isSold ? "Đã Bán" : p.masked ? "Liên Hệ" : fmtBil(p.price);
         return `<article class="curated-card">
           <a class="nsg-media-shield" href="/#open=${id}" onclick="event.preventDefault(); openDossier('${id}')">
             <img src="${esc(photo)}" alt="${esc(p.streetDisplay)}" loading="lazy"
@@ -8031,7 +8078,7 @@
           </a>
           <div class="curated-card-info">
             <strong>${esc(p.streetDisplay)} · ${esc(p.district)}</strong><br>
-            <span>${esc(p.category)} · ${esc(price)}</span>
+            <span>${esc(publicCategoryKicker(p))} · ${publicPriceHtml(p)}</span>
           </div>
           <label><input type="checkbox" value="${id}" ${index < 3 ? "checked" : ""}> Chọn so sánh</label>
         </article>`;
@@ -8106,7 +8153,7 @@
             </div>
             <div onclick="closeOverlay('savedOverlay'); openDossier('${esc(p.id)}')" style="flex:1; min-width:0; cursor:pointer;">
               <small style="font-family:var(--mono); font-size:10.5px; color:var(--accent); display:block;">
-                ${esc(p.district)} · ${p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : esc(fmtBil(p.price)))}
+                ${esc(p.district)} · ${publicPriceHtml(p)}
               </small>
               <strong style="font-family:var(--serif); font-size:16.5px; font-weight:600; display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
                 ${esc(p.streetDisplay)}
@@ -8193,7 +8240,7 @@
             <tr>
               <td style="color:var(--muted);">Mức giá chào bán</td>
               ${items.map(function (p) {
-                return `<td><strong style="font-family:var(--serif); font-size:19px;">${p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : esc(fmtBil(p.price)))}</strong>${!p.isSold && !p.masked && p.dropText ? `<div style="font-family:var(--mono); font-size:11px; color:var(--danger);">${esc(p.dropText)}</div>` : ""}</td>`;
+                return `<td><strong style="font-family:var(--serif); font-size:19px;">${publicPriceHtml(p)}</strong>${!p.isSold && !p.masked && p.dropText ? `<div style="font-family:var(--mono); font-size:11px; color:var(--danger);">${esc(p.dropText)}</div>` : ""}</td>`;
               }).join("")}
             </tr>
             <tr>
@@ -9004,6 +9051,8 @@
 
       const preferUnseen = Boolean(parsed && parsed._isAskingMore);
       let strictMatchedPool = matched.slice().sort(function (a, b) {
+        const groupOrder = bestSearchGroupWeight(b, parsed) - bestSearchGroupWeight(a, parsed);
+        if (groupOrder) return groupOrder;
         return scorePropertyForAiHighlight(b, parsed, shownSet, preferUnseen) - scorePropertyForAiHighlight(a, parsed, shownSet, preferUnseen);
       });
       if (!strictMatchedPool.length && streetMatched.length && !hasNumericBounds(parsed)) {
@@ -9081,7 +9130,7 @@
       const finalCombined = activeDists.length
         ? combined.filter(function (p) { return propertyMatchesDistrictList(p, activeDists); })
         : combined;
-      const topCandidates = finalCombined.slice(0, 18);
+      const topCandidates = finalCombined.sort((a,b) => bestSearchGroupWeight(b, parsed) - bestSearchGroupWeight(a, parsed)).slice(0, 18);
       const candidates = topCandidates.map(function (p) {
         const pid = String(p.id || "").toUpperCase();
         const isMask = Boolean(p.masked || p.isSold);
@@ -9100,6 +9149,9 @@
           widthM: Number(p.widthM || 0),
           structFull: p.structFull,
           masked: Boolean(p.masked),
+          masked_anchor_price_billion: p.masked && !p.isSold ? p.maskedAnchor : 0,
+          search_groups: p.search_groups,
+          is_true_street_front: p.is_true_street_front,
           cashflowMasked: Boolean(p.cashflowMasked),
           isSold: Boolean(p.isSold),
           price: p.masked ? 0 : p.price,
@@ -9131,7 +9183,6 @@
       const items = (Array.isArray(ids) ? ids : []).map(getProp).filter(Boolean).slice(0, 3);
       if (!items.length) return "";
       return '<div class="ai-card-list">' + items.map(function (p) {
-        const priceTxt = p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : fmtBil(p.price));
         const specLine = [p.dimsShort, p.area > 0 ? (fmtNum(p.area) + "m²") : "", p.structShort].filter(Boolean).join(" · ");
         return (
           '<article class="ai-prop-card">' +
@@ -9141,9 +9192,9 @@
             '</span>' +
             '<div class="ai-prop-info">' +
               '<h4 class="ai-prop-title">' + esc(p.streetDisplay) + ', ' + esc(p.district) + '</h4>' +
-              '<p class="ai-prop-sub">' + esc(p.category) + (specLine ? " · " + esc(specLine) : "") + '</p>' +
+              '<p class="ai-prop-sub">' + esc(publicCategoryKicker(p)) + (specLine ? " · " + esc(specLine) : "") + '</p>' +
               '<div class="ai-prop-foot">' +
-                '<span class="ai-prop-price">' + esc(priceTxt) + '</span>' +
+                '<span class="ai-prop-price">' + publicPriceHtml(p) + '</span>' +
                 '<span class="ai-prop-actions">' +
                   '<button type="button" onclick="openDossier(\'' + esc(p.id) + '\')">Xem chi tiết</button>' +
                   '<a href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" onclick="handleDirectZalo()">Nhắn Zalo</a>' +
@@ -9232,13 +9283,12 @@
       if (!extraItems.length) return "";
 
       const listHtml = extraItems.map(function (p) {
-        const priceTxt = p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : fmtBil(p.price));
         const specLine = formatAiMoreSpecSummary(p);
         const titleLabel = esc((p.streetDisplay || p.category) + ", " + p.district);
         return (
           '<li>' +
             '<a class="ai-more-link" href="/p/' + esc(p.id) + '.html" onclick="return openDossierFromAiChat(event, \'' + esc(p.id) + '\')">' +
-              '<span class="ai-more-main">• ' + titleLabel + ' — <span class="ai-more-price">' + esc(priceTxt) + '</span>' + (specLine ? ' <span class="ai-more-meta">· ' + esc(specLine) + '</span>' : '') + '</span>' +
+              '<span class="ai-more-main">• ' + titleLabel + ' — <span class="ai-more-price">' + publicPriceHtml(p) + '</span>' + (specLine ? ' <span class="ai-more-meta">· ' + esc(specLine) + '</span>' : '') + '</span>' +
               '<span class="ai-more-ext" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>' +
             '</a>' +
           '</li>'
