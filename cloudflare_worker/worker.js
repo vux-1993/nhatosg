@@ -208,6 +208,23 @@ async function fetchLiveConfig(env) {
   }
 }
 
+const LEGAL_REPLY = "Dạ, thông tin chi tiết về sổ hồng, hoàn công và hiện trạng PCCC của từng tòa được Vũ lưu đối chiếu riêng. Anh/Chị nhắn Zalo Vũ (0916.23.9898) để Vũ kiểm tra đúng căn mình quan tâm và gửi bản chụp thực tế nếu hồ sơ có sẵn ạ.";
+
+function isLegalDocumentQuestion(question) {
+  return /\b(?:pccc|phong chay|chua chay|hoan cong|so hong|nghiem thu|giay to phap ly|ho so phap ly|ban ve)\b/.test(foldViSimple(question));
+}
+
+function enforceExactMatchCount(answer, exact) {
+  if (!(exact > 0) || !answer) return answer;
+  const claimedCount = /\d+(?:[.,]\d{3})*\s*(?:\*\*)?\s*(?:căn|tài sản|bất động sản|sản phẩm|tòa|building|hồ sơ)(?=$|[\s.,;:!?*])/iu;
+  const inventory = /(?:tổng (?:cộng|số)|toàn kho|cả kho|hiện(?: tại)? (?:đang )?có|trên kho (?:đang )?còn)/iu;
+  const body = answer.split("\n").map(line =>
+    line.split(/(?<=[.!?])(?=\s+\p{Lu})/u)
+      .filter(sentence => !claimedCount.test(sentence) && !inventory.test(sentence)).join("").trim()
+  ).join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return "Dạ, có **" + exact + " tài sản khớp bộ lọc hiện tại**." + (body ? "\n\n" + body : "");
+}
+
 function modelThinkingBudget(model) {
   return model === "gemini-3.1-flash-lite" && !modelsUnsupportedThinking.has(model) ? 0 : null;
 }
@@ -933,7 +950,8 @@ export default {
     if (!question || question.length > MAX_QUESTION_CHARS) {
       return jsonResp({ ok: false, error: "QUESTION_LENGTH_INVALID" }, 400);
     }
-    if (!env.GEMINI_API_KEY) {
+    const legalQuestion = isLegalDocumentQuestion(question);
+    if (!env.GEMINI_API_KEY && !legalQuestion) {
       return jsonResp({ ok: false, fallback: true, reason: "AI_UNAVAILABLE" }, 503);
     }
 
@@ -947,6 +965,11 @@ export default {
     const totalExactMatches = partition.strictIds.size === 0 && partition.nearIds.size > 0
       ? 0
       : Math.max(partition.strictIds.size, hasExactField ? Number(body.total_exact_matches) : partition.strictIds.size);
+    const constrained = hasAnyConstraint(constraints);
+    if (legalQuestion) {
+      return jsonResp({ ok: true, reply: LEGAL_REPLY, recommended_ids: [], total_exact_matches: totalExactMatches,
+        model: "local-policy", source: "local_policy", mode: cfg.mode });
+    }
     const histLines = histArr
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
       .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (bên Vũ)"}: ${t.text.trim().slice(0, 450)}`);
@@ -962,7 +985,7 @@ export default {
       const tail = c.highlight ? ` | Điểm nhấn: ${c.highlight}` : "";
       return `- ID:${c.id}${tags ? ` [${tags}]` : ""} | ${c.category} | Đường ${c.street}, ${c.ward ? c.ward + ", " : ""}${c.district} | KT: ${c.dims} | DTCN: ${c.area} | Kết cấu: ${c.structure} | Giá: ${c.priceTxt} | Khai thác: ${c.cfTxt}${tail}`;
     });
-    const catalogOverview = String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
+    const catalogOverview = constrained ? "" : String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
     const sysInstruction =
       "Đây là website cá nhân của Vũ (nhatoSG) — 33 tuổi, môi giới thực chiến chuyên nhà mặt tiền, building văn phòng, khách sạn và biệt thự tại TP.HCM & TP. Thủ Đức (KHÔNG phải tập đoàn hay sàn giao dịch lớn). Em là trợ lý giúp khách lọc nhanh sản phẩm và nắm thông số thực tế trên web của Vũ.\n\n" +
       "PHONG CÁCH GIAO TIẾP BẮT BUỘC:\n" +
@@ -981,6 +1004,7 @@ export default {
       "2. Lọc tìm sản phẩm theo tiêu chí địa giới & số học (Quận, giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng Quận và biên số học của câu hỏi. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng Quận và biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất đúng Quận (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
       "3. Hỏi về PCCC, hoàn công, pháp lý: KHÔNG cam kết hay bảo đảm thay giấy tờ gốc. Chỉ nêu đúng thông tin tin đăng đang ghi (ví dụ tin có ghi đạt chuẩn PCCC hay chưa ghi chi tiết), nói rõ quy trình đối chiếu thực tế (sổ hồng hoàn công, bản vẽ/nghiệm thu PCCC) và mời nhắn Zalo **Vũ (0916.23.9898)** nhận hồ sơ kiểm chứng.\n\n" +
       "Nếu nguồn công khai chưa xác nhận có hồ sơ, không hứa có hoặc gửi ngay sổ hồng, bản vẽ hay biên bản PCCC. Hướng khách đến Vũ để kiểm chứng.\n\n" +
+      "Khi có bộ lọc, mọi nhận định về số căn khớp phải lấy đúng SO_LUONG_KHOP_BO_LOC_HIEN_TAI. Tổng kho và số thẻ gợi ý không phải số căn khớp.\n" +
       "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
       "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO, THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
       "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong 'recommended_ids').";
@@ -994,7 +1018,7 @@ export default {
     const userPrompt =
       (catalogOverview ? `BẢN ĐỒ TOÀN KHO NHATOSG:\n${catalogOverview}\n\n` : "") +
       (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
-      statsLine +
+      (constrained ? "SO_LUONG_KHOP_BO_LOC_HIEN_TAI: " + totalExactMatches + "\n\n" : "") + statsLine +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
     const remainingBudget = () => Math.floor(chatDeadline - performance.now());
@@ -1128,7 +1152,8 @@ export default {
           constraints,
           candidates: activeCandidates,
         });
-        const ans = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
+        const rawAnswer = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
+        const ans = constrained ? enforceExactMatchCount(rawAnswer, totalExactMatches) : rawAnswer;
         if (ans) {
           timing(model, "selected", 0);
           return jsonResp({
