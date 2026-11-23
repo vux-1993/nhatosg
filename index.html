@@ -59,7 +59,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261123130820";
+    script.src = "./properties_data.js?v=20261123162052";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -110,8 +110,11 @@
       --hero-terra: #9A442E;
       --hero-card-bg: #FDFBF7;
       --rail-bg: #FFFFFF;
-      --skyline-stroke: #B88A44;
-      --skyline-opacity: 0.22;
+      --skyline-stroke: #CFC0A9;
+      --skyline-opacity: 0.62;
+      --skyline-moon-opacity: 0;
+      --skyline-moon-transform: translateY(5px) scale(0.9);
+      --skyline-moon-filter: none;
       --max: 1480px;
       --serif-display: 'Newsreader', 'Lora', Georgia, serif;
       --serif: 'Lora', Georgia, serif;
@@ -150,8 +153,11 @@
       --hero-terra: #D6AE7E;
       --hero-card-bg: #181715;
       --rail-bg: #1B1A17;
-      --skyline-stroke: #C89D6C;
-      --skyline-opacity: 0.14;
+      --skyline-stroke: #D6AE7E;
+      --skyline-opacity: 0.30;
+      --skyline-moon-opacity: 0.85;
+      --skyline-moon-transform: translateY(0) scale(1);
+      --skyline-moon-filter: drop-shadow(0 0 8px rgba(229, 195, 150, 0.22));
     }
 
     @media (prefers-color-scheme: dark) {
@@ -186,8 +192,11 @@
         --hero-terra: #D6AE7E;
         --hero-card-bg: #181715;
         --rail-bg: #1B1A17;
-        --skyline-stroke: #C89D6C;
-        --skyline-opacity: 0.14;
+        --skyline-stroke: #D6AE7E;
+        --skyline-opacity: 0.30;
+        --skyline-moon-opacity: 0.85;
+        --skyline-moon-transform: translateY(0) scale(1);
+        --skyline-moon-filter: drop-shadow(0 0 8px rgba(229, 195, 150, 0.22));
       }
     }
 
@@ -588,13 +597,35 @@
     .hero-skyline-svg {
       position: absolute;
       right: 0;
-      top: 6px;
-      width: clamp(190px, 21vw, 290px);
+      bottom: 84px;
+      width: clamp(280px, 28vw, 375px);
       height: auto;
-      color: var(--skyline-stroke);
-      opacity: var(--skyline-opacity);
       pointer-events: none;
       z-index: 0;
+      overflow: visible;
+    }
+
+    .hero-skyline-svg .skyline-arch {
+      color: var(--skyline-stroke);
+      opacity: var(--skyline-opacity);
+    }
+
+    .hero-skyline-svg .skyline-night-moon {
+      color: #E5C396;
+      opacity: var(--skyline-moon-opacity);
+      transform: var(--skyline-moon-transform);
+      transform-box: fill-box;
+      transform-origin: center;
+      filter: var(--skyline-moon-filter);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-skyline-svg .skyline-arch {
+        transition: color 0.35s ease, opacity 0.35s ease;
+      }
+      .hero-skyline-svg .skyline-night-moon {
+        transition: opacity 0.35s ease, transform 0.35s ease;
+      }
     }
 
     .hero h1 {
@@ -626,7 +657,7 @@
       position: relative;
       z-index: 1;
       margin: 0;
-      max-width: 560px;
+      max-width: clamp(320px, 27.5vw, 410px);
       font-size: 14.5px;
       color: var(--muted);
       line-height: 1.58;
@@ -3608,6 +3639,16 @@
     #contact .official-row-val { font-size: 14.5px; }
     @media (max-width: 767px) {
       .hero-skyline-svg { display: none; }
+      .hero-sub { max-width: 560px; }
+    }
+    @media (min-width: 1024px) and (max-width: 1580px) {
+      .wrap { padding-inline: 70px; }
+    }
+    @media (min-width: 1024px) and (max-width: 1420px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 468px);
+        gap: 34px;
+      }
     }
     @media (max-width: 680px) {
       .hero { padding-block: 24px; }
@@ -3734,11 +3775,11 @@
 
     .ai-chat-fab {
       position: fixed;
-      right: 18px;
-      bottom: 18px;
+      right: 14px;
+      bottom: 14px;
       z-index: 44;
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       padding: 0;
       border-radius: 50%;
       display: inline-flex;
@@ -3799,16 +3840,16 @@
       bottom: 88px;
     }
     .ai-chat-fab svg {
-      width: 21px;
-      height: 21px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
       pointer-events: none;
     }
 
     .ai-chat-nudge {
       position: fixed;
-      right: 74px;
-      bottom: 19px;
+      right: 68px;
+      bottom: 15px;
       z-index: 44;
       display: inline-flex;
       align-items: center;
@@ -4425,25 +4466,36 @@
       <div class="wrap">
         <div class="hero-grid">
           <div class="hero-left">
+            <svg class="hero-skyline-svg" viewBox="0 0 580 230" fill="none" aria-hidden="true">
+              <g class="skyline-night-moon" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+                <path class="moon-crescent" d="M314.7 35.6 A10.5 10.5 0 1 0 325.1 51.2 A9.4 9.4 0 0 1 314.7 35.6 Z" />
+                <circle class="moon-star" cx="294" cy="41" r="1.1" fill="currentColor" stroke="none" opacity="0.65" />
+                <circle class="moon-star" cx="335" cy="37" r="0.8" fill="currentColor" stroke="none" opacity="0.48" />
+              </g>
+              <g class="skyline-arch" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+                <!-- 1. Chợ Bến Thành: 2 gian mái dốc đối xứng, tháp đồng hồ kim chữ L & chóp thu lôi -->
+                <path d="M32 193.5 V162 H64 M28 162 L48 148 L64 158 M48 171 V183" />
+                <path d="M100 162 H132 V193.5 M100 158 L116 148 L136 162 M116 171 V183" />
+                <path d="M74 193.5 V176 Q82 170 90 176 V193.5" />
+                <path d="M64 193.5 V126 H100 V193.5 M60 126 H104 M67 126 V118 H97 V126 M63 118 H101 M66 118 L82 101 L98 118 M82 101 V87" />
+                <circle cx="82" cy="144" r="8.5" />
+                <path d="M82 138.8 V144 H86.5" />
+                <!-- 2. Landmark 81: bó ống giật cấp thanh thoát & kim đỉnh cao nhất -->
+                <path d="M154 193.5 V166 H170 M170 193.5 V122 H182 M182 193.5 V82 H194 M194 193.5 V42 L201 35 L208 42 V193.5 M208 66 H219 V193.5 M219 106 H230 V193.5 M230 158 H246 V193.5 M201 35 V14" />
+                <!-- 3. Cao ốc văn phòng mái vát giữa -->
+                <path d="M268 193 V98 L298 82 V193 M277 114 H289 M277 132 H289 M277 150 H289 M298 144 H318 V192.5 M304 160 H312" />
+                <!-- 4. Bitexco Financial Tower: búp sen cong, sân đỗ trực thăng & gân tháp -->
+                <path d="M354 191.5 C356 142 363 86 374 46 C380 42 387 48 390 58 C394 98 396 146 396 191.5 M374 46 C377 53 383 57 390 58" />
+                <path d="M388 91 H419 C420 93.5 417 95 412 95 H393 M393 101 L410 95" />
+                <path d="M375 191.5 C376 148 379 102 382 58" />
+                <!-- 5. Hai tòa văn phòng cân đối bên phải -->
+                <path d="M442 193.5 V162 H458 M458 194 V92 H494 V194.5 M468 110 H484 M468 128 H484 M468 146 H484 M506 194.5 V124 L538 110 V193" />
+                <!-- 6. Sóng nước sông Sài Gòn -->
+                <path d="M16 195 C112 187 206 201 302 193 C398 185 484 199 564 192" />
+                <path d="M64 209 C158 202 252 215 348 207 C426 201 482 211 524 206" opacity="0.8" />
+              </g>
+            </svg>
             <div class="hero-heading-zone">
-              <svg class="hero-skyline-svg" viewBox="0 0 280 150" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <!-- Bitexco Financial Tower & helipad -->
-                <path d="M126 126L134 22Q143 16 151 20L160 126" />
-                <path d="M150 47H173" />
-                <path d="M151 51H170" />
-                <path d="M133 42L152 38M131 62L155 58M129 82L157 78M128 102L158 98" opacity="0.65" />
-                <!-- Saigon CBD towers -->
-                <path d="M62 126V66H88V126" />
-                <path d="M69 78H81M69 90H81M69 102H81" opacity="0.6" />
-                <path d="M92 126V48L114 40V126" />
-                <path d="M98 62H108M98 76H108M98 90H108" opacity="0.6" />
-                <path d="M180 126V56H204V126" />
-                <path d="M186 70H198M186 84H198M186 98H198" opacity="0.6" />
-                <path d="M210 126V76L232 68V126" />
-                <!-- Saigon River architectural waves -->
-                <path d="M24 126C64 118 108 134 150 125C192 116 234 132 264 124" />
-                <path d="M38 138C82 132 126 144 174 136C212 130 242 139 258 135" opacity="0.65" />
-              </svg>
               <p class="kicker">NHÀ MẶT TIỀN · BUILDING · KHÁCH SẠN · BIỆT THỰ</p>
               <span class="hero-accent-bar top" aria-hidden="true"></span>
               <h1>Kho nhato<em>SG</em></h1>
