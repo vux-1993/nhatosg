@@ -208,6 +208,23 @@ async function fetchLiveConfig(env) {
   }
 }
 
+const LEGAL_REPLY = "Dạ, thông tin chi tiết về sổ hồng, hoàn công và hiện trạng PCCC của từng tòa được Vũ lưu đối chiếu riêng. Anh/Chị nhắn Zalo Vũ (0916.23.9898) để Vũ kiểm tra đúng căn mình quan tâm và gửi bản chụp thực tế nếu hồ sơ có sẵn ạ.";
+
+function isLegalDocumentQuestion(question) {
+  return /\b(?:pccc|phong chay|chua chay|hoan cong|so hong|nghiem thu|giay to phap ly|ho so phap ly|ban ve)\b/.test(foldViSimple(question));
+}
+
+function enforceExactMatchCount(answer, exact) {
+  if (!(exact > 0) || !answer) return answer;
+  const claimedCount = /\d+(?:[.,]\d{3})*\s*(?:\*\*)?\s*(?:căn|tài sản|bất động sản|sản phẩm|tòa|building|hồ sơ)(?=$|[\s.,;:!?*])/iu;
+  const inventory = /(?:tổng (?:cộng|số)|toàn kho|cả kho|hiện(?: tại)? (?:đang )?có|trên kho (?:đang )?còn)/iu;
+  const body = answer.split("\n").map(line =>
+    line.split(/(?<=[.!?])(?=\s+\p{Lu})/u)
+      .filter(sentence => !claimedCount.test(sentence) && !inventory.test(sentence)).join("").trim()
+  ).join("\n").replace(/\n{3,}/g, "\n\n").trim();
+  return "Dạ, có **" + exact + " tài sản khớp bộ lọc hiện tại**." + (body ? "\n\n" + body : "");
+}
+
 function modelThinkingBudget(model) {
   return model === "gemini-3.1-flash-lite" && !modelsUnsupportedThinking.has(model) ? 0 : null;
 }
@@ -586,7 +603,8 @@ function candidateMetrics(cand, rawMap) {
   const isSold = Boolean(cand.isSold);
   const priceMasked = Boolean(cand.masked) || /liên hệ/i.test(String(cand.priceTxt || ""));
   const cfMasked = Boolean(cand.cashflowMasked) || /liên hệ/i.test(String(cand.cfTxt || ""));
-  const priceBil = (!isSold && !priceMasked) ? (Number(raw.price || 0) || extractNumFromVi(cand.priceTxt, /(\d+(?:\.\d+)?)\s*(?:tỷ|tỉ|ty)/i)) : 0;
+  const priceBil = isSold ? 0 : priceMasked ? cand.maskedAnchor
+    : (Number(raw.price || 0) || extractNumFromVi(cand.priceTxt, /(\d+(?:\.\d+)?)\s*(?:tỷ|tỉ|ty)/i));
   const monthlyMil = (!isSold && !cfMasked) ? (Number(raw.monthlyMil || 0) || extractNumFromVi(cand.cfTxt, /(\d+(?:\.\d+)?)\s*(?:tr|triệu|trieu)/i)) : 0;
   const widthM = Number(raw.widthM || 0) || extractNumFromVi(cand.dims, /(\d+(?:\.\d+)?)\s*m/i);
   const areaM2 = Number(raw.area || 0) || extractNumFromVi(cand.area, /(\d+(?:\.\d+)?)\s*m/i);
@@ -611,10 +629,10 @@ function candidateSatisfiesConstraints(cand, m, c, opts = {}) {
     if (!c.subAreaTokens.some((sa) => containsTokenBoundary(ZONE_SUBS.has(sa) ? locZone : locStructured, sa))) return false;
   }
   if (!opts.ignoreCategory && c.categories.length) {
-    if (!c.categories.includes(m.bucket)) return false;
+    if (!c.categories.some(group => candidateGroupWeight(cand, group))) return false;
   }
   if (c.minPriceBil !== null || c.maxPriceBil !== null) {
-    if (m.isSold || m.priceMasked || !(m.priceBil > 0)) return false;
+    if (m.isSold || !(m.priceBil > 0)) return false;
     if (c.minPriceBil !== null) {
       const bound = tol > 0 ? c.minPriceBil * (1 - tol) : c.minPriceBil;
       if (tol === 0 && c.minPriceStrict ? !(m.priceBil > bound) : !(m.priceBil >= bound)) return false;
@@ -678,6 +696,8 @@ function partitionCandidatesByConstraints(candidates, rawCandidates, constraints
     strictList = districtPool.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea, ignoreCategory: true }));
   }
   if (strictList.length > 0) {
+    const groupRank = cand => Math.max(0, ...constraints.categories.map(group => candidateGroupWeight(cand, group)));
+    strictList.sort((a, b) => groupRank(b) - groupRank(a));
     return {
       filtered: strictList,
       strictIds: new Set(strictList.map((c) => c.id)),
@@ -760,6 +780,20 @@ export function strictPostFilterRecommendedIds(recIds, partition, validIds, opts
   return clean.slice(0, maxCount);
 }
 
+function candidateGroupWeight(candidate, group) {
+  const root = canonicalCatBucket(candidate.category);
+  const groups = candidate.searchGroups;
+  if (!Array.isArray(groups)) return root === group ? 100 : 0;
+  const item = groups.find(g => g && g.group === group);
+  if (!item) return 0;
+  if (group === root) return item.weight === 100 ? 100 : 0;
+  if (group === "townhouse" && candidate.streetFront && ["building","villa","land","chdv_hotel"].includes(root)) return item.weight === 85 ? 85 : 0;
+  if (group === "building" && ["townhouse","chdv_hotel"].includes(root)) return item.weight === 82 ? 82 : 0;
+  if (group === "chdv_hotel" && root === "building") return item.weight === 80 ? 80 : 0;
+  if (group === "land" && ["villa","townhouse"].includes(root)) return item.weight === 82 ? 82 : 0;
+  return 0;
+}
+
 function sanitizeCandidates(rawCandidates) {
   if (!Array.isArray(rawCandidates)) return [];
   const clean = [];
@@ -769,7 +803,10 @@ function sanitizeCandidates(rawCandidates) {
     if (!/^NSG-\d{3,5}$/.test(id)) continue;
     const masked = Boolean(c.masked || c.is_price_masked);
     const cfMasked = Boolean(c.cashflowMasked || c.is_cashflow_masked);
-    const priceTxt = c.isSold ? "Đã Bán" : masked ? "Liên Hệ (thỏa thuận kín)" : String(c.priceDisplay || (c.price > 0 ? `${c.price} Tỷ` : "Liên Hệ"));
+    const amount = Number(c.masked_anchor_price_billion);
+    const maskedAnchor = masked && !c.isSold && Number.isFinite(amount) && amount > 0 ? amount : 0;
+    const publicRef = maskedAnchor ? `Giá tham chiếu ${maskedAnchor.toLocaleString("vi-VN")} Tỷ · Liên Hệ` : "Liên Hệ (thỏa thuận kín)";
+    const priceTxt = c.isSold ? "Đã Bán" : masked ? publicRef : String(c.priceDisplay || (c.price > 0 ? `${c.price} Tỷ` : "Liên Hệ"));
     const cfTxt = cfMasked ? "Liên Hệ" : String(c.yieldFull || c.cashflow || "Liên Hệ");
     let highlight = stripNsgCodes(String(c.sec2 || c.highlight || "").slice(0, 220));
     if (masked || c.isSold) {
@@ -782,6 +819,9 @@ function sanitizeCandidates(rawCandidates) {
       ward: String(c.ward || "").slice(0, 60),
       district: String(c.district || "").slice(0, 50),
       category: String(c.category || "").slice(0, 60),
+      maskedAnchor,
+      searchGroups: Array.isArray(c.search_groups) ? c.search_groups.slice(0, 5) : undefined,
+      streetFront: c.is_true_street_front === true,
       dims: String(c.dimsShort || c.dimensions || "Liên Hệ").slice(0, 60),
       area: Number(c.area || 0) > 0 ? `${c.area}m²` : "Liên Hệ",
       structure: String(c.structFull || c.structure || "Liên Hệ").slice(0, 100),
@@ -933,7 +973,8 @@ export default {
     if (!question || question.length > MAX_QUESTION_CHARS) {
       return jsonResp({ ok: false, error: "QUESTION_LENGTH_INVALID" }, 400);
     }
-    if (!env.GEMINI_API_KEY) {
+    const legalQuestion = isLegalDocumentQuestion(question);
+    if (!env.GEMINI_API_KEY && !legalQuestion) {
       return jsonResp({ ok: false, fallback: true, reason: "AI_UNAVAILABLE" }, 503);
     }
 
@@ -947,6 +988,11 @@ export default {
     const totalExactMatches = partition.strictIds.size === 0 && partition.nearIds.size > 0
       ? 0
       : Math.max(partition.strictIds.size, hasExactField ? Number(body.total_exact_matches) : partition.strictIds.size);
+    const constrained = hasAnyConstraint(constraints);
+    if (legalQuestion) {
+      return jsonResp({ ok: true, reply: LEGAL_REPLY, recommended_ids: [], total_exact_matches: totalExactMatches,
+        model: "local-policy", source: "local_policy", mode: cfg.mode });
+    }
     const histLines = histArr
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
       .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (bên Vũ)"}: ${t.text.trim().slice(0, 450)}`);
@@ -954,6 +1000,7 @@ export default {
     const ragLines = activeCandidates.map((c) => {
       const isNear = partition.nearIds.has(c.id);
       const tags = [
+        c.streetFront && candidateGroupWeight(c, "townhouse") === 85 ? "MẶT TIỀN ĐƯỜNG" : "",
         isNear ? "GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH" : "",
         c.previouslyShown ? "Đã giới thiệu ở lượt trước" : "",
         !c.previouslyShown && c.recentSuggested ? "Vừa gợi ý ở lượt trước" : "",
@@ -962,7 +1009,7 @@ export default {
       const tail = c.highlight ? ` | Điểm nhấn: ${c.highlight}` : "";
       return `- ID:${c.id}${tags ? ` [${tags}]` : ""} | ${c.category} | Đường ${c.street}, ${c.ward ? c.ward + ", " : ""}${c.district} | KT: ${c.dims} | DTCN: ${c.area} | Kết cấu: ${c.structure} | Giá: ${c.priceTxt} | Khai thác: ${c.cfTxt}${tail}`;
     });
-    const catalogOverview = String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
+    const catalogOverview = constrained ? "" : String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
     const sysInstruction =
       "Đây là website cá nhân của Vũ (nhatoSG) — 33 tuổi, môi giới thực chiến chuyên nhà mặt tiền, building văn phòng, khách sạn và biệt thự tại TP.HCM & TP. Thủ Đức (KHÔNG phải tập đoàn hay sàn giao dịch lớn). Em là trợ lý giúp khách lọc nhanh sản phẩm và nắm thông số thực tế trên web của Vũ.\n\n" +
       "PHONG CÁCH GIAO TIẾP BẮT BUỘC:\n" +
@@ -981,6 +1028,8 @@ export default {
       "2. Lọc tìm sản phẩm theo tiêu chí địa giới & số học (Quận, giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng Quận và biên số học của câu hỏi. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng Quận và biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất đúng Quận (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
       "3. Hỏi về PCCC, hoàn công, pháp lý: KHÔNG cam kết hay bảo đảm thay giấy tờ gốc. Chỉ nêu đúng thông tin tin đăng đang ghi (ví dụ tin có ghi đạt chuẩn PCCC hay chưa ghi chi tiết), nói rõ quy trình đối chiếu thực tế (sổ hồng hoàn công, bản vẽ/nghiệm thu PCCC) và mời nhắn Zalo **Vũ (0916.23.9898)** nhận hồ sơ kiểm chứng.\n\n" +
       "Nếu nguồn công khai chưa xác nhận có hồ sơ, không hứa có hoặc gửi ngay sổ hồng, bản vẽ hay biên bản PCCC. Hướng khách đến Vũ để kiểm chứng.\n\n" +
+      "Khi có bộ lọc, mọi nhận định về số căn khớp phải lấy đúng SO_LUONG_KHOP_BO_LOC_HIEN_TAI. Tổng kho và số thẻ gợi ý không phải số căn khớp.\n" +
+      "Chỉ gọi căn là mặt tiền đường khi có nhãn MẶT TIỀN ĐƯỜNG hoặc thuộc nhóm nhà mặt tiền gốc. Giá tham chiếu của căn che giá chỉ dùng để đối chiếu ngân sách.\n" +
       "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
       "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO, THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
       "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong 'recommended_ids').";
@@ -994,7 +1043,7 @@ export default {
     const userPrompt =
       (catalogOverview ? `BẢN ĐỒ TOÀN KHO NHATOSG:\n${catalogOverview}\n\n` : "") +
       (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
-      statsLine +
+      (constrained ? "SO_LUONG_KHOP_BO_LOC_HIEN_TAI: " + totalExactMatches + "\n\n" : "") + statsLine +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
     const remainingBudget = () => Math.floor(chatDeadline - performance.now());
@@ -1128,7 +1177,8 @@ export default {
           constraints,
           candidates: activeCandidates,
         });
-        const ans = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
+        const rawAnswer = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
+        const ans = constrained ? enforceExactMatchCount(rawAnswer, totalExactMatches) : rawAnswer;
         if (ans) {
           timing(model, "selected", 0);
           return jsonResp({
