@@ -267,8 +267,32 @@ function canonicalCatBucket(rawCat) {
   return f;
 }
 
+function canonicalDistrictName(raw) {
+  const f = foldViSimple(raw);
+  if (!f) return "";
+  if (/(?:^|\s)(?:tp\s*)?thu\s*duc(?=\s|$)|(?:^|\s)(?:quan|q)\s*[29](?=\s|$)/.test(f)) return "TP. Thủ Đức";
+  if (/(?:^|\s)(?:quan|q)\s*10(?=\s|$)/.test(f)) return "Quận 10";
+  if (/(?:^|\s)(?:quan|q)\s*11(?=\s|$)/.test(f)) return "Quận 11";
+  if (/(?:^|\s)(?:quan|q)\s*12(?=\s|$)/.test(f)) return "Quận 12";
+  if (/(?:^|\s)(?:quan|q)\s*1(?=\s|$)/.test(f)) return "Quận 1";
+  const qm = f.match(/(?:^|\s)(?:quan|q)\s*([3-8])(?=\s|$)/);
+  if (qm) return `Quận ${qm[1]}`;
+  if (/(?:^|\s)(?:binh\s*thanh|qbt)(?=\s|$)/.test(f)) return "Bình Thạnh";
+  if (/(?:^|\s)(?:phu\s*nhuan|qpn)(?=\s|$)/.test(f)) return "Phú Nhuận";
+  if (/(?:^|\s)(?:tan\s*binh|qtb)(?=\s|$)/.test(f)) return "Tân Bình";
+  if (/(?:^|\s)(?:tan\s*phu|qtp)(?=\s|$)/.test(f)) return "Tân Phú";
+  if (/(?:^|\s)(?:go\s*vap|qgv)(?=\s|$)/.test(f)) return "Gò Vấp";
+  if (/(?:^|\s)binh\s*tan(?=\s|$)/.test(f)) return "Bình Tân";
+  if (/(?:^|\s)binh\s*chanh(?=\s|$)/.test(f)) return "Bình Chánh";
+  if (/(?:^|\s)nha\s*be(?=\s|$)/.test(f)) return "Nhà Bè";
+  if (/(?:^|\s)hoc\s*mon(?=\s|$)/.test(f)) return "Hóc Môn";
+  if (/(?:^|\s)cu\s*chi(?=\s|$)/.test(f)) return "Củ Chi";
+  if (/(?:^|\s)can\s*gio(?=\s|$)/.test(f)) return "Cần Giờ";
+  return String(raw || "").trim();
+}
+
 const CHAT_DIST_RULES = [
-  { keys: ["quan 1", "q1", "q.1", "ben nghe", "ben thanh", "da kao", "nguyen thai binh", "tan dinh"], label: "Quận 1", matchTokens: ["quan 1"] },
+  { keys: ["quan 1", "q1", "q.1", "ben nghe", "ben thanh", "da kao", "phuong nguyen thai binh", "p nguyen thai binh", "tan dinh"], label: "Quận 1", matchTokens: ["quan 1"] },
   { keys: ["quan 2", "q2", "q.2", "quan 9", "q9", "q.9", "thao dien", "an khanh", "an phu", "thu thiem", "thanh my loi", "thu duc", "tp thu duc"], label: "TP. Thủ Đức", matchTokens: ["tp thu duc", "thu duc"] },
   { keys: ["quan 3", "q3", "q.3", "vo thi sau"], label: "Quận 3", matchTokens: ["quan 3"] },
   { keys: ["quan 4", "q4", "q.4"], label: "Quận 4", matchTokens: ["quan 4"] },
@@ -333,13 +357,19 @@ function parseQueryConstraints(rawQuery) {
     minAreaStrict: false,
     mustHaveBasement: false,
     _categoriesInherited: false,
+    _isAskingMore: false,
+    _locationReplaced: false,
   };
 
   const cm = qNoTone.match(/\bnsg[\s-]?(\d{3,4})\b/);
   if (cm) c.propCode = cm[1];
 
+  const qDistTest = qNoTone.replace(/\./g, " ");
   for (const rule of CHAT_DIST_RULES) {
-    if (rule.keys.some((k) => new RegExp("(^|\\s|,)" + escapeRe(k.replace(/\./g, "")) + "(\\s|,|$)", "i").test(qNoTone.replace(/\./g, "")))) {
+    if (rule.keys.some((k) => {
+      const kNorm = k.replace(/\./g, " ").replace(/\s+/g, " ").trim();
+      return new RegExp("(^|[^a-z0-9])" + escapeRe(kNorm) + "(?=[^a-z0-9]|$)", "i").test(qDistTest);
+    })) {
       if (!c.districts.some((d) => d.label === rule.label)) c.districts.push(rule);
     }
   }
@@ -428,15 +458,44 @@ function hasNumericBounds(c) {
   return c.minPriceBil !== null || c.maxPriceBil !== null || c.minCashflowMil !== null || c.maxCashflowMil !== null || c.minWidthM !== null || c.minAreaM2 !== null;
 }
 
+function hasAnyConstraint(c) {
+  if (!c) return false;
+  return Boolean(
+    hasNumericBounds(c) ||
+    (c.districts && c.districts.length > 0) ||
+    (c.subAreaTokens && c.subAreaTokens.length > 0) ||
+    (c.categories && c.categories.length > 0) ||
+    c.propCode ||
+    c.mustHaveBasement
+  );
+}
+
+function isWorkerGreeting(question) {
+  const qFold = foldViSimple(question);
+  if (!qFold || qFold.length > 75) return false;
+  if (/\b(?:tim|mua|ban|can|nha|mat tien|building|toa nha|van phong|khach san|chdv|biet thu|dat|quan|q\d+|thu duc|binh thanh|tan binh|phu nhuan|go vap|ty|trieu|ngang|ham|dien tich|hop dong thue|dong tien|gia|giam|pccc|hoan cong|so hong)\b/.test(qFold)) {
+    return false;
+  }
+  return /^(?:da\s+)?(?:xin\s+)?(?:chao|alo|hello|hi|hey|em oi|ad oi|co ai|cam on|thank|ok)\b/.test(qFold);
+}
+
+function isWorkerSingleIntent(question, c) {
+  if (c && (c.propCode || c._isLegalFollowUp)) return true;
+  const qFold = foldViSimple(question);
+  return /\b(?:can nay|can do|tai san nay|tai san do|toa nay|biet thu nay|khach san nay)\b/.test(qFold);
+}
+
 function resolveEffectiveConstraints(question, history) {
   const cur = parseQueryConstraints(question);
   if (!cur) return null;
   const qNoTone = foldViSimple(question);
-  const isTopicSwitch = /\b(?:chuyen sang|tim them loai|doi sang|con o quan|tim o)\b/.test(qNoTone);
+  const isTopicSwitch = /\b(?:chuyen sang|tim them loai|doi sang|con o quan|tim o|qua quan|sang quan)\b/.test(qNoTone);
   const isNarrow = /\b(?:ha xuong|giam xuong|noi len|len tam|xuong tam|thap hon|cao hon|re hon|tam nay|tam do|muc do|khu do|o do|o tren|may can tren|cac can tren|can nay|can nao|nhu vay)\b/.test(qNoTone);
+  const isAskingMore = /\b(?:con can nao|can nao khac|can khac|lua chon khac|phuong an khac|them can|ngoai may can|can nao nua|nha .+ nao nua|building .+ nao nua|xem them)\b/.test(qNoTone);
   const isLegalFollowUp = /\b(?:pccc|hoan cong|so hong|phap ly|lo gioi|quy hoach|so sanh|chi tiet|hien trang|noi that|thang may|hop dong thue)\b/.test(qNoTone) &&
     !hasNumericBounds(cur) && !cur.districts.length && !cur.categories.length;
   cur._isLegalFollowUp = isLegalFollowUp;
+  cur._isAskingMore = isAskingMore;
   if (!Array.isArray(history) || !history.length || cur.propCode || isTopicSwitch) return cur;
 
   const userTurns = history.filter((t) => t && t.role === "user" && typeof t.text === "string" && t.text.trim());
@@ -461,21 +520,30 @@ function resolveEffectiveConstraints(question, history) {
   }
 
   const hasNewLoc = cur.districts.length > 0 || cur.subAreaTokens.length > 0;
-  const shouldInherit = isNarrow || isLegalFollowUp || (!hasNewLoc && hasNumericBounds(cur));
+  if (hasNewLoc && inhDist.length > 0) {
+    const prevLabels = new Set(inhDist.map((d) => d.label));
+    if (!cur.districts.length || !cur.districts.every((d) => prevLabels.has(d.label))) {
+      cur._locationReplaced = true;
+    }
+  }
+  const allowSpecInh = !cur._locationReplaced || isNarrow;
+  const shouldInherit = isNarrow || isAskingMore || isLegalFollowUp || (!hasNewLoc && hasNumericBounds(cur));
   if (!hasNewLoc && shouldInherit && inhDist.length) {
     cur.districts = inhDist;
     cur.subAreaTokens = inhSub;
   }
-  if (!cur.categories.length && inhCats.length && shouldInherit) {
+  if (allowSpecInh && !cur.categories.length && inhCats.length && shouldInherit) {
     cur.categories = inhCats.slice();
     cur._categoriesInherited = true;
   }
-  if (!cur.mustHaveBasement && inhBase && (isNarrow || isLegalFollowUp || !hasNewLoc)) cur.mustHaveBasement = true;
-  if (cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalFollowUp || (!hasNumericBounds(cur) && isNarrow))) {
+  if (allowSpecInh && !cur.mustHaveBasement && inhBase && (isNarrow || isAskingMore || isLegalFollowUp || !hasNewLoc)) {
+    cur.mustHaveBasement = true;
+  }
+  if (allowSpecInh && cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalFollowUp || (!hasNumericBounds(cur) && (isNarrow || isAskingMore)))) {
     cur.minPriceBil = inhMinP; cur.maxPriceBil = inhMaxP;
     cur.minPriceStrict = inhMinPS; cur.maxPriceStrict = inhMaxPS;
   }
-  if (cur.minCashflowMil === null && (isLegalFollowUp || isNarrow)) {
+  if (allowSpecInh && cur.minCashflowMil === null && (isLegalFollowUp || isNarrow || isAskingMore)) {
     cur.minCashflowMil = inhMinCf; cur.minCashflowStrict = inhMinCfS;
   }
   return cur;
@@ -498,17 +566,22 @@ function candidateMetrics(cand, rawMap) {
   return { priceBil, monthlyMil, widthM, areaM2, priceMasked, cfMasked, isSold, bucket: canonicalCatBucket(cand.category) };
 }
 
+function candidateMatchesDistricts(cand, c) {
+  if (!c || !c.districts || !c.districts.length) return true;
+  const dCanon = canonicalDistrictName(cand && cand.district);
+  return Boolean(dCanon) && c.districts.some((dr) => dr.label === dCanon || canonicalDistrictName(dr.label) === dCanon);
+}
+
 function candidateSatisfiesConstraints(cand, m, c, opts = {}) {
   if (!c) return true;
   const tol = Number(opts.nearPct || 0);
   if (c.propCode && !String(cand.id || "").includes(c.propCode)) return false;
-  if (c.districts.length) {
-    const dFold = foldViSimple(cand.district);
-    if (!c.districts.some((dr) => dr.matchTokens.some((tok) => dFold.includes(tok)))) return false;
-  }
+  if (!candidateMatchesDistricts(cand, c)) return false;
   if (!opts.ignoreSubArea && c.subAreaTokens.length) {
-    const locFold = foldViSimple(`${cand.ward} ${cand.street} ${cand.highlight} ${cand.district}`);
-    if (!c.subAreaTokens.some((sa) => containsTokenBoundary(locFold, sa))) return false;
+    const locStructured = foldViSimple(`${cand.ward} ${cand.street}`);
+    const locZone = foldViSimple(`${cand.ward} ${cand.street} ${cand.highlight}`);
+    const ZONE_SUBS = new Set(["phu my hung", "cityland", "thu thiem"]);
+    if (!c.subAreaTokens.some((sa) => containsTokenBoundary(ZONE_SUBS.has(sa) ? locZone : locStructured, sa))) return false;
   }
   if (!opts.ignoreCategory && c.categories.length) {
     if (!c.categories.includes(m.bucket)) return false;
@@ -555,19 +628,27 @@ function partitionCandidatesByConstraints(candidates, rawCandidates, constraints
       if (id) rawMap.set(id, rc);
     }
   }
-  if (!constraints || !hasNumericBounds(constraints)) {
-    return { filtered: candidates, strictIds: new Set(candidates.map((c) => c.id)), nearIds: new Set(), hasHardNumeric: false };
+  const districtPool = (constraints && constraints.districts && constraints.districts.length)
+    ? candidates.filter((cand) => candidateMatchesDistricts(cand, constraints))
+    : candidates;
+
+  if (!constraints || !hasAnyConstraint(constraints)) {
+    return { filtered: districtPool, strictIds: new Set(districtPool.map((c) => c.id)), nearIds: new Set(), hasHardNumeric: false, hasHardConstraint: false };
   }
-  const hasAnySubAreaInfo = !constraints.subAreaTokens.length || candidates.some((cand) => {
-    const locFold = foldViSimple(`${cand.ward} ${cand.street} ${cand.highlight} ${cand.district}`);
+  if (!districtPool.length) {
+    return { filtered: [], strictIds: new Set(), nearIds: new Set(), hasHardNumeric: hasNumericBounds(constraints), hasHardConstraint: true };
+  }
+
+  const hasAnySubAreaInfo = !constraints.subAreaTokens.length || districtPool.some((cand) => {
+    const locFold = foldViSimple(`${cand.ward} ${cand.street} ${cand.highlight}`);
     return constraints.subAreaTokens.some((sa) => locFold.includes(sa));
   });
   const ignoreSubArea = !hasAnySubAreaInfo;
-  const metricsMap = new Map(candidates.map((cand) => [cand.id, candidateMetrics(cand, rawMap)]));
+  const metricsMap = new Map(districtPool.map((cand) => [cand.id, candidateMetrics(cand, rawMap)]));
 
-  let strictList = candidates.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea }));
+  let strictList = districtPool.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea }));
   if (!strictList.length && constraints._categoriesInherited) {
-    strictList = candidates.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea, ignoreCategory: true }));
+    strictList = districtPool.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea, ignoreCategory: true }));
   }
   if (strictList.length > 0) {
     return {
@@ -575,10 +656,11 @@ function partitionCandidatesByConstraints(candidates, rawCandidates, constraints
       strictIds: new Set(strictList.map((c) => c.id)),
       nearIds: new Set(),
       hasHardNumeric: hasNumericBounds(constraints),
+      hasHardConstraint: true,
     };
   }
   if (hasNumericBounds(constraints)) {
-    const nearList = candidates
+    const nearList = districtPool
       .filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea, ignoreCategory: Boolean(constraints._categoriesInherited), nearPct: 0.0499 }))
       .slice(0, 2);
     return {
@@ -586,34 +668,75 @@ function partitionCandidatesByConstraints(candidates, rawCandidates, constraints
       strictIds: new Set(),
       nearIds: new Set(nearList.map((c) => c.id)),
       hasHardNumeric: true,
+      hasHardConstraint: true,
     };
   }
   return {
-    filtered: candidates,
-    strictIds: new Set(candidates.map((c) => c.id)),
+    filtered: [],
+    strictIds: new Set(),
     nearIds: new Set(),
     hasHardNumeric: false,
+    hasHardConstraint: true,
   };
 }
 
-export function strictPostFilterRecommendedIds(recIds, partition, validIds) {
-  const clean = (Array.isArray(recIds) ? recIds : [])
-    .map((x) => String(x || "").trim().toUpperCase())
-    .filter((x) => validIds.has(x));
+export function strictPostFilterRecommendedIds(recIds, partition, validIds, opts = {}) {
+  const question = String(opts.question || "");
+  if (question && isWorkerGreeting(question)) return [];
+  const constraints = opts.constraints || null;
+  const cands = Array.isArray(opts.candidates) ? opts.candidates : (Array.isArray(partition?.filtered) ? partition.filtered : []);
+  const candById = new Map(cands.map((c) => [c.id, c]));
+  const isSingle = isWorkerSingleIntent(question, constraints);
+  const maxCount = isSingle ? 1 : 3;
+
+  const clean = [];
+  const seen = new Set();
+  for (const rawX of (Array.isArray(recIds) ? recIds : [])) {
+    const id = String(rawX || "").trim().toUpperCase();
+    if (!id || seen.has(id) || !validIds.has(id)) continue;
+    const item = candById.get(id);
+    if (item && constraints && !candidateMatchesDistricts(item, constraints)) continue;
+    seen.add(id);
+    clean.push(id);
+  }
+
   if (partition.strictIds.size > 0) {
-    return clean.filter((id) => partition.strictIds.has(id)).slice(0, 4);
+    let filtered = clean.filter((id) => partition.strictIds.has(id));
+    if (!isSingle && constraints && constraints._isAskingMore) {
+      const unseenStrict = partition.filtered.filter((c) => partition.strictIds.has(c.id) && !c.previouslyShown);
+      if (unseenStrict.length >= Math.min(3, partition.strictIds.size)) {
+        filtered = filtered.filter((id) => !candById.get(id)?.previouslyShown);
+      }
+    }
+    const targetCount = Math.min(maxCount, partition.strictIds.size);
+    const shouldTopUp = !isSingle && (filtered.length > 0 || (constraints && hasAnyConstraint(constraints)));
+    if (shouldTopUp && filtered.length < targetCount) {
+      const fSet = new Set(filtered);
+      const orderedPool = [
+        ...partition.filtered.filter((c) => partition.strictIds.has(c.id) && !c.previouslyShown),
+        ...partition.filtered.filter((c) => partition.strictIds.has(c.id)),
+      ];
+      for (const c of orderedPool) {
+        if (filtered.length >= targetCount) break;
+        if (!fSet.has(c.id)) {
+          fSet.add(c.id);
+          filtered.push(c.id);
+        }
+      }
+    }
+    return filtered.slice(0, maxCount);
   }
   if (partition.nearIds.size > 0) {
     return clean.filter((id) => partition.nearIds.has(id)).slice(0, 2);
   }
-  if (partition.hasHardNumeric) return [];
-  return clean.slice(0, 4);
+  if (partition.hasHardNumeric || partition.hasHardConstraint) return [];
+  return clean.slice(0, maxCount);
 }
 
 function sanitizeCandidates(rawCandidates) {
   if (!Array.isArray(rawCandidates)) return [];
   const clean = [];
-  for (const c of rawCandidates.slice(0, 14)) {
+  for (const c of rawCandidates.slice(0, 32)) {
     if (!c || typeof c !== "object") continue;
     const id = String(c.id || c.property_id || "").trim().toUpperCase();
     if (!/^NSG-\d{3,5}$/.test(id)) continue;
@@ -640,6 +763,7 @@ function sanitizeCandidates(rawCandidates) {
       highlight,
       dropNote,
       recentSuggested: Boolean(c.recentSuggested),
+      previouslyShown: Boolean(c.previouslyShown),
     });
   }
   return clean;
@@ -785,18 +909,27 @@ export default {
     }
 
     const candidates = sanitizeCandidates(body.candidates);
-    const validIds = new Set(candidates.map((c) => c.id));
     const histArr = Array.isArray(body.history) ? body.history.slice(-12) : [];
     const constraints = resolveEffectiveConstraints(question, histArr);
     const partition = partitionCandidatesByConstraints(candidates, body.candidates, constraints);
-    const activeCandidates = partition.filtered;
+    const activeCandidates = partition.filtered.slice(0, 18);
+    const validIds = new Set(activeCandidates.map((c) => c.id));
+    const hasExactField = body.total_exact_matches !== undefined && body.total_exact_matches !== null && !Number.isNaN(Number(body.total_exact_matches));
+    const totalExactMatches = partition.strictIds.size === 0 && partition.nearIds.size > 0
+      ? 0
+      : Math.max(partition.strictIds.size, hasExactField ? Number(body.total_exact_matches) : partition.strictIds.size);
     const histLines = histArr
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
       .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (bên Vũ)"}: ${t.text.trim().slice(0, 450)}`);
 
     const ragLines = activeCandidates.map((c) => {
       const isNear = partition.nearIds.has(c.id);
-      const tags = [isNear ? "GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH" : "", c.recentSuggested ? "Vừa gợi ý ở lượt trước" : "", c.dropNote].filter(Boolean).join(" · ");
+      const tags = [
+        isNear ? "GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH" : "",
+        c.previouslyShown ? "Đã giới thiệu ở lượt trước" : "",
+        !c.previouslyShown && c.recentSuggested ? "Vừa gợi ý ở lượt trước" : "",
+        c.dropNote,
+      ].filter(Boolean).join(" · ");
       const tail = c.highlight ? ` | Điểm nhấn: ${c.highlight}` : "";
       return `- ID:${c.id}${tags ? ` [${tags}]` : ""} | ${c.category} | Đường ${c.street}, ${c.ward ? c.ward + ", " : ""}${c.district} | KT: ${c.dims} | DTCN: ${c.area} | Kết cấu: ${c.structure} | Giá: ${c.priceTxt} | Khai thác: ${c.cfTxt}${tail}`;
     });
@@ -807,21 +940,32 @@ export default {
       "- Nói chuyện chân thành, gần gũi, rõ ràng, tự nhiên; luôn xưng \"em\", gọi khách là \"Anh/Chị\" (xen chữ \"mình\" hợp lý), nhắc tới Vũ tự nhiên là \"Vũ\" hoặc \"bên Vũ\".\n" +
       "- CẤM TUYỆT ĐỐI từ ngữ sáo rỗng, bóng bẩy hoặc sai vai vế: KHÔNG dùng \"quý khách\", \"siêu phẩm\", \"đẳng cấp thượng lưu\", \"tài sản tinh tuyển\", \"cố vấn chiến lược\", \"kiệt tác\", \"cơ hội vàng\", \"thực sự thiện chí\", \"trang cá nhân chính chủ\"; KHÔNG xưng \"bạn\", \"tôi\", \"hệ thống\"; KHÔNG tự bịa tâm lý hay lý do bán của chủ nhà; KHÔNG ghép dính chữ thiếu dấu cách (như \"gìAnh/Chị\").\n" +
       "- Đi thẳng vào thông số thực tế (trục đường, bề ngang, diện tích công nhận, kết cấu/hầm/thang máy, dòng tiền công khai, đơn giá/m² ước tính khi đủ số liệu). Chia đoạn bằng \\n\\n, nhấn đậm nhẹ **tên đường / điểm nổi bật** vừa mắt.\n\n" +
+      "KỶ LUẬT ĐỊA GIỚI & BỐ CỤC 3 THẺ GỢI Ý (BẮT BUỘC V4.13):\n" +
+      "- KHÓA CỨNG ĐỊA GIỚI QUẬN/HUYỆN: Khi Anh/Chị đã nêu Quận/Huyện cụ thể (như Quận 1, Tân Bình, TP. Thủ Đức...), TUYỆT ĐỐI chỉ lọc và chọn tài sản nằm đúng Quận/Huyện đó. CẤM tuyệt đối lấy căn ở Quận khác (dù giáp ranh, trùng tên đường như đường Nguyễn Thái Bình ở Tân Bình, hay mô tả có cụm \"sát Quận 1\").\n" +
+      "- BỐ CỤC ĐÚNG 3 THẺ TIÊU BIỂU: Khi có từ 3 căn khớp tiêu chí trở lên trong DANH SÁCH ỨNG VIÊN, hãy chọn ĐÚNG **3** mã ID tiêu biểu nổi bật nhất đưa vào recommended_ids để phân tích rõ từng căn (chỉ trả <= 1 ID khi khách hỏi đích danh 1 căn/pháp lý riêng lẻ; trả [] khi chào hỏi hoặc không có căn khớp). Nếu khách hỏi \"còn căn nào khác / xem thêm\", hãy ƯU TIÊN chọn các căn CHƯA gắn nhãn [Đã giới thiệu ở lượt trước] / [Vừa gợi ý ở lượt trước].\n" +
+      "- TRÍCH DẪN SỐ LƯỢNG TỒN KHO: Khi tổng số căn phù hợp trên kho (xem dòng THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO) lớn hơn 3, hãy nêu rõ số lượng căn phù hợp hiện có trên kho và nhắc nhẹ bên dưới 3 thẻ nổi bật này có danh sách các căn khác kèm link bấm xem ngay trên kho.\n\n" +
       "QUY TẮC TIẾT CHẾ LỜI MỜI ZALO (BẮT BUỘC):\n" +
       "- Trên hộp thoại chat đã có sẵn thanh Zalo/SĐT của Vũ và từng thẻ nhà đều có nút \"Nhắn Zalo\". Do đó CẤM lặp lại câu mời nhắn Zalo hoặc đọc số 0916.23.9898 ở cuối các lượt chào hỏi, lọc căn thông thường, thu hẹp ngân sách hay so sánh thông số — và TUYỆT ĐỐI KHÔNG tự thêm câu mào 'nếu cần xem sổ hồng / hẹn đi xem thì nhắn Zalo Vũ...' khi trong tin nhắn khách KHÔNG nhắc tới sổ hồng, PCCC, số nhà hay hẹn xem.\n" +
       "- CHỈ được mời Anh/Chị nhắn Zalo hoặc gọi **Vũ (0916.23.9898)** đúng 4 tình huống: (1) Hỏi kiểm tra sổ hồng, hoàn công, biên bản nghiệm thu PCCC hoặc pháp lý gốc; (2) Hỏi số nhà chính xác hoặc hẹn đi xem thực tế; (3) Cần thương lượng giá chốt, làm việc trực tiếp chủ nhà, hoặc hỏi căn để giá \"Liên Hệ\"; (4) Web có 0 căn khớp hoàn toàn nên cần Vũ rà thêm nguồn bên ngoài.\n\n" +
       "CÁCH XỬ LÝ TỪNG TÌNH HUỐNG:\n" +
       "1. Chào hỏi xã giao hoặc mới mở lời (\"Chào em\", \"Alo\"...): Đáp thân thiện ngắn gọn, hỏi khu vực/loại hình/ngân sách và BẮT BUỘC trả recommended_ids: [].\n" +
-      "2. Lọc tìm sản phẩm theo tiêu chí số học (giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng biên số học của câu hỏi và DANH SÁCH ỨNG VIÊN. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
+      "2. Lọc tìm sản phẩm theo tiêu chí địa giới & số học (Quận, giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng Quận và biên số học của câu hỏi. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng Quận và biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất đúng Quận (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
       "3. Hỏi về PCCC, hoàn công, pháp lý: KHÔNG cam kết hay bảo đảm thay giấy tờ gốc. Chỉ nêu đúng thông tin tin đăng đang ghi (ví dụ tin có ghi đạt chuẩn PCCC hay chưa ghi chi tiết), nói rõ quy trình đối chiếu thực tế (sổ hồng hoàn công, bản vẽ/nghiệm thu PCCC) và mời nhắn Zalo **Vũ (0916.23.9898)** nhận hồ sơ kiểm chứng.\n\n" +
       "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
-      "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
+      "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO, THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
       "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong 'recommended_ids').";
 
+    const distLabels = Array.isArray(constraints?.districts)
+      ? constraints.districts.map((d) => (d && typeof d === "object" ? (d.label || "") : String(d || ""))).filter(Boolean)
+      : [];
+    const statsLine = distLabels.length
+      ? `THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO (${distLabels.join(", ")}): Hiện có ${totalExactMatches} tài sản phù hợp (hiển thị dưới đây tối đa ${activeCandidates.length} ứng viên tiêu biểu đã khóa đúng Quận).\n\n`
+      : `THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO: Hiện có ${totalExactMatches} tài sản phù hợp (hiển thị dưới đây tối đa ${activeCandidates.length} ứng viên tiêu biểu).\n\n`;
     const userPrompt =
       (catalogOverview ? `BẢN ĐỒ TOÀN KHO NHATOSG:\n${catalogOverview}\n\n` : "") +
       (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
-      `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ (Tối đa 14 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
+      statsLine +
+      `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
 
     const callModel = async (model, allowThinking) => {
       const genConfig = {
@@ -835,12 +979,12 @@ export default {
           properties: {
             answer: {
               type: "STRING",
-              description: "Câu trả lời tiếng Việt tự nhiên, chân thành, đúng biên số học, không lặp Zalo CTA trừ 4 trường hợp được phép, tuyệt đối không chứa NSG-XXXX.",
+              description: "Câu trả lời tiếng Việt tự nhiên, chân thành, đúng Quận và biên số học, không lặp Zalo CTA trừ 4 trường hợp được phép, tuyệt đối không chứa NSG-XXXX.",
             },
             recommended_ids: {
               type: "ARRAY",
               items: { type: "STRING" },
-              description: "0 đến tối đa 4 mã ID tài sản khớp đúng tiêu chí số học từ DANH SÁCH ỨNG VIÊN; trả [] khi chào hỏi hoặc không có căn khớp.",
+              description: "0 đến tối đa 3 mã ID tài sản tiêu biểu nhất khớp đúng địa giới Quận và tiêu chí số học từ DANH SÁCH ỨNG VIÊN (trả [] khi chào hỏi hoặc không có căn khớp; tối đa 1 khi hỏi đích danh 1 căn).",
             },
           },
         },
@@ -908,13 +1052,18 @@ export default {
         ) {
           continue;
         }
-        const recIds = strictPostFilterRecommendedIds(parsed.recommended_ids, partition, validIds);
+        const recIds = strictPostFilterRecommendedIds(parsed.recommended_ids, partition, validIds, {
+          question,
+          constraints,
+          candidates: activeCandidates,
+        });
         const ans = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
         if (ans) {
           return jsonResp({
             ok: true,
             reply: ans,
             recommended_ids: recIds,
+            total_exact_matches: totalExactMatches,
             model,
             source: "gemini",
             mode: cfg.mode,

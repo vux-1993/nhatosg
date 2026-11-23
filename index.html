@@ -59,7 +59,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261122140222";
+    script.src = "./properties_data.js?v=20261123130820";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -2113,6 +2113,10 @@
       display: flex;
     }
 
+    #dossierOverlay {
+      z-index: 66;
+    }
+
     .dossier-panel {
       width: min(1080px, 100%);
       max-width: 100vw;
@@ -4130,6 +4134,98 @@
       border-color: var(--bronze);
       color: var(--accent);
     }
+    .ai-more-inventory-box {
+      width: 100%;
+      margin-top: 2px;
+      padding: 10px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--paper);
+      display: grid;
+      gap: 7px;
+    }
+    .ai-more-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .ai-more-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+    }
+    .ai-more-link {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 30px;
+      padding: 5px 8px;
+      border-radius: 3px;
+      border: 1px solid transparent;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.42;
+      text-decoration: none;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .ai-more-link:hover,
+    .ai-more-link:focus-visible {
+      border-color: var(--bronze);
+      background: var(--accent-soft);
+    }
+    .ai-more-link:focus-visible,
+    .ai-more-all-btn:focus-visible {
+      outline: 2px solid var(--hero-terra);
+      outline-offset: 2px;
+    }
+    .ai-more-main {
+      min-width: 0;
+      flex: 1 1 auto;
+      word-break: break-word;
+    }
+    .ai-more-price {
+      font-family: var(--sans);
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .ai-more-meta {
+      color: var(--muted);
+      font-size: 11.5px;
+    }
+    .ai-more-ext {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      align-self: center;
+      color: var(--muted);
+    }
+    .ai-more-all-btn {
+      margin-top: 2px;
+      width: 100%;
+      min-height: 34px;
+      padding: 6px 10px;
+      border: 1px solid var(--bronze);
+      border-radius: 3px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .ai-more-all-btn:hover {
+      border-color: var(--hero-terra);
+      background: var(--surface);
+    }
     .ai-member-gate {
       margin: 14px 20px;
       padding: 16px;
@@ -5283,6 +5379,9 @@
       "tieu chi", "uu tien", "hien tai", "thuc te", "cho hoi", "da co", "la gi",
       "bao nhieu", "the nao", "ra sao", "vay", "duoc khong", "duoc ko", "hoi cao",
       "hoi thap", "thi co", "thi sao", "thi can", "can nao", "khong em",
+      "con lai", "con nua", "con nao", "con can", "con ko", "con khong", "ngoai ra",
+      "duoc", "chua", "ha", "chu", "gui", "lua chon", "phuong an", "tuy chon",
+      "gioi thieu", "vui long", "nhung", "cac", "may",
       "hop dong thue", "hd thue", "thue"
     ]);
 
@@ -5337,6 +5436,38 @@
       return h.includes(" " + p + " ");
     }
 
+    function canonicalDistrictLabel(rawDistrict) {
+      const f = String(rawDistrict || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/đ/g, "d")
+        .replace(/Đ/g, "D")
+        .toLowerCase()
+        .replace(/[-_/,.;:()]+/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (!f) return "";
+      if (/(?:^|\s)(?:tp\s*)?thu\s*duc(?=\s|$)|(?:^|\s)(?:quan|q)\s*[29](?=\s|$)/.test(f)) return "TP. Thủ Đức";
+      if (/(?:^|\s)(?:quan|q)\s*10(?=\s|$)/.test(f)) return "Quận 10";
+      if (/(?:^|\s)(?:quan|q)\s*11(?=\s|$)/.test(f)) return "Quận 11";
+      if (/(?:^|\s)(?:quan|q)\s*12(?=\s|$)/.test(f)) return "Quận 12";
+      if (/(?:^|\s)(?:quan|q)\s*1(?=\s|$)/.test(f)) return "Quận 1";
+      const qNum = f.match(/(?:^|\s)(?:quan|q)\s*([3-8])(?=\s|$)/);
+      if (qNum) return "Quận " + qNum[1];
+      if (/(?:^|\s)(?:binh\s*thanh|qbt)(?=\s|$)/.test(f)) return "Bình Thạnh";
+      if (/(?:^|\s)(?:phu\s*nhuan|qpn)(?=\s|$)/.test(f)) return "Phú Nhuận";
+      if (/(?:^|\s)(?:tan\s*binh|qtb)(?=\s|$)/.test(f)) return "Tân Bình";
+      if (/(?:^|\s)(?:tan\s*phu|qtp)(?=\s|$)/.test(f)) return "Tân Phú";
+      if (/(?:^|\s)(?:go\s*vap|qgv)(?=\s|$)/.test(f)) return "Gò Vấp";
+      if (/(?:^|\s)binh\s*tan(?=\s|$)/.test(f)) return "Bình Tân";
+      if (/(?:^|\s)binh\s*chanh(?=\s|$)/.test(f)) return "Bình Chánh";
+      if (/(?:^|\s)nha\s*be(?=\s|$)/.test(f)) return "Nhà Bè";
+      if (/(?:^|\s)hoc\s*mon(?=\s|$)/.test(f)) return "Hóc Môn";
+      if (/(?:^|\s)cu\s*chi(?=\s|$)/.test(f)) return "Củ Chi";
+      if (/(?:^|\s)can\s*gio(?=\s|$)/.test(f)) return "Cần Giờ";
+      return String(rawDistrict || "").trim();
+    }
+
     function parseNaturalLanguageQuery(rawQuery) {
       const qRaw = String(rawQuery || "").trim();
       if (!qRaw) return null;
@@ -5376,7 +5507,7 @@
       if (codeMatch) parsed.propCode = codeMatch[1];
 
       const distRules = [
-        { keys: ["quan 1", "q1", "q.1", "ben nghe", "ben thanh", "da kao", "nguyen thai binh", "tan dinh"], label: "Quận 1", matchTokens: ["quan 1"] },
+        { keys: ["quan 1", "q1", "q.1", "ben nghe", "ben thanh", "da kao", "phuong nguyen thai binh", "p nguyen thai binh", "tan dinh"], label: "Quận 1", matchTokens: ["quan 1"] },
         { keys: ["quan 2", "q2", "q.2", "quan 9", "q9", "q.9", "thao dien", "an khanh", "an phu", "thu thiem", "thanh my loi", "thu duc", "tp thu duc", "tp. thu duc"], label: "TP. Thủ Đức", matchTokens: ["tp thu duc", "thu duc"] },
         { keys: ["quan 3", "q3", "q.3", "vo thi sau"], label: "Quận 3", matchTokens: ["quan 3"] },
         { keys: ["quan 4", "q4", "q.4"], label: "Quận 4", matchTokens: ["quan 4"] },
@@ -5395,7 +5526,7 @@
         { keys: ["binh tan"], label: "Bình Tân", matchTokens: ["binh tan"] }
       ];
       distRules.forEach(rule => {
-        if (rule.keys.some(k => new RegExp("(^|\\s|,)" + escapeRegexLiteral(k) + "(\\s|,|$)", "i").test(qNoTone))) {
+        if (rule.keys.some(k => new RegExp("(^|[^a-z0-9])" + escapeRegexLiteral(k) + "(?=[^a-z0-9]|$)", "i").test(qNoTone))) {
           if (!parsed.districts.some(d => d.label === rule.label)) {
             parsed.districts.push(rule);
           }
@@ -5510,7 +5641,8 @@
         .replace(/(?:dt|dien tich(?: cong nhan)?|cn|cong nhan)\s*(?:tren|hon|lon\s+hon|>=?|tu|it\s+nhat|toi\s+thieu)?\s*\d+(?:[.,]\d+)?\s*m(?:2)?/g, " ")
         .replace(/(?:(?:tren|hon|lon\s+hon|vuot|duoi(?:\s+muc)?|nho\s+hon|toi\s+da|khong\s+qua|<=?|>=?|tu|it\s+nhat|toi\s+thieu)\s+)?\d+(?:[.,]\d+)?\s*(?:trieu|tr)(?:\s*(?:moi\s+thang|thang|th))?\b/g, " ")
         .replace(/(?:tu|tren|it nhat)?\s*\d+\s*(?:tang|lau)\b/g, " ")
-        .replace(/\b(?:co tang ham|co ham|[123]\s*ham|ham)\b/g, " ");
+        .replace(/\b(?:co tang ham|co ham|[123]\s*ham|ham)\b/g, " ")
+        .replace(/(^|\s)con(?=\s+(?:can|nha|mat\s+tien|building|toa|khach\s+san|biet\s+thu|dat|nao|gi|khac|nua|khong|ko)\b)/g, " ");
 
       const catPhrases = [
         "toa nha van phong", "toa van phong", "toa nha", "van phong", "building", "cao oc", "office",
@@ -5519,7 +5651,7 @@
         "quy dat xay cao tang", "quy dat", "dat lon", "lo dat trong", "dat trong", "lo dat", "nha cap 4", "cap 4", "nha cu", "du an",
         "nha mat tien kinh doanh", "nha mat tien", "nha pho mat tien", "nha pho", "mat tien", "shophouse", "showroom"
       ];
-      catPhrases.forEach(cp => { residual = residual.replace(new RegExp("(^|\\s)" + cp + "(\\s|$)", "gi"), " "); });
+      catPhrases.forEach(cp => { residual = residual.replace(new RegExp("(^|\\s)" + cp + "(?=\\s|$)", "gi"), " "); });
       const distStopWords = [
         "quan 1", "quan 2", "quan 3", "quan 4", "quan 5", "quan 6", "quan 7", "quan 8", "quan 9", "quan 10", "quan 11", "quan 12",
         "q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12",
@@ -5527,10 +5659,11 @@
         "tp thu duc", "thu duc", "binh thanh", "phu nhuan", "tan binh", "tan phu", "go vap", "binh tan",
         "cityland", "phu my hung", "san bay", "kinh doanh"
       ];
-      distStopWords.forEach(dw => { residual = residual.replace(new RegExp("(^|\\s)" + dw + "(\\s|$)", "gi"), " "); });
-      subAreaCandidates.forEach(sa => { residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sa) + "(\\s|$)", "gi"), " "); });
+      distStopWords.forEach(dw => { residual = residual.replace(new RegExp("(^|\\s)" + dw + "(?=\\s|$)", "gi"), " "); });
+      subAreaCandidates.forEach(sa => { residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sa) + "(?=\\s|$)", "gi"), " "); });
+      residual = " " + residual.replace(/\s+/g, " ").trim() + " ";
       Array.from(VI_STOP_WORDS).sort((a, b) => b.length - a.length).forEach(sw => {
-        residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sw) + "(\\s|$)", "gi"), " ");
+        residual = residual.replace(new RegExp("(^|\\s)" + escapeRegexLiteral(sw) + "(?=\\s|$)", "gi"), " ");
       });
 
       if (parsed.districts.length === 0) {
@@ -5571,14 +5704,17 @@
       const cur = parseNaturalLanguageQuery(rawQuestion);
       if (!cur) return null;
       const curNoTone = removeVietnameseTones(rawQuestion);
-      const isTopicSwitchCue = /\b(?:chuyen sang|tim them loai|doi sang|con o quan|tim o)\b/.test(curNoTone);
+      const isTopicSwitchCue = /\b(?:chuyen sang|tim them loai|doi sang|con o quan|tim o|qua quan|sang quan)\b/.test(curNoTone);
       const isNarrowFollowUp = /\b(?:ha xuong|giam xuong|noi len|len tam|xuong tam|thap hon|cao hon|re hon|tam nay|tam do|muc do|khu do|o do|o tren|may can tren|cac can tren|can nay|can nao|nhu vay)\b/.test(curNoTone);
+      const isAskingMore = /\b(?:con can nao|can nao khac|can khac|lua chon khac|phuong an khac|them can|ngoai may can|can nao nua|nha .+ nao nua|building .+ nao nua|xem them)\b/.test(curNoTone);
       const isLegalOrDetailFollowUp = /\b(?:pccc|hoan cong|so hong|phap ly|lo gioi|quy hoach|so sanh|chi tiet|hien trang|noi that|thang may|hop dong thue)\b/.test(curNoTone) &&
         !hasNumericBounds(cur) &&
         !cur.districts.length &&
         !cur.categoriesAllowed.length;
       cur._isLegalOrDetailFollowUp = isLegalOrDetailFollowUp;
+      cur._isAskingMore = isAskingMore;
       cur._categoriesInherited = false;
+      cur._locationReplaced = false;
 
       if (!Array.isArray(history) || !history.length || cur.propCode || isTopicSwitchCue) {
         return cur;
@@ -5629,32 +5765,38 @@
       }
 
       const curSpecifiesNewLocation = cur.districts.length > 0 || cur.subAreaTokens.length > 0;
-      const shouldInheritDomain = isNarrowFollowUp || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur));
+      if (curSpecifiesNewLocation && inheritedDist.length > 0) {
+        const prevLabels = new Set(inheritedDist.map(d => d.label));
+        const allSameAsPrev = cur.districts.length > 0 && cur.districts.every(d => prevLabels.has(d.label));
+        if (!allSameAsPrev) cur._locationReplaced = true;
+      }
+      const allowSpecInheritance = !cur._locationReplaced || isNarrowFollowUp;
+      const shouldInheritDomain = isNarrowFollowUp || isAskingMore || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur));
       if (!curSpecifiesNewLocation && shouldInheritDomain && inheritedDist.length) {
         cur.districts = inheritedDist;
         cur.subAreaTokens = inheritedSub;
       }
-      if (!cur.categoriesAllowed.length && inheritedCats.length && (isNarrowFollowUp || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur)))) {
+      if (allowSpecInheritance && !cur.categoriesAllowed.length && inheritedCats.length && (isNarrowFollowUp || isAskingMore || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur)))) {
         cur.categoriesAllowed = inheritedCats.slice();
         cur.categoryExact = cur.categoriesAllowed.length === 1 ? cur.categoriesAllowed[0] : null;
         cur._categoriesInherited = true;
       }
-      if (!cur.mustHaveBasement && inheritedBasement && (isNarrowFollowUp || isLegalOrDetailFollowUp || !curSpecifiesNewLocation)) {
+      if (allowSpecInheritance && !cur.mustHaveBasement && inheritedBasement && (isNarrowFollowUp || isAskingMore || isLegalOrDetailFollowUp || !curSpecifiesNewLocation)) {
         cur.mustHaveBasement = true;
       }
-      if (cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalOrDetailFollowUp || (!hasNumericBounds(cur) && isNarrowFollowUp))) {
+      if (allowSpecInheritance && cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalOrDetailFollowUp || ((!hasNumericBounds(cur)) && (isNarrowFollowUp || isAskingMore)))) {
         cur.minPriceBil = inheritedMinPrice;
         cur.maxPriceBil = inheritedMaxPrice;
         cur.minPriceStrict = inheritedMinPriceStrict;
         cur.maxPriceStrict = inheritedMaxPriceStrict;
       }
-      if (cur.minCashflowMil === null && (isLegalOrDetailFollowUp || isNarrowFollowUp || (cur.minPriceBil !== null && inheritedMinCf !== null && isNarrowFollowUp))) {
+      if (allowSpecInheritance && cur.minCashflowMil === null && (isLegalOrDetailFollowUp || isNarrowFollowUp || isAskingMore || (cur.minPriceBil !== null && inheritedMinCf !== null && isNarrowFollowUp))) {
         cur.minCashflowMil = inheritedMinCf;
         cur.minCashflowStrict = inheritedMinCfStrict;
         if (inheritedMinCf !== null) cur.mustHaveRentalIncome = true;
       }
-      if (cur.minWidthM === null && isLegalOrDetailFollowUp) cur.minWidthM = inheritedMinWidth;
-      if (cur.minAreaM2 === null && isLegalOrDetailFollowUp) cur.minAreaM2 = inheritedMinArea;
+      if (allowSpecInheritance && cur.minWidthM === null && isLegalOrDetailFollowUp) cur.minWidthM = inheritedMinWidth;
+      if (allowSpecInheritance && cur.minAreaM2 === null && isLegalOrDetailFollowUp) cur.minAreaM2 = inheritedMinArea;
       return cur;
     }
   </script>
@@ -6675,16 +6817,18 @@
         if (!pidNum.includes(parsed.propCode) && foldVi(p.id) !== ("nsg-" + parsed.propCode)) return false;
       }
       if (parsed.districts && parsed.districts.length) {
-        const dNorm = foldVi(p.district);
-        const matchDist = parsed.districts.some(function (dr) {
-          return dr.matchTokens.some(function (tok) { return dNorm.includes(tok); });
+        const pDistCanon = canonicalDistrictLabel(p.district);
+        const matchDist = Boolean(pDistCanon) && parsed.districts.some(function (dr) {
+          return dr.label === pDistCanon || canonicalDistrictLabel(dr.label) === pDistCanon;
         });
         if (!matchDist) return false;
       }
       if (parsed.subAreaTokens && parsed.subAreaTokens.length) {
-        const locHay = foldVi(p.ward + " " + p.streetDisplay + " " + p.sec2);
+        const locStructured = foldVi((p.ward || "") + " " + (p.streetDisplay || ""));
+        const locZone = foldVi((p.ward || "") + " " + (p.streetDisplay || "") + " " + (p.sec2 || ""));
+        const ZONE_TOKENS = new Set(["phu my hung", "cityland", "thu thiem"]);
         const matchSub = parsed.subAreaTokens.some(function (sa) {
-          return containsPhraseWordBoundary(locHay, sa);
+          return containsPhraseWordBoundary(ZONE_TOKENS.has(sa) ? locZone : locStructured, sa);
         });
         if (!matchSub) return false;
       }
@@ -8502,21 +8646,90 @@
       );
     }
 
-    function getRecentSuggestedIdsFromHistory() {
+    let aiFilterSnapshots = [];
+
+    function propertyMatchesDistrictList(p, districts) {
+      if (!p) return false;
+      if (!Array.isArray(districts) || !districts.length) return true;
+      const pDistCanon = canonicalDistrictLabel(p.district);
+      return Boolean(pDistCanon) && districts.some(function (dr) {
+        const lbl = typeof dr === "string" ? dr : dr.label;
+        return pDistCanon === lbl || pDistCanon === canonicalDistrictLabel(lbl);
+      });
+    }
+
+    function hasAnyChatConstraint(parsed) {
+      if (!parsed) return false;
+      return Boolean(
+        hasNumericBounds(parsed) ||
+        (parsed.districts && parsed.districts.length > 0) ||
+        (parsed.subAreaTokens && parsed.subAreaTokens.length > 0) ||
+        (parsed.categoriesAllowed && parsed.categoriesAllowed.length > 0) ||
+        parsed.categoryExact ||
+        parsed.propCode ||
+        parsed.mustHaveBasement ||
+        parsed.onlyUpdate ||
+        parsed.mustHaveRentalIncome
+      );
+    }
+
+    function getShownIdsInSession() {
+      const hist = (typeof aiChatHistory !== "undefined" && Array.isArray(aiChatHistory)) ? aiChatHistory : [];
+      const out = new Set();
+      hist.forEach(function (turn) {
+        if (turn && turn.role === "assistant" && Array.isArray(turn.recommendedIds)) {
+          turn.recommendedIds.forEach(function (rawId) {
+            const id = String(rawId || "").trim().toUpperCase();
+            if (id) out.add(id);
+          });
+        }
+      });
+      return out;
+    }
+
+    function isSinglePropertyChatIntent(question, parsed) {
+      if (parsed && (parsed.propCode || parsed._isLegalOrDetailFollowUp)) return true;
+      const qFold = foldVi(question || "");
+      return /\b(?:can nay|can do|tai san nay|tai san do|toa nay|biet thu nay|khach san nay)\b/.test(qFold);
+    }
+
+    function scorePropertyForAiHighlight(p, parsed, shownSet, preferUnseen) {
+      const pid = String(p.id || "").toUpperCase();
+      const isSeen = Boolean(shownSet && shownSet.has(pid));
+      let sc = scorePropertyForSearch(p, parsed) * 10;
+      if (preferUnseen) {
+        sc += isSeen ? -500 : 1000;
+      } else if (!isSeen) {
+        sc += 25;
+      }
+      if (!p.masked && p.price > 0) sc += 30;
+      if (Number(p.realPhotoCount || 0) >= 3) sc += 20;
+      if (p.hasCashflow && !p.cashflowMasked) sc += 18;
+      if (Number(p.dropPct || 0) > 0) sc += 16;
+      if (Number(p.widthM || 0) >= 8) sc += 14;
+      if (p.isHot) sc += 10;
+      return sc;
+    }
+
+    function getRecentSuggestedIdsFromHistory(parsedConstraints) {
       const hist = (typeof aiChatHistory !== "undefined" && Array.isArray(aiChatHistory)) ? aiChatHistory : [];
       const collected = [];
       const seen = new Set();
       let botTurnsWithCards = 0;
+      const activeDists = (parsedConstraints && Array.isArray(parsedConstraints.districts)) ? parsedConstraints.districts : [];
       for (let i = hist.length - 1; i >= 0 && botTurnsWithCards < 2; i--) {
         const turn = hist[i];
         if (!turn || turn.role !== "assistant" || !Array.isArray(turn.recommendedIds) || !turn.recommendedIds.length) continue;
         botTurnsWithCards += 1;
         turn.recommendedIds.forEach(function (rawId) {
           const id = String(rawId || "").trim().toUpperCase();
-          if (id && !seen.has(id)) {
-            seen.add(id);
-            collected.push(id);
+          if (!id || seen.has(id)) return;
+          if (activeDists.length > 0 && typeof getProp === "function") {
+            const p = getProp(id);
+            if (!propertyMatchesDistrictList(p, activeDists)) return;
           }
+          seen.add(id);
+          collected.push(id);
         });
       }
       return collected.slice(0, 6);
@@ -8525,16 +8738,26 @@
     function buildLocalRagPayload(question, recentIds) {
       const hist = (typeof aiChatHistory !== "undefined" && Array.isArray(aiChatHistory)) ? aiChatHistory : [];
       const parsed = resolveEffectiveChatConstraints(question, hist);
+      const shownSet = getShownIdsInSession();
       const activePool = PROPERTIES.filter(function (p) { return !p.isSold; });
       const activeById = new Map();
       activePool.forEach(function (p) { activeById.set(String(p.id || "").toUpperCase(), p); });
 
+      const activeDists = (parsed && Array.isArray(parsed.districts)) ? parsed.districts : [];
       const recentList = Array.isArray(recentIds)
-        ? recentIds.map(function (x) { return String(x || "").trim().toUpperCase(); }).filter(function (id) { return activeById.has(id); })
+        ? recentIds
+            .map(function (x) { return String(x || "").trim().toUpperCase(); })
+            .filter(function (id) {
+              const p = activeById.get(id);
+              return Boolean(p) && (!activeDists.length || propertyMatchesDistrictList(p, activeDists));
+            })
         : [];
       const recentSet = new Set(recentList);
 
-      const qFoldWords = foldVi(question || "").replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean);
+      const streetSource = (parsed && parsed.streetPhraseNoTone)
+        ? parsed.streetPhraseNoTone
+        : (activeDists.length ? "" : (question || ""));
+      const qFoldWords = foldVi(streetSource).replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter(Boolean);
       const multiStreetPhrases = [];
       for (let n = 2; n <= 3; n++) {
         for (let i = 0; i <= qFoldWords.length - n; i++) {
@@ -8546,6 +8769,7 @@
       const streetMatched = [];
       if (multiStreetPhrases.length) {
         activePool.forEach(function (p) {
+          if (activeDists.length && !propertyMatchesDistrictList(p, activeDists)) return;
           const stHay = foldVi((p.streetDisplay || "") + " " + (p.street || ""));
           if (!stHay) return;
           if (multiStreetPhrases.some(function (ph) { return stHay.includes(ph); })) {
@@ -8564,11 +8788,23 @@
         });
       }
 
+      const preferUnseen = Boolean(parsed && parsed._isAskingMore);
+      let strictMatchedPool = matched.slice().sort(function (a, b) {
+        return scorePropertyForAiHighlight(b, parsed, shownSet, preferUnseen) - scorePropertyForAiHighlight(a, parsed, shownSet, preferUnseen);
+      });
+      if (!strictMatchedPool.length && streetMatched.length && !hasNumericBounds(parsed)) {
+        strictMatchedPool = streetMatched.slice().sort(function (a, b) {
+          return scorePropertyForAiHighlight(b, parsed, shownSet, preferUnseen) - scorePropertyForAiHighlight(a, parsed, shownSet, preferUnseen);
+        });
+      }
+      const totalExactMatches = strictMatchedPool.length;
+
       const nearSet = new Set();
       let nearPool = [];
       if (!matched.length && parsed && (parsed.minPriceBil !== null || parsed.maxPriceBil !== null || parsed.minCashflowMil !== null || parsed.maxCashflowMil !== null)) {
         nearPool = activePool.filter(function (p) {
-          return !propertyMatchesNumericAndGeo(p, parsed) &&
+          return (!activeDists.length || propertyMatchesDistrictList(p, activeDists)) &&
+            !propertyMatchesNumericAndGeo(p, parsed) &&
             propertyMatchesNumericAndGeo(p, parsed, { nearPct: 0.0499 });
         }).sort(function (a, b) {
           const scoreGap = function (x) {
@@ -8579,7 +8815,7 @@
             return gap;
           };
           return scoreGap(a) - scoreGap(b);
-        }).slice(0, 2);
+        }).slice(0, 3);
         nearPool.forEach(function (p) {
           nearSet.add(String(p.id || "").toUpperCase());
         });
@@ -8587,26 +8823,26 @@
       } else if (!matched.length && streetMatched.length && !hasNumericBounds(parsed)) {
         matched = streetMatched.slice();
       }
-      if (!matched.length && (!parsed || (!hasNumericBounds(parsed) && !parsed.districts.length && !(parsed.categoriesAllowed && parsed.categoriesAllowed.length)))) {
+      if (!matched.length && (!parsed || !hasAnyChatConstraint(parsed))) {
         matched = activePool.slice().sort(function (a, b) {
           if (Boolean(b.isHot) !== Boolean(a.isHot)) return b.isHot ? 1 : -1;
           return (b.dropPct || 0) - (a.dropPct || 0);
         });
       } else if (parsed && !nearPool.length) {
-        matched = matched.slice().sort(function (a, b) {
-          return scorePropertyForSearch(b, parsed) - scorePropertyForSearch(a, parsed);
-        });
+        matched = strictMatchedPool.slice();
       }
 
       const combined = [];
       const pushed = new Set();
-      const allowRecentPrepend = Boolean(parsed && parsed._isLegalOrDetailFollowUp) || !hasNumericBounds(parsed);
+      const allowRecentPrepend = Boolean(parsed && (parsed._isLegalOrDetailFollowUp || !hasNumericBounds(parsed)) && !activeDists.length);
       recentList.forEach(function (id) {
         const p = activeById.get(id);
         if (!p || pushed.has(id)) return;
         const fits = parsed ? propertyMatchesNumericAndGeo(p, parsed, { ignoreCategory: Boolean(parsed._categoriesInherited) }) : true;
-        if (fits || allowRecentPrepend) {
-          if (parsed && hasNumericBounds(parsed) && !fits) return;
+        if (fits && (!activeDists.length || propertyMatchesDistrictList(p, activeDists))) {
+          pushed.add(id);
+          combined.push(p);
+        } else if (allowRecentPrepend && !hasNumericBounds(parsed)) {
           pushed.add(id);
           combined.push(p);
         }
@@ -8628,7 +8864,10 @@
         }
       });
 
-      const topCandidates = combined.slice(0, 14);
+      const finalCombined = activeDists.length
+        ? combined.filter(function (p) { return propertyMatchesDistrictList(p, activeDists); })
+        : combined;
+      const topCandidates = finalCombined.slice(0, 18);
       const candidates = topCandidates.map(function (p) {
         const pid = String(p.id || "").toUpperCase();
         const isMask = Boolean(p.masked || p.isSold);
@@ -8656,6 +8895,7 @@
           sec2: safeSec2,
           dropInfo: (!p.masked && !p.isSold && p.dropText) ? (p.dropText + (p.dropPct ? " (" + p.dropPct + "%)" : "")) : "",
           recentSuggested: recentSet.has(pid),
+          previouslyShown: shownSet.has(pid),
           isNearMatch: nearSet.has(pid),
           nearNote: nearSet.has(pid) ? "GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH" : ""
         };
@@ -8665,13 +8905,16 @@
       return {
         candidateIds: candidates.map(function (c) { return c.id; }),
         candidates: candidates,
+        totalExactMatches: totalExactMatches,
+        strictMatchedIds: strictMatchedPool.map(function (p) { return String(p.id || "").toUpperCase(); }),
+        effectiveConstraints: parsed,
         catalogOverview: ov,
         warehouseSummary: ov
       };
     }
 
     function renderAiAttachedCardsHtml(ids) {
-      const items = (Array.isArray(ids) ? ids : []).map(getProp).filter(Boolean).slice(0, 4);
+      const items = (Array.isArray(ids) ? ids : []).map(getProp).filter(Boolean).slice(0, 3);
       if (!items.length) return "";
       return '<div class="ai-card-list">' + items.map(function (p) {
         const priceTxt = p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : fmtBil(p.price));
@@ -8688,7 +8931,7 @@
               '<div class="ai-prop-foot">' +
                 '<span class="ai-prop-price">' + esc(priceTxt) + '</span>' +
                 '<span class="ai-prop-actions">' +
-                  '<button type="button" onclick="closeOverlay(\'aiChatOverlay\'); openDossier(\'' + esc(p.id) + '\')">Xem chi tiết</button>' +
+                  '<button type="button" onclick="openDossier(\'' + esc(p.id) + '\')">Xem chi tiết</button>' +
                   '<a href="https://zalo.me/0916239898" target="_blank" rel="noopener noreferrer" onclick="handleDirectZalo()">Nhắn Zalo</a>' +
                 '</span>' +
               '</div>' +
@@ -8698,7 +8941,111 @@
       }).join("") + '</div>';
     }
 
-    function appendAiMessage(role, text, recIds, metaLabel) {
+    function openDossierFromAiChat(ev, id) {
+      if (ev && (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button === 1)) {
+        return true;
+      }
+      if (ev && ev.preventDefault) ev.preventDefault();
+      openDossier(id);
+      return false;
+    }
+
+    function applyAiFilterToDirectory(snapIdx) {
+      const snap = aiFilterSnapshots[snapIdx];
+      const c = snap ? snap.constraints : null;
+      quickDiscoveryMode = c && c.onlyUpdate && !c.districts.length && !hasNumericBounds(c) ? "PRICE_DROP" : "ALL";
+      activeDistrict = (c && c.districts && c.districts.length === 1) ? c.districts[0].label : "ALL";
+      activeCategory = (c && c.categoriesAllowed && c.categoriesAllowed.length === 1) ? c.categoriesAllowed[0] : "ALL";
+      directoryPage = 1;
+
+      const distSel = document.getElementById("distSelect");
+      if (distSel) distSel.value = activeDistrict;
+      const catSel = document.getElementById("catSelect");
+      if (catSel) catSel.value = activeCategory;
+
+      let prVal = "ALL";
+      let needsRawQuery = false;
+      if (c) {
+        if ((c.districts && c.districts.length > 1) || (c.categoriesAllowed && c.categoriesAllowed.length > 1) ||
+            (c.subAreaTokens && c.subAreaTokens.length > 0) || c.minWidthM !== null || c.minAreaM2 !== null ||
+            c.minFloors !== null || c.minCashflowMil !== null || c.maxCashflowMil !== null ||
+            c.mustHaveBasement || c.mustHaveRentalIncome || c.onlyUpdate || c.streetPhraseNoTone ||
+            (c.freeTokens && c.freeTokens.length > 0)) {
+          needsRawQuery = true;
+        }
+        if (!needsRawQuery && c.minPriceBil === 20 && c.maxPriceBil === 50 && !c.minPriceStrict && !c.maxPriceStrict) {
+          prVal = "20_50";
+        } else if (!needsRawQuery && c.minPriceBil === 50 && c.maxPriceBil === 100 && !c.maxPriceStrict) {
+          prVal = "50_100";
+        } else if (!needsRawQuery && c.minPriceBil === 100 && c.maxPriceBil === null) {
+          prVal = "OVER_100";
+        } else if (c.minPriceBil !== null || c.maxPriceBil !== null) {
+          needsRawQuery = true;
+        }
+      }
+      const pSel = document.getElementById("priceSelect");
+      const dpSel = document.getElementById("dirPriceSelect");
+      if (pSel) pSel.value = prVal;
+      if (dpSel) dpSel.value = prVal;
+      const qEl = document.getElementById("qInput");
+      if (qEl) qEl.value = (needsRawQuery && snap && snap.rawQuery) ? snap.rawQuery : "";
+      const sortEl = document.getElementById("sortSelect");
+      if (sortEl) sortEl.value = "DEFAULT";
+
+      if (typeof renderDistrictTabs === "function") renderDistrictTabs();
+      if (typeof renderCategoryPills === "function") renderCategoryPills();
+      if (typeof onSearchFilterChanged === "function") onSearchFilterChanged();
+      closeOverlay("aiChatOverlay");
+      if (typeof scrollToDirectorySmooth === "function") scrollToDirectorySmooth();
+    }
+
+    function formatAiMoreSpecSummary(p) {
+      const dimsVal = p.dimsShort && p.dimsShort !== "Liên Hệ" ? p.dimsShort : "";
+      const areaVal = p.area > 0 ? ("CN " + fmtNum(p.area) + "m²") : "";
+      const extraVal = (!p.cashflowMasked && p.hasCashflow && p.mobileYieldLine && p.mobileYieldLine !== "Liên Hệ")
+        ? p.mobileYieldLine
+        : (p.structShort && p.structShort !== "Liên Hệ" ? p.structShort : "");
+      return [dimsVal, areaVal, extraVal].filter(Boolean).join(" · ");
+    }
+
+    function renderAiMoreInventoryHtml(extraMeta) {
+      if (!extraMeta || !Array.isArray(extraMeta.extraIds) || !extraMeta.extraIds.length) return "";
+      const districts = (extraMeta.constraints && Array.isArray(extraMeta.constraints.districts)) ? extraMeta.constraints.districts : [];
+      const extraItems = extraMeta.extraIds
+        .map(getProp)
+        .filter(function (p) { return Boolean(p) && (!districts.length || propertyMatchesDistrictList(p, districts)); })
+        .slice(0, 6);
+      if (!extraItems.length) return "";
+
+      const listHtml = extraItems.map(function (p) {
+        const priceTxt = p.isSold ? "Đã Bán" : (p.masked ? "Liên Hệ" : fmtBil(p.price));
+        const specLine = formatAiMoreSpecSummary(p);
+        const titleLabel = esc((p.streetDisplay || p.category) + ", " + p.district);
+        return (
+          '<li>' +
+            '<a class="ai-more-link" href="/p/' + esc(p.id) + '.html" onclick="return openDossierFromAiChat(event, \'' + esc(p.id) + '\')">' +
+              '<span class="ai-more-main">• ' + titleLabel + ' — <span class="ai-more-price">' + esc(priceTxt) + '</span>' + (specLine ? ' <span class="ai-more-meta">· ' + esc(specLine) + '</span>' : '') + '</span>' +
+              '<span class="ai-more-ext" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></span>' +
+            '</a>' +
+          '</li>'
+        );
+      }).join("");
+
+      const total = Number(extraMeta.totalExactMatches || 0);
+      const allBtnHtml = (total > 3 && typeof extraMeta.filterSnapIdx === "number" && extraMeta.filterSnapIdx >= 0)
+        ? '<button type="button" class="ai-more-all-btn" onclick="applyAiFilterToDirectory(' + Number(extraMeta.filterSnapIdx) + ')">Xem tất cả ' + total + ' tài sản phù hợp trên kho →</button>'
+        : "";
+
+      return (
+        '<div class="ai-more-inventory-box">' +
+          '<p class="ai-more-title">Và một số tài sản khác trên kho:</p>' +
+          '<ul class="ai-more-list" role="list">' + listHtml + '</ul>' +
+          allBtnHtml +
+        '</div>'
+      );
+    }
+
+    function appendAiMessage(role, text, recIds, metaLabel, extraMeta) {
       const box = document.getElementById("aiChatMessages");
       if (!box) return null;
       const wrap = document.createElement("div");
@@ -8722,6 +9069,13 @@
         const cardsHolder = document.createElement("div");
         cardsHolder.innerHTML = cardsHtml;
         if (cardsHolder.firstElementChild) wrap.appendChild(cardsHolder.firstElementChild);
+      }
+      const moreHtml = role === "user" ? "" : renderAiMoreInventoryHtml(extraMeta);
+      if (moreHtml) {
+        const moreHolder = document.createElement("div");
+        moreHolder.style.width = "100%";
+        moreHolder.innerHTML = moreHtml;
+        if (moreHolder.firstElementChild) wrap.appendChild(moreHolder.firstElementChild);
       }
       if (metaLabel) {
         const metaEl = document.createElement("span");
@@ -8822,30 +9176,135 @@
       return /^(?:dạ\s+)?(?:xin\s+)?(?:chào|alo|hello|hi|hey|good\s*(?:morning|afternoon|evening)|em\s*ơi|ad\s*ơi|có\s*ai\s*(?:trực|ở\s*đây)\s*(?:không|ko|k)|cần\s*tư\s*vấn\s*(?:nhé|ạ)?)\b/i.test(q);
     }
 
-    function buildLocalAdvisorFallbackReply(rag, question) {
+    function finalizeAiRecommendationDisplay(question, rag, rawRecIds, shownSet) {
+      if (isSocialGreetingJs(question)) {
+        return { recIds: [], extraMeta: null };
+      }
+      const eff = (rag && rag.effectiveConstraints) || resolveEffectiveChatConstraints(question, aiChatHistory);
+      const isSingle = isSinglePropertyChatIntent(question, eff);
+      const activeDists = (eff && Array.isArray(eff.districts)) ? eff.districts : [];
+      const strictIdsList = Array.isArray(rag && rag.strictMatchedIds) ? rag.strictMatchedIds : [];
+      const strictPropIds = new Set(
+        strictIdsList.filter(function (id) {
+          const p = getProp(id);
+          return p && (!activeDists.length || propertyMatchesDistrictList(p, activeDists));
+        })
+      );
+      const validCandIds = new Set(
+        ((rag && Array.isArray(rag.candidates)) ? rag.candidates : [])
+          .filter(function (c) {
+            const p = getProp(c && c.id);
+            return p && (!activeDists.length || propertyMatchesDistrictList(p, activeDists));
+          })
+          .map(function (c) { return String(c.id || "").toUpperCase(); })
+      );
+
+      let recIds = [];
+      const seenRec = new Set();
+      (Array.isArray(rawRecIds) ? rawRecIds : []).forEach(function (rawId) {
+        const id = String(rawId || "").trim().toUpperCase();
+        if (!id || seenRec.has(id) || !validCandIds.has(id)) return;
+        const p = getProp(id);
+        if (!p || (activeDists.length && !propertyMatchesDistrictList(p, activeDists))) return;
+        seenRec.add(id);
+        recIds.push(id);
+      });
+
+      if (eff && hasAnyChatConstraint(eff)) {
+        if (strictPropIds.size > 0) {
+          recIds = recIds.filter(function (id) { return strictPropIds.has(id); });
+        } else if (hasNumericBounds(eff)) {
+          const nearAllowedIds = new Set(
+            ((rag && Array.isArray(rag.candidates)) ? rag.candidates : [])
+              .filter(function (c) {
+                const p = getProp(c && c.id);
+                return Boolean(c && c.isNearMatch) && p && (!activeDists.length || propertyMatchesDistrictList(p, activeDists));
+              })
+              .map(function (c) { return String(c.id || "").toUpperCase(); })
+          );
+          recIds = recIds.filter(function (id) { return nearAllowedIds.has(id); }).slice(0, 2);
+        } else {
+          recIds = [];
+        }
+      }
+
+      const maxCards = isSingle ? 1 : 3;
+      const shouldPopulateThree = !isSingle && strictIdsList.length > 0 && (recIds.length > 0 || (eff && hasAnyChatConstraint(eff)));
+      if (shouldPopulateThree) {
+        const unseenPool = strictIdsList.filter(function (id) {
+          return (!shownSet || !shownSet.has(id)) && propertyMatchesDistrictList(getProp(id), activeDists);
+        });
+        if (eff && eff._isAskingMore && unseenPool.length >= Math.min(3, strictIdsList.length)) {
+          recIds = recIds.filter(function (id) { return !shownSet || !shownSet.has(id); });
+        }
+        const recSet = new Set(recIds);
+        const fillPool = unseenPool.concat(strictIdsList.filter(function (id) {
+          return propertyMatchesDistrictList(getProp(id), activeDists);
+        }));
+        for (let i = 0; i < fillPool.length && recIds.length < Math.min(maxCards, strictIdsList.length); i++) {
+          const cid = fillPool[i];
+          if (!recSet.has(cid)) {
+            recSet.add(cid);
+            recIds.push(cid);
+          }
+        }
+      }
+      recIds = recIds.slice(0, maxCards);
+
+      let extraMeta = null;
+      if (!isSingle && recIds.length > 0 && strictIdsList.length > recIds.length) {
+        const chosenSet = new Set(recIds);
+        const extraIds = strictIdsList
+          .filter(function (id) {
+            return !chosenSet.has(id) && propertyMatchesDistrictList(getProp(id), activeDists);
+          })
+          .slice(0, 6);
+        if (extraIds.length > 0) {
+          const snapIdx = aiFilterSnapshots.push({ rawQuery: question, constraints: eff }) - 1;
+          extraMeta = {
+            extraIds: extraIds,
+            totalExactMatches: Number((rag && rag.totalExactMatches) || strictIdsList.length),
+            filterSnapIdx: snapIdx,
+            constraints: eff
+          };
+        }
+      }
+      return { recIds: recIds, extraMeta: extraMeta };
+    }
+
+    function buildLocalAdvisorFallbackReply(rag, question, shownSet) {
       if (isSocialGreetingJs(question)) {
         return {
           text: "Chào Anh/Chị 👋 Em hỗ trợ tìm nhanh sản phẩm trên web của Vũ (nhatoSG).\n\nAnh/Chị đang tìm nhà mặt tiền, building hay biệt thự khu nào, tầm tài chính khoảng bao nhiêu cứ nhắn tự nhiên để em lọc căn phù hợp gửi mình xem trước nhé!",
-          ids: []
+          ids: [],
+          extraMeta: null
         };
       }
-      const top = (rag && rag.candidates) ? rag.candidates.slice(0, 3) : [];
-      if (!top.length) {
+      const eff = (rag && rag.effectiveConstraints) || resolveEffectiveChatConstraints(question, aiChatHistory);
+      const strictIds = (rag && Array.isArray(rag.strictMatchedIds)) ? rag.strictMatchedIds : [];
+      const candIds = strictIds.length
+        ? strictIds.slice(0, 3)
+        : ((rag && rag.candidates) ? rag.candidates.slice(0, 3).map(function (c) { return c.id; }) : []);
+      const fin = finalizeAiRecommendationDisplay(question, rag, candIds, shownSet || getShownIdsInSession());
+      if (!fin.recIds.length) {
         return {
           text: "Trên web hiện chưa có căn nào khớp hết các tiêu chí Anh/Chị vừa nhắn.\n\nAnh/Chị thử nới nhẹ khu vực hoặc tầm tiền giúp em, hoặc nhắn thẳng Zalo / gọi **Vũ (0916.23.9898)** để Vũ kiểm tra thêm nguồn bên ngoài chưa kịp lên web nhé.",
-          ids: []
+          ids: [],
+          extraMeta: null
         };
       }
-      const listTxt = top.map(function (c) {
-        return "**" + c.streetDisplay + "** (" + c.district + ", " + c.priceDisplay + ")";
+      const pickedObjs = fin.recIds.map(getProp).filter(Boolean);
+      const listTxt = pickedObjs.map(function (p) {
+        return "**" + p.streetDisplay + "** (" + p.district + ", " + (p.masked ? "Liên Hệ" : fmtBil(p.price)) + ")";
       }).join("; ");
+      const totalN = Number((rag && rag.totalExactMatches) || pickedObjs.length);
+      const lead = totalN > pickedObjs.length
+        ? ("Hiện tại trên kho của Vũ đang có **" + totalN + " tài sản** phù hợp; em chọn trước **" + pickedObjs.length + " căn nổi bật** bên dưới (" + listTxt + "), kèm danh sách các căn khác ngay phía dưới để Anh/Chị tiện bấm xem nhanh ạ.")
+        : ("Dạ theo nhu cầu mình vừa nhắn, em lọc trước các căn trên web thấy hợp lý: " + listTxt + ".");
       return {
-        text: sanitizeProseNsgCodes(
-          "Dạ theo nhu cầu mình vừa nhắn, em lọc trước mấy căn trên web thấy hợp lý: " +
-          listTxt +
-          ".\n\nAnh/Chị bấm vào từng căn xem hình và thông số nhé; cần cập nhật tình trạng mới nhất, xem sổ hồng hay làm việc trực tiếp chủ nhà thì Anh/Chị cứ nhắn Zalo / gọi **Vũ (0916.23.9898)** ạ."
-        ),
-        ids: top.map(function (c) { return c.id; })
+        text: sanitizeProseNsgCodes(lead),
+        ids: fin.recIds,
+        extraMeta: fin.extraMeta
       };
     }
 
@@ -8871,13 +9330,16 @@
       }
 
       inp.value = "";
+      const effPreview = resolveEffectiveChatConstraints(q, aiChatHistory);
+      const shownSetBefore = getShownIdsInSession();
+      const recentIds = getRecentSuggestedIdsFromHistory(effPreview);
+      const rag = buildLocalRagPayload(q, recentIds);
+
       appendAiMessage("user", q, [], "");
       const typingEl = appendAiMessage("bot", "Em đang lọc nhanh sản phẩm trên web của Vũ...", [], "");
       aiChatSending = true;
       if (sendBtn) sendBtn.disabled = true;
 
-      const recentIds = getRecentSuggestedIdsFromHistory();
-      const rag = buildLocalRagPayload(q, recentIds);
       const sess = loadAiMemberSession() || {};
       const headers = { "Content-Type": "application/json" };
       if (sess.token) headers["Authorization"] = "Bearer " + sess.token;
@@ -8887,6 +9349,7 @@
         history: aiChatHistory.slice(-12),
         candidate_ids: rag.candidateIds,
         candidates: rag.candidates,
+        total_exact_matches: Number(rag.totalExactMatches || 0),
         catalog_overview: rag.catalogOverview,
         warehouse_summary: rag.warehouseSummary
       };
@@ -8923,41 +9386,18 @@
 
         if (resp.ok && data && data.reply) {
           if (typingEl) typingEl.remove();
-          let recIds = Array.isArray(data.recommended_ids)
-            ? data.recommended_ids.slice(0, 4)
-            : [];
-          const effConstraints = resolveEffectiveChatConstraints(q, aiChatHistory);
-          if (effConstraints && hasNumericBounds(effConstraints) && Array.isArray(rag.candidates) && rag.candidates.length) {
-            const strictPropIds = new Set(
-              rag.candidates
-                .filter(function (c) {
-                  const p = getProp(c.id);
-                  return p && propertyMatchesNumericAndGeo(p, effConstraints, { ignoreCategory: Boolean(effConstraints._categoriesInherited) });
-                })
-                .map(function (c) { return String(c.id || "").toUpperCase(); })
-            );
-            if (strictPropIds.size > 0) {
-              recIds = recIds.filter(function (id) { return strictPropIds.has(String(id || "").toUpperCase()); });
-            } else {
-              const nearAllowedIds = new Set(
-                rag.candidates
-                  .filter(function (c) { return Boolean(c.isNearMatch); })
-                  .map(function (c) { return String(c.id || "").toUpperCase(); })
-              );
-              recIds = recIds.filter(function (id) { return nearAllowedIds.has(String(id || "").toUpperCase()); }).slice(0, 2);
-            }
-          }
+          const fin = finalizeAiRecommendationDisplay(q, rag, data.recommended_ids, shownSetBefore);
           const cleanReply = sanitizeProseNsgCodes(data.reply);
-          appendAiMessage("bot", cleanReply, recIds, "");
-          aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply, recommendedIds: recIds });
+          appendAiMessage("bot", cleanReply, fin.recIds, "", fin.extraMeta);
+          aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: cleanReply, recommendedIds: fin.recIds });
           if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
           return;
         }
         throw new Error("FALLBACK_LOCAL");
       } catch (e) {
         if (typingEl) typingEl.remove();
-        const fbRes = buildLocalAdvisorFallbackReply(rag, q);
-        appendAiMessage("bot", fbRes.text, fbRes.ids, "");
+        const fbRes = buildLocalAdvisorFallbackReply(rag, q, shownSetBefore);
+        appendAiMessage("bot", fbRes.text, fbRes.ids, "", fbRes.extraMeta);
         aiChatHistory.push({ role: "user", text: q }, { role: "assistant", text: fbRes.text, recommendedIds: fbRes.ids });
         if (aiChatHistory.length > 24) aiChatHistory = aiChatHistory.slice(-24);
       } finally {
