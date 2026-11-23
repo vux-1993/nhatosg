@@ -4,8 +4,8 @@
  * Credentials live solely in Worker secrets (env.GEMINI_API_KEY); no inventory or PII is stored here.
  */
 export const MODEL_CHAIN = [
-  "gemini-3.1-flash-lite",
   "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
 ];
 const MODEL_ATTEMPT_MS = {
   "gemini-3.1-flash-lite": 4100,
@@ -980,6 +980,7 @@ export default {
       "1. Chào hỏi xã giao hoặc mới mở lời (\"Chào em\", \"Alo\"...): Đáp thân thiện ngắn gọn, hỏi khu vực/loại hình/ngân sách và BẮT BUỘC trả recommended_ids: [].\n" +
       "2. Lọc tìm sản phẩm theo tiêu chí địa giới & số học (Quận, giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng Quận và biên số học của câu hỏi. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng Quận và biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất đúng Quận (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
       "3. Hỏi về PCCC, hoàn công, pháp lý: KHÔNG cam kết hay bảo đảm thay giấy tờ gốc. Chỉ nêu đúng thông tin tin đăng đang ghi (ví dụ tin có ghi đạt chuẩn PCCC hay chưa ghi chi tiết), nói rõ quy trình đối chiếu thực tế (sổ hồng hoàn công, bản vẽ/nghiệm thu PCCC) và mời nhắn Zalo **Vũ (0916.23.9898)** nhận hồ sơ kiểm chứng.\n\n" +
+      "Nếu nguồn công khai chưa xác nhận có hồ sơ, không hứa có hoặc gửi ngay sổ hồng, bản vẽ hay biên bản PCCC. Hướng khách đến Vũ để kiểm chứng.\n\n" +
       "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
       "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO, THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
       "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong 'recommended_ids').";
