@@ -362,7 +362,11 @@ const CHAT_SUB_AREAS = [
 ];
 
 function parseQueryConstraints(rawQuery) {
-  const qRaw = String(rawQuery || "").trim();
+  const qRaw = String(rawQuery || "").trim().replace(/(\d)\s*[–—~-]\s*(?=\d)/g, "$1 den ")
+    .replace(/(\d[\d.,]*)\s*(?:usd\b|\$)/gi, (_, raw) => {
+      const n = raw.replace(/[.,](?=\d{3}(?:[.,]|$))/g, "").replace(",", ".");
+      return (Number(n) * 0.0254).toFixed(4) + " trieu";
+    });
   if (!qRaw) return null;
   let qNoTone = String(qRaw)
     .normalize("NFD")
@@ -383,6 +387,8 @@ function parseQueryConstraints(rawQuery) {
     .replace(/\bmt\b/g, "mat tien");
 
   const c = {
+    requiresContract: /\bhop dong thue\b/.test(qNoTone),
+    useMode: /\bhoac\b/.test(qNoTone) ? "any" : /\b(?:ket hop|vua .+ vua|da cong nang)\b/.test(qNoTone) ? "both" : "",
     propCode: null,
     districts: [],
     subAreaTokens: [],
@@ -433,7 +439,7 @@ function parseQueryConstraints(rawQuery) {
   if (/\b(?:toa\s+nha|toa\s+van\s+phong|van\s+phong|building|office|cao\s+oc)\b/.test(qNoTone)) c.categories.push("building");
   if (/\b(?:can\s+ho\s+dich\s+vu|khach\s+san|hotel)\b/.test(qNoTone)) c.categories.push("chdv_hotel");
   if (/\b(?:biet\s+thu|villa|dinh\s+thu|compound)\b/.test(qNoTone)) c.categories.push("villa");
-  if (/\b(?:quy\s+dat|dat\s+lon|dat\s+trong|lo\s+dat|cap\s*4|nha\s+cu)\b/.test(qNoTone)) c.categories.push("land");
+  if (/\b(?:quy\s+dat|dat(?=\s+(?:tp\.?\s+)?thu duc)|dat\s+lon|dat\s+trong|lo\s+dat|cap\s*4|nha\s+cu)\b/.test(qNoTone)) c.categories.push("land");
   if (/\b(?:nha\s+pho|nha\s+mat\s+tien|mat\s+tien|shophouse|showroom)\b/.test(qNoTone)) c.categories.push("townhouse");
 
   const qRange = qRaw
@@ -547,7 +553,7 @@ function resolveEffectiveConstraints(question, history) {
 
   let inhDist = [], inhSub = [], inhCats = [], inhBase = false;
   let inhMinP = null, inhMaxP = null, inhMinPS = false, inhMaxPS = false;
-  let inhMinCf = null, inhMinCfS = false;
+  let inhMinCf = null, inhMinCfS = false, inhContract = false, inhUseMode = "";
   for (let i = userTurns.length - 1; i >= 0 && i >= userTurns.length - 3; i--) {
     const prev = parseQueryConstraints(userTurns[i].text);
     if (!prev) continue;
@@ -555,11 +561,11 @@ function resolveEffectiveConstraints(question, history) {
       inhDist = prev.districts.slice();
       inhSub = prev.subAreaTokens.slice();
     }
-    if (!inhCats.length && prev.categories.length) inhCats = prev.categories.slice();
+    if (!inhCats.length && prev.categories.length) { inhCats = prev.categories.slice(); inhUseMode = prev.useMode; }
     if (prev.mustHaveBasement) inhBase = true;
     if (inhMinP === null && prev.minPriceBil !== null) { inhMinP = prev.minPriceBil; inhMinPS = prev.minPriceStrict; }
     if (inhMaxP === null && prev.maxPriceBil !== null) { inhMaxP = prev.maxPriceBil; inhMaxPS = prev.maxPriceStrict; }
-    if (inhMinCf === null && prev.minCashflowMil !== null) { inhMinCf = prev.minCashflowMil; inhMinCfS = prev.minCashflowStrict; }
+    if (inhMinCf === null && prev.minCashflowMil !== null) { inhMinCf = prev.minCashflowMil; inhMinCfS = prev.minCashflowStrict; inhContract = prev.requiresContract; }
     if (prev.districts.length && (prev.categories.length || hasNumericBounds(prev))) break;
   }
 
@@ -578,6 +584,7 @@ function resolveEffectiveConstraints(question, history) {
   }
   if (allowSpecInh && !cur.categories.length && inhCats.length && shouldInherit) {
     cur.categories = inhCats.slice();
+    cur.useMode = inhUseMode;
     cur._categoriesInherited = true;
   }
   if (allowSpecInh && !cur.mustHaveBasement && inhBase && (isNarrow || isAskingMore || isLegalFollowUp || !hasNewLoc)) {
@@ -589,6 +596,7 @@ function resolveEffectiveConstraints(question, history) {
   }
   if (allowSpecInh && cur.minCashflowMil === null && (isLegalFollowUp || isNarrow || isAskingMore)) {
     cur.minCashflowMil = inhMinCf; cur.minCashflowStrict = inhMinCfS;
+    cur.requiresContract ||= inhContract;
   }
   return cur;
 }
@@ -628,7 +636,13 @@ function candidateSatisfiesConstraints(cand, m, c, opts = {}) {
     const ZONE_SUBS = new Set(["phu my hung", "cityland", "thu thiem"]);
     if (!c.subAreaTokens.some((sa) => containsTokenBoundary(ZONE_SUBS.has(sa) ? locZone : locStructured, sa))) return false;
   }
-  if (!opts.ignoreCategory && c.categories.length) {
+  if (c.requiresContract && (!cand.hasLeaseContract || (c.minCashflowMil !== null &&
+      (c.minCashflowStrict ? m.monthlyMil <= c.minCashflowMil : m.monthlyMil < c.minCashflowMil)))) return false;
+  if (c.useMode && c.categories.includes("building") && c.categories.includes("chdv_hotel")) {
+    const office = cand.officeUse || candidateGroupWeight(cand, "building") > 0;
+    const lodging = cand.lodgingUse || candidateGroupWeight(cand, "chdv_hotel") > 0;
+    if (c.useMode === "both" ? !(office && lodging) : !(office || lodging)) return false;
+  } else if (!opts.ignoreCategory && c.categories.length) {
     if (!c.categories.some(group => candidateGroupWeight(cand, group))) return false;
   }
   if (c.minPriceBil !== null || c.maxPriceBil !== null) {
@@ -696,7 +710,7 @@ function partitionCandidatesByConstraints(candidates, rawCandidates, constraints
     strictList = districtPool.filter((cand) => candidateSatisfiesConstraints(cand, metricsMap.get(cand.id), constraints, { ignoreSubArea, ignoreCategory: true }));
   }
   if (strictList.length > 0) {
-    const groupRank = cand => Math.max(0, ...constraints.categories.map(group => candidateGroupWeight(cand, group)));
+    const groupRank = cand => constraints.useMode === "both" && cand.officeUse && cand.lodgingUse ? 110 : Math.max(0, ...constraints.categories.map(group => candidateGroupWeight(cand, group)));
     strictList.sort((a, b) => groupRank(b) - groupRank(a));
     return {
       filtered: strictList,
@@ -820,6 +834,8 @@ function sanitizeCandidates(rawCandidates) {
       district: String(c.district || "").slice(0, 50),
       category: String(c.category || "").slice(0, 60),
       maskedAnchor,
+      officeUse: c.officeUse === true, lodgingUse: c.lodgingUse === true,
+      hasLeaseContract: !masked && !cfMasked && (c.hasLeaseContract === true || /^HĐT\s*:/iu.test(cfTxt)),
       searchGroups: Array.isArray(c.search_groups) ? c.search_groups.slice(0, 5) : undefined,
       streetFront: c.is_true_street_front === true,
       dims: String(c.dimsShort || c.dimensions || "Liên Hệ").slice(0, 60),
@@ -974,9 +990,6 @@ export default {
       return jsonResp({ ok: false, error: "QUESTION_LENGTH_INVALID" }, 400);
     }
     const legalQuestion = isLegalDocumentQuestion(question);
-    if (!env.GEMINI_API_KEY && !legalQuestion) {
-      return jsonResp({ ok: false, fallback: true, reason: "AI_UNAVAILABLE" }, 503);
-    }
 
     const candidates = sanitizeCandidates(body.candidates);
     const histArr = Array.isArray(body.history) ? body.history.slice(-12) : [];
@@ -993,6 +1006,22 @@ export default {
       return jsonResp({ ok: true, reply: LEGAL_REPLY, recommended_ids: [], total_exact_matches: totalExactMatches,
         model: "local-policy", source: "local_policy", mode: cfg.mode });
     }
+    function degradedReply(reason) {
+      const ranked = activeCandidates.filter(c => partition.strictIds.has(c.id)).map(c => c.id);
+      const ids = strictPostFilterRecommendedIds(ranked, partition, validIds, {
+        question, constraints, candidates: activeCandidates,
+      });
+      let reply = "Em chưa tìm được căn khớp trong danh sách đang xem. Anh/Chị có thể điều chỉnh khu vực hoặc khoảng giá.";
+      if (isWorkerGreeting(question)) {
+        reply = "Em chào Anh/Chị. Mình muốn tìm nhà ở khu vực nào và khoảng giá bao nhiêu ạ?";
+      } else if (ids.length) {
+        reply = "Em gửi Anh/Chị các thẻ nhà từ danh sách đang xem để mình đối chiếu thông tin công khai.";
+      }
+      return jsonResp({ ok: true, degraded: true, reason, reply, recommended_ids: ids,
+        total_exact_matches: totalExactMatches, model: "local-rag", source: "local_rag", mode: cfg.mode });
+    }
+    if (env.CHAT_RAG_ONLY === "1") return degradedReply("RAG_ONLY");
+    if (!env.GEMINI_API_KEY) return degradedReply("AI_UNAVAILABLE");
     const histLines = histArr
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
       .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (bên Vũ)"}: ${t.text.trim().slice(0, 450)}`);
@@ -1199,6 +1228,6 @@ export default {
         continue;
       }
     }
-    return jsonResp({ ok: false, fallback: true, reason: anyTimeout ? "AI_TIMEOUT" : "MODEL_UNAVAILABLE" }, 503);
+    return degradedReply(anyTimeout ? "AI_TIMEOUT" : "MODEL_UNAVAILABLE");
   },
 };

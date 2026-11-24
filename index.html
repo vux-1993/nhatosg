@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="color-scheme" content="light dark" />
+<meta name="nsg-hero-map" content="{&quot;web_images/NSG-0753/ban-nha-pho-mat-tien-duong-nguyen-thien-thuat-phuong-24-binh-thanh-nsg-0753-hinh-1-7ac26.jpg&quot;:&quot;hero-mobile/NSG-0753-70ebad27c2e94c9b.webp&quot;,&quot;web_images/NSG-0753/ban-nha-pho-mat-tien-duong-nguyen-thien-thuat-phuong-24-binh-thanh-nsg-0753-hinh-2-10020.jpg&quot;:&quot;hero-mobile/NSG-0753-6c1571d4c3fec780.webp&quot;,&quot;web_images/NSG-0544/ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-1-8311.jpg&quot;:&quot;hero-mobile/NSG-0544-0b0a2e261b2233ba.webp&quot;,&quot;web_images/NSG-0544/ban-nha-pho-mat-tien-phuong-vo-thi-sau-quan-3-nsg-0544-hinh-2-27a6.jpg&quot;:&quot;hero-mobile/NSG-0544-4fec4218e1b43028.webp&quot;,&quot;web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-1-850c.jpg&quot;:&quot;hero-mobile/NSG-0528-15eb767aaee8680a.webp&quot;,&quot;web_images/NSG-0528/ban-toa-nha-van-phong-phuong-4-quan-tan-binh-nsg-0528-hinh-2-c822.jpg&quot;:&quot;hero-mobile/NSG-0528-5d95ded54700388d.webp&quot;,&quot;web_images/NSG-0718/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0718-hinh-1-1b6ea.jpg&quot;:&quot;hero-mobile/NSG-0718-9975a497a6b4f7ce.webp&quot;,&quot;web_images/NSG-0718/ban-biet-thu-phuong-thao-dien-tp-thu-duc-nsg-0718-hinh-2-1a9e4.jpg&quot;:&quot;hero-mobile/NSG-0718-6480a877cbcddab4.webp&quot;}">
+<link id="nsg-hero-preload" rel="preload" as="image" type="image/webp" media="(max-width: 720px)" href="hero-mobile/NSG-0753-70ebad27c2e94c9b.webp" fetchpriority="high">
+
+<meta name="color-scheme" content="light dark" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="description" content="Nhà Sài Gòn (nhatoSG) — Bất động sản giá trị thực TP.HCM &amp; TP. Thủ Đức. Tuyển chọn 358 tài sản giá trị thực: Nhà mặt tiền kinh doanh, tòa nhà văn phòng, khách sạn, CHDV và biệt thự trung tâm. Địa chỉ: 40 Hoàng Việt, Phường Tân Sơn Nhất (Tân Bình), TP.HCM. Hotline/Zalo: 0916.23.9898 (Vũ)." />
   <title>Bán Nhà Mặt Tiền, Building, Khách Sạn TP.HCM | Nhà Sài Gòn (nhatoSG)</title>
@@ -59,7 +62,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261123195251";
+    script.src = "./properties_data.js?v=20261124103539";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -4374,6 +4377,7 @@
 <!-- nsg-web-security-shield -->
 <link rel="stylesheet" href="/web_security_shield.css">
 <script src="/web_security_shield.js" defer></script>
+<style>.hero-sc-media picture{display:contents}</style>
 </head>
 
 <body>
@@ -4552,14 +4556,14 @@
               <div class="hero-sc-media">
                 <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
                 <div class="media-frame-inner">
-                  <img
+                  <picture id="nsg-hero-picture"><source id="nsg-hero-mobile" media="(max-width: 720px)" srcset="hero-mobile/NSG-0753-70ebad27c2e94c9b.webp"><img
                     src="web_images/NSG-0753/ban-nha-pho-mat-tien-duong-nguyen-thien-thuat-phuong-24-binh-thanh-nsg-0753-hinh-1-7ac26.jpg"
                     alt="Nhà Mặt Tiền Kinh Doanh — Đường Nguyễn Thiện Thuật, Phường 24, Bình Thạnh"
                     fetchpriority="high"
                     decoding="async"
                     onload="if(window.inspectImageAspect)inspectImageAspect(this)"
                     onerror="this.onerror=null;this.src='./web_images/public/nhatosg-placeholder.svg';if(window.inspectImageAspect)inspectImageAspect(this)"
-                  />
+                  /></picture>
                   <div class="nsg-touch-shield" aria-hidden="true"></div>
                   <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
                 </div>
@@ -5404,6 +5408,7 @@
     }
 
     function bestSearchGroupWeight(p, parsed, chosen = "ALL") {
+      if (parsed?.useMode === "both" && p.officeUse && p.lodgingUse) return 110;
       const categories = chosen !== "ALL" ? [chosen] : parsed?.categoriesAllowed?.length
         ? parsed.categoriesAllowed : parsed?.categoryExact ? [parsed.categoryExact] : [];
       return categories.reduce((best, category) => Math.max(best, searchGroupWeight(p, category)), 0);
@@ -5414,7 +5419,7 @@
     }
 
     function maskedAnchorHtml(p, className = "card-price-old") {
-      return p.maskedAnchor ? `<del class="${className}">${esc(fmtBil(p.maskedAnchor))}</del>` : '<span>Giá thỏa thuận</span>';
+      return p.maskedAnchor ? `<del class="${className}">${esc(fmtBil(p.maskedAnchor))}</del>` : '';
     }
 
     function maskedPublicPriceHtml(p) {
@@ -5587,10 +5592,16 @@
       return String(rawDistrict || "").trim();
     }
 
+    function normalizeSearchAmounts(query) {
+      return query.replace(/(\d)\s*[–—~-]\s*(?=\d)/g, "$1 den ")
+        .replace(/(\d[\d.,]*)\s*(?:usd\b|\$)/g, (_, n) =>
+          (parseVietnameseFloorNumber(n) * NSG_USD_VND / 1000000).toFixed(4) + " trieu");
+    }
+
     function parseNaturalLanguageQuery(rawQuery) {
       const qRaw = String(rawQuery || "").trim();
       if (!qRaw) return null;
-      const qNoTone = expandRealEstateAbbreviations(removeVietnameseTones(qRaw));
+      const qNoTone = normalizeSearchAmounts(expandRealEstateAbbreviations(removeVietnameseTones(qRaw)));
       const parsed = {
         rawQuery: qRaw,
         propCode: null,
@@ -5609,6 +5620,8 @@
         minCashflowStrict: false,
         maxCashflowMil: null,
         maxCashflowStrict: false,
+        requiresContract: /\bhop dong thue\b/.test(qNoTone),
+        useMode: /\bhoac\b/.test(qNoTone) ? "any" : /\b(?:ket hop|vua .+ vua|da cong nang)\b/.test(qNoTone) ? "both" : "",
         onlyUpdate: false,
         mustHaveBasement: false,
         mustHaveRentalIncome: false,
@@ -5672,7 +5685,7 @@
       if (/\b(?:biet\s+thu|villa|dinh\s+thu|compound)\b/i.test(qNoTone)) {
         addCat("Biệt thự / Dinh thự", ["biet thu", "dinh thu", "compound"]);
       }
-      if (/\b(?:quy\s+dat|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|lo\s+dat(?:\s+trong)?|nha\s+cap\s*4|cap\s*4|nha\s+cu|du\s+an)\b/i.test(qNoTone)) {
+      if (/\b(?:quy\s+dat|dat(?=\s+(?:tp\.?\s+)?thu duc)|dat\s+lon|dat\s+xay\s+cao\s+tang|dat\s+trong|lo\s+dat(?:\s+trong)?|nha\s+cap\s*4|cap\s*4|nha\s+cu|du\s+an)\b/i.test(qNoTone)) {
         addCat("Đất / Nhà Cấp 4", ["quy dat", "lo dat", "dat", "cap 4", "nha cu"]);
         if (/\b(?:dat\s+trong|lo\s+dat\s+trong)\b/i.test(qNoTone)) parsed.landSubtype = "vacant";
         else if (/\b(?:nha\s+cap\s*4|cap\s*4|nha\s+cu)\b/i.test(qNoTone)) parsed.landSubtype = "old_house";
@@ -5796,6 +5809,9 @@
         }
       }
 
+      if (parsed.requiresContract) residual = residual.replace(/\b(?:co\s+)?hop dong thue\b/g, " ");
+      if (parsed.useMode) residual = residual.replace(/\b(?:ket hop|vua|hoac|da cong nang)\b/g, " ");
+      if (parsed.categoriesAllowed.some(cat => canonicalCategory(cat) === "Đất / Nhà cấp 4")) residual = residual.replace(/\bdat\b/g, " ");
       const cleanedResidual = residual.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
       parsed.streetPhraseNoTone = cleanedResidual;
       parsed.freeTokens = cleanedResidual.split(" ").map(t => t.trim()).filter(t => t.length >= 2 && !VI_STOP_WORDS.has(t));
@@ -5850,6 +5866,8 @@
       let inheritedMaxPrice = null;
       let inheritedMinPriceStrict = false;
       let inheritedMaxPriceStrict = false;
+      let inheritedContract = false;
+      let inheritedUseMode = "";
       let inheritedMinCf = null;
       let inheritedMinCfStrict = false;
       let inheritedMinWidth = null;
@@ -5864,6 +5882,7 @@
         }
         if (!inheritedCats.length && prev.categoriesAllowed && prev.categoriesAllowed.length) {
           inheritedCats = prev.categoriesAllowed.slice();
+          inheritedUseMode = prev.useMode;
         }
         if (prev.mustHaveBasement) inheritedBasement = true;
         if (inheritedMinPrice === null && prev.minPriceBil !== null) {
@@ -5876,6 +5895,7 @@
         }
         if (inheritedMinCf === null && prev.minCashflowMil !== null) {
           inheritedMinCf = prev.minCashflowMil;
+          inheritedContract = prev.requiresContract;
           inheritedMinCfStrict = prev.minCashflowStrict;
         }
         if (inheritedMinWidth === null && prev.minWidthM !== null) inheritedMinWidth = prev.minWidthM;
@@ -5897,6 +5917,7 @@
       }
       if (allowSpecInheritance && !cur.categoriesAllowed.length && inheritedCats.length && (isNarrowFollowUp || isAskingMore || isLegalOrDetailFollowUp || (!curSpecifiesNewLocation && hasNumericBounds(cur)))) {
         cur.categoriesAllowed = inheritedCats.slice();
+        cur.useMode = inheritedUseMode;
         cur.categoryExact = cur.categoriesAllowed.length === 1 ? cur.categoriesAllowed[0] : null;
         cur._categoriesInherited = true;
       }
@@ -5911,6 +5932,7 @@
       }
       if (allowSpecInheritance && cur.minCashflowMil === null && (isLegalOrDetailFollowUp || isNarrowFollowUp || isAskingMore || (cur.minPriceBil !== null && inheritedMinCf !== null && isNarrowFollowUp))) {
         cur.minCashflowMil = inheritedMinCf;
+        cur.requiresContract ||= inheritedContract;
         cur.minCashflowStrict = inheritedMinCfStrict;
         if (inheritedMinCf !== null) cur.mustHaveRentalIncome = true;
       }
@@ -6137,7 +6159,9 @@
         /^liên\s*hệ$/iu.test(String(rental.amount_display || "").trim()) ||
         /^liên\s*hệ$/iu.test(String(rental.near_tier1_display || "").trim())
       );
-      const monthlyMil = cashflowMasked ? 0 : (Number(rental.monthly_million || rec.specs?.cashflow_monthly_million || 0) || 0);
+      const monthlyUsd = rental.currency === "USD" && rental.period
+        ? Number(rental.current || 0) * NSG_USD_VND / 1000000 / (rental.period === "năm" ? 12 : 1) : 0;
+      const monthlyMil = cashflowMasked ? 0 : Number(rental.monthly_million || monthlyUsd || rec.specs?.cashflow_monthly_million || 0);
       let yieldShort = "Liên Hệ";
       let yieldFull = "Liên Hệ";
       let hasCashflow = false;
@@ -6226,6 +6250,9 @@
       const floorMatch = String(structure || "").match(/(\d+)\s*(?:tầng|lầu)/i);
       const floorsCount = floorMatch ? Number(floorMatch[1]) : 0;
       const hasBasement = /hầm/i.test(String(structure || "") + " " + String(rec.seo_title || "")) || /hầm/i.test(String(specItems.map(kv => kv[0] + " " + kv[1]).join(" ")));
+      const useText = foldVi([rec.category, rec.summary, rec.marketing_description, rec.specs?.structure].join(" "));
+      const officeUse = /\b(?:van phong|vp)\b/.test(useText);
+      const lodgingUse = /\b(?:can ho dich vu|chdv)\b/.test(useText);
       const searchHayFolded = expandRealEstateAbbreviations(foldVi([
         id, streetDisplay, streetRaw, ward, district, category, structure, rec.seo_title, sec2,
         isSold ? "da ban" : ""
@@ -6241,6 +6268,8 @@
         floorsCount: floorsCount,
         hasBasement: hasBasement,
         searchHayFolded: searchHayFolded,
+        officeUse, lodgingUse,
+        hasLeaseContract: !masked && !cashflowMasked && rental.kind === "HĐT",
         category: category,
         street: streetRaw || streetDisplay,
         streetDisplay: streetDisplay,
@@ -6450,7 +6479,7 @@
       }
       heroShowcaseItems = picked;
       heroShowcaseIdx = 0;
-      heroShowcaseItems.forEach(syncHeroCoverFromGallery);
+      if (!matchMedia("(max-width: 720px)").matches) heroShowcaseItems.forEach(syncHeroCoverFromGallery);
     }
 
     function stopHeroShowcaseTimer() {
@@ -6526,6 +6555,8 @@
       const p = heroShowcaseItems[heroShowcaseIdx] || heroShowcaseItems[0];
       const total = heroShowcaseItems.length;
       const phUrl = p.heroCoverUrl || p.photos[0] || FALLBACK_SVG_URL;
+      const heroMobileCovers = JSON.parse(document.querySelector('meta[name="nsg-hero-map"]')?.content || "{}");
+      const mobileCover = heroMobileCovers[phUrl];
       const titleLine = [p.streetDisplay, p.ward].filter(Boolean).join(", ");
       const metaParts = [];
       if (p.dropText) metaParts.push(p.dropText);
@@ -6551,14 +6582,14 @@
           <div class="hero-sc-media">
             <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
             <div class="media-frame-inner">
-              <img
+              <picture>${mobileCover ? '<source media="(max-width: 720px)" srcset="' + esc(mobileCover) + '">' : ""}<img
                 src="${esc(phUrl)}"
                 alt="${esc(p.category)} — ${esc(titleLine)}, ${esc(p.district)}"
                 fetchpriority="high"
                 decoding="async"
                 onload="inspectImageAspect(this)"
                 onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}';inspectImageAspect(this)"
-              />
+              /></picture>
               <div class="nsg-touch-shield" aria-hidden="true"></div>
               <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark${isWmV2Photo(phUrl) ? " wm-hidden" : ""}"><span class="wm-part">nhatoSG ·</span> <span class="wm-part">0916.23.9898</span></div></div>
             </div>
@@ -6956,7 +6987,17 @@
         });
         if (!matchSub) return false;
       }
-      if (!ignoreCategory) {
+      if (parsed.requiresContract) {
+        if (!p.hasLeaseContract) return false;
+        const rent = Number(p.monthlyMil || 0);
+        if (parsed.minCashflowMil !== null && (parsed.minCashflowStrict ? rent <= parsed.minCashflowMil : rent < parsed.minCashflowMil)) return false;
+      }
+      const mixed = parsed.useMode && parsed.categoriesAllowed.includes("Tòa Nhà Văn Phòng (Building)") && parsed.categoriesAllowed.includes("Tòa CHDV / Khách Sạn");
+      if (mixed) {
+        const office = p.officeUse || searchGroupWeight(p, "Tòa Nhà Văn Phòng (Building)") > 0;
+        const lodging = p.lodgingUse || searchGroupWeight(p, "Tòa CHDV / Khách Sạn") > 0;
+        if (parsed.useMode === "both" ? !(office && lodging) : !(office || lodging)) return false;
+      } else if (!ignoreCategory) {
         if (parsed.categoriesAllowed && parsed.categoriesAllowed.length) {
           if (!parsed.categoriesAllowed.some(cat => searchGroupWeight(p, cat) > 0)) return false;
         } else if (parsed.categoryExact) {
@@ -9147,6 +9188,7 @@
           dimsShort: p.dimsShort,
           area: p.area,
           widthM: Number(p.widthM || 0),
+          officeUse: p.officeUse, lodgingUse: p.lodgingUse, hasLeaseContract: p.hasLeaseContract,
           structFull: p.structFull,
           masked: Boolean(p.masked),
           masked_anchor_price_billion: p.masked && !p.isSold ? p.maskedAnchor : 0,
