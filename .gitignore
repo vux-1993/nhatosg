@@ -1,7 +1,7 @@
 # ==============================================================================
 # NHATOSG PRODUCTION WEB REPOSITORY - GITIGNORE (.gitignore)
 # Chỉ bỏ qua các file database, file backup, file bí mật và tệp tạm thời
-# TUYỆT ĐỐI KHÔNG CHẶN properties_data.js, optimized_manifest.js VÀ web_images/
+# TUYỆT ĐỐI KHÔNG CHẶN properties_data.js, optimized_manifest.js
 # ==============================================================================
 
 # Database files
@@ -47,3 +47,7 @@ desktop.ini
 *.gz
 *.rar
 *.7z
+
+# New listing photos and mobile covers are published directly to R2.
+/web_images/
+/hero-mobile/
