@@ -73,7 +73,7 @@
       return;
     }
     var script = document.createElement("script");
-    script.src = "./properties_data.js?v=20261124154029";
+    script.src = "./properties_data.js?v=5cb5dab3ec77";
     script.defer = true;
     script.onload = function () {
       window.__NHATOSG_DATA_READY__ = true;
@@ -1078,6 +1078,7 @@
       padding: 16px 8px;
       border-bottom: 1px solid var(--line);
       cursor: pointer;
+      contain: layout style paint;
       transition: background-color 0.15s ease;
       min-width: 0;
     }
@@ -1528,6 +1529,7 @@
       border-radius: 2px;
       display: flex;
       flex-direction: column;
+      contain: layout style paint;
       min-width: 0;
       transition: border-color 0.18s ease, box-shadow 0.18s ease;
     }
@@ -3479,9 +3481,9 @@
         bottom: 0;
         padding: 8px 10px calc(8px + env(safe-area-inset-bottom, 0px));
         gap: 7px;
-        background: color-mix(in srgb, var(--paper) 96%, transparent);
+        background: var(--paper);
         border-top: 1px solid var(--line);
-        backdrop-filter: blur(12px);
+        backdrop-filter: none;
       }
       .mobile-call-dock a {
         min-height: 44px;
@@ -4383,6 +4385,37 @@
       .compare-actions { justify-content: flex-start; }
       #qInput::placeholder { font-size: 12px; }
     }
+    @media (max-width: 960px) {
+      .site-head {
+        backdrop-filter: none;
+        background-color: var(--paper);
+      }
+    }
+    /* V4.20 Anti-Lag: chi ap dung content-visibility: auto cho section duoi fold, kem contain-intrinsic-size */
+    #directory {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 2400px;
+    }
+    #insights {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 480px;
+    }
+    #contact {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 560px;
+    }
+    .footer {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 110px;
+    }
+    @supports not (content-visibility: auto) {
+      #directory,
+      #insights,
+      #contact,
+      .footer {
+        contain: layout style paint;
+      }
+    }
 </style>
 
 <!-- nsg-web-security-shield -->
@@ -5106,7 +5139,13 @@
     }
 
     function removeVietnameseTones(str) {
-      return String(str || "")
+      const cache = removeVietnameseTones._cache || (removeVietnameseTones._cache = new Map());
+      const s = String(str || "");
+      if (s.length <= 140) {
+        const hit = cache.get(s);
+        if (hit !== undefined) return hit;
+      }
+      const res = s
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/đ/g, "d")
@@ -5114,6 +5153,11 @@
         .toLowerCase()
         .replace(/\s+/g, " ")
         .trim();
+      if (s.length <= 140) {
+        if (cache.size > 4000) cache.clear();
+        cache.set(s, res);
+      }
+      return res;
     }
 
     function parseVietnameseFloorNumber(rawStr) {
@@ -5566,9 +5610,16 @@
     }
 
     function containsPhraseWordBoundary(hayFolded, phraseFolded) {
-      const h = " " + String(hayFolded || "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim() + " ";
+      const cache = containsPhraseWordBoundary._cache || (containsPhraseWordBoundary._cache = new Map());
       const p = String(phraseFolded || "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
       if (!p) return true;
+      const rawHay = String(hayFolded || "");
+      let h = cache.get(rawHay);
+      if (h === undefined) {
+        h = " " + rawHay.replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim() + " ";
+        if (cache.size > 1600) cache.clear();
+        cache.set(rawHay, h);
+      }
       return h.includes(" " + p + " ");
     }
 
@@ -5992,6 +6043,8 @@
     let PROPERTIES = [];
     let ARTICLES = [];
     let DISTRICTS = ["ALL"];
+    let PROP_BY_ID = new Map();
+    let DISTRICT_COUNTS = new Map();
 
     let activeDistrict = "ALL";
     let activeCategory = "ALL";
@@ -6060,7 +6113,7 @@
     }
 
     function getProp(id) {
-      return PROPERTIES.find(function (p) { return p.id === id; });
+      return PROP_BY_ID.get(id) || PROPERTIES.find(function (p) { return p.id === id; });
     }
 
     function heartSvg(filled, size) {
@@ -6383,8 +6436,10 @@
     // =========================================================================
     // 2. PASSE-PARTOUT AUTO ENGINE + ANTI-UPSCALE (0 PHÓNG VỠ ẢNH NHỎ)
     // =========================================================================
-    function inspectImageAspect(imgEl) {
+    function inspectImageAspect(imgEl, boxDims) {
       if (!imgEl || !imgEl.naturalWidth || !imgEl.naturalHeight) return;
+      const srcKey = String(imgEl.currentSrc || imgEl.src || "");
+      if (srcKey && imgEl.dataset.aspectSrc === srcKey && !boxDims) return;
       const w = imgEl.naturalWidth;
       const h = imgEl.naturalHeight;
       imgEl.style.setProperty("--nat-w", w + "px");
@@ -6393,17 +6448,21 @@
       imgEl.style.setProperty("--max-disp-h", Math.round(h * 1.25) + "px");
 
       const container = imgEl.closest(".card-media, .ledger-thumb, .hero-sc-media");
-      if (!container) return;
+      if (!container) {
+        if (srcKey) imgEl.dataset.aspectSrc = srcKey;
+        return;
+      }
 
       const ratio = w / h;
-      const rect = container.getBoundingClientRect();
-      const isSeverelySmall = rect.width > 0 && rect.height > 0 && (w * 1.25 < rect.width || h * 1.25 < rect.height);
+      const cw = boxDims ? boxDims.width : container.clientWidth;
+      const ch = boxDims ? boxDims.height : container.clientHeight;
+      const isSeverelySmall = cw > 0 && ch > 0 && (w * 1.25 < cw || h * 1.25 < ch);
       const isPortrait = ratio < 0.90;
       const isWide = ratio > 1.80;
       const needsPassePartout = passePartoutEnabled && (isPortrait || isWide || isSeverelySmall);
 
       if (needsPassePartout) {
-        const safeSrc = String(imgEl.currentSrc || imgEl.src || "").replace(/(["\\])/g, "\\$1");
+        const safeSrc = srcKey.replace(/(["\\])/g, "\\$1");
         container.style.setProperty("--media-bg", safeSrc ? 'url("' + safeSrc + '")' : "none");
       } else {
         container.style.removeProperty("--media-bg");
@@ -6412,13 +6471,24 @@
       container.classList.toggle("is-portrait", needsPassePartout && isPortrait && !isSeverelySmall);
       container.classList.toggle("is-wide", needsPassePartout && isWide && !isSeverelySmall);
       container.classList.toggle("is-tiny", needsPassePartout && isSeverelySmall);
+      if (srcKey) imgEl.dataset.aspectSrc = srcKey;
     }
 
     function hydrateRenderedImages() {
-      document.querySelectorAll("#heroShowcase img, #featuredLedger img, #cardsContainer img, #dossierScrollBody img, #lightboxImage").forEach(function (img) {
-        if (img.complete && img.naturalWidth > 0) {
-          inspectImageAspect(img);
-        }
+      const imgs = document.querySelectorAll("#heroShowcase img, #featuredLedger img, #cardsContainer img, #dossierScrollBody img, #lightboxImage");
+      const batch = [];
+      imgs.forEach(function (img) {
+        if (!img.complete || img.naturalWidth <= 0) return;
+        const srcKey = String(img.currentSrc || img.src || "");
+        if (srcKey && img.dataset.aspectSrc === srcKey) return;
+        const container = img.closest(".card-media, .ledger-thumb, .hero-sc-media");
+        batch.push({
+          img: img,
+          dims: container ? { width: container.clientWidth, height: container.clientHeight } : null
+        });
+      });
+      batch.forEach(function (entry) {
+        inspectImageAspect(entry.img, entry.dims);
       });
     }
 
@@ -7297,7 +7367,7 @@
         const priorityAttr = 'loading="lazy" decoding="async"';
 
         return `
-          <article class="atelier-card">
+          <article class="atelier-card" data-prop-id="${esc(p.id)}">
             <div class="card-media" onclick="openDossier('${esc(p.id)}')">
               <div class="nsg-touch-shield" aria-hidden="true" style="z-index:1;"></div>
               <div class="media-frame-inner">
@@ -7422,7 +7492,7 @@
         return `
           <button type="button" class="recent-item" onclick="openDossier('${esc(p.id)}')">
             <span class="nsg-img-shield-wrap" style="width:60px; height:46px; display:block;">
-              <img src="${esc(p.photos[0])}" alt="${esc(p.streetDisplay)}" loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
+              <img src="${esc(p.photos[0])}" alt="${esc(p.streetDisplay)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
               <span class="nsg-touch-shield" aria-hidden="true"></span>
             </span>
             <div class="recent-item-body">
@@ -7802,7 +7872,7 @@
                     onclick="selectDossierPhoto(${idx})"
                     aria-label="Xem ảnh ${idx + 1}"
                   >
-                    <img src="${esc(url)}" alt="Ảnh thu nhỏ ${idx + 1}" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
+                    <img src="${esc(url)}" alt="Ảnh thu nhỏ ${idx + 1}" decoding="async" onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'" />
                     <span class="nsg-touch-shield" aria-hidden="true"></span>
                   </button>
                 `;
@@ -8160,7 +8230,7 @@
         const photo = p.photos[0];
         return `<article class="curated-card">
           <a class="nsg-media-shield" href="/#open=${id}" onclick="event.preventDefault(); openDossier('${id}')">
-            <img src="${esc(photo)}" alt="${esc(p.streetDisplay)}" loading="lazy"
+            <img src="${esc(photo)}" alt="${esc(p.streetDisplay)}" loading="lazy" decoding="async"
                  onerror="this.onerror=null;this.src='${FALLBACK_SVG_URL}'">
             <span class="nsg-touch-shield" aria-hidden="true"></span>
             <div class="nsg-wm-bounds" aria-hidden="true"><div class="p-watermark${isWmV2Photo(photo) ? " wm-hidden" : ""}">
@@ -8635,14 +8705,32 @@
 
     let hasBootstrappedV4 = false;
     let chatFabCollisionFrame = 0;
+    let chatFabThrottleTimer = 0;
+    let chatFabLastCheckMs = 0;
     let chatFabOffset = 0;
 
     function scheduleChatFabCollisionCheck() {
-      if (!chatFabCollisionFrame) chatFabCollisionFrame = requestAnimationFrame(updateChatFabCollisionOffset);
+      const now = performance.now();
+      const elapsed = now - chatFabLastCheckMs;
+      if (elapsed >= 100) {
+        if (!chatFabCollisionFrame) {
+          chatFabCollisionFrame = requestAnimationFrame(updateChatFabCollisionOffset);
+        }
+        return;
+      }
+      if (!chatFabThrottleTimer) {
+        chatFabThrottleTimer = setTimeout(function () {
+          chatFabThrottleTimer = 0;
+          if (!chatFabCollisionFrame) {
+            chatFabCollisionFrame = requestAnimationFrame(updateChatFabCollisionOffset);
+          }
+        }, 105 - elapsed);
+      }
     }
 
     function updateChatFabCollisionOffset() {
       chatFabCollisionFrame = 0;
+      chatFabLastCheckMs = performance.now();
       const fab = document.getElementById("aiChatFab");
       if (!fab || fab.hidden || !fab.getClientRects().length) return;
       const rect = fab.getBoundingClientRect();
@@ -8669,6 +8757,203 @@
     window.addEventListener("scroll", scheduleChatFabCollisionCheck, { passive: true });
     window.addEventListener("resize", scheduleChatFabCollisionCheck, { passive: true });
 
+    // =========================================================================
+    // V4.20 ANTI-LAG RUNTIME (MEMO TIM KIEM + TAB IN-PLACE + 1-CARD PHOTO STEP)
+    // =========================================================================
+    let _v420FilteredSnapshot = { key: null, list: [] };
+    const _v420ParseCache = new Map();
+    const _v420QualityTierCache = new WeakMap();
+    const _v420GroupWeightCache = new WeakMap();
+    const _v420ScoreCache = new WeakMap();
+    const _v420NullParsedKey = Object.freeze({ __null: true });
+
+    if (typeof parseNaturalLanguageQuery === "function") {
+      const _origParseNLQ = parseNaturalLanguageQuery;
+      parseNaturalLanguageQuery = function (rawQuery) {
+        const key = String(rawQuery || "");
+        if (_v420ParseCache.has(key)) return _v420ParseCache.get(key);
+        const res = _origParseNLQ(rawQuery);
+        if (_v420ParseCache.size > 256) _v420ParseCache.clear();
+        _v420ParseCache.set(key, res);
+        return res;
+      };
+    }
+
+    if (typeof computeDefaultQualityTier === "function") {
+      const _origQualityTier = computeDefaultQualityTier;
+      computeDefaultQualityTier = function (p) {
+        if (!p || typeof p !== "object") return _origQualityTier(p);
+        if (_v420QualityTierCache.has(p)) return _v420QualityTierCache.get(p);
+        const v = _origQualityTier(p);
+        _v420QualityTierCache.set(p, v);
+        return v;
+      };
+    }
+
+    if (typeof bestSearchGroupWeight === "function") {
+      const _origBestGroupWeight = bestSearchGroupWeight;
+      bestSearchGroupWeight = function (p, parsed, chosen = "ALL") {
+        if (!p || typeof p !== "object") return _origBestGroupWeight(p, parsed, chosen);
+        const pKey = parsed && typeof parsed === "object" ? parsed : _v420NullParsedKey;
+        let byChosen = _v420GroupWeightCache.get(pKey);
+        if (!byChosen) {
+          byChosen = new Map();
+          _v420GroupWeightCache.set(pKey, byChosen);
+        }
+        const cKey = String(chosen || "ALL");
+        let byProp = byChosen.get(cKey);
+        if (!byProp) {
+          byProp = new WeakMap();
+          byChosen.set(cKey, byProp);
+        }
+        if (byProp.has(p)) return byProp.get(p);
+        const val = _origBestGroupWeight(p, parsed, chosen);
+        byProp.set(p, val);
+        return val;
+      };
+    }
+
+    if (typeof scorePropertyForSearch === "function") {
+      const _origScoreSearch = scorePropertyForSearch;
+      scorePropertyForSearch = function (p, parsed) {
+        if (!p || typeof p !== "object") return _origScoreSearch(p, parsed);
+        const pKey = parsed && typeof parsed === "object" ? parsed : _v420NullParsedKey;
+        let byProp = _v420ScoreCache.get(pKey);
+        if (!byProp) {
+          byProp = new WeakMap();
+          _v420ScoreCache.set(pKey, byProp);
+        }
+        if (byProp.has(p)) return byProp.get(p);
+        const s = _origScoreSearch(p, parsed);
+        byProp.set(p, s);
+        return s;
+      };
+    }
+
+    if (typeof getFilteredList === "function") {
+      const _origGetFilteredList = getFilteredList;
+      getFilteredList = function () {
+        const qVal = document.getElementById("qInput")?.value || "";
+        const dirPrice = document.getElementById("dirPriceSelect")?.value || "ALL";
+        const heroPrice = document.getElementById("priceSelect")?.value || "ALL";
+        const sortBy = document.getElementById("sortSelect")?.value || "DEFAULT";
+        const cacheKey = [
+          PROPERTIES.length,
+          activeDistrict,
+          activeCategory,
+          quickDiscoveryMode,
+          dirPrice,
+          heroPrice,
+          sortBy,
+          qVal
+        ].join("\u0001");
+        if (_v420FilteredSnapshot.key === cacheKey) {
+          return _v420FilteredSnapshot.list;
+        }
+        const computed = _origGetFilteredList();
+        _v420FilteredSnapshot = { key: cacheKey, list: computed };
+        return computed;
+      };
+    }
+
+    renderDistrictTabs = function () {
+      const wrap = document.getElementById("districtTabs");
+      if (!wrap) return;
+      const sig = PROPERTIES.length + "|" + DISTRICTS.join("\u0001");
+      if (wrap.dataset.v420Sig !== sig) {
+        wrap.innerHTML = DISTRICTS.map(function (d) {
+          const cnt = d === "ALL" ? PROPERTIES.length : (DISTRICT_COUNTS.get(d) || 0);
+          const label = d === "ALL" ? "Tất cả" : d;
+          const isAct = d === activeDistrict;
+          return `<button type="button" role="tab" data-dist="${esc(d)}" aria-selected="${isAct ? "true" : "false"}" class="${isAct ? "active" : ""}" onclick="selectDistrict('${esc(d)}')">${esc(label)} <span class="cnt">(${cnt})</span></button>`;
+        }).join("");
+        wrap.dataset.v420Sig = sig;
+      } else {
+        const btns = wrap.children;
+        for (let i = 0; i < btns.length; i++) {
+          const btn = btns[i];
+          const isAct = btn.dataset.dist === activeDistrict;
+          btn.classList.toggle("active", isAct);
+          btn.setAttribute("aria-selected", isAct ? "true" : "false");
+        }
+      }
+      if (!distScrollBound) {
+        distScrollBound = true;
+        wrap.addEventListener("scroll", function () {
+          if (typeof syncDistrictScrollButtons === "function") syncDistrictScrollButtons();
+        }, { passive: true });
+      }
+      if (typeof syncDistrictScrollButtons === "function") syncDistrictScrollButtons();
+    };
+
+    renderCategoryPills = function () {
+      const wrap = document.getElementById("categoryPills");
+      if (!wrap) return;
+      if (wrap.dataset.v420Built !== "1") {
+        wrap.innerHTML = OFFICIAL_CATEGORIES.map(function (cat) {
+          const isAct = activeCategory === cat.value;
+          return `<button type="button" data-cat="${esc(cat.value)}" class="cat-pill ${isAct ? "active" : ""}" onclick="selectCategory('${esc(cat.value)}')">${esc(cat.label)}</button>`;
+        }).join("");
+        wrap.dataset.v420Built = "1";
+      } else {
+        const btns = wrap.children;
+        for (let i = 0; i < btns.length; i++) {
+          const btn = btns[i];
+          btn.classList.toggle("active", btn.dataset.cat === activeCategory);
+        }
+      }
+    };
+
+    stepCardPhoto = function (id, delta, ev) {
+      if (ev) ev.stopPropagation();
+      const p = getProp(id);
+      if (!p || !Array.isArray(p.photos) || p.photos.length <= 1) return;
+      const n = p.photos.length;
+      const nextIdx = ((cardPhotoCursor[p.id] || 0) + delta + n) % n;
+      cardPhotoCursor[p.id] = nextIdx;
+      const card = document.querySelector('#cardsContainer .atelier-card[data-prop-id="' + CSS.escape(p.id) + '"]');
+      if (!card) {
+        renderDirectory();
+        return;
+      }
+      const nextUrl = p.photos[nextIdx] || p.photos[0];
+      const img = card.querySelector(".card-media img");
+      if (img) {
+        img.dataset.aspectSrc = "";
+        img.src = nextUrl;
+      }
+      const counter = card.querySelector(".media-counter");
+      if (counter) counter.textContent = (nextIdx + 1) + "/" + n;
+      const wm = card.querySelector(".p-watermark");
+      if (wm) wm.classList.toggle("wm-hidden", isWmV2Photo(nextUrl));
+    };
+
+    (function bindSearchDebounceV420() {
+      if (typeof onSearchFilterChanged !== "function") return;
+      const _origOnSearch = onSearchFilterChanged;
+      let _searchDebounceTimer = 0;
+      onSearchFilterChanged = function (ev) {
+        const inp = document.getElementById("qInput");
+        const clearBtn = document.getElementById("qClearBtn");
+        if (clearBtn && inp) {
+          clearBtn.hidden = !String(inp.value || "").trim();
+        }
+        const e = ev || (typeof window !== "undefined" ? window.event : null);
+        const isTyping = e && e.type === "input" && e.target && e.target.id === "qInput";
+        if (isTyping) {
+          clearTimeout(_searchDebounceTimer);
+          _searchDebounceTimer = setTimeout(function () {
+            _searchDebounceTimer = 0;
+            _origOnSearch();
+          }, 90);
+          return;
+        }
+        clearTimeout(_searchDebounceTimer);
+        _searchDebounceTimer = 0;
+        _origOnSearch();
+      };
+    })();
+
     function bootstrapAtelierV4() {
       if (hasBootstrappedV4) return;
       const raw = window.__NHATOSG_DATA__ || { records: window.PROPERTIES_DATA || [], articles: [] };
@@ -8678,12 +8963,18 @@
 
       propertiesData = records;
       PROPERTIES = records.map(adaptRecord);
+      _v420FilteredSnapshot = { key: null, list: [] };
+      PROP_BY_ID = new Map();
+      PROPERTIES.forEach(function (p) {
+        PROP_BY_ID.set(p.id, p);
+      });
       ARTICLES = (Array.isArray(raw.articles) ? raw.articles : []).map(normalizeEditorialArticle);
 
       const distCount = new Map();
       PROPERTIES.forEach(function (p) {
         distCount.set(p.district, (distCount.get(p.district) || 0) + 1);
       });
+      DISTRICT_COUNTS = distCount;
       DISTRICTS = ["ALL"].concat(
         [...distCount.entries()]
           .sort(function (a, b) { return b[1] - a[1]; })
