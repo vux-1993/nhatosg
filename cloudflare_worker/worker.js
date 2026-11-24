@@ -868,6 +868,47 @@ function sanitizeCandidates(rawCandidates) {
   return clean;
 }
 
+export class GeminiDailyBudget {
+  constructor(state) {
+    this.sql = state.storage.sql;
+    this.sql.exec("CREATE TABLE IF NOT EXISTS budget(day TEXT PRIMARY KEY, attempts INTEGER NOT NULL)");
+  }
+
+  fetch(request) {
+    if (request.method !== "POST") return new Response(null, {status: 405});
+    const limit = Number(new URL(request.url).searchParams.get("limit"));
+    if (!Number.isInteger(limit) || limit < 1 || limit > 100000) return new Response(null, {status: 400});
+    const day = new Date().toISOString().slice(0, 10);
+    this.sql.exec("DELETE FROM budget WHERE day < ?", day);
+    const used = this.sql.exec(
+      "INSERT INTO budget(day, attempts) VALUES (?,1) ON CONFLICT(day) DO UPDATE SET attempts=attempts+1 WHERE attempts < ? RETURNING attempts",
+      day, limit
+    ).toArray();
+    return new Response(null, {status: used.length ? 204 : 429});
+  }
+}
+
+function isPlainCategoryQuery(question, history) {
+  if (history.length) return false;
+  const normalized = foldViSimple(question).trim().replace(/[?.]+$/, "");
+  return /^(?:(?:tim|xem|loc|danh sach)\s+)?(?:building|toa nha van phong|biet thu|khach san|can ho dich vu|nha mat tien|nha pho|dat)(?: (?:quan [0-9]{1,2}|q[0-9]{1,2}|binh thanh|phu nhuan|tan binh|thu duc|go vap|tan phu))?$/.test(normalized);
+}
+
+async function reserveGeminiAttempt(env, signal) {
+  const limit = Number(env.GEMINI_DAILY_MAX_CALLS ?? 200);
+  const ns = env.GEMINI_DAILY_BUDGET;
+  if (!ns || !Number.isInteger(limit) || limit <= 0 || limit > 100000) return false;
+  try {
+    const quota = await ns.get(ns.idFromName("nhatosg-gemini-daily")).fetch(
+      "https://gemini-budget.internal/reserve?limit=" + limit,
+      {method:"POST", signal}
+    );
+    return quota.status === 204;
+  } catch {
+    return false;
+  }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -1037,6 +1078,10 @@ export default {
         total_exact_matches: totalExactMatches, model: "local-rag", source: "local_rag", mode: cfg.mode });
     }
     if (env.CHAT_RAG_ONLY === "1") return degradedReply("RAG_ONLY");
+    if (["0", "false", "off"].includes(String(env.AI_LIVE_ENABLED ?? "true").toLowerCase())) {
+      return degradedReply("AI_DISABLED");
+    }
+    if (isPlainCategoryQuery(question, histArr)) return degradedReply("LOCAL_CATEGORY_FILTER");
     if (!env.GEMINI_API_KEY) return degradedReply("AI_UNAVAILABLE");
     if (Date.now() < chainTimeoutUntil) return degradedReply("AI_TIMEOUT");
     const histLines = histArr
@@ -1158,6 +1203,7 @@ export default {
           let status = null;
           try {
             const response = await withinTimeout(cap, async (signal) => {
+              if (!(await reserveGeminiAttempt(env, signal))) return {budgetDenied: true};
               const res = await callModel(model, thinkingBudget, signal);
               status = res.status;
               timing(model, "headers", Math.round(performance.now() - start), status);
@@ -1179,6 +1225,7 @@ export default {
         };
         const thinkingBudget = modelThinkingBudget(model);
         const resp = await run(thinkingBudget);
+        if (resp.budgetDenied) return degradedReply("AI_DAILY_BUDGET");
         if (resp.status === 400 && thinkingBudget !== null && rejectsThinking(resp.data)) {
           modelsUnsupportedThinking.add(model);
         }

@@ -7,3 +7,14 @@ keep_vars = true
 # Lưu ý: Cần thêm Secret GEMINI_API_KEY bằng lệnh:
 # wrangler secret put GEMINI_API_KEY
 
+
+[vars]
+AI_LIVE_ENABLED = "true"
+GEMINI_DAILY_MAX_CALLS = "200"
+
+[durable_objects]
+bindings = [{ name = "GEMINI_DAILY_BUDGET", class_name = "GeminiDailyBudget" }]
+
+[[migrations]]
+tag = "gemini-budget-v1"
+new_sqlite_classes = ["GeminiDailyBudget"]
