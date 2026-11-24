@@ -24,6 +24,14 @@ const MEMBER_CHAT_LIMIT = 60;
 
 const rateBuckets = new Map();
 let cachedSiteConfig;
+function hasBuiltFeature(text, feature) {
+  const pattern = new RegExp("\\b" + feature + "\\b", "g");
+  for (const match of text.matchAll(pattern)) {
+    const before = text.slice(Math.max(0, match.index - 45), match.index);
+    if (!/\b(?:khong|chua|du kien|co the|cho phep|du tinh)(?:\s+(?:co|bo tri|lap|dat|xay|lam|tang)){0,3}\s*$/.test(before)) return true;
+  }
+  return false;
+}
 const modelCooldownUntil = new Map();
 let chainTimeoutUntil = 0;
 const modelsUnsupportedThinking = new Set();
@@ -406,6 +414,7 @@ function parseQueryConstraints(rawQuery) {
     minWidthStrict: false,
     minAreaM2: null,
     minAreaStrict: false,
+    mustHaveElevator: false,
     mustHaveBasement: false,
     _categoriesInherited: false,
     _isAskingMore: false,
@@ -500,6 +509,7 @@ function parseQueryConstraints(rawQuery) {
       }
     }
   }
+  c.mustHaveElevator = /\bthang may\b/.test(qNoTone);
   if (/\b(?:co ham|1 ham|2 ham|3 ham|co tang ham|ham)\b/.test(qNoTone)) c.mustHaveBasement = true;
   return c;
 }
@@ -517,7 +527,7 @@ function hasAnyConstraint(c) {
     (c.subAreaTokens && c.subAreaTokens.length > 0) ||
     (c.categories && c.categories.length > 0) ||
     c.propCode ||
-    c.mustHaveBasement
+    c.mustHaveElevator || c.mustHaveBasement
   );
 }
 
@@ -552,7 +562,7 @@ function resolveEffectiveConstraints(question, history) {
   const userTurns = history.filter((t) => t && t.role === "user" && typeof t.text === "string" && t.text.trim());
   if (!userTurns.length) return cur;
 
-  let inhDist = [], inhSub = [], inhCats = [], inhBase = false;
+  let inhDist = [], inhSub = [], inhCats = [], inhBase = false, inhElevator = false;
   let inhMinP = null, inhMaxP = null, inhMinPS = false, inhMaxPS = false;
   let inhMinCf = null, inhMinCfS = false, inhContract = false, inhUseMode = "";
   for (let i = userTurns.length - 1; i >= 0 && i >= userTurns.length - 3; i--) {
@@ -563,6 +573,7 @@ function resolveEffectiveConstraints(question, history) {
       inhSub = prev.subAreaTokens.slice();
     }
     if (!inhCats.length && prev.categories.length) { inhCats = prev.categories.slice(); inhUseMode = prev.useMode; }
+    if (prev.mustHaveElevator) inhElevator = true;
     if (prev.mustHaveBasement) inhBase = true;
     if (inhMinP === null && prev.minPriceBil !== null) { inhMinP = prev.minPriceBil; inhMinPS = prev.minPriceStrict; }
     if (inhMaxP === null && prev.maxPriceBil !== null) { inhMaxP = prev.maxPriceBil; inhMaxPS = prev.maxPriceStrict; }
@@ -590,6 +601,9 @@ function resolveEffectiveConstraints(question, history) {
   }
   if (allowSpecInh && !cur.mustHaveBasement && inhBase && (isNarrow || isAskingMore || isLegalFollowUp || !hasNewLoc)) {
     cur.mustHaveBasement = true;
+  }
+  if (allowSpecInh && !cur.mustHaveElevator && inhElevator && (isNarrow || isAskingMore || isLegalFollowUp || !hasNewLoc)) {
+    cur.mustHaveElevator = true;
   }
   if (allowSpecInh && cur.minPriceBil === null && cur.maxPriceBil === null && (isLegalFollowUp || (!hasNumericBounds(cur) && (isNarrow || isAskingMore)))) {
     cur.minPriceBil = inhMinP; cur.maxPriceBil = inhMaxP;
@@ -674,9 +688,8 @@ function candidateSatisfiesConstraints(cand, m, c, opts = {}) {
   if (c.minAreaM2 !== null) {
     if (!(m.areaM2 > 0) || (c.minAreaStrict ? !(m.areaM2 > c.minAreaM2) : !(m.areaM2 >= c.minAreaM2))) return false;
   }
-  if (c.mustHaveBasement) {
-    if (!/\bham\b/.test(foldViSimple(`${cand.structure} ${cand.highlight}`))) return false;
-  }
+  if (c.mustHaveBasement && !cand.hasBasement) return false;
+  if (c.mustHaveElevator && !cand.hasElevator) return false;
   return true;
 }
 
@@ -841,6 +854,8 @@ function sanitizeCandidates(rawCandidates) {
       streetFront: c.is_true_street_front === true,
       dims: String(c.dimsShort || c.dimensions || "Liên Hệ").slice(0, 60),
       area: Number(c.area || 0) > 0 ? `${c.area}m²` : "Liên Hệ",
+      hasBasement: c.hasBasement ?? hasBuiltFeature(foldViSimple([c.structFull, c.structure, c.sec2].join(" ")), "ham"),
+      hasElevator: c.hasElevator ?? hasBuiltFeature(foldViSimple([c.structFull, c.structure, c.sec2].join(" ")), "thang may"),
       structure: String(c.structFull || c.structure || "Liên Hệ").slice(0, 100),
       priceTxt: priceTxt.slice(0, 60),
       cfTxt: cfTxt.slice(0, 80),
