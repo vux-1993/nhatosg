@@ -25,6 +25,7 @@ const MEMBER_CHAT_LIMIT = 60;
 const rateBuckets = new Map();
 let cachedSiteConfig;
 const modelCooldownUntil = new Map();
+let chainTimeoutUntil = 0;
 const modelsUnsupportedThinking = new Set();
 
 function isAllowedOrigin(origin) {
@@ -1022,6 +1023,7 @@ export default {
     }
     if (env.CHAT_RAG_ONLY === "1") return degradedReply("RAG_ONLY");
     if (!env.GEMINI_API_KEY) return degradedReply("AI_UNAVAILABLE");
+    if (Date.now() < chainTimeoutUntil) return degradedReply("AI_TIMEOUT");
     const histLines = histArr
       .filter((t) => t && typeof t.text === "string" && t.text.trim())
       .map((t) => `${t.role === "user" ? "Anh/Chị" : "Em (bên Vũ)"}: ${t.text.trim().slice(0, 450)}`);
@@ -1209,6 +1211,7 @@ export default {
         const rawAnswer = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
         const ans = constrained ? enforceExactMatchCount(rawAnswer, totalExactMatches) : rawAnswer;
         if (ans) {
+          chainTimeoutUntil = 0;
           timing(model, "selected", 0);
           return jsonResp({
             ok: true,
@@ -1228,6 +1231,7 @@ export default {
         continue;
       }
     }
+    if (anyTimeout) chainTimeoutUntil = Date.now() + 20000;
     return degradedReply(anyTimeout ? "AI_TIMEOUT" : "MODEL_UNAVAILABLE");
   },
 };
