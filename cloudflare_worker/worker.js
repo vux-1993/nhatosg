@@ -762,7 +762,8 @@ export function strictPostFilterRecommendedIds(recIds, partition, validIds, opts
   const cands = Array.isArray(opts.candidates) ? opts.candidates : (Array.isArray(partition?.filtered) ? partition.filtered : []);
   const candById = new Map(cands.map((c) => [c.id, c]));
   const isSingle = isWorkerSingleIntent(question, constraints);
-  const maxCount = isSingle ? 1 : 3;
+  const advisorCap = Number(opts.targetCount || 0);
+  const maxCount = isSingle ? 1 : (advisorCap >= 1 && advisorCap <= 10 ? advisorCap : 3);
 
   const clean = [];
   const seen = new Set();
@@ -779,12 +780,12 @@ export function strictPostFilterRecommendedIds(recIds, partition, validIds, opts
     let filtered = clean.filter((id) => partition.strictIds.has(id));
     if (!isSingle && constraints && constraints._isAskingMore) {
       const unseenStrict = partition.filtered.filter((c) => partition.strictIds.has(c.id) && !c.previouslyShown);
-      if (unseenStrict.length >= Math.min(3, partition.strictIds.size)) {
+      if (unseenStrict.length >= Math.min(maxCount, partition.strictIds.size)) {
         filtered = filtered.filter((id) => !candById.get(id)?.previouslyShown);
       }
     }
     const targetCount = Math.min(maxCount, partition.strictIds.size);
-    const shouldTopUp = !isSingle && (filtered.length > 0 || (constraints && hasAnyConstraint(constraints)));
+    const shouldTopUp = !isSingle && (filtered.length > 0 || (constraints && hasAnyConstraint(constraints)) || advisorCap > 0);
     if (shouldTopUp && filtered.length < targetCount) {
       const fSet = new Set(filtered);
       const orderedPool = [
@@ -1049,6 +1050,12 @@ export default {
     const legalQuestion = isLegalDocumentQuestion(question);
 
     const candidates = sanitizeCandidates(body.candidates);
+    const advisorCtx = body.advisor_context && typeof body.advisor_context === "object" && !Array.isArray(body.advisor_context)
+      ? body.advisor_context
+      : null;
+    const advisorTargetCount = advisorCtx && Number(advisorCtx.target_count) > 0
+      ? Math.min(10, Math.max(1, Math.round(Number(advisorCtx.target_count))))
+      : 0;
     const histArr = Array.isArray(body.history) ? body.history.slice(-12) : [];
     const constraints = resolveEffectiveConstraints(question, histArr);
     const partition = partitionCandidatesByConstraints(candidates, body.candidates, constraints);
@@ -1063,14 +1070,57 @@ export default {
       return jsonResp({ ok: true, reply: LEGAL_REPLY, recommended_ids: [], total_exact_matches: totalExactMatches,
         model: "local-policy", source: "local_policy", mode: cfg.mode });
     }
+    function buildStatefulAdvisorFallback(ids) {
+      const stage = String(advisorCtx?.stage || "");
+      const summary = String(advisorCtx?.state_summary || "").trim();
+      const reasons = Array.isArray(advisorCtx?.selected_reasons) ? advisorCtx.selected_reasons : [];
+      const bottlenecks = Array.isArray(advisorCtx?.limiting_factors) ? advisorCtx.limiting_factors.filter(Boolean) : [];
+      const aboveRefCount = Number(advisorCtx?.above_ref_count || 0);
+      const nextQ = String(advisorCtx?.next_question_text || "").trim();
+      const candById = new Map(activeCandidates.map((c) => [c.id, c]));
+      const reasonById = new Map(reasons.map((r) => [String(r?.id || "").trim().toUpperCase(), String(r?.reason || "").trim()]));
+      const parts = [];
+      if (stage === "zero_exact") {
+        parts.push(`Với bộ lọc hiện tại${summary ? ` (${summary})` : ""}, kho công khai chưa có căn khớp 100%.`);
+        if (bottlenecks.length) {
+          parts.push(`Điểm đang siết nguồn nhất: ${bottlenecks.join("; ")}.`);
+        }
+      } else if (ids.length === 1 && stage === "single_detail") {
+        const item = candById.get(ids[0]);
+        const r = reasonById.get(ids[0]);
+        parts.push(
+          `Em gửi thông số chi tiết căn **${item?.street || "đã chọn"}**${item?.district ? ` (${item.district})` : ""}` +
+          `${item?.priceTxt ? `, giá ${item.priceTxt}` : ""}.${r ? ` Điểm khớp: ${r}.` : ""}`
+        );
+      } else if (ids.length) {
+        parts.push(
+          `${summary ? `Ghi nhận nhu cầu **${summary}**. ` : ""}Trên kho công khai hiện có **${totalExactMatches}** căn khớp, em lọc **${ids.length}** phương án tiêu biểu:`
+        );
+        const lines = ids.slice(0, 6).map((id) => {
+          const item = candById.get(id);
+          const r = reasonById.get(id);
+          const head = item ? `**${item.street}** (${item.priceTxt || "Liên hệ"})` : "Phương án phù hợp";
+          return `- ${head}${r ? `: ${r}` : ""}`;
+        });
+        parts.push(lines.join("\n"));
+        if (aboveRefCount > 0) {
+          parts.push(`Có **${aboveRefCount}** phương án cao hơn mức tham chiếu được tách riêng bên dưới để Anh/Chị cân nhắc thêm.`);
+        }
+      }
+      if (nextQ) parts.push(nextQ);
+      return stripNsgCodes(parts.filter(Boolean).join("\n\n"));
+    }
     function degradedReply(reason) {
       const ranked = activeCandidates.filter(c => partition.strictIds.has(c.id)).map(c => c.id);
       const ids = strictPostFilterRecommendedIds(ranked, partition, validIds, {
-        question, constraints, candidates: activeCandidates,
+        question, constraints, candidates: activeCandidates, targetCount: advisorTargetCount,
       });
       let reply = "Em chưa tìm được căn khớp trong danh sách đang xem. Anh/Chị có thể điều chỉnh khu vực hoặc khoảng giá.";
       if (isWorkerGreeting(question)) {
         reply = "Em chào Anh/Chị. Mình muốn tìm nhà ở khu vực nào và khoảng giá bao nhiêu ạ?";
+      } else if (advisorCtx) {
+        const stateful = buildStatefulAdvisorFallback(ids);
+        if (stateful) reply = stateful;
       } else if (ids.length) {
         reply = "Em gửi Anh/Chị các thẻ nhà từ danh sách đang xem để mình đối chiếu thông tin công khai.";
       }
@@ -1081,7 +1131,7 @@ export default {
     if (["0", "false", "off"].includes(String(env.AI_LIVE_ENABLED ?? "true").toLowerCase())) {
       return degradedReply("AI_DISABLED");
     }
-    if (isPlainCategoryQuery(question, histArr)) return degradedReply("LOCAL_CATEGORY_FILTER");
+    if (isPlainCategoryQuery(question, histArr) && !advisorCtx) return degradedReply("LOCAL_CATEGORY_FILTER");
     if (!env.GEMINI_API_KEY) return degradedReply("AI_UNAVAILABLE");
     if (Date.now() < chainTimeoutUntil) return degradedReply("AI_TIMEOUT");
     const histLines = histArr
@@ -1102,27 +1152,23 @@ export default {
     });
     const catalogOverview = constrained ? "" : String(body.catalog_overview || body.warehouse_summary || "").trim().slice(0, 1500);
     const sysInstruction =
-      "Đây là website cá nhân của Vũ (nhatoSG) — 33 tuổi, môi giới thực chiến chuyên nhà mặt tiền, building văn phòng, khách sạn và biệt thự tại TP.HCM & TP. Thủ Đức (KHÔNG phải tập đoàn hay sàn giao dịch lớn). Em là trợ lý giúp khách lọc nhanh sản phẩm và nắm thông số thực tế trên web của Vũ.\n\n" +
+      "Đây là website cá nhân của Vũ (nhatoSG) — 33 tuổi, môi giới thực chiến chuyên nhà mặt tiền, building văn phòng, khách sạn và biệt thự tại TP.HCM & TP. Thủ Đức (KHÔNG phải tập đoàn hay sàn giao dịch lớn). Em là trợ lý tư vấn giúp khách thu hẹp nhu cầu qua từng lượt hỏi đáp và nắm thông số thực tế trên web của Vũ.\n\n" +
       "PHONG CÁCH GIAO TIẾP BẮT BUỘC:\n" +
       "- Nói chuyện chân thành, gần gũi, rõ ràng, tự nhiên; luôn xưng \"em\", gọi khách là \"Anh/Chị\" (xen chữ \"mình\" hợp lý), nhắc tới Vũ tự nhiên là \"Vũ\" hoặc \"bên Vũ\".\n" +
       "- CẤM TUYỆT ĐỐI từ ngữ sáo rỗng, bóng bẩy hoặc sai vai vế: KHÔNG dùng \"quý khách\", \"siêu phẩm\", \"đẳng cấp thượng lưu\", \"tài sản tinh tuyển\", \"cố vấn chiến lược\", \"kiệt tác\", \"cơ hội vàng\", \"thực sự thiện chí\", \"trang cá nhân chính chủ\"; KHÔNG xưng \"bạn\", \"tôi\", \"hệ thống\"; KHÔNG tự bịa tâm lý hay lý do bán của chủ nhà; KHÔNG ghép dính chữ thiếu dấu cách (như \"gìAnh/Chị\").\n" +
-      "- Đi thẳng vào thông số thực tế (trục đường, bề ngang, diện tích công nhận, kết cấu/hầm/thang máy, dòng tiền công khai, đơn giá/m² ước tính khi đủ số liệu). Chia đoạn bằng \\n\\n, nhấn đậm nhẹ **tên đường / điểm nổi bật** vừa mắt.\n\n" +
-      "KỶ LUẬT ĐỊA GIỚI & BỐ CỤC 3 THẺ GỢI Ý (BẮT BUỘC V4.13):\n" +
-      "- KHÓA CỨNG ĐỊA GIỚI QUẬN/HUYỆN: Khi Anh/Chị đã nêu Quận/Huyện cụ thể (như Quận 1, Tân Bình, TP. Thủ Đức...), TUYỆT ĐỐI chỉ lọc và chọn tài sản nằm đúng Quận/Huyện đó. CẤM tuyệt đối lấy căn ở Quận khác (dù giáp ranh, trùng tên đường như đường Nguyễn Thái Bình ở Tân Bình, hay mô tả có cụm \"sát Quận 1\").\n" +
-      "- BỐ CỤC ĐÚNG 3 THẺ TIÊU BIỂU: Khi có từ 3 căn khớp tiêu chí trở lên trong DANH SÁCH ỨNG VIÊN, hãy chọn ĐÚNG **3** mã ID tiêu biểu nổi bật nhất đưa vào recommended_ids để phân tích rõ từng căn (chỉ trả <= 1 ID khi khách hỏi đích danh 1 căn/pháp lý riêng lẻ; trả [] khi chào hỏi hoặc không có căn khớp). Nếu khách hỏi \"còn căn nào khác / xem thêm\", hãy ƯU TIÊN chọn các căn CHƯA gắn nhãn [Đã giới thiệu ở lượt trước] / [Vừa gợi ý ở lượt trước].\n" +
-      "- TRÍCH DẪN SỐ LƯỢNG TỒN KHO: Khi tổng số căn phù hợp trên kho (xem dòng THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO) lớn hơn 3, hãy nêu rõ số lượng căn phù hợp hiện có trên kho và nhắc nhẹ bên dưới 3 thẻ nổi bật này có danh sách các căn khác kèm link bấm xem ngay trên kho.\n\n" +
+      "- Đi thẳng vào thông số thực tế (trục đường, bề ngang, diện tích công nhận, kết cấu/hầm/thang máy, dòng tiền công khai). Chia đoạn bằng \\n\\n, nhấn đậm nhẹ **tên đường / điểm nổi bật** vừa mắt.\n\n" +
+      "KỶ LUẬT TƯ VẤN ĐA LƯỢT & ĐỊA GIỚI:\n" +
+      "- KHÓA CỨNG ĐỊA GIỚI QUẬN/HUYỆN: Khi Anh/Chị đã nêu Quận/Huyện cụ thể (như Quận 1, Quận 3, Tân Bình, TP. Thủ Đức...), TUYỆT ĐỐI chỉ lọc và chọn tài sản nằm đúng Quận/Huyện đó. CẤM lấy căn ở Quận khác.\n" +
+      "- SỐ LƯỢNG THẺ GỢI Ý: Khi có CHẾ ĐỘ TƯ VẤN ĐA LƯỢT, hãy chọn đúng số lượng ID bằng `target_count` (thường 5 thẻ đa dạng ở lượt rộng ban đầu, tối đa 10 khi khách xin xem thêm, 3–5 thẻ khi đã lọc sâu, <= 1 khi xem chi tiết 1 căn, [] khi chào hỏi hoặc 0 căn khớp). Nếu không có chế độ đa lượt, chọn tối đa 3 thẻ tiêu biểu.\n" +
+      "- TƯ VẤN 1 CÂU HỎI CHÍNH MỖI LƯỢT: Ghi nhận ngắn gọn nhu cầu vừa cập nhật, nêu 1 lý do thực tế ngắn cho mỗi căn được chọn, và ở cuối câu trả lời CHỈ hỏi 1 câu hỏi chính gợi mở tiếp theo (tối đa 2 ý liên quan, bám sát next_question_text nếu có).\n" +
+      "- KHI 0 CĂN KHỚP: Nêu rõ điều kiện đang siết nguồn nhất (limiting_factors), KHÔNG tự ý nới lỏng tiêu chí khi khách chưa đồng ý, và hỏi xin phép hướng nới nhẹ hoặc chuyển qua Vũ kiểm nguồn kín.\n\n" +
       "QUY TẮC TIẾT CHẾ LỜI MỜI ZALO (BẮT BUỘC):\n" +
-      "- Trên hộp thoại chat đã có sẵn thanh Zalo/SĐT của Vũ và từng thẻ nhà đều có nút \"Nhắn Zalo\". Do đó CẤM lặp lại câu mời nhắn Zalo hoặc đọc số 0916.23.9898 ở cuối các lượt chào hỏi, lọc căn thông thường, thu hẹp ngân sách hay so sánh thông số — và TUYỆT ĐỐI KHÔNG tự thêm câu mào 'nếu cần xem sổ hồng / hẹn đi xem thì nhắn Zalo Vũ...' khi trong tin nhắn khách KHÔNG nhắc tới sổ hồng, PCCC, số nhà hay hẹn xem.\n" +
-      "- CHỈ được mời Anh/Chị nhắn Zalo hoặc gọi **Vũ (0916.23.9898)** đúng 4 tình huống: (1) Hỏi kiểm tra sổ hồng, hoàn công, biên bản nghiệm thu PCCC hoặc pháp lý gốc; (2) Hỏi số nhà chính xác hoặc hẹn đi xem thực tế; (3) Cần thương lượng giá chốt, làm việc trực tiếp chủ nhà, hoặc hỏi căn để giá \"Liên Hệ\"; (4) Web có 0 căn khớp hoàn toàn nên cần Vũ rà thêm nguồn bên ngoài.\n\n" +
-      "CÁCH XỬ LÝ TỪNG TÌNH HUỐNG:\n" +
-      "1. Chào hỏi xã giao hoặc mới mở lời (\"Chào em\", \"Alo\"...): Đáp thân thiện ngắn gọn, hỏi khu vực/loại hình/ngân sách và BẮT BUỘC trả recommended_ids: [].\n" +
-      "2. Lọc tìm sản phẩm theo tiêu chí địa giới & số học (Quận, giá, dòng tiền, bề ngang, diện tích): TUYỆT ĐỐI tuân thủ đúng Quận và biên số học của câu hỏi. Nếu có căn khớp 100%, chỉ đưa căn khớp đúng Quận và biên số học vào recommended_ids. Chỉ khi DANH SÁCH ỨNG VIÊN trống hoặc chỉ có mục gắn nhãn [GẦN TIÊU CHÍ - LỆCH NHẸ NGÂN SÁCH], phải nói thẳng \"trong đúng tầm vừa nêu hiện chưa có căn khớp 100%\" rồi mới nêu phương án gần nhất đúng Quận (nếu có) và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm tra thêm nguồn ngoài.\n" +
-      "3. Hỏi về PCCC, hoàn công, pháp lý: KHÔNG cam kết hay bảo đảm thay giấy tờ gốc. Chỉ nêu đúng thông tin tin đăng đang ghi (ví dụ tin có ghi đạt chuẩn PCCC hay chưa ghi chi tiết), nói rõ quy trình đối chiếu thực tế (sổ hồng hoàn công, bản vẽ/nghiệm thu PCCC) và mời nhắn Zalo **Vũ (0916.23.9898)** nhận hồ sơ kiểm chứng.\n\n" +
-      "Nếu nguồn công khai chưa xác nhận có hồ sơ, không hứa có hoặc gửi ngay sổ hồng, bản vẽ hay biên bản PCCC. Hướng khách đến Vũ để kiểm chứng.\n\n" +
-      "Khi có bộ lọc, mọi nhận định về số căn khớp phải lấy đúng SO_LUONG_KHOP_BO_LOC_HIEN_TAI. Tổng kho và số thẻ gợi ý không phải số căn khớp.\n" +
-      "Chỉ gọi căn là mặt tiền đường khi có nhãn MẶT TIỀN ĐƯỜNG hoặc thuộc nhóm nhà mặt tiền gốc. Giá tham chiếu của căn che giá chỉ dùng để đối chiếu ngân sách.\n" +
+      "- Trên hộp thoại chat đã có sẵn thanh Zalo/SĐT của Vũ và từng thẻ nhà đều có nút \"Nhắn Zalo\". Do đó CẤM lặp lại câu mời nhắn Zalo hoặc đọc số 0916.23.9898 ở cuối các lượt chào hỏi, lọc căn thông thường, thu hẹp ngân sách hay so sánh thông số — trừ khi khách hỏi pháp lý/sổ hồng/PCCC, hỏi số nhà/hẹn xem thực tế, thương lượng/giá \"Liên Hệ\", hoặc kho web có 0 căn khớp.\n\n" +
+      "CÁCH XỬ LÝ PHÁP LÝ / PCCC:\n" +
+      "- KHÔNG cam kết hay bảo đảm thay giấy tờ gốc; chỉ nêu đúng thông tin công khai và mời nhắn Zalo **Vũ (0916.23.9898)** kiểm chứng hồ sơ.\n\n" +
       "QUY TẮC TRUNG THỰC & BẢO MẬT BẤT BIẾN:\n" +
-      "- Chỉ dùng số liệu có trong BẢN ĐỒ TOÀN KHO, THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO và DANH SÁCH ỨNG VIÊN bên dưới.\n" +
+      "- Khi có bộ lọc, mọi nhận định về số căn khớp phải lấy đúng SO_LUONG_KHOP_BO_LOC_HIEN_TAI.\n" +
+      "- Chỉ gọi căn là mặt tiền đường khi có nhãn MẶT TIỀN ĐƯỜNG hoặc thuộc nhóm nhà mặt tiền gốc. Giá tham chiếu của căn che giá không được gộp vào danh sách khớp ngân sách đã xác nhận.\n" +
       "- TUYỆT ĐỐI KHÔNG viết mã NSG-XXXX vào trường 'answer' (mã tài sản chỉ nằm trong 'recommended_ids').";
 
     const distLabels = Array.isArray(constraints?.districts)
@@ -1131,8 +1177,25 @@ export default {
     const statsLine = distLabels.length
       ? `THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO (${distLabels.join(", ")}): Hiện có ${totalExactMatches} tài sản phù hợp (hiển thị dưới đây tối đa ${activeCandidates.length} ứng viên tiêu biểu đã khóa đúng Quận).\n\n`
       : `THỐNG KÊ KHỚP TIÊU CHÍ TRÊN KHO: Hiện có ${totalExactMatches} tài sản phù hợp (hiển thị dưới đây tối đa ${activeCandidates.length} ứng viên tiêu biểu).\n\n`;
+    const advisorBlock = advisorCtx
+      ? `CHẾ ĐỘ TƯ VẤN ĐA LƯỢT:\n` +
+        `- Giai đoạn: ${advisorCtx.stage || "refined"} | Số thẻ mục tiêu (target_count): ${advisorTargetCount || 5}\n` +
+        `- Bộ lọc hiện tại: ${advisorCtx.state_summary || "(Chưa đặt bộ lọc hẹp)"}\n` +
+        (Array.isArray(advisorCtx.limiting_factors) && advisorCtx.limiting_factors.length
+          ? `- Yếu tố đang siết nguồn: ${advisorCtx.limiting_factors.join("; ")}\n`
+          : "") +
+        (Number(advisorCtx.above_ref_count) > 0
+          ? `- Lưu ý ngân sách tham chiếu: Các ID mục tiêu đều nằm TRONG mức tài chính; ${advisorCtx.above_ref_count} căn cao hơn mức tham chiếu đã tách riêng ở giao diện, KHÔNG gọi là nằm trong tầm.\n`
+          : "") +
+        (Array.isArray(advisorCtx.selected_reasons) && advisorCtx.selected_reasons.length
+          ? `- Lý do khớp gợi ý: ${advisorCtx.selected_reasons.map((r) => `${r.id}: ${r.reason}`).join(" | ")}\n`
+          : "") +
+        (advisorCtx.next_question_text ? `- Câu hỏi gợi mở tiếp theo: ${advisorCtx.next_question_text}\n` : "") +
+        `\n`
+      : "";
     const userPrompt =
       (catalogOverview ? `BẢN ĐỒ TOÀN KHO NHATOSG:\n${catalogOverview}\n\n` : "") +
+      advisorBlock +
       (histLines.length ? `LỊCH SỬ TRÒ CHUYỆN GẦN ĐÂY:\n${histLines.join("\n")}\n\n` : "") +
       (constrained ? "SO_LUONG_KHOP_BO_LOC_HIEN_TAI: " + totalExactMatches + "\n\n" : "") + statsLine +
       `DANH SÁCH ỨNG VIÊN ĐÃ LỌC THEO BIÊN TIÊU CHÍ VÀ ĐỊA GIỚI (Tối đa 18 căn):\n${ragLines.join("\n") || "(Chưa có căn khớp hoàn toàn trên web)"}\n\nTin nhắn mới nhất của Anh/Chị: ${question}`;
@@ -1154,12 +1217,12 @@ export default {
           properties: {
             answer: {
               type: "STRING",
-              description: "Câu trả lời tiếng Việt tự nhiên, chân thành, đúng Quận và biên số học, không lặp Zalo CTA trừ 4 trường hợp được phép, tuyệt đối không chứa NSG-XXXX.",
+              description: "Câu trả lời tư vấn tiếng Việt chân thành, nêu tóm tắt nhu cầu + lý do ngắn từng căn + 1 câu hỏi gợi mở, không chứa NSG-XXXX.",
             },
             recommended_ids: {
               type: "ARRAY",
               items: { type: "STRING" },
-              description: "0 đến tối đa 3 mã ID tài sản tiêu biểu nhất khớp đúng địa giới Quận và tiêu chí số học từ DANH SÁCH ỨNG VIÊN (trả [] khi chào hỏi hoặc không có căn khớp; tối đa 1 khi hỏi đích danh 1 căn).",
+              description: "0 đến tối đa target_count (1..10) mã ID tài sản khớp từ DANH SÁCH ỨNG VIÊN (trả [] khi chào hỏi hoặc 0 căn khớp).",
             },
           },
         },
@@ -1269,9 +1332,10 @@ export default {
           question,
           constraints,
           candidates: activeCandidates,
+          targetCount: advisorTargetCount,
         });
         const rawAnswer = throttleRedundantZaloCta(stripNsgCodes(parsed.answer), question, recIds, partition, activeCandidates);
-        const ans = constrained ? enforceExactMatchCount(rawAnswer, totalExactMatches) : rawAnswer;
+        const ans = (constrained && !advisorCtx) ? enforceExactMatchCount(rawAnswer, totalExactMatches) : rawAnswer;
         if (ans) {
           chainTimeoutUntil = 0;
           timing(model, "selected", 0);
