@@ -1,0 +1,53 @@
+# ==============================================================================
+# NHATOSG PRODUCTION WEB REPOSITORY - GITIGNORE (.gitignore)
+# Chỉ bỏ qua các file database, file backup, file bí mật và tệp tạm thời
+# TUYỆT ĐỐI KHÔNG CHẶN properties_data.js, optimized_manifest.js
+# ==============================================================================
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# API Credentials & OAuth Tokens
+token.json
+client_secret*.json
+credentials*.json
+*.key
+*.pem
+.env
+.env.*
+
+# Private & Confidential Vaults
+ketsat_so_hong_mat/
+so_hong_goc/
+private_vault/
+*.pdf.bak
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+.pytest_cache/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+desktop.ini
+
+# File backup
+*.bak*
+*.legacy_backup
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# New listing photos and mobile covers are published directly to R2.
+/web_images/
+/hero-mobile/
