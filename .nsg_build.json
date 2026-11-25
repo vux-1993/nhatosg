@@ -1,7 +1,7 @@
 {
-  "base_web_commit": "4caa5f1ec6775cdaa7127933385ce91f82dec3a3",
-  "db_fingerprint": "ffd273f2c561dceda7c2186a1495a7198e402687c49e308f3424aa7f99a65da1",
-  "payload_sha256": "1a8ebbe8488c1c917957dd64e39137b34e18d34d7032d9c03d41f4132a623ec9",
+  "base_web_commit": "797ffc4e54c197321c3cc2be7103c15e151b7f88",
+  "db_fingerprint": "45204273f16cd98f51f43ca7333028902cb055214c7f167e47a2f81a29d48c64",
+  "payload_sha256": "e9fb143b32ae9f572844d92497222ffb16cfbecc165def3d08a7f93dabbe4c81",
   "property_schema_sha256": "f2081bb8d223cb3f41702b5c745f178a30e60f71422dc154f00a3338d7791535",
   "public_schema_version": "3.9-SEO-MAX",
   "publish_hold_scope_sha256": "3b3de331260a4aedc99bdd319a1858149d8395a3a077e96f12ca879b50525807",
